@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[开始用Swift开发iOS 10 - 2 Hello World！第一个Swift APP]]></title>
+    <url>%2F2017%2F07%2F04%2FBeginning%20iOS%2010%20Programming%20with%20Swift-2%2F</url>
+    <content type="text"><![CDATA[“Hello,World”已经成为编程世界里开始的惯例。 开始：先动起来，忘记代码 打开Xcode，选择”Create a new Xcode project” 选择 iOS &gt; Single View Application and click Next 填写项目的一些选项: Product Name: HelloWorld - app的名字 Team - Apple ID Organization Name: andyron - 这一般是组织的名字，或个人用户的名字；尽量保持不与别人重复 Organization Identifier: cn.andyron Bundle Identifier: com.andyron.HelloWorld - 根据Organization Identifier和Product Name自动组合而成 Language: Swift Devices: iPhone Use Core Data: [unchecked] Include Unit Tests: [unchecked] Include UI Tests: [unchecked] 选择一个项目保持位置，然后生成项目 熟悉Xcode界面Xcode Help中详细介绍了Xcode，主界面如下： 主要分六个区域： Toolbar(工具栏) Tab bar(便签页栏)：类似浏览器的标签页，快捷键也和大部分软件的相同(⌘+T新建，⌘+W关闭)，单个标签页时是隐藏的 Navigator area(导航区域)这个区域最上面有八个图标（快捷键分别对应⌘+1 ~ ⌘+8）： project navigator(源代码文件、图片文件、数据模型、属性列表等) symbol navigator(编译器能识别的：OC类、枚举类型、结构体、全局变量) find navigator issues navigator test navigator debug navigator breakpoint navigator log navigator Editor area（编辑区）这个区域最上面是jump bar(跳转栏) Debug area Utilities area（实用工具面板）分上下两块： Inspector pane(检查器)：选择不同文件会有不同个数的检查器，最多六个(快捷键分别对应⌘+option+1 ~ ⌘+option+6)。 Library pane(库面版, 快捷键分别对应⌘+option+control+1 ~ ⌘+option+control+4) 文件库模板(File Template Library) : 管理文件模板, 可以快速创建指定类型文件, 可以直接拖入项目中; 代码片段库(Code Snippet Library) : 管理各种代码片段, 可以直接拖入源代码中; 对象库(Object Library) : 界面组件, 可以直接拖入 故事板中; 媒体库(Media Library) : 管理各种 图片, 音频 等多媒体资源; 第一次运行AppRun和Stop分别对应 ⌘+R和⌘+.，Simulator用于选择模拟器或真实设备 快速了解Interface Builder（IB）在project navigator中选择main.storyboardThe Interface Builder editor为创造和设计app的UI提高了一个可视化的方法。在这里既可以设计单个页面，也可以设计多个页面。可以直接从右下角Object library拖动可用对象到IB中。当开始新建项目，选择了Single View Application模板时，Xcode默认在storyboard中生成一个view controller scene，对应一个view controller。通常app的每一个screen代表一个view controller。The Document Outline view在选择storyboard特定对象时特别有用。 设计UI 拖动一个Button到IB中 双击Button或在属性检查器中修改name为”Hello World** 根据蓝色虚线辅助线可以把Button拖到中心位置 写代码 选择main.storyboard，点击工具栏右侧的Assistant editor(option+⌘+return)，编辑区出现两部分，Ctrl拖动按钮到右侧ViewController类中： 然后写下如下代码：1234567@IBAction func showMessage() &#123; let alertController = UIAlertController(title: &quot;Welcome to My First App&quot;,message: &quot;Hello World&quot;, preferredStyle: UIAlertControllerStyle.alert) alertController.addAction(UIAlertAction(title: &quot;OK&quot;, style:UIAlertActionStyle.default, handler: nil)) present(alertController, animated: true, completion: nil)&#125; 上面的方法是先连接关系，然后写代码；也可以先写好代码，然后建立关系：@IBAction表示一个Action的标识符，没有特殊意义，当建立好关系后，@IBAction右侧会出现一个实心的点，点击会出现会出现以个弹框表示连接的地方： 修改按钮的颜色。选中按钮，在属性检查器中修改对应属性 测试应用选择特定的模拟器或设备，⌘+R Hello world 应用中事件流 更近一步 同上的方法添加几个按钮，并修改button的name为一些emoji表情（control+⌘+space） 添加@IBAction方法代码 通过先写好代码然后建立关系的方法，把几个button都与同一个@IBAction方法建立关系 代码HelloWorldHelloWordExercise 说明此文是学习appcode网站出的一本书 《Beginning iOS 10 Programming with Swift》 的一篇记录]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>swift</tag>
+        <tag>xcode</tag>
+      </tags>
+  </entry>
+</search>
