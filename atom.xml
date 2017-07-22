@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-07-18T21:26:07.000Z</updated>
+  <updated>2017-07-22T15:50:20.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -16,24 +16,182 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>开始用Swift开发iOS 10 - 2 Hello World！第一个Swift APP</title>
-    <link href="http://andyron.com/2017/07/04/Beginning%20iOS%2010%20Programming%20with%20Swift-2/"/>
-    <id>http://andyron.com/2017/07/04/Beginning iOS 10 Programming with Swift-2/</id>
-    <published>2017-07-03T16:00:00.000Z</published>
-    <updated>2017-07-18T21:26:07.000Z</updated>
+    <title>iOS tutorial 6：使用Quick Look框架预览文件(Swift)</title>
+    <link href="http://andyron.com/2017/iOS-tutorial-6%EF%BC%9A%E4%BD%BF%E7%94%A8Quick-Look%E6%A1%86%E6%9E%B6%E9%A2%84%E8%A7%88%E6%96%87%E4%BB%B6-Swift/"/>
+    <id>http://andyron.com/2017/iOS-tutorial-6：使用Quick-Look框架预览文件-Swift/</id>
+    <published>2017-07-17T16:00:00.000Z</published>
+    <updated>2017-07-22T15:50:20.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-6958f1329a48a5a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      &lt;blockquote&gt;
+&lt;p&gt;参考 &lt;a href=&quot;http://www.appcoda.com/quick-look-framework/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Using Quick Look Framework for Prev
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS tutorial 4：CALayer介绍(swift)</title>
+    <link href="http://andyron.com/2017/iOS-tutorial-4%EF%BC%9ACALayer%E4%BB%8B%E7%BB%8D-swift/"/>
+    <id>http://andyron.com/2017/iOS-tutorial-4：CALayer介绍-swift/</id>
+    <published>2017-07-15T16:00:00.000Z</published>
+    <updated>2017-07-22T15:47:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS tutorial 5：关于地理定位和特定区域(Swift)</title>
+    <link href="http://andyron.com/2017/iOS-tutorial-5%EF%BC%9A%E5%85%B3%E4%BA%8E%E5%9C%B0%E7%90%86%E5%AE%9A%E4%BD%8D%E5%92%8C%E7%89%B9%E5%AE%9A%E5%8C%BA%E5%9F%9F-Swift/"/>
+    <id>http://andyron.com/2017/iOS-tutorial-5：关于地理定位和特定区域-Swift/</id>
+    <published>2017-07-15T16:00:00.000Z</published>
+    <updated>2017-07-22T15:47:52.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-a63552e89efd1228.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS tutorial 3：Speech Framework的简单使用</title>
+    <link href="http://andyron.com/2017/iOS-tutorial-3%EF%BC%9ASpeech-Framework%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://andyron.com/2017/iOS-tutorial-3：Speech-Framework的简单使用/</id>
+    <published>2017-07-14T16:00:00.000Z</published>
+    <updated>2017-07-22T15:47:03.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-c43c2495b3351f65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS tutorial 2：用Core Image进行面部识别(Swift)</title>
+    <link href="http://andyron.com/2017/iOS-tutorial-2%EF%BC%9A%E7%94%A8Core-Image%E8%BF%9B%E8%A1%8C%E9%9D%A2%E9%83%A8%E8%AF%86%E5%88%AB-Swift/"/>
+    <id>http://andyron.com/2017/iOS-tutorial-2：用Core-Image进行面部识别-Swift/</id>
+    <published>2017-07-13T16:00:00.000Z</published>
+    <updated>2017-07-22T15:45:59.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;参考：&lt;a href=&quot;http://www.appcoda.com/face-detection-core-image/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Face Detection in iOS Using Co
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>swift的文档注释</title>
+    <link href="http://andyron.com/2017/swift%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/"/>
+    <id>http://andyron.com/2017/swift的文档注释/</id>
+    <published>2017-07-13T16:00:00.000Z</published>
+    <updated>2017-07-22T15:50:04.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在Xcode中&lt;strong&gt;Quick Help &lt;/strong&gt;为开发者提供方便快捷的简洁文档查看方式。&lt;strong&gt;option+点击&lt;/strong&gt;查看弹框，&lt;strong&gt;option+command+2&lt;/strong&gt;在检查器中查看。&lt;br&gt;&lt;img s
     
     </summary>
     
       <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+  </entry>
+  
+  <entry>
+    <title>Xcode中Scene里的名称</title>
+    <link href="http://andyron.com/2017/Xcode%E4%B8%ADScene%E9%87%8C%E7%9A%84%E5%90%8D%E7%A7%B0/"/>
+    <id>http://andyron.com/2017/Xcode中Scene里的名称/</id>
+    <published>2017-07-07T16:00:00.000Z</published>
+    <updated>2017-07-22T15:45:39.000Z</updated>
     
-      <category term="xcode" scheme="http://andyron.com/tags/xcode/"/>
+    <summary type="html">
+    
+      &lt;h3 id=&quot;默认的Scene名称&quot;&gt;&lt;a href=&quot;#默认的Scene名称&quot; class=&quot;headerlink&quot; title=&quot;默认的Scene名称&quot;&gt;&lt;/a&gt;默认的Scene名称&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Xcode中新建一个控制器对象后会产生一个Scene，而Scen
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS tutorial 1： 识别二维码（swift3）</title>
+    <link href="http://andyron.com/2017/iOS-tutorial-1-%E8%AF%86%E5%88%AB%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%88swift3%EF%BC%89/"/>
+    <id>http://andyron.com/2017/iOS-tutorial-1-识别二维码（swift3）/</id>
+    <published>2017-07-07T16:00:00.000Z</published>
+    <updated>2017-07-22T15:52:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是一篇使用&lt;code&gt;AVFoundation&lt;/code&gt;框架识别二维码的文章，&lt;a href=&quot;http://www.appcoda.com/barcode-reader-swift/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文&lt;/a&gt;提供了
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS应用程序的状态</title>
+    <link href="http://andyron.com/2017/iOS%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%8A%B6%E6%80%81/"/>
+    <id>http://andyron.com/2017/iOS应用程序的状态/</id>
+    <published>2017-07-06T16:00:00.000Z</published>
+    <updated>2017-07-22T15:53:49.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;iOS应用程序一共有五种状态：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-9b957ecea3dafd52.png?imageMogr2/auto-
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
     
   </entry>
   
