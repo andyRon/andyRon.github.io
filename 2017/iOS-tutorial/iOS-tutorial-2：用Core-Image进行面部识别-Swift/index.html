@@ -95,21 +95,20 @@
 
 
 
-<meta name="description" content="默认的Scene名称 Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称就与其关联的控制器名称相关，比如默认的View Controller的对象的Scene的名称就是View Controller Scene。    如果把控制器改成SFSafariViewController，那么Scene的名字就会变成Safari View Scene。  如果把控制器改成自建的，Sc">
+<meta name="description" content="参考：Face Detection in iOS Using Core Image  面部识别API不仅可以是识别面部，也可识别面部的特殊细节，例如微笑甚至眨眼睛。 建立初始项目原文建好了初始项目，我自己新建了初始项目  新建项目Detector 删除IB中原本View Controller Scene。 拖动UITabBarController到IB中，得到三个Scene。选择UITabBar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xcode中Scene里的名称">
-<meta property="og:url" content="http://andyron.com/2017/Xcode中Scene里的名称/index.html">
+<meta property="og:title" content="iOS tutorial 2：用Core Image进行面部识别(Swift)">
+<meta property="og:url" content="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/index.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="默认的Scene名称 Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称就与其关联的控制器名称相关，比如默认的View Controller的对象的Scene的名称就是View Controller Scene。    如果把控制器改成SFSafariViewController，那么Scene的名字就会变成Safari View Scene。  如果把控制器改成自建的，Sc">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d80576d822af0859.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-302bf5f35d2d0968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-111d56554787ec8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-552da41f8db1851f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-22T15:45:39.000Z">
+<meta property="og:description" content="参考：Face Detection in iOS Using Core Image  面部识别API不仅可以是识别面部，也可识别面部的特殊细节，例如微笑甚至眨眼睛。 建立初始项目原文建好了初始项目，我自己新建了初始项目  新建项目Detector 删除IB中原本View Controller Scene。 拖动UITabBarController到IB中，得到三个Scene。选择UITabBar">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-39e79552d69d0ca8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-4ce94cc04fd90164.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-b288822d7eb12a62.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-22T15:45:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xcode中Scene里的名称">
-<meta name="twitter:description" content="默认的Scene名称 Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称就与其关联的控制器名称相关，比如默认的View Controller的对象的Scene的名称就是View Controller Scene。    如果把控制器改成SFSafariViewController，那么Scene的名字就会变成Safari View Scene。  如果把控制器改成自建的，Sc">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-d80576d822af0859.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="iOS tutorial 2：用Core Image进行面部识别(Swift)">
+<meta name="twitter:description" content="参考：Face Detection in iOS Using Core Image  面部识别API不仅可以是识别面部，也可识别面部的特殊细节，例如微笑甚至眨眼睛。 建立初始项目原文建好了初始项目，我自己新建了初始项目  新建项目Detector 删除IB中原本View Controller Scene。 拖动UITabBarController到IB中，得到三个Scene。选择UITabBar">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-39e79552d69d0ca8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -137,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/Xcode中Scene里的名称/"/>
+  <link rel="canonical" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/"/>
 
 
 
 
 
-  <title>Xcode中Scene里的名称 | 欣欣向戎</title>
+  <title>iOS tutorial 2：用Core Image进行面部识别(Swift) | 欣欣向戎</title>
   
 
 
@@ -326,7 +325,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Xcode中Scene里的名称/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -343,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Xcode中Scene里的名称</h1>
+          <h1 class="post-title" itemprop="name headline">iOS tutorial 2：用Core Image进行面部识别(Swift)</h1>
         
 
         <div class="post-meta">
@@ -355,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T00:00:00+08:00">
-                2017-07-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T00:00:00+08:00">
+                2017-07-14
               </time>
             
 
@@ -385,6 +384,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/iOS-tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS tutorial</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -396,9 +406,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/Xcode中Scene里的名称/#comments" itemprop="discussionUrl">
+                <a href="/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/Xcode中Scene里的名称/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -423,22 +433,63 @@
       
 
       
-        <h3 id="默认的Scene名称"><a href="#默认的Scene名称" class="headerlink" title="默认的Scene名称"></a>默认的Scene名称</h3><ul>
-<li>Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称就与其关联的控制器名称相关，比如默认的<strong>View Controller</strong>的对象的Scene的名称就是<strong>View Controller Scene</strong>。</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-d80576d822af0859.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <blockquote>
+<p>参考：<a href="http://www.appcoda.com/face-detection-core-image/" target="_blank" rel="external">Face Detection in iOS Using Core Image</a></p>
+</blockquote>
+<p>面部识别API不仅可以是识别面部，也可识别面部的特殊细节，例如微笑甚至眨眼睛。</p>
+<h3 id="建立初始项目"><a href="#建立初始项目" class="headerlink" title="建立初始项目"></a>建立初始项目</h3><p>原文建好了<a href="https://github.com/appcoda/FaceDetector/raw/master/FaceDetectorStarter.zip" target="_blank" rel="external">初始项目</a>，我自己新建了初始项目</p>
 <ul>
-<li><p>如果把控制器改成<strong>SFSafariViewController</strong>，那么Scene的名字就会变成<strong>Safari View Scene</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-302bf5f35d2d0968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<li>新建项目<strong>Detector</strong></li>
+<li>删除IB中原本<strong>View Controller Scene</strong>。</li>
+<li>拖动<code>UITabBarController</code>到IB中，得到三个<strong>Scene</strong>。选择<code>UITabBarController</code>的<code>Is Initial View Controller</code>，使其作为初始控制器。</li>
+<li>修改<strong>Item 1</strong>的title和其<strong>Bar Item</strong>都为<em>Photo</em>，修改其<code>Class</code>为<code>ViewController</code>。</li>
+<li>向<strong>Assets</strong>中添加几张人物图片</li>
+<li>想<strong>Photo Scene</strong>中添加一个<strong>Image View</strong>，<code>Content Mode</code>改为<strong>Aspect Fit</strong>，选择一个图片。在<code>ViewController</code>添加图片对应@IBOutlet：<br><code>@IBOutlet var personPic: UIImageView!</code></li>
+<li>选中<strong>Item 2</strong>，点击菜单栏<strong>EDitor &gt; Embed In &gt; Navigation Controller</strong>，新生成一个与之关联的<strong>Scene</strong>。</li>
+<li>新建<code>CameraViewController</code>类，继承至UIViewController。修改上面生成的<strong>Scene</strong>的<code>Class</code>属性为<code>CameraViewController</code>。</li>
+<li>拖动一个<code>UIBarButtonItem</code>到<strong>Camera View Controller Scene</strong>的<code>UINavigationItem</code>的右边，并选择<code>System Item</code>为<em>Camera</em></li>
+<li>在<code>CameraViewController</code>中建立outlet和Action</li>
+</ul>
+<h3 id="识别照片的面部"><a href="#识别照片的面部" class="headerlink" title="识别照片的面部"></a>识别照片的面部</h3><ul>
+<li>在 <code>ViewController.swift</code>中引入<code>CoreImage</code>:<br><code>import CoreImage</code></li>
+<li><p>在 <code>ViewController.swift</code>中添加函数<code>detect()</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">func detect() &#123;</div><div class="line">    // 1    </div><div class="line">    guard let personciImage = CIImage(image: personPic.image!) else &#123;</div><div class="line">        return</div><div class="line">    &#125;</div><div class="line">    // 2 </div><div class="line">    let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]</div><div class="line">    let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)</div><div class="line">    let faces = faceDetector?.features(in: personciImage)</div><div class="line">    </div><div class="line">    // 3 </div><div class="line">    for face in faces as! [CIFaceFeature] &#123;</div><div class="line">        </div><div class="line">        print(&quot;Found bounds are \(face.bounds)&quot;)</div><div class="line">        </div><div class="line">        let faceBox = UIView(frame: face.bounds)</div><div class="line">        </div><div class="line">        faceBox.layer.borderWidth = 3</div><div class="line">        faceBox.layer.borderColor = UIColor.red.cgColor</div><div class="line">        faceBox.backgroundColor = UIColor.clear</div><div class="line">        personPic.addSubview(faceBox)</div><div class="line">        // 4</div><div class="line">        if face.hasLeftEyePosition &#123;</div><div class="line">            print(&quot;Left eye bounds are \(face.leftEyePosition)&quot;)</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        if face.hasRightEyePosition &#123;</div><div class="line">            print(&quot;Right eye bounds are \(face.rightEyePosition)&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>1 根据<code>UIImage</code>获取<code>CoreImage</code>中图片对象。<code>guard</code>与<code>if</code>功能类似，区别可查看<a href="http://www.jianshu.com/p/50543156d30f" target="_blank" rel="external">以撸代码的形式学习Swift-5：Control Flow</a>的<strong>6 guard 与 if</strong>。</li>
+<li>2 初始化检测器<code>CIDetector</code>， <code>accuray</code>是检查器配置选项，表示精确度；因为<code>CIDetector</code>可以进行几种类型的检测，所以<code>CIDetectorTypeFace</code>用来表示面部检测；<code>features</code>方法返回具体的检测结果</li>
+<li>3 给每个检测到的脸添加红色框</li>
+<li>4 检测是否有左眼位置</li>
+</ul>
 </li>
-<li><p>如果把控制器改成自建的，Scene名字也会随着变化，比如<strong>ASAndyViewController</strong>对应的Scene名字是<strong> Andy View Scene</strong><br><img src="http://upload-images.jianshu.io/upload_images/1678135-111d56554787ec8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-<li><p>总的来说，apple在程序中代码命名规范，一般是前面连续大写的是框架名称，然后后面使用驼峰命名法。要显示时就把框架前缀去掉，然后根据驼峰命名规则分隔显示。</p>
+<li><p>在<code>viewDidLoad</code>中添加 <code>detect()</code>，运行结果类似：</p>
 </li>
 </ul>
-<h3 id="自定义Scene的名称"><a href="#自定义Scene的名称" class="headerlink" title="自定义Scene的名称"></a>自定义Scene的名称</h3><p>Scene的名称也是可以自定义的，在其属性检查器中，修改<code>title</code>即可，当然这种修改只是停留在IB中，为了开发时便于查看，不影响代码中的名称。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-552da41f8db1851f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-39e79552d69d0ca8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>打印结果，显示检测到的面部位置是不对的：<br><code>Found bounds are (177.0, 416.0, 380.0, 380.0)</code><br>这是因为UIKit的坐标系统与Core Image的坐标系统是不同的：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-4ce94cc04fd90164.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>把Core Image的坐标系统转换为UIKit的坐标系统，修改<code>detect()</code>为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">func detect() &#123;</div><div class="line">        </div><div class="line">    guard let personciImage = CIImage(image: personPic.image!) else &#123;</div><div class="line">        return</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]</div><div class="line">    let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)</div><div class="line">    let faces = faceDetector?.features(in: personciImage)</div><div class="line">    //</div><div class="line">    let ciImageSize = personciImage.extent.size</div><div class="line">    var transform = CGAffineTransform(scaleX: 1, y: -1)</div><div class="line">    transform = transform.translatedBy(x: 0, y: -ciImageSize.height)</div><div class="line">    </div><div class="line">    for face in faces as! [CIFaceFeature] &#123;</div><div class="line">        </div><div class="line">        print(&quot;Found bounds are \(face.bounds)&quot;)</div><div class="line">        </div><div class="line">        // Apply the transform to convert the coordinates</div><div class="line">        var faceViewBounds = face.bounds.applying(transform)</div><div class="line">        </div><div class="line">        // Calculate the actual position and size of the rectangle in the image view</div><div class="line">        let viewSize = personPic.bounds.size</div><div class="line">        let scale = min(viewSize.width / ciImageSize.width,</div><div class="line">                        viewSize.height / ciImageSize.height)</div><div class="line">        let offsetX = (viewSize.width - ciImageSize.width * scale) / 2</div><div class="line">        let offsetY = (viewSize.height - ciImageSize.height * scale) / 2</div><div class="line">        </div><div class="line">        faceViewBounds = faceViewBounds.applying(CGAffineTransform(scaleX: scale, y: scale))</div><div class="line">        faceViewBounds.origin.x += offsetX</div><div class="line">        faceViewBounds.origin.y += offsetY</div><div class="line">        </div><div class="line">        let faceBox = UIView(frame: faceViewBounds)</div><div class="line">        </div><div class="line">        faceBox.layer.borderWidth = 3</div><div class="line">        faceBox.layer.borderColor = UIColor.red.cgColor</div><div class="line">        faceBox.backgroundColor = UIColor.clear</div><div class="line">        personPic.addSubview(faceBox)</div><div class="line">        </div><div class="line">        if face.hasLeftEyePosition &#123;</div><div class="line">            print(&quot;Left eye bounds are \(face.leftEyePosition)&quot;)</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        if face.hasRightEyePosition &#123;</div><div class="line">            print(&quot;Right eye bounds are \(face.rightEyePosition)&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>运行可看到正确识别位置：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-b288822d7eb12a62.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="相机拍照后的脸部识别"><a href="#相机拍照后的脸部识别" class="headerlink" title="相机拍照后的脸部识别"></a>相机拍照后的脸部识别</h3><p>之前是项目中照片识别，现在是拍完照再识别，原理是相同的，就是多一个拍完照，取照片的过程。</p>
+<ul>
+<li><p>更新<code>CameraViewController</code>类的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">// 1</div><div class="line">class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate &#123;</div><div class="line"></div><div class="line">    @IBOutlet var imageView: UIImageView!</div><div class="line">    // 2</div><div class="line">    let imagePicker = UIImagePickerController()</div><div class="line">    </div><div class="line">    override func viewDidLoad() &#123;</div><div class="line">        super.viewDidLoad()</div><div class="line">        imagePicker.delegate = self</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    @IBAction func takePhoto(_ sender: AnyObject) &#123;</div><div class="line">        // 3</div><div class="line">        if !UIImagePickerController.isSourceTypeAvailable(.camera) &#123;</div><div class="line">            return</div><div class="line">        &#125;</div><div class="line">        imagePicker.allowsEditing = false</div><div class="line">        imagePicker.sourceType = .camera</div><div class="line">        present(imagePicker, animated: true, completion: nil)</div><div class="line">    &#125;</div><div class="line">    // 4</div><div class="line">    //MARK: -UIImagePickerControllerDelegate</div><div class="line">    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) &#123;</div><div class="line">        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage &#123;</div><div class="line">            imageView.contentMode = .scaleAspectFit</div><div class="line">            imageView.image = pickedImage</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        dismiss(animated: true, completion: nil)</div><div class="line">        self.detect()</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    // 5 </div><div class="line">    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) &#123;</div><div class="line">        dismiss(animated: true, completion: nil)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>1 实现<code>UIImagePickerControllerDelegate</code>协议，用于拍照相关代理。</li>
+<li>2 初始化<code>UIImagePickerController</code>。<code>UIImagePickerController</code>是照相或摄影界面和功能管理的类。</li>
+<li>3 判断设备照相机是否可用。</li>
+<li>4 实现一个<code>UIImagePickerControllerDelegate</code>中的代理方法，当拍摄完备确实使用照片时调用。</li>
+<li>5 也是<code>UIImagePickerControllerDelegate</code>中的代理方法，取消拍摄时调用。</li>
+</ul>
+</li>
+<li><p>添加<code>detect()</code>代码，与<code>ViewController</code>中不同的是，不用红色框框处识别出的面部，而是识别出面部的细节，并用<code>UIAlertController</code>弹出显示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">func detect() &#123;</div><div class="line">        let imageOptions = NSDictionary(object: NSNumber(value: 5) as NSNumber, forKey: CIDetectorImageOrientation as NSString)</div><div class="line">        let personciImage = CIImage(cgImage: imageView.image!.cgImage!)</div><div class="line">        let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]</div><div class="line">        let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)</div><div class="line">        let faces = faceDetector?.features(in: personciImage, options: imageOptions as? [String : AnyObject])</div><div class="line">        </div><div class="line">        if let face = faces?.first as? CIFaceFeature &#123;</div><div class="line">            print(&quot;found bounds are \(face.bounds)&quot;)</div><div class="line">            </div><div class="line">            var message = &quot;有个脸&quot;</div><div class="line">            </div><div class="line">            if face.hasSmile &#123;</div><div class="line">                print(&quot;脸是笑的&quot;)</div><div class="line">                message += &quot;,脸是笑的&quot;</div><div class="line">            &#125;</div><div class="line">            if face.hasMouthPosition &#123;</div><div class="line">                print(&quot;有嘴唇&quot;)</div><div class="line">                message += &quot;,有嘴唇&quot;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            if face.hasLeftEyePosition &#123;</div><div class="line">                print(&quot;左眼镜的位置是 \(face.leftEyePosition)&quot;)</div><div class="line">                message += &quot;,左眼镜的位置是 \(face.leftEyePosition)&quot;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            if face.hasRightEyePosition &#123;</div><div class="line">                print(&quot;右眼镜的位置是 \(face.rightEyePosition)&quot;)</div><div class="line">                message += &quot;,右眼镜的位置是 \(face.rightEyePosition)&quot;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            let alert = UIAlertController(title: &quot;嘿嘿&quot;, message: message, preferredStyle: .alert)</div><div class="line">            alert.addAction(UIAlertAction(title: &quot;OK&quot;, style: .default, handler: nil))</div><div class="line">            self.present(alert, animated: true, completion: nil)</div><div class="line">            </div><div class="line">        &#125; else &#123;</div><div class="line">            let alert = UIAlertController(title: &quot;没脸了&quot;, message: &quot;没有检测到脸&quot;, preferredStyle: .alert)</div><div class="line">            alert.addAction(UIAlertAction(title: &quot;OK&quot;, style: .default, handler: nil))</div><div class="line">            self.present(alert, animated: true, completion: nil)</div><div class="line">        &#125;        </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>运行就可以识别照片的面部具体细节<br><code>CIFaceFeature</code>还提供了其他很多面部细节：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">open var hasLeftEyePosition: Bool &#123; get &#125;</div><div class="line"></div><div class="line">open var leftEyePosition: CGPoint &#123; get &#125;</div><div class="line"></div><div class="line">open var hasRightEyePosition: Bool &#123; get &#125;</div><div class="line"></div><div class="line">open var rightEyePosition: CGPoint &#123; get &#125;</div><div class="line"></div><div class="line">open var hasMouthPosition: Bool &#123; get &#125;</div><div class="line"></div><div class="line">open var mouthPosition: CGPoint &#123; get &#125;</div><div class="line"></div><div class="line">open var hasTrackingID: Bool &#123; get &#125;</div><div class="line"></div><div class="line">open var trackingID: Int32 &#123; get &#125;</div><div class="line"></div><div class="line">open var hasTrackingFrameCount: Bool &#123; get &#125;</div><div class="line"></div><div class="line">open var trackingFrameCount: Int32 &#123; get &#125;</div><div class="line"></div><div class="line">open var hasFaceAngle: Bool &#123; get &#125;</div><div class="line"></div><div class="line">open var faceAngle: Float &#123; get &#125;</div><div class="line"></div><div class="line">open var hasSmile: Bool &#123; get &#125;</div><div class="line"></div><div class="line">open var leftEyeClosed: Bool &#123; get &#125;</div><div class="line"></div><div class="line">open var rightEyeClosed: Bool &#123; get &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/LearniOSByProject/tree/master/4" target="_blank" rel="external">Detector</a></p>
 <blockquote>
-<p>本文作者：<a href="http://andyron.com">AndyRon</a><br>本文链接：<a href="http://andyron.com/2017/Xcode中Scene里的名称/">http://andyron.com/2017/Xcode中Scene里的名称/</a></p>
+<p>本文作者：<a href="http://andyron.com">AndyRon</a><br>本文链接：<a href="http://andyron.com/2017/">http://andyron.com/2017/</a></p>
 </blockquote>
 
       
@@ -476,8 +527,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/iOS应用程序的状态/" rel="next" title="iOS应用程序的状态">
-                <i class="fa fa-chevron-left"></i> iOS应用程序的状态
+              <a href="/2017/swift的文档注释/" rel="next" title="swift的文档注释">
+                <i class="fa fa-chevron-left"></i> swift的文档注释
               </a>
             
           </div>
@@ -486,8 +537,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/iOS-tutorial/iOS-tutorial-1-识别二维码（swift3）/" rel="prev" title="iOS tutorial 1： 识别二维码（swift3）">
-                iOS tutorial 1： 识别二维码（swift3） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/iOS-tutorial/iOS-tutorial-3：Speech-Framework的简单使用/" rel="prev" title="iOS tutorial 3：Speech Framework的简单使用">
+                iOS tutorial 3：Speech Framework的简单使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -684,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认的Scene名称"><span class="nav-number">1.</span> <span class="nav-text">默认的Scene名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义Scene的名称"><span class="nav-number">2.</span> <span class="nav-text">自定义Scene的名称</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立初始项目"><span class="nav-number">1.</span> <span class="nav-text">建立初始项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#识别照片的面部"><span class="nav-number">2.</span> <span class="nav-text">识别照片的面部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相机拍照后的脸部识别"><span class="nav-number">3.</span> <span class="nav-text">相机拍照后的脸部识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
@@ -839,9 +890,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/Xcode中Scene里的名称/';
-          this.page.identifier = '2017/Xcode中Scene里的名称/';
-          this.page.title = 'Xcode中Scene里的名称';
+          this.page.url = 'http://andyron.com/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/';
+          this.page.identifier = '2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/';
+          this.page.title = 'iOS tutorial 2：用Core Image进行面部识别(Swift)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://andy_ron.disqus.com/embed.js';
