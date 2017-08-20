@@ -644,7 +644,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -663,7 +663,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/" itemprop="url">OC基础学习4：复合（composition）</a></h1>
+                <a class="post-title-link" href="/2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/" itemprop="url">OC基础学习2：面向对象编程的基础知识</a></h1>
         
 
         <div class="post-meta">
@@ -716,9 +716,9 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/#comments" itemprop="discussionUrl">
+                <a href="/2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/Objective-C-基础学习/OC基础学习4：复合（composition）/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -745,12 +745,31 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
       
         
           
-          复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&#123;    Engine *engine;    Tire *tires[4];&#125;* (void)print;@end //Car
-自定义NSLog()NSLog()使用%@格式说明符表示输出对象，也就是NSLog()会给这个对象发送
+          间接(indirection)
+“只要再多添加一层间接，计算机科学中就没有解决不了的问题。”
+
+
+例子
+电话薄
+让他人代替你自己去完成工作
+编写一段代码来查询其他代码，并通过它继续访问另一层代码。
+推诿
+
+
+变量与间接
+使用文件名的间接
+
+在面向对象编程中使用间接
+使用间接来调用代码，不是直接调用某个函数，而是间接调用。 
+
+
+过程式编程(Procedual Programming)
+
+1234567891011121314151617181920212223242526272829303132
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/#more" rel="contents">
+            <a class="btn" href="/2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1125,7 +1144,7 @@ override
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1144,7 +1163,7 @@ override
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/" itemprop="url">OC基础学习2：面向对象编程的基础知识</a></h1>
+                <a class="post-title-link" href="/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/" itemprop="url">OC基础学习4：复合（composition）</a></h1>
         
 
         <div class="post-meta">
@@ -1197,9 +1216,9 @@ override
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/#comments" itemprop="discussionUrl">
+                <a href="/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/Objective-C-基础学习/OC基础学习4：复合（composition）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1226,31 +1245,12 @@ override
       
         
           
-          间接(indirection)
-“只要再多添加一层间接，计算机科学中就没有解决不了的问题。”
-
-
-例子
-电话薄
-让他人代替你自己去完成工作
-编写一段代码来查询其他代码，并通过它继续访问另一层代码。
-推诿
-
-
-变量与间接
-使用文件名的间接
-
-在面向对象编程中使用间接
-使用间接来调用代码，不是直接调用某个函数，而是间接调用。 
-
-
-过程式编程(Procedual Programming)
-
-1234567891011121314151617181920212223242526272829303132
+          复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&#123;    Engine *engine;    Tire *tires[4];&#125;* (void)print;@end //Car
+自定义NSLog()NSLog()使用%@格式说明符表示输出对象，也就是NSLog()会给这个对象发送
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/#more" rel="contents">
+            <a class="btn" href="/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
