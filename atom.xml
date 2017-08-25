@@ -59,16 +59,16 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 11：照片横屏滑动</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11%EF%BC%9A%E7%85%A7%E7%89%87%E6%A8%AA%E5%B1%8F%E6%BB%91%E5%8A%A8/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11：照片横屏滑动/</id>
+    <title>iOS tutorial 10：UIScrollView滚动视图</title>
+    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10%EF%BC%9AUIScrollView%E6%BB%9A%E5%8A%A8%E8%A7%86%E5%9B%BE/"/>
+    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10：UIScrollView滚动视图/</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-08-20T16:24:21.000Z</updated>
+    <updated>2017-08-20T16:24:46.000Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;strong&gt;&lt;a href=&quot;https://github.com/allenwong/30DaysofSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30DaysofSwift&lt;/a&gt;&lt;/strong&gt;&lt;br
+&lt;p&gt;参考：&lt;a href=&quot;https://www.ioscreator.com/tutorials/scroll-view-tutorial-ios8-swift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Scroll View
     
     </summary>
     
@@ -80,16 +80,16 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 10：UIScrollView滚动视图</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10%EF%BC%9AUIScrollView%E6%BB%9A%E5%8A%A8%E8%A7%86%E5%9B%BE/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10：UIScrollView滚动视图/</id>
+    <title>iOS tutorial 11：照片横屏滑动</title>
+    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11%EF%BC%9A%E7%85%A7%E7%89%87%E6%A8%AA%E5%B1%8F%E6%BB%91%E5%8A%A8/"/>
+    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11：照片横屏滑动/</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-08-20T16:24:46.000Z</updated>
+    <updated>2017-08-20T16:24:21.000Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;a href=&quot;https://www.ioscreator.com/tutorials/scroll-view-tutorial-ios8-swift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Scroll View
+&lt;p&gt;参考：&lt;strong&gt;&lt;a href=&quot;https://github.com/allenwong/30DaysofSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30DaysofSwift&lt;/a&gt;&lt;/strong&gt;&lt;br
     
     </summary>
     
@@ -244,6 +244,43 @@
   </entry>
   
   <entry>
+    <title>OC基础学习5：源文件组织</title>
+    <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A05%EF%BC%9A%E6%BA%90%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87/"/>
+    <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习5：源文件组织/</id>
+    <published>2017-07-21T16:00:00.000Z</published>
+    <updated>2017-08-02T16:24:52.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。&lt;/p&gt;
+&lt;h3 id=&quot;拆分接口和实现&quot;&gt;&lt;a href=&quot;#拆分接口和实现&quot; class=&quot;headerlink&quot; title=&quot;拆分接口和实现&quot;&gt;&lt;/a&gt;拆分接口和实现&lt;/h3
+    
+    </summary>
+    
+      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>OC基础学习4：复合（composition）</title>
+    <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A04%EF%BC%9A%E5%A4%8D%E5%90%88%EF%BC%88composition%EF%BC%89/"/>
+    <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/</id>
+    <published>2017-07-21T16:00:00.000Z</published>
+    <updated>2017-08-02T16:24:49.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;复合-对象间的组合（类中中包括类）&quot;&gt;&lt;a href=&quot;#复合-对象间的组合（类中中包括类）&quot; class=&quot;headerlink&quot; title=&quot;复合: 对象间的组合（类中中包括类）&quot;&gt;&lt;/a&gt;复合: 对象间的组合（类中中包括类）&lt;/h3&gt;&lt;p&gt;composit
+    
+    </summary>
+    
+      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>OC基础学习2：面向对象编程的基础知识</title>
     <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习2：面向对象编程的基础知识/</id>
@@ -275,43 +312,6 @@
 &lt;li&gt;为何使用继承&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;UML&lt;/strong&gt;(Unified Modeling Language, 统一建模语言) 是一种用图表来表示类、类的内容以及它们之间关系。&lt;/li&gt;
 &lt;li&gt;将重复的代码合并到一处。&lt;br&gt;&lt;img src=&quot;
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习5：源文件组织</title>
-    <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A05%EF%BC%9A%E6%BA%90%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87/"/>
-    <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习5：源文件组织/</id>
-    <published>2017-07-21T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:52.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。&lt;/p&gt;
-&lt;h3 id=&quot;拆分接口和实现&quot;&gt;&lt;a href=&quot;#拆分接口和实现&quot; class=&quot;headerlink&quot; title=&quot;拆分接口和实现&quot;&gt;&lt;/a&gt;拆分接口和实现&lt;/h3
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习4：复合（composition）</title>
-    <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A04%EF%BC%9A%E5%A4%8D%E5%90%88%EF%BC%88composition%EF%BC%89/"/>
-    <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/</id>
-    <published>2017-07-21T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:49.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;复合-对象间的组合（类中中包括类）&quot;&gt;&lt;a href=&quot;#复合-对象间的组合（类中中包括类）&quot; class=&quot;headerlink&quot; title=&quot;复合: 对象间的组合（类中中包括类）&quot;&gt;&lt;/a&gt;复合: 对象间的组合（类中中包括类）&lt;/h3&gt;&lt;p&gt;composit
     
     </summary>
     
