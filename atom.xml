@@ -59,16 +59,16 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 10：UIScrollView滚动视图</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10%EF%BC%9AUIScrollView%E6%BB%9A%E5%8A%A8%E8%A7%86%E5%9B%BE/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10：UIScrollView滚动视图/</id>
+    <title>iOS tutorial 11：照片横屏滑动</title>
+    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11%EF%BC%9A%E7%85%A7%E7%89%87%E6%A8%AA%E5%B1%8F%E6%BB%91%E5%8A%A8/"/>
+    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11：照片横屏滑动/</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-08-20T16:24:46.000Z</updated>
+    <updated>2017-08-20T16:24:21.000Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;a href=&quot;https://www.ioscreator.com/tutorials/scroll-view-tutorial-ios8-swift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Scroll View
+&lt;p&gt;参考：&lt;strong&gt;&lt;a href=&quot;https://github.com/allenwong/30DaysofSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30DaysofSwift&lt;/a&gt;&lt;/strong&gt;&lt;br
     
     </summary>
     
@@ -80,16 +80,16 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 11：照片横屏滑动</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11%EF%BC%9A%E7%85%A7%E7%89%87%E6%A8%AA%E5%B1%8F%E6%BB%91%E5%8A%A8/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11：照片横屏滑动/</id>
+    <title>iOS tutorial 10：UIScrollView滚动视图</title>
+    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10%EF%BC%9AUIScrollView%E6%BB%9A%E5%8A%A8%E8%A7%86%E5%9B%BE/"/>
+    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10：UIScrollView滚动视图/</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-08-20T16:24:21.000Z</updated>
+    <updated>2017-08-20T16:24:46.000Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;strong&gt;&lt;a href=&quot;https://github.com/allenwong/30DaysofSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30DaysofSwift&lt;/a&gt;&lt;/strong&gt;&lt;br
+&lt;p&gt;参考：&lt;a href=&quot;https://www.ioscreator.com/tutorials/scroll-view-tutorial-ios8-swift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Scroll View
     
     </summary>
     
@@ -172,22 +172,6 @@
   </entry>
   
   <entry>
-    <title>Carthage的使用</title>
-    <link href="http://andyron.com/2017/Carthage%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://andyron.com/2017/Carthage的使用/</id>
-    <published>2017-08-10T16:00:00.000Z</published>
-    <updated>2017-08-20T16:26:31.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>OC基础学习7：内存管理</title>
     <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A07%EF%BC%9A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
     <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习7：内存管理/</id>
@@ -198,6 +182,22 @@
     
       &lt;h2 id=&quot;1-对象生命周期&quot;&gt;&lt;a href=&quot;#1-对象生命周期&quot; class=&quot;headerlink&quot; title=&quot;1 对象生命周期&quot;&gt;&lt;/a&gt;1 对象生命周期&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Carthage的使用</title>
+    <link href="http://andyron.com/2017/Carthage%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://andyron.com/2017/Carthage的使用/</id>
+    <published>2017-08-10T16:00:00.000Z</published>
+    <updated>2017-08-20T16:26:31.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
     
     </summary>
     
@@ -235,43 +235,6 @@
     <summary type="html">
     
       &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;c
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习5：源文件组织</title>
-    <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A05%EF%BC%9A%E6%BA%90%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87/"/>
-    <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习5：源文件组织/</id>
-    <published>2017-07-21T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:52.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。&lt;/p&gt;
-&lt;h3 id=&quot;拆分接口和实现&quot;&gt;&lt;a href=&quot;#拆分接口和实现&quot; class=&quot;headerlink&quot; title=&quot;拆分接口和实现&quot;&gt;&lt;/a&gt;拆分接口和实现&lt;/h3
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习4：复合（composition）</title>
-    <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A04%EF%BC%9A%E5%A4%8D%E5%90%88%EF%BC%88composition%EF%BC%89/"/>
-    <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/</id>
-    <published>2017-07-21T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:49.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;复合-对象间的组合（类中中包括类）&quot;&gt;&lt;a href=&quot;#复合-对象间的组合（类中中包括类）&quot; class=&quot;headerlink&quot; title=&quot;复合: 对象间的组合（类中中包括类）&quot;&gt;&lt;/a&gt;复合: 对象间的组合（类中中包括类）&lt;/h3&gt;&lt;p&gt;composit
     
     </summary>
     
@@ -321,6 +284,43 @@
   </entry>
   
   <entry>
+    <title>OC基础学习5：源文件组织</title>
+    <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A05%EF%BC%9A%E6%BA%90%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87/"/>
+    <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习5：源文件组织/</id>
+    <published>2017-07-21T16:00:00.000Z</published>
+    <updated>2017-08-02T16:24:52.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。&lt;/p&gt;
+&lt;h3 id=&quot;拆分接口和实现&quot;&gt;&lt;a href=&quot;#拆分接口和实现&quot; class=&quot;headerlink&quot; title=&quot;拆分接口和实现&quot;&gt;&lt;/a&gt;拆分接口和实现&lt;/h3
+    
+    </summary>
+    
+      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>OC基础学习4：复合（composition）</title>
+    <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A04%EF%BC%9A%E5%A4%8D%E5%90%88%EF%BC%88composition%EF%BC%89/"/>
+    <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习4：复合（composition）/</id>
+    <published>2017-07-21T16:00:00.000Z</published>
+    <updated>2017-08-02T16:24:49.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;复合-对象间的组合（类中中包括类）&quot;&gt;&lt;a href=&quot;#复合-对象间的组合（类中中包括类）&quot; class=&quot;headerlink&quot; title=&quot;复合: 对象间的组合（类中中包括类）&quot;&gt;&lt;/a&gt;复合: 对象间的组合（类中中包括类）&lt;/h3&gt;&lt;p&gt;composit
+    
+    </summary>
+    
+      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>OC基础学习1：对C的扩展</title>
     <link href="http://andyron.com/2017/Objective-C-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01%EF%BC%9A%E5%AF%B9C%E7%9A%84%E6%89%A9%E5%B1%95/"/>
     <id>http://andyron.com/2017/Objective-C-基础学习/OC基础学习1：对C的扩展/</id>
@@ -360,15 +360,15 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 4：CALayer介绍(swift)</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-4%EF%BC%9ACALayer%E4%BB%8B%E7%BB%8D-swift/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-4：CALayer介绍-swift/</id>
+    <title>iOS tutorial 5：关于地理定位和特定区域(Swift)</title>
+    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-5%EF%BC%9A%E5%85%B3%E4%BA%8E%E5%9C%B0%E7%90%86%E5%AE%9A%E4%BD%8D%E5%92%8C%E7%89%B9%E5%AE%9A%E5%8C%BA%E5%9F%9F-Swift/"/>
+    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-5：关于地理定位和特定区域-Swift/</id>
     <published>2017-07-15T16:00:00.000Z</published>
-    <updated>2017-08-20T15:56:34.000Z</updated>
+    <updated>2017-08-20T15:56:35.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-a63552e89efd1228.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
     
     </summary>
     
@@ -380,15 +380,15 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 5：关于地理定位和特定区域(Swift)</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-5%EF%BC%9A%E5%85%B3%E4%BA%8E%E5%9C%B0%E7%90%86%E5%AE%9A%E4%BD%8D%E5%92%8C%E7%89%B9%E5%AE%9A%E5%8C%BA%E5%9F%9F-Swift/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-5：关于地理定位和特定区域-Swift/</id>
+    <title>iOS tutorial 4：CALayer介绍(swift)</title>
+    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-4%EF%BC%9ACALayer%E4%BB%8B%E7%BB%8D-swift/"/>
+    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-4：CALayer介绍-swift/</id>
     <published>2017-07-15T16:00:00.000Z</published>
-    <updated>2017-08-20T15:56:35.000Z</updated>
+    <updated>2017-08-20T15:56:34.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-a63552e89efd1228.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
     
     </summary>
     
