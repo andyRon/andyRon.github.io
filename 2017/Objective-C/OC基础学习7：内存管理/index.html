@@ -95,15 +95,18 @@
 
 
 
-<meta name="description" content="Just for fun.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欣欣向戎">
-<meta property="og:url" content="http://andyron.com/categories/Objective-C/index.html">
+<meta name="description" content="1 对象生命周期 诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息并执行操作） -&amp;gt; 交友（通过复合以及向方法传递参数） -&amp;gt; 死去（被释放掉）  引用计数(reference counting) / 保留计数(retain counting) alloc, new, copy: 创建对象，保留计数被设置为1 retain: 保留计数加1。如[[car retain]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OC基础学习7：内存管理">
+<meta property="og:url" content="http://andyron.com/2017/Objective-C/OC基础学习7：内存管理/index.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.">
+<meta property="og:description" content="1 对象生命周期 诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息并执行操作） -&amp;gt; 交友（通过复合以及向方法传递参数） -&amp;gt; 死去（被释放掉）  引用计数(reference counting) / 保留计数(retain counting) alloc, new, copy: 创建对象，保留计数被设置为1 retain: 保留计数加1。如[[car retain]">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-bfa4e82a4ffc6a84.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-20T16:27:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欣欣向戎">
-<meta name="twitter:description" content="Just for fun.">
+<meta name="twitter:title" content="OC基础学习7：内存管理">
+<meta name="twitter:description" content="1 对象生命周期 诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息并执行操作） -&amp;gt; 交友（通过复合以及向方法传递参数） -&amp;gt; 死去（被释放掉）  引用计数(reference counting) / 保留计数(retain counting) alloc, new, copy: 创建对象，保留计数被设置为1 retain: 保留计数加1。如[[car retain]">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-bfa4e82a4ffc6a84.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -131,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/categories/Objective-C/"/>
+  <link rel="canonical" href="http://andyron.com/2017/Objective-C/OC基础学习7：内存管理/"/>
 
 
 
 
 
-  <title>分类: Objective-C | 欣欣向戎</title>
+  <title>OC基础学习7：内存管理 | 欣欣向戎</title>
   
 
 
@@ -172,7 +175,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -310,185 +313,196 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>Objective-C<small>分类</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习6：Fondation-Kit介绍/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习6：Fondation-Kit介绍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-23T00:00:00+08:00"
-              content="2017-07-23" >
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习2：面向对象编程的基础知识/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习2：面向对象编程的基础知识</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习4：复合（composition）/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习4：复合（composition）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习3：继承(inheritance)/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习3：继承(inheritance)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习5：源文件组织/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习5：源文件组织</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习1：对C的扩展/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习1：对C的扩展</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-21T00:00:00+08:00"
-              content="2017-07-21" >
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C/OC基础学习7：内存管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OC基础学习7：内存管理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T00:00:00+08:00">
+                2017-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/Objective-C/OC基础学习7：内存管理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/Objective-C/OC基础学习7：内存管理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-对象生命周期"><a href="#1-对象生命周期" class="headerlink" title="1 对象生命周期"></a>1 对象生命周期</h2><blockquote>
+<p>诞生（通过alloc或new方法实现） -&gt; 生存（接收消息并执行操作） -&gt; 交友（通过复合以及向方法传递参数） -&gt; 死去（被释放掉）</p>
+</blockquote>
+<h3 id="引用计数-reference-counting-保留计数-retain-counting"><a href="#引用计数-reference-counting-保留计数-retain-counting" class="headerlink" title="引用计数(reference counting) / 保留计数(retain counting)"></a>引用计数(reference counting) / 保留计数(retain counting)</h3><ul>
+<li><code>alloc</code>, <code>new</code>, <code>copy</code>: 创建对象，保留计数被设置为1</li>
+<li><code>retain</code>: 保留计数加1。如<code>[[car retain] setTire: tire atIndex:2];</code>表示要求car对象将其保留计数的值加1并执行setTire操作。</li>
+<li><code>release</code>: 保留计数减1</li>
+<li><code>dealloc</code>: 保留计数归0时自动调用</li>
+<li><code>retainCount</code>: 获得对象保留计数当前值<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface RetainTracker : NSObject</div><div class="line"></div><div class="line">@end</div><div class="line">@implementation RetainTracker</div><div class="line"></div><div class="line">- (id) init</div><div class="line">&#123;</div><div class="line">    if (self = [super init]) &#123;</div><div class="line">        NSLog(@&quot;init: Retain count of %lu .&quot;, [self retainCount]);</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125; // init</div><div class="line">- (void)dealloc</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;dealloc called. Bye Bye.&quot;);</div><div class="line">    [super dealloc];</div><div class="line">&#125; // dealloc</div><div class="line"></div><div class="line">@end // RetainTracker</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    RetainTracker *a = [RetainTracker new];</div><div class="line">    </div><div class="line">    [a retain];</div><div class="line">    NSLog(@&quot;%lu&quot;, [a retainCount]);</div><div class="line">    </div><div class="line">    [a retain];</div><div class="line">    NSLog(@&quot;%lu&quot;, [a retainCount]);</div><div class="line">    </div><div class="line">    [a release];</div><div class="line">    NSLog(@&quot;%lu&quot;, [a retainCount]);</div><div class="line">    </div><div class="line">    [a release];</div><div class="line">    NSLog(@&quot;%lu&quot;, [a retainCount]);</div><div class="line">    </div><div class="line">    [a release];</div><div class="line">    NSLog(@&quot;%lu&quot;, [a retainCount]);  // 为什么此处是  1 不是 0吗？</div><div class="line">    </div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="对象所有权-object-ownership"><a href="#对象所有权-object-ownership" class="headerlink" title="对象所有权(object ownership)"></a>对象所有权(object ownership)</h3><p>如果一个对象内有指向其他对象的实例变量，则称 <em>该对象拥有这些对象</em>。</p>
+<h3 id="访问方法中的保留和释放"><a href="#访问方法中的保留和释放" class="headerlink" title="访问方法中的保留和释放"></a>访问方法中的保留和释放</h3><h3 id="所有对象放入池中"><a href="#所有对象放入池中" class="headerlink" title="所有对象放入池中"></a>所有对象放入池中</h3><ul>
+<li><code>@autoreleasepool</code>/<code>NSAutoreleasePool</code>： 自动释放池</li>
+<li><code>NSObject</code>提供<code>autorelease</code>方法：<br><code>- (id) autorelease;</code></li>
+</ul>
+<h2 id="2-Cocoa的内存管理规则"><a href="#2-Cocoa的内存管理规则" class="headerlink" title="2 Cocoa的内存管理规则"></a>2 Cocoa的内存管理规则</h2><p><img src="http://upload-images.jianshu.io/upload_images/1678135-bfa4e82a4ffc6a84.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="内存管理规则"></p>
+<h2 id="3-异常"><a href="#3-异常" class="headerlink" title="3 异常"></a>3 异常</h2><h3 id="与异常有关的关键字"><a href="#与异常有关的关键字" class="headerlink" title="与异常有关的关键字"></a>与异常有关的关键字</h3><ul>
+<li><code>@try</code></li>
+<li><code>@catch</code></li>
+<li><code>@finally</code></li>
+<li><code>@throw</code></li>
+</ul>
+<h3 id="捕捉不同类型的异常"><a href="#捕捉不同类型的异常" class="headerlink" title="捕捉不同类型的异常"></a>捕捉不同类型的异常</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@try &#123;</div><div class="line">&#125; @catch (MyCustomException *custom) &#123;</div><div class="line">&#125; @catch (NSException *exception) &#123;</div><div class="line">&#125; @catch (id value) &#123;</div><div class="line">&#125; @finally &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h3><p>抛出异常的两种方式：</p>
+<ul>
+<li><code>@throw异常名</code></li>
+<li>向某个<code>NSException对象</code>发送<code>raise</code>消息<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSException *theException = [NSException exceptionWithName: ...];</div><div class="line"></div><div class="line">@throw theException;</div><div class="line">[theException raise];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>区别：<code>raise</code>只对<code>NSException</code>对象有效，<code>@throw异常名</code>可用在其他对象上。</p>
+<h3 id="异常也需要内存管理"><a href="#异常也需要内存管理" class="headerlink" title="异常也需要内存管理"></a>异常也需要内存管理</h3><h3 id="异常和自动释放池"><a href="#异常和自动释放池" class="headerlink" title="异常和自动释放池"></a>异常和自动释放池</h3><blockquote>
+<p>本文作者：<a href="http://andyron.com">AndyRon</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/iOS-tutorial/iOS-tutorial-7：解析XML(swift)/" rel="next" title="iOS-tutorial-7：解析XML(swift)">
+                <i class="fa fa-chevron-left"></i> iOS-tutorial-7：解析XML(swift)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/Carthage的使用/" rel="prev" title="Carthage的使用">
+                Carthage的使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -496,6 +510,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -515,8 +540,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -632,6 +666,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-对象生命周期"><span class="nav-number">1.</span> <span class="nav-text">1 对象生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数-reference-counting-保留计数-retain-counting"><span class="nav-number">1.1.</span> <span class="nav-text">引用计数(reference counting) / 保留计数(retain counting)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象所有权-object-ownership"><span class="nav-number">1.2.</span> <span class="nav-text">对象所有权(object ownership)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问方法中的保留和释放"><span class="nav-number">1.3.</span> <span class="nav-text">访问方法中的保留和释放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#所有对象放入池中"><span class="nav-number">1.4.</span> <span class="nav-text">所有对象放入池中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Cocoa的内存管理规则"><span class="nav-number">2.</span> <span class="nav-text">2 Cocoa的内存管理规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-异常"><span class="nav-number">3.</span> <span class="nav-text">3 异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#与异常有关的关键字"><span class="nav-number">3.1.</span> <span class="nav-text">与异常有关的关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#捕捉不同类型的异常"><span class="nav-number">3.2.</span> <span class="nav-text">捕捉不同类型的异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抛出异常"><span class="nav-number">3.3.</span> <span class="nav-text">抛出异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常也需要内存管理"><span class="nav-number">3.4.</span> <span class="nav-text">异常也需要内存管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常和自动释放池"><span class="nav-number">3.5.</span> <span class="nav-text">异常和自动释放池</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -757,10 +807,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -778,6 +828,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2017/Objective-C/OC基础学习7：内存管理/';
+          this.page.identifier = '2017/Objective-C/OC基础学习7：内存管理/';
+          this.page.title = 'OC基础学习7：内存管理';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
