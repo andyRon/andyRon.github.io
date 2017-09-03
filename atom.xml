@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-08-26T02:16:29.000Z</updated>
+  <updated>2017-09-03T15:47:29.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -14,6 +14,94 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初识Core ML：建立一个简单的图片内容识别应用</title>
+    <link href="http://andyron.com/2017/Introducing-Core-ML/"/>
+    <id>http://andyron.com/2017/Introducing-Core-ML/</id>
+    <published>2017-09-03T15:44:18.000Z</published>
+    <updated>2017-09-03T15:47:29.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="Core ML" scheme="http://andyron.com/tags/Core-ML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用github和hexo创建免费的静态个人博客网站</title>
+    <link href="http://andyron.com/2017/github-hexo/"/>
+    <id>http://andyron.com/2017/github-hexo/</id>
+    <published>2017-08-25T16:00:00.000Z</published>
+    <updated>2017-09-03T15:48:10.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-85bd138bdcb1a517.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+    
+    </summary>
+    
+    
+      <category term="github" scheme="http://andyron.com/tags/github/"/>
+    
+      <category term="hexo" scheme="http://andyron.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 传感器(一)：总的介绍和距离传感器</title>
+    <link href="http://andyron.com/2017/iOS-Sensor-1/"/>
+    <id>http://andyron.com/2017/iOS-Sensor-1/</id>
+    <published>2017-08-24T16:00:00.000Z</published>
+    <updated>2017-09-03T15:52:57.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;参考：&lt;br&gt;1 &lt;a href=&quot;https://www.zhihu.com/question/25526443/answer/31040887&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.zhihu.
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="传感器" scheme="http://andyron.com/tags/%E4%BC%A0%E6%84%9F%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS tutorial 13：手势处理</title>
+    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-13/"/>
+    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-13/</id>
+    <published>2017-08-21T16:00:00.000Z</published>
+    <updated>2017-09-03T15:52:23.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS手势处理由&lt;code&gt;UIGestureRecognizer&lt;/code&gt;控制，不同手势有这个类的不同子类处理，不同手势处理有不同的相关属性。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;子类&lt;/th&gt;
+&lt;th&gt;描述 &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thea
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="手势" scheme="http://andyron.com/tags/%E6%89%8B%E5%8A%BF/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS tutorial 12：视频背景</title>
@@ -38,16 +126,16 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 11：照片横屏滑动</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11%EF%BC%9A%E7%85%A7%E7%89%87%E6%A8%AA%E5%B1%8F%E6%BB%91%E5%8A%A8/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11：照片横屏滑动/</id>
+    <title>iOS tutorial 9：本地视频播放</title>
+    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-9%EF%BC%9A%E6%9C%AC%E5%9C%B0%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/"/>
+    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-9：本地视频播放/</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-08-26T02:15:16.000Z</updated>
+    <updated>2017-08-26T02:17:30.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;strong&gt;&lt;a href=&quot;https://github.com/allenwong/30DaysofSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30DaysofSwift&lt;/a&gt;&lt;/strong&gt;&lt;br
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquot
     
     </summary>
     
@@ -80,16 +168,16 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 9：本地视频播放</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-9%EF%BC%9A%E6%9C%AC%E5%9C%B0%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-9：本地视频播放/</id>
+    <title>iOS tutorial 11：照片横屏滑动</title>
+    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11%EF%BC%9A%E7%85%A7%E7%89%87%E6%A8%AA%E5%B1%8F%E6%BB%91%E5%8A%A8/"/>
+    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11：照片横屏滑动/</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-08-26T02:17:30.000Z</updated>
+    <updated>2017-08-26T02:15:16.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;blockquot
+      &lt;blockquote&gt;
+&lt;p&gt;参考：&lt;strong&gt;&lt;a href=&quot;https://github.com/allenwong/30DaysofSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30DaysofSwift&lt;/a&gt;&lt;/strong&gt;&lt;br
     
     </summary>
     
@@ -138,23 +226,6 @@
   </entry>
   
   <entry>
-    <title>iOS本地化(swift)</title>
-    <link href="http://andyron.com/2017/iOS%E6%9C%AC%E5%9C%B0%E5%8C%96-swift/"/>
-    <id>http://andyron.com/2017/iOS本地化-swift/</id>
-    <published>2017-08-11T16:00:00.000Z</published>
-    <updated>2017-08-26T02:08:01.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH9zFIR06TCTQq74gAr0iwaok1wKae_RD87NZcsei9gds6Lrv-Bw&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;blockq
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>DownGit：怎么下载github中某个文件夹？</title>
     <link href="http://andyron.com/2017/DownGit%EF%BC%9A%E6%80%8E%E4%B9%88%E4%B8%8B%E8%BD%BDgithub%E4%B8%AD%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%9F/"/>
     <id>http://andyron.com/2017/DownGit：怎么下载github中某个文件夹？/</id>
@@ -165,6 +236,23 @@
     
       &lt;p&gt;怎么下载github中某个文件夹？&lt;/p&gt;
 &lt;p&gt;github只提供了整个项目。下载一个项目中的某个文件夹的内容，这种需求在使用github时，还是经常使用的。&lt;br&gt;比如：在一些大的项目下，只想看某个文件的内容时。&lt;br&gt;又比如，像我这种&lt;a href=&quot;https://
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS本地化(swift)</title>
+    <link href="http://andyron.com/2017/iOS%E6%9C%AC%E5%9C%B0%E5%8C%96-swift/"/>
+    <id>http://andyron.com/2017/iOS本地化-swift/</id>
+    <published>2017-08-11T16:00:00.000Z</published>
+    <updated>2017-08-26T02:08:01.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH9zFIR06TCTQq74gAr0iwaok1wKae_RD87NZcsei9gds6Lrv-Bw&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockq
     
     </summary>
     
@@ -244,16 +332,15 @@
   </entry>
   
   <entry>
-    <title>OC基础学习2：面向对象编程的基础知识</title>
-    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    <id>http://andyron.com/2017/Objective-C/OC基础学习2：面向对象编程的基础知识/</id>
+    <title>OC基础学习4：复合（composition）</title>
+    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A04%EF%BC%9A%E5%A4%8D%E5%90%88%EF%BC%88composition%EF%BC%89/"/>
+    <id>http://andyron.com/2017/Objective-C/OC基础学习4：复合（composition）/</id>
     <published>2017-07-21T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:45.000Z</updated>
+    <updated>2017-08-02T16:24:49.000Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;间接-indirection&quot;&gt;&lt;a href=&quot;#间接-indirection&quot; class=&quot;headerlink&quot; title=&quot;间接(indirection)&quot;&gt;&lt;/a&gt;间接(indirection)&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong
+      &lt;h3 id=&quot;复合-对象间的组合（类中中包括类）&quot;&gt;&lt;a href=&quot;#复合-对象间的组合（类中中包括类）&quot; class=&quot;headerlink&quot; title=&quot;复合: 对象间的组合（类中中包括类）&quot;&gt;&lt;/a&gt;复合: 对象间的组合（类中中包括类）&lt;/h3&gt;&lt;p&gt;composit
     
     </summary>
     
@@ -284,6 +371,25 @@
   </entry>
   
   <entry>
+    <title>OC基础学习2：面向对象编程的基础知识</title>
+    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>http://andyron.com/2017/Objective-C/OC基础学习2：面向对象编程的基础知识/</id>
+    <published>2017-07-21T16:00:00.000Z</published>
+    <updated>2017-08-02T16:24:45.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;间接-indirection&quot;&gt;&lt;a href=&quot;#间接-indirection&quot; class=&quot;headerlink&quot; title=&quot;间接(indirection)&quot;&gt;&lt;/a&gt;间接(indirection)&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong
+    
+    </summary>
+    
+      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>OC基础学习5：源文件组织</title>
     <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A05%EF%BC%9A%E6%BA%90%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87/"/>
     <id>http://andyron.com/2017/Objective-C/OC基础学习5：源文件组织/</id>
@@ -298,103 +404,6 @@
     </summary>
     
       <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习4：复合（composition）</title>
-    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A04%EF%BC%9A%E5%A4%8D%E5%90%88%EF%BC%88composition%EF%BC%89/"/>
-    <id>http://andyron.com/2017/Objective-C/OC基础学习4：复合（composition）/</id>
-    <published>2017-07-21T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:49.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;复合-对象间的组合（类中中包括类）&quot;&gt;&lt;a href=&quot;#复合-对象间的组合（类中中包括类）&quot; class=&quot;headerlink&quot; title=&quot;复合: 对象间的组合（类中中包括类）&quot;&gt;&lt;/a&gt;复合: 对象间的组合（类中中包括类）&lt;/h3&gt;&lt;p&gt;composit
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习1：对C的扩展</title>
-    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01%EF%BC%9A%E5%AF%B9C%E7%9A%84%E6%89%A9%E5%B1%95/"/>
-    <id>http://andyron.com/2017/Objective-C/OC基础学习1：对C的扩展/</id>
-    <published>2017-07-20T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:21.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;分析最简单的Hello-Objective-C程序&quot;&gt;&lt;a href=&quot;#分析最简单的Hello-Objective-C程序&quot; class=&quot;headerlink&quot; title=&quot;分析最简单的Hello Objective-C程序&quot;&gt;&lt;/a&gt;分析最简单的Hello
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 6：使用Quick Look框架预览文件(Swift)</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-6%EF%BC%9A%E4%BD%BF%E7%94%A8Quick-Look%E6%A1%86%E6%9E%B6%E9%A2%84%E8%A7%88%E6%96%87%E4%BB%B6-Swift/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-6：使用Quick-Look框架预览文件-Swift/</id>
-    <published>2017-07-17T16:00:00.000Z</published>
-    <updated>2017-08-26T02:17:07.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;参考 &lt;a href=&quot;http://www.appcoda.com/quick-look-framework/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Using Quick Look Framework for Prev
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 5：关于地理定位和特定区域(Swift)</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-5%EF%BC%9A%E5%85%B3%E4%BA%8E%E5%9C%B0%E7%90%86%E5%AE%9A%E4%BD%8D%E5%92%8C%E7%89%B9%E5%AE%9A%E5%8C%BA%E5%9F%9F-Swift/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-5：关于地理定位和特定区域-Swift/</id>
-    <published>2017-07-15T16:00:00.000Z</published>
-    <updated>2017-08-26T02:17:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-a63552e89efd1228.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 4：CALayer介绍(swift)</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-4%EF%BC%9ACALayer%E4%BB%8B%E7%BB%8D-swift/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-4：CALayer介绍-swift/</id>
-    <published>2017-07-15T16:00:00.000Z</published>
-    <updated>2017-08-26T02:16:53.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
     
     
   </entry>
