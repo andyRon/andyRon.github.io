@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="iOS动画," />
 
 
 
@@ -95,15 +95,22 @@
 
 
 
-<meta name="description" content="Just for fun.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欣欣向戎">
-<meta property="og:url" content="http://andyron.com/archives/page/3/index.html">
+<meta name="description" content="参考：  iOS动画系列之一：通过实战学习CALayer和透视的原理。做一个带时分秒指针的时钟动画(上) iOS动画系列之二：通过实战学习CALayer和透视的原理。做一个带时分秒指针的时钟动画。包含了OC和Swift两种源代码(下)    一、直接做动画 新建项目clock 加载表盘图片。在viewDidLoad中添加： 123456let dialLayer = CALayer()dialL">
+<meta name="keywords" content="iOS动画">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS动画(一)：时钟动画(Swift)">
+<meta property="og:url" content="http://andyron.com/2017/iOS-Animation-1/index.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.">
+<meta property="og:description" content="参考：  iOS动画系列之一：通过实战学习CALayer和透视的原理。做一个带时分秒指针的时钟动画(上) iOS动画系列之二：通过实战学习CALayer和透视的原理。做一个带时分秒指针的时钟动画。包含了OC和Swift两种源代码(下)    一、直接做动画 新建项目clock 加载表盘图片。在viewDidLoad中添加： 123456let dialLayer = CALayer()dialL">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-b1d9f0d05c706863.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-6c6b2572d4b9bc0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-55a77b551c426e0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-14be03a17a58eae1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-05T05:06:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欣欣向戎">
-<meta name="twitter:description" content="Just for fun.">
+<meta name="twitter:title" content="iOS动画(一)：时钟动画(Swift)">
+<meta name="twitter:description" content="参考：  iOS动画系列之一：通过实战学习CALayer和透视的原理。做一个带时分秒指针的时钟动画(上) iOS动画系列之二：通过实战学习CALayer和透视的原理。做一个带时分秒指针的时钟动画。包含了OC和Swift两种源代码(下)    一、直接做动画 新建项目clock 加载表盘图片。在viewDidLoad中添加： 123456let dialLayer = CALayer()dialL">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-b1d9f0d05c706863.gif?imageMogr2/auto-orient/strip">
 
 
 
@@ -131,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/archives/page/3/"/>
+  <link rel="canonical" href="http://andyron.com/2017/iOS-Animation-1/"/>
 
 
 
 
 
-  <title>归档 | 欣欣向戎</title>
+  <title>iOS动画(一)：时钟动画(Swift) | 欣欣向戎</title>
   
 
 
@@ -172,7 +179,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -310,402 +317,256 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 33 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-Animation-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS动画(一)：时钟动画(Swift)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T13:02:31+08:00">
+                2017-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/iOS-Animation-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/iOS-Animation-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.jianshu.com/p/26a7ccbc55c4" target="_blank" rel="external">iOS动画系列之一：通过实战学习CALayer和透视的原理。做一个带时分秒指针的时钟动画(上)</a></li>
+<li><a href="http://www.jianshu.com/p/3a96cc95da5c" target="_blank" rel="external">iOS动画系列之二：通过实战学习CALayer和透视的原理。做一个带时分秒指针的时钟动画。包含了OC和Swift两种源代码(下)</a></li>
+</ul>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-b1d9f0d05c706863.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<h3 id="一、直接做动画"><a href="#一、直接做动画" class="headerlink" title="一、直接做动画"></a>一、直接做动画</h3><ul>
+<li>新建项目<strong>clock</strong></li>
+<li><p>加载表盘图片。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-6c6b2572d4b9bc0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>在<code>viewDidLoad</code>中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let dialLayer = CALayer()</div><div class="line">dialLayer.bounds = CGRect(x: 0, y: 0, width: 150, height: 150)</div><div class="line">dialLayer.position = self.view.center</div><div class="line">dialLayer.contents = UIImage(named: &quot;clock&quot;)?.cgImage</div><div class="line"></div><div class="line">view.layer.addSublayer(dialLayer)</div></pre></td></tr></table></figure>
+</li>
+<li><p>懒加载秒针、分针、时针视图。懒加载机制是Swift中一种存储属性：延迟存储属性，具体可擦看 <a href="http://www.jianshu.com/p/f0010987bec8" target="_blank" rel="external">以撸代码的形式学习Swift-10：Properties</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">// 秒针</div><div class="line">lazy var secondHandView: UIView = &#123;</div><div class="line">    let secondHandView = UIView()</div><div class="line">    secondHandView.backgroundColor = UIColor.red</div><div class="line">    secondHandView.bounds = CGRect(x: 0, y: 0, width: 1, height: 60)</div><div class="line">    </div><div class="line">    secondHandView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)</div><div class="line"></div><div class="line">    return secondHandView</div><div class="line">&#125;()</div><div class="line"></div><div class="line">// 分针</div><div class="line">lazy var minuteHandView: UIView = &#123;</div><div class="line">    let minuteHandView = UIView()</div><div class="line">    minuteHandView.backgroundColor = UIColor.darkGray</div><div class="line">    minuteHandView.bounds = CGRect(x: 0, y: 0, width: 3, height: 60)</div><div class="line">    </div><div class="line">    minuteHandView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)</div><div class="line">    </div><div class="line">    return minuteHandView</div><div class="line">&#125;()</div><div class="line"></div><div class="line">// 时针</div><div class="line">lazy var hourHandView: UIView = &#123;</div><div class="line">    let hourHandView = UIView()</div><div class="line">    hourHandView.backgroundColor = UIColor.darkGray</div><div class="line">    hourHandView.bounds = CGRect(x: 0, y: 0, width: 3, height: 45)</div><div class="line">    </div><div class="line">    hourHandView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)</div><div class="line">    </div><div class="line">    return hourHandView</div><div class="line">&#125;()</div></pre></td></tr></table></figure>
+</li>
+<li><p>把秒针、分针、时针添加到view中。在<code>viewDidLoad</code>中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">secondHandView.center = view.center</div><div class="line">self.view.addSubview(secondHandView)</div><div class="line">minuteHandView.center = view.center</div><div class="line">self.view.addSubview(minuteHandView)</div><div class="line">hourHandView.center = view.center</div><div class="line">self.view.addSubview(hourHandView)</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建<code>CADisplayLink</code>，并将其添加到主线程中。在<code>viewDidLoad</code>中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let link = CADisplayLink(target: self, selector: #selector(ViewController.clockRunning))</div><div class="line">link.add(to: RunLoop.main, forMode: .defaultRunLoopMode)</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加方法<code>clockRunning</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">func clockRunning() &#123;</div><div class="line">    let tZone = TimeZone.current</div><div class="line">    var calendar = Calendar.current</div><div class="line">    let currentDate = Date()</div><div class="line">    calendar.timeZone = tZone</div><div class="line">    </div><div class="line">    let currentTime = calendar.dateComponents([Calendar.Component.hour, Calendar.Component.minute, Calendar.Component.second], from: currentDate)</div><div class="line">    </div><div class="line">    // 根据当前秒、分、时数分别计算秒针、分针、时针偏转弧度</div><div class="line">    let secondAngle = CGFloat ( Double(currentTime.second!) * (Double.pi * 2.0 / 60) )</div><div class="line">    secondHandView.transform = CGAffineTransform(rotationAngle: secondAngle)</div><div class="line">    </div><div class="line">    let minuteAngle = CGFloat ( Double(currentTime.minute!) * (Double.pi * 2.0 / 60) )</div><div class="line">    minuteHandView.transform = CGAffineTransform(rotationAngle: minuteAngle)</div><div class="line">    </div><div class="line">    let hourAngle = CGFloat ( Double(currentTime.hour!) * (Double.pi * 2.0 / 12) )</div><div class="line">    hourHandView.transform = CGAffineTransform(rotationAngle: hourAngle)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>现在就完成了文章开头的效果。</p>
+<h3 id="二、代码说明"><a href="#二、代码说明" class="headerlink" title="二、代码说明"></a>二、代码说明</h3><ol>
+<li>关于<code>anchorPoint</code>（锚点）<br>如果注释掉分针和时针视图，并且关掉动画效果和锚点设置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//        secondHandView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)</div><div class="line">//        minuteHandView.center = view.center</div><div class="line">//        self.view.addSubview(minuteHandView)</div><div class="line">//        hourHandView.center = view.center</div><div class="line">//        self.view.addSubview(hourHandView)</div><div class="line">        </div><div class="line">        // 创建CADisplayLink，并将其添加到主线程中</div><div class="line">//        let link = CADisplayLink(target: self, selector: #selector(ViewController.clockRunning))</div><div class="line">//        link.add(to: RunLoop.main, forMode: .defaultRunLoopMode)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-55a77b551c426e0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>加上<code>secondHandView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)</code>后：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-14be03a17a58eae1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><code>anchorPoint</code>的官方描述：</p>
+<blockquote>
+<p> Defines the anchor point of the layer’s bounds rectangle. Animatable.<br>You specify the value for this property using the unit coordinate space. The default value of this property is (0.5, 0.5), which represents the center of the layer’s bounds rectangle. </p>
+<blockquote>
+<p> All geometric manipulations to the view occur about the specified point. </p>
+</blockquote>
+<p>For example, applying a rotation transform to a layer with the default anchor point causes the layer to rotate around its center. Changing the anchor point to a different location would cause the layer to rotate around that new point.</p>
+</blockquote>
+<p><code>anchorPoint</code>的值在 <code>(0,0)</code> 和 <code>(1,1)</code>之间。默认是 <code>(0.5, 0.5)</code>,代表锚点在中心位置。 <code>(0,0)</code> 和 <code>(1,1)</code>分别代表左上角和右上角。</p>
+<ol>
+<li><p>关于<code>CALayer</code>的属性<code>position</code>和<code>anchorPoint</code></p>
+<ul>
+<li><code>position</code>类似<code>UIView</code> 的<code>center</code></li>
+<li><code>position</code>决定了layer在父视图上的位置</li>
+<li><code>anchorPoint</code>决定了<code>position</code>在自身的位置。<strong>All geometric manipulations to the view occur about the specified point.</strong></li>
+</ul>
+</li>
+<li><p>CADisplayLink 与 NSTimer </p>
+<ul>
+<li>CADisplayLink精确度高</li>
+<li>NSTimer占用系统资源较多</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>代码和图片位置： <a href="https://github.com/andyRon/LearniOSByProject/tree/master/89-Animation" target="_blank" rel="external">89-Animation/clock</a></p>
+<p>本文作者: <a href="http://andyron.com">AndyRon</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS动画/" rel="tag"># iOS动画</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/Introducing-Core-ML/" rel="next" title="初识Core ML：建立一个简单的图片内容识别应用">
+                <i class="fa fa-chevron-left"></i> 初识Core ML：建立一个简单的图片内容识别应用
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习3：继承(inheritance)/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习3：继承(inheritance)</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/iOS-Animation-2/" rel="prev" title="iOS动画(二)：核心动画中的基础移动(Swift)">
+                iOS动画(二)：核心动画中的基础移动(Swift) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习2：面向对象编程的基础知识/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习2：面向对象编程的基础知识</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习4：复合（composition）/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习4：复合（composition）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习1：对C的扩展/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习1：对C的扩展</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-21T00:00:00+08:00"
-              content="2017-07-21" >
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-6：使用Quick-Look框架预览文件-Swift/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 6：使用Quick Look框架预览文件(Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-18T00:00:00+08:00"
-              content="2017-07-18" >
-          07-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-5：关于地理定位和特定区域-Swift/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 5：关于地理定位和特定区域(Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-16T00:00:00+08:00"
-              content="2017-07-16" >
-          07-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-4：CALayer介绍-swift/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 4：CALayer介绍(swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-16T00:00:00+08:00"
-              content="2017-07-16" >
-          07-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-3：Speech-Framework的简单使用/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 3：Speech Framework的简单使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-15T00:00:00+08:00"
-              content="2017-07-15" >
-          07-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/swift的文档注释/" itemprop="url">
-              
-                <span itemprop="name">swift的文档注释</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-14T00:00:00+08:00"
-              content="2017-07-14" >
-          07-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 2：用Core Image进行面部识别(Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-14T00:00:00+08:00"
-              content="2017-07-14" >
-          07-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/4/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -713,6 +574,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -732,8 +604,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -849,6 +730,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、直接做动画"><span class="nav-number">1.</span> <span class="nav-text">一、直接做动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、代码说明"><span class="nav-number">2.</span> <span class="nav-text">二、代码说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -994,11 +891,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -1017,6 +912,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2017/iOS-Animation-1/';
+          this.page.identifier = '2017/iOS-Animation-1/';
+          this.page.title = 'iOS动画(一)：时钟动画(Swift)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

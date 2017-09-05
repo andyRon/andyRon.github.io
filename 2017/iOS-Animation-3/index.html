@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="iOS动画," />
 
 
 
@@ -95,15 +95,19 @@
 
 
 
-<meta name="description" content="Just for fun.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欣欣向戎">
-<meta property="og:url" content="http://andyron.com/archives/page/3/index.html">
+<meta name="description" content="参考：第五篇：CABasic Animation。iOS动画系列之五：基础动画之缩放篇&amp;amp;旋转篇   原理和上一篇是相同的，不同之处是keyPath属性，缩放时是keyPath是 transform.scale，旋转时keyPath是transform.rotation。 12345678910111213141516171819202122232425262728293031323334">
+<meta name="keywords" content="iOS动画">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS动画(三)：核心动画中缩放和旋转(Swift)">
+<meta property="og:url" content="http://andyron.com/2017/iOS-Animation-3/index.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.">
+<meta property="og:description" content="参考：第五篇：CABasic Animation。iOS动画系列之五：基础动画之缩放篇&amp;amp;旋转篇   原理和上一篇是相同的，不同之处是keyPath属性，缩放时是keyPath是 transform.scale，旋转时keyPath是transform.rotation。 12345678910111213141516171819202122232425262728293031323334">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-9823da42ea750f05.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-09-05T05:06:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欣欣向戎">
-<meta name="twitter:description" content="Just for fun.">
+<meta name="twitter:title" content="iOS动画(三)：核心动画中缩放和旋转(Swift)">
+<meta name="twitter:description" content="参考：第五篇：CABasic Animation。iOS动画系列之五：基础动画之缩放篇&amp;amp;旋转篇   原理和上一篇是相同的，不同之处是keyPath属性，缩放时是keyPath是 transform.scale，旋转时keyPath是transform.rotation。 12345678910111213141516171819202122232425262728293031323334">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-9823da42ea750f05.gif?imageMogr2/auto-orient/strip">
 
 
 
@@ -131,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/archives/page/3/"/>
+  <link rel="canonical" href="http://andyron.com/2017/iOS-Animation-3/"/>
 
 
 
 
 
-  <title>归档 | 欣欣向戎</title>
+  <title>iOS动画(三)：核心动画中缩放和旋转(Swift) | 欣欣向戎</title>
   
 
 
@@ -172,7 +176,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -310,402 +314,201 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 33 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-Animation-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS动画(三)：核心动画中缩放和旋转(Swift)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T13:04:15+08:00">
+                2017-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/iOS-Animation-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/iOS-Animation-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <blockquote>
+<p>参考：<a href="http://www.jianshu.com/p/58ce1d8b43ef" target="_blank" rel="external">第五篇：CABasic Animation。iOS动画系列之五：基础动画之缩放篇&amp;旋转篇</a></p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-9823da42ea750f05.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<p>原理和上一篇是相同的，不同之处是<code>keyPath</code>属性，缩放时是<code>keyPath</code>是 <strong>transform.scale</strong>，旋转时<code>keyPath</code>是<strong>transform.rotation</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line">class ScaleRotationViewController: UIViewController &#123;</div><div class="line">    // 用于缩放的layer</div><div class="line">    lazy var redLayer: CALayer = &#123;</div><div class="line">        return self.createLayer(position: CGPoint(x: 125, y: 150), backgroundColor: UIColor.red)</div><div class="line">    &#125;()</div><div class="line">    </div><div class="line">    lazy var greenLayer: CALayer = &#123;</div><div class="line">        return self.createLayer(position: CGPoint(x: 125, y: 250), backgroundColor: UIColor.green)</div><div class="line">    &#125;()</div><div class="line">    </div><div class="line">    lazy var cyanLayer: CALayer = &#123;</div><div class="line">        return self.createLayer(position: CGPoint(x: 125, y: 350), backgroundColor: UIColor.cyan)</div><div class="line">    &#125;()</div><div class="line">    </div><div class="line">    lazy var blueLayer: CALayer = &#123;</div><div class="line">        return self.createLayer(position: CGPoint(x: 125, y: 450), backgroundColor: UIColor.blue)</div><div class="line">    &#125;()</div><div class="line">    </div><div class="line">    // 用于旋转的Layer</div><div class="line">    lazy var redRotationLayer: CALayer = &#123;</div><div class="line">        return self.createLayer(position: CGPoint(x: 300, y: 150), backgroundColor: UIColor.red)</div><div class="line">    &#125;()</div><div class="line">    </div><div class="line">    lazy var greenRotationLayer: CALayer = &#123;</div><div class="line">        return self.createLayer(position: CGPoint(x: 300, y: 250), backgroundColor: UIColor.green)</div><div class="line">    &#125;()</div><div class="line">    </div><div class="line">    lazy var cyanRotationLayer: CALayer = &#123;</div><div class="line">        return self.createLayer(position: CGPoint(x: 300, y: 350), backgroundColor: UIColor.cyan)</div><div class="line">    &#125;()</div><div class="line">    </div><div class="line"></div><div class="line">    </div><div class="line">    </div><div class="line">    override func viewDidLoad() &#123;</div><div class="line">        super.viewDidLoad()</div><div class="line"></div><div class="line">        // 添加缩放的动画</div><div class="line">        redLayer.add(createAnimation(keyPath: &quot;transform.scale.x&quot;, toValue: 0.5), forKey: nil)</div><div class="line">        </div><div class="line">        greenLayer.add(createAnimation(keyPath: &quot;transform.scale.y&quot;, toValue: 0.5), forKey: nil)</div><div class="line">        </div><div class="line">        cyanLayer.add(createAnimation(keyPath: &quot;transform.scale.z&quot;, toValue: 0.5), forKey: nil)</div><div class="line">        </div><div class="line">        blueLayer.add(createAnimation(keyPath: &quot;transform.scale&quot;, toValue: 0.5), forKey: nil)</div><div class="line">        </div><div class="line">        </div><div class="line">        </div><div class="line">        // 添加旋转的动画</div><div class="line">        redRotationLayer.add(createAnimation(keyPath: &quot;transform.rotation.x&quot;, toValue: CGFloat(Double.pi / 4)), forKey: nil)</div><div class="line">        </div><div class="line">        greenRotationLayer.add(createAnimation(keyPath: &quot;transform.rotation.y&quot;, toValue: CGFloat(Double.pi / 4)), forKey: nil)</div><div class="line">        </div><div class="line">        cyanRotationLayer.add(createAnimation(keyPath: &quot;transform.rotation.z&quot;, toValue: CGFloat(Double.pi / 4)), forKey: nil)</div><div class="line">        </div><div class="line">        </div><div class="line">        self.creatLabel(title: &quot;缩放&quot;, frame: CGRect(x: 100, y: 80, width: 50, height: 20))</div><div class="line">        self.creatLabel(title: &quot;旋转&quot;, frame: CGRect(x: 250, y: 80, width: 50, height: 20))</div><div class="line">        self.creatLabel(title: &quot;X轴&quot;, frame: CGRect(x: 20, y: 125, width: 50, height: 20))</div><div class="line">        self.creatLabel(title: &quot;Y轴&quot;, frame: CGRect(x: 20, y: 225, width: 50, height: 20))</div><div class="line">        self.creatLabel(title: &quot;Z轴&quot;, frame: CGRect(x: 20, y: 325, width: 50, height: 20))</div><div class="line">        self.creatLabel(title: &quot;XYZ轴&quot;, frame: CGRect(x: 20, y: 425, width: 50, height: 20))</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    // 创建calayer</div><div class="line">    func createLayer (position: CGPoint, backgroundColor: UIColor) -&gt; CALayer &#123;</div><div class="line">        //创建calayer</div><div class="line">        let layer = CALayer()</div><div class="line">        //设置位置和大小</div><div class="line">        layer.position = position</div><div class="line">        layer.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)</div><div class="line">        //设置背景颜色</div><div class="line">        layer.backgroundColor = backgroundColor.cgColor</div><div class="line">        //把layer添加到UIView的layer上</div><div class="line">        self.view.layer.addSublayer(layer)</div><div class="line">        </div><div class="line">        return layer</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 创建基础Animation</div><div class="line">    func createAnimation (keyPath: String, toValue: CGFloat) -&gt; CABasicAnimation &#123;</div><div class="line">        //创建动画对象</div><div class="line">        let scaleAni = CABasicAnimation()</div><div class="line">        //设置动画属性</div><div class="line">        scaleAni.keyPath = keyPath</div><div class="line">        </div><div class="line">        //设置动画的起始位置。也就是动画从哪里到哪里。不指定起点，默认就从positoin开始</div><div class="line">        scaleAni.toValue = toValue</div><div class="line">        </div><div class="line">        //动画持续时间</div><div class="line">        scaleAni.duration = 2;</div><div class="line">        </div><div class="line">        //动画重复次数</div><div class="line">        scaleAni.repeatCount = Float(CGFloat.greatestFiniteMagnitude)</div><div class="line">        </div><div class="line">        return scaleAni;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    //创建Label</div><div class="line">    fileprivate func creatLabel (title: String, frame: CGRect) -&gt; ()&#123;</div><div class="line">        let label = UILabel()</div><div class="line">        </div><div class="line">        label.text = title</div><div class="line">        label.frame = frame</div><div class="line">        label.textColor = UIColor.darkGray</div><div class="line">        label.font = UIFont.systemFont(ofSize: 12)</div><div class="line">        </div><div class="line">        self.view.addSubview(label)</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>代码： <a href="https://github.com/andyRon/LearniOSByProject/tree/master/89-Animation" target="_blank" rel="external">89-Animation/CABasic Animation</a></p>
+<p>本文作者: <a href="http://andyron.com">AndyRon</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS动画/" rel="tag"># iOS动画</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/iOS-Animation-2/" rel="next" title="iOS动画(二)：核心动画中的基础移动(Swift)">
+                <i class="fa fa-chevron-left"></i> iOS动画(二)：核心动画中的基础移动(Swift)
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习3：继承(inheritance)/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习3：继承(inheritance)</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习2：面向对象编程的基础知识/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习2：面向对象编程的基础知识</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习4：复合（composition）/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习4：复合（composition）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Objective-C/OC基础学习1：对C的扩展/" itemprop="url">
-              
-                <span itemprop="name">OC基础学习1：对C的扩展</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-21T00:00:00+08:00"
-              content="2017-07-21" >
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-6：使用Quick-Look框架预览文件-Swift/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 6：使用Quick Look框架预览文件(Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-18T00:00:00+08:00"
-              content="2017-07-18" >
-          07-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-5：关于地理定位和特定区域-Swift/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 5：关于地理定位和特定区域(Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-16T00:00:00+08:00"
-              content="2017-07-16" >
-          07-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-4：CALayer介绍-swift/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 4：CALayer介绍(swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-16T00:00:00+08:00"
-              content="2017-07-16" >
-          07-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-3：Speech-Framework的简单使用/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 3：Speech Framework的简单使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-15T00:00:00+08:00"
-              content="2017-07-15" >
-          07-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/swift的文档注释/" itemprop="url">
-              
-                <span itemprop="name">swift的文档注释</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-14T00:00:00+08:00"
-              content="2017-07-14" >
-          07-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 2：用Core Image进行面部识别(Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-14T00:00:00+08:00"
-              content="2017-07-14" >
-          07-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/4/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -713,6 +516,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -994,11 +808,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -1017,6 +829,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2017/iOS-Animation-3/';
+          this.page.identifier = '2017/iOS-Animation-3/';
+          this.page.title = 'iOS动画(三)：核心动画中缩放和旋转(Swift)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

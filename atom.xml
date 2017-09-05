@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-03T15:47:29.000Z</updated>
+  <updated>2017-09-05T05:06:50.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -14,6 +14,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS动画(三)：核心动画中缩放和旋转(Swift)</title>
+    <link href="http://andyron.com/2017/iOS-Animation-3/"/>
+    <id>http://andyron.com/2017/iOS-Animation-3/</id>
+    <published>2017-09-05T05:04:15.000Z</published>
+    <updated>2017-09-05T05:06:50.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;参考：&lt;a href=&quot;http://www.jianshu.com/p/58ce1d8b43ef&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;第五篇：CABasic Animation。iOS动画系列之五：基础动画之缩放篇&amp;a
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS动画(二)：核心动画中的基础移动(Swift)</title>
+    <link href="http://andyron.com/2017/iOS-Animation-2/"/>
+    <id>http://andyron.com/2017/iOS-Animation-2/</id>
+    <published>2017-09-05T05:04:12.000Z</published>
+    <updated>2017-09-05T05:05:26.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;参考： &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/2f1d0be8e15b&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;第三篇：iOS动画系列之三：Core Animatio
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS动画(一)：时钟动画(Swift)</title>
+    <link href="http://andyron.com/2017/iOS-Animation-1/"/>
+    <id>http://andyron.com/2017/iOS-Animation-1/</id>
+    <published>2017-09-05T05:02:31.000Z</published>
+    <updated>2017-09-05T05:06:41.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/26a7ccbc55c4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS动画系列之一：通过实战学习CALayer和透视的原
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>初识Core ML：建立一个简单的图片内容识别应用</title>
@@ -260,22 +327,6 @@
   </entry>
   
   <entry>
-    <title>Carthage的使用</title>
-    <link href="http://andyron.com/2017/Carthage%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://andyron.com/2017/Carthage的使用/</id>
-    <published>2017-08-10T16:00:00.000Z</published>
-    <updated>2017-08-26T02:08:22.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>OC基础学习7：内存管理</title>
     <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A07%EF%BC%9A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
     <id>http://andyron.com/2017/Objective-C/OC基础学习7：内存管理/</id>
@@ -286,6 +337,22 @@
     
       &lt;h2 id=&quot;1-对象生命周期&quot;&gt;&lt;a href=&quot;#1-对象生命周期&quot; class=&quot;headerlink&quot; title=&quot;1 对象生命周期&quot;&gt;&lt;/a&gt;1 对象生命周期&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Carthage的使用</title>
+    <link href="http://andyron.com/2017/Carthage%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://andyron.com/2017/Carthage的使用/</id>
+    <published>2017-08-10T16:00:00.000Z</published>
+    <updated>2017-08-26T02:08:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
     
     </summary>
     
@@ -323,64 +390,6 @@
     <summary type="html">
     
       &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;c
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习4：复合（composition）</title>
-    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A04%EF%BC%9A%E5%A4%8D%E5%90%88%EF%BC%88composition%EF%BC%89/"/>
-    <id>http://andyron.com/2017/Objective-C/OC基础学习4：复合（composition）/</id>
-    <published>2017-07-21T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:49.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;复合-对象间的组合（类中中包括类）&quot;&gt;&lt;a href=&quot;#复合-对象间的组合（类中中包括类）&quot; class=&quot;headerlink&quot; title=&quot;复合: 对象间的组合（类中中包括类）&quot;&gt;&lt;/a&gt;复合: 对象间的组合（类中中包括类）&lt;/h3&gt;&lt;p&gt;composit
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习2：面向对象编程的基础知识</title>
-    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    <id>http://andyron.com/2017/Objective-C/OC基础学习2：面向对象编程的基础知识/</id>
-    <published>2017-07-21T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:45.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;间接-indirection&quot;&gt;&lt;a href=&quot;#间接-indirection&quot; class=&quot;headerlink&quot; title=&quot;间接(indirection)&quot;&gt;&lt;/a&gt;间接(indirection)&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习3：继承(inheritance)</title>
-    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A03%EF%BC%9A%E7%BB%A7%E6%89%BF(inheritance)/"/>
-    <id>http://andyron.com/2017/Objective-C/OC基础学习3：继承(inheritance)/</id>
-    <published>2017-07-21T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:50.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;为何使用继承&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;UML&lt;/strong&gt;(Unified Modeling Language, 统一建模语言) 是一种用图表来表示类、类的内容以及它们之间关系。&lt;/li&gt;
-&lt;li&gt;将重复的代码合并到一处。&lt;br&gt;&lt;img src=&quot;
     
     </summary>
     
