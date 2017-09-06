@@ -95,15 +95,19 @@
 
 
 
-<meta name="description" content="Just for fun.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欣欣向戎">
-<meta property="og:url" content="http://andyron.com/archives/index.html">
+<meta name="description" content="参考：  iOS下JS与OC互相调用（二）–WKWebView 拦截URL iOS下JS与原生OC互相调用(总结)   关于WKWebView与UIWebView之间的区别，本文就不在说明，本文只使用WKWebView。效果图如下：  html代码：12345678910111213141516171819202122232425262728293031323334353637&amp;lt;html&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用">
+<meta property="og:url" content="http://andyron.com/2017/iOS-JS-1/index.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.">
+<meta property="og:description" content="参考：  iOS下JS与OC互相调用（二）–WKWebView 拦截URL iOS下JS与原生OC互相调用(总结)   关于WKWebView与UIWebView之间的区别，本文就不在说明，本文只使用WKWebView。效果图如下：  html代码：12345678910111213141516171819202122232425262728293031323334353637&amp;lt;html&amp;">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-947797dcc95d9c9f.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-06T18:14:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欣欣向戎">
-<meta name="twitter:description" content="Just for fun.">
+<meta name="twitter:title" content="iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用">
+<meta name="twitter:description" content="参考：  iOS下JS与OC互相调用（二）–WKWebView 拦截URL iOS下JS与原生OC互相调用(总结)   关于WKWebView与UIWebView之间的区别，本文就不在说明，本文只使用WKWebView。效果图如下：  html代码：12345678910111213141516171819202122232425262728293031323334353637&amp;lt;html&amp;">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip">
 
 
 
@@ -131,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/archives/"/>
+  <link rel="canonical" href="http://andyron.com/2017/iOS-JS-1/"/>
 
 
 
 
 
-  <title>归档 | 欣欣向戎</title>
+  <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用 | 欣欣向戎</title>
   
 
 
@@ -172,7 +176,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -310,402 +314,233 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 35 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-JS-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T00:00:00+08:00">
+                2017-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/iOS-JS-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/iOS-JS-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.jianshu.com/p/99c3af6894f4" target="_blank" rel="external">iOS下JS与OC互相调用（二）–WKWebView 拦截URL</a></li>
+<li><a href="http://www.jianshu.com/p/d19689e0ed83" target="_blank" rel="external">iOS下JS与原生OC互相调用(总结)</a></li>
+</ul>
+</blockquote>
+<p>关于<code>WKWebView</code>与<code>UIWebView</code>之间的区别，本文就不在说明，本文只使用<code>WKWebView</code>。<br>效果图如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<p>html代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf8&quot;&gt;</div><div class="line">        &lt;script language=&quot;javascript&quot;&gt;</div><div class="line">            function loadURL(url) &#123;</div><div class="line">                window.location.href = url</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            function locationClick() &#123;</div><div class="line">                loadURL(&quot;scheme://getLocation&quot;);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            function shake() &#123;</div><div class="line">                loadURL(&quot;scheme://shake&quot;);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            function setLocation(location) &#123;</div><div class="line">                alert(location)</div><div class="line">                document.getElementById(&quot;returnValue&quot;).value = location;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    </div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;h1&gt;这是按钮调用&lt;/h1&gt;</div><div class="line">        &lt;input type=&quot;button&quot; value=&quot;获取定位&quot; onclick=&quot;locationClick()&quot; /&gt;&lt;br&gt;&lt;br&gt;</div><div class="line">        &lt;input type=&quot;button&quot; value=&quot;震动一下&quot; onclick=&quot;shake()&quot; /&gt;&lt;br&gt;&lt;br&gt;</div><div class="line">        </div><div class="line">        &lt;h1&gt;这是文件上传&lt;/h1&gt;</div><div class="line">        &lt;input type=&quot;file&quot; /&gt;&lt;br&gt;&lt;br&gt;</div><div class="line">        </div><div class="line">        &lt;h1&gt;这是回调结果展示区&lt;/h1&gt;</div><div class="line">        &lt;textarea id =&quot;returnValue&quot; type=&quot;value&quot; rows=&quot;5&quot; cols=&quot;50&quot;&gt;&lt;/textarea&gt;</div><div class="line">        </div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="以获取定位这个按钮为例说明OC和JS互相调用代码执行流程："><a href="#以获取定位这个按钮为例说明OC和JS互相调用代码执行流程：" class="headerlink" title="以获取定位这个按钮为例说明OC和JS互相调用代码执行流程："></a>以获取定位这个按钮为例说明OC和JS互相调用代码执行流程：</h3><ol>
+<li>初始化<code>WKWebView</code>加载本地html文件。</li>
+<li>点击web中的按钮，web发起URL请求。</li>
+<li>URL请求被<code>WKNavigationDelegate</code>中的代理方法拦截。根据自定义的URL识别使用不同的处理方式。如：在<code>- (void)getLocation</code>方法中调用JS的<code>setLocation</code>函数。</li>
+<li>JS的<code>setLocation</code>函数执行JS的<code>alert()</code>函数，被<code>WKUIDelegate</code>中的代理方法捕获，调用iOS原生的弹框。</li>
+</ol>
+<h3 id="详细代码说明"><a href="#详细代码说明" class="headerlink" title="详细代码说明"></a>详细代码说明</h3><ul>
+<li><p>初始化<code>WKWebView</code>加载本地html文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (void)initWKWebView</div><div class="line">&#123;</div><div class="line">    // 1</div><div class="line">    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];</div><div class="line">    configuration.userContentController = [WKUserContentController new];</div><div class="line">    WKPreferences *preferences = [WKPreferences new];</div><div class="line">    preferences.javaScriptCanOpenWindowsAutomatically = YES;</div><div class="line">    preferences.minimumFontSize = 40.0;</div><div class="line">    configuration.preferences = preferences;</div><div class="line">    </div><div class="line">    self.webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];</div><div class="line">    </div><div class="line">    // 2</div><div class="line">    NSString *urlStr = [[NSBundle mainBundle] pathForResource:@&quot;index.html&quot; ofType:nil];</div><div class="line">    NSURL *fileURL = [NSURL fileURLWithPath:urlStr];</div><div class="line">    [self.webView loadFileURL:fileURL allowingReadAccessToURL:fileURL];</div><div class="line">    </div><div class="line">    self.webView.navigationDelegate = self;</div><div class="line">    self.webView.UIDelegate = self;</div><div class="line">    [self.view addSubview:self.webView];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>1 <code>WKWebView</code>的一些参数配置</li>
+<li>2 加载本html</li>
+</ul>
+</li>
+<li><p>URL请求被<code>WKNavigationDelegate</code>中的代理方法拦截。也就是JS调用了OC</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#pragma mark - WKNavigationDelegate</div><div class="line">- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler</div><div class="line">&#123;</div><div class="line">    NSURL *URL = navigationAction.request.URL;</div><div class="line">    NSString *scheme = [URL scheme];</div><div class="line">    if ([scheme isEqualToString:@&quot;scheme&quot;]) &#123;</div><div class="line">        </div><div class="line">        [self handleCustomAction:URL];</div><div class="line">        </div><div class="line">        decisionHandler(WKNavigationActionPolicyCancel);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    decisionHandler(WKNavigationActionPolicyAllow);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>OC 调用 JS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (void)getLocation</div><div class="line">&#123;</div><div class="line">    // 将结果返回给js</div><div class="line">    NSString *jsStr = [NSString stringWithFormat:@&quot;setLocation(&apos;%@&apos;)&quot;,@&quot;上海市浦东新区&quot;];</div><div class="line">    [self.webView evaluateJavaScript:jsStr completionHandler:^(id _Nullable result, NSError * _Nullable error) &#123;</div><div class="line">        NSLog(@&quot;%@----%@&quot;,result, error);</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>JS代码被当成字符串调用</li>
+<li><code>completionHandler</code>是JS代码被调用后回调</li>
+</ul>
+</li>
+<li><p>JS中alert弹窗被<code>WKUIDelegate</code>中的代理方法捕获，调用iOS原生的弹框。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#pragma mark - WKUIDelegate</div><div class="line">- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler</div><div class="line">&#123;</div><div class="line">    </div><div class="line">    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@&quot;提醒&quot; message:message preferredStyle:UIAlertControllerStyleAlert];</div><div class="line">    [alert addAction:[UIAlertAction actionWithTitle:@&quot;知道了&quot; style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) &#123;</div><div class="line">        completionHandler();</div><div class="line">    &#125;]];</div><div class="line">    </div><div class="line">    [self presentViewController:alert animated:YES completion:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后，<strong>html中的文件input可以直接调用iOS的图片库，相机和文件。</strong></p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-947797dcc95d9c9f.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<p> 代码： <a href="https://github.com/andyRon/LearniOSByProject/tree/master/90-iOSJS" target="_blank" rel="external">90-iOSJS/OCJS1</a></p>
+<p>本文作者: <a href="http://andyron.com">AndyRon</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/iOS-Animation-3/" rel="next" title="iOS动画(三)：核心动画中缩放和旋转(Swift)">
+                <i class="fa fa-chevron-left"></i> iOS动画(三)：核心动画中缩放和旋转(Swift)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/iOS-JS-2/" rel="prev" title="iOS与JS(二)：MessageHandler(OC&Swift)">
+                iOS与JS(二)：MessageHandler(OC&Swift) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
         </div>
       
-      
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-JS-2/" itemprop="url">
-              
-                <span itemprop="name">iOS与JS(二)：MessageHandler(OC&Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-06T00:00:00+08:00"
-              content="2017-09-06" >
-          09-06
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/iOS-JS-1/" itemprop="url">
-              
-                <span itemprop="name">iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-06T00:00:00+08:00"
-              content="2017-09-06" >
-          09-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-Animation-3/" itemprop="url">
-              
-                <span itemprop="name">iOS动画(三)：核心动画中缩放和旋转(Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-05T13:04:15+08:00"
-              content="2017-09-05" >
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-Animation-2/" itemprop="url">
-              
-                <span itemprop="name">iOS动画(二)：核心动画中的基础移动(Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-05T13:04:12+08:00"
-              content="2017-09-05" >
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-Animation-1/" itemprop="url">
-              
-                <span itemprop="name">iOS动画(一)：时钟动画(Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-05T13:02:31+08:00"
-              content="2017-09-05" >
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/Introducing-Core-ML/" itemprop="url">
-              
-                <span itemprop="name">初识Core ML：建立一个简单的图片内容识别应用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-03T23:44:18+08:00"
-              content="2017-09-03" >
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/github-hexo/" itemprop="url">
-              
-                <span itemprop="name">使用github和hexo创建免费的静态个人博客网站</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-26T00:00:00+08:00"
-              content="2017-08-26" >
-          08-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-Sensor-1/" itemprop="url">
-              
-                <span itemprop="name">iOS 传感器(一)：总的介绍和距离传感器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-25T00:00:00+08:00"
-              content="2017-08-25" >
-          08-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-13/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 13：手势处理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-22T00:00:00+08:00"
-              content="2017-08-22" >
-          08-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-12：视频背景/" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 12：视频背景</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-20T00:00:00+08:00"
-              content="2017-08-20" >
-          08-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -713,6 +548,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -732,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -849,6 +704,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#以获取定位这个按钮为例说明OC和JS互相调用代码执行流程："><span class="nav-number">1.</span> <span class="nav-text">以获取定位这个按钮为例说明OC和JS互相调用代码执行流程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细代码说明"><span class="nav-number">2.</span> <span class="nav-text">详细代码说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -994,11 +865,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -1017,6 +886,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2017/iOS-JS-1/';
+          this.page.identifier = '2017/iOS-JS-1/';
+          this.page.title = 'iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

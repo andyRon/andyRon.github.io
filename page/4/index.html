@@ -322,7 +322,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-1：识别二维码（swift3）/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -341,7 +341,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-1：识别二维码（swift3）/" itemprop="url">iOS tutorial 1： 识别二维码（swift3）</a></h1>
+                <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/" itemprop="url">iOS tutorial 2：用Core Image进行面部识别(Swift)</a></h1>
         
 
         <div class="post-meta">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T00:00:00+08:00">
-                2017-07-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T00:00:00+08:00">
+                2017-07-14
               </time>
             
 
@@ -405,9 +405,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-tutorial/iOS-tutorial-1：识别二维码（swift3）/#comments" itemprop="discussionUrl">
+                <a href="/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-tutorial/iOS-tutorial-1：识别二维码（swift3）/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -434,16 +434,176 @@
       
         
           
-          这是一篇使用AVFoundation框架识别二维码的文章，原文提供了初始化项目QRCodeReaderStarter，我重新建立项目，图片是从原文提供的初始化项目中copy的。
-初始化项目
-新建一个名为QRCodeReader的单页项目
-删除ViewController.swift文件，在项目目录处右击新建文件，新建一个QRCodeViewController类继承自UIViewController。
+          
+参考：Face Detection in iOS Using Core Image
 
-点击Main.storyboard，选中View Controller，修改其属性Class
+面部识别API不仅可以是识别面部，也可识别面部的特殊细节，例如微笑甚至眨眼睛。
+建立初始项目原文建好了初始项目，我自己新建了初始项目
+
+新建项目Detector
+删除IB中原本View Controller Scene。
+拖动UITabBarController到IB中，得到三个Scene。选择UITabBarController的Is Initial View Controller，使其作为初始控制器。
+修
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-tutorial/iOS-tutorial-1：识别二维码（swift3）/#more" rel="contents">
+            <a class="btn" href="/2017/iOS-tutorial/iOS-tutorial-2：用Core-Image进行面部识别-Swift/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift的文档注释/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/swift的文档注释/" itemprop="url">swift的文档注释</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T00:00:00+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/swift的文档注释/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/swift的文档注释/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          在Xcode中Quick Help 为开发者提供方便快捷的简洁文档查看方式。option+点击查看弹框，option+command+2在检查器中查看。swift的中有两种注释方式，让Xcode在Quick Help中显示。这种注释可以认为是将文档以某种规范的格式嵌入在实际代码的上方，这样就可以通过某些工具自动生成漂亮的文档文件。这种内嵌式的文档在现代编程中是很普遍的。在swift中，这两种注释方式是：
+
+/**         */
+///这些注释中还可以有其他一些规范
+
+可以支持markdo
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/swift的文档注释/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -602,6 +762,173 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/Xcode中Scene里的名称/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-1：识别二维码（swift3）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-1：识别二维码（swift3）/" itemprop="url">iOS tutorial 1： 识别二维码（swift3）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T00:00:00+08:00">
+                2017-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/iOS-tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/iOS-tutorial/iOS-tutorial-1：识别二维码（swift3）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/iOS-tutorial/iOS-tutorial-1：识别二维码（swift3）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          这是一篇使用AVFoundation框架识别二维码的文章，原文提供了初始化项目QRCodeReaderStarter，我重新建立项目，图片是从原文提供的初始化项目中copy的。
+初始化项目
+新建一个名为QRCodeReader的单页项目
+删除ViewController.swift文件，在项目目录处右击新建文件，新建一个QRCodeViewController类继承自UIViewController。
+
+点击Main.storyboard，选中View Controller，修改其属性Class
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/iOS-tutorial/iOS-tutorial-1：识别二维码（swift3）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -848,7 +1175,7 @@ iOS应用程序状态变化会回调APPDelegate中的方
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

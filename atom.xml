@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-05T05:06:50.000Z</updated>
+  <updated>2017-09-06T18:14:40.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/iOS-JS-2/"/>
+    <id>http://andyron.com/2017/iOS-JS-2/</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-06T18:14:40.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;参考：&lt;a href=&quot;http://www.jianshu.com/p/433e59c5a9eb&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS下JS与OC互相调用（三）–MessageHandler&lt;/a&gt;&lt;/p&gt;
+&lt;/
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
+    <link href="http://andyron.com/2017/iOS-JS-1/"/>
+    <id>http://andyron.com/2017/iOS-JS-1/</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-06T18:14:14.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/99c3af6894f4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS下JS与OC互相调用（二）–WKWebView 拦
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>iOS动画(三)：核心动画中缩放和旋转(Swift)</title>
@@ -193,6 +234,27 @@
   </entry>
   
   <entry>
+    <title>iOS tutorial 11：照片横屏滑动</title>
+    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11%EF%BC%9A%E7%85%A7%E7%89%87%E6%A8%AA%E5%B1%8F%E6%BB%91%E5%8A%A8/"/>
+    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11：照片横屏滑动/</id>
+    <published>2017-08-18T16:00:00.000Z</published>
+    <updated>2017-08-26T02:15:16.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;参考：&lt;strong&gt;&lt;a href=&quot;https://github.com/allenwong/30DaysofSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30DaysofSwift&lt;/a&gt;&lt;/strong&gt;&lt;br
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>iOS tutorial 10：UIScrollView滚动视图</title>
     <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10%EF%BC%9AUIScrollView%E6%BB%9A%E5%8A%A8%E8%A7%86%E5%9B%BE/"/>
     <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10：UIScrollView滚动视图/</id>
@@ -224,27 +286,6 @@
     
       &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;blockquot
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 11：照片横屏滑动</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11%EF%BC%9A%E7%85%A7%E7%89%87%E6%A8%AA%E5%B1%8F%E6%BB%91%E5%8A%A8/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11：照片横屏滑动/</id>
-    <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-08-26T02:15:16.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;strong&gt;&lt;a href=&quot;https://github.com/allenwong/30DaysofSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30DaysofSwift&lt;/a&gt;&lt;/strong&gt;&lt;br
     
     </summary>
     
@@ -376,43 +417,6 @@
       <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
       <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习6：Fondation-Kit介绍</title>
-    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A06%EF%BC%9AFondation-Kit%E4%BB%8B%E7%BB%8D/"/>
-    <id>http://andyron.com/2017/Objective-C/OC基础学习6：Fondation-Kit介绍/</id>
-    <published>2017-07-22T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:38.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;c
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习5：源文件组织</title>
-    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A05%EF%BC%9A%E6%BA%90%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87/"/>
-    <id>http://andyron.com/2017/Objective-C/OC基础学习5：源文件组织/</id>
-    <published>2017-07-21T16:00:00.000Z</published>
-    <updated>2017-08-02T16:24:52.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。&lt;/p&gt;
-&lt;h3 id=&quot;拆分接口和实现&quot;&gt;&lt;a href=&quot;#拆分接口和实现&quot; class=&quot;headerlink&quot; title=&quot;拆分接口和实现&quot;&gt;&lt;/a&gt;拆分接口和实现&lt;/h3
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
     
     
   </entry>
