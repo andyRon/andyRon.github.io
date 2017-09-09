@@ -322,7 +322,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-5.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-4-composition.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -341,7 +341,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/oc-basic-5.html" itemprop="url">OC基础学习5：源文件组织</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-4-composition.html" itemprop="url">OC基础学习4：复合（composition）</a></h1>
         
 
         <div class="post-meta">
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-5.html#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-4-composition.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-5.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-4-composition.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -423,17 +423,12 @@
       
         
           
-          将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。
-拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：
-
-接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。
-实现部分(.m): 类的@implementation指令、全局变量的定义、私有struct等。
-
-另外，复杂的项目可以拥有多个目标，它们源文件的配置各不相同，构建规则也不
+          复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&#123;    Engine *engine;    Tire *tires[4];&#125;* (void)print;@end //Car
+自定义NSLog()NSLog()使用%@格式说明符表示输出对象，也就是NSLog()会给这个对象发送
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/oc-basic-5.html#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-4-composition.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2062,19 +2057,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
-      <i class="fa fa-user"></i> 访问人数
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
 
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i> 总访问量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
   
 </div>
 

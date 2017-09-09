@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-09T03:14:32.000Z</updated>
+  <updated>2017-09-09T03:21:17.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/ios-js-2.html"/>
+    <id>http://andyron.com/2017/ios-js-2.html</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-09T03:21:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
@@ -26,24 +44,6 @@
     
       &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/ios-js-2.html"/>
-    <id>http://andyron.com/2017/ios-js-2.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
     
     </summary>
     
@@ -219,18 +219,15 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 11：照片横屏滑动</title>
-    <link href="http://andyron.com/2017/ios-tutorial-11.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-11.html</id>
+    <title>iOS tutorial 9：本地视频播放</title>
+    <link href="http://andyron.com/2017/ios-tutorial-9.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-9.html</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:22:10.000Z</updated>
+    <updated>2017-09-09T03:23:28.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;知识点： &lt;code&gt;UICollectionView&lt;/code&gt; &lt;code&gt;UIVisualEffectView&lt;/code&gt; &lt;code&gt;UICollectionViewDataSource&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-5d91f9bdb434dd1d.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -266,15 +263,18 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 9：本地视频播放</title>
-    <link href="http://andyron.com/2017/ios-tutorial-9.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-9.html</id>
+    <title>iOS tutorial 11：照片横屏滑动</title>
+    <link href="http://andyron.com/2017/ios-tutorial-11.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-11.html</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:23:28.000Z</updated>
+    <updated>2017-09-09T03:22:10.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;知识点： &lt;code&gt;UICollectionView&lt;/code&gt; &lt;code&gt;UIVisualEffectView&lt;/code&gt; &lt;code&gt;UICollectionViewDataSource&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-5d91f9bdb434dd1d.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -368,6 +368,23 @@
   </entry>
   
   <entry>
+    <title>iOS本地化(swift)</title>
+    <link href="http://andyron.com/2017/ios-localize.html"/>
+    <id>http://andyron.com/2017/ios-localize.html</id>
+    <published>2017-08-11T16:00:00.000Z</published>
+    <updated>2017-09-09T03:19:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH9zFIR06TCTQq74gAr0iwaok1wKae_RD87NZcsei9gds6Lrv-Bw&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;示例代码在github上&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/76&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;localizationsDemo&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>DownGit：怎么下载github中某个文件夹？</title>
     <link href="http://andyron.com/2017/downgit.html"/>
     <id>http://andyron.com/2017/downgit.html</id>
@@ -387,39 +404,16 @@
   </entry>
   
   <entry>
-    <title>iOS本地化(swift)</title>
-    <link href="http://andyron.com/2017/ios-localize.html"/>
-    <id>http://andyron.com/2017/ios-localize.html</id>
-    <published>2017-08-11T16:00:00.000Z</published>
-    <updated>2017-09-09T03:19:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH9zFIR06TCTQq74gAr0iwaok1wKae_RD87NZcsei9gds6Lrv-Bw&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;示例代码在github上&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/76&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;localizationsDemo&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Carthage的使用</title>
-    <link href="http://andyron.com/2017/carthage-introduce.html"/>
-    <id>http://andyron.com/2017/carthage-introduce.html</id>
+    <title>OC基础学习7：内存管理</title>
+    <link href="http://andyron.com/2017/oc-basic-7.html"/>
+    <id>http://andyron.com/2017/oc-basic-7.html</id>
     <published>2017-08-10T16:00:00.000Z</published>
-    <updated>2017-09-09T03:20:26.000Z</updated>
+    <updated>2017-09-09T03:00:08.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Carthage与CocoaPods的简单比较&quot;&gt;&lt;a href=&quot;#Carthage与CocoaPods的简单比较&quot; class=&quot;headerlink&quot; title=&quot;Carthage与CocoaPods的简单比较&quot;&gt;&lt;/a&gt;Carthage与CocoaPods的简单比较&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;CocoaPods 的优势：&lt;ul&gt;
-&lt;li&gt;使用方便，除编写 Podfile 以外其他几乎都是自动完成；&lt;/li&gt;
-&lt;li&gt;软件包数量多，主流支持；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+      &lt;h2 id=&quot;1-对象生命周期&quot;&gt;&lt;a href=&quot;#1-对象生命周期&quot; class=&quot;headerlink&quot; title=&quot;1 对象生命周期&quot;&gt;&lt;/a&gt;1 对象生命周期&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息
     
     </summary>
     
