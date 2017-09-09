@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-09T03:54:06.000Z</updated>
+  <updated>2017-09-09T03:21:17.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -16,15 +16,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>1</title>
-    <link href="http://andyron.com/2017/1.html"/>
-    <id>http://andyron.com/2017/1.html</id>
-    <published>2017-09-09T03:54:06.000Z</published>
-    <updated>2017-09-09T03:54:06.000Z</updated>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/ios-js-2.html"/>
+    <id>http://andyron.com/2017/ios-js-2.html</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-09T03:21:17.000Z</updated>
     
     <summary type="html">
     
+      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
+    
     </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
     
   </entry>
@@ -40,24 +44,6 @@
     
       &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/ios-js-2.html"/>
-    <id>http://andyron.com/2017/ios-js-2.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
     
     </summary>
     
@@ -413,6 +399,23 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>OC基础学习7：内存管理</title>
+    <link href="http://andyron.com/2017/oc-basic-7.html"/>
+    <id>http://andyron.com/2017/oc-basic-7.html</id>
+    <published>2017-08-10T16:00:00.000Z</published>
+    <updated>2017-09-09T03:00:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-对象生命周期&quot;&gt;&lt;a href=&quot;#1-对象生命周期&quot; class=&quot;headerlink&quot; title=&quot;1 对象生命周期&quot;&gt;&lt;/a&gt;1 对象生命周期&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息
     
     </summary>
     
