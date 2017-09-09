@@ -1,0 +1,1425 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS, Swift" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="欣欣向戎" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="上一篇 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController 学习打开网页，这一篇学习使用CloudKit。 iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。最近几年才渐渐成长为云服务。如果想创建社交类型的，可以分享用户之间数据的app，就可考虑使用iCl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开始用Swift开发iOS 10 - 22 使用CloudKit">
+<meta property="og:url" content="http://andyron.com/2017/beginning-ios-swift-22.html">
+<meta property="og:site_name" content="欣欣向戎">
+<meta property="og:description" content="上一篇 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController 学习打开网页，这一篇学习使用CloudKit。 iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。最近几年才渐渐成长为云服务。如果想创建社交类型的，可以分享用户之间数据的app，就可考虑使用iCl">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-271ada8f864672e4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-68cb8e9332595e49.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-0f16ce57c7268d94.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-b0af4cf78fa868ab.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-929d3e98b233c2a4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-54a4ed56fa2a2766.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-5f5d452ac23eddc0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-5b27d653864e0020.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-946df9c5a53e0d8b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-3a7e86470d662419.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-14ca29c4d188f8cd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-606f9ac07e31a67c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a1d6e4767a14967c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-1e5a9c12db74e831.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d369d8ad2b139c4c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-6f6c48405320bed8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-746656f146872eb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-7b8444c49c67bd32.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-34c56759d8767f08.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-09T04:30:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开始用Swift开发iOS 10 - 22 使用CloudKit">
+<meta name="twitter:description" content="上一篇 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController 学习打开网页，这一篇学习使用CloudKit。 iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。最近几年才渐渐成长为云服务。如果想创建社交类型的，可以分享用户之间数据的app，就可考虑使用iCl">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-271ada8f864672e4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andyron.com/2017/beginning-ios-swift-22.html"/>
+
+
+
+
+
+  <title>开始用Swift开发iOS 10 - 22 使用CloudKit | 欣欣向戎</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e29ae2ff2bac53a3addad74e238d0108";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欣欣向戎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">AndyRon's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-22.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">开始用Swift开发iOS 10 - 22 使用CloudKit</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T00:00:00+08:00">
+                2017-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/beginning-ios-swift-22.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/beginning-ios-swift-22.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-271ada8f864672e4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>上一篇 <a href="http://www.jianshu.com/p/f27fbed06b08" target="_blank" rel="external">开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController</a> 学习打开网页，这一篇学习使用CloudKit。</p>
+<p>iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。<br>最近几年才渐渐成长为云服务。如果想创建社交类型的，可以分享用户之间数据的app，就可考虑使用iCloud，这样就不需要自己再去构建一个后端APIs了。虽然可能由于国内的网络环境，iCloud实际应用效果并不好，不过还是有必要学一下的🙂。</p>
+<p>如果开发了Web应用，同样也可以访问iOS应用的iCloud中数据。Apple分别提供了<code>CloudKit JS</code>和<code>CloudKit</code>库。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-68cb8e9332595e49.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><code>CloudKit</code>默认给我们的app提供一些免费的空间：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-0f16ce57c7268d94.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>当app的用户的活跃数提高，免费空间也会随之提高，详细可查看<a href="https://developer.apple.com/icloud/cloudkit/" target="_blank" rel="external">官网介绍</a>。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-b0af4cf78fa868ab.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="理解CloudKit框架"><a href="#理解CloudKit框架" class="headerlink" title="理解CloudKit框架"></a>理解CloudKit框架</h3><p><code>CloudKit</code>框架不仅提供了存储功能，还提供了开发者与iCloud之间的各种交互。<strong>Containers</strong>和<strong>database</strong>是<code>CloudKit</code>框架的基础元素。</p>
+<ul>
+<li>默认，一个app就是一个container，代码中就是<code>CKContainer</code>，一个container中包括三个database(<code>CKDatabase</code>)：<ul>
+<li>一个<em>public database</em>： app中所有用户都能查看</li>
+<li>一个<em>shared database</em>：app中一组用户能查看（iOS 10）</li>
+<li>一个<em>private database</em>：app中单个用户查看</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-929d3e98b233c2a4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Containers and Database"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-54a4ed56fa2a2766.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Record zones and Records"></p>
+<h3 id="为应用添加CloudKit"><a href="#为应用添加CloudKit" class="headerlink" title="为应用添加CloudKit"></a>为应用添加CloudKit</h3><ul>
+<li><p>首先需要开发者账号。</p>
+</li>
+<li><p>然后在<strong>Capabilities</strong>中打开iCloud。</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-5f5d452ac23eddc0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="在CloudKit-Dashboard中管理-Record"><a href="#在CloudKit-Dashboard中管理-Record" class="headerlink" title="在CloudKit Dashboard中管理 Record"></a>在CloudKit Dashboard中管理 Record</h3><ul>
+<li>点击上图中的<strong>CloudKit Dashboard</strong>，或者直接访问<a href="https://icloud.developer.apple.com/dashboard/" target="_blank" rel="external">https://icloud.developer.apple.com/dashboard/</a>。最新的<strong>CloudKit Dashboard</strong>的页面有了一些变化。首先进去的是应用列表（也就是container列表），点击一个就进入如下页面：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-5b27d653864e0020.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>点击Development的data，类似下面</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-946df9c5a53e0d8b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>选择<strong>Record Types</strong>（有点像关系数据中的表），创建新的类型<strong>Restaurant</strong>，并添加几个Field的。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-3a7e86470d662419.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>选择<strong>Records</strong>（类型表中的数据），添加几条数据，注意选择<em>public database</em>。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-14ca29c4d188f8cd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="使用-Convenience-API获取public-Database"><a href="#使用-Convenience-API获取public-Database" class="headerlink" title="使用 Convenience API获取public Database"></a>使用 Convenience API获取public Database</h3><p><code>CloudKit</code>提供两种APIs让开发与iCloud交互：the convenience API 和 the operational API。</p>
+<ul>
+<li><p>Convenience API的通常调用方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let cloudContainer = CKContainer.default()</div><div class="line">let publicDatabase = cloudContainer.publicCloudDatabase</div><div class="line">let predicate = NSPredicate(value: true)</div><div class="line">let query = CKQuery(recordType: &quot;Restaurant&quot;, predicate: predicate)</div><div class="line">publicDatabase.perform(query, inZoneWith: nil, completionHandler: &#123;</div><div class="line">            (results, error) -&gt; Void in</div><div class="line">// Process the records</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li><code>CKContainer.default()</code>获取应用的Container。</li>
+<li><code>publicCloudDatabase</code>表示默认的public database。</li>
+<li><code>NSPredicate</code>和<code>CKQuery</code>是搜索条件</li>
+</ul>
+</li>
+<li><p>新建<code>DiscoverTableViewController</code>，继承至<code>UITableViewController</code>，关联<code>discover.storyboard</code>中的table view的控制器； 并修改其prototype cell的<code>identifier</code>为<code>Cell</code>。</p>
+</li>
+<li><p>在<code>DiscoverTableViewController.swift</code>中加入<code>import CloudKit</code>，并定义一个<code>CKRecord</code>的数组变量：</p>
+<pre><code>var restaurants:[CKRecord] = []
+</code></pre></li>
+<li><p>添加获取Records的函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">func fetchRecordsFromCloud() &#123;</div><div class="line">    </div><div class="line">    let cloudContainer = CKContainer.default()</div><div class="line">    let publicDatabase = cloudContainer.publicCloudDatabase</div><div class="line">    let predicate = NSPredicate(value: true)</div><div class="line">    let query = CKQuery(recordType: &quot;Restaurant&quot;, predicate: predicate)</div><div class="line">    publicDatabase.perform(query, inZoneWith: nil, completionHandler: &#123;</div><div class="line">        (results, error) -&gt; Void in</div><div class="line">        </div><div class="line">        if error != nil &#123;</div><div class="line">            print(error)</div><div class="line">            return</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        if let results = results &#123;</div><div class="line">            print(&quot;Completed the download of Restaurant data&quot;)</div><div class="line">            self.restaurants = results</div><div class="line">            </div><div class="line">            OperationQueue.main.addOperation &#123;</div><div class="line">                self.spinner.stopAnimating()</div><div class="line">                self.tableView.reloadData()</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在<code>perform</code>中，当确定获取到了数据后，赋值给<code>restaurants</code>，并刷新table。</p>
+</li>
+<li><p>在<code>viewDidLoad</code>中添加： <code>fetchRecordsFromCloud()</code>。</p>
+</li>
+<li><p>添加table view相关代理方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">override func numberOfSections(in tableView: UITableView) -&gt; Int &#123;</div><div class="line">    return 1</div><div class="line">&#125;</div><div class="line"></div><div class="line">override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;</div><div class="line">    return restaurants.count</div><div class="line">&#125;</div><div class="line"></div><div class="line">override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</div><div class="line">    let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for:</div><div class="line">indexPath)</div><div class="line">    // Configure the cell...</div><div class="line">    let restaurant = restaurants[indexPath.row]</div><div class="line">    cell.textLabel?.text = restaurant.object(forKey: &quot;name&quot;) as? String</div><div class="line">    if let image = restaurant.object(forKey: &quot;image&quot;) &#123;</div><div class="line">        let imageAsset = image as! CKAsset</div><div class="line">        if let imageData = try? Data.init(contentsOf: imageAsset.fileURL) &#123;</div><div class="line">            cell.imageView?.image = UIImage(data: imageData)</div><div class="line">        &#125; </div><div class="line">    &#125;</div><div class="line">    return cell</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>object(forKey:)</code>是<code>CKRecord</code>中获取Record Field值的方法。</li>
+<li>图片对象转换为<code>CKAsset</code>。</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-606f9ac07e31a67c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="为什么慢？"><a href="#为什么慢？" class="headerlink" title="为什么慢？"></a>为什么慢？</h3><p>测试以上代码，发现<code>fetchRecordsFromCloud</code>函数中的打印信息”Completed the download of Restaurant data”已经显示在控制台了，但是还需要过一段时间App中才能显示，也就是说向iCloud中获取完数据后才开始准备table view加载。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-a1d6e4767a14967c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这边就需要使用到<strong>多线程</strong>的概念。在iOS中，UI更新（像table重新加载）必须在主线程执行。这样获取iCloud数据的线程在进行时，UI更新也在同步进行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">OperationQueue.main.addOperation &#123;</div><div class="line">    self.tableView.reloadData()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用operational-API获取public-Database"><a href="#使用operational-API获取public-Database" class="headerlink" title="使用operational  API获取public Database"></a>使用operational  API获取public Database</h3><p><strong> Convenience API</strong>只适合简单和少量的查询。</p>
+<ul>
+<li><p>更新<code>fetchRecordsFromCloud</code>方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">func fetchRecordsFromCloud() &#123;</div><div class="line">    </div><div class="line">    let cloudContainer = CKContainer.default()</div><div class="line">    let publicDatabase = cloudContainer.publicCloudDatabase</div><div class="line">    let predicate = NSPredicate(value: true)</div><div class="line">    let query = CKQuery(recordType: &quot;Restaurant&quot;, predicate: predicate)</div><div class="line">    // Create the query operation with the query</div><div class="line">    let queryOperation = CKQueryOperation(query: query)</div><div class="line">    queryOperation.desiredKeys = [&quot;name&quot;, &quot;image&quot;]</div><div class="line">    queryOperation.queuePriority = .veryHigh</div><div class="line">    queryOperation.resultsLimit = 50</div><div class="line">    queryOperation.recordFetchedBlock = &#123; (record) -&gt; Void in</div><div class="line">        self.restaurants.append(record)</div><div class="line">    &#125;</div><div class="line">    queryOperation.queryCompletionBlock = &#123; (cursor, error) -&gt; Void in</div><div class="line">        if let error = error &#123;</div><div class="line">            print(&quot;Failed to get data from iCloud - \(error.localizedDescription)&quot;)</div><div class="line">            return</div><div class="line">        &#125;</div><div class="line">        print(&quot;Successfully retrieve the data from iCloud&quot;)</div><div class="line">        OperationQueue.main.addOperation &#123;</div><div class="line">            self.tableView.reloadData()</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    // Execute the query</div><div class="line">    publicDatabase.add(queryOperation)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>通过<code>CKQueryOperation</code>代替<code>perform</code>方法,它提供了许多查询选项。</li>
+<li><code>desiredKeys</code>代表需要查询的字段。</li>
+<li><code>resultsLimit</code>代表依次查询最大Record数目</li>
+</ul>
+</li>
+</ul>
+<h3 id="加载指示（菊花转）"><a href="#加载指示（菊花转）" class="headerlink" title="加载指示（菊花转）"></a>加载指示（菊花转）</h3><ul>
+<li><p>可以在<code>viewDidLoad</code>中添加类型如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let spinner:UIActivityIndicatorView = UIActivityIndicatorView()</div><div class="line">spinner.activityIndicatorViewStyle = .gray</div><div class="line">spinner.center = view.center</div><div class="line">spinner.hidesWhenStopped = true</div><div class="line">view.addSubview(spinner)</div><div class="line">spinner.startAnimating()</div></pre></td></tr></table></figure>
+</li>
+<li><p>也可以通过在<code>discover.storyboard</code>中添加：</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-1e5a9c12db74e831.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>添加完发现<strong> activity indicator view</strong>在控制器上面，这在Xcode中叫<strong>The Extra Views</strong><br><img src="http://upload-images.jianshu.io/upload_images/1678135-d369d8ad2b139c4c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在<code>DiscoverTableViewController</code>中添加接口，并关联。</p>
+<pre><code>@IBOutlet var spinner: UIActivityIndicatorView!
+</code></pre><p>在<code>viewDidLoad</code>中添加代码：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">spinner.hidesWhenStopped = true</div><div class="line">spinner.center = view.center</div><div class="line">tableView.addSubview(spinner)</div><div class="line">spinner.startAnimating()</div></pre></td></tr></table></figure></p>
+<ul>
+<li>数据加载完要隐藏加载提示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">OperationQueue.main.addOperation &#123;</div><div class="line">  self.spinner.stopAnimating()</div><div class="line">  self.tableView.reloadData()</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="懒加载图片"><a href="#懒加载图片" class="headerlink" title="懒加载图片"></a>懒加载图片</h3><p>懒加载图片就是先加载一个本地默认图片，暂时不加载远程图片，当图片准备好在去更新图片视图。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-6f6c48405320bed8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>修改请求字段<code>desireKeys</code>，让开始时不加图片:  <code>queryOperation.desiredKeys = [&quot;name&quot;]</code></p>
+</li>
+<li><p>更新 <code>tableView(_:cellForRowAt:)</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</div><div class="line">    let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for: indexPath)</div><div class="line">    </div><div class="line">    let restaurant = restaurants[indexPath.row]</div><div class="line">    cell.textLabel?.text = restaurant.object(forKey: &quot;name&quot;) as? String</div><div class="line">    </div><div class="line">    </div><div class="line">    // Set the default image</div><div class="line">    cell.imageView?.image = UIImage(named: &quot;photoalbum&quot;)</div><div class="line">    // Fetch Image from Cloud in background</div><div class="line">    let publicDatabase = CKContainer.default().publicCloudDatabase</div><div class="line">    let fetchRecordsImageOperation = CKFetchRecordsOperation(recordIDs:[restaurant.recordID])</div><div class="line">    fetchRecordsImageOperation.desiredKeys = [&quot;image&quot;]</div><div class="line">    fetchRecordsImageOperation.queuePriority = .veryHigh</div><div class="line">    fetchRecordsImageOperation.perRecordCompletionBlock = &#123; (record, recordID, error) -&gt; Void in</div><div class="line">        if let error = error &#123;</div><div class="line">            print(&quot;Failed to get restaurant image: \(error.localizedDescription)&quot;)</div><div class="line">            return</div><div class="line">        &#125;</div><div class="line">        if let restaurantRecord = record &#123;</div><div class="line">            OperationQueue.main.addOperation() &#123;</div><div class="line">                if let image = restaurantRecord.object(forKey: &quot;image&quot;) &#123;</div><div class="line">                    let imageAsset = image as! CKAsset</div><div class="line">                    print(imageAsset.fileURL)</div><div class="line">                    if let imageData = try? Data.init(contentsOf:</div><div class="line">                        imageAsset.fileURL) &#123;</div><div class="line">                        cell.imageView?.image = UIImage(data: imageData)</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    publicDatabase.add(fetchRecordsImageOperation)</div><div class="line">    return cell</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>CKFetchRecordsOperation</code>通过<code>recordID</code>获得特定的Record。</li>
+<li><code>CKFetchRecordsOperation</code>一些方法类似<code>CKQueryOperation</code>。</li>
+</ul>
+</li>
+</ul>
+<p>懒加载后发现，图片在其它视图显示后慢慢先后加载显示。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-746656f146872eb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3><p><code>UIRefreshControl</code>提供了标准的下拉刷新特性。</p>
+<ul>
+<li>在<code>DiscoverTableViewController</code>的<code>viewDidLoad</code>中添加：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// Pull To Refresh Control</div><div class="line">refreshControl = UIRefreshControl()</div><div class="line">refreshControl?.backgroundColor = UIColor.white</div><div class="line">refreshControl?.tintColor = UIColor.gray</div><div class="line">refreshControl?.addTarget(self, action: #selector(fetchRecordsFromCloud), for: UIControlEvents.valueChanged)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>每一次下拉是显示菊花转，并且调用<code>fetchRecordsFromCloud</code>方法。</p>
+<ul>
+<li><p>在<code>fetchRecordsFromCloud</code>方法的<code>queryCompletionBlock</code>添加数据加载完成后去除菊花转代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if let refreshControl = self.refreshControl &#123;</div><div class="line">    if refreshControl.isRefreshing &#123;</div><div class="line">        refreshControl.endRefreshing()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>刷新会出现重复数据，要在<code>fetchRecordsFromCloud</code>方法开始时，清理数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">restaurants.removeAll()</div><div class="line">tableView.reloadData()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="使用CloudKit保存数据到iCloud"><a href="#使用CloudKit保存数据到iCloud" class="headerlink" title="使用CloudKit保存数据到iCloud"></a>使用CloudKit保存数据到iCloud</h3><p><code>CKDatabase</code>的<code>save(_:completionHandler:)</code>的方法可用来保存数据到iCloud。<br>实现用户新加数据时，既保存在本地的Core Data，有保存在iCloud中。</p>
+<ul>
+<li>在<code>AddRestaurantController</code>中添加：<code>import CloudKit</code>。</li>
+<li><p>在<code>AddRestaurantController</code>添加方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">// 保存到Core Data的同时也保存的iCloud中</div><div class="line">func saveRecordToCloud(restaurant:RestaurantMO!) -&gt; Void &#123;</div><div class="line">    // Prepare the record to save</div><div class="line">    let record = CKRecord(recordType: &quot;Restaurant&quot;)</div><div class="line">    record.setValue(restaurant.name, forKey: &quot;name&quot;)</div><div class="line">    record.setValue(restaurant.type, forKey: &quot;type&quot;)</div><div class="line">    record.setValue(restaurant.location, forKey: &quot;location&quot;)</div><div class="line">    record.setValue(restaurant.phone, forKey: &quot;phone&quot;)</div><div class="line">    let imageData = restaurant.image as! Data</div><div class="line">    // Resize the image</div><div class="line">    let originalImage = UIImage(data: imageData)!</div><div class="line">    let scalingFactor = (originalImage.size.width &gt; 1024) ? 1024 /</div><div class="line">        originalImage.size.width : 1.0</div><div class="line">    let scaledImage = UIImage(data: imageData, scale: scalingFactor)!</div><div class="line">    // Write the image to local file for temporary use</div><div class="line">    let imageFilePath = NSTemporaryDirectory() + restaurant.name!</div><div class="line">    let imageFileURL = URL(fileURLWithPath: imageFilePath)</div><div class="line">    try? UIImageJPEGRepresentation(scaledImage, 0.8)?.write(to: imageFileURL)</div><div class="line">    // Create image asset for upload</div><div class="line">    let imageAsset = CKAsset(fileURL: imageFileURL)</div><div class="line">    record.setValue(imageAsset, forKey: &quot;image&quot;)</div><div class="line">    // Get the Public iCloud Database</div><div class="line">    let publicDatabase = CKContainer.default().publicCloudDatabase</div><div class="line">    // Save the record to iCloud</div><div class="line">    publicDatabase.save(record, completionHandler: &#123; (record, error) -&gt; Void in</div><div class="line">        try? FileManager.default.removeItem(at: imageFileURL)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>save</code>方法的<code>dismiss(animated:completion:)</code>的前面添加：</p>
+<pre><code>saveRecordToCloud(restaurant: restaurant)
+</code></pre></li>
+</ul>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p><code>CKQuery</code>有属性<code>sortDescriptors</code>可用来排序。<br>在<code>DiscoverTableViewController</code>的<code>fetchRecordsFromCloud</code>方法，query定义后添加：</p>
+<pre><code>query.sortDescriptors = [NSSortDescriptor(key: &quot;creationDate&quot;, ascending: false)]
+</code></pre><p><code>creationDate</code>是默认的创建时间字段。</p>
+<h3 id="Exercise：修改Discover样式"><a href="#Exercise：修改Discover样式" class="headerlink" title="Exercise：修改Discover样式"></a>Exercise：修改Discover样式</h3><p><img src="http://upload-images.jianshu.io/upload_images/1678135-7b8444c49c67bd32.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>新建一个<code>DiscoverTableViewCell</code>，继承至<code>UITableViewCell</code>，并关联Discover的cell。</li>
+<li>修改cell合适的样式，比如下面</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-34c56759d8767f08.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>在<code>DiscoverTableViewCell</code>中新建四个接口，并关联。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@IBOutlet var nameLabel: UILabel!</div><div class="line">@IBOutlet var locationLabel: UILabel!</div><div class="line">@IBOutlet var typeLabel: UILabel!</div><div class="line">@IBOutlet var thumbnailImageView: UIImageView!</div></pre></td></tr></table></figure>
+</li>
+<li><p>更新<code>tableView(_:cellForRowAt:)</code>和<code>fetchRecordsFromCloud</code>相关代码</p>
+</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="external">Beginning-iOS-Programming-with-Swift</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="AndyRon wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您访问我的的微信公众号：欣欣向戎（微信号: andy_ron1587 ）！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2017/beginning-ios-swift-22.html" title="开始用Swift开发iOS 10 - 22 使用CloudKit">http://andyron.com/2017/beginning-ios-swift-22.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/beginning-ios-swift-21.html" rel="next" title="开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController">
+                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/beginning-ios-swift-24.html" rel="prev" title="开始用Swift开发iOS 10 - 24 使用TestFlight进行Beta测试">
+                开始用Swift开发iOS 10 - 24 使用TestFlight进行Beta测试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="AndyRon" />
+          <p class="site-author-name" itemprop="name">AndyRon</p>
+           
+              <p class="site-description motion-element" itemprop="description">Just for fun.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/andyRon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/efce1a2a95ab" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AndyMRon" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/andyronm" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://500px.com/andymron" target="_blank" title="500px">
+                  
+                    <i class="fa fa-fw fa-500px"></i>
+                  
+                  500px
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解CloudKit框架"><span class="nav-number">1.</span> <span class="nav-text">理解CloudKit框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为应用添加CloudKit"><span class="nav-number">2.</span> <span class="nav-text">为应用添加CloudKit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在CloudKit-Dashboard中管理-Record"><span class="nav-number">3.</span> <span class="nav-text">在CloudKit Dashboard中管理 Record</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Convenience-API获取public-Database"><span class="nav-number">4.</span> <span class="nav-text">使用 Convenience API获取public Database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么慢？"><span class="nav-number">5.</span> <span class="nav-text">为什么慢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用operational-API获取public-Database"><span class="nav-number">6.</span> <span class="nav-text">使用operational  API获取public Database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载指示（菊花转）"><span class="nav-number">7.</span> <span class="nav-text">加载指示（菊花转）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒加载图片"><span class="nav-number">8.</span> <span class="nav-text">懒加载图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下拉刷新"><span class="nav-number">9.</span> <span class="nav-text">下拉刷新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用CloudKit保存数据到iCloud"><span class="nav-number">10.</span> <span class="nav-text">使用CloudKit保存数据到iCloud</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">11.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise：修改Discover样式"><span class="nav-number">12.</span> <span class="nav-text">Exercise：修改Discover样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">13.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">14.</span> <span class="nav-text">说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-bug"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AndyRon</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2017/beginning-ios-swift-22.html';
+          this.page.identifier = '2017/beginning-ios-swift-22.html';
+          this.page.title = '开始用Swift开发iOS 10 - 22 使用CloudKit';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

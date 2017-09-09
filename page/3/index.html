@@ -322,7 +322,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-6.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-7.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -341,7 +341,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/oc-basic-6.html" itemprop="url">OC基础学习6：Fondation-Kit介绍</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-7.html" itemprop="url">OC基础学习7：内存管理</a></h1>
         
 
         <div class="post-meta">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T00:00:00+08:00">
-                2017-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T00:00:00+08:00">
+                2017-08-11
               </time>
             
 
@@ -364,28 +364,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -394,9 +372,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-6.html#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-7.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-6.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-7.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -423,13 +401,16 @@
       
         
           
-          12macOS -&gt; Cocoa       -&gt; Foundation, AppKitiOS   -&gt; Cocoa Touch -&gt; Foundation, UIKit(UIView, UIController)
-Foundation框架的基础是CoreFoundation（C语言），如果函数或变量是以CF开头，就是CoreFoundation框架中的。
-Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSRange
+          1 对象生命周期
+诞生（通过alloc或new方法实现） -&gt; 生存（接收消息并执行操作） -&gt; 交友（通过复合以及向方法传递参数） -&gt; 死去（被释放掉）
+
+引用计数(reference counting) / 保留计数(retain counting)
+alloc, new, copy: 创建对象，保留计数被设置为1
+retain: 保留计数加1。如[[car retain] setTire: tire atIndex:2];表示要求car对象将其保留计数的值加1并执行se
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/oc-basic-6.html#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-7.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -475,7 +456,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-2.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-26.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -494,7 +475,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/oc-basic-2.html" itemprop="url">OC基础学习2：面向对象编程的基础知识</a></h1>
+                <a class="post-title-link" href="/2017/beginning-ios-swift-26.html" itemprop="url">开始用Swift开发iOS 10 - 26 使用本地用户通知</a></h1>
         
 
         <div class="post-meta">
@@ -506,8 +487,8 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T00:00:00+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-07T00:00:00+08:00">
+                2017-08-07
               </time>
             
 
@@ -529,8 +510,8 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
                   </a>
                 </span>
 
@@ -547,9 +528,9 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-2.html#comments" itemprop="discussionUrl">
+                <a href="/2017/beginning-ios-swift-26.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-2.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/beginning-ios-swift-26.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -576,31 +557,19 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
       
         
           
-          间接(indirection)
-“只要再多添加一层间接，计算机科学中就没有解决不了的问题。”
+          
+iOS 10 之前用户通知相对而言是简单的，iOS 10让用户通知更加丰富了，可以有静态图片，动态gif，视频，音频等。
 
+用户通知可以出现在通知中心，主屏，锁屏时，当用户错过了用户通知时，可以在通知中心查看。
 
-例子
-电话薄
-让他人代替你自己去完成工作
-编写一段代码来查询其他代码，并通过它继续访问另一层代码。
-推诿
+用户通知分为两类：
 
-
-变量与间接
-使用文件名的间接
-
-在面向对象编程中使用间接
-使用间接来调用代码，不是直接调用某个函数，而是间接调用。 
-
-
-过程式编程(Procedual Programming)
-
-1234567891011121314151617181920212223242526272829303132
+本地通知。  是通过应用本身和用户设备本身触发的。比如：基于用户位置的app，在用户进入某个特殊区域发送通知；to-do list的app在某些特定时间发送通知。
+远程通知。 是远程服务器端首先向苹果推送服务器（Apple Push Notification S
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/oc-basic-2.html#more" rel="contents">
+            <a class="btn" href="/2017/beginning-ios-swift-26.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -646,7 +615,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-5.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-25.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -665,7 +634,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/oc-basic-5.html" itemprop="url">OC基础学习5：源文件组织</a></h1>
+                <a class="post-title-link" href="/2017/beginning-ios-swift-25.html" itemprop="url">开始用Swift开发iOS 10 - 25 使用3D Touch</a></h1>
         
 
         <div class="post-meta">
@@ -677,8 +646,8 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T00:00:00+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T00:00:00+08:00">
+                2017-08-06
               </time>
             
 
@@ -700,8 +669,8 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
                   </a>
                 </span>
 
@@ -718,9 +687,9 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-5.html#comments" itemprop="discussionUrl">
+                <a href="/2017/beginning-ios-swift-25.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-5.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/beginning-ios-swift-25.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -747,17 +716,21 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
       
         
           
-          将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。
-拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：
+          
+接着上一篇 开始用Swift开发iOS 10 - 24 使用TestFlight进行Beta测试 ，这一篇学习使用3D Touch。
+自从iPhone 6s和iPhone 6s Plus开始，Apple介绍了一种新的交互方式就是3D Touch。这新的特性需要硬件的支持，是iPhone屏幕不仅能感应到触摸，还能感应到压力。
+现在3D Touch主要有三类交互方式：
 
-接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。
-实现部分(.m): 类的@implementation指令、全局变量的定义、私有struct等。
+Quick Action ：点击应用图标后的快捷操作。👇是例子：
 
-另外，复杂的项目可以拥有多个目标，它们源文件的配置各不相同，构建规则也不
+
+
+
+Peek(preview) 和 Pop(commit
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/oc-basic-5.html#more" rel="contents">
+            <a class="btn" href="/2017/beginning-ios-swift-25.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -803,7 +776,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-3-inheritance.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-24.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -822,7 +795,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/oc-basic-3-inheritance.html" itemprop="url">OC基础学习3：继承(inheritance)</a></h1>
+                <a class="post-title-link" href="/2017/beginning-ios-swift-24.html" itemprop="url">开始用Swift开发iOS 10 - 24 使用TestFlight进行Beta测试</a></h1>
         
 
         <div class="post-meta">
@@ -834,8 +807,8 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T00:00:00+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-05T00:00:00+08:00">
+                2017-08-05
               </time>
             
 
@@ -857,8 +830,8 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
                   </a>
                 </span>
 
@@ -875,9 +848,9 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-3-inheritance.html#comments" itemprop="discussionUrl">
+                <a href="/2017/beginning-ios-swift-24.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-3-inheritance.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/beginning-ios-swift-24.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -905,31 +878,13 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
         
           
           
-为何使用继承
-UML(Unified Modeling Language, 统一建模语言) 是一种用图表来表示类、类的内容以及它们之间关系。
-将重复的代码合并到一处。
-
-
-继承的语法格式
-只能继承一个
-只有代码精简，bug才无处藏身
-没有声明实例变量时可以省略花括号
-相关术语
-refactoring (重构)
-superclass
-parent class
-subclass
-child class
-override
-
-
-
-
-继承的工作机制OOP一个强大之处：可以对一个程序做一些重大改变，程序仍
+Beta测试是在产品发布之前所进行的软件测试活动，它是技术测试的最后一个阶段，通过了验收测试，产品就会进入发布阶段。
+在iOS 8 时，Apple发布TestFlight用于Beta测试。之前TestFlight一直是独立用户mobile app测试的mobile平台，在2014年2月，Apple收购的TestFlight母公司Burstly。现在TestFlight已经集成到iTunes Connect中，允许开发只通过邮件地址邀请Beta测试用户。
+在iTunes Connect中创建一个
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/oc-basic-3-inheritance.html#more" rel="contents">
+            <a class="btn" href="/2017/beginning-ios-swift-24.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -975,7 +930,7 @@ override
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-4-composition.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-22.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -994,7 +949,7 @@ override
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/oc-basic-4-composition.html" itemprop="url">OC基础学习4：复合（composition）</a></h1>
+                <a class="post-title-link" href="/2017/beginning-ios-swift-22.html" itemprop="url">开始用Swift开发iOS 10 - 22 使用CloudKit</a></h1>
         
 
         <div class="post-meta">
@@ -1006,8 +961,8 @@ override
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T00:00:00+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T00:00:00+08:00">
+                2017-08-04
               </time>
             
 
@@ -1029,8 +984,8 @@ override
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
                   </a>
                 </span>
 
@@ -1047,9 +1002,9 @@ override
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-4-composition.html#comments" itemprop="discussionUrl">
+                <a href="/2017/beginning-ios-swift-22.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-4-composition.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/beginning-ios-swift-22.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1076,12 +1031,13 @@ override
       
         
           
-          复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&#123;    Engine *engine;    Tire *tires[4];&#125;* (void)print;@end //Car
-自定义NSLog()NSLog()使用%@格式说明符表示输出对象，也就是NSLog()会给这个对象发送
+          
+上一篇 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController 学习打开网页，这一篇学习使用CloudKit。
+iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。最近几年才渐渐成长为云服务。如果想创建社交类型的，可以分享用户之间数据的app，就可考虑使用iCloud，这样就不需要自己再去构建一个后端APIs了。虽然可能由于国内的网络环境，iCloud实际应用
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/oc-basic-4-composition.html#more" rel="contents">
+            <a class="btn" href="/2017/beginning-ios-swift-22.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1127,7 +1083,7 @@ override
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-1-c.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-21.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1146,7 +1102,7 @@ override
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/oc-basic-1-c.html" itemprop="url">OC基础学习1：对C的扩展</a></h1>
+                <a class="post-title-link" href="/2017/beginning-ios-swift-21.html" itemprop="url">开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController</a></h1>
         
 
         <div class="post-meta">
@@ -1158,8 +1114,8 @@ override
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">
-                2017-07-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-03T00:00:00+08:00">
+                2017-08-03
               </time>
             
 
@@ -1181,8 +1137,8 @@ override
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
                   </a>
                 </span>
 
@@ -1199,9 +1155,9 @@ override
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-1-c.html#comments" itemprop="discussionUrl">
+                <a href="/2017/beginning-ios-swift-21.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-1-c.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/beginning-ios-swift-21.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1228,15 +1184,15 @@ override
       
         
           
-          分析最简单的Hello Objective-C程序1234567#import &lt;Foundation/Foundation.h&gt;int main(int argc, const char * argv[]) &#123;        NSLog(@&quot;Hello, World!&quot;);    return 0;&#125; // main
+          上一篇开始用Swift开发iOS 10 - 20 使用Tab Bar Controller 和 拆分Storyboard学习了工具栏和Storyboard的拆分，这一篇学习怎么在app中显示网页内容。由于原书中使用了的网站在国内不好访问，我就用了我的简书、博客、Github代替🙂。
+设计about view
+下载图片拖进Assets.xcasset。
 
-OC本质上就是C语言，它用来声明main()和返回数值的语法和C语言是一样的。
-扩展名.m代表message
-与C类似，OC
+打开about.storyboard，拖进一个Image View到table view header，height为190，image为ab
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/oc-basic-1-c.html#more" rel="contents">
+            <a class="btn" href="/2017/beginning-ios-swift-21.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1282,7 +1238,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-6-quicklook.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-20.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1301,7 +1257,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/ios-tutorial-6-quicklook.html" itemprop="url">iOS tutorial 6：使用Quick Look框架预览文件(Swift)</a></h1>
+                <a class="post-title-link" href="/2017/beginning-ios-swift-20.html" itemprop="url">开始用Swift开发iOS 10 - 20 使用Tab Bar Controller 和 拆分Storyboard</a></h1>
         
 
         <div class="post-meta">
@@ -1313,8 +1269,162 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T00:00:00+08:00">
-                2017-07-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T00:00:00+08:00">
+                2017-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/beginning-ios-swift-20.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/beginning-ios-swift-20.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+上一篇 开始用Swift开发iOS 10 - 19 使用UIPageViewController构建介绍页面构建了开始介绍页面，这一篇学习使用Tab Bar Controller和拆分Storyboard。
+创建 Tab Bar Controller
+选择开始的Navigation Controller，Editor &gt; Embed in &gt; Tab Bar Controller，然后自动添加一个新的Tab Bar Controller 作为初始的控制器，之前Navigation 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/beginning-ios-swift-20.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-7-xml.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/ios-tutorial-7-xml.html" itemprop="url">iOS-tutorial-7：解析XML(swift)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-31T00:00:00+08:00">
+                2017-07-31
               </time>
             
 
@@ -1365,9 +1475,9 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/ios-tutorial-6-quicklook.html#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-tutorial-7-xml.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/ios-tutorial-6-quicklook.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-tutorial-7-xml.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1393,20 +1503,10 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
 
       
         
-          <p>iOS SDK中有很多不常见，却非常好用的库，Quick Look框架就是一个非常好的例子。Quick Look框架提供了预览很多不同类型文件的功能，而不需要打开不同的APP查看，有点像Mac中的空格键功能。</p>
-<p>Quick Look框架可以预览的文件类型：</p>
-<ul>
-<li>iWork documents (Pages, Numbers and Keynote)</li>
-<li>Microsoft Office documents (as long as they’ve been created with Office 97 or any other newer version)</li>
-<li>PDF files</li>
-<li>Images</li>
-<li>Text files</li>
-<li>Rich-Text Format documents</li>
-<li>Comma-Separated Value files (csv)</li>
-</ul>
+          <p>使用<code>XMLParser</code>解析XML文件，然后用table展示数据。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/ios-tutorial-6-quicklook.html#more" rel="contents">
+            <a class="btn" href="/2017/ios-tutorial-7-xml.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1452,7 +1552,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-4-calayer.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-18.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1471,7 +1571,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/ios-tutorial-4-calayer.html" itemprop="url">iOS tutorial 4：CALayer介绍(swift)</a></h1>
+                <a class="post-title-link" href="/2017/beginning-ios-swift-18.html" itemprop="url">开始用Swift开发iOS 10 - 18 Search Bar 和 UISearchController</a></h1>
         
 
         <div class="post-meta">
@@ -1483,8 +1583,8 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T00:00:00+08:00">
-                2017-07-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T00:00:00+08:00">
+                2017-07-30
               </time>
             
 
@@ -1506,19 +1606,8 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/iOS-tutorial/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS tutorial</span>
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
                   </a>
                 </span>
 
@@ -1535,9 +1624,9 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/ios-tutorial-4-calayer.html#comments" itemprop="discussionUrl">
+                <a href="/2017/beginning-ios-swift-18.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/ios-tutorial-4-calayer.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/beginning-ios-swift-18.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1563,11 +1652,13 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
 
       
         
-          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>Layers是<strong>Core Animation Framework</strong>的一部分。<strong>Core Animation Framework</strong>在iOS架构的位置：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-d21f3bd827131d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+          
+          上一篇 开始用Swift开发iOS 10 - 17 使用Core Data 是使用Core Data存储数据，这一篇是添加搜索功能。
+使用 UISearchControllerUISearchController是一个简洁的创建搜索条和管理搜索结果的API。通常情况下，为以table为基础的app添加搜索条只需要下面三行代码就可以了，searchResultsController为nil时搜索结果显示就在当前搜索的页面以当前的样式显示。123searchController = UISearch
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/ios-tutorial-4-calayer.html#more" rel="contents">
+            <a class="btn" href="/2017/beginning-ios-swift-18.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1613,7 +1704,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-5.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-19.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1632,7 +1723,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/ios-tutorial-5.html" itemprop="url">iOS tutorial 5：关于地理定位和特定区域(Swift)</a></h1>
+                <a class="post-title-link" href="/2017/beginning-ios-swift-19.html" itemprop="url">开始用Swift开发iOS 10 - 19 使用UIPageViewController构建介绍页面</a></h1>
         
 
         <div class="post-meta">
@@ -1644,8 +1735,8 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T00:00:00+08:00">
-                2017-07-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T00:00:00+08:00">
+                2017-07-30
               </time>
             
 
@@ -1667,19 +1758,8 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/iOS-tutorial/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS tutorial</span>
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
                   </a>
                 </span>
 
@@ -1696,9 +1776,9 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/ios-tutorial-5.html#comments" itemprop="discussionUrl">
+                <a href="/2017/beginning-ios-swift-19.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/ios-tutorial-5.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/beginning-ios-swift-19.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1724,172 +1804,19 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
 
       
         
-          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-a63552e89efd1228.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>用户带着iPhone进入某个区域，并在某些区域待多久在开发肯能会有很大用处。</p>
+          
+          
+继续上一篇 开始用Swift开发iOS 10 - 18 Search Bar 和 UISearchController ，这一篇使用UIPageViewController构建介绍页面，与使用LaunchScreen.storyboard的启动页不同。
+向Storyboard中添加UIPageViewController
+在Storyboard拖进一个UIPageViewController。修改相关属性。
+
+
+
+修改UIPageViewController的 storyboard ID 为 
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/ios-tutorial-5.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-3-speechframework.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/ios-tutorial-3-speechframework.html" itemprop="url">iOS tutorial 3：Speech Framework的简单使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T00:00:00+08:00">
-                2017-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/iOS-tutorial/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS tutorial</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/ios-tutorial-3-speechframework.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/ios-tutorial-3-speechframework.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-c43c2495b3351f65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>在WWDC 2016时，Apple介绍了<a href="https://developer.apple.com/videos/play/wwdc2016/509/" target="_blank" rel="external"><strong>Speech framework</strong></a>，这是一个很有用的声音识别框架。实际上这是利用<strong>Siri</strong>进行声音识别。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/ios-tutorial-3-speechframework.html#more" rel="contents">
+            <a class="btn" href="/2017/beginning-ios-swift-19.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1930,7 +1857,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1975,7 +1902,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1986,7 +1913,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

@@ -1,0 +1,1349 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS, Swift" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="欣欣向戎" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。 数据持久化一般是指数据库保存。在Web开发中，常用Oracle或MySQL等关系数据库来保存数据，通过SQL语句查">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开始用Swift开发iOS 10 - 17 使用Core Data">
+<meta property="og:url" content="http://andyron.com/2017/beginning-ios-swift-17.html">
+<meta property="og:site_name" content="欣欣向戎">
+<meta property="og:description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。 数据持久化一般是指数据库保存。在Web开发中，常用Oracle或MySQL等关系数据库来保存数据，通过SQL语句查">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-38994d792af672c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c3f3fde637365209.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-8edbb125c0dce5bb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-cfddbba122cd7162.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d415843ca839a9ae.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c4ceb3fea6219e1d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-1064dc6026eeae13.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c233887fdfdfe337.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-6d200f9148f75ffc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-09T04:32:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开始用Swift开发iOS 10 - 17 使用Core Data">
+<meta name="twitter:description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。 数据持久化一般是指数据库保存。在Web开发中，常用Oracle或MySQL等关系数据库来保存数据，通过SQL语句查">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-38994d792af672c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andyron.com/2017/beginning-ios-swift-17.html"/>
+
+
+
+
+
+  <title>开始用Swift开发iOS 10 - 17 使用Core Data | 欣欣向戎</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e29ae2ff2bac53a3addad74e238d0108";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欣欣向戎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">AndyRon's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-17.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">开始用Swift开发iOS 10 - 17 使用Core Data</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T00:00:00+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/beginning-ios-swift-17.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/beginning-ios-swift-17.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-38994d792af672c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>上一篇 <a href="http://www.jianshu.com/p/ba6f340c62bf" target="_blank" rel="external">开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint</a> 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。</p>
+<p>数据持久化一般是指数据库保存。在Web开发中，常用Oracle或MySQL等关系数据库来保存数据，通过SQL语句查询。在iOS中对应的数据库是SQLite。Core Data不是数据库，它是让开发者通过面向对象方式与数据库进行交互的库。</p>
+<h3 id="使用Core-Data的例子"><a href="#使用Core-Data的例子" class="headerlink" title="使用Core Data的例子"></a>使用Core Data的例子</h3><p>新建一个使用Core Data的项目，在<code>AppDelegate</code>类中会比平常多了一个变量和一方法，另外还多了一个文件<code>CoreDataDemo.xcdatamodeld</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c3f3fde637365209.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">lazy var persistentContainer: NSPersistentContainer = &#123;</div><div class="line">    /*</div><div class="line">     The persistent container for the application. This implementation</div><div class="line">     creates and returns a container, having loaded the store for the</div><div class="line">     application to it. This property is optional since there are legitimate</div><div class="line">     error conditions that could cause the creation of the store to fail.</div><div class="line">    */</div><div class="line">    let container = NSPersistentContainer(name: &quot;CoreDataDemo&quot;)</div><div class="line">    container.loadPersistentStores(completionHandler: &#123; (storeDescription, error) in</div><div class="line">        if let error = error as NSError? &#123;</div><div class="line">            // Replace this implementation with code to handle the error appropriately.</div><div class="line">            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.</div><div class="line">             </div><div class="line">            /*</div><div class="line">             Typical reasons for an error here include:</div><div class="line">             * The parent directory does not exist, cannot be created, or disallows writing.</div><div class="line">             * The persistent store is not accessible, due to permissions or data protection when the device is locked.</div><div class="line">             * The device is out of space.</div><div class="line">             * The store could not be migrated to the current model version.</div><div class="line">             Check the error message to determine what the actual problem was.</div><div class="line">             */</div><div class="line">            fatalError(&quot;Unresolved error \(error), \(error.userInfo)&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    return container</div><div class="line">&#125;()</div><div class="line"></div><div class="line">// MARK: - Core Data Saving support</div><div class="line"></div><div class="line">func saveContext () &#123;</div><div class="line">    let context = persistentContainer.viewContext</div><div class="line">    if context.hasChanges &#123;</div><div class="line">        do &#123;</div><div class="line">            try context.save()</div><div class="line">        &#125; catch &#123;</div><div class="line">            // Replace this implementation with code to handle the error appropriately.</div><div class="line">            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.</div><div class="line">            let nserror = error as NSError</div><div class="line">            fatalError(&quot;Unresolved error \(nserror), \(nserror.userInfo)&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>变量<code>persistentContainer</code>是<code>NSPersistentContainer</code>的实例，<code>let container = NSPersistentContainer(name: &quot;CoreDataDemo&quot;)</code>对应<code>CoreDataDemo.xcdatamodeld</code>文件，如果是自己添加时名字需要对应。</li>
+<li>当数据变化(insert/update/delete)时 ，调用<code>saveContext</code>方法保存数据。</li>
+</ul>
+<h3 id="向项目中添加Data-Model"><a href="#向项目中添加Data-Model" class="headerlink" title="向项目中添加Data Model"></a>向项目中添加Data Model</h3><ul>
+<li>右击<em>FoodPin</em>文件夹，选择新建<strong>Data Model</strong>文件，文件名为<code>FoodPin</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-8edbb125c0dce5bb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+<ul>
+<li>选中新生成的<code>FoodPin.xcdatamodeld</code>，添加一个<code>Restaurant</code> <strong>Entity</strong>，然后再在此<strong>Entity</strong>下添加一些属性。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-cfddbba122cd7162.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>选中特定属性后可在右侧检查器中设置相关特性，比如是否强制需要。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-d415843ca839a9ae.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="创建Managed-Objects"><a href="#创建Managed-Objects" class="headerlink" title="创建Managed Objects"></a>创建Managed Objects</h3><p>Core Data框架中的 <strong>Managed Objects</strong>与<strong>Entity</strong>之间的关系，有点像代码中 <strong>接口变量</strong> 和 <strong>UI objects</strong>之间的关系。xcode可自动生成<strong>Managed Objects</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c4ceb3fea6219e1d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>选中<code>Restaurant</code> <strong>Entity</strong>，在检查器中修改class的<code>name</code>为<code>RestaurantMO</code>，<code>Codegen</code> 为 <code>Class Definition</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-1064dc6026eeae13.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>command-R 或 comman-B一下，表面上没有什么变化，在project navigator中没有多出文件。实际上已经生成<code>RestaurantMO</code>类，代码已经可以使用了，如果使用<strong>command+点击</strong> <code>RestaurantMO</code>，就可以看到<code>RestaurantMO</code>的代码：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c233887fdfdfe337.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>修改相关受影响的代码</p>
+<ul>
+<li><p><code>RestaurantTableViewController.swift</code><br>重新定义<code>restaurants</code>:<br> <code>var restaurants:[RestaurantMO] = []</code><br>由于CoreData中存储图片是二进制，引用时不能用文件名:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cell.thumbnailImageView.image = UIImage(data: restaurants[indexPath.row].image</div><div class="line">as! Data)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">    if let imageToShare = UIImage(data: self.restaurants[indexPath.row].image as!</div><div class="line">Data) &#123;</div></pre></td></tr></table></figure>
+<p>由于<code>RestaurantMO</code>的属性值是可选值，使用时需要解包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let defaultText = &quot;Just checking in at &quot; + self.restaurants[indexPath.row].name!</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>RestaurantDetailViewController.swift</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var restaurant:RestaurantMO!</div></pre></td></tr></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">restaurantImageView.image = UIImage(data: restaurant.image as! Data)</div></pre></td></tr></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">        geoCoder.geocodeAddressString(restaurant.location!, completionHandler: &#123;</div><div class="line">placemarks, error in</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>MapViewController.swift</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var restaurant:RestaurantMO!</div></pre></td></tr></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">leftIconView.image = UIImage(data: restaurant.image as! Data)</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>ReviewViewController.swift</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var restaurant:RestaurantMO!</div></pre></td></tr></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">restaurantImageView.image = UIImage(data: restaurant.image as! Data)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>现在能成功运行，发现是没有数据的。</p>
+<h3 id="保存新数据到数据库"><a href="#保存新数据到数据库" class="headerlink" title="保存新数据到数据库"></a>保存新数据到数据库</h3><ul>
+<li>在<code>AddTableViewController.swift</code>中引入Core Data：<code>import CoreData</code>。添加变量<code>var restaurant:RestaurantMO!</code>。</li>
+<li><p>在<code>AppDelegate</code>中加入上面例子一个变量和一方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">// MARK: - Core Data stack</div><div class="line">    </div><div class="line">    lazy var persistentContainer: NSPersistentContainer = &#123;</div><div class="line">        /*</div><div class="line">         The persistent container for the application. This implementation</div><div class="line">         creates and returns a container, having loaded the store for the</div><div class="line">         application to it. This property is optional since there are legitimate</div><div class="line">         error conditions that could cause the creation of the store to fail.</div><div class="line">         */</div><div class="line">        let container = NSPersistentContainer(name: &quot;FoodPin&quot;)</div><div class="line">        container.loadPersistentStores(completionHandler: &#123; (storeDescription, error) in</div><div class="line">            if let error = error as NSError? &#123;</div><div class="line">                // Replace this implementation with code to handle the error appropriately.</div><div class="line">                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.</div><div class="line">                </div><div class="line">                /*</div><div class="line">                 Typical reasons for an error here include:</div><div class="line">                 * The parent directory does not exist, cannot be created, or disallows writing.</div><div class="line">                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.</div><div class="line">                 * The device is out of space.</div><div class="line">                 * The store could not be migrated to the current model version.</div><div class="line">                 Check the error message to determine what the actual problem was.</div><div class="line">                 */</div><div class="line">                fatalError(&quot;Unresolved error \(error), \(error.userInfo)&quot;)</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        return container</div><div class="line">    &#125;()</div><div class="line">    </div><div class="line">    // MARK: - Core Data Saving support</div><div class="line">    </div><div class="line">    func saveContext () &#123;</div><div class="line">        let context = persistentContainer.viewContext</div><div class="line">        if context.hasChanges &#123;</div><div class="line">            do &#123;</div><div class="line">                try context.save()</div><div class="line">            &#125; catch &#123;</div><div class="line">                // Replace this implementation with code to handle the error appropriately.</div><div class="line">                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.</div><div class="line">                let nserror = error as NSError</div><div class="line">                fatalError(&quot;Unresolved error \(nserror), \(nserror.userInfo)&quot;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>AddTableViewController</code>的<code>save</code>方法的<code>dismiss</code>之前插入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 1</div><div class="line">if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) &#123;</div><div class="line">    restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)</div><div class="line">    restaurant.name = nameTextField.text</div><div class="line">    restaurant.type = typeTextField.text</div><div class="line">    restaurant.location = locationTextField.text</div><div class="line">    restaurant.isVisited = isVisited</div><div class="line">    </div><div class="line">    if let restaurantImage = photoImageView.image &#123;</div><div class="line">        // 2</div><div class="line">        if let imageData = UIImagePNGRepresentation(restaurantImage) &#123;</div><div class="line">            restaurant.image = NSData(data: imageData)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    print(&quot;Saving data to context ...&quot;)</div><div class="line">    appDelegate.saveContext()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>UIApplication.shared</code>这种形式是iOS SDK中比较常用单例模式，就是通过一个类属性<code>shared</code>获取整个app运行过程只需要一个实例的方法。<code>UIApplication.shared.delegate as? AppDelegate</code>就获取了<code>AppDelegate</code>对象。</li>
+<li>获取图片的二进制数据对象。</li>
+</ul>
+</li>
+</ul>
+<p>运行，添加新的restaurant后并没有在<strong>Food Pin</strong>中显示，实际已经添加到数据库中，在<code>RestaurantTableViewController</code>里没有向数据库获取。</p>
+<h3 id="通过CoreData获取数据"><a href="#通过CoreData获取数据" class="headerlink" title="通过CoreData获取数据"></a>通过CoreData获取数据</h3><ul>
+<li>在<code>RestaurantTableViewController.swift</code>中添加<code>import CoreData</code>。实现协议<code>NSFetchedResultsControllerDelegate</code>，这个协议中有方法，任何时候当获取来的数据有变化时立即通知代理。<br><code>class RestaurantTableViewController: UITableViewController,
+NSFetchedResultsControllerDelegate</code></li>
+<li>定义一个变量<pre><code>var fetchResultController: NSFetchedResultsController&lt;RestaurantMO&gt;!
+</code></pre></li>
+<li><p>在<code>viewDidLoad</code>中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// 1   </div><div class="line">let fetchRequest: NSFetchRequest&lt;RestaurantMO&gt; = RestaurantMO.fetchRequest()</div><div class="line">// 2</div><div class="line">let sortDescriptor = NSSortDescriptor(key: &quot;name&quot;, ascending: true)</div><div class="line">fetchRequest.sortDescriptors = [sortDescriptor]</div><div class="line">if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) &#123;</div><div class="line">    let context = appDelegate.persistentContainer.viewContext</div><div class="line">    fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)</div><div class="line">    fetchResultController.delegate = self</div><div class="line">&#125;</div><div class="line"></div><div class="line">do &#123;</div><div class="line">    // 3</div><div class="line">    try fetchResultController.performFetch()</div><div class="line">    if let fetchedObjects = fetchResultController.fetchedObjects &#123;</div><div class="line">        // 4</div><div class="line">        restaurants = fetchedObjects</div><div class="line">    &#125;</div><div class="line">&#125; catch &#123;</div><div class="line">    print(error)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>1 从<code>RestaurantMO</code>对象获得数据请求对象<code>NSFetchRequest</code>。</li>
+<li>2 通过<code>NSSortDescriptor</code>来设置获取结果的排序方式。</li>
+<li>3 <code>performFetch</code>方法执行从数据库中获取数据请求。</li>
+<li>4 把请求结果复制给变量<code>restaurants</code>。</li>
+</ul>
+</li>
+<li><p>数据库中数据变化，将调用来自<code>NSFetchedResultsControllerDelegate</code>三个方法，调用三个方法的时间可以简单的理解分别为数据将要改变、数据正在改变、数据改变后：<br><code>controllerWillChangeContent(_:)</code><br><code>controller(_:didChange:at:for:newIndexPath:)</code><br><code>controllerDidChangeContent(_:)</code></p>
+<p>方法的实现，也分别对table view有不同处理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">func controllerWillChangeContent(_ controller: NSFetchedResultsController&lt;NSFetchRequestResult&gt;) &#123;</div><div class="line">    tableView.beginUpdates()</div><div class="line">&#125;</div><div class="line"></div><div class="line">func controller(_ controller: NSFetchedResultsController&lt;NSFetchRequestResult&gt;, didChange anObject: Any, at indexPath: IndexPath?, for type:</div><div class="line">    NSFetchedResultsChangeType, newIndexPath: IndexPath?) &#123;</div><div class="line">    switch type &#123;</div><div class="line">    case .insert:</div><div class="line">        if let newIndexPath = newIndexPath &#123;</div><div class="line">            tableView.insertRows(at: [newIndexPath], with: .fade)</div><div class="line">        &#125;</div><div class="line">    case .delete:</div><div class="line">        if let indexPath = indexPath &#123;</div><div class="line">            tableView.deleteRows(at: [indexPath], with: .fade)</div><div class="line">        &#125;</div><div class="line">    case .update:</div><div class="line">        if let indexPath = indexPath &#123;</div><div class="line">            tableView.reloadRows(at: [indexPath], with: .fade)</div><div class="line">        &#125; default:</div><div class="line">            tableView.reloadData()</div><div class="line">    &#125;</div><div class="line">    if let fetchedObjects = controller.fetchedObjects &#123;</div><div class="line">        restaurants = fetchedObjects as! [RestaurantMO]</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func controllerDidChangeContent(_ controller:</div><div class="line">    NSFetchedResultsController&lt;NSFetchRequestResult&gt;) &#123;</div><div class="line">    tableView.endUpdates()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>现在运行程序，添加新的Restaurant就能同步显示了。</p>
+<h3 id="通过CoreData删除数据"><a href="#通过CoreData删除数据" class="headerlink" title="通过CoreData删除数据"></a>通过CoreData删除数据</h3><p>更新<code>RestaurantTableViewController</code>的<code>tableView(_:editActionsForRowAt:_)</code>方法中的 <code>deleteAction</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let deleteAction = UITableViewRowAction(style: .default, title: &quot;Delete&quot;, handler: &#123;</div><div class="line">            (action, indexPath) -&gt; Void in</div><div class="line">            </div><div class="line">            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) &#123;</div><div class="line">                let context = appDelegate.persistentContainer.viewContext</div><div class="line">                let restaurantToDelete = self.fetchResultController.object(at: indexPath)</div><div class="line">                context.delete(restaurantToDelete)</div><div class="line">                </div><div class="line">                appDelegate.saveContext()</div><div class="line">            &#125;</div><div class="line">        &#125;)</div></pre></td></tr></table></figure></p>
+<p>现在删除一项后，重新启动后，数据消失。</p>
+<h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><p>更新<code>RestaurantDetailViewController</code>的中的Action<code>ratingButtonTapped:</code> ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@IBAction func ratingButtonTapped(segue: UIStoryboardSegue) &#123;</div><div class="line">    if let rating = segue.identifier &#123;</div><div class="line">        restaurant.isVisited = true</div><div class="line">        </div><div class="line">        switch rating &#123;</div><div class="line">        case &quot;great&quot;:</div><div class="line">            restaurant.rating = &quot;Absolutely love it! Must try.&quot;</div><div class="line">        case &quot;good&quot;:</div><div class="line">            restaurant.rating = &quot;Pretty good.&quot;</div><div class="line">        case &quot;dislike&quot;:</div><div class="line">            restaurant.rating = &quot;I don&apos;t like it.&quot;</div><div class="line">        default:</div><div class="line">            break</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) &#123;</div><div class="line">        appDelegate.saveContext()</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    tableView.reloadData()</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>现在评价一项后，重新启动后评价就会保留。</p>
+<h3 id="Exercise：添加新字段"><a href="#Exercise：添加新字段" class="headerlink" title="Exercise：添加新字段"></a>Exercise：添加新字段</h3><p>之前新建Restaurant页面没有Phone字段，现在添加</p>
+<ul>
+<li>在SB的<strong>New Restaurant</strong>添加新Cell，在<code>AddRestaurantController</code>中添加相关接口并关联。</li>
+<li>更新<code>AddRestaurantController</code>中的<code>save:</code>Action相关代码。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-6d200f9148f75ffc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="external">Beginning-iOS-Programming-with-Swift</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="AndyRon wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您访问我的的微信公众号：欣欣向戎（微信号: andy_ron1587 ）！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2017/beginning-ios-swift-17.html" title="开始用Swift开发iOS 10 - 17 使用Core Data">http://andyron.com/2017/beginning-ios-swift-17.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/beginning-ios-swift-15.html" rel="next" title="开始用Swift开发iOS 10 - 15 使用地图">
+                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 15 使用地图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/beginning-ios-swift-19.html" rel="prev" title="开始用Swift开发iOS 10 - 19 使用UIPageViewController构建介绍页面">
+                开始用Swift开发iOS 10 - 19 使用UIPageViewController构建介绍页面 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="AndyRon" />
+          <p class="site-author-name" itemprop="name">AndyRon</p>
+           
+              <p class="site-description motion-element" itemprop="description">Just for fun.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/andyRon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/efce1a2a95ab" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AndyMRon" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/andyronm" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://500px.com/andymron" target="_blank" title="500px">
+                  
+                    <i class="fa fa-fw fa-500px"></i>
+                  
+                  500px
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Core-Data的例子"><span class="nav-number">1.</span> <span class="nav-text">使用Core Data的例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向项目中添加Data-Model"><span class="nav-number">2.</span> <span class="nav-text">向项目中添加Data Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Managed-Objects"><span class="nav-number">3.</span> <span class="nav-text">创建Managed Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存新数据到数据库"><span class="nav-number">4.</span> <span class="nav-text">保存新数据到数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过CoreData获取数据"><span class="nav-number">5.</span> <span class="nav-text">通过CoreData获取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过CoreData删除数据"><span class="nav-number">6.</span> <span class="nav-text">通过CoreData删除数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新数据"><span class="nav-number">7.</span> <span class="nav-text">更新数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise：添加新字段"><span class="nav-number">8.</span> <span class="nav-text">Exercise：添加新字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">9.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">10.</span> <span class="nav-text">说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-bug"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AndyRon</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2017/beginning-ios-swift-17.html';
+          this.page.identifier = '2017/beginning-ios-swift-17.html';
+          this.page.title = '开始用Swift开发iOS 10 - 17 使用Core Data';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

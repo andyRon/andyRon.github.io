@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-09T03:14:32.000Z</updated>
+  <updated>2017-09-09T03:54:06.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -16,20 +16,15 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
-    <link href="http://andyron.com/2017/ios-js-1.html"/>
-    <id>http://andyron.com/2017/ios-js-1.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:14:32.000Z</updated>
+    <title>1</title>
+    <link href="http://andyron.com/2017/1.html"/>
+    <id>http://andyron.com/2017/1.html</id>
+    <published>2017-09-09T03:54:06.000Z</published>
+    <updated>2017-09-09T03:54:06.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
     </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
     
   </entry>
@@ -44,6 +39,25 @@
     <summary type="html">
     
       &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
+    <link href="http://andyron.com/2017/ios-js-1.html"/>
+    <id>http://andyron.com/2017/ios-js-1.html</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-09T03:14:32.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -118,7 +132,7 @@
     <link href="http://andyron.com/2017/introducing-coreml.html"/>
     <id>http://andyron.com/2017/introducing-coreml.html</id>
     <published>2017-09-03T15:44:18.000Z</published>
-    <updated>2017-09-09T03:19:56.000Z</updated>
+    <updated>2017-09-09T03:41:05.000Z</updated>
     
     <summary type="html">
     
@@ -239,6 +253,29 @@
   </entry>
   
   <entry>
+    <title>iOS tutorial 11：照片横屏滑动</title>
+    <link href="http://andyron.com/2017/ios-tutorial-11.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-11.html</id>
+    <published>2017-08-18T16:00:00.000Z</published>
+    <updated>2017-09-09T03:22:10.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;知识点： &lt;code&gt;UICollectionView&lt;/code&gt; &lt;code&gt;UIVisualEffectView&lt;/code&gt; &lt;code&gt;UICollectionViewDataSource&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-5d91f9bdb434dd1d.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>iOS tutorial 10：UIScrollView滚动视图</title>
     <link href="http://andyron.com/2017/ios-tutorial-10-uiscrolview.html"/>
     <id>http://andyron.com/2017/ios-tutorial-10-uiscrolview.html</id>
@@ -252,29 +289,6 @@
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-19f579832ac695b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;当视图超过屏幕大小时，可通过把视图放在&lt;code&gt;UIScrollView&lt;/code&gt;中让视图可以上下滚动的功能。以一张大图片为例。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 11：照片横屏滑动</title>
-    <link href="http://andyron.com/2017/ios-tutorial-11.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-11.html</id>
-    <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:22:10.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;知识点： &lt;code&gt;UICollectionView&lt;/code&gt; &lt;code&gt;UIVisualEffectView&lt;/code&gt; &lt;code&gt;UICollectionViewDataSource&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-5d91f9bdb434dd1d.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -326,6 +340,24 @@
   </entry>
   
   <entry>
+    <title>开始用Swift开发iOS 10 - 1 前言和目录</title>
+    <link href="http://andyron.com/2017/beginning-ios-swift-1.html"/>
+    <id>http://andyron.com/2017/beginning-ios-swift-1.html</id>
+    <published>2017-08-13T16:00:00.000Z</published>
+    <updated>2017-09-09T04:35:24.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-42a7f8819f01b6d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+    
+    </summary>
+    
+      <category term="Beginning_iOS_Swift" scheme="http://andyron.com/categories/Beginning-iOS-Swift/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>iOS本地化(swift)</title>
     <link href="http://andyron.com/2017/ios-localize.html"/>
     <id>http://andyron.com/2017/ios-localize.html</id>
@@ -347,12 +379,12 @@
     <link href="http://andyron.com/2017/downgit.html"/>
     <id>http://andyron.com/2017/downgit.html</id>
     <published>2017-08-11T16:00:00.000Z</published>
-    <updated>2017-09-09T03:20:15.000Z</updated>
+    <updated>2017-09-09T03:27:26.000Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;怎么下载github中某个文件夹？&lt;/p&gt;
-&lt;p&gt;github只提供了整个项目。下载一个项目中的某个文件夹的内容，这种需求在使用github时，还是经常使用的。&lt;/p&gt;
+&lt;p&gt;github只提供了整个项目下载。下载一个项目中的某个文件夹的内容，这种需求在使用github时，还是经常使用的。&lt;/p&gt;
     
     </summary>
     
@@ -380,43 +412,6 @@
 &lt;/ul&gt;
     
     </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习7：内存管理</title>
-    <link href="http://andyron.com/2017/oc-basic-7.html"/>
-    <id>http://andyron.com/2017/oc-basic-7.html</id>
-    <published>2017-08-10T16:00:00.000Z</published>
-    <updated>2017-09-09T03:00:08.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-对象生命周期&quot;&gt;&lt;a href=&quot;#1-对象生命周期&quot; class=&quot;headerlink&quot; title=&quot;1 对象生命周期&quot;&gt;&lt;/a&gt;1 对象生命周期&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS-tutorial-7：解析XML(swift)</title>
-    <link href="http://andyron.com/2017/ios-tutorial-7-xml.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-7-xml.html</id>
-    <published>2017-07-30T16:00:00.000Z</published>
-    <updated>2017-09-09T03:23:16.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用&lt;code&gt;XMLParser&lt;/code&gt;解析XML文件，然后用table展示数据。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
     
     
   </entry>
