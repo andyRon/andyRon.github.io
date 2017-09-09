@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -111,7 +111,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -322,7 +322,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-JS-2/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-js-1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -341,7 +341,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-JS-2/" itemprop="url">iOS与JS(二)：MessageHandler(OC&Swift)</a></h1>
+                <a class="post-title-link" href="/2017/ios-js-1.html" itemprop="url">iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</a></h1>
         
 
         <div class="post-meta">
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-JS-2/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-js-1.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-JS-2/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-js-1.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,16 +422,11 @@
 
       
         
-          
-          
-参考：iOS下JS与OC互相调用（三）–MessageHandler
-
-iOS与JS的相互调用除了URL拦截（iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用）外，还可以使用WKWebView的中的MessageHandler来实现。
-MessageHandler是什么呢？以代码来说明，比较好理解。在OC中初始化WKWebView是，添加如下代码:[self.webView.configuration.userContentController addScriptMessageH
-          ...
+          <p>关于<code>WKWebView</code>与<code>UIWebView</code>之间的区别，本文就不在说明，本文只使用<code>WKWebView</code>。<br>效果图如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-JS-2/#more" rel="contents">
+            <a class="btn" href="/2017/ios-js-1.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -477,7 +472,7 @@ MessageHandler是什么呢？以代码来说明，比较好理解。在OC中初�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-JS-1/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-js-2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -496,7 +491,7 @@ MessageHandler是什么呢？以代码来说明，比较好理解。在OC中初�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-JS-1/" itemprop="url">iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</a></h1>
+                <a class="post-title-link" href="/2017/ios-js-2.html" itemprop="url">iOS与JS(二)：MessageHandler(OC&Swift)</a></h1>
         
 
         <div class="post-meta">
@@ -549,9 +544,9 @@ MessageHandler是什么呢？以代码来说明，比较好理解。在OC中初�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-JS-1/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-js-2.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-JS-1/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-js-2.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -577,21 +572,10 @@ MessageHandler是什么呢？以代码来说明，比较好理解。在OC中初�
 
       
         
-          
-          
-参考：
-
-iOS下JS与OC互相调用（二）–WKWebView 拦截URL
-iOS下JS与原生OC互相调用(总结)
-
-
-关于WKWebView与UIWebView之间的区别，本文就不在说明，本文只使用WKWebView。效果图如下：
-
-html代码：12345678910111213141516171819202122232425262728293031323334353637&lt;html&gt;    &lt;head&gt;        &lt;meta http-equiv=&qu
-          ...
+          <p>iOS与JS的相互调用除了URL拦截（<a href="http://www.jianshu.com/p/e09305d90fba" target="_blank" rel="external">iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</a>）外，还可以使用<code>WKWebView</code>的中的MessageHandler来实现。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-JS-1/#more" rel="contents">
+            <a class="btn" href="/2017/ios-js-2.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -637,7 +621,7 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-Animation-3/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-animation-3.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -656,7 +640,7 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-Animation-3/" itemprop="url">iOS动画(三)：核心动画中缩放和旋转(Swift)</a></h1>
+                <a class="post-title-link" href="/2017/ios-animation-3.html" itemprop="url">iOS动画(三)：核心动画中缩放和旋转(Swift)</a></h1>
         
 
         <div class="post-meta">
@@ -709,9 +693,9 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-Animation-3/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-animation-3.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-Animation-3/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-animation-3.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -737,17 +721,11 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
 
       
         
-          
-          
-参考：第五篇：CABasic Animation。iOS动画系列之五：基础动画之缩放篇&amp;旋转篇
-
-
-原理和上一篇是相同的，不同之处是keyPath属性，缩放时是keyPath是 transform.scale，旋转时keyPath是transform.rotation。
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859
-          ...
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-9823da42ea750f05.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<p>原理和上一篇是相同的，不同之处是<code>keyPath</code>属性，缩放时是<code>keyPath</code>是 <strong>transform.scale</strong>，旋转时<code>keyPath</code>是<strong>transform.rotation</strong>。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-Animation-3/#more" rel="contents">
+            <a class="btn" href="/2017/ios-animation-3.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -793,7 +771,7 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-Animation-2/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-animation-2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -812,7 +790,7 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-Animation-2/" itemprop="url">iOS动画(二)：核心动画中的基础移动(Swift)</a></h1>
+                <a class="post-title-link" href="/2017/ios-animation-2.html" itemprop="url">iOS动画(二)：核心动画中的基础移动(Swift)</a></h1>
         
 
         <div class="post-meta">
@@ -865,9 +843,9 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-Animation-2/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-animation-2.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-Animation-2/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-animation-2.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -893,23 +871,10 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
 
       
         
-          
-          
-参考： 
-
-第三篇：iOS动画系列之三：Core Animation。介绍了Core Animation的常用属性和方法。
-第四篇：CABasic Animation。iOS动画系列之四：基础动画之平移篇
-
-
-
-简单的移动
-
-新建一个CALayer。
-12345678910lazy var redLayer: CALayer = &#123;    return self.createLayer()&#125;()func createLayer() -&gt; CALayer &#123; 
-          ...
+          <p><img src="http://upload-images.jianshu.io/upload_images/2248583-2dfdb6de25cde9d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Core Animation中类继承关系"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-Animation-2/#more" rel="contents">
+            <a class="btn" href="/2017/ios-animation-2.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -955,7 +920,7 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-Animation-1/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-animation-1-clock.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -974,7 +939,7 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-Animation-1/" itemprop="url">iOS动画(一)：时钟动画(Swift)</a></h1>
+                <a class="post-title-link" href="/2017/ios-animation-1-clock.html" itemprop="url">iOS动画(一)：时钟动画(Swift)</a></h1>
         
 
         <div class="post-meta">
@@ -1027,9 +992,9 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-Animation-1/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-animation-1-clock.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-Animation-1/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-animation-1-clock.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1055,23 +1020,10 @@ html代码：12345678910111213141516171819202122232425262728293031323334353637&l
 
       
         
-          
-          
-参考：
-
-iOS动画系列之一：通过实战学习CALayer和透视的原理。做一个带时分秒指针的时钟动画(上)
-iOS动画系列之二：通过实战学习CALayer和透视的原理。做一个带时分秒指针的时钟动画。包含了OC和Swift两种源代码(下)
-
-
-
-一、直接做动画
-新建项目clock
-加载表盘图片。在viewDidLoad中添加：
-123456let dialLayer = CALayer()dialLayer.bounds = CGRect(x: 0, y: 0, width: 150, heigh
-          ...
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-b1d9f0d05c706863.gif?imageMogr2/auto-orient/strip" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-Animation-1/#more" rel="contents">
+            <a class="btn" href="/2017/ios-animation-1-clock.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1117,7 +1069,7 @@ iOS动画系列之二：通过实战学习CALayer和透视的原理。做一个�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Introducing-Core-ML/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/introducing-coreml.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1136,7 +1088,7 @@ iOS动画系列之二：通过实战学习CALayer和透视的原理。做一个�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/Introducing-Core-ML/" itemprop="url">初识Core ML：建立一个简单的图片内容识别应用</a></h1>
+                <a class="post-title-link" href="/2017/introducing-coreml.html" itemprop="url">初识Core ML：建立一个简单的图片内容识别应用</a></h1>
         
 
         <div class="post-meta">
@@ -1189,9 +1141,9 @@ iOS动画系列之二：通过实战学习CALayer和透视的原理。做一个�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/Introducing-Core-ML/#comments" itemprop="discussionUrl">
+                <a href="/2017/introducing-coreml.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/Introducing-Core-ML/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/introducing-coreml.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1217,23 +1169,14 @@ iOS动画系列之二：通过实战学习CALayer和透视的原理。做一个�
 
       
         
-          
-          
-
-参考：Introduction to Core ML: Building a Simple Image Recognition App
-Xcode 9 beta &amp; iOS11 beta &amp; Swift4
-
-Core ML是一个能集成机器学习模型到app中的框架。
-一、新建初始项目
-新建项目CoreMLDemo，以single-view application template模板
-建立如下如下UI
-
-二、实现照相和获取图片库功能
-遵守两个协议：class ViewContr
-          ...
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<p>Xcode 9 beta &amp; iOS11 beta &amp; Swift4</p>
+</blockquote>
+<p><a href="https://developer.apple.com/documentation/coreml" target="_blank" rel="external">Core ML</a>是一个能集成机器学习模型到app中的框架。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/Introducing-Core-ML/#more" rel="contents">
+            <a class="btn" href="/2017/introducing-coreml.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1279,7 +1222,7 @@ Core ML是一个能集成机器学习模型到app中的框架。
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/github-hexo/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/github-hexo.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1298,7 +1241,7 @@ Core ML是一个能集成机器学习模型到app中的框架。
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/github-hexo/" itemprop="url">使用github和hexo创建免费的静态个人博客网站</a></h1>
+                <a class="post-title-link" href="/2017/github-hexo.html" itemprop="url">使用github和hexo创建免费的静态个人博客网站</a></h1>
         
 
         <div class="post-meta">
@@ -1329,9 +1272,9 @@ Core ML是一个能集成机器学习模型到app中的框架。
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/github-hexo/#comments" itemprop="discussionUrl">
+                <a href="/2017/github-hexo.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/github-hexo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/github-hexo.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1357,14 +1300,11 @@ Core ML是一个能集成机器学习模型到app中的框架。
 
       
         
-          
-          
-之前刚学编程，接触PHP时，出于学习的目的，兴致勃勃地买了域名、主机、学了Wordpress，找了主题，折腾了好久建了个网站，也写了一些文章，然后就没有然后了，这是从入门到放弃系列的典型案例。前段时间收到主机要到期的通知，正好我也接触到了简书，支持markdown，感觉蛮好，平常也习惯使用markdown格式记录笔记。就觉得不再续费主机了，就主要使用简书，个人博客就使用github和hexo这种支持markdown生成静态网页形式就行了。
-已经有很多小伙伴这样搭建自己的个人博客，并写了相关文章
-          ...
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-85bd138bdcb1a517.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>之前刚学编程，接触PHP时，出于学习的目的，兴致勃勃地买了域名、主机、学了<a href="https://zh-cn.wordpress.com/com-vs-org/?sgmt=gb&amp;utm_source=adwords&amp;utm_campaign=G_Search_Brand_Desktop_CN_en_x_x&amp;utm_medium=cpc&amp;keyword=wordpress&amp;creative=210660075986&amp;campaignid=686689621&amp;adgroupid=38215071114&amp;matchtype=e&amp;device=c&amp;network=g&amp;targetid=kwd-313411415&amp;locationid=9061446&amp;gclid=Cj0KCQjwlf_MBRDUARIsAD8Gj8D7KuGzcUAzlMp-H9hn_tfCyJKm_LeQIp3DNRyQC-MiOWodbOIWsCsaAuwBEALw_wcB" target="_blank" rel="external">Wordpress</a>，找了主题，折腾了好久建了个网站，也写了一些文章，然后就没有然后了，这是从入门到放弃系列的典型案例。前段时间收到主机要到期的通知，正好我也接触到了简书，支持markdown，感觉蛮好，平常也习惯使用markdown格式记录笔记。就觉得不再续费主机了，就主要使用简书，个人博客就使用github和hexo这种支持markdown生成静态网页形式就行了。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/github-hexo/#more" rel="contents">
+            <a class="btn" href="/2017/github-hexo.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1410,7 +1350,7 @@ Core ML是一个能集成机器学习模型到app中的框架。
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-Sensor-1/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-sensor-1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1429,7 +1369,7 @@ Core ML是一个能集成机器学习模型到app中的框架。
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-Sensor-1/" itemprop="url">iOS 传感器(一)：总的介绍和距离传感器</a></h1>
+                <a class="post-title-link" href="/2017/ios-sensor-1.html" itemprop="url">iOS 传感器(一)：总的介绍和距离传感器</a></h1>
         
 
         <div class="post-meta">
@@ -1482,9 +1422,9 @@ Core ML是一个能集成机器学习模型到app中的框架。
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-Sensor-1/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-sensor-1.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-Sensor-1/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-sensor-1.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1510,15 +1450,10 @@ Core ML是一个能集成机器学习模型到app中的框架。
 
       
         
-          
-          
-参考：1 https://www.zhihu.com/question/25526443/answer/310408872 iPhone这十年在传感器上的演进- 知乎专栏3 iOS开发之传感器4 扒一扒iPhone6的手机传感器5 非典型技术宅 的传感器系列文章 iOS传感器：实现一个随屏幕旋转的图片
-
-关于传感器（Sensor），Apple官方好像并没有专门列出来介绍过，我只能从前辈的文章寻找，很多文章中都给iOS传感器进行过很详细的分类介绍，但有的传感器只是有过介绍，没有介绍使用方法或AP
-          ...
+          <p>关于传感器（Sensor），Apple官方好像并没有专门列出来介绍过，我只能从前辈的文章寻找，很多文章中都给iOS传感器进行过很详细的分类介绍，但有的传感器只是有过介绍，没有介绍使用方法或API，当然也有可能是我没搜索到，比如湿度传感器很多文章都提到，但详细使用方式就未曾看到过，还有这边的湿度传感器是指iPhone内部的？还是指iPhone所在外部环境的？</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-Sensor-1/#more" rel="contents">
+            <a class="btn" href="/2017/ios-sensor-1.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1564,7 +1499,7 @@ Core ML是一个能集成机器学习模型到app中的框架。
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-13/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-13.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1583,7 +1518,7 @@ Core ML是一个能集成机器学习模型到app中的框架。
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-13/" itemprop="url">iOS tutorial 13：手势处理</a></h1>
+                <a class="post-title-link" href="/2017/ios-tutorial-13.html" itemprop="url">iOS tutorial 13：手势处理</a></h1>
         
 
         <div class="post-meta">
@@ -1636,9 +1571,9 @@ Core ML是一个能集成机器学习模型到app中的框架。
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-tutorial/iOS-tutorial-13/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-tutorial-13.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-tutorial/iOS-tutorial-13/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-tutorial-13.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1664,42 +1599,10 @@ Core ML是一个能集成机器学习模型到app中的框架。
 
       
         
-          
-          iOS手势处理由UIGestureRecognizer控制，不同手势有这个类的不同子类处理，不同手势处理有不同的相关属性。
-
-
-
-子类
-描述 
-
-
-
-
-UITapGestureRecognizer
-点击手势  
-
-
-UIPanGestureRecognizer
-跟着手移动手势 
-
-
-UIPinchGestureRecognizer
-缩放手势
-
-
-UIRotationGestureRecognizer
-旋转手势
-
-
-UISwipeGestureRecognizer
-轻扫手势
-
-
-UILongPre
-          ...
+          <p>iOS手势处理由<code>UIGestureRecognizer</code>控制，不同手势有这个类的不同子类处理，不同手势处理有不同的相关属性。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-tutorial/iOS-tutorial-13/#more" rel="contents">
+            <a class="btn" href="/2017/ios-tutorial-13.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1745,7 +1648,7 @@ UILongPre
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-12：视频背景/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-12.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1764,7 +1667,7 @@ UILongPre
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-12：视频背景/" itemprop="url">iOS tutorial 12：视频背景</a></h1>
+                <a class="post-title-link" href="/2017/ios-tutorial-12.html" itemprop="url">iOS tutorial 12：视频背景</a></h1>
         
 
         <div class="post-meta">
@@ -1828,9 +1731,9 @@ UILongPre
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-tutorial/iOS-tutorial-12：视频背景/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-tutorial-12.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-tutorial/iOS-tutorial-12：视频背景/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-tutorial-12.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1856,19 +1759,10 @@ UILongPre
 
       
         
-          
-          
-参考：BackgroundVideoiOS
-
-
-
-新建项目 BackgroundVideoDemo
-新建BackgroundVideo.swift文件：
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990i
-          ...
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-0abf48741b6d76b3.gif?imageMogr2/auto-orient/strip" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-tutorial/iOS-tutorial-12：视频背景/#more" rel="contents">
+            <a class="btn" href="/2017/ios-tutorial-12.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2087,7 +1981,7 @@ UILongPre
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Muse
   </a>
 </div>
 
@@ -2146,8 +2040,6 @@ UILongPre
   
 
 
-  
-
 
 
 
@@ -2176,9 +2068,6 @@ UILongPre
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
 
   
 
@@ -2191,13 +2080,6 @@ UILongPre
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
-
-
 
   
     <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>

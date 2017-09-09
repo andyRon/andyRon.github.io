@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-06T18:14:40.000Z</updated>
+  <updated>2017-09-09T03:14:32.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -16,17 +16,16 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/iOS-JS-2/"/>
-    <id>http://andyron.com/2017/iOS-JS-2/</id>
+    <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
+    <link href="http://andyron.com/2017/ios-js-1.html"/>
+    <id>http://andyron.com/2017/ios-js-1.html</id>
     <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-06T18:14:40.000Z</updated>
+    <updated>2017-09-09T03:14:32.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;a href=&quot;http://www.jianshu.com/p/433e59c5a9eb&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS下JS与OC互相调用（三）–MessageHandler&lt;/a&gt;&lt;/p&gt;
-&lt;/
+      &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -36,18 +35,15 @@
   </entry>
   
   <entry>
-    <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
-    <link href="http://andyron.com/2017/iOS-JS-1/"/>
-    <id>http://andyron.com/2017/iOS-JS-1/</id>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/ios-js-2.html"/>
+    <id>http://andyron.com/2017/ios-js-2.html</id>
     <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-06T18:14:14.000Z</updated>
+    <updated>2017-09-09T03:21:17.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/99c3af6894f4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS下JS与OC互相调用（二）–WKWebView 拦
+      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
     
     </summary>
     
@@ -58,15 +54,15 @@
   
   <entry>
     <title>iOS动画(三)：核心动画中缩放和旋转(Swift)</title>
-    <link href="http://andyron.com/2017/iOS-Animation-3/"/>
-    <id>http://andyron.com/2017/iOS-Animation-3/</id>
+    <link href="http://andyron.com/2017/ios-animation-3.html"/>
+    <id>http://andyron.com/2017/ios-animation-3.html</id>
     <published>2017-09-05T05:04:15.000Z</published>
-    <updated>2017-09-05T05:06:50.000Z</updated>
+    <updated>2017-09-09T03:15:58.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;a href=&quot;http://www.jianshu.com/p/58ce1d8b43ef&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;第五篇：CABasic Animation。iOS动画系列之五：基础动画之缩放篇&amp;a
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-9823da42ea750f05.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;原理和上一篇是相同的，不同之处是&lt;code&gt;keyPath&lt;/code&gt;属性，缩放时是&lt;code&gt;keyPath&lt;/code&gt;是 &lt;strong&gt;transform.scale&lt;/strong&gt;，旋转时&lt;code&gt;keyPath&lt;/code&gt;是&lt;strong&gt;transform.rotation&lt;/strong&gt;。&lt;/p&gt;
     
     </summary>
     
@@ -79,17 +75,14 @@
   
   <entry>
     <title>iOS动画(二)：核心动画中的基础移动(Swift)</title>
-    <link href="http://andyron.com/2017/iOS-Animation-2/"/>
-    <id>http://andyron.com/2017/iOS-Animation-2/</id>
+    <link href="http://andyron.com/2017/ios-animation-2.html"/>
+    <id>http://andyron.com/2017/ios-animation-2.html</id>
     <published>2017-09-05T05:04:12.000Z</published>
-    <updated>2017-09-05T05:05:26.000Z</updated>
+    <updated>2017-09-09T03:18:38.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;参考： &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/2f1d0be8e15b&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;第三篇：iOS动画系列之三：Core Animatio
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2248583-2dfdb6de25cde9d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Core Animation中类继承关系&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -102,17 +95,14 @@
   
   <entry>
     <title>iOS动画(一)：时钟动画(Swift)</title>
-    <link href="http://andyron.com/2017/iOS-Animation-1/"/>
-    <id>http://andyron.com/2017/iOS-Animation-1/</id>
+    <link href="http://andyron.com/2017/ios-animation-1-clock.html"/>
+    <id>http://andyron.com/2017/ios-animation-1-clock.html</id>
     <published>2017-09-05T05:02:31.000Z</published>
-    <updated>2017-09-05T05:06:41.000Z</updated>
+    <updated>2017-09-09T03:18:58.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/26a7ccbc55c4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS动画系列之一：通过实战学习CALayer和透视的原
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-b1d9f0d05c706863.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -125,14 +115,18 @@
   
   <entry>
     <title>初识Core ML：建立一个简单的图片内容识别应用</title>
-    <link href="http://andyron.com/2017/Introducing-Core-ML/"/>
-    <id>http://andyron.com/2017/Introducing-Core-ML/</id>
+    <link href="http://andyron.com/2017/introducing-coreml.html"/>
+    <id>http://andyron.com/2017/introducing-coreml.html</id>
     <published>2017-09-03T15:44:18.000Z</published>
-    <updated>2017-09-03T15:47:29.000Z</updated>
+    <updated>2017-09-09T03:19:56.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Xcode 9 beta &amp;amp; iOS11 beta &amp;amp; Swift4&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/coreml&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Core ML&lt;/a&gt;是一个能集成机器学习模型到app中的框架。&lt;/p&gt;
     
     </summary>
     
@@ -145,14 +139,15 @@
   
   <entry>
     <title>使用github和hexo创建免费的静态个人博客网站</title>
-    <link href="http://andyron.com/2017/github-hexo/"/>
-    <id>http://andyron.com/2017/github-hexo/</id>
+    <link href="http://andyron.com/2017/github-hexo.html"/>
+    <id>http://andyron.com/2017/github-hexo.html</id>
     <published>2017-08-25T16:00:00.000Z</published>
-    <updated>2017-09-03T15:48:10.000Z</updated>
+    <updated>2017-09-09T03:20:07.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-85bd138bdcb1a517.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-85bd138bdcb1a517.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;之前刚学编程，接触PHP时，出于学习的目的，兴致勃勃地买了域名、主机、学了&lt;a href=&quot;https://zh-cn.wordpress.com/com-vs-org/?sgmt=gb&amp;amp;utm_source=adwords&amp;amp;utm_campaign=G_Search_Brand_Desktop_CN_en_x_x&amp;amp;utm_medium=cpc&amp;amp;keyword=wordpress&amp;amp;creative=210660075986&amp;amp;campaignid=686689621&amp;amp;adgroupid=38215071114&amp;amp;matchtype=e&amp;amp;device=c&amp;amp;network=g&amp;amp;targetid=kwd-313411415&amp;amp;locationid=9061446&amp;amp;gclid=Cj0KCQjwlf_MBRDUARIsAD8Gj8D7KuGzcUAzlMp-H9hn_tfCyJKm_LeQIp3DNRyQC-MiOWodbOIWsCsaAuwBEALw_wcB&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wordpress&lt;/a&gt;，找了主题，折腾了好久建了个网站，也写了一些文章，然后就没有然后了，这是从入门到放弃系列的典型案例。前段时间收到主机要到期的通知，正好我也接触到了简书，支持markdown，感觉蛮好，平常也习惯使用markdown格式记录笔记。就觉得不再续费主机了，就主要使用简书，个人博客就使用github和hexo这种支持markdown生成静态网页形式就行了。&lt;/p&gt;
     
     </summary>
     
@@ -165,15 +160,14 @@
   
   <entry>
     <title>iOS 传感器(一)：总的介绍和距离传感器</title>
-    <link href="http://andyron.com/2017/iOS-Sensor-1/"/>
-    <id>http://andyron.com/2017/iOS-Sensor-1/</id>
+    <link href="http://andyron.com/2017/ios-sensor-1.html"/>
+    <id>http://andyron.com/2017/ios-sensor-1.html</id>
     <published>2017-08-24T16:00:00.000Z</published>
-    <updated>2017-09-03T15:52:57.000Z</updated>
+    <updated>2017-09-09T03:21:28.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;br&gt;1 &lt;a href=&quot;https://www.zhihu.com/question/25526443/answer/31040887&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.zhihu.
+      &lt;p&gt;关于传感器（Sensor），Apple官方好像并没有专门列出来介绍过，我只能从前辈的文章寻找，很多文章中都给iOS传感器进行过很详细的分类介绍，但有的传感器只是有过介绍，没有介绍使用方法或API，当然也有可能是我没搜索到，比如湿度传感器很多文章都提到，但详细使用方式就未曾看到过，还有这边的湿度传感器是指iPhone内部的？还是指iPhone所在外部环境的？&lt;/p&gt;
     
     </summary>
     
@@ -186,21 +180,14 @@
   
   <entry>
     <title>iOS tutorial 13：手势处理</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-13/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-13/</id>
+    <link href="http://andyron.com/2017/ios-tutorial-13.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-13.html</id>
     <published>2017-08-21T16:00:00.000Z</published>
-    <updated>2017-09-03T15:52:23.000Z</updated>
+    <updated>2017-09-09T03:22:21.000Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;iOS手势处理由&lt;code&gt;UIGestureRecognizer&lt;/code&gt;控制，不同手势有这个类的不同子类处理，不同手势处理有不同的相关属性。&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;子类&lt;/th&gt;
-&lt;th&gt;描述 &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thea
     
     </summary>
     
@@ -213,58 +200,14 @@
   
   <entry>
     <title>iOS tutorial 12：视频背景</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-12%EF%BC%9A%E8%A7%86%E9%A2%91%E8%83%8C%E6%99%AF/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-12：视频背景/</id>
+    <link href="http://andyron.com/2017/ios-tutorial-12.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-12.html</id>
     <published>2017-08-19T16:00:00.000Z</published>
-    <updated>2017-08-26T02:16:29.000Z</updated>
+    <updated>2017-09-09T03:22:27.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;a href=&quot;https://github.com/Guzlan/BackgroundVideoiOS&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;BackgroundVideoiOS&lt;/a&gt;&lt;/p&gt;
-&lt;/blockq
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 11：照片横屏滑动</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11%EF%BC%9A%E7%85%A7%E7%89%87%E6%A8%AA%E5%B1%8F%E6%BB%91%E5%8A%A8/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-11：照片横屏滑动/</id>
-    <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-08-26T02:15:16.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;strong&gt;&lt;a href=&quot;https://github.com/allenwong/30DaysofSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30DaysofSwift&lt;/a&gt;&lt;/strong&gt;&lt;br
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 10：UIScrollView滚动视图</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10%EF%BC%9AUIScrollView%E6%BB%9A%E5%8A%A8%E8%A7%86%E5%9B%BE/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-10：UIScrollView滚动视图/</id>
-    <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-08-26T02:15:47.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;a href=&quot;https://www.ioscreator.com/tutorials/scroll-view-tutorial-ios8-swift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Scroll View
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-0abf48741b6d76b3.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -277,15 +220,61 @@
   
   <entry>
     <title>iOS tutorial 9：本地视频播放</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-9%EF%BC%9A%E6%9C%AC%E5%9C%B0%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-9：本地视频播放/</id>
+    <link href="http://andyron.com/2017/ios-tutorial-9.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-9.html</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-08-26T02:17:30.000Z</updated>
+    <updated>2017-09-09T03:23:28.000Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;blockquot
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS tutorial 10：UIScrollView滚动视图</title>
+    <link href="http://andyron.com/2017/ios-tutorial-10-uiscrolview.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-10-uiscrolview.html</id>
+    <published>2017-08-18T16:00:00.000Z</published>
+    <updated>2017-09-09T03:22:02.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;知识点: &lt;code&gt;UIScrollView&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-19f579832ac695b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当视图超过屏幕大小时，可通过把视图放在&lt;code&gt;UIScrollView&lt;/code&gt;中让视图可以上下滚动的功能。以一张大图片为例。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS tutorial 11：照片横屏滑动</title>
+    <link href="http://andyron.com/2017/ios-tutorial-11.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-11.html</id>
+    <published>2017-08-18T16:00:00.000Z</published>
+    <updated>2017-09-09T03:22:10.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;知识点： &lt;code&gt;UICollectionView&lt;/code&gt; &lt;code&gt;UIVisualEffectView&lt;/code&gt; &lt;code&gt;UICollectionViewDataSource&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-5d91f9bdb434dd1d.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -298,14 +287,17 @@
   
   <entry>
     <title>Alamofire：Swift的HTTP 网络库</title>
-    <link href="http://andyron.com/2017/Alamofire%EF%BC%9ASwift%E7%9A%84HTTP-%E7%BD%91%E7%BB%9C%E5%BA%93/"/>
-    <id>http://andyron.com/2017/Alamofire：Swift的HTTP-网络库/</id>
+    <link href="http://andyron.com/2017/alamofire-introduce.html"/>
+    <id>http://andyron.com/2017/alamofire-introduce.html</id>
     <published>2017-08-15T16:00:00.000Z</published>
-    <updated>2017-09-04T07:10:42.000Z</updated>
+    <updated>2017-09-09T03:20:46.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-f714d8e8a30d44b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-f714d8e8a30d44b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;CocoaPods和Carthage都很方便安装&lt;br&gt;安装完，如果出现加载不到Alamofire，可以查看&lt;a href=&quot;https://github.com/Alamofire/Alamofire/issues/441&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cannot load underlying module for ‘Alamofire’ #441&lt;/a&gt;，问题应该可以解决。&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -314,15 +306,15 @@
   
   <entry>
     <title>iOS tutorial 8：使用IBInspectable 和 IBDesignable定制UI</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-8%EF%BC%9A%E4%BD%BF%E7%94%A8IBInspectable%20%E5%92%8C%20IBDesignable%E5%AE%9A%E5%88%B6UI/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-8：使用IBInspectable 和 IBDesignable定制UI/</id>
+    <link href="http://andyron.com/2017/ios-tutorial-8-ibinspectable-ibdesignable.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-8-ibinspectable-ibdesignable.html</id>
     <published>2017-08-13T16:00:00.000Z</published>
-    <updated>2017-08-26T02:17:22.000Z</updated>
+    <updated>2017-09-09T03:23:22.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;a href=&quot;http://www.appcoda.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;appcode&lt;/a&gt;网站的书&lt;a href=&quot;https://www.appcoda.com/intermedi
+      &lt;p&gt;例子代码：&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/77&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/andyRon/LearniOSByProject/tree/master/77&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;理解IBInspectable-和-IBDesignable&quot;&gt;&lt;a href=&quot;#理解IBInspectable-和-IBDesignable&quot; class=&quot;headerlink&quot; title=&quot;理解IBInspectable 和 IBDesignable&quot;&gt;&lt;/a&gt;理解IBInspectable 和 IBDesignable&lt;/h3&gt;&lt;p&gt;简单地说，&lt;em&gt;IBInspectable&lt;/em&gt; 就是允许开发者在IB的属性检查器中添加额外的选项。&lt;em&gt;IBDesignable&lt;/em&gt; 能够让&lt;em&gt; IBInspectable&lt;/em&gt; 添加的额外选项产生的变化在IB中实时显示。以Button的圆角为例说明。&lt;/p&gt;
     
     </summary>
     
@@ -335,15 +327,15 @@
   
   <entry>
     <title>iOS本地化(swift)</title>
-    <link href="http://andyron.com/2017/iOS%E6%9C%AC%E5%9C%B0%E5%8C%96-swift/"/>
-    <id>http://andyron.com/2017/iOS本地化-swift/</id>
+    <link href="http://andyron.com/2017/ios-localize.html"/>
+    <id>http://andyron.com/2017/ios-localize.html</id>
     <published>2017-08-11T16:00:00.000Z</published>
-    <updated>2017-08-26T02:08:01.000Z</updated>
+    <updated>2017-09-09T03:19:17.000Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH9zFIR06TCTQq74gAr0iwaok1wKae_RD87NZcsei9gds6Lrv-Bw&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;blockq
+&lt;p&gt;示例代码在github上&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/76&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;localizationsDemo&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -352,15 +344,40 @@
   
   <entry>
     <title>DownGit：怎么下载github中某个文件夹？</title>
-    <link href="http://andyron.com/2017/DownGit%EF%BC%9A%E6%80%8E%E4%B9%88%E4%B8%8B%E8%BD%BDgithub%E4%B8%AD%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%9F/"/>
-    <id>http://andyron.com/2017/DownGit：怎么下载github中某个文件夹？/</id>
+    <link href="http://andyron.com/2017/downgit.html"/>
+    <id>http://andyron.com/2017/downgit.html</id>
     <published>2017-08-11T16:00:00.000Z</published>
-    <updated>2017-08-26T02:08:14.000Z</updated>
+    <updated>2017-09-09T03:20:15.000Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;怎么下载github中某个文件夹？&lt;/p&gt;
-&lt;p&gt;github只提供了整个项目。下载一个项目中的某个文件夹的内容，这种需求在使用github时，还是经常使用的。&lt;br&gt;比如：在一些大的项目下，只想看某个文件的内容时。&lt;br&gt;又比如，像我这种&lt;a href=&quot;https://
+&lt;p&gt;github只提供了整个项目。下载一个项目中的某个文件夹的内容，这种需求在使用github时，还是经常使用的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="github" scheme="http://andyron.com/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Carthage的使用</title>
+    <link href="http://andyron.com/2017/carthage-introduce.html"/>
+    <id>http://andyron.com/2017/carthage-introduce.html</id>
+    <published>2017-08-10T16:00:00.000Z</published>
+    <updated>2017-09-09T03:20:26.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Carthage与CocoaPods的简单比较&quot;&gt;&lt;a href=&quot;#Carthage与CocoaPods的简单比较&quot; class=&quot;headerlink&quot; title=&quot;Carthage与CocoaPods的简单比较&quot;&gt;&lt;/a&gt;Carthage与CocoaPods的简单比较&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;CocoaPods 的优势：&lt;ul&gt;
+&lt;li&gt;使用方便，除编写 Podfile 以外其他几乎都是自动完成；&lt;/li&gt;
+&lt;li&gt;软件包数量多，主流支持；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -369,10 +386,10 @@
   
   <entry>
     <title>OC基础学习7：内存管理</title>
-    <link href="http://andyron.com/2017/Objective-C/OC%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A07%EF%BC%9A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
-    <id>http://andyron.com/2017/Objective-C/OC基础学习7：内存管理/</id>
+    <link href="http://andyron.com/2017/oc-basic-7.html"/>
+    <id>http://andyron.com/2017/oc-basic-7.html</id>
     <published>2017-08-10T16:00:00.000Z</published>
-    <updated>2017-08-20T16:27:03.000Z</updated>
+    <updated>2017-09-09T03:00:08.000Z</updated>
     
     <summary type="html">
     
@@ -385,32 +402,15 @@
   </entry>
   
   <entry>
-    <title>Carthage的使用</title>
-    <link href="http://andyron.com/2017/Carthage%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://andyron.com/2017/Carthage的使用/</id>
-    <published>2017-08-10T16:00:00.000Z</published>
-    <updated>2017-08-26T02:08:22.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>iOS-tutorial-7：解析XML(swift)</title>
-    <link href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-7%EF%BC%9A%E8%A7%A3%E6%9E%90XML(swift)/"/>
-    <id>http://andyron.com/2017/iOS-tutorial/iOS-tutorial-7：解析XML(swift)/</id>
+    <link href="http://andyron.com/2017/ios-tutorial-7-xml.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-7-xml.html</id>
     <published>2017-07-30T16:00:00.000Z</published>
-    <updated>2017-08-26T02:17:15.000Z</updated>
+    <updated>2017-09-09T03:23:16.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;参考：&lt;a href=&quot;https://www.ioscreator.com/tutorials/parsing-xml-tutorial&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Parsing XML Tutorial&lt;/
+      &lt;p&gt;使用&lt;code&gt;XMLParser&lt;/code&gt;解析XML文件，然后用table展示数据。&lt;/p&gt;
     
     </summary>
     

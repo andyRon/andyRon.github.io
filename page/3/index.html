@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -111,7 +111,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -322,7 +322,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C/OC基础学习6：Fondation-Kit介绍/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-6.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -341,7 +341,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/Objective-C/OC基础学习6：Fondation-Kit介绍/" itemprop="url">OC基础学习6：Fondation-Kit介绍</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-6.html" itemprop="url">OC基础学习6：Fondation-Kit介绍</a></h1>
         
 
         <div class="post-meta">
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/Objective-C/OC基础学习6：Fondation-Kit介绍/#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-6.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/Objective-C/OC基础学习6：Fondation-Kit介绍/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-6.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -429,7 +429,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/Objective-C/OC基础学习6：Fondation-Kit介绍/#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-6.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -475,7 +475,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C/OC基础学习5：源文件组织/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -494,7 +494,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/Objective-C/OC基础学习5：源文件组织/" itemprop="url">OC基础学习5：源文件组织</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-2.html" itemprop="url">OC基础学习2：面向对象编程的基础知识</a></h1>
         
 
         <div class="post-meta">
@@ -547,166 +547,9 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/Objective-C/OC基础学习5：源文件组织/#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-2.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/Objective-C/OC基础学习5：源文件组织/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。
-拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：
-
-接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。
-实现部分(.m): 类的@implementation指令、全局变量的定义、私有struct等。
-
-另外，复杂的项目可以拥有多个目标，它们源文件的配置各不相同，构建规则也不
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/Objective-C/OC基础学习5：源文件组织/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C/OC基础学习2：面向对象编程的基础知识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/Objective-C/OC基础学习2：面向对象编程的基础知识/" itemprop="url">OC基础学习2：面向对象编程的基础知识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T00:00:00+08:00">
-                2017-07-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/Objective-C/OC基础学习2：面向对象编程的基础知识/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/Objective-C/OC基础学习2：面向对象编程的基础知识/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-2.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -757,7 +600,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/Objective-C/OC基础学习2：面向对象编程的基础知识/#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-2.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -803,7 +646,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C/OC基础学习3：继承(inheritance)/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-5.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -822,7 +665,7 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/Objective-C/OC基础学习3：继承(inheritance)/" itemprop="url">OC基础学习3：继承(inheritance)</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-5.html" itemprop="url">OC基础学习5：源文件组织</a></h1>
         
 
         <div class="post-meta">
@@ -875,9 +718,166 @@ Foundation中一些有用的数据类型范围： NSRange1234typedef struct _NSR
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/Objective-C/OC基础学习3：继承(inheritance)/#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-5.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/Objective-C/OC基础学习3：继承(inheritance)/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-5.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。
+拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：
+
+接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。
+实现部分(.m): 类的@implementation指令、全局变量的定义、私有struct等。
+
+另外，复杂的项目可以拥有多个目标，它们源文件的配置各不相同，构建规则也不
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/oc-basic-5.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-3-inheritance.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/oc-basic-3-inheritance.html" itemprop="url">OC基础学习3：继承(inheritance)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T00:00:00+08:00">
+                2017-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/oc-basic-3-inheritance.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/oc-basic-3-inheritance.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -929,7 +929,7 @@ override
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/Objective-C/OC基础学习3：继承(inheritance)/#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-3-inheritance.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -975,7 +975,7 @@ override
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C/OC基础学习4：复合（composition）/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-4-composition.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -994,7 +994,7 @@ override
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/Objective-C/OC基础学习4：复合（composition）/" itemprop="url">OC基础学习4：复合（composition）</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-4-composition.html" itemprop="url">OC基础学习4：复合（composition）</a></h1>
         
 
         <div class="post-meta">
@@ -1047,9 +1047,9 @@ override
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/Objective-C/OC基础学习4：复合（composition）/#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-4-composition.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/Objective-C/OC基础学习4：复合（composition）/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-4-composition.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1081,7 +1081,7 @@ override
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/Objective-C/OC基础学习4：复合（composition）/#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-4-composition.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1127,7 +1127,7 @@ override
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/Objective-C/OC基础学习1：对C的扩展/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-1-c.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1146,7 +1146,7 @@ override
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/Objective-C/OC基础学习1：对C的扩展/" itemprop="url">OC基础学习1：对C的扩展</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-1-c.html" itemprop="url">OC基础学习1：对C的扩展</a></h1>
         
 
         <div class="post-meta">
@@ -1199,9 +1199,9 @@ override
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/Objective-C/OC基础学习1：对C的扩展/#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-1-c.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/Objective-C/OC基础学习1：对C的扩展/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-1-c.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1236,7 +1236,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/Objective-C/OC基础学习1：对C的扩展/#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-1-c.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1282,7 +1282,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-6：使用Quick-Look框架预览文件-Swift/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-6-quicklook.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1301,7 +1301,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-6：使用Quick-Look框架预览文件-Swift/" itemprop="url">iOS tutorial 6：使用Quick Look框架预览文件(Swift)</a></h1>
+                <a class="post-title-link" href="/2017/ios-tutorial-6-quicklook.html" itemprop="url">iOS tutorial 6：使用Quick Look框架预览文件(Swift)</a></h1>
         
 
         <div class="post-meta">
@@ -1365,9 +1365,9 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-tutorial/iOS-tutorial-6：使用Quick-Look框架预览文件-Swift/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-tutorial-6-quicklook.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-tutorial/iOS-tutorial-6：使用Quick-Look框架预览文件-Swift/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-tutorial-6-quicklook.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1393,19 +1393,20 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
 
       
         
-          
-          
-参考 Using Quick Look Framework for Previewing Documents
-
-iOS SDK中有很多不常见，却非常好用的库，Quick Look框架就是一个非常好的例子。Quick Look框架提供了预览很多不同类型文件的功能，而不需要打开不同的APP查看，有点像Mac中的空格键功能。
-Quick Look框架可以预览的文件类型：
-
-iWork documents (Pages, Numbers and Keynote)
-Microsoft Office do
-          ...
+          <p>iOS SDK中有很多不常见，却非常好用的库，Quick Look框架就是一个非常好的例子。Quick Look框架提供了预览很多不同类型文件的功能，而不需要打开不同的APP查看，有点像Mac中的空格键功能。</p>
+<p>Quick Look框架可以预览的文件类型：</p>
+<ul>
+<li>iWork documents (Pages, Numbers and Keynote)</li>
+<li>Microsoft Office documents (as long as they’ve been created with Office 97 or any other newer version)</li>
+<li>PDF files</li>
+<li>Images</li>
+<li>Text files</li>
+<li>Rich-Text Format documents</li>
+<li>Comma-Separated Value files (csv)</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-tutorial/iOS-tutorial-6：使用Quick-Look框架预览文件-Swift/#more" rel="contents">
+            <a class="btn" href="/2017/ios-tutorial-6-quicklook.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1451,7 +1452,7 @@ Microsoft Office do
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-4：CALayer介绍-swift/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-4-calayer.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1470,7 +1471,7 @@ Microsoft Office do
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-4：CALayer介绍-swift/" itemprop="url">iOS tutorial 4：CALayer介绍(swift)</a></h1>
+                <a class="post-title-link" href="/2017/ios-tutorial-4-calayer.html" itemprop="url">iOS tutorial 4：CALayer介绍(swift)</a></h1>
         
 
         <div class="post-meta">
@@ -1534,9 +1535,9 @@ Microsoft Office do
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-tutorial/iOS-tutorial-4：CALayer介绍-swift/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-tutorial-4-calayer.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-tutorial/iOS-tutorial-4：CALayer介绍-swift/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-tutorial-4-calayer.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1562,22 +1563,11 @@ Microsoft Office do
 
       
         
-          
-          
-
-参考 A Beginner’s Guide to CALayer
-
-Layers是Core Animation Framework的一部分。Core Animation Framework在iOS架构的位置：
-访问CALayer凡是继承至UIView的都将有一个属性layer来表示CALayer。myView.layer
-初始化项目
-新建CALayerDemo，single View Application模板
-新建一个UIView和一个UILabel
-
-圆角CALayer的cornerRa
-          ...
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>Layers是<strong>Core Animation Framework</strong>的一部分。<strong>Core Animation Framework</strong>在iOS架构的位置：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-d21f3bd827131d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-tutorial/iOS-tutorial-4：CALayer介绍-swift/#more" rel="contents">
+            <a class="btn" href="/2017/ios-tutorial-4-calayer.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1623,7 +1613,7 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-5：关于地理定位和特定区域-Swift/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-5.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1642,7 +1632,7 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-5：关于地理定位和特定区域-Swift/" itemprop="url">iOS tutorial 5：关于地理定位和特定区域(Swift)</a></h1>
+                <a class="post-title-link" href="/2017/ios-tutorial-5.html" itemprop="url">iOS tutorial 5：关于地理定位和特定区域(Swift)</a></h1>
         
 
         <div class="post-meta">
@@ -1706,9 +1696,9 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-tutorial/iOS-tutorial-5：关于地理定位和特定区域-Swift/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-tutorial-5.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-tutorial/iOS-tutorial-5：关于地理定位和特定区域-Swift/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-tutorial-5.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1734,22 +1724,11 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
 
       
         
-          
-          
-
-参考 Building a Geo Targeting iOS App in Swift
-
-用户带着iPhone进入某个区域，并在某些区域待多久在开发肯能会有很大用处。
-初始化项目
-创建新的项目GeoTargeting，使用Single View Appliction模板
-添加一个Map View，大小为整个页面
-添加相关outlet
-实现两个协议
-123class ViewController: UIViewController, MKMapViewDelegate, CLLocation
-          ...
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-a63552e89efd1228.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>用户带着iPhone进入某个区域，并在某些区域待多久在开发肯能会有很大用处。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-tutorial/iOS-tutorial-5：关于地理定位和特定区域-Swift/#more" rel="contents">
+            <a class="btn" href="/2017/ios-tutorial-5.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1795,7 +1774,7 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/iOS-tutorial/iOS-tutorial-3：Speech-Framework的简单使用/">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-3-speechframework.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1814,7 +1793,7 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/iOS-tutorial/iOS-tutorial-3：Speech-Framework的简单使用/" itemprop="url">iOS tutorial 3：Speech Framework的简单使用</a></h1>
+                <a class="post-title-link" href="/2017/ios-tutorial-3-speechframework.html" itemprop="url">iOS tutorial 3：Speech Framework的简单使用</a></h1>
         
 
         <div class="post-meta">
@@ -1878,9 +1857,9 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/iOS-tutorial/iOS-tutorial-3：Speech-Framework的简单使用/#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-tutorial-3-speechframework.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/iOS-tutorial/iOS-tutorial-3：Speech-Framework的简单使用/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-tutorial-3-speechframework.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1906,20 +1885,11 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
 
       
         
-          
-          
-
-参考： Building a Speech-to-Text App Using Speech Framework in iOS 10
-
-在WWDC 2016时，Apple介绍了Speech framework，这是一个很有用的声音识别框架。实际上这是利用Siri进行声音识别。
-初始化项目
-新建SpeechToTextDemo，模板是Single View Application。
-添加简单的UI
-分别定义UITextView和UIButton的两个outlet，为textView和micro
-          ...
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-c43c2495b3351f65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在WWDC 2016时，Apple介绍了<a href="https://developer.apple.com/videos/play/wwdc2016/509/" target="_blank" rel="external"><strong>Speech framework</strong></a>，这是一个很有用的声音识别框架。实际上这是利用<strong>Siri</strong>进行声音识别。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/iOS-tutorial/iOS-tutorial-3：Speech-Framework的简单使用/#more" rel="contents">
+            <a class="btn" href="/2017/ios-tutorial-3-speechframework.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2138,7 +2108,7 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Muse
   </a>
 </div>
 
@@ -2197,8 +2167,6 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
   
 
 
-  
-
 
 
 
@@ -2227,9 +2195,6 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
 
   
 
@@ -2242,13 +2207,6 @@ Layers是Core Animation Framework的一部分。Core Animation Framework在iOS�
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
-
-
 
   
     <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
