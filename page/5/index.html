@@ -322,7 +322,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-4-composition.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-3-inheritance.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -341,7 +341,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/oc-basic-4-composition.html" itemprop="url">OC基础学习4：复合（composition）</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-3-inheritance.html" itemprop="url">OC基础学习3：继承(inheritance)</a></h1>
         
 
         <div class="post-meta">
@@ -394,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-4-composition.html#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-3-inheritance.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-4-composition.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-3-inheritance.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -423,12 +423,32 @@
       
         
           
-          复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&#123;    Engine *engine;    Tire *tires[4];&#125;* (void)print;@end //Car
-自定义NSLog()NSLog()使用%@格式说明符表示输出对象，也就是NSLog()会给这个对象发送
+          
+为何使用继承
+UML(Unified Modeling Language, 统一建模语言) 是一种用图表来表示类、类的内容以及它们之间关系。
+将重复的代码合并到一处。
+
+
+继承的语法格式
+只能继承一个
+只有代码精简，bug才无处藏身
+没有声明实例变量时可以省略花括号
+相关术语
+refactoring (重构)
+superclass
+parent class
+subclass
+child class
+override
+
+
+
+
+继承的工作机制OOP一个强大之处：可以对一个程序做一些重大改变，程序仍
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/oc-basic-4-composition.html#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-3-inheritance.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1100,156 +1120,6 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-11.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/beginning-ios-swift-11.html" itemprop="url">开始用Swift开发iOS 10 - 11 面向对象编程介绍</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T00:00:00+08:00">
-                2017-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Beginning_iOS_Swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/beginning-ios-swift-11.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/beginning-ios-swift-11.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-a1e3d5b30b1e86a8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/beginning-ios-swift-11.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-10.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1400,7 +1270,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-4-calayer.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-11.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1419,7 +1289,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/ios-tutorial-4-calayer.html" itemprop="url">iOS tutorial 4：CALayer介绍(swift)</a></h1>
+                <a class="post-title-link" href="/2017/beginning-ios-swift-11.html" itemprop="url">开始用Swift开发iOS 10 - 11 面向对象编程介绍</a></h1>
         
 
         <div class="post-meta">
@@ -1431,8 +1301,8 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T00:00:00+08:00">
-                2017-07-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T00:00:00+08:00">
+                2017-07-17
               </time>
             
 
@@ -1454,19 +1324,8 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/iOS-tutorial/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS tutorial</span>
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
                   </a>
                 </span>
 
@@ -1483,9 +1342,9 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/ios-tutorial-4-calayer.html#comments" itemprop="discussionUrl">
+                <a href="/2017/beginning-ios-swift-11.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/ios-tutorial-4-calayer.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/beginning-ios-swift-11.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1511,11 +1370,11 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
 
       
         
-          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>Layers是<strong>Core Animation Framework</strong>的一部分。<strong>Core Animation Framework</strong>在iOS架构的位置：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-d21f3bd827131d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-a1e3d5b30b1e86a8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/ios-tutorial-4-calayer.html#more" rel="contents">
+            <a class="btn" href="/2017/beginning-ios-swift-11.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1722,7 +1581,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-25.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-4-calayer.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1741,7 +1600,168 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-25.html" itemprop="url">以撸代码的形式学习Swift-24：Access Control</a></h1>
+                <a class="post-title-link" href="/2017/ios-tutorial-4-calayer.html" itemprop="url">iOS tutorial 4：CALayer介绍(swift)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T00:00:00+08:00">
+                2017-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/iOS-tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/ios-tutorial-4-calayer.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/ios-tutorial-4-calayer.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>Layers是<strong>Core Animation Framework</strong>的一部分。<strong>Core Animation Framework</strong>在iOS架构的位置：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-d21f3bd827131d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/ios-tutorial-4-calayer.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-24.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/swift-24.html" itemprop="url">以撸代码的形式学习Swift-24：Access Control</a></h1>
         
 
         <div class="post-meta">
@@ -1794,9 +1814,9 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/swift-25.html#comments" itemprop="discussionUrl">
+                <a href="/2017/swift-24.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-25.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/swift-24.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1828,7 +1848,7 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/swift-25.html#more" rel="contents">
+            <a class="btn" href="/2017/swift-24.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
