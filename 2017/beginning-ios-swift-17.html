@@ -95,12 +95,12 @@
 
 
 
-<meta name="description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。 数据持久化一般是指数据库保存。在Web开发中，常用Oracle或MySQL等关系数据库来保存数据，通过SQL语句查">
+<meta name="description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开始用Swift开发iOS 10 - 17 使用Core Data">
 <meta property="og:url" content="http://andyron.com/2017/beginning-ios-swift-17.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。 数据持久化一般是指数据库保存。在Web开发中，常用Oracle或MySQL等关系数据库来保存数据，通过SQL语句查">
+<meta property="og:description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-38994d792af672c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c3f3fde637365209.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-8edbb125c0dce5bb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -110,10 +110,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-1064dc6026eeae13.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c233887fdfdfe337.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-6d200f9148f75ffc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T04:32:42.000Z">
+<meta property="og:updated_time" content="2017-09-09T04:59:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 17 使用Core Data">
-<meta name="twitter:description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。 数据持久化一般是指数据库保存。在Web开发中，常用Oracle或MySQL等关系数据库来保存数据，通过SQL语句查">
+<meta name="twitter:description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-38994d792af672c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -435,6 +435,7 @@
       
         <p><img src="http://upload-images.jianshu.io/upload_images/1678135-38994d792af672c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>上一篇 <a href="http://www.jianshu.com/p/ba6f340c62bf" target="_blank" rel="external">开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint</a> 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。</p>
+<a id="more"></a>
 <p>数据持久化一般是指数据库保存。在Web开发中，常用Oracle或MySQL等关系数据库来保存数据，通过SQL语句查询。在iOS中对应的数据库是SQLite。Core Data不是数据库，它是让开发者通过面向对象方式与数据库进行交互的库。</p>
 <h3 id="使用Core-Data的例子"><a href="#使用Core-Data的例子" class="headerlink" title="使用Core Data的例子"></a>使用Core Data的例子</h3><p>新建一个使用Core Data的项目，在<code>AppDelegate</code>类中会比平常多了一个变量和一方法，另外还多了一个文件<code>CoreDataDemo.xcdatamodeld</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c3f3fde637365209.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">lazy var persistentContainer: NSPersistentContainer = &#123;</div><div class="line">    /*</div><div class="line">     The persistent container for the application. This implementation</div><div class="line">     creates and returns a container, having loaded the store for the</div><div class="line">     application to it. This property is optional since there are legitimate</div><div class="line">     error conditions that could cause the creation of the store to fail.</div><div class="line">    */</div><div class="line">    let container = NSPersistentContainer(name: &quot;CoreDataDemo&quot;)</div><div class="line">    container.loadPersistentStores(completionHandler: &#123; (storeDescription, error) in</div><div class="line">        if let error = error as NSError? &#123;</div><div class="line">            // Replace this implementation with code to handle the error appropriately.</div><div class="line">            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.</div><div class="line">             </div><div class="line">            /*</div><div class="line">             Typical reasons for an error here include:</div><div class="line">             * The parent directory does not exist, cannot be created, or disallows writing.</div><div class="line">             * The persistent store is not accessible, due to permissions or data protection when the device is locked.</div><div class="line">             * The device is out of space.</div><div class="line">             * The store could not be migrated to the current model version.</div><div class="line">             Check the error message to determine what the actual problem was.</div><div class="line">             */</div><div class="line">            fatalError(&quot;Unresolved error \(error), \(error.userInfo)&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    return container</div><div class="line">&#125;()</div><div class="line"></div><div class="line">// MARK: - Core Data Saving support</div><div class="line"></div><div class="line">func saveContext () &#123;</div><div class="line">    let context = persistentContainer.viewContext</div><div class="line">    if context.hasChanges &#123;</div><div class="line">        do &#123;</div><div class="line">            try context.save()</div><div class="line">        &#125; catch &#123;</div><div class="line">            // Replace this implementation with code to handle the error appropriately.</div><div class="line">            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.</div><div class="line">            let nserror = error as NSError</div><div class="line">            fatalError(&quot;Unresolved error \(nserror), \(nserror.userInfo)&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -604,8 +605,8 @@ NSFetchedResultsControllerDelegate</code></li>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-15.html" rel="next" title="开始用Swift开发iOS 10 - 15 使用地图">
-                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 15 使用地图
+              <a href="/2017/beginning-ios-swift-16.html" rel="next" title="开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint">
+                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint
               </a>
             
           </div>

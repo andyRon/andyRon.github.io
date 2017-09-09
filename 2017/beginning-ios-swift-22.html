@@ -95,12 +95,12 @@
 
 
 
-<meta name="description" content="上一篇 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController 学习打开网页，这一篇学习使用CloudKit。 iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。最近几年才渐渐成长为云服务。如果想创建社交类型的，可以分享用户之间数据的app，就可考虑使用iCl">
+<meta name="description" content="上一篇 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController 学习打开网页，这一篇学习使用CloudKit。 iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开始用Swift开发iOS 10 - 22 使用CloudKit">
 <meta property="og:url" content="http://andyron.com/2017/beginning-ios-swift-22.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="上一篇 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController 学习打开网页，这一篇学习使用CloudKit。 iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。最近几年才渐渐成长为云服务。如果想创建社交类型的，可以分享用户之间数据的app，就可考虑使用iCl">
+<meta property="og:description" content="上一篇 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController 学习打开网页，这一篇学习使用CloudKit。 iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-271ada8f864672e4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-68cb8e9332595e49.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-0f16ce57c7268d94.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -120,10 +120,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-746656f146872eb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-7b8444c49c67bd32.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-34c56759d8767f08.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T04:30:02.000Z">
+<meta property="og:updated_time" content="2017-09-09T05:01:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 22 使用CloudKit">
-<meta name="twitter:description" content="上一篇 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController 学习打开网页，这一篇学习使用CloudKit。 iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。最近几年才渐渐成长为云服务。如果想创建社交类型的，可以分享用户之间数据的app，就可考虑使用iCl">
+<meta name="twitter:description" content="上一篇 开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController 学习打开网页，这一篇学习使用CloudKit。 iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-271ada8f864672e4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -445,7 +445,9 @@
       
         <p><img src="http://upload-images.jianshu.io/upload_images/1678135-271ada8f864672e4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>上一篇 <a href="http://www.jianshu.com/p/f27fbed06b08" target="_blank" rel="external">开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController</a> 学习打开网页，这一篇学习使用CloudKit。</p>
-<p>iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。<br>最近几年才渐渐成长为云服务。如果想创建社交类型的，可以分享用户之间数据的app，就可考虑使用iCloud，这样就不需要自己再去构建一个后端APIs了。虽然可能由于国内的网络环境，iCloud实际应用效果并不好，不过还是有必要学一下的🙂。</p>
+<p>iCloud最初乔布斯在WWDC2011是发布的，只为了给Apps、游戏能够在云端数据保存，让Mac和iOS之间数据自动同步所用。</p>
+<a id="more"></a>
+<p>最近几年才渐渐成长为云服务。如果想创建社交类型的，可以分享用户之间数据的app，就可考虑使用iCloud，这样就不需要自己再去构建一个后端APIs了。虽然可能由于国内的网络环境，iCloud实际应用效果并不好，不过还是有必要学一下的🙂。</p>
 <p>如果开发了Web应用，同样也可以访问iOS应用的iCloud中数据。Apple分别提供了<code>CloudKit JS</code>和<code>CloudKit</code>库。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-68cb8e9332595e49.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><code>CloudKit</code>默认给我们的app提供一些免费的空间：</p>

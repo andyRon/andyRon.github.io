@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。这一篇文章就把上一篇文章开始用Swift开发iOS 10 - 10 Navigation Controller的介绍和Segue的代码整理成OOP形式。 重新修改FoodP">
+<meta name="description" content="关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开始用Swift开发iOS 10 - 11 面向对象编程介绍">
 <meta property="og:url" content="http://andyron.com/2017/beginning-ios-swift-11.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。这一篇文章就把上一篇文章开始用Swift开发iOS 10 - 10 Navigation Controller的介绍和Segue的代码整理成OOP形式。 重新修改FoodP">
+<meta property="og:description" content="关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a1e3d5b30b1e86a8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T04:33:38.000Z">
+<meta property="og:updated_time" content="2017-09-09T04:58:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 11 面向对象编程介绍">
-<meta name="twitter:description" content="关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。这一篇文章就把上一篇文章开始用Swift开发iOS 10 - 10 Navigation Controller的介绍和Segue的代码整理成OOP形式。 重新修改FoodP">
+<meta name="twitter:description" content="关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-a1e3d5b30b1e86a8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -426,7 +426,9 @@
 
       
         <p><img src="http://upload-images.jianshu.io/upload_images/1678135-a1e3d5b30b1e86a8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。<br>这一篇文章就把上一篇文章<a href="http://www.jianshu.com/p/ff7e904f82cd" target="_blank" rel="external">开始用Swift开发iOS 10 - 10 Navigation Controller的介绍和Segue</a>的代码整理成OOP形式。</p>
+<p>关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。</p>
+<a id="more"></a>
+<p>这一篇文章就把上一篇文章<a href="http://www.jianshu.com/p/ff7e904f82cd" target="_blank" rel="external">开始用Swift开发iOS 10 - 10 Navigation Controller的介绍和Segue</a>的代码整理成OOP形式。</p>
 <h3 id="重新修改FoodPin项目"><a href="#重新修改FoodPin项目" class="headerlink" title="重新修改FoodPin项目"></a>重新修改FoodPin项目</h3><ul>
 <li><p>之前在<code>RestaurantTableViewController</code>类中，定义了<code>restaurantNames</code>,<code>restaurantImages</code>, <code>restaurantLocations</code>,<code>restaurantTypes</code>四个数组变量，分别表示restaurant的名字，图片名称，位置，类型。每个restaurant的信息分散在四个数组中，而且数组的内容顺序要对应，现在把四个信息组成在一个类中<code>Restaurant</code>。</p>
 </li>
@@ -599,8 +601,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-tutorial-4-calayer.html" rel="next" title="iOS tutorial 4：CALayer介绍(swift)">
-                <i class="fa fa-chevron-left"></i> iOS tutorial 4：CALayer介绍(swift)
+              <a href="/2017/ios-tutorial-5.html" rel="next" title="iOS tutorial 5：关于地理定位和特定区域(Swift)">
+                <i class="fa fa-chevron-left"></i> iOS tutorial 5：关于地理定位和特定区域(Swift)
               </a>
             
           </div>

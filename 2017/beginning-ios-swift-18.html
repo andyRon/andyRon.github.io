@@ -95,21 +95,21 @@
 
 
 
-<meta name="description" content="上一篇 开始用Swift开发iOS 10 - 17 使用Core Data 是使用Core Data存储数据，这一篇是添加搜索功能。 使用 UISearchControllerUISearchController是一个简洁的创建搜索条和管理搜索结果的API。通常情况下，为以table为基础的app添加搜索条只需要下面三行代码就可以了，searchResultsController为nil时搜索结果">
+<meta name="description" content="上一篇 开始用Swift开发iOS 10 - 17 使用Core Data 是使用Core Data存储数据，这一篇是添加搜索功能。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开始用Swift开发iOS 10 - 18 Search Bar 和 UISearchController">
 <meta property="og:url" content="http://andyron.com/2017/beginning-ios-swift-18.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="上一篇 开始用Swift开发iOS 10 - 17 使用Core Data 是使用Core Data存储数据，这一篇是添加搜索功能。 使用 UISearchControllerUISearchController是一个简洁的创建搜索条和管理搜索结果的API。通常情况下，为以table为基础的app添加搜索条只需要下面三行代码就可以了，searchResultsController为nil时搜索结果">
+<meta property="og:description" content="上一篇 开始用Swift开发iOS 10 - 17 使用Core Data 是使用Core Data存储数据，这一篇是添加搜索功能。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-fa6e550b40974b6b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-e757d207e9689c22.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-f31077a6b2b2dc3d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-7aec0c6828ba87b7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-090ec425a6db2759.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T04:32:35.000Z">
+<meta property="og:updated_time" content="2017-09-09T05:00:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 18 Search Bar 和 UISearchController">
-<meta name="twitter:description" content="上一篇 开始用Swift开发iOS 10 - 17 使用Core Data 是使用Core Data存储数据，这一篇是添加搜索功能。 使用 UISearchControllerUISearchController是一个简洁的创建搜索条和管理搜索结果的API。通常情况下，为以table为基础的app添加搜索条只需要下面三行代码就可以了，searchResultsController为nil时搜索结果">
+<meta name="twitter:description" content="上一篇 开始用Swift开发iOS 10 - 17 使用Core Data 是使用Core Data存储数据，这一篇是添加搜索功能。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-fa6e550b40974b6b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -430,6 +430,7 @@
 
       
         <p><img src="http://upload-images.jianshu.io/upload_images/1678135-fa6e550b40974b6b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>上一篇 <a href="http://www.jianshu.com/p/bf712b672af9" target="_blank" rel="external">开始用Swift开发iOS 10 - 17 使用Core Data</a> 是使用Core Data存储数据，这一篇是添加搜索功能。</p>
+<a id="more"></a>
 <h3 id="使用-UISearchController"><a href="#使用-UISearchController" class="headerlink" title="使用 UISearchController"></a>使用 UISearchController</h3><p><code>UISearchController</code>是一个简洁的创建搜索条和管理搜索结果的API。<br>通常情况下，为以table为基础的app添加搜索条只需要下面三行代码就可以了，<code>searchResultsController</code>为<code>nil</code>时搜索结果显示就在当前搜索的页面以当前的样式显示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">searchController = UISearchController(searchResultsController: nil)</div><div class="line">searchController.searchResultsUpdater = self</div><div class="line">tableView.tableHeaderView = searchController.searchBar</div></pre></td></tr></table></figure></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-e757d207e9689c22.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>为我的FoodPin应用添加搜索条:</p>

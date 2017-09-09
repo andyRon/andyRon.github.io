@@ -95,22 +95,22 @@
 
 
 
-<meta name="description" content="继续上一部分开始用Swift开发iOS 10 - 7 定制Table Views项目FoodPin的代码，添加两个功能：  点击cell时，产生弹框，弹框中有两个功能选项 Call 和 Check-in 当点击Check-in选项时，为cell加上对号  理解UITableViewDelegate协议代理模式在iOS编程中非常常见的。每个代理负责特定的角色或任务，维持系统的简单和干净。当一个对象需">
+<meta name="description" content="继续上一部分开始用Swift开发iOS 10 - 7 定制Table Views项目FoodPin的代码，添加两个功能：  点击cell时，产生弹框，弹框中有两个功能选项 Call 和 Check-in 当点击Check-in选项时，为cell加上对号">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开始用Swift开发iOS 10 - 8 Table View和UIAlertController的交互">
 <meta property="og:url" content="http://andyron.com/2017/beginning-ios-swift-8.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="继续上一部分开始用Swift开发iOS 10 - 7 定制Table Views项目FoodPin的代码，添加两个功能：  点击cell时，产生弹框，弹框中有两个功能选项 Call 和 Check-in 当点击Check-in选项时，为cell加上对号  理解UITableViewDelegate协议代理模式在iOS编程中非常常见的。每个代理负责特定的角色或任务，维持系统的简单和干净。当一个对象需">
+<meta property="og:description" content="继续上一部分开始用Swift开发iOS 10 - 7 定制Table Views项目FoodPin的代码，添加两个功能：  点击cell时，产生弹框，弹框中有两个功能选项 Call 和 Check-in 当点击Check-in选项时，为cell加上对号">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-2b4f64c278a9383c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-efebcac2067e64a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-06fec41053693b82.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-ff999d552dfb874c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-4810d845d9b28bbb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a8b473734a1975d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T04:28:42.000Z">
+<meta property="og:updated_time" content="2017-09-09T05:02:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 8 Table View和UIAlertController的交互">
-<meta name="twitter:description" content="继续上一部分开始用Swift开发iOS 10 - 7 定制Table Views项目FoodPin的代码，添加两个功能：  点击cell时，产生弹框，弹框中有两个功能选项 Call 和 Check-in 当点击Check-in选项时，为cell加上对号  理解UITableViewDelegate协议代理模式在iOS编程中非常常见的。每个代理负责特定的角色或任务，维持系统的简单和干净。当一个对象需">
+<meta name="twitter:description" content="继续上一部分开始用Swift开发iOS 10 - 7 定制Table Views项目FoodPin的代码，添加两个功能：  点击cell时，产生弹框，弹框中有两个功能选项 Call 和 Check-in 当点击Check-in选项时，为cell加上对号">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-2b4f64c278a9383c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -435,6 +435,7 @@
 <li>点击cell时，产生弹框，弹框中有两个功能选项 <em>Call</em> 和 <em>Check-in</em></li>
 <li>当点击<em>Check-in</em>选项时，为cell加上对号</li>
 </ul>
+<a id="more"></a>
 <h3 id="理解UITableViewDelegate协议"><a href="#理解UITableViewDelegate协议" class="headerlink" title="理解UITableViewDelegate协议"></a>理解UITableViewDelegate协议</h3><p><strong>代理模式</strong>在iOS编程中非常常见的。每个代理负责特定的角色或任务，维持系统的简单和干净。当一个对象需要完成特定任务时，可以依靠另一个对象完成。这在软件设计模式中通常叫做<strong>“separation of concerns”</strong>。<br><code>UITableViewController</code>就应用了代理模式。两个协议完成不同的任务。<code>UITableViewDataSource</code>协议负责提供和管理table的数据。<code>UITableViewDelegate</code>协议负责设置table的section headings 和 footers，以及操作cell selections和cell recording。</p>
 <h3 id="阅读文档"><a href="#阅读文档" class="headerlink" title="阅读文档"></a>阅读文档</h3><blockquote>
 <p>怎么知道<code>UITableViewDelegate</code>中有那些方法呢？</p>
