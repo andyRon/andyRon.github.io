@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-09T03:21:17.000Z</updated>
+  <updated>2017-09-10T15:51:49.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -16,19 +16,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/ios-js-2.html"/>
-    <id>http://andyron.com/2017/ios-js-2.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:17.000Z</updated>
+    <title>OC基础学习8：对象初始化</title>
+    <link href="http://andyron.com/2017/oc-basic-8.html"/>
+    <id>http://andyron.com/2017/oc-basic-8.html</id>
+    <published>2017-09-10T15:50:09.000Z</published>
+    <updated>2017-09-10T15:51:49.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
+      &lt;h3 id=&quot;1-分配-allocation-对象&quot;&gt;&lt;a href=&quot;#1-分配-allocation-对象&quot; class=&quot;headerlink&quot; title=&quot;1 分配(allocation)对象&quot;&gt;&lt;/a&gt;1 分配(allocation)对象&lt;/h3&gt;&lt;p&gt;&lt;code&gt;
     
     </summary>
     
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
     
     
   </entry>
@@ -44,6 +44,24 @@
     
       &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/ios-js-2.html"/>
+    <id>http://andyron.com/2017/ios-js-2.html</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-09T03:21:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
     
     </summary>
     
@@ -219,19 +237,15 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 10：UIScrollView滚动视图</title>
-    <link href="http://andyron.com/2017/ios-tutorial-10-uiscrolview.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-10-uiscrolview.html</id>
+    <title>iOS tutorial 9：本地视频播放</title>
+    <link href="http://andyron.com/2017/ios-tutorial-9.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-9.html</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:22:02.000Z</updated>
+    <updated>2017-09-09T03:23:28.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;知识点: &lt;code&gt;UIScrollView&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-19f579832ac695b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;当视图超过屏幕大小时，可通过把视图放在&lt;code&gt;UIScrollView&lt;/code&gt;中让视图可以上下滚动的功能。以一张大图片为例。&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -266,15 +280,19 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 9：本地视频播放</title>
-    <link href="http://andyron.com/2017/ios-tutorial-9.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-9.html</id>
+    <title>iOS tutorial 10：UIScrollView滚动视图</title>
+    <link href="http://andyron.com/2017/ios-tutorial-10-uiscrolview.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-10-uiscrolview.html</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:23:28.000Z</updated>
+    <updated>2017-09-09T03:22:02.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;知识点: &lt;code&gt;UIScrollView&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-19f579832ac695b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当视图超过屏幕大小时，可通过把视图放在&lt;code&gt;UIScrollView&lt;/code&gt;中让视图可以上下滚动的功能。以一张大图片为例。&lt;/p&gt;
     
     </summary>
     
@@ -400,23 +418,6 @@
     
     
       <category term="github" scheme="http://andyron.com/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习7：内存管理</title>
-    <link href="http://andyron.com/2017/oc-basic-7.html"/>
-    <id>http://andyron.com/2017/oc-basic-7.html</id>
-    <published>2017-08-10T16:00:00.000Z</published>
-    <updated>2017-09-09T03:00:08.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-对象生命周期&quot;&gt;&lt;a href=&quot;#1-对象生命周期&quot; class=&quot;headerlink&quot; title=&quot;1 对象生命周期&quot;&gt;&lt;/a&gt;1 对象生命周期&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息
-    
-    </summary>
-    
     
   </entry>
   
