@@ -95,16 +95,15 @@
 
 
 
-<meta name="description" content="将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。 拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：  接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。 实现部分(.m): 类的@implementation指令、全局变量的定">
-<meta property="og:type" content="article">
-<meta property="og:title" content="OC基础学习5：源文件组织">
-<meta property="og:url" content="http://andyron.com/2017/oc-basic-5.html">
+<meta name="description" content="Just for fun.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="欣欣向戎">
+<meta property="og:url" content="http://andyron.com/categories/Objective-C/page/2/index.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。 拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：  接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。 实现部分(.m): 类的@implementation指令、全局变量的定">
-<meta property="og:updated_time" content="2017-09-09T02:59:50.000Z">
+<meta property="og:description" content="Just for fun.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OC基础学习5：源文件组织">
-<meta name="twitter:description" content="将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。 拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：  接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。 实现部分(.m): 类的@implementation指令、全局变量的定">
+<meta name="twitter:title" content="欣欣向戎">
+<meta name="twitter:description" content="Just for fun.">
 
 
 
@@ -132,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/oc-basic-5.html"/>
+  <link rel="canonical" href="http://andyron.com/categories/Objective-C/page/2/"/>
 
 
 
 
 
-  <title>OC基础学习5：源文件组织 | 欣欣向戎</title>
+  <title>分类: Objective-C | 欣欣向戎</title>
   
 
 
@@ -173,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
@@ -313,259 +312,49 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-5.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h1>Objective-C<small>分类</small>
+      </h1>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2017/oc-basic-1-c.html" itemprop="url">
+              
+                <span itemprop="name">OC基础学习1：对C的扩展</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">OC基础学习5：源文件组织</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T00:00:00+08:00">
-                2017-07-22
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-07-21T00:00:00+08:00"
+              content="2017-07-21" >
+          07-21
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/oc-basic-5.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-5.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。</p>
-<h3 id="拆分接口和实现"><a href="#拆分接口和实现" class="headerlink" title="拆分接口和实现"></a>拆分接口和实现</h3><p>根据<code>@interface</code>和<code>@implementation</code>，OC的代码通常放在两种文件里：</p>
-<ul>
-<li>接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。</li>
-<li>实现部分(.m): 类的@implementation指令、全局变量的定义、私有struct等。</li>
-</ul>
-<p>另外，复杂的项目可以拥有多个<strong>目标</strong>，它们源文件的配置各不相同，构建规则也不同。<strong>群组</strong>关系仅仅是有Xcode负责管理的一项奇妙的功能。</p>
-<h3 id="拆分Car程序"><a href="#拆分Car程序" class="headerlink" title="拆分Car程序"></a>拆分Car程序</h3><ul>
-<li><code>#import</code> 带尖号的是导入系统头文件(只读)，如<code>#import &lt;Foundation/Foundation.h&gt;</code>；双引号是项目本地的代码文件，如<code>#import &quot;Engine.h&quot;</code>。</li>
-<li><p>拆分上一篇中的Car程序<br>首先拆分继承自<code>NSObject</code>的类：<code>Tire</code>和<code>Engine</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//  Tire.h</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface Tire : NSObject</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//  Tire.m</div><div class="line"></div><div class="line">#import &quot;Tire.h&quot;</div><div class="line"></div><div class="line">@implementation Tire</div><div class="line">//#pragma mark -</div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a Tire.&quot;);</div><div class="line">&#125; //description</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//  Engine.h</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface Engine : NSObject</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//  Engine.m</div><div class="line">#import &quot;Engine.h&quot;</div><div class="line"></div><div class="line">@implementation Engine</div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a Engine.&quot;);</div><div class="line">&#125; //description</div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="使用跨文件依赖关系"><a href="#使用跨文件依赖关系" class="headerlink" title="使用跨文件依赖关系"></a>使用跨文件依赖关系</h3><ul>
-<li><p><code>@class</code> 是告诉编译器：“这是一个类，只会通过指针来引用它，不需要关注此类的更多信息”。可减少必须导入的头文件的数量，从而缩短编译时间。<br>拆分<code>Car</code>类：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//  Car.h</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@class Engine;</div><div class="line">@class Tire;</div><div class="line"></div><div class="line">@interface Car : NSObject</div><div class="line">- (Engine *) engine;</div><div class="line">- (void) setEngine: (Engine *) newEngine;</div><div class="line">- (Tire *) tireAtIndex: (int) index;</div><div class="line">- (void) setTire: (Tire *) tire atIndex: (int) index;</div><div class="line">- (void)print;</div><div class="line">@end //Car</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">//  Car.m</div><div class="line"></div><div class="line">#import &quot;Car.h&quot;</div><div class="line">#import &quot;Tire.h&quot;</div><div class="line">#import &quot;Engine.h&quot;</div><div class="line"></div><div class="line">@implementation Car</div><div class="line">&#123;</div><div class="line">    Engine *engine;</div><div class="line">    Tire *tires[4];</div><div class="line">&#125;</div><div class="line">- (Engine *) engine</div><div class="line">&#123;</div><div class="line">    return (engine);</div><div class="line">&#125; //engine</div><div class="line">- (void) setEngine:(Engine *)newEngine</div><div class="line">&#123;</div><div class="line">    engine = newEngine;</div><div class="line">&#125; //setEngine</div><div class="line">- (void) setTire:(Tire *)tire atIndex:(int)index</div><div class="line">&#123;</div><div class="line">    if (index&lt;0 || index&gt;3) &#123;</div><div class="line">        NSLog(@&quot;bad index (%d) in setTire:atIndex&quot;, index);</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line">    tires[index] = tire;</div><div class="line">&#125; // setTire</div><div class="line">- (Tire *) tireAtIndex:(int)index</div><div class="line">&#123;</div><div class="line">    if (index&lt;0 || index&gt;3) &#123;</div><div class="line">        NSLog(@&quot;bad index (%d) in setTire:atIndex&quot;, index);</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line">    return tires[index];</div><div class="line">&#125; // tireAtIndex</div><div class="line"></div><div class="line">- (id)init</div><div class="line">&#123;</div><div class="line">    if (self = [super init]) &#123;  //?</div><div class="line">        engine = [Engine new];</div><div class="line">        tires[0] = [Tire new];</div><div class="line">        tires[1] = [Tire new];</div><div class="line">        tires[2] = [Tire new];</div><div class="line">        tires[3] = [Tire new];</div><div class="line">    &#125;</div><div class="line">    return (self);</div><div class="line">&#125;</div><div class="line">- (void)print</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;%@&quot;, engine);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[0]);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[1]);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[2]);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[3]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end //Car</div></pre></td></tr></table></figure>
-</li>
-<li><p>编译器需要先知道所有关于超类的信息才能成功地为其子类编译@interface部分。<br>拆分<code>Slant6</code>和<code>AllWeatherRadial</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//  Slant6.h</div><div class="line"></div><div class="line">#import &quot;Engine.h&quot;</div><div class="line"></div><div class="line">@interface Slant6 : Engine</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//  Slant6.m</div><div class="line"></div><div class="line">#import &quot;Slant6.h&quot;</div><div class="line"></div><div class="line">@implementation Slant6</div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a slant-6.VROOM!&quot;);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//  AllWeatherRadial.h</div><div class="line"></div><div class="line">#import &quot;Tire.h&quot;</div><div class="line"></div><div class="line">@interface AllWeatherRadial : Tire</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//  AllWeatherRadial.m</div><div class="line"></div><div class="line">#import &quot;AllWeatherRadial.h&quot;</div><div class="line"></div><div class="line">@implementation AllWeatherRadial</div><div class="line">-(NSString *)description</div><div class="line">&#123;</div><div class="line">    return (@&quot;I am a tire for rain or shine.&quot;);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>最后是<code>main.m</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//  main.m</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &quot;Car.h&quot;</div><div class="line">#import &quot;Tire.h&quot;</div><div class="line">#import &quot;Engine.h&quot;</div><div class="line">#import &quot;Slant6.h&quot;</div><div class="line">#import &quot;AllWeatherRadial.h&quot;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">   </div><div class="line">    Car *car = [Car new];</div><div class="line">    </div><div class="line">    Engine *engine = [Slant6 new];</div><div class="line">    [car setEngine:engine];</div><div class="line">    for (int i=0; i&lt;4; i++) &#123;</div><div class="line">        Tire *tire = [AllWeatherRadial new];</div><div class="line">        [car setTire:tire atIndex:i];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    [car print];</div><div class="line">    </div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    <div>
-      
-        
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="AndyRon wechat" style="width: 200px; max-width: 100%;"/>
-    <div>欢迎您访问我的的微信公众号：欣欣向戎（微信号: andy_ron1587 ）！</div>
-</div>
-
-
-      
-    </div>
-
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
-  </div>
-
-
-      
-    </div>
-
-    <div>
-      
-        
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      AndyRon
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/oc-basic-5.html" title="OC基础学习5：源文件组织">http://andyron.com/2017/oc-basic-5.html</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/oc-basic-1-c.html" rel="next" title="OC基础学习1：对C的扩展">
-                <i class="fa fa-chevron-left"></i> OC基础学习1：对C的扩展
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/oc-basic-2.html" rel="prev" title="OC基础学习2：面向对象编程的基础知识">
-                OC基础学习2：面向对象编程的基础知识 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-        
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/categories/Objective-C/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/categories/Objective-C/">1</a><span class="page-number current">2</span>
+  </nav>
 
-      
-    </div>
-  </div>
+
 
 
           </div>
@@ -573,17 +362,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -603,17 +381,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -739,22 +508,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#拆分接口和实现"><span class="nav-number">1.</span> <span class="nav-text">拆分接口和实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拆分Car程序"><span class="nav-number">2.</span> <span class="nav-text">拆分Car程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用跨文件依赖关系"><span class="nav-number">3.</span> <span class="nav-text">使用跨文件依赖关系</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -876,10 +629,10 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-
+  
 
   
 
@@ -897,18 +650,6 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/oc-basic-5.html';
-          this.page.identifier = '2017/oc-basic-5.html';
-          this.page.title = 'OC基础学习5：源文件组织';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   
