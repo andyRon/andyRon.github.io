@@ -95,16 +95,16 @@
 
 
 
-<meta name="description" content="Just for fun.">
+<meta name="description" content="1 使用属性 接口代码简化没有使用属性：12345678910111213#import &amp;quot;Tire.h&amp;quot;@interface AllWeatherRadial : Tire&amp;#123;    // 轮胎在潮湿和积雪的道路上的性能    float rainHandling;    float snowHandling;&amp;#125;- (void) setRainHandlin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OC基础学习9：属性">
 <meta property="og:url" content="http://andyron.com/2017/oc-basic-9.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.">
-<meta property="og:updated_time" content="2017-09-11T14:45:19.000Z">
+<meta property="og:description" content="1 使用属性 接口代码简化没有使用属性：12345678910111213#import &amp;quot;Tire.h&amp;quot;@interface AllWeatherRadial : Tire&amp;#123;    // 轮胎在潮湿和积雪的道路上的性能    float rainHandling;    float snowHandling;&amp;#125;- (void) setRainHandlin">
+<meta property="og:updated_time" content="2017-09-11T14:57:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习9：属性">
-<meta name="twitter:description" content="Just for fun.">
+<meta name="twitter:description" content="1 使用属性 接口代码简化没有使用属性：12345678910111213#import &amp;quot;Tire.h&amp;quot;@interface AllWeatherRadial : Tire&amp;#123;    // 轮胎在潮湿和积雪的道路上的性能    float rainHandling;    float snowHandling;&amp;#125;- (void) setRainHandlin">
 
 
 
@@ -425,7 +425,44 @@
       
 
       
-        
+        <h3 id="1-使用属性"><a href="#1-使用属性" class="headerlink" title="1 使用属性"></a>1 使用属性</h3><ul>
+<li>接口代码简化<br>没有使用属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &quot;Tire.h&quot;</div><div class="line"></div><div class="line">@interface AllWeatherRadial : Tire</div><div class="line">&#123;</div><div class="line">    // 轮胎在潮湿和积雪的道路上的性能</div><div class="line">    float rainHandling;</div><div class="line">    float snowHandling;</div><div class="line">&#125;</div><div class="line">- (void) setRainHandling:(float)rainHandling;</div><div class="line">- (float) rainHandling;</div><div class="line">- (void) setSnowHandling:(float)snowHandling;</div><div class="line">- (float) snowHandling;</div><div class="line">@end</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@interface AllWeatherRadial : Tire</div><div class="line">&#123;</div><div class="line">    // 轮胎在潮湿和积雪的道路上的性能</div><div class="line">    float rainHandling;</div><div class="line">    float snowHandling;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@property float rainHandling;</div><div class="line">@property float snowHandling;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p><strong><code>@ property</code>预编译指令的作用是自动声明属性的setter和getter方法。</strong></p>
+<ul>
+<li>简化实现代码<br>之前：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">#import &quot;AllWeatherRadial.h&quot;</div><div class="line"></div><div class="line">@implementation AllWeatherRadial</div><div class="line">-(NSString *)description</div><div class="line">&#123;</div><div class="line">//    return (@&quot;I am a tire for rain or shine.&quot;);</div><div class="line">    NSString *desc;</div><div class="line">    desc = [[NSString alloc] initWithFormat:@&quot;AllWeatherRadial: %.1f / %.1f / %.1f / %.1f.&quot;, self.pressure, self.treadDepth, self.rainHandling, self.snowHandling];</div><div class="line">    return desc;</div><div class="line">&#125;</div><div class="line">- (void)setRainHandling:(float)r</div><div class="line">&#123;</div><div class="line">    rainHandling = r;</div><div class="line">&#125;</div><div class="line">- (float)rainHandling</div><div class="line">&#123;</div><div class="line">    return rainHandling;</div><div class="line">&#125;</div><div class="line">- (void)setSnowHandling:(float)s</div><div class="line">&#123;</div><div class="line">    snowHandling = s;</div><div class="line">&#125;</div><div class="line">- (float)snowHandling</div><div class="line">&#123;</div><div class="line">    return snowHandling;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (id) initWithPressure:(float)p treadDepth:(float)td</div><div class="line">&#123;</div><div class="line">    if (self = [super initWithPressure:p treadDepth:td]) &#123;</div><div class="line">        rainHandling = 23.7;</div><div class="line">        snowHandling = 58.1;</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用属性后的实现代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#import &quot;AllWeatherRadial.h&quot;</div><div class="line"></div><div class="line">@implementation AllWeatherRadial</div><div class="line"></div><div class="line">@synthesize rainHandling;</div><div class="line">@synthesize snowHandling;</div><div class="line"></div><div class="line">-(NSString *)description</div><div class="line">&#123;</div><div class="line">    NSString *desc;</div><div class="line">    desc = [[NSString alloc] initWithFormat:@&quot;AllWeatherRadial: %.1f / %.1f / %.1f / %.1f.&quot;, self.pressure, self.treadDepth, self.rainHandling, self.snowHandling];</div><div class="line">    return desc;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (id) initWithPressure:(float)p treadDepth:(float)td</div><div class="line">&#123;</div><div class="line">    if (self = [super initWithPressure:p treadDepth:td]) &#123;</div><div class="line">        rainHandling = 23.7;</div><div class="line">        snowHandling = 58.1;</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p><code>@synthesize</code>预编译指令表示<strong>通知编译器生成访问方法</strong>。当遇到@synthesize xxx；这行代码时，编译器将添加实现-setXxx：和-xxx方法的预编译代码。</p>
+<blockquote>
+<p>该@synthesize预编译指令不同于代码生成。你永远看不到实现-setXxx：和-xxx的代码，但是这些方法确实存在并可以被调用。这种技术使苹果公司可以更加灵活地改变Objective-C中生成访问方法的方式，并获得更安全的实现和更高的的性能。<strong>在Xcode4.5以后的版本中，可以不必使用@synthesize了。</strong></p>
+</blockquote>
+<ul>
+<li><p>所有的属性都是基于变量的，在<code>@synthesize</code>时，编译器会自动创建与属性名称相同的实例变量。</p>
+<p>实例变量声明位置：</p>
+<ul>
+<li>头文件：有子类，想从子类直接通过属性访问变量。</li>
+<li>实现文件：变量只属于当前类。</li>
+</ul>
+</li>
+<li><p>点表达式<br>之前的<br><code>[tire setPressure:23+i];</code><br>可相应变为：<br><code>tire.rainHandling = 23+i;</code></p>
+</li>
+</ul>
+<h3 id="2-属性扩展"><a href="#2-属性扩展" class="headerlink" title="2 属性扩展"></a>2 属性扩展</h3><ul>
+<li>实例变量和属性不是同一个名称<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@interface Car : NSObject</div><div class="line">&#123;</div><div class="line">    NSMutableArray *tires;</div><div class="line">    Engine *engine;</div><div class="line">    NSString *appellation;</div><div class="line">&#125;</div><div class="line">@property (copy) NSString *name;</div><div class="line">@property (retain) Engine *engine;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>修改<code>@synthesize</code>指令为： <code>@synthesize name = appellation;</code><br>编译器仍将创建<code>-setName:</code>和<code>-name</code>方法，但在其实现代码中用的确实<code>appellation</code>实例变量。</p>
+<ul>
+<li><p>只读属性<br>readwrite   readonly<br>属性为只读时，编译器只会生成一个getter方法。</p>
+</li>
+<li><p>属性不支持那些需要接收额外参数的方法。如car对象中tire对象的代码。</p>
+</li>
+</ul>
+
       
     </div>
 
@@ -574,8 +611,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -700,6 +746,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用属性"><span class="nav-number">1.</span> <span class="nav-text">1 使用属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-属性扩展"><span class="nav-number">2.</span> <span class="nav-text">2 属性扩展</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -425,8 +425,15 @@
       
         
           
-          
-          
+          1 正式协议
+声明协议
+
+123@protocol NSCoding- (id) copyWithZone: (NSZone *) zone;@end
+继承父协议：12@protocol MySuperDuberProtocol &lt;MyParentProtocol&gt;@end
+
+采用协议
+123456@interface Car ：NSObject &lt;NSCopying, NSCoding&gt;&#123;// instance variables&#125;// method
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/oc-basic-11.html#more" rel="contents">
@@ -576,8 +583,19 @@
       
         
           
-          
-          
+          类别（category）是一种为现有的类添加新方法的方式。
+1 创建类别一般，只是习惯
+
+把类别代码放在独立的文件中命名：”类名称+类别名称”，如 NSString+NumberConvenience
+
+
+开始创建类别
+
+
+
+生成两个文件，NSString+NumberConvenience.h:12345#import &lt;Foundation/Foundation.h&gt;@interface NSString (NumberConvenience)@end
+NSString+Numb
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/oc-basic-10.html#more" rel="contents">
@@ -727,8 +745,9 @@
       
         
           
-          
-          
+          1 使用属性
+接口代码简化没有使用属性：12345678910111213#import &quot;Tire.h&quot;@interface AllWeatherRadial : Tire&#123;    // 轮胎在潮湿和积雪的道路上的性能    float rainHandling;    float snowHandling;&#125;- (void) setRainHandling:(float)rainHandling;- (float) rainHandling;- (vo
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/oc-basic-9.html#more" rel="contents">

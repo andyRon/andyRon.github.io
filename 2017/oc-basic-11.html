@@ -95,16 +95,16 @@
 
 
 
-<meta name="description" content="Just for fun.">
+<meta name="description" content="1 正式协议 声明协议  123@protocol NSCoding- (id) copyWithZone: (NSZone *) zone;@end 继承父协议：12@protocol MySuperDuberProtocol &amp;lt;MyParentProtocol&amp;gt;@end  采用协议 123456@interface Car ：NSObject &amp;lt;NSCopying, NSCo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OC基础学习11：协议">
 <meta property="og:url" content="http://andyron.com/2017/oc-basic-11.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.">
-<meta property="og:updated_time" content="2017-09-11T14:45:15.000Z">
+<meta property="og:description" content="1 正式协议 声明协议  123@protocol NSCoding- (id) copyWithZone: (NSZone *) zone;@end 继承父协议：12@protocol MySuperDuberProtocol &amp;lt;MyParentProtocol&amp;gt;@end  采用协议 123456@interface Car ：NSObject &amp;lt;NSCopying, NSCo">
+<meta property="og:updated_time" content="2017-09-11T14:57:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习11：协议">
-<meta name="twitter:description" content="Just for fun.">
+<meta name="twitter:description" content="1 正式协议 声明协议  123@protocol NSCoding- (id) copyWithZone: (NSZone *) zone;@end 继承父协议：12@protocol MySuperDuberProtocol &amp;lt;MyParentProtocol&amp;gt;@end  采用协议 123456@interface Car ：NSObject &amp;lt;NSCopying, NSCo">
 
 
 
@@ -425,7 +425,21 @@
       
 
       
-        
+        <h3 id="1-正式协议"><a href="#1-正式协议" class="headerlink" title="1 正式协议"></a>1 正式协议</h3><ul>
+<li>声明协议</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@protocol NSCoding</div><div class="line">- (id) copyWithZone: (NSZone *) zone;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>继承父协议：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@protocol MySuperDuberProtocol &lt;MyParentProtocol&gt;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>采用协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@interface Car ：NSObject &lt;NSCopying, NSCoding&gt;</div><div class="line">&#123;</div><div class="line">// instance variables</div><div class="line">&#125;</div><div class="line">// methods</div><div class="line">@end // Car</div></pre></td></tr></table></figure>
+</li>
+<li><p>实现协议</p>
+</li>
+</ul>
+<h3 id="2-复制"><a href="#2-复制" class="headerlink" title="2 复制"></a>2 复制</h3><p>浅层复制<br>深层复制</p>
+<h3 id="3-optional-required"><a href="#3-optional-required" class="headerlink" title="3 @optional  @required"></a>3 @optional  @required</h3><h3 id="4-委托方法"><a href="#4-委托方法" class="headerlink" title="4 委托方法"></a>4 委托方法</h3><p>委托(delegation)是某个对象指定另一个对象处理某些特定任务的设计模式。委托经常与协议共用。</p>
+
       
     </div>
 
@@ -570,8 +584,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -696,6 +719,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-正式协议"><span class="nav-number">1.</span> <span class="nav-text">1 正式协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-复制"><span class="nav-number">2.</span> <span class="nav-text">2 复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-optional-required"><span class="nav-number">3.</span> <span class="nav-text">3 @optional  @required</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-委托方法"><span class="nav-number">4.</span> <span class="nav-text">4 委托方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
