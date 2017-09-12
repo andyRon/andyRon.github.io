@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-12T13:15:33.000Z</updated>
+  <updated>2017-09-12T15:39:45.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Charles抓取iOS的http/https请求数据</title>
+    <link href="http://andyron.com/2017/ios-charles.html"/>
+    <id>http://andyron.com/2017/ios-charles.html</id>
+    <published>2017-09-12T15:38:27.000Z</published>
+    <updated>2017-09-12T15:39:45.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-b50783080fc7b92e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Charles" scheme="http://andyron.com/tags/Charles/"/>
+    
+  </entry>
   
   <entry>
     <title>OC基础学习13：文件加载与保存</title>
@@ -333,30 +351,6 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 10：UIScrollView滚动视图</title>
-    <link href="http://andyron.com/2017/ios-tutorial-10-uiscrolview.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-10-uiscrolview.html</id>
-    <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:22:02.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;知识点: &lt;code&gt;UIScrollView&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-19f579832ac695b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;当视图超过屏幕大小时，可通过把视图放在&lt;code&gt;UIScrollView&lt;/code&gt;中让视图可以上下滚动的功能。以一张大图片为例。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>iOS tutorial 11：照片横屏滑动</title>
     <link href="http://andyron.com/2017/ios-tutorial-11.html"/>
     <id>http://andyron.com/2017/ios-tutorial-11.html</id>
@@ -400,20 +394,25 @@
   </entry>
   
   <entry>
-    <title>Alamofire：Swift的HTTP 网络库</title>
-    <link href="http://andyron.com/2017/alamofire-introduce.html"/>
-    <id>http://andyron.com/2017/alamofire-introduce.html</id>
-    <published>2017-08-15T16:00:00.000Z</published>
-    <updated>2017-09-09T03:20:46.000Z</updated>
+    <title>iOS tutorial 10：UIScrollView滚动视图</title>
+    <link href="http://andyron.com/2017/ios-tutorial-10-uiscrolview.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-10-uiscrolview.html</id>
+    <published>2017-08-18T16:00:00.000Z</published>
+    <updated>2017-09-09T03:22:02.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-f714d8e8a30d44b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;CocoaPods和Carthage都很方便安装&lt;br&gt;安装完，如果出现加载不到Alamofire，可以查看&lt;a href=&quot;https://github.com/Alamofire/Alamofire/issues/441&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cannot load underlying module for ‘Alamofire’ #441&lt;/a&gt;，问题应该可以解决。&lt;/li&gt;
-&lt;/ul&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;知识点: &lt;code&gt;UIScrollView&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-19f579832ac695b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当视图超过屏幕大小时，可通过把视图放在&lt;code&gt;UIScrollView&lt;/code&gt;中让视图可以上下滚动的功能。以一张大图片为例。&lt;/p&gt;
     
     </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
     
     
   </entry>

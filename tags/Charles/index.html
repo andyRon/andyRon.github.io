@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Core ML," />
+  <meta name="keywords" content="iOS, Swift" />
 
 
 
@@ -95,29 +95,15 @@
 
 
 
-<meta name="description" content="Xcode 9 beta &amp;amp; iOS11 beta &amp;amp; Swift4  Core ML是一个能集成机器学习模型到app中的框架。">
-<meta name="keywords" content="Core ML">
-<meta property="og:type" content="article">
-<meta property="og:title" content="初识Core ML：建立一个简单的图片内容识别应用">
-<meta property="og:url" content="http://andyron.com/2017/introducing-coreml.html">
+<meta name="description" content="Just for fun.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="欣欣向戎">
+<meta property="og:url" content="http://andyron.com/tags/Charles/index.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Xcode 9 beta &amp;amp; iOS11 beta &amp;amp; Swift4  Core ML是一个能集成机器学习模型到app中的框架。">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-0728b42427f4be66.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a58c97bd99763a5d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-5518e5b29d240853.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-4eb0e1ea7f8d54c6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a0170f0f39f3bf29.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-f0c8d4f30c507584.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a8a32614f80198cb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-727b50551939071d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-e7edb9197a900eea.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T03:41:05.000Z">
+<meta property="og:description" content="Just for fun.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识Core ML：建立一个简单的图片内容识别应用">
-<meta name="twitter:description" content="Xcode 9 beta &amp;amp; iOS11 beta &amp;amp; Swift4  Core ML是一个能集成机器学习模型到app中的框架。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="欣欣向戎">
+<meta name="twitter:description" content="Just for fun.">
 
 
 
@@ -145,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/introducing-coreml.html"/>
+  <link rel="canonical" href="http://andyron.com/tags/Charles/"/>
 
 
 
 
 
-  <title>初识Core ML：建立一个简单的图片内容识别应用 | 欣欣向戎</title>
+  <title>标签: Charles | 欣欣向戎</title>
   
 
 
@@ -186,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
@@ -326,293 +312,44 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/introducing-coreml.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h1>Charles<small>标签</small>
+      </h1>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2017/ios-charles.html" itemprop="url">
+              
+                <span itemprop="name">使用Charles抓取iOS的http/https请求数据</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">初识Core ML：建立一个简单的图片内容识别应用</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T23:44:18+08:00">
-                2017-09-03
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-09-12T23:38:27+08:00"
+              content="2017-09-12" >
+          09-12
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/introducing-coreml.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/introducing-coreml.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<blockquote>
-<p>Xcode 9 beta &amp; iOS11 beta &amp; Swift4</p>
-</blockquote>
-<p><a href="https://developer.apple.com/documentation/coreml" target="_blank" rel="external">Core ML</a>是一个能集成机器学习模型到app中的框架。</p>
-<a id="more"></a>
-<h3 id="一、新建初始项目"><a href="#一、新建初始项目" class="headerlink" title="一、新建初始项目"></a>一、新建初始项目</h3><ol>
-<li>新建项目<strong>CoreMLDemo</strong>，以<strong>single-view application template</strong>模板</li>
-<li>建立如下如下UI<br><img src="http://upload-images.jianshu.io/upload_images/1678135-0728b42427f4be66.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-</ol>
-<h3 id="二、实现照相和获取图片库功能"><a href="#二、实现照相和获取图片库功能" class="headerlink" title="二、实现照相和获取图片库功能"></a>二、实现照相和获取图片库功能</h3><ol>
-<li><p>遵守两个协议：<br><code>class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {</code></p>
-</li>
-<li><p>添加两个接口，并关联。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@IBOutlet var imageView: UIImageView!</div><div class="line">@IBOutlet var classifier: UILabel!</div></pre></td></tr></table></figure>
-</li>
-<li><p>实现两个Action</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">@IBAction func camera(_ sender: Any) &#123;</div><div class="line">    if !UIImagePickerController.isSourceTypeAvailable(.camera) &#123;</div><div class="line">        return</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    let cameraPicker = UIImagePickerController()</div><div class="line">    cameraPicker.delegate = self</div><div class="line">    cameraPicker.sourceType = .camera</div><div class="line">    cameraPicker.allowsEditing = false</div><div class="line">    </div><div class="line">    present(cameraPicker, animated: true, completion: nil)</div><div class="line">&#125;</div><div class="line"></div><div class="line">@IBAction func openLibrary(_ sender: Any) &#123;</div><div class="line">    let picker = UIImagePickerController()</div><div class="line">    picker.allowsEditing = false</div><div class="line">    picker.delegate = self</div><div class="line">    picker.sourceType = .photoLibrary</div><div class="line">    present(picker, animated: true)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>实现协议<code>UIImagePickerControllerDelegate</code>中的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func  imagePickerControllerDidCancel(_ picker: UIImagePickerController) &#123;</div><div class="line">    dismiss(animated: true, completion: nil)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>Info.plist</code>中添加📷使用请求，<code>Privacy – Camera Usage Description and Privacy</code></p>
-</li>
-</ol>
-<h3 id="三、集成Core-ML-Data-Model"><a href="#三、集成Core-ML-Data-Model" class="headerlink" title="三、集成Core ML Data Model"></a>三、集成Core ML Data Model</h3><ol>
-<li>到Apple机器学习官网 <a href="https://developer.apple.com/machine-learning/" target="_blank" rel="external">Machine Learning</a>下载Core ML models，目前有6个Model，识别图片的使用<code>Inception v3</code>。下载得到一个<code>mlmodel</code>结尾的文件，直接拖到项目中，会自动生成对应model名的swift的类文件，可以直接在代码中使用。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-a58c97bd99763a5d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/1678135-5518e5b29d240853.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4.jpg"></li>
-<li><p>在<code>ViewController.swift</code>中引入Core ML:<br><code>import CoreML</code></p>
-</li>
-<li><p>初始<code>Inceptionv3</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var model: Inceptionv3!</div><div class="line"></div><div class="line">override func viewWillAppear(_ animated: Bool) &#123;</div><div class="line">    model = Inceptionv3()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>实现<code>UIImagePickerControllerDelegate</code>协议的<code>imagePickerController(_:didFinishPickingMediaWithInfo)</code>方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) &#123;</div><div class="line">    </div><div class="line">    picker.dismiss(animated: true)</div><div class="line">    classifier.text = &quot;Analyzing Image...&quot;</div><div class="line">    guard let image = info[&quot;UIImagePickerControllerOriginalImage&quot;] as? UIImage else &#123;</div><div class="line">        return</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    UIGraphicsBeginImageContextWithOptions(CGSize(width: 299, height: 299), true, 2.0)</div><div class="line">    image.draw(in: CGRect(x: 0, y: 0, width: 299, height: 299))</div><div class="line">    let newImage = UIGraphicsGetImageFromCurrentImageContext()!</div><div class="line">    UIGraphicsEndImageContext()</div><div class="line">    </div><div class="line">    let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary</div><div class="line">    var pixelBuffer : CVPixelBuffer?</div><div class="line">    let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(newImage.size.width), Int(newImage.size.height), kCVPixelFormatType_32ARGB, attrs, &amp;pixelBuffer)</div><div class="line">    guard (status == kCVReturnSuccess) else &#123;</div><div class="line">        return</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))</div><div class="line">    let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)</div><div class="line">    </div><div class="line">    let rgbColorSpace = CGColorSpaceCreateDeviceRGB()</div><div class="line">    let context = CGContext(data: pixelData, width: Int(newImage.size.width), height: Int(newImage.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) //3</div><div class="line">    </div><div class="line">    context?.translateBy(x: 0, y: newImage.size.height)</div><div class="line">    context?.scaleBy(x: 1.0, y: -1.0)</div><div class="line">    </div><div class="line">    UIGraphicsPushContext(context!)</div><div class="line">    newImage.draw(in: CGRect(x: 0, y: 0, width: newImage.size.width, height: newImage.size.height))</div><div class="line">    UIGraphicsPopContext()</div><div class="line">    CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))</div><div class="line">    imageView.image = newImage</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用Core ML<br>在上面<code>imagePickerController(_:didFinishPickingMediaWithInfo)</code>方法最后添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">guard let prediction = try? model.prediction(image: pixelBuffer!) else &#123;</div><div class="line">    return</div><div class="line">&#125;</div><div class="line">classifier.text = &quot;I think this is a \(prediction.classLabel).&quot;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>现在就可运行识别图片内容了，我已几个简单的做了实验，效果还可以：</p>
-<p>能识别🐶的种类，哈巴狗pug<br><img src="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>🍌应该相对而言简单：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-4eb0e1ea7f8d54c6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>朋友家的猫，我也不知道猫的种类，识别为波斯猫(Persian cat):<br><img src="http://upload-images.jianshu.io/upload_images/1678135-a0170f0f39f3bf29.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这个我就不知道是怎么识别为浓咖啡(espresso)的了🤔<br><img src="http://upload-images.jianshu.io/upload_images/1678135-f0c8d4f30c507584.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="yes1.jpg"></p>
-<p>当然识别相差比较奇怪的。<br>小米手环识别成听诊器（stethoscope）😢<br><img src="http://upload-images.jianshu.io/upload_images/1678135-a8a32614f80198cb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>kindle识别不出😢😢😢<br><img src="http://upload-images.jianshu.io/upload_images/1678135-727b50551939071d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-e7edb9197a900eea.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="四、Core-ML学习资源"><a href="#四、Core-ML学习资源" class="headerlink" title="四、Core ML学习资源"></a>四、Core ML学习资源</h3><p>官方文档   <a href="https://developer.apple.com/documentation/coreml" target="_blank" rel="external">official Core ML documentation</a></p>
-<p> WWDC 2017：</p>
-<ul>
-<li><a href="https://developer.apple.com/videos/play/wwdc2017/703/" target="_blank" rel="external">Introducing Core ML</a></li>
-<li><a href="https://developer.apple.com/videos/play/wwdc2017/710/" target="_blank" rel="external">Core ML in Depth</a></li>
-</ul>
-<blockquote>
-<p>代码 <a href="https://github.com/andyRon/LearniOSByProject/tree/master/86" target="_blank" rel="external">CoreMLDemo</a> （由于<code>Inceptionv3.mlmodel</code>比较大，我就没有上传到github上，直接到 <a href="https://developer.apple.com/machine-learning/" target="_blank" rel="external">Machine Learning</a>然后拖到项目中即可）</p>
-<p>参考：<a href="http://appcoda.com/coreml-introduction/" target="_blank" rel="external">Introduction to Core ML: Building a Simple Image Recognition App</a> </p>
-</blockquote>
-
-      
-    </div>
-
-    <div>
-      
-        
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="AndyRon wechat" style="width: 200px; max-width: 100%;"/>
-    <div>欢迎您访问我的的微信公众号：欣欣向戎（微信号: andy_ron1587 ）！</div>
-</div>
-
-
-      
-    </div>
-
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
-  </div>
-
-
-      
-    </div>
-
-    <div>
-      
-        
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      AndyRon
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/introducing-coreml.html" title="初识Core ML：建立一个简单的图片内容识别应用">http://andyron.com/2017/introducing-coreml.html</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Core-ML/" rel="tag"><i class="fa fa-tag"></i> Core ML</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/github-hexo.html" rel="next" title="使用github和hexo创建免费的静态个人博客网站">
-                <i class="fa fa-chevron-left"></i> 使用github和hexo创建免费的静态个人博客网站
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/ios-animation-1-clock.html" rel="prev" title="iOS动画(一)：时钟动画(Swift)">
-                iOS动画(一)：时钟动画(Swift) <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-        
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -620,17 +357,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -650,17 +376,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -786,22 +503,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、新建初始项目"><span class="nav-number">1.</span> <span class="nav-text">一、新建初始项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、实现照相和获取图片库功能"><span class="nav-number">2.</span> <span class="nav-text">二、实现照相和获取图片库功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、集成Core-ML-Data-Model"><span class="nav-number">3.</span> <span class="nav-text">三、集成Core ML Data Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Core-ML学习资源"><span class="nav-number">4.</span> <span class="nav-text">四、Core ML学习资源</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -923,10 +624,10 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-
+  
 
   
 
@@ -944,18 +645,6 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/introducing-coreml.html';
-          this.page.identifier = '2017/introducing-coreml.html';
-          this.page.title = '初识Core ML：建立一个简单的图片内容识别应用';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   
