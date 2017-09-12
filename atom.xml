@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-11T14:57:46.000Z</updated>
+  <updated>2017-09-12T13:15:33.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OC基础学习13：文件加载与保存</title>
+    <link href="http://andyron.com/2017/oc-basic-13.html"/>
+    <id>http://andyron.com/2017/oc-basic-13.html</id>
+    <published>2017-09-12T13:13:34.000Z</published>
+    <updated>2017-09-12T13:15:33.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-属性列表-property-list-plist&quot;&gt;&lt;a href=&quot;#1-属性列表-property-list-plist&quot; class=&quot;headerlink&quot; title=&quot;1 属性列表(property list, plist)&quot;&gt;&lt;/a&gt;1 属性列表
+    
+    </summary>
+    
+      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>OC基础学习12：代码块（Block）</title>
+    <link href="http://andyron.com/2017/oc-basic-12.html"/>
+    <id>http://andyron.com/2017/oc-basic-12.html</id>
+    <published>2017-09-12T13:13:20.000Z</published>
+    <updated>2017-09-12T13:14:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;代码块&lt;/strong&gt;(Block)/闭包(closure) 是对C语言中函数的扩展。&lt;br&gt;代码块两种类的绑定：&lt;br&gt;自动绑定(automatic binding)    栈内存&lt;br&gt;托管绑定(managed binding)     堆内存&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>OC基础学习11：协议</title>
@@ -94,24 +130,6 @@
   </entry>
   
   <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/ios-js-2.html"/>
-    <id>http://andyron.com/2017/ios-js-2.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
     <link href="http://andyron.com/2017/ios-js-1.html"/>
     <id>http://andyron.com/2017/ios-js-1.html</id>
@@ -122,6 +140,24 @@
     
       &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/ios-js-2.html"/>
+    <id>http://andyron.com/2017/ios-js-2.html</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-09T03:21:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
     
     </summary>
     
@@ -297,26 +333,6 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 9：本地视频播放</title>
-    <link href="http://andyron.com/2017/ios-tutorial-9.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-9.html</id>
-    <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:23:28.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>iOS tutorial 10：UIScrollView滚动视图</title>
     <link href="http://andyron.com/2017/ios-tutorial-10-uiscrolview.html"/>
     <id>http://andyron.com/2017/ios-tutorial-10-uiscrolview.html</id>
@@ -364,6 +380,26 @@
   </entry>
   
   <entry>
+    <title>iOS tutorial 9：本地视频播放</title>
+    <link href="http://andyron.com/2017/ios-tutorial-9.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-9.html</id>
+    <published>2017-08-18T16:00:00.000Z</published>
+    <updated>2017-09-09T03:23:28.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Alamofire：Swift的HTTP 网络库</title>
     <link href="http://andyron.com/2017/alamofire-introduce.html"/>
     <id>http://andyron.com/2017/alamofire-introduce.html</id>
@@ -378,48 +414,6 @@
 &lt;/ul&gt;
     
     </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Swift中的问号三种用法</title>
-    <link href="http://andyron.com/2017/swift-question.html"/>
-    <id>http://andyron.com/2017/swift-question.html</id>
-    <published>2017-08-14T05:45:41.000Z</published>
-    <updated>2017-09-09T06:06:59.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;三目运算符(Ternary Conditional Operator)&lt;br&gt;这在大部分语言中都比较常见&lt;br&gt;&lt;code&gt;布尔值 ? &amp;quot;true&amp;quot; : &amp;quot;false&amp;quot;&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p
-    
-    </summary>
-    
-      <category term="swift" scheme="http://andyron.com/categories/swift/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 8：使用IBInspectable 和 IBDesignable定制UI</title>
-    <link href="http://andyron.com/2017/ios-tutorial-8-ibinspectable-ibdesignable.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-8-ibinspectable-ibdesignable.html</id>
-    <published>2017-08-13T16:00:00.000Z</published>
-    <updated>2017-09-09T03:23:22.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;例子代码：&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/77&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/andyRon/LearniOSByProject/tree/master/77&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;理解IBInspectable-和-IBDesignable&quot;&gt;&lt;a href=&quot;#理解IBInspectable-和-IBDesignable&quot; class=&quot;headerlink&quot; title=&quot;理解IBInspectable 和 IBDesignable&quot;&gt;&lt;/a&gt;理解IBInspectable 和 IBDesignable&lt;/h3&gt;&lt;p&gt;简单地说，&lt;em&gt;IBInspectable&lt;/em&gt; 就是允许开发者在IB的属性检查器中添加额外的选项。&lt;em&gt;IBDesignable&lt;/em&gt; 能够让&lt;em&gt; IBInspectable&lt;/em&gt; 添加的额外选项产生的变化在IB中实时显示。以Button的圆角为例说明。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
     
     
   </entry>
