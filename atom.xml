@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-12T15:39:45.000Z</updated>
+  <updated>2017-09-13T08:24:18.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS网络编程(一)：NSURLSession介绍</title>
+    <link href="http://andyron.com/2017/ios-network-1.html"/>
+    <id>http://andyron.com/2017/ios-network-1.html</id>
+    <published>2017-09-13T08:22:57.000Z</published>
+    <updated>2017-09-13T08:24:18.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlsession?language=objc&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSU
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLSession" scheme="http://andyron.com/tags/NSURLSession/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Charles抓取iOS的http/https请求数据</title>
@@ -148,6 +169,24 @@
   </entry>
   
   <entry>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/ios-js-2.html"/>
+    <id>http://andyron.com/2017/ios-js-2.html</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-09T03:21:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
     <link href="http://andyron.com/2017/ios-js-1.html"/>
     <id>http://andyron.com/2017/ios-js-1.html</id>
@@ -158,24 +197,6 @@
     
       &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/ios-js-2.html"/>
-    <id>http://andyron.com/2017/ios-js-2.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
     
     </summary>
     
@@ -351,29 +372,6 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 11：照片横屏滑动</title>
-    <link href="http://andyron.com/2017/ios-tutorial-11.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-11.html</id>
-    <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:22:10.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;知识点： &lt;code&gt;UICollectionView&lt;/code&gt; &lt;code&gt;UIVisualEffectView&lt;/code&gt; &lt;code&gt;UICollectionViewDataSource&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-5d91f9bdb434dd1d.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>iOS tutorial 9：本地视频播放</title>
     <link href="http://andyron.com/2017/ios-tutorial-9.html"/>
     <id>http://andyron.com/2017/ios-tutorial-9.html</id>
@@ -394,19 +392,18 @@
   </entry>
   
   <entry>
-    <title>iOS tutorial 10：UIScrollView滚动视图</title>
-    <link href="http://andyron.com/2017/ios-tutorial-10-uiscrolview.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-10-uiscrolview.html</id>
+    <title>iOS tutorial 11：照片横屏滑动</title>
+    <link href="http://andyron.com/2017/ios-tutorial-11.html"/>
+    <id>http://andyron.com/2017/ios-tutorial-11.html</id>
     <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:22:02.000Z</updated>
+    <updated>2017-09-09T03:22:10.000Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;知识点: &lt;code&gt;UIScrollView&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;知识点： &lt;code&gt;UICollectionView&lt;/code&gt; &lt;code&gt;UIVisualEffectView&lt;/code&gt; &lt;code&gt;UICollectionViewDataSource&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-19f579832ac695b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;当视图超过屏幕大小时，可通过把视图放在&lt;code&gt;UIScrollView&lt;/code&gt;中让视图可以上下滚动的功能。以一张大图片为例。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-5d91f9bdb434dd1d.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     

@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="NSURLSession," />
 
 
 
@@ -95,16 +95,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888">
+<meta name="description" content="NSURLSession是iOS7之后被用来代替NSURLConnection的网络开发框架，前者相对于后者的优势是支持后台处理能力  NSURLSession的配置通过NSURLSessionConfiguration来配置Session的三种类型：  Default：提供前台请求相关方法，支持配置缓存，身份凭证等。 NSURLSessionConfiguration * defaultCon">
+<meta name="keywords" content="NSURLSession">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以撸代码的形式学习Swift-4：Collection Type">
-<meta property="og:url" content="http://andyron.com/2017/swift-4.html">
+<meta property="og:title" content="iOS网络编程(一)：NSURLSession介绍">
+<meta property="og:url" content="http://andyron.com/2017/ios-network-1.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888">
-<meta property="og:updated_time" content="2017-09-09T06:00:05.000Z">
+<meta property="og:description" content="NSURLSession是iOS7之后被用来代替NSURLConnection的网络开发框架，前者相对于后者的优势是支持后台处理能力  NSURLSession的配置通过NSURLSessionConfiguration来配置Session的三种类型：  Default：提供前台请求相关方法，支持配置缓存，身份凭证等。 NSURLSessionConfiguration * defaultCon">
+<meta property="og:updated_time" content="2017-09-13T08:24:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以撸代码的形式学习Swift-4：Collection Type">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888">
+<meta name="twitter:title" content="iOS网络编程(一)：NSURLSession介绍">
+<meta name="twitter:description" content="NSURLSession是iOS7之后被用来代替NSURLConnection的网络开发框架，前者相对于后者的优势是支持后台处理能力  NSURLSession的配置通过NSURLSessionConfiguration来配置Session的三种类型：  Default：提供前台请求相关方法，支持配置缓存，身份凭证等。 NSURLSessionConfiguration * defaultCon">
 
 
 
@@ -132,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/swift-4.html"/>
+  <link rel="canonical" href="http://andyron.com/2017/ios-network-1.html"/>
 
 
 
 
 
-  <title>以撸代码的形式学习Swift-4：Collection Type | 欣欣向戎</title>
+  <title>iOS网络编程(一)：NSURLSession介绍 | 欣欣向戎</title>
   
 
 
@@ -323,7 +324,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-4.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-network-1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -340,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-4：Collection Type</h1>
+          <h1 class="post-title" itemprop="name headline">iOS网络编程(一)：NSURLSession介绍</h1>
         
 
         <div class="post-meta">
@@ -352,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T13:40:08+08:00">
-                2017-07-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T16:22:57+08:00">
+                2017-09-13
               </time>
             
 
@@ -375,8 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/swift/" itemprop="url" rel="index">
-                    <span itemprop="name">swift</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -393,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/swift-4.html#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-network-1.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-4.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-network-1.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,8 +426,63 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> Collection Type </div><div class="line"> */</div><div class="line">// Collection 分为 Arrays, Sets, Dictionaries(Collection，Sets有时都翻译成集合)</div><div class="line"></div><div class="line">// 1 数组(Arrays)是有序数据的集。</div><div class="line">// 一个数组中只能有一种数据类型</div><div class="line">var someInts = [Int]()                                              // 创建一个由特定数据类型构成的空数组</div><div class="line">someInts = []                                                       // someInts 现在是空数组，但是仍然是 [Int] 类型的。</div><div class="line">let unmutableArray = [2, 3, 5]                                      // 定义为let，数组内容和数量就不能变化</div><div class="line">var threeDoubles = [Double](repeating:0.0, count: 3)                // `Array`创建特定大小并且所有数据都有相同默认值的构造方法</div><div class="line">var anotherThreeDoubles = [Double](repeating: 2.5, count: 3)</div><div class="line">var sixDoubles = threeDoubles + anotherThreeDoubles                 // 数组相加</div><div class="line">sixDoubles.count</div><div class="line">sixDoubles.isEmpty</div><div class="line">sixDoubles.append(2.6)</div><div class="line">sixDoubles += [3.2, 3.3]</div><div class="line">sixDoubles[0]</div><div class="line">sixDoubles[4...6]                                                   // 通过区间获取多个数组项组成的新数组，注意区间大小不能超过数组的下标</div><div class="line">sixDoubles.insert(4.4, at: 2)</div><div class="line">sixDoubles.remove(at: 0)</div><div class="line">sixDoubles.removeLast()</div><div class="line">sixDoubles.removeAll()</div><div class="line">// 数组遍历</div><div class="line">var shoppingList = [&quot;Eggs&quot;, &quot;Milk&quot;]</div><div class="line">for item in shoppingList &#123;</div><div class="line">&#125;</div><div class="line">for (index, value) in shoppingList.enumerated() &#123;                   // enumerated()把数组的索引和值生成sequence用于遍历</div><div class="line">&#125;</div><div class="line">// 数组特殊操作 </div><div class="line">//var a = (1...10)</div><div class="line">var arr = [1,3,7,11]</div><div class="line">var arr2 = arr.map&#123;$0 * 2&#125;</div><div class="line">var sum = arr.reduce(0,+)</div><div class="line">// 验证tweet中是否包含选定的若干关键字中的一个</div><div class="line">let words = [&quot;Swift&quot;,&quot;iOS&quot;,&quot;cocoa&quot;,&quot;OSX&quot;,&quot;tvOS&quot;]</div><div class="line">let tweet = &quot;This is an example tweet larking about Swift&quot;</div><div class="line">//words.contains(tweet.containsString)</div><div class="line">//words.filter(&#123;tweet.containsString($0)&#125;)</div><div class="line">tweet.characters</div><div class="line">    .split(separator: &quot; &quot;)</div><div class="line">    .lazy</div><div class="line">    .map(String.init)</div><div class="line">    .contains(where: Set(words).contains)</div><div class="line">let name = &quot;andyron&quot;</div><div class="line">(1...4).forEach&#123;print(&quot;Happy Birthday &quot; + (($0 == 3) ? &quot;dear \(name)&quot;:&quot;to You&quot;))&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 2 集合(Sets)是无序无重复数据的集。</div><div class="line">// 存在集合的中数据类型必须是 可哈希化（必须提供一个方法来计算它的哈希值， 相等的对象哈希值必须相同，  a.hashValue == b.hashValue）</div><div class="line">// Swift的所有基本类型(比如 String , Int , Double 和 Bool)默认都是可哈希化的</div><div class="line">// 在Swift内部可哈希化的类型都接触了`Hashable`协议，它提高了一个属性`hashValue`</div><div class="line">var letters = Set&lt;Character&gt;()                                      // 创建和构造一个空的类型为`Set&lt;Character&gt;`的集合</div><div class="line">letters.insert(&quot;a&quot;)</div><div class="line">letters = []</div><div class="line">var favoriteGenres: Set&lt;String&gt; = [&quot;Rock&quot;, &quot;Classical&quot;, &quot;Hip hop&quot;]</div><div class="line">var favoriteGenres2: Set = [&quot;Rock&quot;, &quot;Classical&quot;, &quot;Hip hop&quot;]</div><div class="line">favoriteGenres.insert(&quot;Jazz&quot;)</div><div class="line">favoriteGenres.count</div><div class="line">favoriteGenres.remove(&quot;Classical&quot;)                                  // 有成员就返回此成员，否则返回`nil`</div><div class="line">//favoriteGenres.removeAll()</div><div class="line">favoriteGenres.contains(&quot;Rock&quot;)</div><div class="line">// 遍历集合</div><div class="line">for genre in favoriteGenres &#123;</div><div class="line">    print(genre)</div><div class="line">&#125;</div><div class="line">for genre in favoriteGenres.sorted() &#123;</div><div class="line">    print(genre)</div><div class="line">&#125;</div><div class="line">// 集合操作</div><div class="line">favoriteGenres = [&quot;Rock&quot;, &quot;Classical&quot;, &quot;Hip hop&quot;]</div><div class="line">favoriteGenres2 = [&quot;Hip hop&quot;, &quot;R&amp;B&quot;, &quot;rap&quot;]</div><div class="line">favoriteGenres.intersection(favoriteGenres2)                        // 交集</div><div class="line">favoriteGenres.symmetricDifference(favoriteGenres2)                 // 对称差集</div><div class="line">favoriteGenres.union(favoriteGenres2)                               // 并集</div><div class="line">favoriteGenres.subtracting(favoriteGenres2)                         // 差集</div><div class="line">favoriteGenres.subtract(favoriteGenres2)                            // 区别于subtracting，没有返回值直接修改favoriteGenres</div><div class="line">var fg3: Set = [&quot;rap&quot;]</div><div class="line">favoriteGenres == favoriteGenres2</div><div class="line">favoriteGenres2.isSubset(of: fg3)                                   // favoriteGenres2中所有元素是否在fg3中</div><div class="line">favoriteGenres2.isSuperset(of: fg3)                                 // favoriteGenres2是否包括fg3中所有元素</div><div class="line">favoriteGenres2.isStrictSubset(of: fg3)                             // favoriteGenres2中所有元素是否在fg3中，并且两者不相同</div><div class="line">favoriteGenres2.isStrictSuperset(of: fg3)                           // favoriteGenres2是否包括fg3中所有元素，并且两者不相同</div><div class="line">favoriteGenres.isDisjoint(with: fg3)                                // favoriteGenres与fg3是否没有交集</div><div class="line"></div><div class="line">// 3 字典(Dictionaries)是无序的键值对的集。</div><div class="line">var namesOfIntegers = [Int: String]()</div><div class="line">namesOfIntegers[16] = &quot;sixteen&quot;</div><div class="line">namesOfIntegers = [:]</div><div class="line">var airports: [String: String] = [&quot;YYZ&quot;: &quot;Toronto Pearson&quot;, &quot;DUB&quot;: &quot;Dublin&quot;]</div><div class="line">var airports2 = [&quot;YYZ&quot;: &quot;Toronto Pearson&quot;, &quot;DUB&quot;: &quot;Dublin&quot;]</div><div class="line">airports.count</div><div class="line">airports.isEmpty</div><div class="line">airports[&quot;hongqiao&quot;] = &quot;shanghai&quot;</div><div class="line">airports.updateValue(&quot;nanjing&quot;, forKey: &quot;jichang&quot;)</div><div class="line">airports[&quot;jichang&quot;] = nil; //airports.remove(at: &quot;jichang&quot;)</div><div class="line">airports.keys</div><div class="line">airports.values</div><div class="line">// 遍历</div><div class="line">for (code, name) in airports &#123;</div><div class="line">&#125;</div><div class="line">for code in airports.keys &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <blockquote>
+<p><a href="https://developer.apple.com/documentation/foundation/nsurlsession?language=objc" target="_blank" rel="external">NSURLSession</a>是iOS7之后被用来代替NSURLConnection的网络开发框架，前者相对于后者的优势是支持后台处理能力</p>
+</blockquote>
+<h3 id="NSURLSession的配置"><a href="#NSURLSession的配置" class="headerlink" title="NSURLSession的配置"></a>NSURLSession的配置</h3><p>通过<code>NSURLSessionConfiguration</code>来配置Session的三种类型：</p>
+<ul>
+<li><p>Default：提供前台请求相关方法，支持配置缓存，身份凭证等。</p>
+<pre><code>NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+</code></pre></li>
+<li><p>Ephemeral类型：即时的请求类型，不使用缓存，身份凭证等。</p>
+<pre><code>NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+</code></pre></li>
+<li><p>Background：后台类型，支持在后台完成请求任务。</p>
+<pre><code>NSURLSessionConfiguration * backgroundConfiguration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@&quot;com.andyron.NSURLSession-delegate-&quot;];
+</code></pre><p>  <code>backgroundSessionConfigurationWithIdentifier</code>只是标识符。</p>
+</li>
+</ul>
+<p><code>NSURLSessionConfiguration</code>还可以配置如缓存，网络模式等参数。</p>
+<h3 id="NSURLSession的两种进行网络请求方式"><a href="#NSURLSession的两种进行网络请求方式" class="headerlink" title="NSURLSession的两种进行网络请求方式"></a><code>NSURLSession</code>的两种进行网络请求方式</h3><ol>
+<li><p>通过block的方式获取网络数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//创建session配置对象</div><div class="line">NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];</div><div class="line">//创建请求对象</div><div class="line">NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;https://www.baidu.com&quot;]];</div><div class="line">//创建session对象</div><div class="line">NSURLSession * defaultSession = [NSURLSession sessionWithConfiguration:defaultConfiguration];</div><div class="line">//添加任务</div><div class="line">NSURLSessionTask * task= [defaultSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</div><div class="line">    NSLog(@&quot;%@&quot;,response);</div><div class="line">&#125;];</div><div class="line">//开始任务</div><div class="line">[task resume];</div></pre></td></tr></table></figure>
+<p>在block中进行数据处理</p>
+</li>
+<li><p>通过代理回调获取网络数据</p>
+<ul>
+<li>首先采用协议 <code>NSURLSessionDataDelegate</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@interface ViewController ()&lt;NSURLSessionDataDelegate&gt;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>配置</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];</div><div class="line">NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;https://www.baidu.com&quot;]];</div><div class="line">NSURLSession * defaultSession = [NSURLSession sessionWithConfiguration:defaultConfiguration delegate:self delegateQueue:[NSOperationQueue mainQueue]];</div><div class="line"></div><div class="line">NSURLSessionTask * task= [defaultSession dataTaskWithRequest:request];</div><div class="line"></div><div class="line">[task resume];</div></pre></td></tr></table></figure>
+</li>
+<li><p>实现代理方法</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//开始接受数据</div><div class="line">-(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data&#123;</div><div class="line">    NSLog(@&quot;=======%@&quot;,data);</div><div class="line">&#125;</div><div class="line">//接受数据结束</div><div class="line">-(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error&#123;</div><div class="line">    NSLog(@&quot;完成：error%@&quot;,error);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="后台处理下载任务"><a href="#后台处理下载任务" class="headerlink" title="后台处理下载任务"></a>后台处理下载任务</h3><p>这是NSURLSession最大的优势。使用代理的方式进行后台处理下载任务。配置和代理方式相同，主要是实现一些代理方法。</p>
+<ul>
+<li><p>下载进度监听的代理方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 下载进度监听</div><div class="line">- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;######&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在下载过程中点击Home键使应用程序进入后台，下载任务依然在进行，当后台下载完成后会与AppDelegate进行交互，会调用AppDelegate中的代理方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-(void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler&#123;</div><div class="line">    NSLog(@&quot;下载任务在后台完成&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>下载完成后，可查看下载的文件所在位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//此方法只有下载成功才会调用， 文件放在location位置</div><div class="line">-(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location&#123;</div><div class="line">    NSLog(@&quot;下载临时文件的位置%@&quot;, location);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在后台完成无人所有任务时调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 后台所有任务都完成</div><div class="line">-(void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;All tasks are finished&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>代码：<a href="https://github.com/andyRon/LearniOSByProject/tree/master/91-network" target="_blank" rel="external">NSURLSession(delegate), NSURLSession(block)</a><br>深入学习：<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html#//apple_ref/doc/uid/10000165i" target="_blank" rel="external">URL Session Programming Guide</a></p>
+<p>参考<br><a href="https://my.oschina.net/u/2340880/blog/618888?spm=5176.100239.blogcont39440.7.Snsasi" target="_blank" rel="external">iOS网络编程之二——NSURLSession的简单使用</a></p>
+</blockquote>
+
       
     </div>
 
@@ -480,7 +536,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/swift-4.html" title="以撸代码的形式学习Swift-4：Collection Type">http://andyron.com/2017/swift-4.html</a>
+      <a href="http://andyron.com/2017/ios-network-1.html" title="iOS网络编程(一)：NSURLSession介绍">http://andyron.com/2017/ios-network-1.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -494,6 +550,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/NSURLSession/" rel="tag"><i class="fa fa-tag"></i> NSURLSession</a>
+          
+        </div>
+      
 
       
       
@@ -503,8 +565,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/swift-3.html" rel="next" title="以撸代码的形式学习Swift-3：Strings and Characters">
-                <i class="fa fa-chevron-left"></i> 以撸代码的形式学习Swift-3：Strings and Characters
+              <a href="/2017/ios-charles.html" rel="next" title="使用Charles抓取iOS的http/https请求数据">
+                <i class="fa fa-chevron-left"></i> 使用Charles抓取iOS的http/https请求数据
               </a>
             
           </div>
@@ -512,10 +574,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/swift-5.html" rel="prev" title="以撸代码的形式学习Swift-5：Control Flow">
-                以撸代码的形式学习Swift-5：Control Flow <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -575,8 +633,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -701,6 +768,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NSURLSession的配置"><span class="nav-number">1.</span> <span class="nav-text">NSURLSession的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSURLSession的两种进行网络请求方式"><span class="nav-number">2.</span> <span class="nav-text">NSURLSession的两种进行网络请求方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台处理下载任务"><span class="nav-number">3.</span> <span class="nav-text">后台处理下载任务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -847,9 +930,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/swift-4.html';
-          this.page.identifier = '2017/swift-4.html';
-          this.page.title = '以撸代码的形式学习Swift-4：Collection Type';
+          this.page.url = 'http://andyron.com/2017/ios-network-1.html';
+          this.page.identifier = '2017/ios-network-1.html';
+          this.page.title = 'iOS网络编程(一)：NSURLSession介绍';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
