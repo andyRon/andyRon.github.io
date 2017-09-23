@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-13T08:24:18.000Z</updated>
+  <updated>2017-09-23T11:34:51.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -14,6 +14,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
+    <link href="http://andyron.com/2017/ios-network-4.html"/>
+    <id>http://andyron.com/2017/ios-network-4.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-09-23T11:34:51.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网络请求中缓存类&lt;code&gt;NSURLCache&lt;/code&gt;常用属性和方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;d
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程(二)：NSURLConnection介绍</title>
+    <link href="http://andyron.com/2017/ios-network-2.html"/>
+    <id>http://andyron.com/2017/ios-network-2.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-09-23T11:32:13.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlconnection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLConnectio
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
+    <link href="http://andyron.com/2017/ios-network-3.html"/>
+    <id>http://andyron.com/2017/ios-network-3.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-09-23T11:33:01.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
+&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableUR
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
+    
+      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS网络编程(一)：NSURLSession介绍</title>
@@ -348,69 +412,6 @@
     
     
       <category term="手势" scheme="http://andyron.com/tags/%E6%89%8B%E5%8A%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 12：视频背景</title>
-    <link href="http://andyron.com/2017/ios-tutorial-12.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-12.html</id>
-    <published>2017-08-19T16:00:00.000Z</published>
-    <updated>2017-09-09T03:22:27.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-0abf48741b6d76b3.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 9：本地视频播放</title>
-    <link href="http://andyron.com/2017/ios-tutorial-9.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-9.html</id>
-    <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:23:28.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-11352ad6a562b572.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 11：照片横屏滑动</title>
-    <link href="http://andyron.com/2017/ios-tutorial-11.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-11.html</id>
-    <published>2017-08-18T16:00:00.000Z</published>
-    <updated>2017-09-09T03:22:10.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;知识点： &lt;code&gt;UICollectionView&lt;/code&gt; &lt;code&gt;UIVisualEffectView&lt;/code&gt; &lt;code&gt;UICollectionViewDataSource&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-5d91f9bdb434dd1d.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
     
   </entry>
   
