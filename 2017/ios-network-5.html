@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="NSHTTPCookieStorage," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="Just for fun.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欣欣向戎">
-<meta property="og:url" content="http://andyron.com/archives/2017/page/5/index.html">
+<meta name="description" content="Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终端会将这些信息进行保存，在下一次再次访问这个网站时，终端会将保存的Cookie信息一并发送到服务端，服务端根据Cookie信息是否有效">
+<meta name="keywords" content="NSHTTPCookieStorage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS网络编程(五)：Cookie的使用">
+<meta property="og:url" content="http://andyron.com/2017/ios-network-5.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.">
+<meta property="og:description" content="Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终端会将这些信息进行保存，在下一次再次访问这个网站时，终端会将保存的Cookie信息一并发送到服务端，服务端根据Cookie信息是否有效">
+<meta property="og:updated_time" content="2017-09-23T15:01:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欣欣向戎">
-<meta name="twitter:description" content="Just for fun.">
+<meta name="twitter:title" content="iOS网络编程(五)：Cookie的使用">
+<meta name="twitter:description" content="Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终端会将这些信息进行保存，在下一次再次访问这个网站时，终端会将保存的Cookie信息一并发送到服务端，服务端根据Cookie信息是否有效">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/archives/2017/page/5/"/>
+  <link rel="canonical" href="http://andyron.com/2017/ios-network-5.html"/>
 
 
 
 
 
-  <title>归档 | 欣欣向戎</title>
+  <title>iOS网络编程(五)：Cookie的使用 | 欣欣向戎</title>
   
 
 
@@ -172,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
@@ -312,402 +314,245 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-        
-      很好! 目前共计 98 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-network-5.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS网络编程(五)：Cookie的使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T00:00:00+08:00">
+                2017-09-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/ios-network-5.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/ios-network-5.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。<br>Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终端会将这些信息进行保存，在下一次再次访问这个网站时，终端会将保存的Cookie信息一并发送到服务端，服务端根据Cookie信息是否有效来判断此用户是否可以自动登录。</p>
+<p>在iOS同样也有Cookie，Cookie管理的有两个类：<code>NSHTTPCookieStorage</code> 和 <code>NSHTTPCookie</code>。</p>
+<h3 id="获取Cookie"><a href="#获取Cookie" class="headerlink" title="获取Cookie"></a>获取Cookie</h3><p>在请求后获取Cookie<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];</div><div class="line">for (NSHTTPCookie *cookie in [cookieJar cookies]) &#123;</div><div class="line">   NSLog(@&quot;%@&quot;, cookie);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>例如请求百度后，就会返回几个如下Cookie对象(<code>NSHTTPCookie</code>):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;NSHTTPCookie</div><div class="line">    version:0</div><div class="line">    name:BD_NOT_HTTPS</div><div class="line">    value:1</div><div class="line">    expiresDate:&apos;2017-09-23 14:14:22 +0000&apos;</div><div class="line">    created:&apos;2017-09-23 14:09:22 +0000&apos;</div><div class="line">    sessionOnly:FALSE</div><div class="line">    domain:www.baidu.com</div><div class="line">    partition:none</div><div class="line">    path:/</div><div class="line">    isSecure:FALSE</div><div class="line"> path:&quot;/&quot; isSecure:FALSE&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="设置Cookie"><a href="#设置Cookie" class="headerlink" title="设置Cookie"></a>设置Cookie</h3><p>在请求前设置一个如下Cookie：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">    // 请求前 设置Cookie</div><div class="line">    NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];</div><div class="line">    [cookieProperties setObject:@&quot;andyron&quot; forKey:NSHTTPCookieName];</div><div class="line">    [cookieProperties setObject:@&quot;1587&quot; forKey:NSHTTPCookieValue];</div><div class="line">    [cookieProperties setObject:@&quot;andyron.com&quot; forKey:NSHTTPCookieDomain];</div><div class="line">    [cookieProperties setObject:@&quot;andyron.com&quot; forKey:NSHTTPCookieOriginURL];</div><div class="line">    [cookieProperties setObject:@&quot;/&quot; forKey:NSHTTPCookiePath];</div><div class="line">    [cookieProperties setObject:@&quot;0&quot; forKey:NSHTTPCookieVersion];</div><div class="line">    NSHTTPCookie *cookie = [NSHTTPCookie cookieWithProperties:cookieProperties];</div><div class="line">    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];</div><div class="line">`</div></pre></td></tr></table></figure></p>
+<p>在请求后获取的几个Cookie对象（服务器本身设置的和服务器从客户端后去的）中就有如下一个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;NSHTTPCookie</div><div class="line">    version:0</div><div class="line">    name:andyron</div><div class="line">    value:1587</div><div class="line">    expiresDate:&apos;(null)&apos;</div><div class="line">    created:&apos;2017-09-23 14:43:52 +0000&apos;</div><div class="line">    sessionOnly:TRUE</div><div class="line">    domain:andyron.com</div><div class="line">    partition:none</div><div class="line">    path:/</div><div class="line">    isSecure:FALSE</div><div class="line"> path:&quot;/&quot; isSecure:FALSE&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="NSHTTPCookieStorage方法和属性介绍"><a href="#NSHTTPCookieStorage方法和属性介绍" class="headerlink" title="NSHTTPCookieStorage方法和属性介绍"></a>NSHTTPCookieStorage方法和属性介绍</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">//获取单例对象</div><div class="line">+ (NSHTTPCookieStorage *)sharedHTTPCookieStorage;</div><div class="line"></div><div class="line">//所有Cookie数据数组 其中存放NSHTTPCookie对象</div><div class="line">@property (nullable , readonly, copy) NSArray&lt;NSHTTPCookie *&gt; *cookies;</div><div class="line"></div><div class="line">//手动设置一条Cookie数据</div><div class="line">- (void)setCookie:(NSHTTPCookie *)cookie;</div><div class="line"></div><div class="line">//删除某条Cookie信息</div><div class="line">- (void)deleteCookie:(NSHTTPCookie *)cookie;</div><div class="line"></div><div class="line">//删除某个时间后的所有Cookie信息 iOS8后可用</div><div class="line">- (nullable NSArray&lt;NSHTTPCookie *&gt; *)cookiesForURL:(NSURL *)URL;</div><div class="line"></div><div class="line">//获取某个特定URL的所有Cookie数据</div><div class="line">- (void)removeCookiesSinceDate:(NSDate *)date NS_AVAILABLE(10_10, 8_0);</div><div class="line"></div><div class="line">//为某个特定的URL设置Cookie</div><div class="line">- (void)setCookies:(NSArray&lt;NSHTTPCookie *&gt; *)cookies forURL:(nullable NSURL *)URL mainDocumentURL:(nullable NSURL *)mainDocumentURL;</div><div class="line"></div><div class="line">//Cookie数据的接收协议</div><div class="line">/*</div><div class="line">枚举如下：</div><div class="line">typedef NS_ENUM(NSUInteger, NSHTTPCookieAcceptPolicy) &#123;</div><div class="line"></div><div class="line">    NSHTTPCookieAcceptPolicyAlways,//接收所有Cookie信息</div><div class="line"></div><div class="line">    NSHTTPCookieAcceptPolicyNever,//不接收所有Cookie信息</div><div class="line"></div><div class="line">    NSHTTPCookieAcceptPolicyOnlyFromMainDocumentDomain//只接收主文档域的Cookie信息</div><div class="line">&#125;;</div><div class="line">*/</div><div class="line">@property NSHTTPCookieAcceptPolicy cookieAcceptPolicy;</div></pre></td></tr></table></figure>
+<p>与Cookie相关的通知：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//Cookie数据的接收协议改变时发送的通知</div><div class="line">FOUNDATION_EXPORT NSString * const NSHTTPCookieManagerAcceptPolicyChangedNotification;</div><div class="line"></div><div class="line">//管理的Cookie数据发生变化时发送的通知</div><div class="line">FOUNDATION_EXPORT NSString * const NSHTTPCookieManagerCookiesChangedNotification;</div></pre></td></tr></table></figure></p>
+<h3 id="NSHTTPCookie的方法和属性介绍"><a href="#NSHTTPCookie的方法和属性介绍" class="headerlink" title="NSHTTPCookie的方法和属性介绍"></a>NSHTTPCookie的方法和属性介绍</h3><p><code>NSHTTPCookie</code>就是Cookie对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">//下面两个方法用于对象的创建和初始化 都是通过字典进行键值设置</div><div class="line">- (nullable instancetype)initWithProperties:(NSDictionary&lt;NSString *, id&gt; *)properties;</div><div class="line">+ (nullable NSHTTPCookie *)cookieWithProperties:(NSDictionary&lt;NSString *, id&gt; *)properties;</div><div class="line"></div><div class="line">//返回Cookie数据中可用于添加HTTP头字段的字典</div><div class="line">+ (NSDictionary&lt;NSString *, NSString *&gt; *)requestHeaderFieldsWithCookies:(NSArray&lt;NSHTTPCookie *&gt; *)cookies;</div><div class="line"></div><div class="line">//从指定的响应头和URL地址中解析出Cookie数据</div><div class="line">+ (NSArray&lt;NSHTTPCookie *&gt; *)cookiesWithResponseHeaderFields:(NSDictionary&lt;NSString *, NSString *&gt; *)headerFields forURL:(NSURL *)URL;</div><div class="line"></div><div class="line">//Cookie数据中的属性字典</div><div class="line">@property (nullable, readonly, copy) NSDictionary&lt;NSString *, id&gt; *properties;</div><div class="line"></div><div class="line">//请求响应的版本</div><div class="line">@property (readonly) NSUInteger version;</div><div class="line"></div><div class="line">//请求相应的名称</div><div class="line">@property (readonly, copy) NSString *name;</div><div class="line"></div><div class="line">//请求相应的值</div><div class="line">@property (readonly, copy) NSString *value;</div><div class="line"></div><div class="line">//过期时间</div><div class="line">@property (nullable, readonly, copy) NSDate *expiresDate;</div><div class="line"></div><div class="line">//请求的域名</div><div class="line">@property (readonly, copy) NSString *domain;</div><div class="line"></div><div class="line">//请求的路径</div><div class="line">@property (readonly, copy) NSString *path;</div><div class="line"></div><div class="line">//是否是安全传输</div><div class="line">@property (readonly, getter=isSecure) BOOL secure;</div><div class="line"></div><div class="line">//是否只发送HTTP的服务</div><div class="line">@property (readonly, getter=isHTTPOnly) BOOL HTTPOnly;</div><div class="line"></div><div class="line">//响应的文档</div><div class="line">@property (nullable, readonly, copy) NSString *comment;</div><div class="line"></div><div class="line">//相应的文档URL</div><div class="line">@property (nullable, readonly, copy) NSURL *commentURL;</div><div class="line"></div><div class="line">//服务端口列表</div><div class="line">@property (nullable, readonly, copy) NSArray&lt;NSNumber *&gt; *portList;</div><div class="line">`</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>代码：<a href="https://github.com/andyRon/LearniOSByProject/tree/master/91-network" target="_blank" rel="external">Cookie</a></p>
+<p>参考：<a href="http://rainbird.blog.51cto.com/211214/805173/" target="_blank" rel="external"> IOS中http请求使用cookie</a><br><a href="https://yq.aliyun.com/articles/39450?spm=5176.8091938.0.0.J0bmQO" target="_blank" rel="external">iOS网络编程之七——本地用户凭证Cookie的应用</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="AndyRon wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您访问我的的微信公众号：欣欣向戎（微信号: andy_ron1587 ）！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/beginning-ios-swift-18.html" itemprop="url">
-              
-                <span itemprop="name">开始用Swift开发iOS 10 - 18 Search Bar 和 UISearchController</span>
-              
-            </a>
-        
-      </h2>
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2017/ios-network-5.html" title="iOS网络编程(五)：Cookie的使用">http://andyron.com/2017/ios-network-5.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-30T00:00:00+08:00"
-              content="2017-07-30" >
-          07-30
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NSHTTPCookieStorage/" rel="tag"><i class="fa fa-tag"></i> NSHTTPCookieStorage</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/ios-network-2.html" rel="next" title="iOS网络编程(二)：NSURLConnection介绍">
+                <i class="fa fa-chevron-left"></i> iOS网络编程(二)：NSURLConnection介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/beginning-ios-swift-19.html" itemprop="url">
-              
-                <span itemprop="name">开始用Swift开发iOS 10 - 19 使用UIPageViewController构建介绍页面</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-30T00:00:00+08:00"
-              content="2017-07-30" >
-          07-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/beginning-ios-swift-17.html" itemprop="url">
-              
-                <span itemprop="name">开始用Swift开发iOS 10 - 17 使用Core Data</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-26T00:00:00+08:00"
-              content="2017-07-26" >
-          07-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/swift-0.html" itemprop="url">
-              
-                <span itemprop="name">以撸代码的形式学习Swift-0：说明和目录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-25T13:45:29+08:00"
-              content="2017-07-25" >
-          07-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/beginning-ios-swift-15.html" itemprop="url">
-              
-                <span itemprop="name">开始用Swift开发iOS 10 - 15 使用地图</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-25T00:00:00+08:00"
-              content="2017-07-25" >
-          07-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/beginning-ios-swift-16.html" itemprop="url">
-              
-                <span itemprop="name">开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-25T00:00:00+08:00"
-              content="2017-07-25" >
-          07-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/beginning-ios-swift-14.html" itemprop="url">
-              
-                <span itemprop="name">开始用Swift开发iOS 10 - 14 基础动画，模糊效果和Unwind Segue</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-24T00:00:00+08:00"
-              content="2017-07-24" >
-          07-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/beginning-ios-swift-13.html" itemprop="url">
-              
-                <span itemprop="name">开始用Swift开发iOS 10 - 13 Self Sizing Cells and Dynamic Type</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-23T00:00:00+08:00"
-              content="2017-07-23" >
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-6.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习6：Fondation-Kit介绍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-23T00:00:00+08:00"
-              content="2017-07-23" >
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-3-inheritance.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习3：继承(inheritance)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2017/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/2017/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2017/page/10/">10</a><a class="extend next" rel="next" href="/archives/2017/page/6/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -715,6 +560,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -734,8 +590,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -861,6 +726,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Cookie"><span class="nav-number">1.</span> <span class="nav-text">获取Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置Cookie"><span class="nav-number">2.</span> <span class="nav-text">设置Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSHTTPCookieStorage方法和属性介绍"><span class="nav-number">3.</span> <span class="nav-text">NSHTTPCookieStorage方法和属性介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSHTTPCookie的方法和属性介绍"><span class="nav-number">4.</span> <span class="nav-text">NSHTTPCookie的方法和属性介绍</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -982,11 +863,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -1005,6 +884,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2017/ios-network-5.html';
+          this.page.identifier = '2017/ios-network-5.html';
+          this.page.title = 'iOS网络编程(五)：Cookie的使用';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-23T11:34:51.000Z</updated>
+  <updated>2017-09-23T15:01:30.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -16,22 +16,22 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
-    <link href="http://andyron.com/2017/ios-network-4.html"/>
-    <id>http://andyron.com/2017/ios-network-4.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-09-23T11:34:51.000Z</updated>
+    <title>iOS网络编程(五)：Cookie的使用</title>
+    <link href="http://andyron.com/2017/ios-network-5.html"/>
+    <id>http://andyron.com/2017/ios-network-5.html</id>
+    <published>2017-09-22T16:00:00.000Z</published>
+    <updated>2017-09-23T15:01:30.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;网络请求中缓存类&lt;code&gt;NSURLCache&lt;/code&gt;常用属性和方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;d
+      &lt;p&gt;Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。&lt;br&gt;Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终
     
     </summary>
     
       <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
     
-      <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
+      <category term="NSHTTPCookieStorage" scheme="http://andyron.com/tags/NSHTTPCookieStorage/"/>
     
   </entry>
   
@@ -53,6 +53,26 @@
     
     
       <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
+    <link href="http://andyron.com/2017/ios-network-4.html"/>
+    <id>http://andyron.com/2017/ios-network-4.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-09-23T15:01:44.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网络请求中缓存类&lt;code&gt;NSURLCache&lt;/code&gt;常用属性和方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;d
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
     
   </entry>
   
@@ -233,24 +253,6 @@
   </entry>
   
   <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/ios-js-2.html"/>
-    <id>http://andyron.com/2017/ios-js-2.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
     <link href="http://andyron.com/2017/ios-js-1.html"/>
     <id>http://andyron.com/2017/ios-js-1.html</id>
@@ -261,6 +263,24 @@
     
       &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/ios-js-2.html"/>
+    <id>http://andyron.com/2017/ios-js-2.html</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-09T03:21:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
     
     </summary>
     
@@ -392,26 +412,6 @@
     
     
       <category term="传感器" scheme="http://andyron.com/tags/%E4%BC%A0%E6%84%9F%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 13：手势处理</title>
-    <link href="http://andyron.com/2017/ios-tutorial-13.html"/>
-    <id>http://andyron.com/2017/ios-tutorial-13.html</id>
-    <published>2017-08-21T16:00:00.000Z</published>
-    <updated>2017-09-09T03:22:21.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS手势处理由&lt;code&gt;UIGestureRecognizer&lt;/code&gt;控制，不同手势有这个类的不同子类处理，不同手势处理有不同的相关属性。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="手势" scheme="http://andyron.com/tags/%E6%89%8B%E5%8A%BF/"/>
     
   </entry>
   
