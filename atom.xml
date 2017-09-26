@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-23T15:01:30.000Z</updated>
+  <updated>2017-09-26T12:19:24.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS沙盒和文件管理</title>
+    <link href="http://andyron.com/2017/ios-sandbox-file.html"/>
+    <id>http://andyron.com/2017/ios-sandbox-file.html</id>
+    <published>2017-09-24T16:00:00.000Z</published>
+    <updated>2017-09-26T12:19:24.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-423ab6158c3ad6b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="sandbox" scheme="http://andyron.com/tags/sandbox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程(六)：SDWebImage的简单使用</title>
+    <link href="http://andyron.com/2017/ios-network-6.html"/>
+    <id>http://andyron.com/2017/ios-network-6.html</id>
+    <published>2017-09-23T12:15:48.000Z</published>
+    <updated>2017-09-26T12:16:56.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="SDWebImage" scheme="http://andyron.com/tags/SDWebImage/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS网络编程(五)：Cookie的使用</title>
@@ -32,6 +72,29 @@
     
     
       <category term="NSHTTPCookieStorage" scheme="http://andyron.com/tags/NSHTTPCookieStorage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
+    <link href="http://andyron.com/2017/ios-network-3.html"/>
+    <id>http://andyron.com/2017/ios-network-3.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-09-23T11:33:01.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
+&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableUR
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
+    
+      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
     
   </entry>
   
@@ -73,29 +136,6 @@
     
     
       <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
-    <link href="http://andyron.com/2017/ios-network-3.html"/>
-    <id>http://andyron.com/2017/ios-network-3.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-09-23T11:33:01.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
-&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableUR
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
-    
-      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
     
   </entry>
   
@@ -253,6 +293,24 @@
   </entry>
   
   <entry>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/ios-js-2.html"/>
+    <id>http://andyron.com/2017/ios-js-2.html</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-09T03:21:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
     <link href="http://andyron.com/2017/ios-js-1.html"/>
     <id>http://andyron.com/2017/ios-js-1.html</id>
@@ -263,24 +321,6 @@
     
       &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/ios-js-2.html"/>
-    <id>http://andyron.com/2017/ios-js-2.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
     
     </summary>
     
@@ -371,47 +411,6 @@
     
     
       <category term="Core ML" scheme="http://andyron.com/tags/Core-ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用github和hexo创建免费的静态个人博客网站</title>
-    <link href="http://andyron.com/2017/github-hexo.html"/>
-    <id>http://andyron.com/2017/github-hexo.html</id>
-    <published>2017-08-25T16:00:00.000Z</published>
-    <updated>2017-09-09T03:20:07.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-85bd138bdcb1a517.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;之前刚学编程，接触PHP时，出于学习的目的，兴致勃勃地买了域名、主机、学了&lt;a href=&quot;https://zh-cn.wordpress.com/com-vs-org/?sgmt=gb&amp;amp;utm_source=adwords&amp;amp;utm_campaign=G_Search_Brand_Desktop_CN_en_x_x&amp;amp;utm_medium=cpc&amp;amp;keyword=wordpress&amp;amp;creative=210660075986&amp;amp;campaignid=686689621&amp;amp;adgroupid=38215071114&amp;amp;matchtype=e&amp;amp;device=c&amp;amp;network=g&amp;amp;targetid=kwd-313411415&amp;amp;locationid=9061446&amp;amp;gclid=Cj0KCQjwlf_MBRDUARIsAD8Gj8D7KuGzcUAzlMp-H9hn_tfCyJKm_LeQIp3DNRyQC-MiOWodbOIWsCsaAuwBEALw_wcB&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wordpress&lt;/a&gt;，找了主题，折腾了好久建了个网站，也写了一些文章，然后就没有然后了，这是从入门到放弃系列的典型案例。前段时间收到主机要到期的通知，正好我也接触到了简书，支持markdown，感觉蛮好，平常也习惯使用markdown格式记录笔记。就觉得不再续费主机了，就主要使用简书，个人博客就使用github和hexo这种支持markdown生成静态网页形式就行了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="github" scheme="http://andyron.com/tags/github/"/>
-    
-      <category term="hexo" scheme="http://andyron.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS 传感器(一)：总的介绍和距离传感器</title>
-    <link href="http://andyron.com/2017/ios-sensor-1.html"/>
-    <id>http://andyron.com/2017/ios-sensor-1.html</id>
-    <published>2017-08-24T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:28.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;关于传感器（Sensor），Apple官方好像并没有专门列出来介绍过，我只能从前辈的文章寻找，很多文章中都给iOS传感器进行过很详细的分类介绍，但有的传感器只是有过介绍，没有介绍使用方法或API，当然也有可能是我没搜索到，比如湿度传感器很多文章都提到，但详细使用方式就未曾看到过，还有这边的湿度传感器是指iPhone内部的？还是指iPhone所在外部环境的？&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="传感器" scheme="http://andyron.com/tags/%E4%BC%A0%E6%84%9F%E5%99%A8/"/>
     
   </entry>
   
