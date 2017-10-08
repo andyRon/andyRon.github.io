@@ -1083,7 +1083,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-network-3.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-network-2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1102,7 +1102,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/ios-network-3.html" itemprop="url">iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</a></h1>
+                <a class="post-title-link" href="/2017/ios-network-2.html" itemprop="url">iOS网络编程(二)：NSURLConnection介绍</a></h1>
         
 
         <div class="post-meta">
@@ -1155,9 +1155,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/ios-network-3.html#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-network-2.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/ios-network-3.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-network-2.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1183,14 +1183,17 @@
 
       
         
-          
-          NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。
-NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。NSMutableURLRequest相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。
-一、NSURLRequest类中常用方法和属性类方法：12345// 创建的请求对象 默认使用NSURLRequestUseProtocolCacheP
-          ...
+          <blockquote>
+<p><a href="https://developer.apple.com/documentation/foundation/nsurlconnection" target="_blank" rel="external">NSURLConnection</a>在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。</p>
+</blockquote>
+<p>网络请求分为同步和异步两种：</p>
+<ul>
+<li>同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。</li>
+<li>异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/ios-network-3.html#more" rel="contents">
+            <a class="btn" href="/2017/ios-network-2.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1388,7 +1391,7 @@ NSURLRequest请求类除了在初始化时可以设定一些属性，创建出�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-network-2.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-network-3.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1407,7 +1410,7 @@ NSURLRequest请求类除了在初始化时可以设定一些属性，创建出�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/ios-network-2.html" itemprop="url">iOS网络编程(二)：NSURLConnection介绍</a></h1>
+                <a class="post-title-link" href="/2017/ios-network-3.html" itemprop="url">iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</a></h1>
         
 
         <div class="post-meta">
@@ -1460,9 +1463,9 @@ NSURLRequest请求类除了在初始化时可以设定一些属性，创建出�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/ios-network-2.html#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-network-3.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/ios-network-2.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-network-3.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1488,20 +1491,11 @@ NSURLRequest请求类除了在初始化时可以设定一些属性，创建出�
 
       
         
-          
-          
-NSURLConnection在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。
-
-网络请求分为同步和异步两种：
-
-同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。
-异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。
-
-一、NSURLConnection同步请求12345678// 同步- (void)tongbu &#123;    N
-          ...
+          <p>NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。</p>
+<p>NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。<code>NSMutableURLRequest</code>相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/ios-network-2.html#more" rel="contents">
+            <a class="btn" href="/2017/ios-network-3.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1647,15 +1641,9 @@ NSURLConnection在iOS7之后基本被NSURLSession，但为了兼容，有必要�
 
       
         
-          
-          
-NSURLSession是iOS7之后被用来代替NSURLConnection的网络开发框架，前者相对于后者的优势是支持后台处理能力
-
-NSURLSession的配置通过NSURLSessionConfiguration来配置Session的三种类型：
-
-Default：提供前台请求相关方法，支持配置缓存，身份凭证等。
-NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSes
-          ...
+          <blockquote>
+<p><a href="https://developer.apple.com/documentation/foundation/nsurlsession?language=objc" target="_blank" rel="external">NSURLSession</a>是iOS7之后被用来代替NSURLConnection的网络开发框架，前者相对于后者的优势是支持后台处理能力</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/ios-network-1.html#more" rel="contents">

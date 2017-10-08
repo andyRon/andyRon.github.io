@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="NSURLConnection在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。  网络请求分为同步和异步两种：  同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。 异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。  一、NSURLCon">
+<meta name="description" content="NSURLConnection在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。  网络请求分为同步和异步两种：  同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。 异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。">
 <meta name="keywords" content="NSURLConnection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS网络编程(二)：NSURLConnection介绍">
 <meta property="og:url" content="http://andyron.com/2017/ios-network-2.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="NSURLConnection在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。  网络请求分为同步和异步两种：  同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。 异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。  一、NSURLCon">
+<meta property="og:description" content="NSURLConnection在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。  网络请求分为同步和异步两种：  同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。 异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-23T11:32:13.000Z">
+<meta property="og:updated_time" content="2017-10-08T06:27:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS网络编程(二)：NSURLConnection介绍">
-<meta name="twitter:description" content="NSURLConnection在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。  网络请求分为同步和异步两种：  同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。 异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。  一、NSURLCon">
+<meta name="twitter:description" content="NSURLConnection在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。  网络请求分为同步和异步两种：  同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。 异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。">
 
 
 
@@ -435,6 +435,7 @@
 <li>同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。</li>
 <li>异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。</li>
 </ul>
+<a id="more"></a>
 <h3 id="一、NSURLConnection同步请求"><a href="#一、NSURLConnection同步请求" class="headerlink" title="一、NSURLConnection同步请求"></a>一、NSURLConnection同步请求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 同步</div><div class="line">- (void)tongbu &#123;</div><div class="line">    NSURL * url = [NSURL URLWithString:@&quot;https://www.baidu.com&quot;];</div><div class="line">    NSURLRequest * request = [NSURLRequest requestWithURL:url];</div><div class="line">    NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];</div><div class="line">    NSLog(@&quot;%@&quot;,data);</div><div class="line">    NSLog(@&quot;继续执行&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="而、NSURLConnection异步请求"><a href="#而、NSURLConnection异步请求" class="headerlink" title="而、NSURLConnection异步请求"></a>而、NSURLConnection异步请求</h3><ol>
 <li><p>block方式的异步请求</p>
@@ -533,8 +534,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-network-1.html" rel="next" title="iOS网络编程(一)：NSURLSession介绍">
-                <i class="fa fa-chevron-left"></i> iOS网络编程(一)：NSURLSession介绍
+              <a href="/2017/ios-network-4.html" rel="next" title="iOS网络编程(四)：缓存类NSURLCache介绍">
+                <i class="fa fa-chevron-left"></i> iOS网络编程(四)：缓存类NSURLCache介绍
               </a>
             
           </div>
@@ -543,8 +544,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-network-4.html" rel="prev" title="iOS网络编程(四)：缓存类NSURLCache介绍">
-                iOS网络编程(四)：缓存类NSURLCache介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/ios-network-5.html" rel="prev" title="iOS网络编程(五)：Cookie的使用">
+                iOS网络编程(五)：Cookie的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
