@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>欣欣向戎</title>
+  
   <subtitle>AndyRon&#39;s Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-09-26T17:25:25.000Z</updated>
+  <updated>2017-10-08T06:21:14.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -16,6 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>向CocoaPods发布代码</title>
+    <link href="http://andyron.com/2017/ios-cocoapods-push.html"/>
+    <id>http://andyron.com/2017/ios-cocoapods-push.html</id>
+    <published>2017-10-08T05:53:50.000Z</published>
+    <updated>2017-10-08T06:21:14.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-cdcea9c27584ae4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="CocoaPods" scheme="http://andyron.com/tags/CocoaPods/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于iOS开发中的pch文件</title>
     <link href="http://andyron.com/2017/ios-pch.html"/>
     <id>http://andyron.com/2017/ios-pch.html</id>
@@ -24,8 +48,11 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;code&gt;.pch&lt;/code&gt;文件也是一种头文件，它的内容能被项目中的其他所有源文件共享和访问。是一个预编译文件。&lt;/p&gt;
+      
+      
+        &lt;p&gt;&lt;code&gt;.pch&lt;/code&gt;文件也是一种头文件，它的内容能被项目中的其他所有源文件共享和访问。是一个预编译文件。&lt;/p&gt;
 &lt;h3 id=&quot;pch文件的作用：&quot;&gt;&lt;a href=&quot;#pch文件的作用：&quot; class=&quot;headerlink&quot; title=&quot;pch文件的作
+      
     
     </summary>
     
@@ -45,7 +72,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-423ab6158c3ad6b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-423ab6158c3ad6b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      
     
     </summary>
     
@@ -65,7 +95,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      
     
     </summary>
     
@@ -85,7 +118,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。&lt;br&gt;Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终
+      
+      
+        &lt;p&gt;Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。&lt;br&gt;Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终
+      
     
     </summary>
     
@@ -93,47 +129,6 @@
     
     
       <category term="NSHTTPCookieStorage" scheme="http://andyron.com/tags/NSHTTPCookieStorage/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
-    <link href="http://andyron.com/2017/ios-network-4.html"/>
-    <id>http://andyron.com/2017/ios-network-4.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-09-23T15:01:44.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;网络请求中缓存类&lt;code&gt;NSURLCache&lt;/code&gt;常用属性和方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;d
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(二)：NSURLConnection介绍</title>
-    <link href="http://andyron.com/2017/ios-network-2.html"/>
-    <id>http://andyron.com/2017/ios-network-2.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-09-23T11:32:13.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlconnection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLConnectio
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
     
   </entry>
   
@@ -146,8 +141,11 @@
     
     <summary type="html">
     
-      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
+      
+      
+        &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
 &lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableUR
+      
     
     </summary>
     
@@ -161,6 +159,53 @@
   </entry>
   
   <entry>
+    <title>iOS网络编程(二)：NSURLConnection介绍</title>
+    <link href="http://andyron.com/2017/ios-network-2.html"/>
+    <id>http://andyron.com/2017/ios-network-2.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-09-23T11:32:13.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlconnection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLConnectio
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
+    <link href="http://andyron.com/2017/ios-network-4.html"/>
+    <id>http://andyron.com/2017/ios-network-4.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-09-23T15:01:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;网络请求中缓存类&lt;code&gt;NSURLCache&lt;/code&gt;常用属性和方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;d
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS网络编程(一)：NSURLSession介绍</title>
     <link href="http://andyron.com/2017/ios-network-1.html"/>
     <id>http://andyron.com/2017/ios-network-1.html</id>
@@ -169,8 +214,11 @@
     
     <summary type="html">
     
-      &lt;blockquote&gt;
+      
+      
+        &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlsession?language=objc&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSU
+      
     
     </summary>
     
@@ -208,7 +256,10 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1-属性列表-property-list-plist&quot;&gt;&lt;a href=&quot;#1-属性列表-property-list-plist&quot; class=&quot;headerlink&quot; title=&quot;1 属性列表(property list, plist)&quot;&gt;&lt;/a&gt;1 属性列表
+      
+      
+        &lt;h3 id=&quot;1-属性列表-property-list-plist&quot;&gt;&lt;a href=&quot;#1-属性列表-property-list-plist&quot; class=&quot;headerlink&quot; title=&quot;1 属性列表(property list, plist)&quot;&gt;&lt;/a&gt;1 属性列表
+      
     
     </summary>
     
@@ -226,7 +277,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;代码块&lt;/strong&gt;(Block)/闭包(closure) 是对C语言中函数的扩展。&lt;br&gt;代码块两种类的绑定：&lt;br&gt;自动绑定(automatic binding)    栈内存&lt;br&gt;托管绑定(managed binding)     堆内存&lt;/p&gt;
+      
+      
+        &lt;p&gt;&lt;strong&gt;代码块&lt;/strong&gt;(Block)/闭包(closure) 是对C语言中函数的扩展。&lt;br&gt;代码块两种类的绑定：&lt;br&gt;自动绑定(automatic binding)    栈内存&lt;br&gt;托管绑定(managed binding)     堆内存&lt;/p&gt;
+      
     
     </summary>
     
@@ -244,10 +298,13 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1-正式协议&quot;&gt;&lt;a href=&quot;#1-正式协议&quot; class=&quot;headerlink&quot; title=&quot;1 正式协议&quot;&gt;&lt;/a&gt;1 正式协议&lt;/h3&gt;&lt;ul&gt;
+      
+      
+        &lt;h3 id=&quot;1-正式协议&quot;&gt;&lt;a href=&quot;#1-正式协议&quot; class=&quot;headerlink&quot; title=&quot;1 正式协议&quot;&gt;&lt;/a&gt;1 正式协议&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;声明协议&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;
+      
     
     </summary>
     
@@ -265,9 +322,12 @@
     
     <summary type="html">
     
-      &lt;p&gt;类别（category）是一种为现有的类添加新方法的方式。&lt;/p&gt;
+      
+      
+        &lt;p&gt;类别（category）是一种为现有的类添加新方法的方式。&lt;/p&gt;
 &lt;h3 id=&quot;1-创建类别&quot;&gt;&lt;a href=&quot;#1-创建类别&quot; class=&quot;headerlink&quot; title=&quot;1 创建类别&quot;&gt;&lt;/a&gt;1 创建类别&lt;/h3&gt;&lt;p&gt;一般，只是习惯&lt;/p&gt;
 &lt;bloc
+      
     
     </summary>
     
@@ -285,8 +345,11 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1-使用属性&quot;&gt;&lt;a href=&quot;#1-使用属性&quot; class=&quot;headerlink&quot; title=&quot;1 使用属性&quot;&gt;&lt;/a&gt;1 使用属性&lt;/h3&gt;&lt;ul&gt;
+      
+      
+        &lt;h3 id=&quot;1-使用属性&quot;&gt;&lt;a href=&quot;#1-使用属性&quot; class=&quot;headerlink&quot; title=&quot;1 使用属性&quot;&gt;&lt;/a&gt;1 使用属性&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;接口代码简化&lt;br&gt;没有使用属性：&lt;figure class=&quot;highlight plain&quot;
+      
     
     </summary>
     
@@ -304,7 +367,10 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1-分配-allocation-对象&quot;&gt;&lt;a href=&quot;#1-分配-allocation-对象&quot; class=&quot;headerlink&quot; title=&quot;1 分配(allocation)对象&quot;&gt;&lt;/a&gt;1 分配(allocation)对象&lt;/h3&gt;&lt;p&gt;&lt;code&gt;
+      
+      
+        &lt;h3 id=&quot;1-分配-allocation-对象&quot;&gt;&lt;a href=&quot;#1-分配-allocation-对象&quot; class=&quot;headerlink&quot; title=&quot;1 分配(allocation)对象&quot;&gt;&lt;/a&gt;1 分配(allocation)对象&lt;/h3&gt;&lt;p&gt;&lt;code&gt;
+      
     
     </summary>
     
@@ -381,26 +447,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2248583-2dfdb6de25cde9d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Core Animation中类继承关系&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS动画(一)：时钟动画(Swift)</title>
-    <link href="http://andyron.com/2017/ios-animation-1-clock.html"/>
-    <id>http://andyron.com/2017/ios-animation-1-clock.html</id>
-    <published>2017-09-05T05:02:31.000Z</published>
-    <updated>2017-09-09T03:18:58.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-b1d9f0d05c706863.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     

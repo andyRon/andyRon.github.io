@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="CocoaPods," />
 
 
 
@@ -95,22 +95,24 @@
 
 
 
-<meta name="description" content="默认的Scene名称 Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称就与其关联的控制器名称相关，比如默认的View Controller的对象的Scene的名称就是View Controller Scene。    如果把控制器改成SFSafariViewController，那么Scene的名字就会变成Safari View Scene。  如果把控制器改成自建的，Sc">
+<meta name="description" content="Cocoapods是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。这篇文章是我总结向Cocoapods贡献代码的过程。我以自己一个非常非常简单的项目ARFPSStatus来记录这个过程。ARFPSStatus非常简单，是Swift写的在状态栏显示屏幕的FPS，源码只有一个S">
+<meta name="keywords" content="CocoaPods">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xcode中Scene里的名称">
-<meta property="og:url" content="http://andyron.com/2017/xcode-scene-name.html">
+<meta property="og:title" content="向CocoaPods发布代码">
+<meta property="og:url" content="http://andyron.com/2017/ios-cocoapods-push.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="默认的Scene名称 Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称就与其关联的控制器名称相关，比如默认的View Controller的对象的Scene的名称就是View Controller Scene。    如果把控制器改成SFSafariViewController，那么Scene的名字就会变成Safari View Scene。  如果把控制器改成自建的，Sc">
+<meta property="og:description" content="Cocoapods是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。这篇文章是我总结向Cocoapods贡献代码的过程。我以自己一个非常非常简单的项目ARFPSStatus来记录这个过程。ARFPSStatus非常简单，是Swift写的在状态栏显示屏幕的FPS，源码只有一个S">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d80576d822af0859.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-302bf5f35d2d0968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-111d56554787ec8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-552da41f8db1851f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T02:35:02.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-cdcea9c27584ae4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-db6e66ab399e804b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-86ca76b54d36e27b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-95ac6af9bd693d6d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-0e11c2e0d330fd23.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-10-08T06:21:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xcode中Scene里的名称">
-<meta name="twitter:description" content="默认的Scene名称 Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称就与其关联的控制器名称相关，比如默认的View Controller的对象的Scene的名称就是View Controller Scene。    如果把控制器改成SFSafariViewController，那么Scene的名字就会变成Safari View Scene。  如果把控制器改成自建的，Sc">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-d80576d822af0859.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="向CocoaPods发布代码">
+<meta name="twitter:description" content="Cocoapods是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。这篇文章是我总结向Cocoapods贡献代码的过程。我以自己一个非常非常简单的项目ARFPSStatus来记录这个过程。ARFPSStatus非常简单，是Swift写的在状态栏显示屏幕的FPS，源码只有一个S">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-cdcea9c27584ae4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -138,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/xcode-scene-name.html"/>
+  <link rel="canonical" href="http://andyron.com/2017/ios-cocoapods-push.html"/>
 
 
 
 
 
-  <title>Xcode中Scene里的名称 | 欣欣向戎</title>
+  <title>向CocoaPods发布代码 | 欣欣向戎</title>
   
 
 
@@ -328,8 +330,8 @@
   
   
 
-  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/xcode-scene-name.html">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-cocoapods-push.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -346,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Xcode中Scene里的名称</h1>
+          <h1 class="post-title" itemprop="name headline">向CocoaPods发布代码</h1>
         
 
         <div class="post-meta">
@@ -358,8 +360,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T00:00:00+08:00">
-                2017-07-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-08T13:53:50+08:00">
+                2017-10-08
               </time>
             
 
@@ -399,9 +401,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/xcode-scene-name.html#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-cocoapods-push.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/xcode-scene-name.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-cocoapods-push.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -431,20 +433,50 @@
       
 
       
-        <h3 id="默认的Scene名称"><a href="#默认的Scene名称" class="headerlink" title="默认的Scene名称"></a>默认的Scene名称</h3><ul>
-<li>Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称就与其关联的控制器名称相关，比如默认的<strong>View Controller</strong>的对象的Scene的名称就是<strong>View Controller Scene</strong>。</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-d80576d822af0859.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-cdcea9c27584ae4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。<br>使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。<br>这篇文章是我总结向<a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>贡献代码的过程。我以自己一个非常非常简单的项目<strong><a href="https://github.com/andyRon/ARFPSStatus" target="_blank" rel="external">ARFPSStatus</a></strong>来记录这个过程。<strong><a href="https://github.com/andyRon/ARFPSStatus" target="_blank" rel="external">ARFPSStatus</a></strong>非常简单，是Swift写的在状态栏显示屏幕的FPS，源码只有一个Swift文件。</p>
+<p>来吧！🎉我试着为iOS开发贡献一点绵薄之力吧。🎉</p>
+<h3 id="一、安装cocoapods"><a href="#一、安装cocoapods" class="headerlink" title="一、安装cocoapods"></a>一、安装cocoapods</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods --pre</div></pre></td></tr></table></figure>
+<h3 id="二、创建代码并上传代码到Github"><a href="#二、创建代码并上传代码到Github" class="headerlink" title="二、创建代码并上传代码到Github"></a>二、创建代码并上传代码到Github</h3><p>就是要发布的代码了，具体怎么上传代码到Github上我就不重复了。</p>
+<h3 id="三、在github上发布一个版本"><a href="#三、在github上发布一个版本" class="headerlink" title="三、在github上发布一个版本"></a>三、在github上发布一个版本</h3><p>点击这边的<code>release</code>:<br><img src="http://upload-images.jianshu.io/upload_images/1678135-db6e66ab399e804b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>发布一个版本，假设是<code>0.1.0</code>:<br><img src="http://upload-images.jianshu.io/upload_images/1678135-86ca76b54d36e27b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="创建podspec文件"><a href="#创建podspec文件" class="headerlink" title="创建podspec文件"></a>创建podspec文件</h3><p>常见一个<code>&lt;项目名称&gt;.podspec</code>文件，我这边就是<code>ARFPSStatus.podspec</code>文件，内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Pod::Spec.new do |s|</div><div class="line">  s.name         = &quot;ARFPSStatus&quot;</div><div class="line">  s.version      = &quot;0.1.0&quot;</div><div class="line">  s.summary      = &quot;ARFPSStatus - Show FPS Status on StatusBar in Swift&quot;</div><div class="line">  s.homepage     = &quot;https://github.com/andyRon/ARFPSStatus&quot;</div><div class="line">  s.license      = &quot;MIT&quot;</div><div class="line">  s.authors      = &#123; &quot;andyron&quot; =&gt; &quot;rongming.2008@163.com&quot; &#125;</div><div class="line">  s.source       = &#123; :git =&gt; &quot;https://github.com/andyRon/ARFPSStatus.git&quot;, :tag =&gt; &quot;0.1.0&quot; &#125;</div><div class="line">  s.frameworks   = &apos;Foundation&apos;, &apos;UIKit&apos;</div><div class="line">  s.platform     = :ios, &apos;9.0&apos;</div><div class="line">  s.source_files = &apos;ARFPSStatus/*&apos;</div><div class="line">  s.requires_arc = true </div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure></p>
+<ol>
+<li>s.name – 项目名称，也就是别人使用Pod时使用的名字，需要唯一，可事先在<a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>上查询一下。</li>
+<li>s.version – 这是你 Pod 的版本。务必注意，它得和 Github release 的版本号相同，就是刚才发布的版本<code>0.1.0</code>。如果两者不匹配，就会报错。</li>
+<li>s.summary 和 s.description – 这两个变量最终会显示在 Cocoapods 页面上。请确保 description 比 summary 更长，否则将会报错。description不是必须的。</li>
+<li>s.homepage – 这是 Pod 源代码的 URL。</li>
+<li>s.author – 开发者信息，开发者名字和邮箱。</li>
+<li>s.source_files – <strong>这是最重要的参数</strong>。不是所有Github项目中所有文件都需要提交到CocoaPods里，项目中可能有一些Demo、图片啊等，提交到CocoaPods的只需要源码，就是别人使用时最少所需的代码。<br>例如，我需要提交的是<code>ARFPSStatus/ARFPSStatus.swift</code>文件，<code>s.source_files</code>就是<code>ARFPSStatus/ARFPSStatus.swift</code>，或者之后如果再在<code>ARFPSStatus/</code>目录中添加其他文件，<code>s.source_files</code>就可以是<code>ARFPSStatus/*</code>。<br>当然，还可以是其它一些形式。<br><code>ARFPSStatus/*.swift</code><br><code>ARFPSStatus/*.{swift,plist}</code></li>
+</ol>
+<p>Podspec文件的详细语法规则可查看官网的<a href="https://guides.cocoapods.org/syntax/podspec.html" target="_blank" rel="external">Podspec Syntax Reference</a></p>
+<h3 id="验证项目"><a href="#验证项目" class="headerlink" title="验证项目"></a>验证项目</h3><p>CocoaPods 需要验证项目有没有错误</p>
 <ul>
-<li><p>如果把控制器改成<strong>SFSafariViewController</strong>，那么Scene的名字就会变成<strong>Safari View Scene</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-302bf5f35d2d0968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-<li><p>如果把控制器改成自建的，Scene名字也会随着变化，比如<strong>ASAndyViewController</strong>对应的Scene名字是<strong> Andy View Scene</strong><br><img src="http://upload-images.jianshu.io/upload_images/1678135-111d56554787ec8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-<li><p>总的来说，apple在程序中代码命名规范，一般是前面连续大写的是框架名称，然后后面使用驼峰命名法。要显示时就把框架前缀去掉，然后根据驼峰命名规则分隔显示。</p>
+<li><code>pod lib lint</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ pod lib lint</div><div class="line"></div><div class="line"> -&gt; ARFPSStatus (0.1.0)</div><div class="line">    - WARN  | [iOS] license: Unable to find a license file</div><div class="line">    - WARN  | xcodebuild:  /Users/andyron/myfield/github/ARFPSStatus/ARFPSStatus/ARFPSStatus.swift:91:17: warning: variable &apos;label&apos; was never mutated; consider changing to &apos;let&apos; constant</div><div class="line"></div><div class="line">[!] ARFPSStatus did not pass validation, due to 2 warnings (but you can use `--allow-warnings` to ignore them).</div><div class="line">You can use the `--no-clean` option to inspect any issue.</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="自定义Scene的名称"><a href="#自定义Scene的名称" class="headerlink" title="自定义Scene的名称"></a>自定义Scene的名称</h3><p>Scene的名称也是可以自定义的，在其属性检查器中，修改<code>title</code>即可，当然这种修改只是停留在IB中，为了开发时便于查看，不影响代码中的名称。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-552da41f8db1851f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>如果想忽略警告，可使用<code>--allow-warnings</code>。</p>
+<ul>
+<li><code>$ pod lib lint --allow-warnings</code></li>
+</ul>
+<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><ul>
+<li>创建 Trunk 账号<br>关于Trunk可以查看<a href="https://blog.cocoapods.org/CocoaPods-Trunk/#trunk" target="_blank" rel="external">为什么做 Trunk</a>这篇文章<br>创建 Trunk 账号很简单，只要一个邮箱。<br><code>pod trunk register rongming.2008@163.com</code><br>邮箱会收到一封确认邮件，确认成功：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-95ac6af9bd693d6d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>推送代码到Pod<br><code>pod trunk push ARFPSStatus.podspec</code><br>当然也可使用<code>pod trunk push ARFPSStatus.podspec --allow-warnings</code>来忽略一些不必要的警告。<br>成功后：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ pod trunk push ARFPSStatus.podspec </div><div class="line">Updating spec repo `master`</div><div class="line"></div><div class="line">--------------------------------------------------------------------------------</div><div class="line"> 🎉  Congrats</div><div class="line"></div><div class="line"> 🚀  ARFPSStatus (0.1.0) successfully published</div><div class="line"> 📅  September 28th, 11:33</div><div class="line"> 🌎  https://cocoapods.org/pods/ARFPSStatus</div><div class="line"> 👍  Tell your friends!</div><div class="line">--------------------------------------------------------------------------------</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="使用新发布的代码"><a href="#使用新发布的代码" class="headerlink" title="使用新发布的代码"></a>使用新发布的代码</h3><p>发布成功和可能需要一段时间才能使用，可以到<a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>上查询。</p>
+<ul>
+<li><p>项目的<code>Podfile</code>文件中添加<code>ARFPSStatus</code>,并安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">target &apos;FPSDemo&apos; douse dynamic frameworks</div><div class="line">  use_frameworks!</div><div class="line"></div><div class="line">  pod &quot;ARFPSStatus&quot; </div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
+</li>
+<li><p>Pods项目会多出<code>ARFPSStatus</code>目录，里面的<code>Support Files</code>目录不是我添加的，是<a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>自动添加的一些相关文件。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-0e11c2e0d330fd23.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+</ul>
+<blockquote>
+<p>参考：<br><a href="https://segmentfault.com/a/1190000007819165" target="_blank" rel="external">基于 Swift 创建 CocoaPods 完全指南</a><br><a href="https://guides.cocoapods.org/syntax/podspec.html" target="_blank" rel="external">Podspec Syntax Reference</a></p>
+</blockquote>
 
       
     </div>
@@ -499,7 +531,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/xcode-scene-name.html" title="Xcode中Scene里的名称">http://andyron.com/2017/xcode-scene-name.html</a>
+      <a href="http://andyron.com/2017/ios-cocoapods-push.html" title="向CocoaPods发布代码">http://andyron.com/2017/ios-cocoapods-push.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -513,6 +545,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/CocoaPods/" rel="tag"><i class="fa fa-tag"></i> CocoaPods</a>
+          
+        </div>
+      
 
       
       
@@ -522,8 +560,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-tutorial-1-arcode.html" rel="next" title="iOS tutorial 1： 识别二维码（swift3）">
-                <i class="fa fa-chevron-left"></i> iOS tutorial 1： 识别二维码（swift3）
+              <a href="/2017/ios-pch.html" rel="next" title="关于iOS开发中的pch文件">
+                <i class="fa fa-chevron-left"></i> 关于iOS开发中的pch文件
               </a>
             
           </div>
@@ -531,10 +569,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/swift-19.html" rel="prev" title="以撸代码的形式学习Swift-19：Type Casting(类型转换)">
-                以撸代码的形式学习Swift-19：Type Casting(类型转换) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -739,7 +773,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认的Scene名称"><span class="nav-number">1.</span> <span class="nav-text">默认的Scene名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义Scene的名称"><span class="nav-number">2.</span> <span class="nav-text">自定义Scene的名称</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、安装cocoapods"><span class="nav-number">1.</span> <span class="nav-text">一、安装cocoapods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、创建代码并上传代码到Github"><span class="nav-number">2.</span> <span class="nav-text">二、创建代码并上传代码到Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、在github上发布一个版本"><span class="nav-number">3.</span> <span class="nav-text">三、在github上发布一个版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建podspec文件"><span class="nav-number">4.</span> <span class="nav-text">创建podspec文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证项目"><span class="nav-number">5.</span> <span class="nav-text">验证项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布"><span class="nav-number">6.</span> <span class="nav-text">发布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用新发布的代码"><span class="nav-number">7.</span> <span class="nav-text">使用新发布的代码</span></a></li></ol></div>
             
 
           </div>
@@ -891,9 +925,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/xcode-scene-name.html';
-          this.page.identifier = '2017/xcode-scene-name.html';
-          this.page.title = 'Xcode中Scene里的名称';
+          this.page.url = 'http://andyron.com/2017/ios-cocoapods-push.html';
+          this.page.identifier = '2017/ios-cocoapods-push.html';
+          this.page.title = '向CocoaPods发布代码';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
