@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终端会将这些信息进行保存，在下一次再次访问这个网站时，终端会将保存的Cookie信息一并发送到服务端，服务端根据Cookie信息是否有效">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-23T15:01:30.000Z">
+<meta property="og:updated_time" content="2017-10-08T06:25:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS网络编程(五)：Cookie的使用">
 <meta name="twitter:description" content="Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终端会将这些信息进行保存，在下一次再次访问这个网站时，终端会将保存的Cookie信息一并发送到服务端，服务端根据Cookie信息是否有效">
@@ -429,6 +429,7 @@
       
         <p>Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。<br>Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终端会将这些信息进行保存，在下一次再次访问这个网站时，终端会将保存的Cookie信息一并发送到服务端，服务端根据Cookie信息是否有效来判断此用户是否可以自动登录。</p>
 <p>在iOS同样也有Cookie，Cookie管理的有两个类：<code>NSHTTPCookieStorage</code> 和 <code>NSHTTPCookie</code>。</p>
+<a id="more"></a>
 <h3 id="获取Cookie"><a href="#获取Cookie" class="headerlink" title="获取Cookie"></a>获取Cookie</h3><p>在请求后获取Cookie<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];</div><div class="line">for (NSHTTPCookie *cookie in [cookieJar cookies]) &#123;</div><div class="line">   NSLog(@&quot;%@&quot;, cookie);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>例如请求百度后，就会返回几个如下Cookie对象(<code>NSHTTPCookie</code>):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;NSHTTPCookie</div><div class="line">    version:0</div><div class="line">    name:BD_NOT_HTTPS</div><div class="line">    value:1</div><div class="line">    expiresDate:&apos;2017-09-23 14:14:22 +0000&apos;</div><div class="line">    created:&apos;2017-09-23 14:09:22 +0000&apos;</div><div class="line">    sessionOnly:FALSE</div><div class="line">    domain:www.baidu.com</div><div class="line">    partition:none</div><div class="line">    path:/</div><div class="line">    isSecure:FALSE</div><div class="line"> path:&quot;/&quot; isSecure:FALSE&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="设置Cookie"><a href="#设置Cookie" class="headerlink" title="设置Cookie"></a>设置Cookie</h3><p>在请求前设置一个如下Cookie：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">    // 请求前 设置Cookie</div><div class="line">    NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];</div><div class="line">    [cookieProperties setObject:@&quot;andyron&quot; forKey:NSHTTPCookieName];</div><div class="line">    [cookieProperties setObject:@&quot;1587&quot; forKey:NSHTTPCookieValue];</div><div class="line">    [cookieProperties setObject:@&quot;andyron.com&quot; forKey:NSHTTPCookieDomain];</div><div class="line">    [cookieProperties setObject:@&quot;andyron.com&quot; forKey:NSHTTPCookieOriginURL];</div><div class="line">    [cookieProperties setObject:@&quot;/&quot; forKey:NSHTTPCookiePath];</div><div class="line">    [cookieProperties setObject:@&quot;0&quot; forKey:NSHTTPCookieVersion];</div><div class="line">    NSHTTPCookie *cookie = [NSHTTPCookie cookieWithProperties:cookieProperties];</div><div class="line">    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];</div><div class="line">`</div></pre></td></tr></table></figure></p>
@@ -523,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-network-2.html" rel="next" title="iOS网络编程(二)：NSURLConnection介绍">
-                <i class="fa fa-chevron-left"></i> iOS网络编程(二)：NSURLConnection介绍
+              <a href="/2017/ios-network-3.html" rel="next" title="iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍">
+                <i class="fa fa-chevron-left"></i> iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍
               </a>
             
           </div>

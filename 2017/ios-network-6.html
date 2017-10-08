@@ -95,20 +95,20 @@
 
 
 
-<meta name="description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试  图片加载一般使用 SDWebImage通过为UIImageView添加类别，扩展了一些类似的方法，只是参数的多少数目不同，最全的参数的方法是： 1-sd_setImageWithURL:placeholderImage:options:progress:c">
+<meta name="description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试">
 <meta name="keywords" content="SDWebImage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS网络编程(六)：SDWebImage的简单使用">
 <meta property="og:url" content="http://andyron.com/2017/ios-network-6.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试  图片加载一般使用 SDWebImage通过为UIImageView添加类别，扩展了一些类似的方法，只是参数的多少数目不同，最全的参数的方法是： 1-sd_setImageWithURL:placeholderImage:options:progress:c">
+<meta property="og:description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/656644-7dfe370a86e157e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-26T12:16:56.000Z">
+<meta property="og:updated_time" content="2017-10-08T06:25:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS网络编程(六)：SDWebImage的简单使用">
-<meta name="twitter:description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试  图片加载一般使用 SDWebImage通过为UIImageView添加类别，扩展了一些类似的方法，只是参数的多少数目不同，最全的参数的方法是： 1-sd_setImageWithURL:placeholderImage:options:progress:c">
+<meta name="twitter:description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -438,6 +438,7 @@
 <li>同一个URL图片不会重复下载</li>
 <li>失效的URL不会被无限重试</li>
 </ul>
+<a id="more"></a>
 <h3 id="图片加载一般使用"><a href="#图片加载一般使用" class="headerlink" title="图片加载一般使用"></a>图片加载一般使用</h3><ul>
 <li><p><strong>SDWebImage</strong>通过为<code>UIImageView</code>添加类别，扩展了一些类似的方法，只是参数的多少数目不同，最全的参数的方法是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-sd_setImageWithURL:placeholderImage:options:progress:completed:</div></pre></td></tr></table></figure>

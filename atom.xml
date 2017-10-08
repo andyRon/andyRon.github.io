@@ -42,15 +42,14 @@
     <link href="http://andyron.com/2017/ios-pch.html"/>
     <id>http://andyron.com/2017/ios-pch.html</id>
     <published>2017-09-26T14:11:06.000Z</published>
-    <updated>2017-09-26T17:25:25.000Z</updated>
+    <updated>2017-10-08T06:25:07.000Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;code&gt;.pch&lt;/code&gt;文件也是一种头文件，它的内容能被项目中的其他所有源文件共享和访问。是一个预编译文件。&lt;/p&gt;
-&lt;h3 id=&quot;pch文件的作用：&quot;&gt;&lt;a href=&quot;#pch文件的作用：&quot; class=&quot;headerlink&quot; title=&quot;pch文件的作
-      
+      &lt;p&gt;&lt;code&gt;.pch&lt;/code&gt;文件也是一种头文件，它的内容能被项目中的其他所有源文件共享和访问。是一个预编译文件。&lt;/p&gt;
+&lt;h3 id=&quot;pch文件的作用：&quot;&gt;&lt;a href=&quot;#pch文件的作用：&quot; class=&quot;headerlink&quot; title=&quot;pch文件的作用：&quot;&gt;&lt;/a&gt;pch文件的作用：&lt;/h3&gt;&lt;p&gt;1.存放一些全局的宏(整个项目中都用得上的宏)&lt;/p&gt;
+&lt;p&gt;2.用来包含一些头文件(整个项目中都用得上的头文件)&lt;/p&gt;
+&lt;p&gt;3.能自动打开或者关闭日志输出功能&lt;/p&gt;
     
     </summary>
     
@@ -66,14 +65,12 @@
     <link href="http://andyron.com/2017/ios-sandbox-file.html"/>
     <id>http://andyron.com/2017/ios-sandbox-file.html</id>
     <published>2017-09-24T16:00:00.000Z</published>
-    <updated>2017-09-26T12:19:24.000Z</updated>
+    <updated>2017-10-08T06:25:33.000Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-423ab6158c3ad6b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-      
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-423ab6158c3ad6b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;沙盒&lt;/strong&gt;（sandbox）：iOS系统为每个应用程序创建自己的目录，每个应用程序只能访问自己的目录。&lt;br&gt;所有的非代码文件都要保存在此，例如图像，图标，声音，映像，属性列表，文本文件等。&lt;/p&gt;
     
     </summary>
     
@@ -89,14 +86,18 @@
     <link href="http://andyron.com/2017/ios-network-6.html"/>
     <id>http://andyron.com/2017/ios-network-6.html</id>
     <published>2017-09-23T12:15:48.000Z</published>
-    <updated>2017-09-26T12:16:56.000Z</updated>
+    <updated>2017-10-08T06:25:40.000Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-      
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SDWebImage&lt;/strong&gt;一些知识：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对远程图片进行缓存管理（磁盘+内存）&lt;/li&gt;
+&lt;li&gt;异步加载&lt;/li&gt;
+&lt;li&gt;同一个URL图片不会重复下载&lt;/li&gt;
+&lt;li&gt;失效的URL不会被无限重试&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -112,14 +113,12 @@
     <link href="http://andyron.com/2017/ios-network-5.html"/>
     <id>http://andyron.com/2017/ios-network-5.html</id>
     <published>2017-09-22T16:00:00.000Z</published>
-    <updated>2017-09-23T15:01:30.000Z</updated>
+    <updated>2017-10-08T06:25:48.000Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。&lt;br&gt;Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终
-      
+      &lt;p&gt;Cookie在Web开发时是非常常用的客户端（浏览器）保存少量信息一种方法。&lt;br&gt;Cookie是网站为了便是终端身份，保存在终端本地的用户凭证信息。Cookie中的字段与意义由服务端进行定义。例如，当用户在某个网站进行了登录操作后，服务端会将Cookie信息返回给终端，终端会将这些信息进行保存，在下一次再次访问这个网站时，终端会将保存的Cookie信息一并发送到服务端，服务端根据Cookie信息是否有效来判断此用户是否可以自动登录。&lt;/p&gt;
+&lt;p&gt;在iOS同样也有Cookie，Cookie管理的有两个类：&lt;code&gt;NSHTTPCookieStorage&lt;/code&gt; 和 &lt;code&gt;NSHTTPCookie&lt;/code&gt;。&lt;/p&gt;
     
     </summary>
     
@@ -127,53 +126,6 @@
     
     
       <category term="NSHTTPCookieStorage" scheme="http://andyron.com/tags/NSHTTPCookieStorage/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(二)：NSURLConnection介绍</title>
-    <link href="http://andyron.com/2017/ios-network-2.html"/>
-    <id>http://andyron.com/2017/ios-network-2.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-09-23T11:32:13.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlconnection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLConnectio
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
-    <link href="http://andyron.com/2017/ios-network-4.html"/>
-    <id>http://andyron.com/2017/ios-network-4.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-09-23T15:01:44.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;网络请求中缓存类&lt;code&gt;NSURLCache&lt;/code&gt;常用属性和方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;d
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
     
   </entry>
   
@@ -200,6 +152,54 @@
       <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
     
       <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
+    <link href="http://andyron.com/2017/ios-network-4.html"/>
+    <id>http://andyron.com/2017/ios-network-4.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-10-08T06:25:57.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;网络请求中缓存类&lt;code&gt;NSURLCache&lt;/code&gt;常用属性和方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div clas
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程(二)：NSURLConnection介绍</title>
+    <link href="http://andyron.com/2017/ios-network-2.html"/>
+    <id>http://andyron.com/2017/ios-network-2.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-09-23T11:32:13.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlconnection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLConnectio
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
     
   </entry>
   
