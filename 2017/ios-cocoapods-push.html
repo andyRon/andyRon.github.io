@@ -95,23 +95,23 @@
 
 
 
-<meta name="description" content="Cocoapods是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。这篇文章是我总结向Cocoapods贡献代码的过程。我以自己一个非常非常简单的项目ARFPSStatus来记录这个过程。ARFPSStatus非常简单，是Swift写的在状态栏显示屏幕的FPS，源码只有一个S">
+<meta name="description" content="Cocoapods是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。">
 <meta name="keywords" content="CocoaPods">
 <meta property="og:type" content="article">
 <meta property="og:title" content="向CocoaPods发布代码">
 <meta property="og:url" content="http://andyron.com/2017/ios-cocoapods-push.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Cocoapods是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。这篇文章是我总结向Cocoapods贡献代码的过程。我以自己一个非常非常简单的项目ARFPSStatus来记录这个过程。ARFPSStatus非常简单，是Swift写的在状态栏显示屏幕的FPS，源码只有一个S">
+<meta property="og:description" content="Cocoapods是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-cdcea9c27584ae4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-db6e66ab399e804b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-86ca76b54d36e27b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-95ac6af9bd693d6d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-0e11c2e0d330fd23.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-10-08T06:21:14.000Z">
+<meta property="og:updated_time" content="2017-10-08T06:23:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="向CocoaPods发布代码">
-<meta name="twitter:description" content="Cocoapods是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。这篇文章是我总结向Cocoapods贡献代码的过程。我以自己一个非常非常简单的项目ARFPSStatus来记录这个过程。ARFPSStatus非常简单，是Swift写的在状态栏显示屏幕的FPS，源码只有一个S">
+<meta name="twitter:description" content="Cocoapods是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-cdcea9c27584ae4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -434,7 +434,9 @@
 
       
         <p><img src="http://upload-images.jianshu.io/upload_images/1678135-cdcea9c27584ae4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。<br>使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。<br>这篇文章是我总结向<a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>贡献代码的过程。我以自己一个非常非常简单的项目<strong><a href="https://github.com/andyRon/ARFPSStatus" target="_blank" rel="external">ARFPSStatus</a></strong>来记录这个过程。<strong><a href="https://github.com/andyRon/ARFPSStatus" target="_blank" rel="external">ARFPSStatus</a></strong>非常简单，是Swift写的在状态栏显示屏幕的FPS，源码只有一个Swift文件。</p>
+<p><a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。<br>使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。</p>
+<a id="more"></a>
+<p>这篇文章是我总结向<a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>贡献代码的过程。我以自己一个非常非常简单的项目<strong><a href="https://github.com/andyRon/ARFPSStatus" target="_blank" rel="external">ARFPSStatus</a></strong>来记录这个过程。<strong><a href="https://github.com/andyRon/ARFPSStatus" target="_blank" rel="external">ARFPSStatus</a></strong>非常简单，是Swift写的在状态栏显示屏幕的FPS，源码只有一个Swift文件。</p>
 <p>来吧！🎉我试着为iOS开发贡献一点绵薄之力吧。🎉</p>
 <h3 id="一、安装cocoapods"><a href="#一、安装cocoapods" class="headerlink" title="一、安装cocoapods"></a>一、安装cocoapods</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods --pre</div></pre></td></tr></table></figure>
 <h3 id="二、创建代码并上传代码到Github"><a href="#二、创建代码并上传代码到Github" class="headerlink" title="二、创建代码并上传代码到Github"></a>二、创建代码并上传代码到Github</h3><p>就是要发布的代码了，具体怎么上传代码到Github上我就不重复了。</p>

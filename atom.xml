@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-10-08T06:21:14.000Z</updated>
+  <updated>2017-10-08T06:23:51.000Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -21,14 +21,12 @@
     <link href="http://andyron.com/2017/ios-cocoapods-push.html"/>
     <id>http://andyron.com/2017/ios-cocoapods-push.html</id>
     <published>2017-10-08T05:53:50.000Z</published>
-    <updated>2017-10-08T06:21:14.000Z</updated>
+    <updated>2017-10-08T06:23:51.000Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-cdcea9c27584ae4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-      
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-cdcea9c27584ae4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://cocoapods.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cocoapods&lt;/a&gt;是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。&lt;br&gt;使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。&lt;/p&gt;
     
     </summary>
     
@@ -133,32 +131,6 @@
   </entry>
   
   <entry>
-    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
-    <link href="http://andyron.com/2017/ios-network-3.html"/>
-    <id>http://andyron.com/2017/ios-network-3.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-09-23T11:33:01.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
-&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableUR
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
-    
-      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
-    
-  </entry>
-  
-  <entry>
     <title>iOS网络编程(二)：NSURLConnection介绍</title>
     <link href="http://andyron.com/2017/ios-network-2.html"/>
     <id>http://andyron.com/2017/ios-network-2.html</id>
@@ -202,6 +174,32 @@
     
     
       <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
+    <link href="http://andyron.com/2017/ios-network-3.html"/>
+    <id>http://andyron.com/2017/ios-network-3.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-09-23T11:33:01.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
+&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableUR
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
+    
+      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
     
   </entry>
   
@@ -380,6 +378,24 @@
   </entry>
   
   <entry>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/ios-js-2.html"/>
+    <id>http://andyron.com/2017/ios-js-2.html</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-09T03:21:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
     <link href="http://andyron.com/2017/ios-js-1.html"/>
     <id>http://andyron.com/2017/ios-js-1.html</id>
@@ -390,24 +406,6 @@
     
       &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/ios-js-2.html"/>
-    <id>http://andyron.com/2017/ios-js-2.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
     
     </summary>
     
