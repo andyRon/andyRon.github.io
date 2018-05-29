@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NSURLCache," />
+  <meta name="keywords" content="iOS, Swift" />
 
 
 
@@ -95,18 +95,16 @@
 
 
 
-<meta name="description" content="网络请求中缓存类NSURLCache常用属性和方法：1234567891011121314151617181920212223242526272829303132333435363738394041//获取当前应用的缓存管理对象+ (NSURLCache *)sharedURLCache;//设置自定义的NSURLCache作为应用缓存管理对象+ (void)setSharedURLCache:">
-<meta name="keywords" content="NSURLCache">
-<meta property="og:type" content="article">
-<meta property="og:title" content="iOS网络编程(四)：缓存类NSURLCache介绍">
-<meta property="og:url" content="http://andyron.com/2017/ios-network-4.html">
+<meta name="description" content="Just for fun.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="欣欣向戎">
+<meta property="og:url" content="http://andyron.com/tags/Core-Animation/index.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="网络请求中缓存类NSURLCache常用属性和方法：1234567891011121314151617181920212223242526272829303132333435363738394041//获取当前应用的缓存管理对象+ (NSURLCache *)sharedURLCache;//设置自定义的NSURLCache作为应用缓存管理对象+ (void)setSharedURLCache:">
+<meta property="og:description" content="Just for fun.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T06:25:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS网络编程(四)：缓存类NSURLCache介绍">
-<meta name="twitter:description" content="网络请求中缓存类NSURLCache常用属性和方法：1234567891011121314151617181920212223242526272829303132333435363738394041//获取当前应用的缓存管理对象+ (NSURLCache *)sharedURLCache;//设置自定义的NSURLCache作为应用缓存管理对象+ (void)setSharedURLCache:">
+<meta name="twitter:title" content="欣欣向戎">
+<meta name="twitter:description" content="Just for fun.">
 
 
 
@@ -134,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/ios-network-4.html"/>
+  <link rel="canonical" href="http://andyron.com/tags/Core-Animation/"/>
 
 
 
 
 
-  <title>iOS网络编程(四)：缓存类NSURLCache介绍 | 欣欣向戎</title>
+  <title>标签: Core Animation | 欣欣向戎</title>
   
 
 
@@ -175,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
@@ -315,241 +313,44 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-network-4.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h1>Core Animation<small>标签</small>
+      </h1>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2018/ios-coreanimation-swift.html" itemprop="url">
+              
+                <span itemprop="name">iOS核心动画小结(swift)</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">iOS网络编程(四)：缓存类NSURLCache介绍</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T00:00:00+08:00">
-                2017-09-19
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-05-29T00:00:00+08:00"
+              content="2018-05-29" >
+          05-29
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/ios-network-4.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/ios-network-4.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <a id="more"></a>
-<p>网络请求中缓存类<code>NSURLCache</code>常用属性和方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">//获取当前应用的缓存管理对象</div><div class="line">+ (NSURLCache *)sharedURLCache;</div><div class="line"></div><div class="line">//设置自定义的NSURLCache作为应用缓存管理对象</div><div class="line">+ (void)setSharedURLCache:(NSURLCache *)cache;</div><div class="line"></div><div class="line">//初始化一个应用缓存对象</div><div class="line">/*</div><div class="line">memoryCapacity 设置内存缓存容量</div><div class="line">diskCapacity 设置磁盘缓存容量</div><div class="line">path 磁盘缓存路径</div><div class="line">内容缓存会在应用程序退出后 清空 磁盘缓存不会</div><div class="line">*/</div><div class="line">- (instancetype)initWithMemoryCapacity:(NSUInteger)memoryCapacity diskCapacity:(NSUInteger)diskCapacity diskPath:(nullable NSString *)path;</div><div class="line"></div><div class="line">//获取某一请求的缓存</div><div class="line">- (nullable NSCachedURLResponse *)cachedResponseForRequest:(NSURLRequest *)request;</div><div class="line"></div><div class="line">//给请求设置指定的缓存</div><div class="line">- (void)storeCachedResponse:(NSCachedURLResponse *)cachedResponse forRequest:(NSURLRequest *)request;</div><div class="line"></div><div class="line">//移除某个请求的缓存</div><div class="line">- (void)removeCachedResponseForRequest:(NSURLRequest *)request;</div><div class="line"></div><div class="line">//移除所有缓存数据</div><div class="line">- (void)removeAllCachedResponses;</div><div class="line"></div><div class="line">//移除某个时间起的缓存设置</div><div class="line">- (void)removeCachedResponsesSinceDate:(NSDate *)date NS_AVAILABLE(10_10, 8_0);</div><div class="line"></div><div class="line">//内存缓存容量大小</div><div class="line">@property NSUInteger memoryCapacity;</div><div class="line"></div><div class="line">//磁盘缓存容量大小</div><div class="line">@property NSUInteger diskCapacity;</div><div class="line"></div><div class="line">//当前已用内存容量</div><div class="line">@property (readonly) NSUInteger currentMemoryUsage;</div><div class="line"></div><div class="line">//当前已用磁盘容量</div><div class="line">@property (readonly) NSUInteger currentDiskUsage;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>参考：<a href="https://yq.aliyun.com/articles/39448" target="_blank" rel="external">iOS网络编程之六——数据缓存类NSURLCache使用解析</a></p>
-</blockquote>
-
-      
-    </div>
-
-    <div>
-      
-        
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="AndyRon wechat" style="width: 200px; max-width: 100%;"/>
-    <div>欢迎您访问我的的微信公众号：欣欣向戎（微信号: andy_ron1587 ）！</div>
-</div>
-
-
-      
-    </div>
-
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
-  </div>
-
-
-      
-    </div>
-
-    <div>
-      
-        
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      AndyRon
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/ios-network-4.html" title="iOS网络编程(四)：缓存类NSURLCache介绍">http://andyron.com/2017/ios-network-4.html</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/NSURLCache/" rel="tag"><i class="fa fa-tag"></i> NSURLCache</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/ios-network-2.html" rel="next" title="iOS网络编程(二)：NSURLConnection介绍">
-                <i class="fa fa-chevron-left"></i> iOS网络编程(二)：NSURLConnection介绍
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/ios-network-5.html" rel="prev" title="iOS网络编程(五)：Cookie的使用">
-                iOS网络编程(五)：Cookie的使用 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-        
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -557,17 +358,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -625,7 +415,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -835,10 +625,10 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-
+  
 
   
 
@@ -856,18 +646,6 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/ios-network-4.html';
-          this.page.identifier = '2017/ios-network-4.html';
-          this.page.title = 'iOS网络编程(四)：缓存类NSURLCache介绍';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-05-29T07:29:24.396Z</updated>
+  <updated>2018-05-29T07:37:56.041Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -17,22 +17,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://andyron.com/2018/index.html"/>
-    <id>http://andyron.com/2018/index.html</id>
-    <published>2018-05-29T07:27:45.046Z</published>
-    <updated>2018-05-29T07:29:24.396Z</updated>
+    <title>iOS核心动画小结(swift)</title>
+    <link href="http://andyron.com/2018/ios-coreanimation-swift.html"/>
+    <id>http://andyron.com/2018/ios-coreanimation-swift.html</id>
+    <published>2018-05-29T07:36:52.000Z</published>
+    <updated>2018-05-29T07:37:56.041Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;hr&gt;
-&lt;p&gt;title: iOS核心动画小结(swift)&lt;br&gt;urlname: ios-coreanimation-swift&lt;br&gt;date: 2018-05-29&lt;br&gt;categories: iOS&lt;/p&gt;
-&lt;h2 id=&quot;tags-Core-Animation&quot;&gt;
+        &lt;blockquote&gt;
+&lt;p&gt;本文所有示例代码都是Swift4，参看文末链接&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Core Animation是IOS和OS X平台上负责图形渲染与动画的基础框架。Core Animation可以作用与动画视图或者其他可视元素，为你完成了动
       
     
     </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
     
   </entry>
@@ -151,6 +154,30 @@
   </entry>
   
   <entry>
+    <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
+    <link href="http://andyron.com/2017/ios-network-4.html"/>
+    <id>http://andyron.com/2017/ios-network-4.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-10-08T06:25:57.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;网络请求中缓存类&lt;code&gt;NSURLCache&lt;/code&gt;常用属性和方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div clas
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS网络编程(二)：NSURLConnection介绍</title>
     <link href="http://andyron.com/2017/ios-network-2.html"/>
     <id>http://andyron.com/2017/ios-network-2.html</id>
@@ -174,30 +201,6 @@
     
     
       <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
-    <link href="http://andyron.com/2017/ios-network-4.html"/>
-    <id>http://andyron.com/2017/ios-network-4.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-10-08T06:25:57.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;网络请求中缓存类&lt;code&gt;NSURLCache&lt;/code&gt;常用属性和方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div clas
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
     
   </entry>
   
@@ -391,6 +394,24 @@
   </entry>
   
   <entry>
+    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2017/ios-js-2.html"/>
+    <id>http://andyron.com/2017/ios-js-2.html</id>
+    <published>2017-09-05T16:00:00.000Z</published>
+    <updated>2017-09-09T03:21:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
     <link href="http://andyron.com/2017/ios-js-1.html"/>
     <id>http://andyron.com/2017/ios-js-1.html</id>
@@ -401,24 +422,6 @@
     
       &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/ios-js-2.html"/>
-    <id>http://andyron.com/2017/ios-js-2.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
     
     </summary>
     
