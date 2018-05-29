@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2017-10-08T06:23:51.000Z</updated>
+  <updated>2018-05-29T07:29:24.396Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://andyron.com/2018/index.html"/>
+    <id>http://andyron.com/2018/index.html</id>
+    <published>2018-05-29T07:27:45.046Z</published>
+    <updated>2018-05-29T07:29:24.396Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;title: iOS核心动画小结(swift)&lt;br&gt;urlname: ios-coreanimation-swift&lt;br&gt;date: 2018-05-29&lt;br&gt;categories: iOS&lt;/p&gt;
+&lt;h2 id=&quot;tags-Core-Animation&quot;&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>向CocoaPods发布代码</title>
@@ -417,26 +438,6 @@
     
       &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-9823da42ea750f05.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;原理和上一篇是相同的，不同之处是&lt;code&gt;keyPath&lt;/code&gt;属性，缩放时是&lt;code&gt;keyPath&lt;/code&gt;是 &lt;strong&gt;transform.scale&lt;/strong&gt;，旋转时&lt;code&gt;keyPath&lt;/code&gt;是&lt;strong&gt;transform.rotation&lt;/strong&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS动画(二)：核心动画中的基础移动(Swift)</title>
-    <link href="http://andyron.com/2017/ios-animation-2.html"/>
-    <id>http://andyron.com/2017/ios-animation-2.html</id>
-    <published>2017-09-05T05:04:12.000Z</published>
-    <updated>2017-09-09T03:18:38.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2248583-2dfdb6de25cde9d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Core Animation中类继承关系&quot;&gt;&lt;/p&gt;
     
     </summary>
     
