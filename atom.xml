@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-05-29T08:06:18.882Z</updated>
+  <updated>2018-08-16T02:51:20.880Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -17,11 +17,78 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>整理之前学的iOS小项目合集——LearniOSByProject</title>
+    <link href="http://andyron.com/2018/learniosbyproject.html"/>
+    <id>http://andyron.com/2018/learniosbyproject.html</id>
+    <published>2018-08-11T02:48:16.000Z</published>
+    <updated>2018-08-16T02:51:20.880Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LearniOSByProject&lt;/a&gt;&lt;/strong&gt;本来是自己学习iOS时的一些非常简单小例子，小项目，或者我个人博客&lt;a href=&quot;http://andyron.com&quot;&gt;AndyRon’s Blog&lt;/a&gt;文章的代码集合。没有按照什么路线学习，就是学到什么就是什么了，看上去特别乱，我自己有时候也非常懵逼，然后看到道长前辈的项目&lt;a href=&quot;https://github.com/soapyigu/Swift-30-Projects&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift-30-Projects&lt;/a&gt;，就整理、筛选一下，这样看着清晰一点，找起来也方便。  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;语言方面大部分是Swift，个别项目是OC。&lt;/li&gt;
+&lt;li&gt;以数字为目录只是为了记录项目数和排序，没有特殊意义。&lt;/li&gt;
+&lt;li&gt;下载单个项目可以参考 &lt;a href=&quot;http://andyron.com/2017/downgit&quot;&gt;DownGit：怎么下载github中某个文件夹？&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;总览图&quot;&gt;&lt;a href=&quot;#总览图&quot; class=&quot;headerlink&quot; title=&quot;总览图&quot;&gt;&lt;/a&gt;总览图&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-6096bbe5db0ecced.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发关于沙盒</title>
+    <link href="http://andyron.com/2018/ios-sandbox.html"/>
+    <id>http://andyron.com/2018/ios-sandbox.html</id>
+    <published>2018-06-04T02:43:26.000Z</published>
+    <updated>2018-08-16T02:47:18.729Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;每个iOS程序都有一个独立的文件系统（存储空间），而且只能在对应的文件系统中进行操作，此区域被称为&lt;strong&gt;沙盒&lt;/strong&gt;。应用必须待在自己的沙盒里，其他应用不能访问该沙盒。所有的非代码文件都要保存在此，例如属性文件plist、文本文件、图像、图标、媒体资源等。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-8df56f866dd8c620.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;iOS app 沙盒目录结构&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="sandbox" scheme="http://andyron.com/tags/sandbox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发：学习Runtime</title>
+    <link href="http://andyron.com/2018/ios-runtime-begin.html"/>
+    <id>http://andyron.com/2018/ios-runtime-begin.html</id>
+    <published>2018-05-31T16:00:00.000Z</published>
+    <updated>2018-08-16T02:42:47.196Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习iOS开发，runtime这个知识点是绕不过去的，但对于我这种学习OC不是太久，写OC的量不够多的人来说，抽象理解runtime的概念或者是看源代码有点枯燥，效果也不好，以例子的方法学习可能会更好，随着代码量的上升，对runtime的理解会越来越深入。&lt;br&gt;详细代码&lt;a href=&quot;https://github.com/andyRon/ARRuntimeDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ARRuntimeDemo&lt;/a&gt;,开发环境Xcode9.4&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="runtime" scheme="http://andyron.com/tags/runtime/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS核心动画小结(swift)</title>
     <link href="http://andyron.com/2018/ios-coreanimation-swift.html"/>
     <id>http://andyron.com/2018/ios-coreanimation-swift.html</id>
     <published>2018-05-29T07:36:52.000Z</published>
-    <updated>2018-05-29T08:06:18.882Z</updated>
+    <updated>2018-05-29T08:06:18.000Z</updated>
     
     <summary type="html">
     
@@ -35,6 +102,96 @@
     
       <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Masonry学习</title>
+    <link href="http://andyron.com/2018/masonry-begin.html"/>
+    <id>http://andyron.com/2018/masonry-begin.html</id>
+    <published>2018-05-28T16:00:00.000Z</published>
+    <updated>2018-08-16T02:38:55.575Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Masonry是一个轻量级的OC布局框架， 拥有自己的描述语法，采用更优雅的链式语法封装自动布局，简洁明了，并具有高可读性，而且同时支持 iOS 和 Max OS X。&lt;/p&gt;
+&lt;p&gt;Masonry支持的属性与NSLayoutAttrubute的对照：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;MASConstraint (Masonry)&lt;/th&gt;
+&lt;th&gt;NSAutoLayout&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;left&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeLeft&lt;/td&gt;
+&lt;td&gt;左侧&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;top&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeTop&lt;/td&gt;
+&lt;td&gt;上侧&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;right&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeRight&lt;/td&gt;
+&lt;td&gt;右侧&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bottom&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeBottom&lt;/td&gt;
+&lt;td&gt;下侧&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;leading&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeLeading&lt;/td&gt;
+&lt;td&gt;首部&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;trailing&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeTrailing&lt;/td&gt;
+&lt;td&gt;尾部&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;width&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeWidth&lt;/td&gt;
+&lt;td&gt;宽&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;height&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeHeight&lt;/td&gt;
+&lt;td&gt;高&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;centerX&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeCenterX&lt;/td&gt;
+&lt;td&gt;横向中点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;centerY&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeCenterY&lt;/td&gt;
+&lt;td&gt;纵向中点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;baseline&lt;/td&gt;
+&lt;td&gt;NSLayoutAttributeBaseline&lt;/td&gt;
+&lt;td&gt;文本基线&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;其中leading与left, trailing与right 在正常情况下是等价的。但是当一些布局是从右至左时(比如阿拉伯文) 则会对调， 换句话说就是基本可以 用left和right就好了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="Masonry" scheme="http://andyron.com/tags/Masonry/"/>
+    
+      <category term="布局" scheme="http://andyron.com/tags/%E5%B8%83%E5%B1%80/"/>
     
   </entry>
   
@@ -152,6 +309,29 @@
   </entry>
   
   <entry>
+    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
+    <link href="http://andyron.com/2017/ios-network-3.html"/>
+    <id>http://andyron.com/2017/ios-network-3.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-10-08T06:27:42.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
+&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
+    
+      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
     <link href="http://andyron.com/2017/ios-network-4.html"/>
     <id>http://andyron.com/2017/ios-network-4.html</id>
@@ -172,29 +352,6 @@
     
     
       <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
-    <link href="http://andyron.com/2017/ios-network-3.html"/>
-    <id>http://andyron.com/2017/ios-network-3.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-10-08T06:27:42.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
-&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
-    
-      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
     
   </entry>
   
@@ -367,85 +524,6 @@
     
       <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习8：对象初始化</title>
-    <link href="http://andyron.com/2017/oc-basic-8.html"/>
-    <id>http://andyron.com/2017/oc-basic-8.html</id>
-    <published>2017-09-10T15:50:09.000Z</published>
-    <updated>2017-09-10T15:51:49.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;1-分配-allocation-对象&quot;&gt;&lt;a href=&quot;#1-分配-allocation-对象&quot; class=&quot;headerlink&quot; title=&quot;1 分配(allocation)对象&quot;&gt;&lt;/a&gt;1 分配(allocation)对象&lt;/h3&gt;&lt;p&gt;&lt;code&gt;
-      
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用</title>
-    <link href="http://andyron.com/2017/ios-js-1.html"/>
-    <id>http://andyron.com/2017/ios-js-1.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:14:32.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;关于&lt;code&gt;WKWebView&lt;/code&gt;与&lt;code&gt;UIWebView&lt;/code&gt;之间的区别，本文就不在说明，本文只使用&lt;code&gt;WKWebView&lt;/code&gt;。&lt;br&gt;效果图如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS与JS(二)：MessageHandler(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2017/ios-js-2.html"/>
-    <id>http://andyron.com/2017/ios-js-2.html</id>
-    <published>2017-09-05T16:00:00.000Z</published>
-    <updated>2017-09-09T03:21:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS与JS的相互调用除了URL拦截（&lt;a href=&quot;http://www.jianshu.com/p/e09305d90fba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用&lt;/a&gt;）外，还可以使用&lt;code&gt;WKWebView&lt;/code&gt;的中的MessageHandler来实现。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS动画(三)：核心动画中缩放和旋转(Swift)</title>
-    <link href="http://andyron.com/2017/ios-animation-3.html"/>
-    <id>http://andyron.com/2017/ios-animation-3.html</id>
-    <published>2017-09-05T05:04:15.000Z</published>
-    <updated>2017-09-09T03:15:58.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-9823da42ea750f05.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;原理和上一篇是相同的，不同之处是&lt;code&gt;keyPath&lt;/code&gt;属性，缩放时是&lt;code&gt;keyPath&lt;/code&gt;是 &lt;strong&gt;transform.scale&lt;/strong&gt;，旋转时&lt;code&gt;keyPath&lt;/code&gt;是&lt;strong&gt;transform.rotation&lt;/strong&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   

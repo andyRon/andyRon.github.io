@@ -1,0 +1,1360 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="runtime," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="欣欣向戎" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="学习iOS开发，runtime这个知识点是绕不过去的，但对于我这种学习OC不是太久，写OC的量不够多的人来说，抽象理解runtime的概念或者是看源代码有点枯燥，效果也不好，以例子的方法学习可能会更好，随着代码量的上升，对runtime的理解会越来越深入。详细代码ARRuntimeDemo,开发环境Xcode9.4">
+<meta name="keywords" content="runtime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发：学习Runtime">
+<meta property="og:url" content="http://andyron.com/2018/ios-runtime-begin.html">
+<meta property="og:site_name" content="欣欣向戎">
+<meta property="og:description" content="学习iOS开发，runtime这个知识点是绕不过去的，但对于我这种学习OC不是太久，写OC的量不够多的人来说，抽象理解runtime的概念或者是看源代码有点枯燥，效果也不好，以例子的方法学习可能会更好，随着代码量的上升，对runtime的理解会越来越深入。详细代码ARRuntimeDemo,开发环境Xcode9.4">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-16T02:42:47.196Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发：学习Runtime">
+<meta name="twitter:description" content="学习iOS开发，runtime这个知识点是绕不过去的，但对于我这种学习OC不是太久，写OC的量不够多的人来说，抽象理解runtime的概念或者是看源代码有点枯燥，效果也不好，以例子的方法学习可能会更好，随着代码量的上升，对runtime的理解会越来越深入。详细代码ARRuntimeDemo,开发环境Xcode9.4">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andyron.com/2018/ios-runtime-begin.html"/>
+
+
+
+
+
+  <title>iOS开发：学习Runtime | 欣欣向戎</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e29ae2ff2bac53a3addad74e238d0108";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欣欣向戎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">AndyRon's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/ios-runtime-begin.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发：学习Runtime</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-01T00:00:00+08:00">
+                2018-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/ios-runtime-begin.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/ios-runtime-begin.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 总阅量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 1,581 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 7 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>学习iOS开发，runtime这个知识点是绕不过去的，但对于我这种学习OC不是太久，写OC的量不够多的人来说，抽象理解runtime的概念或者是看源代码有点枯燥，效果也不好，以例子的方法学习可能会更好，随着代码量的上升，对runtime的理解会越来越深入。<br>详细代码<a href="https://github.com/andyRon/ARRuntimeDemo" target="_blank" rel="external">ARRuntimeDemo</a>,开发环境Xcode9.4</p>
+<a id="more"></a>
+<p> Person.h为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface Person : NSObject</div><div class="line">&#123;</div><div class="line">    NSString * firstName;</div><div class="line">&#125;</div><div class="line">@property (nonatomic, assign) int age;</div><div class="line"></div><div class="line">+(void)run;</div><div class="line">+(void)study;</div><div class="line"></div><div class="line">-(void)f1;</div><div class="line">-(void)f2;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>Person.m为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">#import &quot;Person.h&quot;</div><div class="line"></div><div class="line">@implementation Person</div><div class="line">&#123;</div><div class="line">    NSString *lastname;  </div><div class="line">    float weight;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(instancetype)init &#123;</div><div class="line">    self = [super init];</div><div class="line">    if (self) &#123;</div><div class="line">        firstName = @&quot;Andy&quot;;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)f1 &#123;</div><div class="line">    NSLog(@&quot;执行f1&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)f2 &#123;</div><div class="line">    NSLog(@&quot;执行f2&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (void)run &#123;</div><div class="line">    NSLog(@&quot;跑&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (void)study &#123;</div><div class="line">    NSLog(@&quot;学习&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<h3 id="1-获取类的所有变量-包括成员变量和属性变量"><a href="#1-获取类的所有变量-包括成员变量和属性变量" class="headerlink" title="1 获取类的所有变量(包括成员变量和属性变量)"></a>1 获取类的所有变量(包括成员变量和属性变量)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 1. 获取所有变量，包括成员变量和属性变量</div><div class="line">- (IBAction)getAllVar:(UIButton *)sender &#123;</div><div class="line">    unsigned int count = 0;</div><div class="line">    Ivar *allVariables = class_copyIvarList([Person class], &amp;count);</div><div class="line">    </div><div class="line">    for (int i=0; i&lt;count; i++) &#123;</div><div class="line">        Ivar ivar = allVariables[i];</div><div class="line">        const char *Variablename = ivar_getName(ivar);</div><div class="line">        const char *VariableType = ivar_getTypeEncoding(ivar);</div><div class="line">        </div><div class="line">        NSLog(@&quot;Name: %s  Type: %s&quot;, Variablename, VariableType);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果输出(其中firstName、lastname、weight为成员变量，_age为属性变量)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">2018-06-01 17:04:56.275194+0800 ARRuntimeDemo[60670:5448260] Name: firstName  Type: @&quot;NSString&quot;</div><div class="line">2018-06-01 17:04:56.276120+0800 ARRuntimeDemo[60670:5448260] Name: lastname  Type: @&quot;NSString&quot;</div><div class="line">2018-06-01 17:04:56.276503+0800 ARRuntimeDemo[60670:5448260] Name: weight  Type: f</div><div class="line">2018-06-01 17:04:56.276614+0800 ARRuntimeDemo[60670:5448260] Name: _age  Type: i</div></pre></td></tr></table></figure></p>
+<p>解释：</p>
+<ul>
+<li><code>Iva</code>，一个指向objc_ivar结构体指针,包含了变量名、变量类型等信息</li>
+<li>像lastname、weight这种定义在<code>@implementation</code>所谓的私有变量也可获取</li>
+<li>对应<code>class_copyIvarList</code>还有一个<code>class_copyPropertyList</code>只能获得属性变量的方法</li>
+</ul>
+<h3 id="2-获取所有方法（不包括类方法）"><a href="#2-获取所有方法（不包括类方法）" class="headerlink" title="2 获取所有方法（不包括类方法）"></a>2 获取所有方法（不包括类方法）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 2. 获取所有方法，不包括类方法</div><div class="line">- (IBAction)getAllMethod:(UIButton *)sender &#123;</div><div class="line">    unsigned int count;</div><div class="line">    //获取方法列表，所有在.m文件显式实现的方法都会被找到，包括setter+getter方法；</div><div class="line">    Method *allMethods = class_copyMethodList([Person class], &amp;count);</div><div class="line">    for(int i =0;i&lt;count;i++) &#123;</div><div class="line">        //Method，为runtime声明的一个宏，表示对一个方法的描述</div><div class="line">        Method md = allMethods[i];</div><div class="line">        //获取SEL：SEL类型,即获取方法选择器@selector()</div><div class="line">        SEL sel = method_getName(md);</div><div class="line">        //得到sel的方法名：以字符串格式获取sel的name，也即@selector()中的方法名称</div><div class="line">        const char *methodname = sel_getName(sel);</div><div class="line">        </div><div class="line">        NSLog(@&quot;(Method:%s)&quot;,methodname);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果输出:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">2018-06-01 16:54:50.433232+0800 ARRuntimeDemo[60482:5418318] (Method:f1)</div><div class="line">2018-06-01 16:54:50.433465+0800 ARRuntimeDemo[60482:5418318] (Method:f2)</div><div class="line">2018-06-01 16:54:50.433930+0800 ARRuntimeDemo[60482:5418318] (Method:.cxx_destruct)</div><div class="line">2018-06-01 16:54:50.434335+0800 ARRuntimeDemo[60482:5418318] (Method:init)</div><div class="line">2018-06-01 16:54:50.435163+0800 ARRuntimeDemo[60482:5418318] (Method:height)</div><div class="line">2018-06-01 16:54:50.435788+0800 ARRuntimeDemo[60482:5418318] (Method:setHeight:)</div><div class="line">2018-06-01 16:54:50.435990+0800 ARRuntimeDemo[60482:5418318] (Method:setAge:)</div><div class="line">2018-06-01 16:54:50.436482+0800 ARRuntimeDemo[60482:5418318] (Method:age)</div></pre></td></tr></table></figure></p>
+<p>解释：</p>
+<ul>
+<li>获得了像<code>height</code>,<code>setHeight</code>这种隐藏的<strong>setter</strong>、<strong>getter</strong>方法</li>
+<li><code>Method</code>是一个指向objc_method结构体指针，表示对类中的某个方法的描述。</li>
+<li><code>.cxx_destruct</code>是关于系统自动内存释放的隐藏方法</li>
+</ul>
+<h3 id="3-为类添加新属性"><a href="#3-为类添加新属性" class="headerlink" title="3 为类添加新属性"></a>3 为类添加新属性</h3><p>category只能为类添加新方法，不能添加新属性，但通过runtime配合category就可以达到添加属性效果。<br>首先新建一个类<code>Person</code>的category：<br><code>.h</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//  Person+Category.h</div><div class="line"></div><div class="line">#import &quot;Person.h&quot;</div><div class="line"></div><div class="line">@interface Person (Category)</div><div class="line"></div><div class="line">@property (nonatomic, assign)float height;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p><code>.m</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">//  Person+Category.m</div><div class="line"></div><div class="line">#import &quot;Person+Category.h&quot;</div><div class="line">#import &lt;objc/runtime.h&gt;</div><div class="line"></div><div class="line">const char *key = &quot;myKey&quot;;</div><div class="line"></div><div class="line">@implementation Person (Category)</div><div class="line"></div><div class="line">-(void)setHeight:(float)height &#123;</div><div class="line">    NSNumber *num = [NSNumber numberWithFloat:height];</div><div class="line">    /*</div><div class="line">     objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy);</div><div class="line">     第一个参数是需要添加属性的对象；</div><div class="line">     第二个参数是属性的key，是C字符串就可以;</div><div class="line">     第三个参数是属性的值,类型必须为id，所以此处height先转为NSNumber类型；</div><div class="line">     第四个参数是使用策略，是一个枚举值，类似@property属性创建时设置属性修饰符，可从命名看出各枚举的意义；</div><div class="line">     */</div><div class="line">    objc_setAssociatedObject(self, key, num, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(float)height &#123;</div><div class="line">    NSNumber *number = objc_getAssociatedObject(self, key);</div><div class="line">    return [number floatValue];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>然后就能访问新属性<code>height</code>了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (IBAction)addVar:(UIButton *)sender &#123;</div><div class="line">    per = [[Person alloc] init];</div><div class="line">    </div><div class="line">    per.height = 123;</div><div class="line">    NSLog(@&quot;%f&quot;, [per height]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此时虽然通过上面的获取所有变量方法不能获取<code>height</code>,但通过上面的额获取所有方法可以获取<code>height</code>和<code>setHeight</code>方法了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">2018-06-01 17:14:36.945742+0800 ARRuntimeDemo[60892:5482950] Name: firstName  Type: @&quot;NSString&quot;</div><div class="line">2018-06-01 17:14:36.948330+0800 ARRuntimeDemo[60892:5482950] Name: lastname  Type: @&quot;NSString&quot;</div><div class="line">2018-06-01 17:14:36.948771+0800 ARRuntimeDemo[60892:5482950] Name: weight  Type: f</div><div class="line">2018-06-01 17:14:36.949166+0800 ARRuntimeDemo[60892:5482950] Name: _age  Type: i</div><div class="line"></div><div class="line">2018-06-01 17:15:02.198444+0800 ARRuntimeDemo[60892:5482950] (Method:f1)</div><div class="line">2018-06-01 17:15:02.198620+0800 ARRuntimeDemo[60892:5482950] (Method:f2)</div><div class="line">2018-06-01 17:15:02.198800+0800 ARRuntimeDemo[60892:5482950] (Method:.cxx_destruct)</div><div class="line">2018-06-01 17:15:02.198917+0800 ARRuntimeDemo[60892:5482950] (Method:init)</div><div class="line">2018-06-01 17:15:02.199048+0800 ARRuntimeDemo[60892:5482950] (Method:height)</div><div class="line">2018-06-01 17:15:02.199150+0800 ARRuntimeDemo[60892:5482950] (Method:setHeight:)</div><div class="line">2018-06-01 17:15:02.199239+0800 ARRuntimeDemo[60892:5482950] (Method:setAge:)</div><div class="line">2018-06-01 17:15:02.199356+0800 ARRuntimeDemo[60892:5482950] (Method:age)</div></pre></td></tr></table></figure></p>
+<h3 id="4-添加新方法"><a href="#4-添加新方法" class="headerlink" title="4 添加新方法"></a>4 添加新方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 4. 添加新方法</div><div class="line">- (IBAction)addMethod:(UIButton *)sender &#123;</div><div class="line">    /* 动态添加方法：</div><div class="line">     第一个参数表示Class cls 类型；</div><div class="line">     第二个参数表示待调用的方法名称；</div><div class="line">     第三个参数(IMP)myAddingFunction，IMP一个函数指针，这里表示指定具体实现方法myAddingFunction；</div><div class="line">     第四个参数表方法的参数，0代表没有参数；</div><div class="line">     */</div><div class="line">    class_addMethod([per class], @selector(NewMethod), (IMP)myAddingFunction, 0);</div><div class="line">    //调用方法 【如果使用[per NewMethod]调用方法，在ARC下会报“no visible @interface&quot;错误】</div><div class="line">    [per performSelector:@selector(NewMethod)];</div><div class="line">&#125;</div><div class="line">//具体的实现（方法的内部都默认包含两个参数Class类和SEL方法，被称为隐式参数。）</div><div class="line">int myAddingFunction(id self, SEL _cmd)&#123;</div><div class="line">    NSLog(@&quot;已新增方法:NewMethod&quot;);</div><div class="line">    return 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2018-06-01 17:31:56.113168+0800 ARRuntimeDemo[61295:5543319] 已新增方法:NewMethod</div></pre></td></tr></table></figure></p>
+<h3 id="5-交换两个方法"><a href="#5-交换两个方法" class="headerlink" title="5 交换两个方法"></a>5 交换两个方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 5. 交换两个方法</div><div class="line">- (IBAction)swapMethod:(UIButton *)sender &#123;</div><div class="line">    [Person run];</div><div class="line">    [Person study];</div><div class="line">    </div><div class="line">    Method m1 = class_getClassMethod([Person class], @selector(run));</div><div class="line">    Method m2 = class_getClassMethod([Person class], @selector(study));</div><div class="line">    </div><div class="line">    method_exchangeImplementations(m1, m2);</div><div class="line">    </div><div class="line">    [Person run];</div><div class="line">    [Person study];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">2018-06-01 17:39:00.497375+0800 ARRuntimeDemo[61448:5566239] 跑</div><div class="line">2018-06-01 17:39:00.497841+0800 ARRuntimeDemo[61448:5566239] 学习</div><div class="line">2018-06-01 17:39:00.499255+0800 ARRuntimeDemo[61448:5566239] 学习</div><div class="line">2018-06-01 17:39:00.499449+0800 ARRuntimeDemo[61448:5566239] 跑</div></pre></td></tr></table></figure></p>
+<p>这篇文章我只是做了runtime一些简单使用，并没有相关的使用场景，算是入门了，文末参考提到的文章都是不错，值得以后深入。</p>
+<blockquote>
+<p>参考：<br><a href="https://www.jianshu.com/p/ed65518ec8db" target="_blank" rel="external">iOS开发 – Runtime 的几个小例子</a><br><a href="https://www.jianshu.com/p/ab966e8a82e2" target="_blank" rel="external">OC最实用的runtime总结，面试、工作你看我就足够了！</a><br><a href="http://www.jianshu.com/p/8acdedf9c1af" target="_blank" rel="external">iOS-RunTime，不再只是听说</a><br><a href="http://www.jianshu.com/p/efeb33712445#" target="_blank" rel="external">Runtime全方位装逼指南</a><br> <a href="http://yulingtianxia.com/blog/2014/11/05/objective-c-runtime/" title="Objective-C Runtime" target="_blank" rel="external">Objective-C Runtime</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="AndyRon wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您访问我的的微信公众号：欣欣向戎（微信号: andy_ron1587 ）！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2018/ios-runtime-begin.html" title="iOS开发：学习Runtime">http://andyron.com/2018/ios-runtime-begin.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/runtime/" rel="tag"><i class="fa fa-tag"></i> runtime</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/ios-coreanimation-swift.html" rel="next" title="iOS核心动画小结(swift)">
+                <i class="fa fa-chevron-left"></i> iOS核心动画小结(swift)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/ios-sandbox.html" rel="prev" title="iOS开发关于沙盒">
+                iOS开发关于沙盒 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="AndyRon" />
+          <p class="site-author-name" itemprop="name">AndyRon</p>
+           
+              <p class="site-description motion-element" itemprop="description">Just for fun.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">107</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/andyRon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/efce1a2a95ab" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AndyMRon" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/andyronm" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://500px.com/andymron" target="_blank" title="500px">
+                  
+                    <i class="fa fa-fw fa-500px"></i>
+                  
+                  500px
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:rongming.2008@163.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.appcoda.com" title="Appcoda" target="_blank">Appcoda</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/" title="阮一峰的个人网站" target="_blank">阮一峰的个人网站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-获取类的所有变量-包括成员变量和属性变量"><span class="nav-number">1.</span> <span class="nav-text">1 获取类的所有变量(包括成员变量和属性变量)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-获取所有方法（不包括类方法）"><span class="nav-number">2.</span> <span class="nav-text">2 获取所有方法（不包括类方法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-为类添加新属性"><span class="nav-number">3.</span> <span class="nav-text">3 为类添加新属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-添加新方法"><span class="nav-number">4.</span> <span class="nav-text">4 添加新方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-交换两个方法"><span class="nav-number">5.</span> <span class="nav-text">5 交换两个方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-bug"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AndyRon</span>
+</div>
+
+
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2018/ios-runtime-begin.html';
+          this.page.identifier = '2018/ios-runtime-begin.html';
+          this.page.title = 'iOS开发：学习Runtime';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
