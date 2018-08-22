@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-08-16T02:51:20.880Z</updated>
+  <updated>2018-08-22T14:28:16.231Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS tutorial 15：实现计算器界面布局--Masonry和SnapKit的学习</title>
+    <link href="http://andyron.com/2018/ios-tutorial-15.html"/>
+    <id>http://andyron.com/2018/ios-tutorial-15.html</id>
+    <published>2018-08-17T14:26:08.000Z</published>
+    <updated>2018-08-22T14:28:16.231Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; &lt;a href=&quot;https://github.com/SnapKit/Masonry&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Masonry&lt;/a&gt;和&lt;a href=&quot;https://github.com/SnapKit/SnapKit&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SnapKit&lt;/a&gt;分别是OC、Swift的界面布局框架，而且开发者相同。&lt;br&gt;分别用这两个框架实现一个简单计算器界面：&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-9f9bbb3d0e61988f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;完全代码：&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/101-MasonryDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;LearniOSByProject/101-MasonryDemo&lt;/strong&gt;&lt;/a&gt;  和  &lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/114-SnapKitDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;LearniOSByProject/114-SnapKitDemo&lt;/strong&gt;&lt;/a&gt; &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS tutorial 14：简单的下拉菜单 -- dropDownMenu</title>
+    <link href="http://andyron.com/2018/ios-tutorial-14.html"/>
+    <id>http://andyron.com/2018/ios-tutorial-14.html</id>
+    <published>2018-08-17T14:21:17.000Z</published>
+    <updated>2018-08-22T14:27:29.523Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-c719cb0a47833eab.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;详细代码： &lt;strong&gt;&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/100-dropDownMenu&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;dropDownMenu&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>整理之前学的iOS小项目合集——LearniOSByProject</title>
@@ -309,6 +351,33 @@
   </entry>
   
   <entry>
+    <title>iOS网络编程(二)：NSURLConnection介绍</title>
+    <link href="http://andyron.com/2017/ios-network-2.html"/>
+    <id>http://andyron.com/2017/ios-network-2.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-10-08T06:27:38.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlconnection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLConnection&lt;/a&gt;在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;网络请求分为同步和异步两种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。&lt;/li&gt;
+&lt;li&gt;异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
     <link href="http://andyron.com/2017/ios-network-3.html"/>
     <id>http://andyron.com/2017/ios-network-3.html</id>
@@ -352,33 +421,6 @@
     
     
       <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(二)：NSURLConnection介绍</title>
-    <link href="http://andyron.com/2017/ios-network-2.html"/>
-    <id>http://andyron.com/2017/ios-network-2.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-10-08T06:27:38.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlconnection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLConnection&lt;/a&gt;在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;网络请求分为同步和异步两种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。&lt;/li&gt;
-&lt;li&gt;异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
     
   </entry>
   
@@ -473,51 +515,6 @@
 &lt;li&gt;声明协议&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习10：类别（category）</title>
-    <link href="http://andyron.com/2017/oc-basic-10.html"/>
-    <id>http://andyron.com/2017/oc-basic-10.html</id>
-    <published>2017-09-11T14:43:00.000Z</published>
-    <updated>2017-09-11T14:57:27.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;类别（category）是一种为现有的类添加新方法的方式。&lt;/p&gt;
-&lt;h3 id=&quot;1-创建类别&quot;&gt;&lt;a href=&quot;#1-创建类别&quot; class=&quot;headerlink&quot; title=&quot;1 创建类别&quot;&gt;&lt;/a&gt;1 创建类别&lt;/h3&gt;&lt;p&gt;一般，只是习惯&lt;/p&gt;
-&lt;bloc
-      
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习9：属性</title>
-    <link href="http://andyron.com/2017/oc-basic-9.html"/>
-    <id>http://andyron.com/2017/oc-basic-9.html</id>
-    <published>2017-09-11T14:42:58.000Z</published>
-    <updated>2017-10-08T06:28:03.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;1-使用属性&quot;&gt;&lt;a href=&quot;#1-使用属性&quot; class=&quot;headerlink&quot; title=&quot;1 使用属性&quot;&gt;&lt;/a&gt;1 使用属性&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;接口代码简化&lt;br&gt;没有使用属性：&lt;figure class=&quot;highlight plain&quot;
       
     
     </summary>

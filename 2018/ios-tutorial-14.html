@@ -102,26 +102,19 @@
 
 
 
-<meta name="description" content="继续上一篇开始用Swift开发iOS 10 - 15 使用地图，这一篇通过添加一个新建Restaurant页面来介绍静态Table Views，UIImagePickerController，NSLayoutConstraint。静态Table Views就是固定cell数目的Table Views；UIImagePickerController用来从设备图片库中获取图片；NSLayoutCon">
+<meta name="description" content="详细代码： dropDownMenu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint">
-<meta property="og:url" content="http://andyron.com/2017/beginning-ios-swift-16.html">
+<meta property="og:title" content="iOS tutorial 14：简单的下拉菜单 -- dropDownMenu">
+<meta property="og:url" content="http://andyron.com/2018/ios-tutorial-14.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="继续上一篇开始用Swift开发iOS 10 - 15 使用地图，这一篇通过添加一个新建Restaurant页面来介绍静态Table Views，UIImagePickerController，NSLayoutConstraint。静态Table Views就是固定cell数目的Table Views；UIImagePickerController用来从设备图片库中获取图片；NSLayoutCon">
+<meta property="og:description" content="详细代码： dropDownMenu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c17dfcdc817310ce.png">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-87ec7d0ab99252f1.jpg">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-b5bbbc6037ebc4b2.jpg">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-43b771ff5f2ac743.jpg">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-54861090b1e88a71.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-6b22d738eb9db812.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-77f763e3b1912610.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c818569aaabd4a08.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T04:59:36.000Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-c719cb0a47833eab.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2018-08-22T14:27:29.523Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint">
-<meta name="twitter:description" content="继续上一篇开始用Swift开发iOS 10 - 15 使用地图，这一篇通过添加一个新建Restaurant页面来介绍静态Table Views，UIImagePickerController，NSLayoutConstraint。静态Table Views就是固定cell数目的Table Views；UIImagePickerController用来从设备图片库中获取图片；NSLayoutCon">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-c17dfcdc817310ce.png">
+<meta name="twitter:title" content="iOS tutorial 14：简单的下拉菜单 -- dropDownMenu">
+<meta name="twitter:description" content="详细代码： dropDownMenu">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-c719cb0a47833eab.gif?imageMogr2/auto-orient/strip">
 
 
 
@@ -149,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/beginning-ios-swift-16.html"/>
+  <link rel="canonical" href="http://andyron.com/2018/ios-tutorial-14.html"/>
 
 
 
 
 
-  <title>开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint | 欣欣向戎</title>
+  <title>iOS tutorial 14：简单的下拉菜单 -- dropDownMenu | 欣欣向戎</title>
   
 
 
@@ -340,7 +333,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-16.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/ios-tutorial-14.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -357,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint</h1>
+          <h1 class="post-title" itemprop="name headline">iOS tutorial 14：简单的下拉菜单 -- dropDownMenu</h1>
         
 
         <div class="post-meta">
@@ -369,8 +362,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T00:00:00+08:00">
-                2017-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-17T22:21:17+08:00">
+                2018-08-17
               </time>
             
 
@@ -392,8 +385,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Beginning_iOS_Swift</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/iOS-tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS tutorial</span>
                   </a>
                 </span>
 
@@ -410,9 +414,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/beginning-ios-swift-16.html#comments" itemprop="discussionUrl">
+                <a href="/2018/ios-tutorial-14.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/beginning-ios-swift-16.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/ios-tutorial-14.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -440,7 +444,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,058 字
+                  : 488 字
                 </span>
               
 
@@ -456,7 +460,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 5 分钟
+                  ≈ 3 分钟
                 </span>
               
             </div>
@@ -474,85 +478,18 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-c17dfcdc817310ce.png" alt=""></p>
-<p>继续上一篇<a href="http://www.jianshu.com/p/5b41455d96d3" target="_blank" rel="external">开始用Swift开发iOS 10 - 15 使用地图</a>，这一篇通过添加一个<em>新建Restaurant</em>页面来介绍静态Table Views，<code>UIImagePickerController</code>，<code>NSLayoutConstraint</code>。静态Table Views就是固定cell数目的Table Views；<code>UIImagePickerController</code>用来从设备图片库中获取图片；<code>NSLayoutConstraint</code>就是约束类，用来用代码形式添加约束。</p>
+        <p><img src="https://upload-images.jianshu.io/upload_images/1678135-c719cb0a47833eab.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<p>详细代码： <strong><a href="https://github.com/andyRon/LearniOSByProject/tree/master/100-dropDownMenu" target="_blank" rel="external">dropDownMenu</a></strong></p>
 <a id="more"></a>
-<h3 id="添加新的Table-View-Controller"><a href="#添加新的Table-View-Controller" class="headerlink" title="添加新的Table View Controller"></a>添加新的Table View Controller</h3><ul>
-<li>拖动一个<strong>Table View Controller</strong>到SB中。</li>
-<li>修改成<strong>Table View</strong>的<code>content</code>为<code>static cells</code>。</li>
-<li>选中<strong>Table View Section</strong>，修改<code>Rows</code>成5。</li>
-<li>下载 [图片] (<a href="http://www.appcoda.com/resources/swift3/photoicons.zip)，拖进`Assets`" target="_blank" rel="external">http://www.appcoda.com/resources/swift3/photoicons.zip)，拖进`Assets`</a></li>
-<li><p>修改第一个Cell高度为250。添加<strong>Image View</strong>， <code>image</code>为<code>photoalbum</code>，大小64*64，水平和垂直居中。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-87ec7d0ab99252f1.jpg" alt=""></p>
+<ol>
+<li><p>按钮<code>dropDownBtn</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">class dropDownBtn: UIButton, dropDownProtocol &#123;</div><div class="line">    func dropDownPressed(string: String) &#123;</div><div class="line">        self.setTitle(string, for: .normal)</div><div class="line">        self.dismissDropDown()</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    var dropView = dropDownView()</div><div class="line">    </div><div class="line">    var height = NSLayoutConstraint()</div><div class="line">    </div><div class="line">    </div><div class="line">    override init(frame: CGRect) &#123;</div><div class="line">        super.init(frame: frame)</div><div class="line">        </div><div class="line">        self.backgroundColor = UIColor.darkGray</div><div class="line">        </div><div class="line">        dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))</div><div class="line">        dropView.translatesAutoresizingMaskIntoConstraints = false</div><div class="line">        dropView.delegate = self</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 本视图被添加到父视图上时调用</div><div class="line">    override func didMoveToSuperview() &#123;</div><div class="line">        self.superview?.addSubview(dropView)</div><div class="line">        self.superview?.bringSubview(toFront: dropView)</div><div class="line">        </div><div class="line">        dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true</div><div class="line">        dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true</div><div class="line">        dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true</div><div class="line">        height = dropView.heightAnchor.constraint(equalToConstant: 0)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    var isOpen = false</div><div class="line">    // 刚触摸时调用</div><div class="line">    override func touchesBegan(_ touches: Set&lt;UITouch&gt;, with event: UIEvent?) &#123;</div><div class="line">        if isOpen == false &#123;</div><div class="line">            isOpen = true</div><div class="line">            NSLayoutConstraint.deactivate([self.height])</div><div class="line">            </div><div class="line">            if self.dropView.tableView.contentSize.height &gt; 150 &#123;</div><div class="line">                self.height.constant = 150</div><div class="line">            &#125; else &#123;</div><div class="line">                self.height.constant = self.dropView.tableView.contentSize.height</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            NSLayoutConstraint.activate([self.height])</div><div class="line">            </div><div class="line">            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: &#123;</div><div class="line">                self.dropView.layoutIfNeeded()</div><div class="line">                print(self.center, self.dropView.center, self.dropView.frame.height, self.dropView.frame.width)</div><div class="line">                self.dropView.center.y += self.dropView.frame.height / 2</div><div class="line">            &#125;, completion: nil)</div><div class="line">            </div><div class="line">        &#125; else &#123;</div><div class="line">            isOpen = false</div><div class="line">            NSLayoutConstraint.deactivate([self.height])</div><div class="line">            </div><div class="line">            self.height.constant = 0</div><div class="line">            </div><div class="line">            NSLayoutConstraint.activate([self.height])</div><div class="line">            </div><div class="line">            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: &#123;</div><div class="line">                self.dropView.center.y -= self.dropView.frame.height / 2</div><div class="line">                self.dropView.layoutIfNeeded()</div><div class="line">            &#125;, completion: nil)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    func dismissDropDown() &#123;</div><div class="line">        isOpen = false</div><div class="line">        NSLayoutConstraint.deactivate([self.height])</div><div class="line">        </div><div class="line">        self.height.constant = 0</div><div class="line">        </div><div class="line">        NSLayoutConstraint.activate([self.height])</div><div class="line">        </div><div class="line">        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: &#123;</div><div class="line">            self.dropView.center.y -= self.dropView.frame.height / 2</div><div class="line">            self.dropView.layoutIfNeeded()</div><div class="line">        &#125;, completion: nil)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    required init?(coder aDecoder: NSCoder) &#123;</div><div class="line">        fatalError(&quot;init(coder:) has not been implemented&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>第二个cell高度为72。添加一个<strong>Label</strong>文本<code>NAME</code>。添加一个<strong>Text Field</strong>,<code>placeholder</code>为<code>Restaurant Name</code>，<code>border style</code>为 <code>none</code>，宽度为339。添加适当约束。</p>
+<li><p>下拉视图<code>dropDownView</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource &#123;</div><div class="line">    </div><div class="line">    var dropDownOptions = [String]()</div><div class="line">    </div><div class="line">    var tableView = UITableView()</div><div class="line">    </div><div class="line">    var delegate: dropDownProtocol!</div><div class="line">    </div><div class="line">    override init(frame: CGRect) &#123;</div><div class="line">        super.init(frame: frame)</div><div class="line">        </div><div class="line">        tableView.backgroundColor = UIColor.darkGray</div><div class="line">        self.backgroundColor = UIColor.darkGray</div><div class="line">        </div><div class="line">        tableView.delegate = self</div><div class="line">        tableView.dataSource = self</div><div class="line">        tableView.translatesAutoresizingMaskIntoConstraints = false</div><div class="line">        </div><div class="line">        self.addSubview(tableView)</div><div class="line">        </div><div class="line">        tableView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true</div><div class="line">        tableView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true</div><div class="line">        tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true</div><div class="line">        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true</div><div class="line">        </div><div class="line"></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    required init?(coder aDecoder: NSCoder) &#123;</div><div class="line">        fatalError(&quot;init(coder:) has not been implemented&quot;)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    func numberOfSections(in tableView: UITableView) -&gt; Int &#123;</div><div class="line">        return 1</div><div class="line">    &#125;</div><div class="line">    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;</div><div class="line">        return dropDownOptions.count</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</div><div class="line">        let cell = UITableViewCell()</div><div class="line">        </div><div class="line">        cell.textLabel?.text = dropDownOptions[indexPath.row]</div><div class="line">        cell.backgroundColor = UIColor.darkGray</div><div class="line">        </div><div class="line">        return cell</div><div class="line">    &#125;</div><div class="line">    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) &#123;</div><div class="line">        </div><div class="line">        self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])</div><div class="line">        self.tableView.deselectRow(at: indexPath, animated: true)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li>第三个和第四个Cell与第二个类似，<strong>Label</strong>文本分别为<code>TYPE</code> <code>LOCATION</code>，<strong>Text Field</strong>的 <code>placeholder</code> 分别为<code>Restaurant Type</code>，<code>Restaurant Location</code>。</li>
-<li>第五个 高度为72。  添加一个<strong>Label</strong>文本<code>Have You Been Here</code> 。添加两个<strong>Button</strong>，<code>title</code>分别为<code>YES</code>、<code>NO</code>，字体颜色都为<code>white</code>，背景颜色分别为<code>red</code>，<code>gray</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-b5bbbc6037ebc4b2.jpg" alt=""></li>
-</ul>
-<h3 id="添加segue"><a href="#添加segue" class="headerlink" title="添加segue"></a>添加segue</h3><ul>
-<li>在<strong>Food Pin Controller</strong>的Navigation bar的右边添加一个<strong>bar button item</strong>，<code>System Item</code>为<code>Add</code>。</li>
-<li>把上面新建是我table view controller内嵌在一个Navigation controller中，选中table view controller，在菜单栏中选择<strong>Editor &gt; Embed in &gt; Navigation Controller</strong>，设置其navigation bar的<code>title</code>为<code>New Restaurant</code>。</li>
-<li><p>关联<code>Add</code>按钮和<strong>New Restaurant Controller</strong>的Navigation controller，segue类型present modally，<code>identifier</code>为<code>addRestaurant</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-43b771ff5f2ac743.jpg" alt=""></p>
-</li>
-<li><p>在<strong>New Restaurant Controller</strong>的Navigation bar的左边添加一个<strong>bar button item</strong>，<code>System Item</code>为 <code>Cancel</code>，<code>tint</code>为<code>white</code>。</p>
-</li>
-<li><p>在<code>RestaurantTableViewController</code>中添加unwind segue的action。用<strong>control-drag</strong>关联。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-54861090b1e88a71.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="使用UIImagePickerController调用相册"><a href="#使用UIImagePickerController调用相册" class="headerlink" title="使用UIImagePickerController调用相册"></a>使用UIImagePickerController调用相册</h3><ul>
-<li>新建<code>AddRestaurantController</code>，继承至<code>UITableViewController</code>。关联<strong>New Restaurant Controller</strong>。</li>
-<li>删除除了<code>viewDidLoad</code>方法的其他方法，静态类型不需要了。</li>
-<li>添加<code>tableView(_:didSelectRowAt:)</code>：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">override func tableView(_ tableView: UITableView, didSelectRowAt indexPath:</div><div class="line">    IndexPath) &#123;</div><div class="line">    if indexPath.row == 0 &#123;</div><div class="line">        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) &#123;</div><div class="line">            let imagePicker = UIImagePickerController()</div><div class="line">            imagePicker.allowsEditing = false</div><div class="line">            imagePicker.sourceType = .photoLibrary</div><div class="line">            present(imagePicker, animated: true, completion: nil)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>选择第一个cell，也就是图片，通过<code>isSourceTypeAvailable</code>方法判断是否有图库可用。</p>
-<ul>
-<li>在<code>Info.plist</code>中添加使用图库的请求描述， <code>Privacy - Photo Library Usage Description</code>  -&gt; <code>You need to grant the app access to your photo library so you can pick your favorite restaurant photo.</code> 。</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-6b22d738eb9db812.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="实现UIImagePickerControllerDelegate协议"><a href="#实现UIImagePickerControllerDelegate协议" class="headerlink" title="实现UIImagePickerControllerDelegate协议"></a>实现UIImagePickerControllerDelegate协议</h3><ul>
-<li><p>添加<code>UIImagePickerControllerDelegate</code> 和<code>UINavigationControllerDelegate</code></p>
-<pre><code>class AddRestaurantController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-</code></pre></li>
-<li><p>添加接口<code>@IBOutlet var photoImageView: UIImageView!</code>，并关联。</p>
-</li>
-<li><p>添加函数<code>imagePickerController(_:didFinishPickingMediaWithInfo:)</code>，当用户从图库中选择图片时调用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) &#123;</div><div class="line">    </div><div class="line">    if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage &#123;</div><div class="line">        photoImageView.image = selectedImage</div><div class="line">        photoImageView.contentMode = .scaleAspectFill</div><div class="line">        photoImageView.clipsToBounds = true</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    dismiss(animated: TUREAD, completion: nil)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>tableView(_:didSelectRowAt:)</code>中的<code>imagePicker</code>定义后添加：</p>
-<pre><code>imagePicker.delegate = self
-</code></pre></li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-77f763e3b1912610.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="用代码的方式定义约束"><a href="#用代码的方式定义约束" class="headerlink" title="用代码的方式定义约束"></a>用代码的方式定义约束</h3><p>之前都是通过storyboard设置约束，其实也可以通过代码的形式设置。</p>
-<ul>
-<li><p>之前的地图的约束例子，storyboard 中的<code>Map View.leading = leading</code>等价于：</p>
-<pre><code>let leadingConstraint = NSLayoutConstraint(item: mapView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: mapView.superview, attribute: .leading, multiplier: 1, constant: 0)
-leadingConstraint.isActive = true
-</code></pre></li>
-<li><p>在添加<code>imagePickerController(_:didFinishPickingMediaWithInfo:)</code>的<code>dismiss(animated: true, completion: nil)</code>之前添加4个约束代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">let leadingConstraint = NSLayoutConstraint(item: photoImageView, attribute: .leading, relatedBy: .equal, toItem: photoImageView.superview, attribute: .leading, multiplier: 1, constant: 0)</div><div class="line">        leadingConstraint.isActive = true</div><div class="line">        </div><div class="line">        let trailingConstrain = NSLayoutConstraint(item: photoImageView, attribute: .trailing, relatedBy: .equal, toItem: photoImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)</div><div class="line">        trailingConstrain.isActive = true</div><div class="line">        </div><div class="line">        let topConstraint = NSLayoutConstraint(item: photoImageView, attribute: .top, relatedBy: .equal, toItem: photoImageView.superview, attribute: .top, multiplier: 1, constant: 0)</div><div class="line">        </div><div class="line">        let buttomConstraint = NSLayoutConstraint(item: photoImageView, attribute: .bottom, relatedBy: .equal, toItem: photoImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>添加约束前后对比：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c818569aaabd4a08.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="Exercise：验证添加数据"><a href="#Exercise：验证添加数据" class="headerlink" title="Exercise：验证添加数据"></a>Exercise：验证添加数据</h3><ul>
-<li>在<strong>New Restaurant Controller</strong>的Navigation controller的有右上角添加Save按钮。</li>
-<li><p>在<code>AddRestaurantController</code>中添加五个接口和一个变量，并关联。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@IBOutlet var nameTextField:UITextField!</div><div class="line">@IBOutlet var typeTextField:UITextField!</div><div class="line">@IBOutlet var locationTextField:UITextField!</div><div class="line">@IBOutlet var yesButton:UIButton!</div><div class="line">@IBOutlet var noButton:UIButton!</div><div class="line"> var isVisited: Bool = true</div></pre></td></tr></table></figure>
-</li>
-<li><p>添加一个Action，关联save按钮。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@IBAction func save(_ sender: Any) &#123;</div><div class="line">    </div><div class="line">    if (nameTextField.text?.isEmpty)! || (typeTextField.text?.isEmpty)! || (locationTextField.text?.isEmpty)! &#123;</div><div class="line">        let alertController = UIAlertController(title: &quot;Oops&quot;, message: &quot;We can&apos;t proceed because one of the fields is blank....&quot;, preferredStyle: .alert)</div><div class="line">        let alertAction = UIAlertAction(title: &quot;OK&quot;, style: .default, handler: nil)</div><div class="line">        alertController.addAction(alertAction)</div><div class="line">        present(alertController, animated: true, completion: nil)</div><div class="line">        </div><div class="line">    &#125; else &#123;</div><div class="line">        print(nameTextField.text, typeTextField.text, locationTextField.text, isVisited)</div><div class="line">        dismiss(animated: true, completion: nil)</div><div class="line">//            performSegue(withIdentifier: &quot;unwindToHomeScreen&quot;, sender: self)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>去除<strong> Add Restaurant view controller</strong>回到主界面有两种方法，一是<code>dismiss(animated: true, completion: nil)</code>，而是利用unwind segue。</p>
-<ul>
-<li>添加一个Action <code>toggleBeenHereButton:</code>，用于yesButton和noButton的操作。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@IBAction func toggleBeenHereButton(sender: UIButton) &#123;</div><div class="line">    if sender == yesButton &#123;</div><div class="line">        isVisited = true</div><div class="line">        yesButton.backgroundColor = UIColor.red</div><div class="line">        noButton.backgroundColor = UIColor.gray</div><div class="line">    &#125; else &#123;</div><div class="line">        isVisited = false</div><div class="line">        yesButton.backgroundColor = UIColor.gray</div><div class="line">        noButton.backgroundColor = UIColor.red</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="external">Beginning-iOS-Programming-with-Swift</a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+</ol>
+<p>参考：<a href="https://www.youtube.com/watch?v=22zu-OTS-3M" target="_blank" rel="external">https://www.youtube.com/watch?v=22zu-OTS-3M</a></p>
 
       
     </div>
@@ -607,7 +544,7 @@ leadingConstraint.isActive = true
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/beginning-ios-swift-16.html" title="开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint">http://andyron.com/2017/beginning-ios-swift-16.html</a>
+      <a href="http://andyron.com/2018/ios-tutorial-14.html" title="iOS tutorial 14：简单的下拉菜单 -- dropDownMenu">http://andyron.com/2018/ios-tutorial-14.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -630,8 +567,8 @@ leadingConstraint.isActive = true
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-14.html" rel="next" title="开始用Swift开发iOS 10 - 14 基础动画，模糊效果和Unwind Segue">
-                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 14 基础动画，模糊效果和Unwind Segue
+              <a href="/2018/learniosbyproject.html" rel="next" title="整理之前学的iOS小项目合集——LearniOSByProject">
+                <i class="fa fa-chevron-left"></i> 整理之前学的iOS小项目合集——LearniOSByProject
               </a>
             
           </div>
@@ -640,8 +577,8 @@ leadingConstraint.isActive = true
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-15.html" rel="prev" title="开始用Swift开发iOS 10 - 15 使用地图">
-                开始用Swift开发iOS 10 - 15 使用地图 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/ios-tutorial-15.html" rel="prev" title="iOS tutorial 15：实现计算器界面布局--Masonry和SnapKit的学习">
+                iOS tutorial 15：实现计算器界面布局--Masonry和SnapKit的学习 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -702,17 +639,8 @@ leadingConstraint.isActive = true
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -855,22 +783,6 @@ leadingConstraint.isActive = true
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加新的Table-View-Controller"><span class="nav-number">1.</span> <span class="nav-text">添加新的Table View Controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加segue"><span class="nav-number">2.</span> <span class="nav-text">添加segue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用UIImagePickerController调用相册"><span class="nav-number">3.</span> <span class="nav-text">使用UIImagePickerController调用相册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现UIImagePickerControllerDelegate协议"><span class="nav-number">4.</span> <span class="nav-text">实现UIImagePickerControllerDelegate协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用代码的方式定义约束"><span class="nav-number">5.</span> <span class="nav-text">用代码的方式定义约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise：验证添加数据"><span class="nav-number">6.</span> <span class="nav-text">Exercise：验证添加数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">7.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">8.</span> <span class="nav-text">说明</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -1032,9 +944,9 @@ leadingConstraint.isActive = true
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/beginning-ios-swift-16.html';
-          this.page.identifier = '2017/beginning-ios-swift-16.html';
-          this.page.title = '开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint';
+          this.page.url = 'http://andyron.com/2018/ios-tutorial-14.html';
+          this.page.identifier = '2018/ios-tutorial-14.html';
+          this.page.title = 'iOS tutorial 14：简单的下拉菜单 -- dropDownMenu';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
