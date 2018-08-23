@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="持久化就是把数据保存在硬盘上而不是内存里，程序重启后数据不会消失。iOS中数据持久化方法有：plist文件（属性列表）、UserDefaults、NSKeyedArchiver（归档）、SQLite3、CoreData等，另外还有FMDB（用OC封装的SQLite库）、realm（代替SQLite3和CoreData新的数据库）。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-23T15:24:46.129Z">
+<meta property="og:updated_time" content="2018-08-23T15:29:08.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS数据持久化小结">
 <meta name="twitter:description" content="持久化就是把数据保存在硬盘上而不是内存里，程序重启后数据不会消失。iOS中数据持久化方法有：plist文件（属性列表）、UserDefaults、NSKeyedArchiver（归档）、SQLite3、CoreData等，另外还有FMDB（用OC封装的SQLite库）、realm（代替SQLite3和CoreData新的数据库）。">
@@ -496,7 +496,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *  从表中读取数据</div><div class="line"> */</div><div class="line">- (void)readData &#123;</div><div class="line">    NSMutableArray *mArray = [NSMutableArray arrayWithCapacity:1000];</div><div class="line">    char *sql = &quot;select name, age from t_person;&quot;;</div><div class="line">    sqlite3_stmt *stmt;</div><div class="line"></div><div class="line">    NSInteger result = sqlite3_prepare_v2(_sqlite3, sql, -1, &amp;stmt, NULL);</div><div class="line">    if (result == SQLITE_OK) &#123;</div><div class="line">        while (sqlite3_step(stmt) == SQLITE_ROW) &#123;</div><div class="line"></div><div class="line">            char *name = (char *)sqlite3_column_text(stmt, 0);</div><div class="line">            NSInteger age = sqlite3_column_int(stmt, 1);</div><div class="line">            NSLog(@&quot;name: %s, age: %d&quot;, name, age);</div><div class="line"></div><div class="line">      </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    sqlite3_finalize(stmt);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="CoreData"><a href="#CoreData" class="headerlink" title="CoreData"></a>CoreData</h3><p>之前的笔记：<a href="/p/bf712b672af9">开始用Swift开发iOS 10 - 17 使用Core Data</a></p>
+<h3 id="CoreData"><a href="#CoreData" class="headerlink" title="CoreData"></a>CoreData</h3><p>之前的笔记：<a href="http://andyron.com/2017/beginning-ios-swift-17.html">开始用Swift开发iOS 10 - 17 使用Core Data</a></p>
 <blockquote>
 <p>代码：<a href="https://github.com/andyRon/LearniOSByProject/tree/master/115-PersistData" target="_blank" rel="external">LearniOSByProject/115-PersistData</a></p>
 <p>参考： <a href="https://www.jianshu.com/p/7616cbd72845" target="_blank" rel="external">我要永远地记住你！（iOS中几种数据持久化方案）</a></p>
