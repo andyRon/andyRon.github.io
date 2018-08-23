@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-08-22T14:28:16.231Z</updated>
+  <updated>2018-08-23T04:24:33.049Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初识iOS事情处理机制</title>
+    <link href="http://andyron.com/2018/ios-event-begin.html"/>
+    <id>http://andyron.com/2018/ios-event-begin.html</id>
+    <published>2018-08-23T04:20:02.000Z</published>
+    <updated>2018-08-23T04:24:33.049Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;事件的生命周期：&lt;br&gt;　　事件的产生和传递（事件如何从父控件传递到子控件并寻找到最合适的view、寻找最合适的view的底层实现、拦截事件的处理）-&amp;gt;找到最合适的view后事件的处理（touches方法的重写，也就是事件的响应）&lt;/p&gt;
+&lt;p&gt;iOS中的事件可以分为3大类型：&lt;br&gt;触摸事件&lt;br&gt;加速计事件&lt;br&gt;远程控制事件&lt;br&gt;这里只讨论iOS中的触摸事件。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="事件" scheme="http://andyron.com/tags/%E4%BA%8B%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS tutorial 15：实现计算器界面布局--Masonry和SnapKit的学习</title>
@@ -378,29 +399,6 @@
   </entry>
   
   <entry>
-    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
-    <link href="http://andyron.com/2017/ios-network-3.html"/>
-    <id>http://andyron.com/2017/ios-network-3.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-10-08T06:27:42.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
-&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
-    
-      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
-    
-  </entry>
-  
-  <entry>
     <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
     <link href="http://andyron.com/2017/ios-network-4.html"/>
     <id>http://andyron.com/2017/ios-network-4.html</id>
@@ -421,6 +419,29 @@
     
     
       <category term="NSURLCache" scheme="http://andyron.com/tags/NSURLCache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
+    <link href="http://andyron.com/2017/ios-network-3.html"/>
+    <id>http://andyron.com/2017/ios-network-3.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-10-08T06:27:42.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
+&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
+    
+      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
     
   </entry>
   
@@ -492,30 +513,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;代码块&lt;/strong&gt;(Block)/闭包(closure) 是对C语言中函数的扩展。&lt;br&gt;代码块两种类的绑定：&lt;br&gt;自动绑定(automatic binding)    栈内存&lt;br&gt;托管绑定(managed binding)     堆内存&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习11：协议</title>
-    <link href="http://andyron.com/2017/oc-basic-11.html"/>
-    <id>http://andyron.com/2017/oc-basic-11.html</id>
-    <published>2017-09-11T14:43:14.000Z</published>
-    <updated>2017-09-11T14:57:46.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;1-正式协议&quot;&gt;&lt;a href=&quot;#1-正式协议&quot; class=&quot;headerlink&quot; title=&quot;1 正式协议&quot;&gt;&lt;/a&gt;1 正式协议&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;声明协议&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;
-      
     
     </summary>
     
