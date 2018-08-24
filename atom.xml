@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-08-23T15:29:08.335Z</updated>
+  <updated>2018-08-24T11:52:40.798Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OC中的键/值编码(KVC)</title>
+    <link href="http://andyron.com/2018/ios-oc-kvc-begin.html"/>
+    <id>http://andyron.com/2018/ios-oc-kvc-begin.html</id>
+    <published>2018-08-24T11:50:59.000Z</published>
+    <updated>2018-08-24T11:52:40.798Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-KVC-的定义&quot;&gt;&lt;a href=&quot;#1-KVC-的定义&quot; class=&quot;headerlink&quot; title=&quot;1. KVC 的定义&quot;&gt;&lt;/a&gt;1. KVC 的定义&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;键/值编码(Key-value coding，KVC)&lt;/strong&gt; 可以允许开发者通过Key名访问对象的属性或给对象的属性赋值, 而不需要调用明确的存取方法，并有一组api供开发者使用，像操作字典一样操作对象属性/成员变量/关联对象。&lt;br&gt;这样就可以在 &lt;em&gt;运行时动态地访问和修改&lt;/em&gt; 对象的属性。而不是在编译时确定。这种机制不属于Objective-C语言的特性，而是Cocoa提供的一种特性。&lt;/p&gt;
+&lt;p&gt;通过定义一个&lt;code&gt;NSObject&lt;/code&gt;的类别&lt;code&gt;NSKeyValueCoding&lt;/code&gt;来实现KVC功能。因此所有继承了&lt;code&gt;NSObject&lt;/code&gt;的类都支持KVC。&lt;br&gt;&lt;code&gt;NSKeyValueCoding&lt;/code&gt;的四个重要方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (nullable id)valueForKey:(NSString *)key;                          //直接通过Key来取值&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (void)setValue:(nullable id)value forKey:(NSString *)key;          //通过Key来设值&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (nullable id)valueForKeyPath:(NSString *)keyPath;                  //通过KeyPath来取值&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (void)setValue:(nullable id)value forKeyPath:(NSString *)keyPath;  //通过KeyPath来设值&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="OC" scheme="http://andyron.com/tags/OC/"/>
+    
+      <category term="KVC" scheme="http://andyron.com/tags/KVC/"/>
+    
+  </entry>
   
   <entry>
     <title>OS数据持久化小结</title>
@@ -390,29 +413,6 @@
   </entry>
   
   <entry>
-    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
-    <link href="http://andyron.com/2017/ios-network-3.html"/>
-    <id>http://andyron.com/2017/ios-network-3.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-10-08T06:27:42.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
-&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
-    
-      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
-    
-  </entry>
-  
-  <entry>
     <title>iOS网络编程(四)：缓存类NSURLCache介绍</title>
     <link href="http://andyron.com/2017/ios-network-4.html"/>
     <id>http://andyron.com/2017/ios-network-4.html</id>
@@ -464,6 +464,29 @@
   </entry>
   
   <entry>
+    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
+    <link href="http://andyron.com/2017/ios-network-3.html"/>
+    <id>http://andyron.com/2017/ios-network-3.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-10-08T06:27:42.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
+&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
+    
+      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS网络编程(一)：NSURLSession介绍</title>
     <link href="http://andyron.com/2017/ios-network-1.html"/>
     <id>http://andyron.com/2017/ios-network-1.html</id>
@@ -500,24 +523,6 @@
     
     
       <category term="Charles" scheme="http://andyron.com/tags/Charles/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OC基础学习13：文件加载与保存</title>
-    <link href="http://andyron.com/2017/oc-basic-13.html"/>
-    <id>http://andyron.com/2017/oc-basic-13.html</id>
-    <published>2017-09-12T13:13:34.000Z</published>
-    <updated>2017-10-08T06:27:54.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1-属性列表-property-list-plist&quot;&gt;&lt;a href=&quot;#1-属性列表-property-list-plist&quot; class=&quot;headerlink&quot; title=&quot;1 属性列表(property list, plist)&quot;&gt;&lt;/a&gt;1 属性列表(property list, plist)&lt;/h3&gt;&lt;p&gt;属性列表可以保存的类型有&lt;code&gt;NSArray&lt;/code&gt;,&lt;code&gt;NSDictionary&lt;/code&gt;,&lt;code&gt;NSString&lt;/code&gt;,&lt;code&gt;NSNumber&lt;/code&gt;,&lt;code&gt;NSDate&lt;/code&gt;,&lt;code&gt;NSDate&lt;/code&gt;以及它们对应的Mutable类。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://andyron.com/categories/Objective-C/"/>
-    
     
   </entry>
   
