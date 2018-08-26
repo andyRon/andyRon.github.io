@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-08-24T11:52:40.798Z</updated>
+  <updated>2018-08-26T08:31:23.219Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于iOS多线程，这边勉强可以看看(OC&amp;Swift)</title>
+    <link href="http://andyron.com/2018/ios-multithreading.html"/>
+    <id>http://andyron.com/2018/ios-multithreading.html</id>
+    <published>2018-08-26T08:29:06.000Z</published>
+    <updated>2018-08-26T08:31:23.219Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot;
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="Multithreading" scheme="http://andyron.com/tags/Multithreading/"/>
+    
+      <category term="GCD" scheme="http://andyron.com/tags/GCD/"/>
+    
+      <category term="NSThread" scheme="http://andyron.com/tags/NSThread/"/>
+    
+      <category term="NSOperation" scheme="http://andyron.com/tags/NSOperation/"/>
+    
+  </entry>
   
   <entry>
     <title>OC中的键/值编码(KVC)</title>
@@ -437,6 +466,29 @@
   </entry>
   
   <entry>
+    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
+    <link href="http://andyron.com/2017/ios-network-3.html"/>
+    <id>http://andyron.com/2017/ios-network-3.html</id>
+    <published>2017-09-18T16:00:00.000Z</published>
+    <updated>2017-10-08T06:27:42.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
+&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
+    
+      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS网络编程(二)：NSURLConnection介绍</title>
     <link href="http://andyron.com/2017/ios-network-2.html"/>
     <id>http://andyron.com/2017/ios-network-2.html</id>
@@ -464,29 +516,6 @@
   </entry>
   
   <entry>
-    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
-    <link href="http://andyron.com/2017/ios-network-3.html"/>
-    <id>http://andyron.com/2017/ios-network-3.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-10-08T06:27:42.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
-&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
-    
-      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
-    
-  </entry>
-  
-  <entry>
     <title>iOS网络编程(一)：NSURLSession介绍</title>
     <link href="http://andyron.com/2017/ios-network-1.html"/>
     <id>http://andyron.com/2017/ios-network-1.html</id>
@@ -505,24 +534,6 @@
     
     
       <category term="NSURLSession" scheme="http://andyron.com/tags/NSURLSession/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用Charles抓取iOS的http/https请求数据</title>
-    <link href="http://andyron.com/2017/ios-charles.html"/>
-    <id>http://andyron.com/2017/ios-charles.html</id>
-    <published>2017-09-12T15:38:27.000Z</published>
-    <updated>2017-09-12T15:39:45.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-b50783080fc7b92e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Charles" scheme="http://andyron.com/tags/Charles/"/>
     
   </entry>
   

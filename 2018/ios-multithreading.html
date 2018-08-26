@@ -1,0 +1,1648 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Multithreading,GCD,NSThread,NSOperation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="欣欣向戎" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：关于iOS多线程，我说，你听，没准你就懂了！、谈iOS多线程(NSThread、NSOperation、GCD)编程、iOS多线程：『GCD』详尽总结、iOS多线程：『pthread、NSThread』详尽总结、iOS多线程：『NSOperation、NSOperationQueue』详尽总结、关于iOS多线程，你看我就够了等，但不自">
+<meta name="keywords" content="Multithreading,GCD,NSThread,NSOperation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于iOS多线程，这边勉强可以看看(OC&amp;Swift)">
+<meta property="og:url" content="http://andyron.com/2018/ios-multithreading.html">
+<meta property="og:site_name" content="欣欣向戎">
+<meta property="og:description" content="iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：关于iOS多线程，我说，你听，没准你就懂了！、谈iOS多线程(NSThread、NSOperation、GCD)编程、iOS多线程：『GCD』详尽总结、iOS多线程：『pthread、NSThread』详尽总结、iOS多线程：『NSOperation、NSOperationQueue』详尽总结、关于iOS多线程，你看我就够了等，但不自">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-29de3060eff432c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a77b124e0fd294e3..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-26T08:31:23.219Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于iOS多线程，这边勉强可以看看(OC&amp;Swift)">
+<meta name="twitter:description" content="iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：关于iOS多线程，我说，你听，没准你就懂了！、谈iOS多线程(NSThread、NSOperation、GCD)编程、iOS多线程：『GCD』详尽总结、iOS多线程：『pthread、NSThread』详尽总结、iOS多线程：『NSOperation、NSOperationQueue』详尽总结、关于iOS多线程，你看我就够了等，但不自">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andyron.com/2018/ios-multithreading.html"/>
+
+
+
+
+
+  <title>关于iOS多线程，这边勉强可以看看(OC&Swift) | 欣欣向戎</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e29ae2ff2bac53a3addad74e238d0108";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欣欣向戎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">AndyRon's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/ios-multithreading.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于iOS多线程，这边勉强可以看看(OC&Swift)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-26T16:29:06+08:00">
+                2018-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/ios-multithreading.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/ios-multithreading.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 总阅量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 6,245 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 25 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="搜多线程谷歌给的第一张图🙄"></p>
+<p>iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：<a href="https://www.jianshu.com/p/51fd1362249e" target="_blank" rel="external">关于iOS多线程，我说，你听，没准你就懂了！</a>、<a href="http://www.jianshu.com/p/6e6f4e005a0b" target="_blank" rel="external">谈iOS多线程(NSThread、NSOperation、GCD)编程</a>、<a href="http://www.jianshu.com/p/2d57c72016c6" target="_blank" rel="external">iOS多线程：『GCD』详尽总结</a>、<a href="https://www.jianshu.com/p/cbaeea5368b1" target="_blank" rel="external">iOS多线程：『pthread、NSThread』详尽总结</a>、<a href="https://www.jianshu.com/p/4b1d77054b35" target="_blank" rel="external">iOS多线程：『NSOperation、NSOperationQueue』详尽总结</a>、<a href="https://www.jianshu.com/p/0b0d9b1f1f19" target="_blank" rel="external">关于iOS多线程，你看我就够了</a>等，但不自己整理一下，敲一下代码总是感觉不深刻 ，于是就有这篇文章，断断续续整理了好久。  </p>
+<p>示例我尽量把不同知识点代码独立开，看着简单一些，容易理解。示例代码我都用OC和Swift分别写了，不过文中都是以OC说明的，英文如果用两种语言一起，看起来可能比较乱，文章也会更加长（已经非常长了😂😂）。<br>Swift写法可能有比较大区别，也有些功能取消，但看一下代码应该能明白了。<br>文中的所有示例代码：<strong><a href="https://github.com/andyRon/iOS-Multithreading" target="_blank" rel="external">andyRon/iOS-Multithreading</a></strong></p>
+<p>由于简书没有Markdown的目录功能，我截了Typora的大纲，先看个大概：<br><img src="https://upload-images.jianshu.io/upload_images/1678135-29de3060eff432c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><h3 id="1-1-一些概念"><a href="#1-1-一些概念" class="headerlink" title="1.1 一些概念"></a>1.1 一些概念</h3><ul>
+<li><p>系统中正在运行的每一个应用程序都是一个 <strong>进程(Process)</strong> ，每个进程系统都会分配给它独立的内存运行。也就是说，在iOS系统中中，每一个应用都是一个进程。</p>
+</li>
+<li><p>一个进程的所有任务都在 <strong>线程(Thread)</strong> 中进行，因此每个进程至少要有一个线程，也就是<strong>主线程</strong>。那多线程其实就是一个进程开启多条线程，让所有任务并发执行。</p>
+</li>
+<li><p>iOS App一旦运行，默认就会开启一条线程。这条线程，通常称作为“主线程”。在iOS应用中主线程的作用一般是：<br>刷新UI；<br>处理UI事件，例如点击、滚动、拖拽。</p>
+</li>
+<li><p>如果主线程的操作太多、太耗时，就会造成App卡顿现象严重。所以，通常我们都会把耗时的操作放在子线程中进行，获取到结果之后，回到主线程去刷新UI。</p>
+</li>
+<li><p>多线程在一定意义上实现了进程内的资源共享，以及效率的提升。同时，在一定程度上相对独立，它是程序执行流的最小单元，是进程中的一个实体，是执行程序最基本的单元，有自己栈和寄存器。</p>
+</li>
+<li><p><strong>同步</strong>： 只能在当前线程按先后顺序依次执行，不开启新线程。</p>
+</li>
+<li><strong>异步</strong>： 可以在当前线程开启多个新线程执行，可不按顺序执行。</li>
+<li><strong>队列</strong>： 装载线程任务的队形结构。</li>
+<li><strong>并发</strong>： 线程执行可以同时一起进行执行。</li>
+<li><strong>串行</strong>： 线程执行只能依次逐一先后有序的执行。</li>
+</ul>
+<blockquote>
+<p>通过确保主线程自由响应用户事件，并发可以很好地提高应用的响应性。通过将工作分配到多核，还能提高应用处理的性能。但是并发也带来一定的额外开销(调度)，并且使代码更加复杂，更难编写和调试。</p>
+</blockquote>
+<h3 id="1-2-多线程概念补充"><a href="#1-2-多线程概念补充" class="headerlink" title="1.2 多线程概念补充"></a>1.2 多线程概念补充</h3><ul>
+<li><p>多线程的原理：  </p>
+<p>同一时间，CPU只能处理一条线程，也就是只有一条线程在工作。所谓多线程并发(同时)执行，其实是CPU快速的在多线程之间调度(切换)。如果CPU调度线程的时间足够快，就造成了多线程并发执行的假象。</p>
+</li>
+<li><p>在实际项目开发中并不是线程越多越好，如果开了大量的线程，会消耗大量的CPU资源，CPU会被累死，所以一般手机只开1~3个线程为宜，不超过5个。</p>
+</li>
+<li><p>多线程的优点：  </p>
+<p>能适当提高程序的执行效率<br>能适当提高资源的利用率，这个利用率表现在(CPU，内存的利用率)</p>
+</li>
+<li><p>多线程的缺点：</p>
+<ol>
+<li><p>开启线程需要占用一定的内存空间(默认情况下，主线程占用1M，子线程占用512KB，如果开启大量的线程，会占用大量的内存空间，降低程序的性能)</p>
+</li>
+<li><p>线程越多，CPU在调度线程上的开销就越大</p>
+</li>
+<li><p>线程越多，程序设计就越复杂，比如线程之间的通信，多线程的数据共享，这些都需要程序的处理，增加了程序的复杂度。</p>
+</li>
+</ol>
+</li>
+<li><p>在iOS开发中使用线程的注意事项：  </p>
+<ol>
+<li>别将比较耗时的操作放在主线程中</li>
+<li>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种“卡”的坏体验</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-四种解决方案对比"><a href="#2-四种解决方案对比" class="headerlink" title="2 四种解决方案对比"></a>2 四种解决方案对比</h2><ul>
+<li>目前iOS多线程有四种方法：pthread，NSThread，GCD， NSOperation，四种方案的简单对比一下。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-a77b124e0fd294e3..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="多线程的四种方案对比" title="1499394732413995.png"></p>
+<p>由于pthread平常几乎用不到，我暂时就不学了。</p>
+<ul>
+<li>每个NSThread对象对应一个线程，真正最原始的线程，相对简单，但是需要手动管理所有的线程活动，如生命周期、线程同步、睡眠等。</li>
+<li>怎么选择 ？<br>简单而安全的选择NSOperation实现多线程即可。<br>处理大量并发数据，又追求性能效率的选择GCD。</li>
+</ul>
+<h2 id="3-NSTread"><a href="#3-NSTread" class="headerlink" title="3 NSTread"></a>3 NSTread</h2><p>生命周期还是需要程序员手动管理，所以这套方案也是偶尔用用。</p>
+<h3 id="3-1-NSThread三种线程开启方式"><a href="#3-1-NSThread三种线程开启方式" class="headerlink" title="3.1 NSThread三种线程开启方式"></a>3.1 NSThread三种线程开启方式</h3><ul>
+<li><p>动态开启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selector(doSomething1:) object:(@&quot;NSThread1&quot;)];</div><div class="line">[thread1 start];</div></pre></td></tr></table></figure>
+</li>
+<li><p>静态开启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 创建好之后直接启动</div><div class="line">[NSThread detachNewThreadSelector:@selector(doSomething2:) toTarget:self withObject:(@&quot;NSTread2&quot;)];</div></pre></td></tr></table></figure>
+</li>
+<li><p>隐式开启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 创建好之后也是直接启动</div><div class="line">[self performSelectorInBackground:@selector(doSomething3:) withObject:(@&quot;NSTread3&quot;)];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-2-NSThread拓展"><a href="#3-2-NSThread拓展" class="headerlink" title="3.2 NSThread拓展"></a>3.2 NSThread拓展</h3><ul>
+<li>获取当前线程<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSThread *current = [NSThread currentThread]; </div><div class="line">```  </div><div class="line">- 获取主线程</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>NSThread *main = [NSThread mainThread];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 暂停当前线程一段时间</div></pre></td></tr></table></figure></p>
+<p>[NSThread sleepForTimeInterval:2];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 暂停当前线程到某个时间</div></pre></td></tr></table></figure></p>
+<p>[NSThread  sleepUntilDate: date];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 线程之间通信</div></pre></td></tr></table></figure></p>
+<p>//在指定线程上执行操作<br>[self performSelector:@selector(run) onThread:thread withObject:nil waitUntilDone:YES];<br>//在主线程上执行操作<br>[self performSelectorOnMainThread:@selector(run) withObject:nil waitUntilDone:YES];<br>//在当前线程执行操作<br>[self performSelector:@selector(run) withObject:nil];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">## 4. GCD</div><div class="line"></div><div class="line">![](https://upload-images.jianshu.io/upload_images/1678135-485f98d116b57409.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line"></div><div class="line">GCD为Grand Central Dispatch的缩写。Grand Central Dispatch (GCD)是Apple开发的一个多核编程的较新的解决方法。它主要用于优化应用程序以支持多核处理器以及其他对称多处理系统。</div><div class="line"></div><div class="line">### 4.1 GCD的优点</div><div class="line"></div><div class="line">- GCD 可用于多核的并行运算</div><div class="line">- GCD 会自动利用更多的 CPU 内核（比如双核、四核）</div><div class="line">- GCD 会自动管理线程的生命周期（创建线程、调度任务、销毁线程）</div><div class="line">- 程序员只需要告诉 GCD 想要执行什么任务，不需要编写任何线程管理代码</div><div class="line"></div><div class="line">###  4.2 任务和队列</div><div class="line"></div><div class="line">- **任务**： 表现上就是一段代码，OC就对应一个Block。**任务** 有两种执行方式，*是否会创建新的线程*，*会不会阻塞当前线程*</div><div class="line">    1. **同步执行**（sync）：在当前线程执行任务，不会开辟新的线程。必须等到Block函数执行完毕后，dispatch函数才会返回。</div><div class="line">    2. **异步执行**（async）：可以在新的线程中执行任务，但不一定会开辟新的线程。dispatch函数会立即返回, 然后Block在后台异步执行。</div><div class="line"></div><div class="line">- **队列**：任务管理方式。分为 **串行** 和 **并行**两种方式，都是按照 FIFO（先进先出）原则依次触发任务。</div><div class="line"></div><div class="line">    1. **串行队列** ： 所有任务会在一条线程中执行（有可能是当前线程也有可能是新开辟的线程），并且一个任务执行完毕后，才开始执行下一个任务。（等待完成）</div><div class="line">    2. **并行队列**： 可以开启多条线程并行执行任务（但不一定会开启新的线程），并且当一个任务放到指定线程开始执行时，下一个任务就可以开始执行了。（等待发生）</div><div class="line"></div><div class="line">&gt; 两者的区别：**执行顺序不同，以及开启线程数不同。**</div><div class="line"></div><div class="line">- 两个特殊队列：</div><div class="line"></div><div class="line">    1. **主队列**： 系统创建好的一个 **串行队列**，它管理必须在主线程中执行的任务。</div><div class="line">    2. **全局队列**：系统为我们创建好的一个**并行队列**，使用起来与我们自己创建的并行队列无本质差别。</div><div class="line"></div><div class="line">- 不同队列创建获取方式：</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>(void)create {<br>  // dispatch_queue_create 第一个参数是队列名字，一般用app的Bundle Identifier命名方式命名；第二个参数为NULL时表是串行队列<br>  //串行队列<br>  dispatch_queue_t serialQueue = dispatch_queue_create(“q1.andyron.com”, NULL);<br>  dispatch_queue_t serialQueue2 = dispatch_queue_create(“q2.andyron.com”, DISPATCH_QUEUE_SERIAL);<br>  //并行队列<br>  dispatch_queue_t concurrentQueue = dispatch_queue_create(“q3.andyron.com”, DISPATCH_QUEUE_CONCURRENT);<br>  //全局并行队列    DISPATCH_QUEUE_PRIORITY_DEFAULT表示优先级<br>  dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br>  //主队列获取<br>  dispatch_queue_t mainQueue = dispatch_get_main_queue();<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">|     |同步执行|	异步执行|</div><div class="line">|-------| -----| ------|</div><div class="line">|串行队列|	当前线程，一个一个执行 |	其他线程，一个一个执行|</div><div class="line">|并行队列|	当前线程，一个一个执行 |	开很多线程，一起执行|</div><div class="line"></div><div class="line"></div><div class="line">### 4.3 下面👇以一个一个🌰来学习GCD，帮助搞清上面的概念</div><div class="line"></div><div class="line">- 例子一:线程死锁（主队列 + 同步执行）</div></pre></td></tr></table></figure>
+</li>
+<li><p>(void)case1 {<br>  NSLog(@”A=====%@”, [NSThread currentThread]);<br>  dispatch_sync(dispatch_get_main_queue(), ^{</p>
+<pre><code>NSLog(@&quot;B=====%@&quot;, [NSThread currentThread]);
+</code></pre><p>  });<br>  NSLog(@”C=====%@”, [NSThread currentThread]);<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">  </div><div class="line">运行结果崩溃：  </div><div class="line">   ![](https://upload-images.jianshu.io/upload_images/1678135-926ac158226a8ff5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line">打印结果：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>GCD(OC)[51511:6351422] A=====<nsthread: 0x600000064340="">{number = 1, name = main}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">解释：默认就一个主队列和一个主线程，因此`case1`函数这段任务就在主队列中同步执行，`dispatch_sync...`这段代码表示把B处任务加入主队列中，并且同步执行，这就出问题，B处任务要等主队列中同步执行之前的`case1`这段任务结束后执行，但B处任务在`case1`这段任务中，`case1`又要等B处任务执行完才能继续执行。`case1`任务要等B处完成才能继续，但`case1`又排在B处前面，这就尴尬了，￣□￣｜｜，因此崩溃了😖</div><div class="line"></div><div class="line">- 例子二：主队列 + 异步执行</div></pre></td></tr></table></figure></nsthread:></p>
+<ul>
+<li>(void)case2 {<br>  NSLog(@”A=====%@”, [NSThread currentThread]);<br>  dispatch_async(dispatch_get_main_queue(), ^{<pre><code>NSLog(@&quot;B=====%@&quot;, [NSThread currentThread]);
+</code></pre>  });<br>   NSLog(@”C=====%@”, [NSThread currentThread]);<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">结果：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>GCD(OC)[52567:6465354] A=====<nsthread: 0x600000068d40="">{number = 1, name = main}<br>GCD(OC)[52567:6465354] C=====<nsthread: 0x600000068d40="">{number = 1, name = main}<br>GCD(OC)[52567:6465354] B=====<nsthread: 0x600000068d40="">{number = 1, name = main}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">解释：任务都在主队列（串行），而且只要一个主线程（name都是main），B处任务由于是异步执行，等case2任务完成后执行。</div><div class="line"></div><div class="line">- 例子三：串行队列 + 同步执行</div></pre></td></tr></table></figure></nsthread:></nsthread:></nsthread:></p>
+<p>// 串行队列 + 同步执行</p>
+<ul>
+<li>(void)case3 {<br>  dispatch_queue_t serialQueue = dispatch_queue_create(“q2.andyron.com”, DISPATCH_QUEUE_SERIAL);<br>  dispatch_sync(serialQueue, ^{<pre><code>NSLog(@&quot;1======%@&quot;, [NSThread currentThread]);
+</code></pre>  });<br>  dispatch_sync(serialQueue, ^{<pre><code>NSLog(@&quot;2======%@&quot;, [NSThread currentThread]);
+</code></pre>  });<br>  dispatch_sync(serialQueue, ^{<pre><code>NSLog(@&quot;3======%@&quot;, [NSThread currentThread]);
+</code></pre>  });<br>  NSLog(@”4======%@”, [NSThread currentThread]);<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">结果：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>GCD(OC)[53734:6582112] 1======<nsthread: 0x604000261700="">{number = 1, name = main}<br>GCD(OC)[53734:6582112] 2======<nsthread: 0x604000261700="">{number = 1, name = main}<br>GCD(OC)[53734:6582112] 3======<nsthread: 0x604000261700="">{number = 1, name = main}<br>GCD(OC)[53734:6582112] 4======<nsthread: 0x604000261700="">{number = 1, name = main}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">解释：🌰1中的主队列也是串行队列，但和这边不同，这边是新建了另一个串行队列，不会出现冲突，并且都在主线程中运行，这也说明了同步执行不具备创建新线程的能力。</div><div class="line"></div><div class="line">- 列子四：串行队列 + 异步执行</div></pre></td></tr></table></figure></nsthread:></nsthread:></nsthread:></nsthread:></p>
+<p>// 串行队列 + 异步执行</p>
+<ul>
+<li>(void)case4 {<br>  dispatch_queue_t serialQueue = dispatch_queue_create(“q2.andyron.com”, DISPATCH_QUEUE_SERIAL);<br>  dispatch_async(serialQueue, ^{<pre><code>NSLog(@&quot;1========%@&quot;,[NSThread currentThread]);
+</code></pre>  });<br>  dispatch_async(serialQueue, ^{<pre><code>NSLog(@&quot;2========%@&quot;,[NSThread currentThread]);
+</code></pre>  });<br>  dispatch_async(serialQueue, ^{<pre><code>NSLog(@&quot;3========%@&quot;,[NSThread currentThread]);
+</code></pre>  });<br>  NSLog(@”4========%@”,[NSThread currentThread]);<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">打印结果：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>GCD(OC)[53970:6604711] 4========<nsthread: 0x60000007c880="">{number = 1, name = main}<br>GCD(OC)[53970:6604933] 1========<nsthread: 0x600000460280="">{number = 3, name = (null)}<br>GCD(OC)[53970:6604933] 2========<nsthread: 0x600000460280="">{number = 3, name = (null)}<br>GCD(OC)[53970:6604933] 3========<nsthread: 0x600000460280="">{number = 3, name = (null)}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">解释：现在打印了4，后打印了1，2，3，这是一部执行的结果，并且4在主线程，其它在子线程打印，这也说明了异步执行可以创建新线程。</div><div class="line"></div><div class="line">- 列子五：并行队列 + 同步执行</div></pre></td></tr></table></figure></nsthread:></nsthread:></nsthread:></nsthread:></p>
+<p>/// 并行队列 + 同步执行</p>
+<ul>
+<li>(void)case5 {<br>  dispatch_queue_t concurrentQueue = dispatch_queue_create(“q3.andyron.com”, DISPATCH_QUEUE_CONCURRENT);<br>  dispatch_sync(concurrentQueue, ^{<pre><code>NSLog(@&quot;1========%@&quot;,[NSThread currentThread]);
+//[self nslogCount:10000 number:1];
+</code></pre>  });<br>  dispatch_sync(concurrentQueue, ^{<pre><code>NSLog(@&quot;2========%@&quot;,[NSThread currentThread]);
+//[self nslogCount:10000 number:2];
+</code></pre>  });<br>  dispatch_sync(concurrentQueue, ^{<pre><code>NSLog(@&quot;3========%@&quot;,[NSThread currentThread]);
+//[self nslogCount:10000 number:3];
+</code></pre>  });<br>  NSLog(@”4========%@”,[NSThread currentThread]);<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">打印结果：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>GCD(OC)[54401:6646454] 1========<nsthread: 0x600000260e80="">{number = 1, name = main}<br>GCD(OC)[54401:6646454] 2========<nsthread: 0x600000260e80="">{number = 1, name = main}<br>GCD(OC)[54401:6646454] 3========<nsthread: 0x600000260e80="">{number = 1, name = main}<br>GCD(OC)[54401:6646454] 4========<nsthread: 0x600000260e80="">{number = 1, name = main}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">解释：都在主线程执行，由于只有一个线程，结果看上去是顺序执行。</div><div class="line"></div><div class="line">- 列子六： 并行队列 + 异步执行</div></pre></td></tr></table></figure></nsthread:></nsthread:></nsthread:></nsthread:></p>
+<p>// 并行队列 + 异步执行</p>
+<ul>
+<li>(void)case6 {<br>  dispatch_queue_t concurrentQueue = dispatch_queue_create(“q3.andyron.com”, DISPATCH_QUEUE_CONCURRENT);<br>  dispatch_async(concurrentQueue, ^{<pre><code>NSLog(@&quot;1========%@&quot;,[NSThread currentThread]);
+</code></pre>  });<br>  dispatch_async(concurrentQueue, ^{<pre><code>NSLog(@&quot;2========%@&quot;,[NSThread currentThread]);
+</code></pre>  });<br>  dispatch_async(concurrentQueue, ^{<pre><code>NSLog(@&quot;3========%@&quot;,[NSThread currentThread]);
+</code></pre>  });<br>  NSLog(@”4========%@”,[NSThread currentThread]);<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">打印结果：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>GCD(OC)[54687:6675227] 2========<nsthread: 0x600000466600="">{number = 5, name = (null)}<br>GCD(OC)[54687:6675036] 4========<nsthread: 0x604000078d00="">{number = 1, name = main}<br>GCD(OC)[54687:6675226] 1========<nsthread: 0x600000463fc0="">{number = 4, name = (null)}<br>GCD(OC)[54687:6675229] 3========<nsthread: 0x60400067d400="">{number = 6, name = (null)}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">解释：除了打印4的是主线，其他又开启了三个线程来执行三个任务，当天开启几个线程是有CPU自己决定的，任务的执行是随机的。</div><div class="line"></div><div class="line"></div><div class="line">### 4.4 GCD 重点</div><div class="line"></div><div class="line">- 只要是串行队列，肯定要等上一个任务执行完成，才能开始下一个任务。但是并行队列当上一个任务开始执行后，下一个任务就可以开始执行。</div><div class="line">- 同步+串行：未开辟新线程，串行执行任务；同步+并行：未开辟新线程，串行执行任务；异步+串行：新开辟一条线程，串行执行任务；异步+并行：开辟多条新线程，并行执行任务；在主线程中同步使用主队列执行任务，会造成死锁。</div><div class="line"></div><div class="line">### 4.5 GCD其他相关方法</div><div class="line"></div><div class="line">- 延迟执行方法： `void dispatch_after(dispatch_time_t when, dispatch_queue_t queue, dispatch_block_t block);`</div><div class="line">指定时间后执行某个任务，`dispatch_after`函数指定的时间是指多长后将任务加到某个队列中，而不是具体执行时间，具体时间要看CPU执行时间了，可以看做是个大约延迟时间。</div></pre></td></tr></table></figure></nsthread:></nsthread:></nsthread:></nsthread:></p>
+<ul>
+<li><p>(void)after {<br>  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{</p>
+<pre><code>// 2.0秒后异步追加任务代码到主队列，并开始执行
+NSLog(@&quot;after---%@&quot;,[NSThread currentThread]);  // 打印当前线程
+</code></pre><p>  });<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- `dispatch_once`：在生命周期内只执行一次。</div></pre></td></tr></table></figure>
+</li>
+<li><p>(void)touchesBegan:(NSSet<uitouch *=""> <em>)touches withEvent:(UIEvent </em>)event {<br>  static dispatch_once_t onceToken;<br>  dispatch_once(&amp;onceToken, ^{</uitouch></p>
+<pre><code>NSLog(@&quot;就一次%@&quot;,[NSThread currentThread]);
+</code></pre><p>  });<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">不管点击多少次只有一次输出。</div><div class="line"></div><div class="line"></div><div class="line">GCD的内容很丰富，还有很多函数，2016和2017的WWDC都有专门讲到GCD，想更近一步可以参考：[Modernizing Grand Central Dispatch Usage](https://developer.apple.com/videos/play/wwdc2017/706/)，[Concurrent Programming With GCD in Swift 3](https://developer.apple.com/videos/play/wwdc2016/720/)。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">## 5 NSOperation 和 NSOperationQueue</div><div class="line"></div><div class="line">### 5.1 概念</div><div class="line"></div><div class="line">-  `NSOperation`(**操作**) 和 `NSOperationQueue`（**操作队列**） 是苹果对GCD的封装</div><div class="line">- `NSOperation` 和 `NSOperationQueue` 分别相当于 GCD 的 **任务** 和 **队列**</div><div class="line">- `NSOperation` 只是一个抽象类，不能直接使用，使用其 2 个子类：`NSInvocationOperation` 和 `NSBlockOperation` 。</div><div class="line">- `NSOperation`的使用除了其现有的子类，还可以自定义子类。</div><div class="line"></div><div class="line">- 操作队列通过设置最大并发操作数（maxConcurrentOperationCount）来控制并发、串行。</div><div class="line">- NSOperationQueue 为我们提供了两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。</div><div class="line"></div><div class="line"></div><div class="line">- NSOperation 需要配合 NSOperationQueue 来使用。否则，NSOperation 单独使用时系统默认同步执行操作，配合 NSOperationQueue 我们能更好的实现异步执行。</div><div class="line"></div><div class="line">### 5. 2 NSOperation 实现多线程的步骤</div><div class="line">  1. 创建操作：先将需要执行的操作封装到一个 NSOperation 对象中。  </div><div class="line">  2. 创建队列：创建 NSOperationQueue 对象。  </div><div class="line">  3. 将操作加入到队列中：将 NSOperation 对象添加到NSOperationQueue 对象中。  </div><div class="line">  4. 之后，系统就会自动将 NSOperationQueue 中的 NSOperation 取出来，在新线程中执行操作。  </div><div class="line"></div><div class="line"></div><div class="line">### 5.3 使用NSOperation的子类NSInvocationOperation</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(run) object:nil];<br>[operation start];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在没有使用`NSOperationQueue`时，`NSInvocationOperation`会在当前线程（主线程或其他线程）内运行。</div><div class="line"></div><div class="line">### 5.4 使用NSOperation的子类NSBlockOperation</div></pre></td></tr></table></figure></p>
+<p>NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{<br>        NSLog(@”%@”, [NSThread currentThread]);<br>    }];<br>[operation start];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">结果：</div></pre></td></tr></table></figure></p>
+<p>NSOperation(OC)[97406:5880178] 1—<nsthread: 0x60400006e700="">{number = 1, name = main}<br>NSOperation(OC)[97406:5880178] 1—<nsthread: 0x60400006e700="">{number = 1, name = main}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在没有使用`NSOperationQueue`时，`NSBlockOperation `也会在当前线程（主线程或其他线程）内运行。</div><div class="line"></div><div class="line">另外，`NSBlockOperation`还提供了一个方法 `addExecutionBlock:`，用来添加额外的操作：</div></pre></td></tr></table></figure></nsthread:></nsthread:></p>
+<p>// 1.创建 NSBlockOperation 对象<br>NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{</p>
+<p>   NSLog(@”1—%@”, [NSThread currentThread]); // 打印当前线程</p>
+<p>}];<br>// 2.添加额外的操作<br>[op addExecutionBlock:^{<br>    [NSThread sleepForTimeInterval:1]; // 模拟耗时操作<br>    NSLog(@”2—%@”, [NSThread currentThread]); // 打印当前线程</p>
+<p>}];<br>[op addExecutionBlock:^{<br>    [NSThread sleepForTimeInterval:1]; // 模拟耗时操作<br>    NSLog(@”3—%@”, [NSThread currentThread]); // 打印当前线程</p>
+<p>}];<br>[op addExecutionBlock:^{<br>    [NSThread sleepForTimeInterval:1]; // 模拟耗时操作<br>    NSLog(@”4—%@”, [NSThread currentThread]); // 打印当前线程</p>
+<p>}];<br>[op addExecutionBlock:^{<br>    [NSThread sleepForTimeInterval:1]; // 模拟耗时操作<br>    NSLog(@”5—%@”, [NSThread currentThread]); // 打印当前线程</p>
+<p>}];<br>// 3.调用 start 方法开始执行操作<br>[op start];</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">某一次的运行结果：</div></pre></td></tr></table></figure>
+<p>NSOperation(OC)[97709:5888750] 1—<nsthread: 0x600000469740="">{number = 3, name = (null)}<br>NSOperation(OC)[97709:5888750] 5—<nsthread: 0x600000469740="">{number = 3, name = (null)}<br>NSOperation(OC)[97709:5888748] 3—<nsthread: 0x600000469e40="">{number = 4, name = (null)}<br>NSOperation(OC)[97709:5888498] 4—<nsthread: 0x60400007a600="">{number = 1, name = main}<br>NSOperation(OC)[97709:5888758] 2—<nsthread: 0x604000463480="">{number = 5, name = (null)}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">`addExecutionBlock:`添加的操作和之前`blockOperationWithBlock`添加的操作是否在主线程或者是否开多线程，是由系统决定，它们的地位是相同的，所以每一次执行的结果可能不同。</div><div class="line"></div><div class="line">### 5.5 NSOperation的自定义子类</div><div class="line"></div><div class="line">除了上面两个子类外，还可以通过重写`main`方法来自定义子类。</div></pre></td></tr></table></figure></nsthread:></nsthread:></nsthread:></nsthread:></nsthread:></p>
+<p>#import “AROperation.h”</p>
+<p>@implementation AROperation</p>
+<ul>
+<li>(void)main {<br>  if (!self.isCancelled) {<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2];
+    NSLog(@&quot;自定义Operation---%@&quot;, [NSThread currentThread]);
+}
+</code></pre>  }<br>}<br>@end<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">使用：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>AROperation *op = [[AROperation alloc] init];<br>[op start];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 5.6 NSOperationQueue</div><div class="line"></div><div class="line">上面几种情况都是没有操作队列，一般只在主线程运行。而使用操作队列就可以实现多线程了。操作队列分两种：  </div><div class="line"> </div><div class="line"> **主队列** :   凡是添加到主队列中的操作，都会放到主线程中执行  </div><div class="line"> **自定义队列**:  操作自动放到子线程中执行，同时包含了：串行、并发功能。</div><div class="line"></div><div class="line">#### 5.6.1 创建队列</div></pre></td></tr></table></figure></p>
+<p>// 主队列获取方法<br>NSOperationQueue *queue = [NSOperationQueue mainQueue];</p>
+<p>// 自定义队列创建方法<br>NSOperationQueue *queue = [[NSOperationQueue alloc] init];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### 5.6.2 添加操作到队列中</div><div class="line"></div><div class="line">两种不同的添加方法：</div><div class="line">- `- (void)addOperation:(NSOperation *)op;`</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>(void)addOperationToQueue {<br>  // 1.创建队列<br>  NSOperationQueue *queue = [[NSOperationQueue alloc] init];</p>
+<p>  // 2.创建操作<br>  // 使用 NSInvocationOperation 创建操作1<br>  NSInvocationOperation *op1 = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(task1) object:nil];</p>
+<p>  // 使用 NSInvocationOperation 创建操作2<br>  NSInvocationOperation *op2 = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(task2) object:nil];</p>
+<p>  // 使用 NSBlockOperation 创建操作3<br>  NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;3---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>  [op3 addExecutionBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;4---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>  // 3.使用 addOperation: 添加所有操作到队列中<br>  [queue addOperation:op1]; // [op1 start]<br>  [queue addOperation:op2]; // [op2 start]<br>  [queue addOperation:op3]; // [op3 start]<br>}</p>
+</li>
+<li>(void) task1 {<br>  NSLog(@”1—%@”, [NSThread currentThread]);<br>}</li>
+<li>(void) task2 {<br>  NSLog(@”2—%@”, [NSThread currentThread]);<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">某一次的运行结果：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>NSOperation(OC)[7557:6218702] 2—<nsthread: 0x60400027f900="">{number = 4, name = (null)}<br>NSOperation(OC)[7557:6218699] 1—<nsthread: 0x600000461a00="">{number = 3, name = (null)}<br>NSOperation(OC)[7557:6218701] 4—<nsthread: 0x6040004606c0="">{number = 5, name = (null)}<br>NSOperation(OC)[7557:6218700] 3—<nsthread: 0x604000460d40="">{number = 6, name = (null)}<br>NSOperation(OC)[7557:6218700] 3—<nsthread: 0x604000460d40="">{number = 6, name = (null)}<br>NSOperation(OC)[7557:6218701] 4—<nsthread: 0x6040004606c0="">{number = 5, name = (null)}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">并发运行，执行次序不确定。</div><div class="line"></div><div class="line">- `- (void)addOperationWithBlock:(void (^)(void))block;`  不需要先创建操作，直接添加block</div></pre></td></tr></table></figure></nsthread:></nsthread:></nsthread:></nsthread:></nsthread:></nsthread:></p>
+<ul>
+<li><p>(void)addOperationWithBlockToQueue {<br>  // 1.创建队列<br>  NSOperationQueue *queue = [[NSOperationQueue alloc] init];</p>
+<p>  // 2.使用 addOperationWithBlock: 添加操作到队列中<br>  [queue addOperationWithBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;1---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>  [queue addOperationWithBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;2---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>  [queue addOperationWithBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;3---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">某一次的运行结果：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>NSOperation(OC)[7772:6229770] 2—<nsthread: 0x600000277640="">{number = 5, name = (null)}<br>NSOperation(OC)[7772:6229772] 1—<nsthread: 0x60400026bfc0="">{number = 4, name = (null)}<br>NSOperation(OC)[7772:6229780] 3—<nsthread: 0x6040002686c0="">{number = 3, name = (null)}<br>NSOperation(OC)[7772:6229770] 2—<nsthread: 0x600000277640="">{number = 5, name = (null)}<br>NSOperation(OC)[7772:6229780] 3—<nsthread: 0x6040002686c0="">{number = 3, name = (null)}<br>NSOperation(OC)[7772:6229772] 1—<nsthread: 0x60400026bfc0="">{number = 4, name = (null)}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### 5.6.3 maxConcurrentOperationCount</div><div class="line">`NSOperationQueue` 提供一个`maxConcurrentOperationCount`（**最大并发操作数**）属性来控制串行还是并发。  </div><div class="line">`maxConcurrentOperationCount` 控制的不是并发线程的数量，而是一个队列中同时能并发执行的最大操作数。而且一个操作也并非只能在一个线程中运行。  </div><div class="line">`maxConcurrentOperationCount `默认情况下为-1，表示不进行限制。</div></pre></td></tr></table></figure></nsthread:></nsthread:></nsthread:></nsthread:></nsthread:></nsthread:></p>
+<ul>
+<li><p>(void)setMaxConcurrentOperationCount {<br>  // 1.创建队列<br>  NSOperationQueue *queue = [[NSOperationQueue alloc] init];</p>
+<p>  // 2.设置最大并发操作数<br>  queue.maxConcurrentOperationCount = 1; // 串行队列<br>  //     queue.maxConcurrentOperationCount = 2; // 并发队列<br>  //     queue.maxConcurrentOperationCount = 8; // 并发队列</p>
+<p>  // 3.添加操作<br>  [queue addOperationWithBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;1---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>  [queue addOperationWithBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;2---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>  [queue addOperationWithBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;3---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>  [queue addOperationWithBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;4---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">当**最大并发操作数**为1时，也就是串行执行时，控制台中返回的结果顺序是固定的。而大于1时，也就是并发执行，每一次执行的顺序就可能不同（控制台中返回的额结果顺序可能不同）。当然开启的线程数量是有系统决定的。</div><div class="line"></div><div class="line"></div><div class="line">### 5.7 NSOperation之间的依赖</div><div class="line">并行时，各个的操作的执行顺序是有系统决定，程序员不能直接控制。但是NSOperation提高了依赖，来解决这个问题。相关方法和属性：  </div><div class="line"></div><div class="line">- `- (void)addDependency:(NSOperation *)op;`     添加依赖，使当前操作依赖于操作 op 的完成。  </div><div class="line">- `- (void)removeDependency:(NSOperation *)op;`     移除依赖，取消当前操作对操作 op 的依赖。  </div><div class="line">- `@property (readonly, copy) NSArray&lt;NSOperation *&gt; *dependencies;`     在当前操作开始执行之前完成执行的所有操作对象数组。</div></pre></td></tr></table></figure>
+</li>
+<li><p>(void)addDependency {<br>  // 1.创建队列<br>  NSOperationQueue <em>queue = [[NSOperationQueue alloc] init];<br>  // 2.创建操作<br>  NSBlockOperation </em>op1 = [NSBlockOperation blockOperationWithBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;1---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>  NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{</p>
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+    NSLog(@&quot;2---%@&quot;, [NSThread currentThread]); // 打印当前线程
+}
+</code></pre><p>  }];<br>  // 3.添加依赖<br>  [op2 addDependency:op1]; // 让op2 依赖于 op1，则先执行op1，再执行op2</p>
+<p>  // 4.添加操作到队列中<br>  [queue addOperation:op1];<br>  [queue addOperation:op2];<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">运行结果是固定的：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>NSOperation(OC)[8977:6302811] 1—<nsthread: 0x604000277f80="">{number = 3, name = (null)}<br>NSOperation(OC)[8977:6302811] 1—<nsthread: 0x604000277f80="">{number = 3, name = (null)}<br>NSOperation(OC)[8977:6302810] 2—<nsthread: 0x604000274240="">{number = 4, name = (null)}<br>NSOperation(OC)[8977:6302810] 2—<nsthread: 0x604000274240="">{number = 4, name = (null)}<br>```</nsthread:></nsthread:></nsthread:></nsthread:></p>
+<blockquote>
+<p><code>注意</code>：不能添加相互依赖，会死锁，比如 A依赖B，B依赖A。<br>可以使用 removeDependency 来解除依赖关系。<br>可以在不同的队列之间依赖，反正就是这个依赖是添加到任务身上的，和队列没关系。</p>
+</blockquote>
+<h3 id="5-8-NSOperation-常用属性和方法"><a href="#5-8-NSOperation-常用属性和方法" class="headerlink" title="5.8 NSOperation 常用属性和方法"></a>5.8 NSOperation 常用属性和方法</h3><ul>
+<li><p>取消操作方法<br><code>- (void)cancel;</code>     实质是标记 isCancelled 状态。</p>
+</li>
+<li><p>判断操作状态方法</p>
+<ul>
+<li><code>- (BOOL)isFinished;</code>     判断操作是否已经结束。  </li>
+<li><code>- (BOOL)isCancelled;</code>  判断操作是否已经标记为取消。  </li>
+<li><code>- (BOOL)isExecuting;</code>  判断操作是否正在在运行。  </li>
+<li><code>- (BOOL)isReady;</code>        判断操作是否处于准备就绪状态，这个值和操作的依赖关系相关。</li>
+</ul>
+</li>
+<li><p>操作同步</p>
+<ul>
+<li><code>- (void)waitUntilFinished;</code> 阻塞当前线程，直到该操作结束。可用于线程执行顺序的同步。</li>
+<li><code>- (void)setCompletionBlock:(void (^)(void))block;</code> completionBlock 会在当前操作执行完毕时执行 completionBlock。</li>
+<li><code>- (void)addDependency:(NSOperation *)op;</code>  添加依赖，使当前操作依赖于操作 op 的完成。</li>
+<li><code>- (void)removeDependency:(NSOperation *)op;</code>  移除依赖，取消当前操作对操作 op 的依赖。</li>
+<li><code>@property (readonly, copy) NSArray&lt;NSOperation *&gt; *dependencies;</code> 在当前操作开始执行之前完成执行的所有操作对象数组。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-9-NSOperationQueue-常用属性和方法"><a href="#5-9-NSOperationQueue-常用属性和方法" class="headerlink" title="5.9 NSOperationQueue 常用属性和方法"></a>5.9 NSOperationQueue 常用属性和方法</h3><ol>
+<li><p>取消/暂停/恢复操作</p>
+<ul>
+<li><code>- (void)cancelAllOperations;</code> 可以取消队列的所有操作。</li>
+<li><code>- (BOOL)isSuspended;</code> 判断队列是否处于暂停状态。 YES 为暂停状态，NO 为恢复状态。</li>
+<li><code>- (void)setSuspended:(BOOL)b;</code> 可设置操作的暂停和恢复，YES 代表暂停队列，NO 代表恢复队列。</li>
+</ul>
+</li>
+<li><p>操作同步</p>
+<ul>
+<li><code>- (void)waitUntilAllOperationsAreFinished;</code> 阻塞当前线程，直到队列中的操作全部执行完毕。</li>
+</ul>
+</li>
+<li>添加/获取操作<ul>
+<li><code>- (void)addOperationWithBlock:(void (^)(void))block;</code> 向队列中添加一个 NSBlockOperation 类型操作对象。</li>
+<li><code>- (void)addOperations:(NSArray *)ops waitUntilFinished:(BOOL)wait;</code> 向队列中添加操作数组，wait 标志是否阻塞当前线程直到所有操作结束</li>
+<li><code>- (NSArray *)operations;</code> 当前在队列中的操作数组（某个操作执行结束后会自动从这个数组清除）。</li>
+<li><code>- (NSUInteger)operationCount;</code> 当前队列中的操作数。</li>
+</ul>
+</li>
+<li>获取队列<ul>
+<li><code>+ (id)currentQueue;</code> 获取当前队列，如果当前线程不是在 NSOperationQueue 上运行则返回 nil。</li>
+<li><code>+ (id)mainQueue;</code> 获取主队列。</li>
+</ul>
+</li>
+</ol>
+<h2 id="6-后记"><a href="#6-后记" class="headerlink" title="6 后记"></a>6 后记</h2><p>虽然总结了很多，但还有很多内容没有涉及和深入。<br>由于个人能力有限，时间紧凑（实际我已经花了很多时间😒🤦‍♀️🤦‍♀️），文中难免有错误，希望小伙伴批评指正。</p>
+<blockquote>
+<p>示例代码：<strong><a href="https://github.com/andyRon/iOS-Multithreading" target="_blank" rel="external">andyRon/iOS-Multithreading</a></strong></p>
+<p>参考：<br><a href="https://www.jianshu.com/p/51fd1362249e" target="_blank" rel="external">关于iOS多线程，我说，你听，没准你就懂了！</a><br><a href="http://www.jianshu.com/p/6e6f4e005a0b" target="_blank" rel="external">谈iOS多线程(NSThread、NSOperation、GCD)编程</a><br><a href="http://www.jianshu.com/p/2d57c72016c6" target="_blank" rel="external">iOS多线程：『GCD』详尽总结</a><br><a href="https://www.jianshu.com/p/cbaeea5368b1" target="_blank" rel="external">iOS多线程：『pthread、NSThread』详尽总结</a><br><a href="https://www.jianshu.com/p/4b1d77054b35" target="_blank" rel="external">iOS多线程：『NSOperation、NSOperationQueue』详尽总结</a><br><a href="https://www.jianshu.com/p/0b0d9b1f1f19" target="_blank" rel="external">关于iOS多线程，你看我就够了</a><br><a href="https://www.appcoda.com/grand-central-dispatch/" target="_blank" rel="external">Grand Central Dispatch (GCD) and Dispatch Queues in Swift 3</a><br><a href="https://developer.apple.com/videos/play/wwdc2017/706/" target="_blank" rel="external">WWDC-2017-Modernizing Grand Central Dispatch Usage</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="AndyRon wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您访问我的的微信公众号：欣欣向戎（微信号: andy_ron1587 ）！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2018/ios-multithreading.html" title="关于iOS多线程，这边勉强可以看看(OC&Swift)">http://andyron.com/2018/ios-multithreading.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Multithreading/" rel="tag"><i class="fa fa-tag"></i> Multithreading</a>
+          
+            <a href="/tags/GCD/" rel="tag"><i class="fa fa-tag"></i> GCD</a>
+          
+            <a href="/tags/NSThread/" rel="tag"><i class="fa fa-tag"></i> NSThread</a>
+          
+            <a href="/tags/NSOperation/" rel="tag"><i class="fa fa-tag"></i> NSOperation</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/ios-oc-kvc-begin.html" rel="next" title="OC中的键/值编码(KVC)">
+                <i class="fa fa-chevron-left"></i> OC中的键/值编码(KVC)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="AndyRon" />
+          <p class="site-author-name" itemprop="name">AndyRon</p>
+           
+              <p class="site-description motion-element" itemprop="description">Just for fun.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">113</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/andyRon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/efce1a2a95ab" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AndyMRon" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/andyronm" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://500px.com/andymron" target="_blank" title="500px">
+                  
+                    <i class="fa fa-fw fa-500px"></i>
+                  
+                  500px
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:rongming.2008@163.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.appcoda.com" title="Appcoda" target="_blank">Appcoda</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/" title="阮一峰的个人网站" target="_blank">阮一峰的个人网站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text">1 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-一些概念"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 一些概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-多线程概念补充"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 多线程概念补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-四种解决方案对比"><span class="nav-number">2.</span> <span class="nav-text">2 四种解决方案对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-NSTread"><span class="nav-number">3.</span> <span class="nav-text">3 NSTread</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-NSThread三种线程开启方式"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 NSThread三种线程开启方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-NSThread拓展"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 NSThread拓展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-NSOperation-常用属性和方法"><span class="nav-number">3.3.</span> <span class="nav-text">5.8 NSOperation 常用属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-NSOperationQueue-常用属性和方法"><span class="nav-number">3.4.</span> <span class="nav-text">5.9 NSOperationQueue 常用属性和方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-后记"><span class="nav-number">4.</span> <span class="nav-text">6 后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-bug"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AndyRon</span>
+</div>
+
+
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2018/ios-multithreading.html';
+          this.page.identifier = '2018/ios-multithreading.html';
+          this.page.title = '关于iOS多线程，这边勉强可以看看(OC&Swift)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
