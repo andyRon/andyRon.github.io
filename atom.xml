@@ -510,29 +510,25 @@
   </entry>
   
   <entry>
-    <title>iOS网络编程(二)：NSURLConnection介绍</title>
-    <link href="http://andyron.com/2017/ios-network-2.html"/>
-    <id>http://andyron.com/2017/ios-network-2.html</id>
+    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
+    <link href="http://andyron.com/2017/ios-network-3.html"/>
+    <id>http://andyron.com/2017/ios-network-3.html</id>
     <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-10-08T06:27:38.000Z</updated>
+    <updated>2017-10-08T06:27:42.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlconnection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLConnection&lt;/a&gt;在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;网络请求分为同步和异步两种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。&lt;/li&gt;
-&lt;li&gt;异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。&lt;/li&gt;
-&lt;/ul&gt;
+      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
+&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
     
     </summary>
     
       <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
     
-      <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
+      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
+    
+      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
     
   </entry>
   
