@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-08-31T03:17:21.801Z</updated>
+  <updated>2018-08-31T09:30:29.041Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为博客添加Disqus评论系统</title>
+    <link href="http://andyron.com/2018/comment-disqus.html"/>
+    <id>http://andyron.com/2018/comment-disqus.html</id>
+    <published>2018-08-31T08:50:58.000Z</published>
+    <updated>2018-08-31T09:30:29.041Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;给博客添加一个评论系统，考虑了好几个，但最终还是选择了&lt;a href=&quot;https://disqus.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Disqus&lt;/a&gt;，考虑一下几点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;之前非常受欢迎的多说，某原因关闭了
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://andyron.com/categories/hexo/"/>
+    
+    
+      <category term="Disqus" scheme="http://andyron.com/tags/Disqus/"/>
+    
+  </entry>
   
   <entry>
     <title>关于iOS多线程，这边勉强可以看看(OC&amp;Swift)</title>
@@ -442,29 +467,25 @@
   </entry>
   
   <entry>
-    <title>iOS网络编程(二)：NSURLConnection介绍</title>
-    <link href="http://andyron.com/2017/ios-network-2.html"/>
-    <id>http://andyron.com/2017/ios-network-2.html</id>
+    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
+    <link href="http://andyron.com/2017/ios-network-3.html"/>
+    <id>http://andyron.com/2017/ios-network-3.html</id>
     <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-10-08T06:27:38.000Z</updated>
+    <updated>2017-10-08T06:27:42.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlconnection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLConnection&lt;/a&gt;在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;网络请求分为同步和异步两种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。&lt;/li&gt;
-&lt;li&gt;异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。&lt;/li&gt;
-&lt;/ul&gt;
+      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
+&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
     
     </summary>
     
       <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
     
-      <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
+      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
+    
+      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
     
   </entry>
   
@@ -493,47 +514,29 @@
   </entry>
   
   <entry>
-    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
-    <link href="http://andyron.com/2017/ios-network-3.html"/>
-    <id>http://andyron.com/2017/ios-network-3.html</id>
+    <title>iOS网络编程(二)：NSURLConnection介绍</title>
+    <link href="http://andyron.com/2017/ios-network-2.html"/>
+    <id>http://andyron.com/2017/ios-network-2.html</id>
     <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-10-08T06:27:42.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
-&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
-    
-      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(一)：NSURLSession介绍</title>
-    <link href="http://andyron.com/2017/ios-network-1.html"/>
-    <id>http://andyron.com/2017/ios-network-1.html</id>
-    <published>2017-09-13T08:22:57.000Z</published>
-    <updated>2017-10-08T06:27:45.000Z</updated>
+    <updated>2017-10-08T06:27:38.000Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlsession?language=objc&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLSession&lt;/a&gt;是iOS7之后被用来代替NSURLConnection的网络开发框架，前者相对于后者的优势是支持后台处理能力&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsurlconnection&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSURLConnection&lt;/a&gt;在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;网络请求分为同步和异步两种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。&lt;/li&gt;
+&lt;li&gt;异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
       <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
     
-      <category term="NSURLSession" scheme="http://andyron.com/tags/NSURLSession/"/>
+      <category term="NSURLConnection" scheme="http://andyron.com/tags/NSURLConnection/"/>
     
   </entry>
   
