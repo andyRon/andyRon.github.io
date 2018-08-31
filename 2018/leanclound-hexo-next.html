@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="LeanClound," />
 
 
 
@@ -102,16 +102,25 @@
 
 
 
-<meta name="description" content="Just for fun.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欣欣向戎">
-<meta property="og:url" content="http://andyron.com/archives/2017/page/11/index.html">
+<meta name="description" content="个人博客之前用的NexT 框架介绍 不蒜子统计 来统计文章阅读数、网站访问人数和网站访问总数。但是总是发现文章阅读数老是出现问题，因此把文章阅读数换成用LeanCloud来统计，看起来也方便。LeanCloud的免费的开发版完全满足了我博客这种小网站的需求了。配置起来也很方便，下面做个记录：">
+<meta name="keywords" content="LeanClound">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用LeanClound给hexo+next博客添加文章阅读数">
+<meta property="og:url" content="http://andyron.com/2018/leanclound-hexo-next.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.">
+<meta property="og:description" content="个人博客之前用的NexT 框架介绍 不蒜子统计 来统计文章阅读数、网站访问人数和网站访问总数。但是总是发现文章阅读数老是出现问题，因此把文章阅读数换成用LeanCloud来统计，看起来也方便。LeanCloud的免费的开发版完全满足了我博客这种小网站的需求了。配置起来也很方便，下面做个记录：">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-ccb5314262e23309.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-0ce0e444a2826bbc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-a04e59e8a4a3d42e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-f1a833e4cbcba1b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-11f3ce14d7bc00df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-a5949669e5aa61d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-31T09:37:25.133Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欣欣向戎">
-<meta name="twitter:description" content="Just for fun.">
+<meta name="twitter:title" content="用LeanClound给hexo+next博客添加文章阅读数">
+<meta name="twitter:description" content="个人博客之前用的NexT 框架介绍 不蒜子统计 来统计文章阅读数、网站访问人数和网站访问总数。但是总是发现文章阅读数老是出现问题，因此把文章阅读数换成用LeanCloud来统计，看起来也方便。LeanCloud的免费的开发版完全满足了我博客这种小网站的需求了。配置起来也很方便，下面做个记录：">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-ccb5314262e23309.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -139,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/archives/2017/page/11/"/>
+  <link rel="canonical" href="http://andyron.com/2018/leanclound-hexo-next.html"/>
 
 
 
 
 
-  <title>归档 | 欣欣向戎</title>
+  <title>用LeanClound给hexo+next博客添加文章阅读数 | 欣欣向戎</title>
   
 
 
@@ -180,7 +189,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
@@ -320,106 +329,291 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-        
-      很好! 目前共计 115 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/leanclound-hexo-next.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用LeanClound给hexo+next博客添加文章阅读数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-31T15:35:36+08:00">
+                2018-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/leanclound-hexo-next.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/leanclound-hexo-next.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/leanclound-hexo-next.html" class="leancloud_visitors" data-flag-title="用LeanClound给hexo+next博客添加文章阅读数">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 590 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 2 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p><a href="http://andyron.com">个人博客</a>之前用的<a href="http://theme-next.iissnan.com" target="_blank" rel="external">NexT</a> 框架介绍 <strong>不蒜子统计</strong> 来统计文章阅读数、网站访问人数和网站访问总数。但是总是发现文章阅读数老是出现问题，因此把文章阅读数换成用<a href="https://leancloud.cn/" target="_blank" rel="external">LeanCloud</a>来统计，看起来也方便。<a href="https://leancloud.cn/" target="_blank" rel="external">LeanCloud</a>的免费的开发版完全满足了我博客这种小网站的需求了。<br>配置起来也很方便，下面做个记录：</p>
+<a id="more"></a>
+<h3 id="注册LeanClound账号"><a href="#注册LeanClound账号" class="headerlink" title="注册LeanClound账号"></a>注册LeanClound账号</h3><p>这个很方便，微博，GitHub都可以直接关联注册，或者直接用邮箱注册。</p>
+<h3 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h3><p><img src="https://upload-images.jianshu.io/upload_images/1678135-ccb5314262e23309.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>比如我创建一个名为<code>andyron.com.counter</code>的应用。</p>
+<p>获取<code>APP ID</code>，<code>APP Key</code>，之后再配置文件中配置。<br><img src="https://upload-images.jianshu.io/upload_images/1678135-0ce0e444a2826bbc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="创建Class"><a href="#创建Class" class="headerlink" title="创建Class"></a>创建Class</h3><ul>
+<li>在应用的数据配置界面，左侧下划线开头的都是系统预定义好的表，为了便于区分我们新建一张表来保存我们的数据。<br>新建Class用来专门保存我们博客的文章访问量等数据，理论上来说名字可以随意取名，只要你交互代码做相应的更改即可，但是为了保证对NexT主题的修改兼容，此处的新建Class名字必须为<code>Counter</code>:<br><img src="https://upload-images.jianshu.io/upload_images/1678135-a04e59e8a4a3d42e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+<h3 id="添加安全域名"><a href="#添加安全域名" class="headerlink" title="添加安全域名"></a>添加安全域名</h3><p>添加安全域名后，只有这些安全域名才有权访问后台的数据了，可以进一步提升安全性。<br><img src="https://upload-images.jianshu.io/upload_images/1678135-f1a833e4cbcba1b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="修改一下主题配置文件"><a href="#修改一下主题配置文件" class="headerlink" title="修改一下主题配置文件"></a>修改一下主题配置文件</h3><p>修改配置文件<code>next/_config.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">leancloud_visitors:</div><div class="line">  enable: true</div><div class="line">  app_id: #你的app_id</div><div class="line">  app_key: #你的的app_key</div><div class="line"></div><div class="line"># Show PV/UV of the website/page with busuanzi. 不蒜子统计</div><div class="line"># Get more information on http://ibruce.info/2015/04/04/busuanzi/</div><div class="line">busuanzi_count:</div><div class="line">  # count values only if the other configs are false</div><div class="line">  enable: true</div><div class="line">  # custom uv span for the whole site</div><div class="line">  site_uv: true</div><div class="line">  site_uv_header: &lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt; 访问人数</div><div class="line">  site_uv_footer: 人次 </div><div class="line">  # # custom pv span for the whole site</div><div class="line">  site_pv: true</div><div class="line">  site_pv_header: &lt;i class=&quot;fa fa-eye&quot;&gt;&lt;/i&gt; 总访问量</div><div class="line">  site_pv_footer: 次 </div><div class="line">  # custom pv span for one page only</div><div class="line">  page_pv: false</div><div class="line">  page_pv_header: &lt;i class=&quot;fa fa-file-o&quot;&gt;&lt;/i&gt; 阅读</div><div class="line">  page_pv_footer: 次</div></pre></td></tr></table></figure></p>
+<h3 id="更新一下系统"><a href="#更新一下系统" class="headerlink" title="更新一下系统"></a>更新一下系统</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure>
+<p>最新的NexT框架已经不需要再配置样式，可以看到<br><img src="https://upload-images.jianshu.io/upload_images/1678135-11f3ce14d7bc00df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在LeanCloud中也可以查看数据了：<br><img src="https://upload-images.jianshu.io/upload_images/1678135-a5949669e5aa61d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<p>注：<code>objetcId</code>这个主键是由日期和博文标题组合成的，因此标题变化，阅读会重新计数</p>
+<p>参考：<br> <a href="https://notes.wanghao.work/2015-10-21-为NexT主题添加文章阅读量统计功能.html#配置LeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a><br><a href="https://qinzhaokun.github.io/2017/06/10/使用leancloud给博客添加阅读次数/" target="_blank" rel="external">使用leancloud给博客添加阅读次数</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="AndyRon wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您访问我的的微信公众号：欣欣向戎（微信号: andy_ron1587 ）！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/swift-2.html" itemprop="url">
-              
-                <span itemprop="name">以撸代码的形式学习Swift-2：Basic Operators</span>
-              
-            </a>
-        
-      </h2>
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2018/leanclound-hexo-next.html" title="用LeanClound给hexo+next博客添加文章阅读数">http://andyron.com/2018/leanclound-hexo-next.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-03T13:39:12+08:00"
-              content="2017-07-03" >
-          07-03
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeanClound/" rel="tag"><i class="fa fa-tag"></i> LeanClound</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/ios-multithreading.html" rel="next" title="关于iOS多线程，这边勉强可以看看(OC&Swift)">
+                <i class="fa fa-chevron-left"></i> 关于iOS多线程，这边勉强可以看看(OC&Swift)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/comment-disqus.html" rel="prev" title="为博客添加Disqus评论系统">
+                为博客添加Disqus评论系统 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/swift-1.html" itemprop="url">
-              
-                <span itemprop="name">以撸代码的形式学习Swift-1：The Basics</span>
-              
-            </a>
-        
-      </h2>
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-03T13:39:02+08:00"
-              content="2017-07-03" >
-          07-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2017/page/10/">10</a><span class="page-number current">11</span>
-  </nav>
-
-
+      
+    </div>
+  </div>
 
 
           </div>
@@ -427,6 +621,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -446,8 +651,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -591,6 +805,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册LeanClound账号"><span class="nav-number">1.</span> <span class="nav-text">注册LeanClound账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建应用"><span class="nav-number">2.</span> <span class="nav-text">创建应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Class"><span class="nav-number">3.</span> <span class="nav-text">创建Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加安全域名"><span class="nav-number">4.</span> <span class="nav-text">添加安全域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改一下主题配置文件"><span class="nav-number">5.</span> <span class="nav-text">修改一下主题配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新一下系统"><span class="nav-number">6.</span> <span class="nav-text">更新一下系统</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -727,11 +957,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -750,6 +978,18 @@
       <script id="dsq-count-scr" src="https://http-andyron-com.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2018/leanclound-hexo-next.html';
+          this.page.identifier = '2018/leanclound-hexo-next.html';
+          this.page.title = '用LeanClound给hexo+next博客添加文章阅读数';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-andyron-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

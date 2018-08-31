@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-08-31T09:30:29.041Z</updated>
+  <updated>2018-08-31T09:37:30.540Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="http://andyron.com/2018/comment-disqus.html"/>
     <id>http://andyron.com/2018/comment-disqus.html</id>
     <published>2018-08-31T08:50:58.000Z</published>
-    <updated>2018-08-31T09:30:29.041Z</updated>
+    <updated>2018-08-31T09:37:30.540Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;给博客添加一个评论系统，考虑了好几个，但最终还是选择了&lt;a href=&quot;https://disqus.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Disqus&lt;/a&gt;，考虑一下几点：&lt;/p&gt;
+      &lt;p&gt;给博客添加一个评论系统，考虑了好几个，但最终还是选择了&lt;a href=&quot;https://disqus.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Disqus&lt;/a&gt;，考虑一下几点：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;之前非常受欢迎的多说，某原因关闭了
-      
+&lt;li&gt;之前非常受欢迎的多说，某原因关闭了，现在国内也有非常多好的评论系统，但就是担心又出现某原因关闭，那就麻烦了&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://disqus.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Disqus&lt;/a&gt;唯一的问题就是在墙外，我考虑一下，访问我博客十有八九都是做技术的，梯子肯定是多的是，😀&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -38,6 +37,26 @@
     
     
       <category term="Disqus" scheme="http://andyron.com/tags/Disqus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用LeanClound给hexo+next博客添加文章阅读数</title>
+    <link href="http://andyron.com/2018/leanclound-hexo-next.html"/>
+    <id>http://andyron.com/2018/leanclound-hexo-next.html</id>
+    <published>2018-08-31T07:35:36.000Z</published>
+    <updated>2018-08-31T09:37:25.133Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://andyron.com&quot;&gt;个人博客&lt;/a&gt;之前用的&lt;a href=&quot;http://theme-next.iissnan.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NexT&lt;/a&gt; 框架介绍 &lt;strong&gt;不蒜子统计&lt;/strong&gt; 来统计文章阅读数、网站访问人数和网站访问总数。但是总是发现文章阅读数老是出现问题，因此把文章阅读数换成用&lt;a href=&quot;https://leancloud.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeanCloud&lt;/a&gt;来统计，看起来也方便。&lt;a href=&quot;https://leancloud.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeanCloud&lt;/a&gt;的免费的开发版完全满足了我博客这种小网站的需求了。&lt;br&gt;配置起来也很方便，下面做个记录：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://andyron.com/categories/hexo/"/>
+    
+    
+      <category term="LeanClound" scheme="http://andyron.com/tags/LeanClound/"/>
     
   </entry>
   
@@ -463,29 +482,6 @@
     
     
       <category term="NSHTTPCookieStorage" scheme="http://andyron.com/tags/NSHTTPCookieStorage/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍</title>
-    <link href="http://andyron.com/2017/ios-network-3.html"/>
-    <id>http://andyron.com/2017/ios-network-3.html</id>
-    <published>2017-09-18T16:00:00.000Z</published>
-    <updated>2017-10-08T06:27:42.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NSURLSession和NSURLConnection框架，网络请求都是通过NSURLRequest类发起的。&lt;/p&gt;
-&lt;p&gt;NSURLRequest请求类除了在初始化时可以设定一些属性，创建出来后则大部分属性都为只读的，无法设置与修改。&lt;code&gt;NSMutableURLRequest&lt;/code&gt;相对而言可以更加灵活的设置请求的相关属性（属性修饰符变化），其他方面没有多少区别。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="NSURLRequest" scheme="http://andyron.com/tags/NSURLRequest/"/>
-    
-      <category term="NSURLResponse" scheme="http://andyron.com/tags/NSURLResponse/"/>
     
   </entry>
   
