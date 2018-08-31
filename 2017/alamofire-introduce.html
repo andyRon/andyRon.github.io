@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-955367497a5b92e3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-3a403c250b2785f2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-9b9daa92eb0bc2ae.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T03:20:46.000Z">
+<meta property="og:updated_time" content="2018-08-31T10:05:58.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alamofire：Swift的HTTP 网络库">
 <meta name="twitter:description" content="安装 CocoaPods和Carthage都很方便安装安装完，如果出现加载不到Alamofire，可以查看Cannot load underlying module for ‘Alamofire’ #441，问题应该可以解决。">
@@ -422,7 +422,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,449 字
+                  : 1,444 字
                 </span>
               
 
@@ -481,143 +481,56 @@
 <p>   <code>DataResponse</code>与<code>DefaultDataResponse</code>最大的不同就是多了两个属性<code>result</code>和<code>value</code>，<code>value</code>值就是格式化的不同类型。</p>
 <h3 id="响应处理的一些例子"><a href="#响应处理的一些例子" class="headerlink" title="响应处理的一些例子"></a>响应处理的一些例子</h3><ul>
 <li><p><code>response</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Alamofire.request(&quot;https://httpbin.org/get&quot;).response &#123; response in</div><div class="line">    print(&quot;Request: \(response.request)&quot;)</div><div class="line">    print(&quot;Response: \(response.response)&quot;)</div><div class="line">    print(&quot;Error: \(response.error)&quot;)</div><div class="line">    </div><div class="line">    if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) &#123;</div><div class="line">        print(&quot;Data: \(utf8Text)&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>response</code>方法的响应结果<code>response</code>是<code>DefaultDataResponse</code>，没有进行过格式化处理。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Alamofire.request(&quot;https://httpbin.org/get&quot;).response &#123; response in</div><div class="line">    print(&quot;Request: \(response.request)&quot;)</div><div class="line">    print(&quot;Response: \(response.response)&quot;)</div><div class="line">    print(&quot;Error: \(response.error)&quot;)</div><div class="line">    </div><div class="line">    if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) &#123;</div><div class="line">        print(&quot;Data: \(utf8Text)&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  <code>response</code>方法的响应结果<code>response</code>是<code>DefaultDataResponse</code>，没有进行过格式化处理。</p>
 </li>
 <li><p><code>responseData</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">     Alamofire.request(&quot;https://httpbin.org/get&quot;).responseData &#123; response in</div><div class="line">         debugPrint(&quot;All Response Info: \(response)&quot;)</div><div class="line">         </div><div class="line">         if let data = response.result.value, let utf8Text = String(data: data, encoding: .utf8) &#123;</div><div class="line">             print(&quot;Data: \(utf8Text)&quot;)</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> ``` </div><div class="line">  `responseData`方法对响应结果进行了处理，`response.result.value`就是我们属性的`Data`类型。</div><div class="line">+ 链式调用</div></pre></td></tr></table></figure>
-<pre><code>Alamofire.request(&quot;https://httpbin.org/get&quot;)
-.responseString { response in
-        print(&quot;Response String: \(response.result.value)&quot;)
-}
-.responseJSON { response in
-    print(&quot;Response JSON: \(response.result.value)&quot;)
-}
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 响应验证</div><div class="line">http响应结果中的不同状态码(`100..&lt;600`)表示不同结果。</div><div class="line">- 手动验证</div></pre></td></tr></table></figure>
-<p>Alamofire.request(“<a href="https://httpbin.org/get" target="_blank" rel="external">https://httpbin.org/get</a>“)<br>.validate(statusCode: 200..&lt;300)<br>.validate(contentType: [“application/json”])<br>.responseData { response in</p>
-<pre><code>switch response.result {
-case .success:
-    print(&quot;Validation Successful&quot;)
-case .failure(let error):
-    print(error)
-}
-</code></pre><p>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- 自动验证</div><div class="line">状态码在`200..&lt;300`的为正确，其它为错误。</div></pre></td></tr></table></figure>
-<p>Alamofire.request(“<a href="https://httpbin.org/get&quot;).validate().responseJSON" target="_blank" rel="external">https://httpbin.org/get&quot;).validate().responseJSON</a> { response in<br>switch response.result {<br>case .success:</p>
-<pre><code>print(&quot;Validation Successful&quot;)
-</code></pre><p>case .failure(let error):</p>
-<pre><code>print(error)
-</code></pre><p>}<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### HTTP不同请求方式</div><div class="line">`request`方法的`method`参数表示不同的方法。</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Alamofire.request(&quot;https://httpbin.org/get&quot;).responseData &#123; response in</div><div class="line">    debugPrint(&quot;All Response Info: \(response)&quot;)</div><div class="line">    </div><div class="line">    if let data = response.result.value, let utf8Text = String(data: data, encoding: .utf8) &#123;</div><div class="line">        print(&quot;Data: \(utf8Text)&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>   <code>responseData</code>方法对响应结果进行了处理，<code>response.result.value</code>就是我们属性的<code>Data</code>类型。</p>
+</li>
+<li>链式调用  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Alamofire.request(&quot;https://httpbin.org/get&quot;)</div><div class="line">.responseString &#123; response in</div><div class="line">        print(&quot;Response String: \(response.result.value)&quot;)</div><div class="line">&#125;</div><div class="line">.responseJSON &#123; response in</div><div class="line">    print(&quot;Response JSON: \(response.result.value)&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>Alamofire.request(“<a href="https://httpbin.org/get" target="_blank" rel="external">https://httpbin.org/get</a>“) // method defaults to <code>.get</code></p>
-<p>Alamofire.request(“<a href="https://httpbin.org/post" target="_blank" rel="external">https://httpbin.org/post</a>“, method: .post)<br>Alamofire.request(“<a href="https://httpbin.org/put" target="_blank" rel="external">https://httpbin.org/put</a>“, method: .put)<br>Alamofire.request(“<a href="https://httpbin.org/delete" target="_blank" rel="external">https://httpbin.org/delete</a>“, method: .delete)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 请求参数编码</div><div class="line">`GET`的参数按照固定格式写到URL中，其他类型则按照不同格式写到请求body中。</div><div class="line"></div><div class="line">- GET参数编码</div></pre></td></tr></table></figure></p>
-<pre><code>let parameters: Parameters = [&quot;foo&quot;: &quot;bar&quot;]
-
-// All three of these calls are equivalent
-Alamofire.request(&quot;https://httpbin.org/get&quot;, parameters: parameters) // encoding defaults to `URLEncoding.default`
-Alamofire.request(&quot;https://httpbin.org/get&quot;, parameters: parameters, encoding: URLEncoding.default)
-Alamofire.request(&quot;https://httpbin.org/get&quot;, parameters: parameters, encoding: URLEncoding(destination: .methodDependent))
-
-// https://httpbin.org/get?foo=bar
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- POST参数编码</div></pre></td></tr></table></figure>
-<pre><code>let parameters: Parameters = [
-    &quot;foo&quot;: &quot;bar&quot;,
-    &quot;baz&quot;: [&quot;a&quot;, 1],
-    &quot;qux&quot;: [
-        &quot;x&quot;: 1,
-        &quot;y&quot;: 2,
-        &quot;z&quot;: 3
-    ]
-]
-
-// All three of these calls are equivalent
-Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post, parameters: parameters)
-Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post, parameters: parameters, encoding: URLEncoding.default)
-Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post, parameters: parameters, encoding: URLEncoding.httpBody)
-
-// HTTP body: foo=bar&amp;baz[]=a&amp;baz[]=1&amp;qux[x]=1&amp;qux[y]=2&amp;qux[z]=3
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- JSON编码</div></pre></td></tr></table></figure>
-<pre><code>let parameters: Parameters = [
-    &quot;foo&quot;: [1,2,3],
-    &quot;bar&quot;: [
-        &quot;baz&quot;: &quot;qux&quot;
-    ]
-]
-
-// Both calls are equivalent
-Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post, parameters: parameters, encoding: JSONEncoding.default)
-Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post, parameters: parameters, encoding: JSONEncoding(options: []))
-
-// HTTP body: {&quot;foo&quot;: [1, 2, 3], &quot;bar&quot;: {&quot;baz&quot;: &quot;qux&quot;}}
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 添加请求HTTP头部</div></pre></td></tr></table></figure>
-<p>let headers: HTTPHeaders = [<br>    “Authorization”: “Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==”,<br>    “Accept”: “application/json”<br>]</p>
-<p>Alamofire.request(“<a href="https://httpbin.org/headers" target="_blank" rel="external">https://httpbin.org/headers</a>“, headers: headers).responseJSON { response in<br>    debugPrint(response)<br>}<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### HTTP认证</div></pre></td></tr></table></figure></p>
-<pre><code>let user = &quot;user&quot;
-let password = &quot;password&quot;
-
-Alamofire.request(&quot;https://httpbin.org/basic-auth/\(user)/\(password)&quot;)
-    .authenticate(user: user, password: password)
-    .responseJSON { response in
-        debugPrint(response)
-}
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 下载文件</div></pre></td></tr></table></figure>
-<pre><code>Alamofire.download(&quot;https://httpbin.org/image/png&quot;).responseData { response in
-    if let data = response.result.value {
-        let image = UIImage(data: data)
-    }
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">另外可以下文件保存在本地：</div></pre></td></tr></table></figure>
-<pre><code>let destination: DownloadRequest.DownloadFileDestination = { _, _ in
-    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    let fileURL = documentsURL.appendingPathComponent(&quot;pig.png&quot;)
-
-    return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
-}
-
-Alamofire.download(&quot;https://httpbin.org/image/png&quot;, to: destination).response { response in
-    print(response)
-
-    if response.error == nil, let imagePath = response.destinationURL?.path {
-        let image = UIImage(contentsOfFile: imagePath)
-        self.imageView.image = image
-        self.tableView.reloadData()
-    }
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 上传</div><div class="line">- 上传 `Data`</div></pre></td></tr></table></figure>
-<pre><code>let imageData = UIImagePNGRepresentation(image!)!
-
-Alamofire.upload(imageData, to: &quot;https://httpbin.org/post&quot;).responseJSON { response in
-    debugPrint(response)
-}
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 上传文件</div></pre></td></tr></table></figure>
-<pre><code>let fileURL = Bundle.main.url(forResource: &quot;video&quot;, withExtension: &quot;mov&quot;)
-
-Alamofire.upload(fileURL!, to: &quot;https://httpbin.org/post&quot;).responseJSON { response in
-    debugPrint(response)
-}
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 上传Multipart Form Data（表单提交）</div></pre></td></tr></table></figure>
-<pre><code>Alamofire.upload(
-    multipartFormData: { multipartFormData in
-        multipartFormData.append(unicornImageURL, withName: &quot;unicorn&quot;)
-        multipartFormData.append(rainbowImageURL, withName: &quot;rainbow&quot;)
-},
-    to: &quot;https://httpbin.org/post&quot;,
-    encodingCompletion: { encodingResult in
-        switch encodingResult {
-        case .success(let upload, _, _):
-            upload.responseJSON { response in
-                debugPrint(response)
-            }
-        case .failure(let encodingError):
-            print(encodingError)
-        }
-}
-)
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 请求中花费的各种时间</div></pre></td></tr></table></figure>
-<p>Alamofire.request(“<a href="https://httpbin.org/get&quot;).responseJSON" target="_blank" rel="external">https://httpbin.org/get&quot;).responseJSON</a> { response in<br>    print(response.timeline)<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">结果：</div></pre></td></tr></table></figure></p>
-<p>Timeline: { “Latency”: 1.527 secs, “Request Duration”: 1.528 secs, “Serialization Duration”: 0.001 secs, “Total Duration”: 1.529 secs }<br>```</p>
+<h3 id="响应验证"><a href="#响应验证" class="headerlink" title="响应验证"></a>响应验证</h3><p>http响应结果中的不同状态码(<code>100..&lt;600</code>)表示不同结果。</p>
+<ul>
+<li>手动验证 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> Alamofire.request(&quot;https://httpbin.org/get&quot;)</div><div class="line">.validate(statusCode: 200..&lt;300)</div><div class="line">.validate(contentType: [&quot;application/json&quot;])</div><div class="line">.responseData &#123; response in</div><div class="line">    switch response.result &#123;</div><div class="line">    case .success:</div><div class="line">        print(&quot;Validation Successful&quot;)</div><div class="line">    case .failure(let error):</div><div class="line">        print(error)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>自动验证<br>状态码在<code>200..&lt;300</code>的为正确，其它为错误。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Alamofire.request(&quot;https://httpbin.org/get&quot;).validate().responseJSON &#123; response in</div><div class="line">  switch response.result &#123;</div><div class="line">  case .success:</div><div class="line">      print(&quot;Validation Successful&quot;)</div><div class="line">  case .failure(let error):</div><div class="line">      print(error)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="HTTP不同请求方式"><a href="#HTTP不同请求方式" class="headerlink" title="HTTP不同请求方式"></a>HTTP不同请求方式</h3><p><code>request</code>方法的<code>method</code>参数表示不同的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Alamofire.request(&quot;https://httpbin.org/get&quot;) // method defaults to `.get`</div><div class="line"></div><div class="line">Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post)</div><div class="line">Alamofire.request(&quot;https://httpbin.org/put&quot;, method: .put)</div><div class="line">Alamofire.request(&quot;https://httpbin.org/delete&quot;, method: .delete)</div></pre></td></tr></table></figure>
+<h3 id="请求参数编码"><a href="#请求参数编码" class="headerlink" title="请求参数编码"></a>请求参数编码</h3><p><code>GET</code>的参数按照固定格式写到URL中，其他类型则按照不同格式写到请求body中。</p>
+<ul>
+<li><p>GET参数编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let parameters: Parameters = [&quot;foo&quot;: &quot;bar&quot;]</div><div class="line"></div><div class="line">// All three of these calls are equivalent</div><div class="line">Alamofire.request(&quot;https://httpbin.org/get&quot;, parameters: parameters) // encoding defaults to `URLEncoding.default`</div><div class="line">Alamofire.request(&quot;https://httpbin.org/get&quot;, parameters: parameters, encoding: URLEncoding.default)</div><div class="line">Alamofire.request(&quot;https://httpbin.org/get&quot;, parameters: parameters, encoding: URLEncoding(destination: .methodDependent))</div><div class="line"></div><div class="line">// https://httpbin.org/get?foo=bar</div></pre></td></tr></table></figure>
+</li>
+<li><p>POST参数编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">let parameters: Parameters = [</div><div class="line">    &quot;foo&quot;: &quot;bar&quot;,</div><div class="line">    &quot;baz&quot;: [&quot;a&quot;, 1],</div><div class="line">    &quot;qux&quot;: [</div><div class="line">        &quot;x&quot;: 1,</div><div class="line">        &quot;y&quot;: 2,</div><div class="line">        &quot;z&quot;: 3</div><div class="line">    ]</div><div class="line">]</div><div class="line"></div><div class="line">// All three of these calls are equivalent</div><div class="line">Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post, parameters: parameters)</div><div class="line">Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post, parameters: parameters, encoding: URLEncoding.default)</div><div class="line">Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post, parameters: parameters, encoding: URLEncoding.httpBody)</div><div class="line"></div><div class="line">// HTTP body: foo=bar&amp;baz[]=a&amp;baz[]=1&amp;qux[x]=1&amp;qux[y]=2&amp;qux[z]=3</div></pre></td></tr></table></figure>
+</li>
+<li><p>JSON编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">let parameters: Parameters = [</div><div class="line">    &quot;foo&quot;: [1,2,3],</div><div class="line">    &quot;bar&quot;: [</div><div class="line">        &quot;baz&quot;: &quot;qux&quot;</div><div class="line">    ]</div><div class="line">]</div><div class="line"></div><div class="line">// Both calls are equivalent</div><div class="line">Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post, parameters: parameters, encoding: JSONEncoding.default)</div><div class="line">Alamofire.request(&quot;https://httpbin.org/post&quot;, method: .post, parameters: parameters, encoding: JSONEncoding(options: []))</div><div class="line"></div><div class="line">// HTTP body: &#123;&quot;foo&quot;: [1, 2, 3], &quot;bar&quot;: &#123;&quot;baz&quot;: &quot;qux&quot;&#125;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="添加请求HTTP头部"><a href="#添加请求HTTP头部" class="headerlink" title="添加请求HTTP头部"></a>添加请求HTTP头部</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let headers: HTTPHeaders = [</div><div class="line">    &quot;Authorization&quot;: &quot;Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==&quot;,</div><div class="line">    &quot;Accept&quot;: &quot;application/json&quot;</div><div class="line">]</div><div class="line"></div><div class="line">Alamofire.request(&quot;https://httpbin.org/headers&quot;, headers: headers).responseJSON &#123; response in</div><div class="line">    debugPrint(response)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="HTTP认证"><a href="#HTTP认证" class="headerlink" title="HTTP认证"></a>HTTP认证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let user = &quot;user&quot;</div><div class="line">let password = &quot;password&quot;</div><div class="line"></div><div class="line">Alamofire.request(&quot;https://httpbin.org/basic-auth/\(user)/\(password)&quot;)</div><div class="line">    .authenticate(user: user, password: password)</div><div class="line">    .responseJSON &#123; response in</div><div class="line">        debugPrint(response)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Alamofire.download(&quot;https://httpbin.org/image/png&quot;).responseData &#123; response in</div><div class="line">    if let data = response.result.value &#123;</div><div class="line">        let image = UIImage(data: data)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>另外可以下文件保存在本地：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">let destination: DownloadRequest.DownloadFileDestination = &#123; _, _ in</div><div class="line">    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]</div><div class="line">    let fileURL = documentsURL.appendingPathComponent(&quot;pig.png&quot;)</div><div class="line">    </div><div class="line">    return (fileURL, [.removePreviousFile, .createIntermediateDirectories])</div><div class="line">&#125;</div><div class="line"></div><div class="line">Alamofire.download(&quot;https://httpbin.org/image/png&quot;, to: destination).response &#123; response in</div><div class="line">    print(response)</div><div class="line">    </div><div class="line">    if response.error == nil, let imagePath = response.destinationURL?.path &#123;</div><div class="line">        let image = UIImage(contentsOfFile: imagePath)</div><div class="line">        self.imageView.image = image</div><div class="line">        self.tableView.reloadData()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h3><ul>
+<li><p>上传 <code>Data</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let imageData = UIImagePNGRepresentation(image!)!</div><div class="line"></div><div class="line">Alamofire.upload(imageData, to: &quot;https://httpbin.org/post&quot;).responseJSON &#123; response in</div><div class="line">    debugPrint(response)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>上传文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let fileURL = Bundle.main.url(forResource: &quot;video&quot;, withExtension: &quot;mov&quot;)</div><div class="line"></div><div class="line">Alamofire.upload(fileURL!, to: &quot;https://httpbin.org/post&quot;).responseJSON &#123; response in</div><div class="line">    debugPrint(response)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>上传Multipart Form Data（表单提交）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Alamofire.upload(</div><div class="line">    multipartFormData: &#123; multipartFormData in</div><div class="line">        multipartFormData.append(unicornImageURL, withName: &quot;unicorn&quot;)</div><div class="line">        multipartFormData.append(rainbowImageURL, withName: &quot;rainbow&quot;)</div><div class="line">&#125;,</div><div class="line">    to: &quot;https://httpbin.org/post&quot;,</div><div class="line">    encodingCompletion: &#123; encodingResult in</div><div class="line">        switch encodingResult &#123;</div><div class="line">        case .success(let upload, _, _):</div><div class="line">            upload.responseJSON &#123; response in</div><div class="line">                debugPrint(response)</div><div class="line">            &#125;</div><div class="line">        case .failure(let encodingError):</div><div class="line">            print(encodingError)</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="请求中花费的各种时间"><a href="#请求中花费的各种时间" class="headerlink" title="请求中花费的各种时间"></a>请求中花费的各种时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Alamofire.request(&quot;https://httpbin.org/get&quot;).responseJSON &#123; response in</div><div class="line">    print(response.timeline)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Timeline: &#123; &quot;Latency&quot;: 1.527 secs, &quot;Request Duration&quot;: 1.528 secs, &quot;Serialization Duration&quot;: 0.001 secs, &quot;Total Duration&quot;: 1.529 secs &#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -925,7 +838,7 @@ Alamofire.upload(fileURL!, to: &quot;https://httpbin.org/post&quot;).responseJSO
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于-https-httpbin-org-网站"><span class="nav-number">2.</span> <span class="nav-text">关于 https://httpbin.org/ 网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">3.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的请求："><span class="nav-number">3.1.</span> <span class="nav-text">一个简单的请求：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求后的响应处理"><span class="nav-number">3.2.</span> <span class="nav-text">请求后的响应处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应处理的一些例子"><span class="nav-number">3.3.</span> <span class="nav-text">响应处理的一些例子</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于-https-httpbin-org-网站"><span class="nav-number">2.</span> <span class="nav-text">关于 https://httpbin.org/ 网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">3.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的请求："><span class="nav-number">3.1.</span> <span class="nav-text">一个简单的请求：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求后的响应处理"><span class="nav-number">3.2.</span> <span class="nav-text">请求后的响应处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应处理的一些例子"><span class="nav-number">3.3.</span> <span class="nav-text">响应处理的一些例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应验证"><span class="nav-number">3.4.</span> <span class="nav-text">响应验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP不同请求方式"><span class="nav-number">3.5.</span> <span class="nav-text">HTTP不同请求方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求参数编码"><span class="nav-number">3.6.</span> <span class="nav-text">请求参数编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加请求HTTP头部"><span class="nav-number">3.7.</span> <span class="nav-text">添加请求HTTP头部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP认证"><span class="nav-number">3.8.</span> <span class="nav-text">HTTP认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件"><span class="nav-number">3.9.</span> <span class="nav-text">下载文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传"><span class="nav-number">3.10.</span> <span class="nav-text">上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求中花费的各种时间"><span class="nav-number">3.11.</span> <span class="nav-text">请求中花费的各种时间</span></a></li></ol></li></ol></div>
             
 
           </div>
