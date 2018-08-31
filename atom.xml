@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-08-26T08:31:23.219Z</updated>
+  <updated>2018-08-31T03:17:21.801Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://andyron.com/2018/ios-multithreading.html"/>
     <id>http://andyron.com/2018/ios-multithreading.html</id>
     <published>2018-08-26T08:29:06.000Z</published>
-    <updated>2018-08-26T08:31:23.219Z</updated>
+    <updated>2018-08-31T03:17:21.801Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot;
-      
+      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;搜多线程谷歌给的第一张图🙄&quot;&gt;&lt;/p&gt;
+&lt;p&gt;iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：&lt;a href=&quot;https://www.jianshu.com/p/51fd1362249e&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于iOS多线程，我说，你听，没准你就懂了！&lt;/a&gt;、&lt;a href=&quot;http://www.jianshu.com/p/6e6f4e005a0b&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;谈iOS多线程(NSThread、NSOperation、GCD)编程&lt;/a&gt;、&lt;a href=&quot;http://www.jianshu.com/p/2d57c72016c6&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS多线程：『GCD』详尽总结&lt;/a&gt;、&lt;a href=&quot;https://www.jianshu.com/p/cbaeea5368b1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS多线程：『pthread、NSThread』详尽总结&lt;/a&gt;、&lt;a href=&quot;https://www.jianshu.com/p/4b1d77054b35&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS多线程：『NSOperation、NSOperationQueue』详尽总结&lt;/a&gt;、&lt;a href=&quot;https://www.jianshu.com/p/0b0d9b1f1f19&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于iOS多线程，你看我就够了&lt;/a&gt;等，但不自己整理一下，敲一下代码总是感觉不深刻 ，于是就有这篇文章，断断续续整理了好久。  &lt;/p&gt;
+&lt;p&gt;示例我尽量把不同知识点代码独立开，看着简单一些，容易理解。示例代码我都用OC和Swift分别写了，不过文中都是以OC说明的，英文如果用两种语言一起，看起来可能比较乱，文章也会更加长（已经非常长了😂😂）。&lt;br&gt;Swift写法可能有比较大区别，也有些功能取消，但看一下代码应该能明白了。&lt;br&gt;文中的所有示例代码：&lt;strong&gt;&lt;a href=&quot;https://github.com/andyRon/iOS-Multithreading&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/iOS-Multithreading&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;先看个大概：&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-29de3060eff432c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
