@@ -111,10 +111,12 @@
 <meta property="og:description" content="之前刚学编程，接触PHP时，出于学习的目的，兴致勃勃地买了域名、主机、学了Wordpress，找了主题，折腾了好久建了个网站，也写了一些文章，然后就没有然后了，这是从入门到放弃系列的典型案例。前段时间收到主机要到期的通知，正好我也接触到了简书，支持markdown，感觉蛮好，平常也习惯使用markdown格式记录笔记。就觉得不再续费主机了，就主要使用简书，个人博客就使用github和hexo这种">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-85bd138bdcb1a517.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/0069RVTdgy1fut1wm83h0j305903za9v.jpg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-248c8a30a3115f53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-2b6e31f13a6c37aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c57e32fdb7770411.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-ed0adf621c6f2073.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-08-16T02:30:05.899Z">
+<meta property="og:updated_time" content="2018-08-31T10:18:06.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用github和hexo创建免费的静态个人博客网站">
 <meta name="twitter:description" content="之前刚学编程，接触PHP时，出于学习的目的，兴致勃勃地买了域名、主机、学了Wordpress，找了主题，折腾了好久建了个网站，也写了一些文章，然后就没有然后了，这是从入门到放弃系列的典型案例。前段时间收到主机要到期的通知，正好我也接触到了简书，支持markdown，感觉蛮好，平常也习惯使用markdown格式记录笔记。就觉得不再续费主机了，就主要使用简书，个人博客就使用github和hexo这种">
@@ -377,6 +379,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -421,7 +445,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,467 字
+                  : 1,380 字
                 </span>
               
 
@@ -437,7 +461,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 6 分钟
+                  ≈ 5 分钟
                 </span>
               
             </div>
@@ -459,24 +483,68 @@
 <p>之前刚学编程，接触PHP时，出于学习的目的，兴致勃勃地买了域名、主机、学了<a href="https://zh-cn.wordpress.com/com-vs-org/?sgmt=gb&amp;utm_source=adwords&amp;utm_campaign=G_Search_Brand_Desktop_CN_en_x_x&amp;utm_medium=cpc&amp;keyword=wordpress&amp;creative=210660075986&amp;campaignid=686689621&amp;adgroupid=38215071114&amp;matchtype=e&amp;device=c&amp;network=g&amp;targetid=kwd-313411415&amp;locationid=9061446&amp;gclid=Cj0KCQjwlf_MBRDUARIsAD8Gj8D7KuGzcUAzlMp-H9hn_tfCyJKm_LeQIp3DNRyQC-MiOWodbOIWsCsaAuwBEALw_wcB" target="_blank" rel="external">Wordpress</a>，找了主题，折腾了好久建了个网站，也写了一些文章，然后就没有然后了，这是从入门到放弃系列的典型案例。前段时间收到主机要到期的通知，正好我也接触到了简书，支持markdown，感觉蛮好，平常也习惯使用markdown格式记录笔记。就觉得不再续费主机了，就主要使用简书，个人博客就使用github和hexo这种支持markdown生成静态网页形式就行了。</p>
 <a id="more"></a>
 <p>已经有很多小伙伴这样搭建自己的个人博客，并写了相关文章，这边我就做一个搭建过程中的简单记录。开始之前需要安装git和nodejs，有github账号，程序员小伙伴一般都会有了，我就不啰嗦了。</p>
-<h3 id="关于GitHub-Pages"><a href="#关于GitHub-Pages" class="headerlink" title="关于GitHub Pages"></a>关于GitHub Pages</h3><p><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>原本是为托管在github上的项目提供介绍页面的一个功能，非常适合托管一些功能简单或者是静态页面的网站。考虑到访问速度，可以考虑国内的<a href="">coding</a>。 按照<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>步骤建立自己的GitHub Pages库。</p>
-<h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a>文档很详细，也有中文，很方便。</p>
+<h2 id="关于GitHub-Pages"><a href="#关于GitHub-Pages" class="headerlink" title="关于GitHub Pages"></a>关于GitHub Pages</h2><p><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>原本是为托管在github上的项目提供介绍页面的一个功能，非常适合托管一些功能简单或者是静态页面的网站。考虑到访问速度，可以考虑国内的<a href="">coding</a>。 按照<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>步骤建立自己的GitHub Pages库。</p>
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a>文档很详细，也有中文，很方便。</p>
+<h3 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h3><p><code>npm install hexo-cli -g</code></p>
+<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ cd &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
+<h3 id="新生成的目录结构为："><a href="#新生成的目录结构为：" class="headerlink" title="新生成的目录结构为："></a>新生成的目录结构为：</h3><p><img src="https://ws1.sinaimg.cn/large/0069RVTdgy1fut1wm83h0j305903za9v.jpg" alt=""></p>
 <ul>
-<li>安装 hexo<br><code>npm install hexo-cli -g</code></li>
-<li><p>建站</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ cd &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
+<li><code>_config.yml</code>  是网站的<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">站点配置文件</a></li>
+<li><code>node_modules</code> 是nodejs库文件目录，就是<code>npm install</code>命令安装的文件位置</li>
+<li><code>package.json</code>是程序信息</li>
+<li><code>scaffolds</code> 新建文章的模板</li>
+<li><code>source</code> 存放用户资源的地方，404、favicon、CNAME 等堵在此处，这是我们主要工作的地方。其中，<code>_posts</code>文件是写文章地方，除<code>_posts</code>文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹（之后生成），而其他文件会被拷贝过去。</li>
+<li><code>themes</code> 是主题存储地方。</li>
+</ul>
+<h3 id="配置网站信息"><a href="#配置网站信息" class="headerlink" title="配置网站信息"></a>配置网站信息</h3><p><code>_config.yml</code> 文件提供了很多配置，详细可看官网<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">配置信息</a>。先配置两方面的，之后需要再配置。</p>
+<ul>
+<li>网站基本信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># Site</div><div class="line">title: 欣欣向戎</div><div class="line">subtitle: AndyRon&apos;s Blog</div><div class="line">description: Just for fun.</div><div class="line">author: AndyRon</div><div class="line">language: zh-Hans</div><div class="line">timezone: Asia/Shanghai</div></pre></td></tr></table></figure>
+<ul>
+<li>部署，注意字段，<code>repo</code>就是个人GitHub Pages的地址库。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">type: git </div><div class="line">repo: https://github.com/andyRon/andyRon.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p> <code>hexo new [layout] &lt;title&gt;</code> ：  也就是在<code>source/_posts/</code>下按照模板新建了一个markdown文件，layout就是指<code>scaffolds</code>文件夹中的模板，也可以直接在<code>_posts</code>中新建markdown文件。</p>
+<h3 id="在本地服务器测试"><a href="#在本地服务器测试" class="headerlink" title="在本地服务器测试"></a>在本地服务器测试</h3><p><code>hexo server</code> ：在浏览器打开<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> ，就可以查看</p>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><p><code>hexo generate</code>（<code>hexo g</code>） ：这个命令会新建一个<code>public</code>文件夹，在其中生成静态文件，这个目录相当于网站的根目录。</p>
+<h3 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h3><p><code>hexo deploy</code>（<code>hexo d</code>）：把<code>public</code>文件夹内的内容上传到github上。<br>现在访问<a href="https://yourname.github.io" target="_blank" rel="external">https://yourname.github.io</a> (我的是<a href="https://andyron.github.io" target="_blank" rel="external">https://andyron.github.io</a> )就能访问刚建立的网站了。<br>如果出现<a href="https://github.com/hexojs/hexo/issues/1040" target="_blank" rel="external"><strong>ERROR Deployer not found</strong></a>的问题，可通过<code>npm install hexo-deployer-git --save</code>解决。</p>
+<h3 id="其他hexo命令"><a href="#其他hexo命令" class="headerlink" title="其他hexo命令"></a>其他hexo命令</h3><p><code>hexo clean</code> ：删除public文件夹内容，和清理一些缓存。调试网站可以使用。</p>
+<h2 id="域名绑定（如有必要）"><a href="#域名绑定（如有必要）" class="headerlink" title="域名绑定（如有必要）"></a>域名绑定（如有必要）</h2><ul>
+<li>在<code>source/</code>下添加文件<code>CNAME</code>，内容只为如<code>andyron.com</code>（没有http和www）</li>
+<li>部署到github上：<code>hexo generate</code>，<code>hexo deploy</code></li>
+<li>域名解析。不同的域名服务商大同小异，我的是阿里云，为了防止解析出问题，我把其他默认一些邮件解析等都删了，就添加两个：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-248c8a30a3115f53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>可能需要等一短时间（10分钟以上），就可以用 <a href="http://andyron.com">http://andyron.com</a> 访问了。</p>
+<h2 id="hexo主题"><a href="#hexo主题" class="headerlink" title="hexo主题"></a>hexo主题</h2><p>hexo有很多主题，很多网友为hexo贡献了很多主题，可到<a href="https://hexo.io/themes/" target="_blank" rel="external">主题</a>上寻找。我选择的是<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">next</a>主题，这个使用主题用的人比较多，<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">文档</a>很全，也比较简洁。<br>主题的使用非常简单：</p>
+<ul>
+<li>将主题文件拷贝至站点目录的<code>themes</code> 目录下</li>
+<li>修改<strong>站点配置文件</strong>： <code>theme:  主题名</code></li>
+</ul>
+<p>主题的一些设置：</p>
+<ul>
+<li><p>设置RSS</p>
+<ul>
+<li>安装 <a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="external">hexo-generator-feed</a>插件，在<code>hexo init</code>初始化的目录下执行<code>npm install hexo-generator-feed --save</code></li>
+<li>在<strong>站点配置文件</strong>添加：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">feed:</div><div class="line">type: atom</div><div class="line">path: atom.xml</div><div class="line">limit: 20</div><div class="line">hub:</div><div class="line">content:</div></pre></td></tr></table></figure>
+<ul>
+<li><code>hexo generate</code></li>
+</ul>
 </li>
-<li><p>新生成的目录结构为：</p>
+<li><p>设置搜索<br>有很多搜索方式，这只是一种简单方式</p>
+<ul>
+<li>安装<code>hexo-generator-searchdb</code>，在<code>hexo</code>的根目录下：<code>$ npm install hexo-generator-searchdb --save</code></li>
+<li>在<strong>站点配置文件</strong>添加：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line">  path: search.xml</div><div class="line">  field: post</div><div class="line">  format: html</div><div class="line">  limit: 10000</div></pre></td></tr></table></figure>
+<ul>
+<li>在<strong>主题配置文件</strong>（<code>themes/next/_config.yml</code>）修改：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">local_search:</div><div class="line">    enable: true</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">  .</div><div class="line">  ├── _config.yml</div><div class="line">  ├── node_modules</div><div class="line">  ├── package.json</div><div class="line">  ├── scaffolds</div><div class="line">  ├── source</div><div class="line">  └── themes</div><div class="line">```  </div><div class="line"></div><div class="line">  + `_config.yml`  是网站的[站点配置文件](https://hexo.io/zh-cn/docs/configuration.html)</div><div class="line">  + `node_modules` 是nodejs库文件目录，就是`npm install`命令安装的文件位置</div><div class="line">  + `package.json`是程序信息</div><div class="line">  + `scaffolds` 新建文章的模板</div><div class="line">  + `source` 存放用户资源的地方，404、favicon、CNAME 等堵在此处，这是我们主要工作的地方。其中，`_posts`文件是写文章地方，除` _posts`文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹（之后生成），而其他文件会被拷贝过去。</div><div class="line">  + `themes` 是主题存储地方。</div><div class="line"></div><div class="line">- 配置网站信息</div><div class="line">`_config.yml` 文件提供了很多配置，详细可看官网[配置信息](https://hexo.io/zh-cn/docs/configuration.html)。先配置两方面的，之后需要再配置。</div><div class="line">  + 网站基本信息</div></pre></td></tr></table></figure>
-<h1 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h1><p>  title: 欣欣向戎<br>  subtitle: AndyRon’s Blog<br>  description: Just for fun.<br>  author: AndyRon<br>  language: zh-Hans<br>  timezone: Asia/Shanghai<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+ 部署，注意字段，`repo`就是个人GitHub Pages的地址库。</div></pre></td></tr></table></figure></p>
-<h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><h2 id="Docs-https-hexo-io-docs-deployment-html"><a href="#Docs-https-hexo-io-docs-deployment-html" class="headerlink" title="Docs: https://hexo.io/docs/deployment.html"></a>Docs: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">https://hexo.io/docs/deployment.html</a></h2><p>  deploy:<br>  type: git<br>  repo: <a href="https://github.com/andyRon/andyRon.github.io.git" target="_blank" rel="external">https://github.com/andyRon/andyRon.github.io.git</a><br>  branch: master<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 新建文章</div><div class="line"> `hexo new [layout] &lt;title&gt;` ：  也就是在`source/_posts/`下按照模板新建了一个markdown文件，layout就是指`scaffolds`文件夹中的模板，也可以直接在`_posts`中新建markdown文件。</div><div class="line"></div><div class="line">- 在本地服务器测试</div><div class="line">`hexo server` ：在浏览器打开http://localhost:4000/ ，就可以查看</div><div class="line"></div><div class="line">- 生成静态文件</div><div class="line">`hexo generate`（`hexo g`） ：这个命令会新建一个`public`文件夹，在其中生成静态文件，这个目录相当于网站的根目录。</div><div class="line"></div><div class="line">- 发布到github</div><div class="line">`hexo deploy`（`hexo d`）：把`public`文件夹内的内容上传到github上。</div><div class="line">现在访问https://yourname.github.io (我的是https://andyron.github.io )就能访问刚建立的网站了。</div><div class="line">如果出现[**ERROR Deployer not found**](https://github.com/hexojs/hexo/issues/1040)的问题，可通过`npm install hexo-deployer-git --save`解决。</div><div class="line"></div><div class="line">- 其他hexo命令</div><div class="line">`hexo clean` ：删除public文件夹内容，和清理一些缓存。调试网站可以使用。</div><div class="line"></div><div class="line">### 域名绑定（如有必要）</div><div class="line">- 在`source/`下添加文件`CNAME`，内容只为如`andyron.com`（没有http和www）</div><div class="line">- 部署到github上：`hexo generate`，`hexo deploy`</div><div class="line">- 域名解析。不同的域名服务商大同小异，我的是阿里云，为了防止解析出问题，我把其他默认一些邮件解析等都删了，就添加两个：</div><div class="line"></div><div class="line">![](http://upload-images.jianshu.io/upload_images/1678135-248c8a30a3115f53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line">可能需要等一短时间（10分钟以上），就可以用 http://andyron.com 访问了。</div><div class="line"></div><div class="line">### hexo主题</div><div class="line">hexo有很多主题，很多网友为hexo贡献了很多主题，可到[主题](https://hexo.io/themes/)上寻找。我选择的是[next](https://github.com/iissnan/hexo-theme-next)主题，这个使用主题用的人比较多，[文档](http://theme-next.iissnan.com/getting-started.html)很全，也比较简洁。</div><div class="line">主题的使用非常简单：</div><div class="line">  - 将主题文件拷贝至站点目录的`themes` 目录下</div><div class="line">  - 修改**站点配置文件**： `theme:  主题名`</div><div class="line"></div><div class="line">主题的一些设置：</div><div class="line">- 设置RSS</div><div class="line">  + 安装 [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)插件，在`hexo init`初始化的目录下执行`npm install hexo-generator-feed --save`</div><div class="line">  + 在**站点配置文件**添加：</div></pre></td></tr></table></figure></p>
-<p>  feed:<br>  type: atom<br>  path: atom.xml<br>  limit: 20<br>  hub:<br>  content:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  + `hexo generate`</div><div class="line"></div><div class="line">- 设置搜索</div><div class="line">有很多搜索方式，这只是一种简单方式</div><div class="line">  + 安装`hexo-generator-searchdb`，在`hexo`的根目录下：`$ npm install hexo-generator-searchdb --save`</div><div class="line">  + 在**站点配置文件**添加：</div></pre></td></tr></table></figure></p>
-<p>  search:<br>    path: search.xml<br>    field: post<br>    format: html<br>    limit: 10000<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+ 在**主题配置文件**（`themes/next/_config.yml`）修改：</div></pre></td></tr></table></figure></p>
-<pre><code>local_search:
-    enable: true
-</code></pre><p>  ```</p>
+</li>
+</ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-2b6e31f13a6c37aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ul>
 <li><p>添加标签页面</p>
@@ -826,7 +894,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于GitHub-Pages"><span class="nav-number">1.</span> <span class="nav-text">关于GitHub Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo"><span class="nav-number">2.</span> <span class="nav-text">hexo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Site"><span class="nav-number"></span> <span class="nav-text">Site</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deployment"><span class="nav-number"></span> <span class="nav-text">Deployment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docs-https-hexo-io-docs-deployment-html"><span class="nav-number"></span> <span class="nav-text">Docs: https://hexo.io/docs/deployment.html</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于GitHub-Pages"><span class="nav-number">1.</span> <span class="nav-text">关于GitHub Pages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo"><span class="nav-number">2.</span> <span class="nav-text">hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-hexo"><span class="nav-number">2.1.</span> <span class="nav-text">安装 hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建站"><span class="nav-number">2.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新生成的目录结构为："><span class="nav-number">2.3.</span> <span class="nav-text">新生成的目录结构为：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置网站信息"><span class="nav-number">2.4.</span> <span class="nav-text">配置网站信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建文章"><span class="nav-number">2.5.</span> <span class="nav-text">新建文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在本地服务器测试"><span class="nav-number">2.6.</span> <span class="nav-text">在本地服务器测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态文件"><span class="nav-number">2.7.</span> <span class="nav-text">生成静态文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布到github"><span class="nav-number">2.8.</span> <span class="nav-text">发布到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他hexo命令"><span class="nav-number">2.9.</span> <span class="nav-text">其他hexo命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名绑定（如有必要）"><span class="nav-number">3.</span> <span class="nav-text">域名绑定（如有必要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo主题"><span class="nav-number">4.</span> <span class="nav-text">hexo主题</span></a></li></ol></div>
             
 
           </div>
