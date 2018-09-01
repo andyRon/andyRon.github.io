@@ -332,7 +332,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-3-inheritance.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-5.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -351,7 +351,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/oc-basic-3-inheritance.html" itemprop="url">OC基础学习3：继承(inheritance)</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-5.html" itemprop="url">OC基础学习5：源文件组织</a></h1>
         
 
         <div class="post-meta">
@@ -404,9 +404,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-3-inheritance.html#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-5.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-3-inheritance.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-5.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,7 +414,7 @@
 
           
           
-             <span id="/2017/oc-basic-3-inheritance.html" class="leancloud_visitors" data-flag-title="OC基础学习3：继承(inheritance)">
+             <span id="/2017/oc-basic-5.html" class="leancloud_visitors" data-flag-title="OC基础学习5：源文件组织">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 299 字
+                  : 681 字
                 </span>
               
 
@@ -456,7 +456,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 1 分钟
+                  ≈ 3 分钟
                 </span>
               
             </div>
@@ -476,32 +476,17 @@
       
         
           
-          
-为何使用继承
-UML(Unified Modeling Language, 统一建模语言) 是一种用图表来表示类、类的内容以及它们之间关系。
-将重复的代码合并到一处。
+          将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。
+拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：
 
+接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。
+实现部分(.m): 类的@implementation指令、全局变量的定义、私有struct等。
 
-继承的语法格式
-只能继承一个
-只有代码精简，bug才无处藏身
-没有声明实例变量时可以省略花括号
-相关术语
-refactoring (重构)
-superclass
-parent class
-subclass
-child class
-override
-
-
-
-
-继承的工作机制OOP一个强大之处：可以对一个程序做一些重大改变，程序仍
+另外，复杂的项目可以拥有多个目标，它们源文件的配置各不相同，构建规则也不
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/oc-basic-3-inheritance.html#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-5.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -547,7 +532,7 @@ override
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-2.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-4-composition.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -566,7 +551,7 @@ override
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/oc-basic-2.html" itemprop="url">OC基础学习2：面向对象编程的基础知识</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-4-composition.html" itemprop="url">OC基础学习4：复合（composition）</a></h1>
         
 
         <div class="post-meta">
@@ -619,9 +604,9 @@ override
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-2.html#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-4-composition.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-2.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-4-composition.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -629,7 +614,7 @@ override
 
           
           
-             <span id="/2017/oc-basic-2.html" class="leancloud_visitors" data-flag-title="OC基础学习2：面向对象编程的基础知识">
+             <span id="/2017/oc-basic-4-composition.html" class="leancloud_visitors" data-flag-title="OC基础学习4：复合（composition）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -655,7 +640,7 @@ override
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,320 字
+                  : 674 字
                 </span>
               
 
@@ -671,7 +656,7 @@ override
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 7 分钟
+                  ≈ 3 分钟
                 </span>
               
             </div>
@@ -691,31 +676,12 @@ override
       
         
           
-          间接(indirection)
-“只要再多添加一层间接，计算机科学中就没有解决不了的问题。”
-
-
-例子
-电话薄
-让他人代替你自己去完成工作
-编写一段代码来查询其他代码，并通过它继续访问另一层代码。
-推诿
-
-
-变量与间接
-使用文件名的间接
-
-在面向对象编程中使用间接
-使用间接来调用代码，不是直接调用某个函数，而是间接调用。 
-
-
-过程式编程(Procedual Programming)
-
-1234567891011121314151617181920212223242526272829303132
+          复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&#123;    Engine *engine;    Tire *tires[4];&#125;* (void)print;@end //Car
+自定义NSLog()NSLog()使用%@格式说明符表示输出对象，也就是NSLog()会给这个对象发送
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/oc-basic-2.html#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-4-composition.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2540,9 +2506,11 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
   &copy;  2017 - 
   <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-bug"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
+  <span class="post-count">  全站共101.9k字</span>
+
 </div>
 
 
@@ -2559,7 +2527,8 @@ OC本质上就是C语言，它用来声明main()和返回数值的语法和C语�
   </a>
 </div>
 
--->
+--!>
+
 
 
         
