@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SDWebImage," />
+  <meta name="keywords" content="iOS, Swift" />
 
 
 
@@ -102,21 +102,29 @@
 
 
 
-<meta name="description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试">
-<meta name="keywords" content="SDWebImage">
+<meta name="description" content="1TCP/IP出现的背景及其历史军用技术ARPANET    UNIX系统的普及与互联网的扩张   商用互联网服务的启蒙     ISP 2TCP/IP的标准化 TCP/IP协议群  TCP/IP规范  —-  RFCRFC(Request For Comment，征求意见表)       TCP/IP的标准化流程 互联网草案阶段 -&amp;gt; 记入RFC进入提议标准阶段 -&amp;gt; 草案标准阶段">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS网络编程(六)：SDWebImage的简单使用">
-<meta property="og:url" content="http://andyron.com/2017/ios-network-6.html">
+<meta property="og:title" content="图解TCP&#x2F;IP-2-TCP&#x2F;IP基础知识">
+<meta property="og:url" content="http://andyron.com/2018/tujie-TCP-IP-2.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试">
+<meta property="og:description" content="1TCP/IP出现的背景及其历史军用技术ARPANET    UNIX系统的普及与互联网的扩张   商用互联网服务的启蒙     ISP 2TCP/IP的标准化 TCP/IP协议群  TCP/IP规范  —-  RFCRFC(Request For Comment，征求意见表)       TCP/IP的标准化流程 互联网草案阶段 -&amp;gt; 记入RFC进入提议标准阶段 -&amp;gt; 草案标准阶段">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/656644-7dfe370a86e157e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-10-08T06:25:40.000Z">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fuxe4g75qaj310w0goabv.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxe8ijzadj30so0as0t5.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxeaaju78j30zw0iw403.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fuxeasa48nj30sm11277e.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fuxehk2iu8j30z40l4t9h.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxekyc25uj310k0kkmyt.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fuxemii989j310s0ikq55.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxexv96lej30y609wgm9.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxf86nr1bj30pu066gm5.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxf970ljsj310k1300wz.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fuxfbb28l0j310u0fcdh5.jpg">
+<meta property="og:updated_time" content="2018-09-04T05:07:50.859Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS网络编程(六)：SDWebImage的简单使用">
-<meta name="twitter:description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="图解TCP&#x2F;IP-2-TCP&#x2F;IP基础知识">
+<meta name="twitter:description" content="1TCP/IP出现的背景及其历史军用技术ARPANET    UNIX系统的普及与互联网的扩张   商用互联网服务的启蒙     ISP 2TCP/IP的标准化 TCP/IP协议群  TCP/IP规范  —-  RFCRFC(Request For Comment，征求意见表)       TCP/IP的标准化流程 互联网草案阶段 -&amp;gt; 记入RFC进入提议标准阶段 -&amp;gt; 草案标准阶段">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fuxe4g75qaj310w0goabv.jpg">
 
 
 
@@ -144,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/ios-network-6.html"/>
+  <link rel="canonical" href="http://andyron.com/2018/tujie-TCP-IP-2.html"/>
 
 
 
 
 
-  <title>iOS网络编程(六)：SDWebImage的简单使用 | 欣欣向戎</title>
+  <title>图解TCP/IP-2-TCP/IP基础知识 | 欣欣向戎</title>
   
 
 
@@ -335,7 +343,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-network-6.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/tujie-TCP-IP-2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -352,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS网络编程(六)：SDWebImage的简单使用</h1>
+          <h1 class="post-title" itemprop="name headline">图解TCP/IP-2-TCP/IP基础知识</h1>
         
 
         <div class="post-meta">
@@ -364,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T20:15:48+08:00">
-                2017-09-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T12:27:36+08:00">
+                2018-09-03
               </time>
             
 
@@ -387,8 +395,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/图解TCP-IP/" itemprop="url" rel="index">
+                    <span itemprop="name">图解TCP/IP</span>
                   </a>
                 </span>
 
@@ -405,9 +413,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/ios-network-6.html#comments" itemprop="discussionUrl">
+                <a href="/2018/tujie-TCP-IP-2.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/ios-network-6.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/tujie-TCP-IP-2.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -415,7 +423,7 @@
 
           
           
-             <span id="/2017/ios-network-6.html" class="leancloud_visitors" data-flag-title="iOS网络编程(六)：SDWebImage的简单使用">
+             <span id="/2018/tujie-TCP-IP-2.html" class="leancloud_visitors" data-flag-title="图解TCP/IP-2-TCP/IP基础知识">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -441,7 +449,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 609 字
+                  : 291 字
                 </span>
               
 
@@ -457,7 +465,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 3 分钟
+                  ≈ 1 分钟
                 </span>
               
             </div>
@@ -475,46 +483,44 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><strong>SDWebImage</strong>一些知识：</p>
+        <h3 id="1TCP-IP出现的背景及其历史"><a href="#1TCP-IP出现的背景及其历史" class="headerlink" title="1TCP/IP出现的背景及其历史"></a>1TCP/IP出现的背景及其历史</h3><p>军用技术<br>ARPANET  </p>
+<p><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fuxe4g75qaj310w0goabv.jpg" alt=""></p>
+<p>UNIX系统的普及与互联网的扩张  </p>
+<p>商用互联网服务的启蒙     ISP</p>
+<h3 id="2TCP-IP的标准化"><a href="#2TCP-IP的标准化" class="headerlink" title="2TCP/IP的标准化"></a>2TCP/IP的标准化</h3><ul>
+<li><p>TCP/IP协议群<br><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxe8ijzadj30so0as0t5.jpg" alt=""></p>
+</li>
+<li><p>TCP/IP规范  —-  RFC<br>RFC(Request For Comment，征求意见表)  </p>
+</li>
+</ul>
+<p><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxeaaju78j30zw0iw403.jpg" alt=""><br><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fuxeasa48nj30sm11277e.jpg" alt=""></p>
 <ul>
-<li>对远程图片进行缓存管理（磁盘+内存）</li>
-<li>异步加载</li>
-<li>同一个URL图片不会重复下载</li>
-<li>失效的URL不会被无限重试</li>
-</ul>
-<a id="more"></a>
-<h3 id="图片加载一般使用"><a href="#图片加载一般使用" class="headerlink" title="图片加载一般使用"></a>图片加载一般使用</h3><ul>
-<li><p><strong>SDWebImage</strong>通过为<code>UIImageView</code>添加类别，扩展了一些类似的方法，只是参数的多少数目不同，最全的参数的方法是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-sd_setImageWithURL:placeholderImage:options:progress:completed:</div></pre></td></tr></table></figure>
-<ul>
-<li><code>sd_setImageWithURL</code>: <code>URL</code>的图片的URL</li>
-<li><code>placeholderImage</code>:  远程图片没有加载完成的占位图片</li>
-<li><p><code>options</code>: 一个位移枚举(<code>SDWebImageOptions</code>)，可以通过按位或 | 来并列添加参数。<code>SDWebImageOptions</code>的所有选项如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">//失败后重试</div><div class="line">SDWebImageRetryFailed   =   1   &lt;&lt;   0,</div><div class="line"> </div><div class="line">//UI交互期间开始下载，导致延迟下载比如UIScrollView减速。</div><div class="line">SDWebImageLowPriority   =   1   &lt;&lt;   1,</div><div class="line"> </div><div class="line">//只进行内存缓存</div><div class="line">SDWebImageCacheMemoryOnly   =   1   &lt;&lt;   2,</div><div class="line"> </div><div class="line">//这个标志可以渐进式下载,显示的图像是逐步在下载</div><div class="line">SDWebImageProgressiveDownload   =   1   &lt;&lt;   3,</div><div class="line"> </div><div class="line">//刷新缓存</div><div class="line">SDWebImageRefreshCached   =   1   &lt;&lt;   4,</div><div class="line"> </div><div class="line">//后台下载</div><div class="line">SDWebImageContinueInBackground   =   1   &lt;&lt;   5,</div><div class="line"> </div><div class="line">//NSMutableURLRequest.HTTPShouldHandleCookies   =   YES;</div><div class="line">SDWebImageHandleCookies   =   1   &lt;&lt;   6,</div><div class="line"> </div><div class="line">//允许使用无效的SSL证书</div><div class="line">//SDWebImageAllowInvalidSSLCertificates   =   1   &lt;&lt;   7,</div><div class="line"> </div><div class="line">//优先下载</div><div class="line">SDWebImageHighPriority   =   1   &lt;&lt;   8,</div><div class="line"> </div><div class="line">//延迟占位符</div><div class="line">SDWebImageDelayPlaceholder   =   1   &lt;&lt;   9,</div><div class="line"> </div><div class="line">//改变动画形象</div><div class="line">SDWebImageTransformAnimatedImage   =   1   &lt;&lt;   10,</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>progress</code>: <code>Block</code> 获取当前图片数据的下载进度<br>   receivedSize：已经下载完成的数据大小<br>   expectedSize：该文件的数据总大小</p>
-</li>
-<li><code>completed</code>: <code>Block</code>加载完<br>   image:下载得到的图片数据<br>   error:下载出现的错误信息<br>   SDImageCacheType：图片的缓存策略<br>   imageURL：下载的图片的url地址</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>引入<strong>UIImageView+WebCache</strong>类别就可以使用<strong>SDWebImage</strong>加载图片</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIImageView+WebCache.h&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>不同参数方法使用🌰</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[self.imageView sd_setImageWithURL: url];</div><div class="line"></div><div class="line">[self.imageView sd_setImageWithURL: url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) &#123;</div><div class="line">    NSLog(@&quot;图片加载完&quot;);</div><div class="line">&#125;];</div><div class="line"></div><div class="line">[self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@&quot;apple&quot;]];</div><div class="line"></div><div class="line">[self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@&quot;apple&quot;] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) &#123;</div><div class="line">    NSLog(@&quot;图片加载完&quot;);</div><div class="line">&#125;];</div><div class="line"></div><div class="line">[self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@&quot;apple&quot;] options: SDWebImageCacheMemoryOnly];</div><div class="line"></div><div class="line">[self.imageView sd_setImageWithURL:url placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) &#123;</div><div class="line">    //计算当前图片的下载进度</div><div class="line">    NSLog(@&quot;下载进度:%.2f&quot;,1.0 *receivedSize / expectedSize);</div><div class="line">&#125; completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) &#123;</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="图片加载过程"><a href="#图片加载过程" class="headerlink" title="图片加载过程"></a>图片加载过程</h3><p><img src="http://upload-images.jianshu.io/upload_images/656644-7dfe370a86e157e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="缓存大小"><a href="#缓存大小" class="headerlink" title="缓存大小"></a>缓存大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSInteger *cacheSize = [[SDImageCache sharedImageCache] getSize];</div><div class="line">NSLog(@&quot;缓存大小：%d&quot;, cacheSize);</div></pre></td></tr></table></figure>
-<h3 id="清理缓存"><a href="#清理缓存" class="headerlink" title="清理缓存"></a>清理缓存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 清理内存缓存</div><div class="line">[[SDImageCache sharedImageCache] clearMemory];</div><div class="line"></div><div class="line">// 清理磁盘缓存</div><div class="line">[[SDImageCache sharedImageCache] clearDisk];</div></pre></td></tr></table></figure>
-<h3 id="查看缓存完整目录"><a href="#查看缓存完整目录" class="headerlink" title="查看缓存完整目录"></a>查看缓存完整目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSLog(@&quot;%s__%d__|%@&quot;,__FUNCTION__,__LINE__,[[SDImageCache sharedImageCache] defaultCachePathForKey:@&quot;http://img4.duitang.com/uploads/blog/201310/18/20131018213446_smUw4.thumb.600_0.jpeg&quot;]);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>代码：<a href="https://github.com/andyRon/LearniOSByProject/tree/master/91-network" target="_blank" rel="external">SDWebImageDemo</a></p>
-<p>参考：<br><a href="http://www.jianshu.com/p/be9a0a088feb" target="_blank" rel="external">iOS图片加载框架－SDWebImage解读</a><br><a href="http://www.cnblogs.com/yevgeni/articles/5582840.html" target="_blank" rel="external">SDWebImage 的简单使用方法</a><br><a href="http://www.cnblogs.com/cqb-learner/p/5856850.html" target="_blank" rel="external">iOS开发SDWebImage的基本使用</a></p>
+<li>TCP/IP的标准化流程<blockquote>
+<p>互联网草案阶段 -&gt; 记入RFC进入提议标准阶段 -&gt; 草案标准阶段 -&gt; 真正的标准阶段 </p>
 </blockquote>
+</li>
+</ul>
+<p><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1fuxehk2iu8j30z40l4t9h.jpg" alt=""></p>
+<h3 id="3互联网基础知识"><a href="#3互联网基础知识" class="headerlink" title="3互联网基础知识"></a>3互联网基础知识</h3><ul>
+<li>互联网结构</li>
+</ul>
+<p><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxekyc25uj310k0kkmyt.jpg" alt=""></p>
+<h3 id="4TCP-IP协议分层模型"><a href="#4TCP-IP协议分层模型" class="headerlink" title="4TCP/IP协议分层模型"></a>4TCP/IP协议分层模型</h3><p><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fuxemii989j310s0ikq55.jpg" alt=""></p>
+<ul>
+<li>硬件（物理层）</li>
+<li>网络接口层（数据链路层）</li>
+<li>互联网层（网络层）<br>连接互联网的所有主机跟路由器必须实现IP的功能，其它连接互联网的网络设备（如网桥、中继器或集线器）就没有必要一定实现IP或TCP的功能（有时为了监控和管理这些设备就要了）。  </li>
+</ul>
+<p>ARP：从分组数据包的IP地址中解析出物理地址（MAC地址）的协议</p>
+<ul>
+<li><p>传输层 ： 让应用程序之间实现通信<br><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxexv96lej30y609wgm9.jpg" alt=""></p>
+</li>
+<li><p>应用层</p>
+</li>
+</ul>
+<h3 id="5TCP-IP分层模型与通信示例"><a href="#5TCP-IP分层模型与通信示例" class="headerlink" title="5TCP/IP分层模型与通信示例"></a>5TCP/IP分层模型与通信示例</h3><p><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxf86nr1bj30pu066gm5.jpg" alt="">  </p>
+<p><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fuxf970ljsj310k1300wz.jpg" alt="TCP/IP各层对邮件的收发处理">  </p>
+<p><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fuxfbb28l0j310u0fcdh5.jpg" alt=""><br>每个分层的包首部中还包含一个识别位。</p>
 
       
     </div>
@@ -564,7 +570,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/ios-network-6.html" title="iOS网络编程(六)：SDWebImage的简单使用">http://andyron.com/2017/ios-network-6.html</a>
+      <a href="http://andyron.com/2018/tujie-TCP-IP-2.html" title="图解TCP/IP-2-TCP/IP基础知识">http://andyron.com/2018/tujie-TCP-IP-2.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -578,12 +584,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/SDWebImage/" rel="tag"><i class="fa fa-tag"></i> SDWebImage</a>
-          
-        </div>
-      
 
       
       
@@ -593,8 +593,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-network-5.html" rel="next" title="iOS网络编程(五)：Cookie的使用">
-                <i class="fa fa-chevron-left"></i> iOS网络编程(五)：Cookie的使用
+              <a href="/2018/wosuolijiedeshenghuo.html" rel="next" title="《我所理解的生活》记录">
+                <i class="fa fa-chevron-left"></i> 《我所理解的生活》记录
               </a>
             
           </div>
@@ -603,8 +603,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-sandbox-file.html" rel="prev" title="iOS沙盒和文件管理">
-                iOS沙盒和文件管理 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/tujie-TCP-IP-1.html" rel="prev" title="图解TCP/IP-1-网络基础知识">
+                图解TCP/IP-1-网络基础知识 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -822,7 +822,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#图片加载一般使用"><span class="nav-number">1.</span> <span class="nav-text">图片加载一般使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片加载过程"><span class="nav-number">2.</span> <span class="nav-text">图片加载过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存大小"><span class="nav-number">3.</span> <span class="nav-text">缓存大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清理缓存"><span class="nav-number">4.</span> <span class="nav-text">清理缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看缓存完整目录"><span class="nav-number">5.</span> <span class="nav-text">查看缓存完整目录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1TCP-IP出现的背景及其历史"><span class="nav-number">1.</span> <span class="nav-text">1TCP/IP出现的背景及其历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2TCP-IP的标准化"><span class="nav-number">2.</span> <span class="nav-text">2TCP/IP的标准化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3互联网基础知识"><span class="nav-number">3.</span> <span class="nav-text">3互联网基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4TCP-IP协议分层模型"><span class="nav-number">4.</span> <span class="nav-text">4TCP/IP协议分层模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5TCP-IP分层模型与通信示例"><span class="nav-number">5.</span> <span class="nav-text">5TCP/IP分层模型与通信示例</span></a></li></ol></div>
             
 
           </div>
@@ -992,9 +992,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/ios-network-6.html';
-          this.page.identifier = '2017/ios-network-6.html';
-          this.page.title = 'iOS网络编程(六)：SDWebImage的简单使用';
+          this.page.url = 'http://andyron.com/2018/tujie-TCP-IP-2.html';
+          this.page.identifier = '2018/tujie-TCP-IP-2.html';
+          this.page.title = '图解TCP/IP-2-TCP/IP基础知识';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';

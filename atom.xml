@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-03T07:27:20.338Z</updated>
+  <updated>2018-09-04T04:20:06.389Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -21,12 +21,33 @@
     <link href="http://andyron.com/2018/tujie-TCP-IP-1.html"/>
     <id>http://andyron.com/2018/tujie-TCP-IP-1.html</id>
     <published>2018-09-03T04:27:36.000Z</published>
-    <updated>2018-09-03T07:27:20.338Z</updated>
+    <updated>2018-09-04T04:20:06.389Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;现在TCP/IP不局限于链接计算机，还可以链接汽车、数码相机、家电等，另外还应用在计算机系统虚拟化和云计算。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNbRwgy1fuw97h2a4mj30v20nidh4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="图解TCP/IP" scheme="http://andyron.com/categories/%E5%9B%BE%E8%A7%A3TCP-IP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>图解TCP/IP-2-TCP/IP基础知识</title>
+    <link href="http://andyron.com/2018/tujie-TCP-IP-2.html"/>
+    <id>http://andyron.com/2018/tujie-TCP-IP-2.html</id>
+    <published>2018-09-03T04:27:36.000Z</published>
+    <updated>2018-09-04T05:07:50.859Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;1TCP-IP出现的背景及其历史&quot;&gt;&lt;a href=&quot;#1TCP-IP出现的背景及其历史&quot; class=&quot;headerlink&quot; title=&quot;1TCP/IP出现的背景及其历史&quot;&gt;&lt;/a&gt;1TCP/IP出现的背景及其历史&lt;/h3&gt;&lt;p&gt;军用技术&lt;br&gt;ARPANE
+      
     
     </summary>
     
@@ -505,33 +526,6 @@
     
     
       <category term="sandbox" scheme="http://andyron.com/tags/sandbox/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程(六)：SDWebImage的简单使用</title>
-    <link href="http://andyron.com/2017/ios-network-6.html"/>
-    <id>http://andyron.com/2017/ios-network-6.html</id>
-    <published>2017-09-23T12:15:48.000Z</published>
-    <updated>2017-10-08T06:25:40.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;SDWebImage&lt;/strong&gt;一些知识：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;对远程图片进行缓存管理（磁盘+内存）&lt;/li&gt;
-&lt;li&gt;异步加载&lt;/li&gt;
-&lt;li&gt;同一个URL图片不会重复下载&lt;/li&gt;
-&lt;li&gt;失效的URL不会被无限重试&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="SDWebImage" scheme="http://andyron.com/tags/SDWebImage/"/>
     
   </entry>
   
