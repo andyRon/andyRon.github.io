@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-04T05:15:43.359Z</updated>
+  <updated>2018-09-05T02:58:09.079Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图解TCP/IP-3-数据链路</title>
+    <link href="http://andyron.com/2018/tujie-TCP-IP-3.html"/>
+    <id>http://andyron.com/2018/tujie-TCP-IP-3.html</id>
+    <published>2018-09-05T04:27:36.000Z</published>
+    <updated>2018-09-05T02:58:09.079Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1数据链路的作用&quot;&gt;&lt;a href=&quot;#1数据链路的作用&quot; class=&quot;headerlink&quot; title=&quot;1数据链路的作用&quot;&gt;&lt;/a&gt;1数据链路的作用&lt;/h3&gt;&lt;p&gt;二进制0、1表示信息，在通信媒介中国对应是 电压的高低、光的闪灭以及电波的强弱等信号。  &lt;/p&gt;
+&lt;p&gt;数据链路被视为网络传输中的最小单位。  &lt;/p&gt;
+&lt;p&gt;不同的数据链路网路：&lt;br&gt;以太网&lt;br&gt;FDDI（Fiber Distributed Data Interface，光纤分布式数据接口）&lt;br&gt;ATM（Asynchronous Transfer Mode，异步传输方式）&lt;br&gt;无线LAN&lt;br&gt;蓝牙  &lt;/p&gt;
+&lt;p&gt;网络拓扑（Topology）&lt;/p&gt;
+&lt;h3 id=&quot;2数据链路相关技术&quot;&gt;&lt;a href=&quot;#2数据链路相关技术&quot; class=&quot;headerlink&quot; title=&quot;2数据链路相关技术&quot;&gt;&lt;/a&gt;2数据链路相关技术&lt;/h3&gt;&lt;h4 id=&quot;2-1MAC地址&quot;&gt;&lt;a href=&quot;#2-1MAC地址&quot; class=&quot;headerlink&quot; title=&quot;2.1MAC地址&quot;&gt;&lt;/a&gt;2.1MAC地址&lt;/h4&gt;&lt;p&gt;MAC地址长48比特，一般被烧入到ROM中。任意一个网卡的MAC地址是全世界唯一的（虚拟网卡除外）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNbRwgy1fuyg9h5k7vj30yi0lagn3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="图解TCP/IP" scheme="http://andyron.com/categories/%E5%9B%BE%E8%A7%A3TCP-IP/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>图解TCP/IP-2-TCP/IP基础知识</title>
@@ -505,27 +528,6 @@
     
     
       <category term="pch" scheme="http://andyron.com/tags/pch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS沙盒和文件管理</title>
-    <link href="http://andyron.com/2017/ios-sandbox-file.html"/>
-    <id>http://andyron.com/2017/ios-sandbox-file.html</id>
-    <published>2017-09-24T16:00:00.000Z</published>
-    <updated>2017-10-08T06:25:33.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-423ab6158c3ad6b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;沙盒&lt;/strong&gt;（sandbox）：iOS系统为每个应用程序创建自己的目录，每个应用程序只能访问自己的目录。&lt;br&gt;所有的非代码文件都要保存在此，例如图像，图标，声音，映像，属性列表，文本文件等。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="sandbox" scheme="http://andyron.com/tags/sandbox/"/>
     
   </entry>
   
