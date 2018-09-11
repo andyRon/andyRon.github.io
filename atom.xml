@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-10T04:31:09.687Z</updated>
+  <updated>2018-09-11T12:32:24.323Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -17,18 +17,66 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>图解TCP/IP-5-iP协议相关技术</title>
+    <link href="http://andyron.com/2018/tujie-TCP-IP-5.html"/>
+    <id>http://andyron.com/2018/tujie-TCP-IP-5.html</id>
+    <published>2018-09-10T16:00:00.000Z</published>
+    <updated>2018-09-11T12:32:24.323Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;仅凭IP无法完成通信&lt;/p&gt;
+&lt;h3 id=&quot;1-DNS&quot;&gt;&lt;a href=&quot;#1-DNS&quot; class=&quot;headerlink&quot; title=&quot;1 DNS&quot;&gt;&lt;/a&gt;1 DNS&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/0
+      
+    
+    </summary>
+    
+      <category term="图解TCP/IP" scheme="http://andyron.com/categories/%E5%9B%BE%E8%A7%A3TCP-IP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>读《设计心理学1》--好的设计是有章可循的</title>
+    <link href="http://andyron.com/2018/%E8%AE%BE%E8%AE%A1%E5%BF%83%E7%90%86%E5%AD%A61.html"/>
+    <id>http://andyron.com/2018/设计心理学1.html</id>
+    <published>2018-09-09T16:00:00.000Z</published>
+    <updated>2018-09-11T12:29:36.917Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://ws1.sinaimg.cn/large/0069RVTdgy1fv4klu1l60j30u01740x3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;作者和本书概要&quot;&gt;&lt;a href=&quot;#作者和本书概要&quot; class=&quot;heade
+      
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="设计" scheme="http://andyron.com/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>读《赤裸裸的统计学》——面对爆炸的数据，了解统计学是很有必要的</title>
     <link href="http://andyron.com/2018/%E8%B5%A4%E8%A3%B8%E8%A3%B8%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%AD%A6.html"/>
     <id>http://andyron.com/2018/赤裸裸的统计学.html</id>
     <published>2018-09-08T16:00:00.000Z</published>
-    <updated>2018-09-10T04:31:09.687Z</updated>
+    <updated>2018-09-11T12:31:56.553Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://ws1.sinaimg.cn/large/0069RVTdgy1fv4acr7jihj308w0c9glt.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;作者和本书概要&quot;&gt;&lt;a href=&quot;#作者和本书概要&quot; class=&quot;headerlink&quot; title=&quot;作者和本书概要&quot;&gt;&lt;/a&gt;作者和本书概要&lt;/h2&gt;&lt;p&gt;查尔斯•惠伦（Charles Wheelan），于1997～2002年间担任《经济学人》杂志驻美国中西部地区的记者，还为《芝加哥部报》、《纽约时报》和《华尔街日报》撰稿，所著《赤裸裸的经济学》是畅销多年的经济学普及读物。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/25717380/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《赤裸裸的统计学》&lt;/a&gt;是一本关于统计学常识的科普书。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws1.sinaimg.cn/large/0069RVTdgy1fv4by8wel0j30rm0drdha.jpg&quot; alt=&quot;《赤裸裸的统计学》思维导图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/0069RVTdgy1fv4m5qldl4j30rm0drwgh.jpg&quot; alt=&quot;《赤裸裸的统计学》思维导图&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;内容&quot;&gt;&lt;a href=&quot;#内容&quot; class=&quot;headerlink&quot; title=&quot;内容&quot;&gt;&lt;/a&gt;内容&lt;/h2&gt;&lt;p&gt;作为大数据时代炙手可热的学问，统计学可以解决很多实际问题。可如果运用不当，统计学也会制造假象、造成误导。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;了解统计学，了解在大数据时代生存的游戏法则。&lt;/strong&gt; 运用好统计学知识，能让我们在面对陌生问题的时候，得出有说服力的结论，做出合理的决策。&lt;br&gt;统计学家的工作：通过分析数据来推断事物的本质，预测它未来的发展。&lt;/p&gt;
     
@@ -50,6 +98,28 @@
       <category term="中心极限定理" scheme="http://andyron.com/tags/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/"/>
     
       <category term="回归分析" scheme="http://andyron.com/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图解TCP/IP-4-IP协议</title>
+    <link href="http://andyron.com/2018/tujie-TCP-IP-4.html"/>
+    <id>http://andyron.com/2018/tujie-TCP-IP-4.html</id>
+    <published>2018-09-05T16:00:00.000Z</published>
+    <updated>2018-09-11T12:31:04.560Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。&lt;/p&gt;
+&lt;h3 id=&quot;1IP即网际协议&quot;&gt;&lt;a href=&quot;#1IP即网际协议&quot; class=&quot;head
+      
+    
+    </summary>
+    
+      <category term="图解TCP/IP" scheme="http://andyron.com/categories/%E5%9B%BE%E8%A7%A3TCP-IP/"/>
+    
     
   </entry>
   
@@ -409,139 +479,6 @@
     
     
       <category term="runtime" scheme="http://andyron.com/tags/runtime/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS核心动画小结(swift)</title>
-    <link href="http://andyron.com/2018/ios-coreanimation-swift.html"/>
-    <id>http://andyron.com/2018/ios-coreanimation-swift.html</id>
-    <published>2018-05-29T07:36:52.000Z</published>
-    <updated>2018-05-29T08:06:18.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文所有示例代码都是Swift4，参看文末链接&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Core Animation是IOS和OS X平台上负责图形渲染与动画的基础框架。Core Animation可以作用与动画视图或者其他可视元素，为你完成了动画所需的大部分绘画工作。你只需要配置少量的动画参数（如开始点的位置和结束点的位置）即可使用Core Animation的动画效果。Core Animation将大部分实际的绘图任务交给了图形硬件来处理，图形硬件会加速图形渲染的速度。这种自动化的图形加速技术让动画拥有更高的帧率并且显示效果更加平滑，不会加重CPU的负担而影响程序的运行速度。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-16f8312b54e20cc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Core Animation常用类继承关系&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Masonry学习</title>
-    <link href="http://andyron.com/2018/masonry-begin.html"/>
-    <id>http://andyron.com/2018/masonry-begin.html</id>
-    <published>2018-05-28T16:00:00.000Z</published>
-    <updated>2018-08-16T02:38:55.575Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Masonry是一个轻量级的OC布局框架， 拥有自己的描述语法，采用更优雅的链式语法封装自动布局，简洁明了，并具有高可读性，而且同时支持 iOS 和 Max OS X。&lt;/p&gt;
-&lt;p&gt;Masonry支持的属性与NSLayoutAttrubute的对照：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;MASConstraint (Masonry)&lt;/th&gt;
-&lt;th&gt;NSAutoLayout&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;left&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeLeft&lt;/td&gt;
-&lt;td&gt;左侧&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;top&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeTop&lt;/td&gt;
-&lt;td&gt;上侧&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;right&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeRight&lt;/td&gt;
-&lt;td&gt;右侧&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;bottom&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeBottom&lt;/td&gt;
-&lt;td&gt;下侧&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;leading&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeLeading&lt;/td&gt;
-&lt;td&gt;首部&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;trailing&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeTrailing&lt;/td&gt;
-&lt;td&gt;尾部&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;width&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeWidth&lt;/td&gt;
-&lt;td&gt;宽&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;height&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeHeight&lt;/td&gt;
-&lt;td&gt;高&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;centerX&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeCenterX&lt;/td&gt;
-&lt;td&gt;横向中点&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;centerY&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeCenterY&lt;/td&gt;
-&lt;td&gt;纵向中点&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;baseline&lt;/td&gt;
-&lt;td&gt;NSLayoutAttributeBaseline&lt;/td&gt;
-&lt;td&gt;文本基线&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;其中leading与left, trailing与right 在正常情况下是等价的。但是当一些布局是从右至左时(比如阿拉伯文) 则会对调， 换句话说就是基本可以 用left和right就好了。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="Masonry" scheme="http://andyron.com/tags/Masonry/"/>
-    
-      <category term="布局" scheme="http://andyron.com/tags/%E5%B8%83%E5%B1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>向CocoaPods发布代码</title>
-    <link href="http://andyron.com/2017/ios-cocoapods-push.html"/>
-    <id>http://andyron.com/2017/ios-cocoapods-push.html</id>
-    <published>2017-10-08T05:53:50.000Z</published>
-    <updated>2017-10-08T06:23:51.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1678135-cdcea9c27584ae4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://cocoapods.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cocoapods&lt;/a&gt;是非常好用的一个iOS依赖管理工具，用它来管理和更新项目中的第三库使iOS开发更加方便。&lt;br&gt;使用别人优秀的代码在程序员开发过程中是非常常见的事，为别人贡献代码也是很有必要的事。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="CocoaPods" scheme="http://andyron.com/tags/CocoaPods/"/>
     
   </entry>
   
