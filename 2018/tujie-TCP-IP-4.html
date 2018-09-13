@@ -102,12 +102,12 @@
 
 
 
-<meta name="description" content="TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。 1IP即网际协议   主机：配置IP地址，但不进行路由控制的设备。路由器：配置IP地址又有路由控制的设备。节点：主机和路由器的统称。 2IP基础知识IP地址属于网络层地址路由控制IP路由也叫多路路由 为了将数据包发给目标主机，所有主">
+<meta name="description" content="TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。 1IP即网际协议   主机：配置IP地址，但不进行路由控制的设备。路由器：配置IP地址又有路由控制的设备。节点：主机和路由器的统称。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图解TCP&#x2F;IP-4-IP协议">
 <meta property="og:url" content="http://andyron.com/2018/tujie-TCP-IP-4.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。 1IP即网际协议   主机：配置IP地址，但不进行路由控制的设备。路由器：配置IP地址又有路由控制的设备。节点：主机和路由器的统称。 2IP基础知识IP地址属于网络层地址路由控制IP路由也叫多路路由 为了将数据包发给目标主机，所有主">
+<meta property="og:description" content="TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。 1IP即网际协议   主机：配置IP地址，但不进行路由控制的设备。路由器：配置IP地址又有路由控制的设备。节点：主机和路由器的统称。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fuzz5b87o4j30w80c83za.jpg">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-268ca3a178f3f38a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -123,10 +123,10 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fv5uo0ucb6j30ve0hoabg.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0069RVTdgy1fv5urf85aoj30w80lqta9.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fv5urr9d08j30vk0okwga.jpg">
-<meta property="og:updated_time" content="2018-09-11T12:31:04.560Z">
+<meta property="og:updated_time" content="2018-09-13T03:05:10.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图解TCP&#x2F;IP-4-IP协议">
-<meta name="twitter:description" content="TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。 1IP即网际协议   主机：配置IP地址，但不进行路由控制的设备。路由器：配置IP地址又有路由控制的设备。节点：主机和路由器的统称。 2IP基础知识IP地址属于网络层地址路由控制IP路由也叫多路路由 为了将数据包发给目标主机，所有主">
+<meta name="twitter:description" content="TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。 1IP即网际协议   主机：配置IP地址，但不进行路由控制的设备。路由器：配置IP地址又有路由控制的设备。节点：主机和路由器的统称。">
 <meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fuzz5b87o4j30w80c83za.jpg">
 
 
@@ -489,6 +489,7 @@
         <p>TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。</p>
 <h3 id="1IP即网际协议"><a href="#1IP即网际协议" class="headerlink" title="1IP即网际协议"></a>1IP即网际协议</h3><p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fuzz5b87o4j30w80c83za.jpg" alt="">  </p>
 <p><strong>主机</strong>：配置IP地址，但不进行路由控制的设备。<br><strong>路由器</strong>：配置IP地址又有路由控制的设备。<br><strong>节点</strong>：主机和路由器的统称。</p>
+<a id="more"></a>
 <h3 id="2IP基础知识"><a href="#2IP基础知识" class="headerlink" title="2IP基础知识"></a>2IP基础知识</h3><h4 id="IP地址属于网络层地址"><a href="#IP地址属于网络层地址" class="headerlink" title="IP地址属于网络层地址"></a>IP地址属于网络层地址</h4><h4 id="路由控制"><a href="#路由控制" class="headerlink" title="路由控制"></a>路由控制</h4><p>IP路由也叫<strong>多路路由</strong><br><img src="https://upload-images.jianshu.io/upload_images/1678135-268ca3a178f3f38a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>为了将数据包发给目标主机，所有主机都维护这一张<strong>路由控制表</strong>（Routing Table）<br><img src="https://upload-images.jianshu.io/upload_images/1678135-5c0f2c30e1fe486e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h4 id="数据链路的抽象化"><a href="#数据链路的抽象化" class="headerlink" title="数据链路的抽象化"></a>数据链路的抽象化</h4><p>不同数据链路最大区别是<strong>最大传输单位</strong>（MTU，Maximum Transmission Unit）。<br><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fv5tv6cxcwj30v40jq76g.jpg" alt=""></p>
@@ -673,7 +674,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-count">125</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -695,7 +696,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -839,7 +840,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共107.5k字</span>
+  <span class="post-count">  全站共108.8k字</span>
 
 </div>
 
