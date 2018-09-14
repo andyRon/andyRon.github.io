@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-13T03:04:38.556Z</updated>
+  <updated>2018-09-14T06:09:24.375Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于字符编码</title>
+    <link href="http://andyron.com/2018/ascii-unicode-utf8.html"/>
+    <id>http://andyron.com/2018/ascii-unicode-utf8.html</id>
+    <published>2018-09-14T05:38:37.000Z</published>
+    <updated>2018-09-14T06:09:24.375Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-5a5b48c70bb23657.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;ASCII码表&quot;&gt;&lt;/p&gt;
+&lt;p&gt;作为一名程序员，对编码问题有必要了解一下。计算机是以二进制形式存储数据的，至于为什么选择二进制，这可能就需要从计算机的诞生历史说起了，这不是现在关注的点。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="暂且没想到怎么分类" scheme="http://andyron.com/categories/%E6%9A%82%E4%B8%94%E6%B2%A1%E6%83%B3%E5%88%B0%E6%80%8E%E4%B9%88%E5%88%86%E7%B1%BB/"/>
+    
+    
+      <category term="ASCII" scheme="http://andyron.com/tags/ASCII/"/>
+    
+      <category term="Unicode" scheme="http://andyron.com/tags/Unicode/"/>
+    
+      <category term="UTF8" scheme="http://andyron.com/tags/UTF8/"/>
+    
+  </entry>
   
   <entry>
     <title>读《畅销的原理》——作为消费者，我不想被商家牵着鼻子走</title>
@@ -83,9 +108,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
-    
       <category term="设计" scheme="http://andyron.com/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
     
   </entry>
   
@@ -461,27 +486,6 @@
     
     
       <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发关于沙盒</title>
-    <link href="http://andyron.com/2018/ios-sandbox.html"/>
-    <id>http://andyron.com/2018/ios-sandbox.html</id>
-    <published>2018-06-04T02:43:26.000Z</published>
-    <updated>2018-08-16T02:47:18.729Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;每个iOS程序都有一个独立的文件系统（存储空间），而且只能在对应的文件系统中进行操作，此区域被称为&lt;strong&gt;沙盒&lt;/strong&gt;。应用必须待在自己的沙盒里，其他应用不能访问该沙盒。所有的非代码文件都要保存在此，例如属性文件plist、文本文件、图像、图标、媒体资源等。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-8df56f866dd8c620.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;iOS app 沙盒目录结构&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="sandbox" scheme="http://andyron.com/tags/sandbox/"/>
     
   </entry>
   
