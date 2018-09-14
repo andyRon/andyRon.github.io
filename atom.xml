@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-14T06:09:24.375Z</updated>
+  <updated>2018-09-14T12:07:11.468Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -17,11 +17,182 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【译】Swift算法俱乐部-算法设计技巧</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%8A%80%E5%B7%A7.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-算法设计技巧.html</id>
+    <published>2018-09-14T11:41:55.000Z</published>
+    <updated>2018-09-14T12:07:11.468Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当你遇到新问题的时候，需要寻找新的算法。&lt;/p&gt;
+&lt;h3 id=&quot;是否有类似的其它问题？&quot;&gt;&lt;a href=&quot;#是否有类似的其它问题？&quot; class=&quot;headerlink&quot; title=&quot;是否有类似的其它问题？&quot;&gt;&lt;/a&gt;是否有类似的其它问题？&lt;/h3&gt;&lt;p&gt;如果您可以根据另一个更普遍的问题来构建解决你目前需要解决问题，那么您可以使用现有算法。 为什么重新发明轮子？&lt;/p&gt;
+&lt;p&gt;我喜欢Steven Skiena的&lt;a href=&quot;http://www.algorist.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;算法设计手册&lt;/a&gt;，它包含了一系列可以尝试的问题和解决方案。(另见Steven Skiena的&lt;a href=&quot;http://www3.cs.stonybrook.edu/~algorith/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;算法库&lt;/a&gt;)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;译注：豆瓣 &lt;a href=&quot;https://book.douban.com/subject/4048566/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;算法设计手册&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-大O表示法</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%A4%A7O%E8%A1%A8%E7%A4%BA%E6%B3%95.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-大O表示法.html</id>
+    <published>2018-09-14T10:09:21.000Z</published>
+    <updated>2018-09-14T12:07:40.886Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;大O表示法&quot;&gt;&lt;a href=&quot;#大O表示法&quot; class=&quot;headerlink&quot; title=&quot;大O表示法&quot;&gt;&lt;/a&gt;大O表示法&lt;/h1&gt;&lt;p&gt;知道某个算法的运行速度和占用的内存空间，对于选择正确的算法来解决问题非常有帮助。&lt;/p&gt;
+&lt;p&gt;大O表示法 能让你对一个算法的运行时间和占用内存有个大概概念。当有人说，“这个算法在最糟情况下的运行时间是 &lt;strong&gt;O(n^2)&lt;/strong&gt;，而且占用了 &lt;strong&gt;O(n)&lt;/strong&gt; 大小的空间”时，他的意思是这个算法有点慢，不过没占多大内存。&lt;/p&gt;
+&lt;p&gt;要知道一个算法的大O 表示法通常要通过数学分析。在这里我们不会涉及具体的数学，不过知道不同的值意味着什么会很有用。所以这里有一张方便的表。&lt;strong&gt;n&lt;/strong&gt; 在这里代表的意思是数据的个数。举个例子，当对一个有 100 个元素的数组进行排序时，&lt;strong&gt;n = 100&lt;/strong&gt;。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Big-O表示符号&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;名字&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;O(1)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;常数级&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;最好的&lt;/strong&gt;。不论输入数据量有多大，这个算法的运行时间总是一样的。例子: 基于索引取出数组中对应的元素。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;O(log n)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;对数级&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;相当好&lt;/strong&gt;。这种算法每次循环时会把需要处理的数据量减半。如果你有 100 个元素，则只需要七步就可以找到答案。1000 个元素只要十步。100,0000 元素只要二十步。即便数据量很大这种算法也非常快。例子：二分查找。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;O(n)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;线性级&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;还不错&lt;/strong&gt;。如果你有 100 个元素，这种算法就要做 100 次工作。数据量翻倍那么运行时间也翻倍。例子：线性查找。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;O(n log n)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;线性对数级&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;还可以&lt;/strong&gt;。比线性级差了一些，不过也没那么差劲。例子：最快的通用排序算法。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;O(n^2)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;二次方级&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;有点慢&lt;/strong&gt;。如果你有 100 个元素，这种算法需要做 100^2 = 10000 次工作。数据量 x 2 会导致运行时间 x 4 (因为 2 的 2 次方等于 4)。例子：循环套循环的算法，比如插入排序。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;O(n^3)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;三次方级&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;特别慢&lt;/strong&gt;。如果你有 100 个元素，那么这种算法就要做 100^3 = 100,0000 次工作。数据量 x 2 会导致运行时间 x 8。例子：矩阵乘法。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;O(2^n)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;指数级&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;超级慢&lt;/strong&gt;。这种算法你要想方设法避免，但有时候你就是没得选。加一点点数据就会把运行时间成倍的加长。例子：旅行商问题。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;O(n!)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;阶乘级&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;比蜗牛还慢&lt;/strong&gt;！不管干什么都要跑个 N 年才能得到结果。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="Big-O" scheme="http://andyron.com/tags/Big-O/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-为什么要学习算法与数据结构？</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9F.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-为什么要学习算法与数据结构？.html</id>
+    <published>2018-09-14T10:09:01.000Z</published>
+    <updated>2018-09-14T12:06:49.014Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果你已经写过一些代码，你也许就会好奇学习算法和数据结构的意义何在，特别是如果你没有接受过计算机科学专业的高等教育。&lt;/p&gt;
+&lt;p&gt;毕竟，在平时的编码工作中，到底会有多少机会需要自己亲自编写一个链表或排序算法呢？答案是：可能永远都不会。&lt;/p&gt;
+&lt;h4 id=&quot;然而…&quot;&gt;&lt;a href=&quot;#然而…&quot; class=&quot;headerlink&quot; title=&quot;然而…&quot;&gt;&lt;/a&gt;&lt;strong&gt;然而…&lt;/strong&gt;&lt;/h4&gt;&lt;p&gt;了解一点现有算法解决问题时所用的奇技淫巧可能会给予你启发，让你能更好地优化自己的代码。&lt;/p&gt;
+&lt;p&gt;除了自带的标准数组和字典之外，了解一些其它的数据结构让你在构建自己的 App 时拥有更多的选择。&lt;/p&gt;
+&lt;p&gt;学习算法和数据结构会助你成为更好的开发者！（当然也就意味了可以赚到更多的$$$）&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-什么是算法和数据结构？</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9F.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-什么是算法和数据结构？.html</id>
+    <published>2018-09-14T10:08:23.000Z</published>
+    <updated>2018-09-14T12:07:02.125Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;什么是算法和数据结构？&quot;&gt;&lt;a href=&quot;#什么是算法和数据结构？&quot; class=&quot;headerlink&quot; title=&quot;什么是算法和数据结构？&quot;&gt;&lt;/a&gt;什么是算法和数据结构？&lt;/h1&gt;&lt;p&gt;一个算法就像一张教计算机“烹饪”的“食谱”。如果你了解做菜的过程，你就能理解算法的定义。&lt;/p&gt;
+&lt;p&gt;下面有一张关于&lt;a href=&quot;http://allrecipes.com/recipe/21014/good-old-fashioned-pancakes/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;制作薄饼的食谱&lt;/a&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在一个大碗里，将面粉，发酵粉，盐和糖过筛。&lt;/li&gt;
+&lt;li&gt;加入牛奶、鸡蛋和融化了的奶油。&lt;/li&gt;
+&lt;li&gt;搅拌混合直至丝柔顺滑。&lt;/li&gt;
+&lt;li&gt;中火加热平底锅。&lt;/li&gt;
+&lt;li&gt;将搅拌好的面糊缓慢倒入锅中，每个薄饼大概用1/4杯的面糊即可。&lt;/li&gt;
+&lt;li&gt;薄饼两面都呈黄褐色即可出锅享用了。&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于字符编码</title>
     <link href="http://andyron.com/2018/ascii-unicode-utf8.html"/>
     <id>http://andyron.com/2018/ascii-unicode-utf8.html</id>
     <published>2018-09-14T05:38:37.000Z</published>
-    <updated>2018-09-14T06:09:24.375Z</updated>
+    <updated>2018-09-14T06:15:53.084Z</updated>
     
     <summary type="html">
     
@@ -30,7 +201,7 @@
     
     </summary>
     
-      <category term="暂且没想到怎么分类" scheme="http://andyron.com/categories/%E6%9A%82%E4%B8%94%E6%B2%A1%E6%83%B3%E5%88%B0%E6%80%8E%E4%B9%88%E5%88%86%E7%B1%BB/"/>
+      <category term="暂时没想到怎么分类" scheme="http://andyron.com/categories/%E6%9A%82%E6%97%B6%E6%B2%A1%E6%83%B3%E5%88%B0%E6%80%8E%E4%B9%88%E5%88%86%E7%B1%BB/"/>
     
     
       <category term="ASCII" scheme="http://andyron.com/tags/ASCII/"/>
@@ -108,9 +279,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="设计" scheme="http://andyron.com/tags/%E8%AE%BE%E8%AE%A1/"/>
-    
       <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
+    
+      <category term="设计" scheme="http://andyron.com/tags/%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
@@ -397,95 +568,6 @@
     
       <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>初识iOS事情处理机制</title>
-    <link href="http://andyron.com/2018/ios-event-begin.html"/>
-    <id>http://andyron.com/2018/ios-event-begin.html</id>
-    <published>2018-08-23T04:20:02.000Z</published>
-    <updated>2018-08-23T04:24:33.049Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;事件的生命周期：&lt;br&gt;　　事件的产生和传递（事件如何从父控件传递到子控件并寻找到最合适的view、寻找最合适的view的底层实现、拦截事件的处理）-&amp;gt;找到最合适的view后事件的处理（touches方法的重写，也就是事件的响应）&lt;/p&gt;
-&lt;p&gt;iOS中的事件可以分为3大类型：&lt;br&gt;触摸事件&lt;br&gt;加速计事件&lt;br&gt;远程控制事件&lt;br&gt;这里只讨论iOS中的触摸事件。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="事件" scheme="http://andyron.com/tags/%E4%BA%8B%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 15：实现计算器界面布局--Masonry和SnapKit的学习</title>
-    <link href="http://andyron.com/2018/ios-tutorial-15.html"/>
-    <id>http://andyron.com/2018/ios-tutorial-15.html</id>
-    <published>2018-08-17T14:26:08.000Z</published>
-    <updated>2018-08-22T14:28:16.231Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; &lt;a href=&quot;https://github.com/SnapKit/Masonry&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Masonry&lt;/a&gt;和&lt;a href=&quot;https://github.com/SnapKit/SnapKit&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SnapKit&lt;/a&gt;分别是OC、Swift的界面布局框架，而且开发者相同。&lt;br&gt;分别用这两个框架实现一个简单计算器界面：&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-9f9bbb3d0e61988f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;完全代码：&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/101-MasonryDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;LearniOSByProject/101-MasonryDemo&lt;/strong&gt;&lt;/a&gt;  和  &lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/114-SnapKitDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;LearniOSByProject/114-SnapKitDemo&lt;/strong&gt;&lt;/a&gt; &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS tutorial 14：简单的下拉菜单 -- dropDownMenu</title>
-    <link href="http://andyron.com/2018/ios-tutorial-14.html"/>
-    <id>http://andyron.com/2018/ios-tutorial-14.html</id>
-    <published>2018-08-17T14:21:17.000Z</published>
-    <updated>2018-08-22T14:27:29.523Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-c719cb0a47833eab.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;详细代码： &lt;strong&gt;&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject/tree/master/100-dropDownMenu&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;dropDownMenu&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>整理之前学的iOS小项目合集——LearniOSByProject</title>
-    <link href="http://andyron.com/2018/learniosbyproject.html"/>
-    <id>http://andyron.com/2018/learniosbyproject.html</id>
-    <published>2018-08-11T02:48:16.000Z</published>
-    <updated>2018-08-16T02:51:20.880Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/andyRon/LearniOSByProject&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LearniOSByProject&lt;/a&gt;&lt;/strong&gt;本来是自己学习iOS时的一些非常简单小例子，小项目，或者我个人博客&lt;a href=&quot;http://andyron.com&quot;&gt;AndyRon’s Blog&lt;/a&gt;文章的代码集合。没有按照什么路线学习，就是学到什么就是什么了，看上去特别乱，我自己有时候也非常懵逼，然后看到道长前辈的项目&lt;a href=&quot;https://github.com/soapyigu/Swift-30-Projects&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift-30-Projects&lt;/a&gt;，就整理、筛选一下，这样看着清晰一点，找起来也方便。  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;语言方面大部分是Swift，个别项目是OC。&lt;/li&gt;
-&lt;li&gt;以数字为目录只是为了记录项目数和排序，没有特殊意义。&lt;/li&gt;
-&lt;li&gt;下载单个项目可以参考 &lt;a href=&quot;http://andyron.com/2017/downgit&quot;&gt;DownGit：怎么下载github中某个文件夹？&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;总览图&quot;&gt;&lt;a href=&quot;#总览图&quot; class=&quot;headerlink&quot; title=&quot;总览图&quot;&gt;&lt;/a&gt;总览图&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-6096bbe5db0ecced.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
   </entry>
   
