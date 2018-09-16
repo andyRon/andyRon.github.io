@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="算法与数据结构,swift," />
 
 
 
@@ -102,17 +102,18 @@
 
 
 
-<meta name="description" content="复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&amp;#123;    Engine *engine;    Tire *tires[4];&amp;#125;* (void)print;@end //Car 自">
+<meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="keywords" content="算法与数据结构,swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OC基础学习4：复合（composition）">
-<meta property="og:url" content="http://andyron.com/2017/oc-basic-4-composition.html">
+<meta property="og:title" content="【译】Swift算法俱乐部-队列">
+<meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-队列.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&amp;#123;    Engine *engine;    Tire *tires[4];&amp;#125;* (void)print;@end //Car 自">
+<meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-09T03:13:36.000Z">
+<meta property="og:updated_time" content="2018-09-16T11:04:18.372Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OC基础学习4：复合（composition）">
-<meta name="twitter:description" content="复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&amp;#123;    Engine *engine;    Tire *tires[4];&amp;#125;* (void)print;@end //Car 自">
+<meta name="twitter:title" content="【译】Swift算法俱乐部-队列">
+<meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 
 
 
@@ -140,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/oc-basic-4-composition.html"/>
+  <link rel="canonical" href="http://andyron.com/2018/Swift算法俱乐部-队列.html"/>
 
 
 
 
 
-  <title>OC基础学习4：复合（composition） | 欣欣向戎</title>
+  <title>【译】Swift算法俱乐部-队列 | 欣欣向戎</title>
   
 
 
@@ -331,7 +332,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-4-composition.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/Swift算法俱乐部-队列.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -348,7 +349,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">OC基础学习4：复合（composition）</h1>
+          <h1 class="post-title" itemprop="name headline">【译】Swift算法俱乐部-队列</h1>
         
 
         <div class="post-meta">
@@ -360,8 +361,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T00:00:00+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-16T18:41:55+08:00">
+                2018-09-16
               </time>
             
 
@@ -383,8 +384,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
                   </a>
                 </span>
 
@@ -401,9 +402,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-4-composition.html#comments" itemprop="discussionUrl">
+                <a href="/2018/Swift算法俱乐部-队列.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-4-composition.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/Swift算法俱乐部-队列.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -411,7 +412,7 @@
 
           
           
-             <span id="/2017/oc-basic-4-composition.html" class="leancloud_visitors" data-flag-title="OC基础学习4：复合（composition）">
+             <span id="/2018/Swift算法俱乐部-队列.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-队列">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +438,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 674 字
+                  : 2,394 字
                 </span>
               
 
@@ -453,7 +454,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 3 分钟
+                  ≈ 9 分钟
                 </span>
               
             </div>
@@ -471,18 +472,84 @@
       
 
       
-        <h3 id="复合-对象间的组合（类中中包括类）"><a href="#复合-对象间的组合（类中中包括类）" class="headerlink" title="复合: 对象间的组合（类中中包括类）"></a>复合: 对象间的组合（类中中包括类）</h3><p>composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@interface Car : NSObject</div><div class="line">&#123;</div><div class="line">    Engine *engine;</div><div class="line">    Tire *tires[4];</div><div class="line">&#125;</div><div class="line">* (void)print;</div><div class="line">@end //Car</div></pre></td></tr></table></figure></p>
-<h3 id="自定义NSLog"><a href="#自定义NSLog" class="headerlink" title="自定义NSLog()"></a>自定义NSLog()</h3><p><code>NSLog()</code>使用<code>%@</code>格式说明符表示输出对象，也就是<code>NSLog()</code>会给这个对象发送了description消息，然后对象的description方法生成一个<code>NSString</code>并将其返回。**在类中提供description方法就可以自定义<code>NSLog()</code>如何输出对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@interface Tire : NSObject</div><div class="line">@end //Tire 轮胎</div><div class="line">@implementation Tire</div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a tire.&quot;);</div><div class="line">&#125;</div><div class="line">@end</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    Tire *tire = [Tire new];</div><div class="line">    NSLog(@&quot;%@&quot;, tire);    // 输出 &quot;I am a tire.&quot;</div><div class="line">     </div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="存取方法"><a href="#存取方法" class="headerlink" title="存取方法"></a>存取方法</h3><ul>
-<li><strong>存取</strong>(accessor) 方法是用来读取或改变某个对象属性的方法。分为 getter方法 和 setter方法。</li>
-<li><p>应该尽量使用对象提供的存取方法，不要直接改变对象里面的值。<br>存取方法总是成对出现的。<br>命名方式：setter方法在要更改属性的加上前缀set；getter方法直接是属性名称。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@interface Car : NSObject</div><div class="line">&#123;</div><div class="line">    Engine *engine;</div><div class="line">    Tire *tires[4];</div><div class="line">&#125;</div><div class="line">- (Engine *) engine;</div><div class="line">- (void) setEngine: (Engine *) newEngine;</div><div class="line">- (Tire *) tireAtIndex: (int) index;</div><div class="line">- (void) setTire: (Tire *) tire atIndex: (int) index;</div><div class="line">- (void)print;</div><div class="line">@end //Car</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>在OC中所有对象间的交互都是通过指针实现的。</strong></p>
-</li>
-</ul>
-<h3 id="复合还是继承"><a href="#复合还是继承" class="headerlink" title="复合还是继承"></a>复合还是继承</h3><p>继承的关系：“Is a”（是一个）。如三角形是一个形状，Slant6是一个发动机……<br>复合的关系：“has a”（有一个）。如形状有个填充颜色，汽车有个发动机和四个轮胎……</p>
-<h3 id="详细代码"><a href="#详细代码" class="headerlink" title="详细代码"></a>详细代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface Tire : NSObject</div><div class="line">@end //Tire 轮胎</div><div class="line">@implementation Tire</div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a tire.&quot;);</div><div class="line">&#125;</div><div class="line">@end</div><div class="line"></div><div class="line">@interface Engine : NSObject</div><div class="line">@end //Engine</div><div class="line">@implementation Engine</div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a Engine.&quot;);</div><div class="line">&#125; //description</div><div class="line">@end</div><div class="line"></div><div class="line">@interface Slant6 : Engine</div><div class="line">@end //slant-6型号的发动机</div><div class="line">@implementation Slant6</div><div class="line"></div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a slant-6型号的发动机.VROOM!&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@interface AllWeatherRadial : Tire</div><div class="line">@end // 新型轮胎</div><div class="line">@implementation AllWeatherRadial</div><div class="line"></div><div class="line">-(NSString *)description</div><div class="line">&#123;</div><div class="line">    return (@&quot;I am a tire for rain or shine.&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line"></div><div class="line">@interface Car : NSObject</div><div class="line">&#123;</div><div class="line">    Engine *engine;</div><div class="line">    Tire *tires[4];</div><div class="line">&#125;</div><div class="line">- (Engine *) engine;</div><div class="line">- (void) setEngine: (Engine *) newEngine;</div><div class="line">- (Tire *) tireAtIndex: (int) index;</div><div class="line">- (void) setTire: (Tire *) tire atIndex: (int) index;</div><div class="line">- (void)print;</div><div class="line">@end //Car</div><div class="line">@implementation Car</div><div class="line">- (Engine *) engine</div><div class="line">&#123;</div><div class="line">    return (engine);</div><div class="line">&#125; //engine</div><div class="line">- (void) setEngine:(Engine *)newEngine</div><div class="line">&#123;</div><div class="line">    engine = newEngine;</div><div class="line">&#125; //setEngine</div><div class="line">- (void) setTire:(Tire *)tire atIndex:(int)index</div><div class="line">&#123;</div><div class="line">    if (index&lt;0 || index&gt;3) &#123;</div><div class="line">        NSLog(@&quot;bad index (%d) in setTire:atIndex&quot;, index);</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line">    tires[index] = tire;</div><div class="line">&#125; // setTire</div><div class="line">- (Tire *) tireAtIndex:(int)index</div><div class="line">&#123;</div><div class="line">    if (index&lt;0 || index&gt;3) &#123;</div><div class="line">        NSLog(@&quot;bad index (%d) in setTire:atIndex&quot;, index);</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line">    return tires[index];</div><div class="line">&#125; // tireAtIndex</div><div class="line"></div><div class="line">- (id)init</div><div class="line">&#123;</div><div class="line">    if (self = [super init]) &#123;  //?</div><div class="line">        engine = [Engine new];</div><div class="line">        tires[0] = [Tire new];</div><div class="line">        tires[1] = [Tire new];</div><div class="line">        tires[2] = [Tire new];</div><div class="line">        tires[3] = [Tire new];</div><div class="line">    &#125;</div><div class="line">    return (self);</div><div class="line">&#125;</div><div class="line">- (void)print</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;%@&quot;, engine);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[0]);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[1]);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[2]);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[3]);</div><div class="line">&#125;</div><div class="line">@end</div><div class="line"></div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    Car *car = [Car new];</div><div class="line">    </div><div class="line">    Engine *engine = [Slant6 new];</div><div class="line">    [car setEngine:engine];</div><div class="line">    for (int i=0; i&lt;4; i++) &#123;</div><div class="line">        Tire *tire = [AllWeatherRadial new];</div><div class="line">        [car setTire:tire atIndex:i];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    [car print];</div><div class="line">    </div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="external">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="external">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue" target="_blank" rel="external">swift-algorithm-club-cn/Queue</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>这个话题已经有个辅导<a href="https://www.raywenderlich.com/148141/swift-algorithm-club-swift-queue-data-structure" target="_blank" rel="external">文章</a></p>
+</blockquote>
+<p>队列的本质是一个数组，但只能从队尾添加元素，从队首移除元素。这保证了第一个入队的元素总是第一个出队。先到先得！</p>
+<p>为什么要这样做呢？在很多算法的实现中，你可能需要将某些对象放到一个临时的列表中，之后再将其取出。通常加入和取出元素的顺序非常重要。</p>
+<p>队列可以保证元素存入和取出的顺序是先进先出(first-in first-out, FIFO)的，第一个入队的元素总是第一个出队，公平合理！<br>另外一个非常类似的数据结构是<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Stack/" target="_blank" rel="external">栈</a>，它是一个后进先出(last-in, first-out, LIFO)的结构。</p>
+<p>举例来说，我们将一个数字入队：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.enqueue(<span class="number">10</span>)</div></pre></td></tr></table></figure>
+<p>队列现在为 <code>[ 10 ]</code>。再将下一个数字入队：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.enqueue(<span class="number">3</span>)</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>队列现在为 <code>[ 10, 3 ]</code>。再加入一个数字：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.enqueue(<span class="number">57</span>)</div></pre></td></tr></table></figure>
+<p>队列现在为 <code>[ 10, 3, 57 ]</code>。现在我们将第一个元素出队：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.dequeue()</div></pre></td></tr></table></figure>
+<p>这条语句返回数字 <code>10</code>，因为这是我们入队的第一个元素。队列现在是 <code>[ 3, 57 ]</code>。剩下的元素都往前移动一位。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.dequeue()</div></pre></td></tr></table></figure>
+<p>这条语句返回 <code>3</code>，下次调用 <code>dequeue</code> 将返回 <code>57</code>，以此类推。如果队列为空，出队操作将返回 <code>nil</code>，在有些实现中，会触发一个错误信息。</p>
+<blockquote>
+<p><strong>注意：</strong> 队列并不总是最好的选择，如果加入和删除元素的顺序无所谓的话，你可以选择使用<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Stack/" target="_blank" rel="external">栈</a>来达到目的。栈更加简单快速。</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>下面给出了一个简单粗暴的队列实现。它只是简单地包装了一下自带的数组，并提供了入队(enqueue)、出队(dequeue)和取得队首元素(peek)三个操作：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Queue</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> array = [<span class="type">T</span>]()</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> isEmpty: <span class="type">Bool</span> &#123;</div><div class="line">    <span class="keyword">return</span> array.isEmpty</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</div><div class="line">    <span class="keyword">return</span> array.<span class="built_in">count</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">enqueue</span><span class="params">(<span class="number">_</span> element: T)</span></span> &#123;</div><div class="line">    array.append(element)</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">dequeue</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</div><div class="line">    <span class="keyword">if</span> isEmpty &#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">return</span> array.removeFirst()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> front: <span class="type">T</span>? &#123;</div><div class="line">    <span class="keyword">return</span> array.first</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面实现的队列只是可以正常工作，但并没有任何的优化。</p>
+<p>入队操作的时间复杂度为 <strong>O(1)</strong>，因为在数组的尾部添加元素只需要固定的时间，跟数组的大小无关。</p>
+<p>你可能会好奇为什么在数组尾部添加元素的时间复杂度为 <strong>O(1)</strong>，或者说只需要固定的时间。这是因为在 Swift 的内部实现中，数组的尾部总是有一些预设的空间可供使用。如果我们进行如下操作：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> queue = <span class="type">Queue</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">queue.enqueue(<span class="string">"Ada"</span>)</div><div class="line">queue.enqueue(<span class="string">"Steve"</span>)</div><div class="line">queue.enqueue(<span class="string">"Tim"</span>)</div></pre></td></tr></table></figure>
+<p>则数组可能看起来想下面这样</p>
+<p>  [ “Ada”, “Steve”, “Tim”, xxx, xxx, xxx ]</p>
+<p><code>xxx</code> 代表已经申请，但还没有使用的内存。在尾部添加一个新的元素就会用到下一块未被使用的内存：</p>
+<p>  [ “Ada”, “Steve”, “Tim”, “Grace”, xxx, xxx ]</p>
+<p>这只是简单的拷贝内存的工作，只需要固定的常量时间。</p>
+<p>当然，数组尾部的未使用内存的大小是有限的，如果最后一块未使用内存也被占用的时候，再添加元素会使得数组重新调整大小来获取更多的空间。</p>
+<p>重新调整的过程包括申请新的内存，将已有数据迁移到新内存中。这个操作的时间复杂度是 <strong>O(n)</strong>，所以是一个较慢的操作。但考虑到这种情况并不常见，所以，这个操作的时间复杂度依然是 <strong>O(1)</strong> 的，或者说是近似 <strong>O(1)</strong> 的。</p>
+<p>但出队操作就有点不一样了。出队操作是将数组头部的元素移除，而不是尾部。这个操作的时间复杂度永远都是 <strong>O(n)</strong>，因为这会导致内存的移位操作。</p>
+<p>在我们的例子中，将 <code>&quot;Ada&quot;</code> 出队会使得 <code>&quot;Steve&quot;</code> 接替 <code>&quot;Ada&quot;</code> 的位置；<code>&quot;Tim&quot;</code> 接替 <code>&quot;Steve&quot;</code> 的位置；<code>&quot;Grace&quot;</code> 接替 <code>&quot;Tim&quot;</code> 的位置：</p>
+<p>  出队前   [ “Ada”, “Steve”, “Tim”, “Grace”, xxx, xxx ]<br>                     /       /      /<br>                    /       /      /<br>                   /       /      /<br>                  /       /      /<br>  出队后   [ “Steve”, “Tim”, “Grace”, xxx, xxx, xxx ]</p>
+<p>在内存中移动这些元素的时间复杂度永远都是 <strong>O(n)</strong>，所以我们实现的简单队列对于入队操作的效率是很高的，但对于出队操作的效率却较为低下。</p>
+<h2 id="更加高效的队列"><a href="#更加高效的队列" class="headerlink" title="更加高效的队列"></a>更加高效的队列</h2><p>为了让队列的出队操作更加高效，我们可以使用和入队所用的相同小技巧，保留一些额外的空间，只不过这次是在队首而不是队尾。这次我们需要手动编码实现这个想法，因为 Swift 内建数组并没有提供这种机制。</p>
+<p>我们的想法如下：每当我们将一个元素出队，我们不再将剩下的元素向前移位（慢），而是将其标记为空（快）。在将 <code>&quot;Ada&quot;</code> 出队后，数组如下：</p>
+<p>  [ xxx, “Steve”, “Tim”, “Grace”, xxx, xxx ]</p>
+<p><code>&quot;Steve&quot;</code> 出队后，数组如下：</p>
+<p>  [ xxx, xxx, “Tim”, “Grace”, xxx, xxx ]</p>
+<p>这些在前端空出来的位子永远都不会再次使用，所以这是些被浪费的空间。解决方法是将剩下的元素往前移动来填补这些空位：</p>
+<p>  [ “Tim”, “Grace”, xxx, xxx, xxx, xxx ]</p>
+<p>这就需要移动内存，所以这是一个 <strong>O(n)</strong> 操作，但因为这个操作只是偶尔发生，所以出队操作平均时间复杂度为 <strong>O(1)</strong></p>
+<p>下面给出了改进版的队列的时间方式：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Queue</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> array = [<span class="type">T</span>?]()</div><div class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> head = <span class="number">0</span></div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> isEmpty: <span class="type">Bool</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">count</span> == <span class="number">0</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</div><div class="line">    <span class="keyword">return</span> array.<span class="built_in">count</span> - head</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">enqueue</span><span class="params">(<span class="number">_</span> element: T)</span></span> &#123;</div><div class="line">    array.append(element)</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">dequeue</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</div><div class="line">    <span class="keyword">guard</span> head &lt; array.<span class="built_in">count</span>, <span class="keyword">let</span> element = array[head] <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</div><div class="line"></div><div class="line">    array[head] = <span class="literal">nil</span></div><div class="line">    head += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">let</span> percentage = <span class="type">Double</span>(head)/<span class="type">Double</span>(array.<span class="built_in">count</span>)</div><div class="line">    <span class="keyword">if</span> array.<span class="built_in">count</span> &gt; <span class="number">50</span> &amp;&amp; percentage &gt; <span class="number">0.25</span> &#123;</div><div class="line">      array.removeFirst(head)</div><div class="line">      head = <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> element</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> front: <span class="type">T</span>? &#123;</div><div class="line">    <span class="keyword">if</span> isEmpty &#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">return</span> array[head]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在数组存储的元素类型是 <code>T?</code>，而不是先前的 <code>T</code>，因为我们需要某种方式来将数组的元素标记为空。<code>head</code> 变量用于存储队列首元素的下标值。</p>
+<p>绝大多数的改进都是针对 <code>dequeue()</code> 函数，在将队首元素出队时，我们首先将 <code>array[head]</code> 设置为 <code>nil</code> 来将这个元素从数组中移除。然后将 <code>head</code> 的值加一，使得下一个元素变成新的队首。</p>
+<p>数组从这样：</p>
+<p>  [ “Ada”, “Steve”, “Tim”, “Grace”, xxx, xxx ]<br>    head</p>
+<p>变成这样：</p>
+<p>  [ xxx, “Steve”, “Tim”, “Grace”, xxx, xxx ]<br>          head</p>
+<p>这就像在某个超市，在那里排队结账的人保持不动，而收银员从头往队尾移动来挨个结账。</p>
+<p>当然，如果我们从不移除队首的空位，随着不断地入队和出队，队列所占空间将不断增长。为了周期性地清理无用空间，我们编写了如下代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> percentage = <span class="type">Double</span>(head)/<span class="type">Double</span>(array.<span class="built_in">count</span>)</div><div class="line"><span class="keyword">if</span> array.<span class="built_in">count</span> &gt; <span class="number">50</span> &amp;&amp; percentage &gt; <span class="number">0.25</span> &#123;</div><div class="line">  array.removeFirst(head)</div><div class="line">  head = <span class="number">0</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这段代码计算了队首空余的元素占数组总元素的百分比，如果空余元素超过 25%，我们就进行一波清理。但是，如果队列的长度过小，我们也不想频繁地清理空间，所以在清理空间之前，队列中至少要有 50 个元素。</p>
+<blockquote>
+<p><strong>注意：</strong>  50这个数字只是我凭空捏造的一个数字，在实际的项目中，你应该根据项目本身来选定一个合情合理的值。</p>
+</blockquote>
+<p>To test this in a playground, do:</p>
+<p>如果想在 Playground 中测试，可以参考下面的代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> q = <span class="type">Queue</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">q.array                   <span class="comment">// [] empty array</span></div><div class="line"></div><div class="line">q.enqueue(<span class="string">"Ada"</span>)</div><div class="line">q.enqueue(<span class="string">"Steve"</span>)</div><div class="line">q.enqueue(<span class="string">"Tim"</span>)</div><div class="line">q.array             <span class="comment">// [&#123;Some "Ada"&#125;, &#123;Some "Steve"&#125;, &#123;Some "Tim"&#125;]</span></div><div class="line">q.<span class="built_in">count</span>             <span class="comment">// 3</span></div><div class="line"></div><div class="line">q.dequeue()         <span class="comment">// "Ada"</span></div><div class="line">q.array             <span class="comment">// [nil, &#123;Some "Steve"&#125;, &#123;Some "Tim"&#125;]</span></div><div class="line">q.<span class="built_in">count</span>             <span class="comment">// 2</span></div><div class="line"></div><div class="line">q.dequeue()         <span class="comment">// "Steve"</span></div><div class="line">q.array             <span class="comment">// [nil, nil, &#123;Some "Tim"&#125;]</span></div><div class="line">q.<span class="built_in">count</span>             <span class="comment">// 1</span></div><div class="line"></div><div class="line">q.enqueue(<span class="string">"Grace"</span>)</div><div class="line">q.array             <span class="comment">// [nil, nil, &#123;Some "Tim"&#125;, &#123;Some "Grace"&#125;]</span></div><div class="line">q.<span class="built_in">count</span>             <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<p>为了测试队列的自动调整特性，将下面这段代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> array.<span class="built_in">count</span> &gt; <span class="number">50</span> &amp;&amp; percentage &gt; <span class="number">0.25</span> &#123;</div></pre></td></tr></table></figure>
+<p>替换为：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> head &gt; <span class="number">2</span> &#123;</div></pre></td></tr></table></figure>
+<p>现在，如果你再次执行出队操作，数组将看起来像下面这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">q.dequeue()         <span class="comment">// "Tim"</span></div><div class="line">q.array             <span class="comment">// [&#123;Some "Grace"&#125;]</span></div><div class="line">q.<span class="built_in">count</span>             <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<p>在数组前面的 <code>nil</code> 已经被移除了，数组本身也没有空间浪费了。新版本的队列实现并没有比初版复杂很多，但现在出队操作的复杂度已经从当初的 <strong>O(n)</strong> 变为了现在的 <strong>O(1)</strong>，只是因为我们在数组的使用策略上耍了一点小心机。</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p>事实上，队列还有很多种其他的实现方式，例如可以使用<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linked%20List/" target="_blank" rel="external">链表</a>、<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Ring%20Buffer/" target="_blank" rel="external">环形缓冲区</a>或是<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap/" target="_blank" rel="external">堆</a>来实现。</p>
+<p>队列有很多变体，包括<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Deque/" target="_blank" rel="external">双端队列</a>，一个两端都可以出队和入队的队列；<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Priority%20Queue/" target="_blank" rel="external">优先队列</a>，一个有序的队列，最重要的元素排在队首。</p>
+<p><em>作者：Matthijs Hollemans；译者：KSCO</em><br><em>校队：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em></p>
 
       
     </div>
@@ -532,7 +599,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/oc-basic-4-composition.html" title="OC基础学习4：复合（composition）">http://andyron.com/2017/oc-basic-4-composition.html</a>
+      <a href="http://andyron.com/2018/Swift算法俱乐部-队列.html" title="【译】Swift算法俱乐部-队列">http://andyron.com/2018/Swift算法俱乐部-队列.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -546,6 +613,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
+          
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+        </div>
+      
 
       
       
@@ -555,8 +630,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/oc-basic-5.html" rel="next" title="OC基础学习5：源文件组织">
-                <i class="fa fa-chevron-left"></i> OC基础学习5：源文件组织
+              <a href="/2018/Swift算法俱乐部-栈.html" rel="next" title="【译】Swift算法俱乐部-栈">
+                <i class="fa fa-chevron-left"></i> 【译】Swift算法俱乐部-栈
               </a>
             
           </div>
@@ -564,10 +639,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/oc-basic-2.html" rel="prev" title="OC基础学习2：面向对象编程的基础知识">
-                OC基础学习2：面向对象编程的基础知识 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -784,7 +855,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#复合-对象间的组合（类中中包括类）"><span class="nav-number">1.</span> <span class="nav-text">复合: 对象间的组合（类中中包括类）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义NSLog"><span class="nav-number">2.</span> <span class="nav-text">自定义NSLog()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存取方法"><span class="nav-number">3.</span> <span class="nav-text">存取方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复合还是继承"><span class="nav-number">4.</span> <span class="nav-text">复合还是继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细代码"><span class="nav-number">5.</span> <span class="nav-text">详细代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更加高效的队列"><span class="nav-number">2.</span> <span class="nav-text">更加高效的队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读"><span class="nav-number">3.</span> <span class="nav-text">扩展阅读</span></a></li></ol></div>
             
 
           </div>
@@ -954,9 +1025,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/oc-basic-4-composition.html';
-          this.page.identifier = '2017/oc-basic-4-composition.html';
-          this.page.title = 'OC基础学习4：复合（composition）';
+          this.page.url = 'http://andyron.com/2018/Swift算法俱乐部-队列.html';
+          this.page.identifier = '2018/Swift算法俱乐部-队列.html';
+          this.page.title = '【译】Swift算法俱乐部-队列';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';

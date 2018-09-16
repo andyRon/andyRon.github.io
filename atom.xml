@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-16T08:39:19.275Z</updated>
+  <updated>2018-09-16T11:04:18.372Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-队列</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E9%98%9F%E5%88%97.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-队列.html</id>
+    <published>2018-09-16T10:41:55.000Z</published>
+    <updated>2018-09-16T11:04:18.372Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swift-algorithm-club-cn/Queue&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个话题已经有个辅导&lt;a href=&quot;https://www.raywenderlich.com/148141/swift-algorithm-club-swift-queue-data-structure&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;队列的本质是一个数组，但只能从队尾添加元素，从队首移除元素。这保证了第一个入队的元素总是第一个出队。先到先得！&lt;/p&gt;
+&lt;p&gt;为什么要这样做呢？在很多算法的实现中，你可能需要将某些对象放到一个临时的列表中，之后再将其取出。通常加入和取出元素的顺序非常重要。&lt;/p&gt;
+&lt;p&gt;队列可以保证元素存入和取出的顺序是先进先出(first-in first-out, FIFO)的，第一个入队的元素总是第一个出队，公平合理！&lt;br&gt;另外一个非常类似的数据结构是&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Stack/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;栈&lt;/a&gt;，它是一个后进先出(last-in, first-out, LIFO)的结构。&lt;/p&gt;
+&lt;p&gt;举例来说，我们将一个数字入队：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;queue.enqueue(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;队列现在为 &lt;code&gt;[ 10 ]&lt;/code&gt;。再将下一个数字入队：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;queue.enqueue(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-栈</title>
@@ -91,9 +126,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
-    
       <category term="拖延" scheme="http://andyron.com/tags/%E6%8B%96%E5%BB%B6/"/>
+    
+      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
     
   </entry>
   
@@ -579,37 +614,6 @@
     
     
       <category term="LeanClound" scheme="http://andyron.com/tags/LeanClound/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于iOS多线程，这边勉强可以看看(OC&amp;Swift)</title>
-    <link href="http://andyron.com/2018/ios-multithreading.html"/>
-    <id>http://andyron.com/2018/ios-multithreading.html</id>
-    <published>2018-08-26T08:29:06.000Z</published>
-    <updated>2018-09-16T09:10:35.467Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;搜多线程谷歌给的第一张图🙄&quot;&gt;&lt;/p&gt;
-&lt;p&gt;iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：&lt;a href=&quot;https://www.jianshu.com/p/51fd1362249e&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于iOS多线程，我说，你听，没准你就懂了！&lt;/a&gt;、&lt;a href=&quot;http://www.jianshu.com/p/6e6f4e005a0b&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;谈iOS多线程(NSThread、NSOperation、GCD)编程&lt;/a&gt;、&lt;a href=&quot;http://www.jianshu.com/p/2d57c72016c6&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS多线程：『GCD』详尽总结&lt;/a&gt;、&lt;a href=&quot;https://www.jianshu.com/p/cbaeea5368b1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS多线程：『pthread、NSThread』详尽总结&lt;/a&gt;、&lt;a href=&quot;https://www.jianshu.com/p/4b1d77054b35&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS多线程：『NSOperation、NSOperationQueue』详尽总结&lt;/a&gt;、&lt;a href=&quot;https://www.jianshu.com/p/0b0d9b1f1f19&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于iOS多线程，你看我就够了&lt;/a&gt;等，但不自己整理一下，敲一下代码总是感觉不深刻 ，于是就有这篇文章，断断续续整理了好久。  &lt;/p&gt;
-&lt;p&gt;示例我尽量把不同知识点代码独立开，看着简单一些，容易理解。示例代码我都用OC和Swift分别写了，不过文中都是以OC说明的，英文如果用两种语言一起，看起来可能比较乱，文章也会更加长（已经非常长了😂😂）。&lt;br&gt;Swift写法可能有比较大区别，也有些功能取消，但看一下代码应该能明白了。&lt;br&gt;文中的所有示例代码：&lt;strong&gt;&lt;a href=&quot;https://github.com/andyRon/iOS-Multithreading&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/iOS-Multithreading&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;先看个大概：&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-29de3060eff432c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="Multithreading" scheme="http://andyron.com/tags/Multithreading/"/>
-    
-      <category term="GCD" scheme="http://andyron.com/tags/GCD/"/>
-    
-      <category term="NSThread" scheme="http://andyron.com/tags/NSThread/"/>
-    
-      <category term="NSOperation" scheme="http://andyron.com/tags/NSOperation/"/>
-    
-      <category term="多线程" scheme="http://andyron.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
