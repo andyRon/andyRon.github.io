@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-16T11:04:18.372Z">
+<meta property="og:updated_time" content="2018-09-16T11:26:50.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Swift算法俱乐部-队列">
 <meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
@@ -438,7 +438,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 2,394 字
+                  : 2,384 字
                 </span>
               
 
@@ -476,26 +476,26 @@
 <p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="external">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="external">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue" target="_blank" rel="external">swift-algorithm-club-cn/Queue</a></p>
 </blockquote>
 <hr>
-<blockquote>
+<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><blockquote>
 <p>这个话题已经有个辅导<a href="https://www.raywenderlich.com/148141/swift-algorithm-club-swift-queue-data-structure" target="_blank" rel="external">文章</a></p>
 </blockquote>
 <p>队列的本质是一个数组，但只能从队尾添加元素，从队首移除元素。这保证了第一个入队的元素总是第一个出队。先到先得！</p>
 <p>为什么要这样做呢？在很多算法的实现中，你可能需要将某些对象放到一个临时的列表中，之后再将其取出。通常加入和取出元素的顺序非常重要。</p>
-<p>队列可以保证元素存入和取出的顺序是先进先出(first-in first-out, FIFO)的，第一个入队的元素总是第一个出队，公平合理！<br>另外一个非常类似的数据结构是<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Stack/" target="_blank" rel="external">栈</a>，它是一个后进先出(last-in, first-out, LIFO)的结构。</p>
+<p>队列可以保证元素存入和取出的顺序是先进先出(first-in first-out, FIFO)的，第一个入队的元素总是第一个出队，公平合理！<br>另外一个非常类似的数据结构是<a href="../Stack/">栈</a>，它是一个后进先出(last-in, first-out, LIFO)的结构。</p>
 <p>举例来说，我们将一个数字入队：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.enqueue(<span class="number">10</span>)</div></pre></td></tr></table></figure>
 <p>队列现在为 <code>[ 10 ]</code>。再将下一个数字入队：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.enqueue(<span class="number">3</span>)</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <p>队列现在为 <code>[ 10, 3 ]</code>。再加入一个数字：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.enqueue(<span class="number">57</span>)</div></pre></td></tr></table></figure>
 <p>队列现在为 <code>[ 10, 3, 57 ]</code>。现在我们将第一个元素出队：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.dequeue()</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>这条语句返回数字 <code>10</code>，因为这是我们入队的第一个元素。队列现在是 <code>[ 3, 57 ]</code>。剩下的元素都往前移动一位。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.dequeue()</div></pre></td></tr></table></figure>
 <p>这条语句返回 <code>3</code>，下次调用 <code>dequeue</code> 将返回 <code>57</code>，以此类推。如果队列为空，出队操作将返回 <code>nil</code>，在有些实现中，会触发一个错误信息。</p>
 <blockquote>
-<p><strong>注意：</strong> 队列并不总是最好的选择，如果加入和删除元素的顺序无所谓的话，你可以选择使用<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Stack/" target="_blank" rel="external">栈</a>来达到目的。栈更加简单快速。</p>
+<p><strong>注意：</strong> 队列并不总是最好的选择，如果加入和删除元素的顺序无所谓的话，你可以选择使用<a href="../Stack/">栈</a>来达到目的。栈更加简单快速。</p>
 </blockquote>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>下面给出了一个简单粗暴的队列实现。它只是简单地包装了一下自带的数组，并提供了入队(enqueue)、出队(dequeue)和取得队首元素(peek)三个操作：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Queue</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> array = [<span class="type">T</span>]()</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> isEmpty: <span class="type">Bool</span> &#123;</div><div class="line">    <span class="keyword">return</span> array.isEmpty</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</div><div class="line">    <span class="keyword">return</span> array.<span class="built_in">count</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">enqueue</span><span class="params">(<span class="number">_</span> element: T)</span></span> &#123;</div><div class="line">    array.append(element)</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">dequeue</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</div><div class="line">    <span class="keyword">if</span> isEmpty &#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">return</span> array.removeFirst()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> front: <span class="type">T</span>? &#123;</div><div class="line">    <span class="keyword">return</span> array.first</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -504,32 +504,37 @@
 <p>你可能会好奇为什么在数组尾部添加元素的时间复杂度为 <strong>O(1)</strong>，或者说只需要固定的时间。这是因为在 Swift 的内部实现中，数组的尾部总是有一些预设的空间可供使用。如果我们进行如下操作：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> queue = <span class="type">Queue</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">queue.enqueue(<span class="string">"Ada"</span>)</div><div class="line">queue.enqueue(<span class="string">"Steve"</span>)</div><div class="line">queue.enqueue(<span class="string">"Tim"</span>)</div></pre></td></tr></table></figure>
 <p>则数组可能看起来想下面这样</p>
-<p>  [ “Ada”, “Steve”, “Tim”, xxx, xxx, xxx ]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[ &quot;Ada&quot;, &quot;Steve&quot;, &quot;Tim&quot;, xxx, xxx, xxx ]</div></pre></td></tr></table></figure>
 <p><code>xxx</code> 代表已经申请，但还没有使用的内存。在尾部添加一个新的元素就会用到下一块未被使用的内存：</p>
-<p>  [ “Ada”, “Steve”, “Tim”, “Grace”, xxx, xxx ]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[ &quot;Ada&quot;, &quot;Steve&quot;, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]</div></pre></td></tr></table></figure>
 <p>这只是简单的拷贝内存的工作，只需要固定的常量时间。</p>
 <p>当然，数组尾部的未使用内存的大小是有限的，如果最后一块未使用内存也被占用的时候，再添加元素会使得数组重新调整大小来获取更多的空间。</p>
 <p>重新调整的过程包括申请新的内存，将已有数据迁移到新内存中。这个操作的时间复杂度是 <strong>O(n)</strong>，所以是一个较慢的操作。但考虑到这种情况并不常见，所以，这个操作的时间复杂度依然是 <strong>O(1)</strong> 的，或者说是近似 <strong>O(1)</strong> 的。</p>
 <p>但出队操作就有点不一样了。出队操作是将数组头部的元素移除，而不是尾部。这个操作的时间复杂度永远都是 <strong>O(n)</strong>，因为这会导致内存的移位操作。</p>
 <p>在我们的例子中，将 <code>&quot;Ada&quot;</code> 出队会使得 <code>&quot;Steve&quot;</code> 接替 <code>&quot;Ada&quot;</code> 的位置；<code>&quot;Tim&quot;</code> 接替 <code>&quot;Steve&quot;</code> 的位置；<code>&quot;Grace&quot;</code> 接替 <code>&quot;Tim&quot;</code> 的位置：</p>
-<p>  出队前   [ “Ada”, “Steve”, “Tim”, “Grace”, xxx, xxx ]<br>                     /       /      /<br>                    /       /      /<br>                   /       /      /<br>                  /       /      /<br>  出队后   [ “Steve”, “Tim”, “Grace”, xxx, xxx, xxx ]</p>
-<p>在内存中移动这些元素的时间复杂度永远都是 <strong>O(n)</strong>，所以我们实现的简单队列对于入队操作的效率是很高的，但对于出队操作的效率却较为低下。</p>
+<pre><code>出队前   [ &quot;Ada&quot;, &quot;Steve&quot;, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]
+                   /       /      /
+                  /       /      /
+                 /       /      /
+                /       /      /
+出队后   [ &quot;Steve&quot;, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx, xxx ]
+</code></pre><p>在内存中移动这些元素的时间复杂度永远都是 <strong>O(n)</strong>，所以我们实现的简单队列对于入队操作的效率是很高的，但对于出队操作的效率却较为低下。</p>
 <h2 id="更加高效的队列"><a href="#更加高效的队列" class="headerlink" title="更加高效的队列"></a>更加高效的队列</h2><p>为了让队列的出队操作更加高效，我们可以使用和入队所用的相同小技巧，保留一些额外的空间，只不过这次是在队首而不是队尾。这次我们需要手动编码实现这个想法，因为 Swift 内建数组并没有提供这种机制。</p>
 <p>我们的想法如下：每当我们将一个元素出队，我们不再将剩下的元素向前移位（慢），而是将其标记为空（快）。在将 <code>&quot;Ada&quot;</code> 出队后，数组如下：</p>
-<p>  [ xxx, “Steve”, “Tim”, “Grace”, xxx, xxx ]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[ xxx, &quot;Steve&quot;, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]</div></pre></td></tr></table></figure>
 <p><code>&quot;Steve&quot;</code> 出队后，数组如下：</p>
-<p>  [ xxx, xxx, “Tim”, “Grace”, xxx, xxx ]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[ xxx, xxx, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]</div></pre></td></tr></table></figure>
 <p>这些在前端空出来的位子永远都不会再次使用，所以这是些被浪费的空间。解决方法是将剩下的元素往前移动来填补这些空位：</p>
-<p>  [ “Tim”, “Grace”, xxx, xxx, xxx, xxx ]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[ &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx, xxx, xxx ]</div></pre></td></tr></table></figure>
 <p>这就需要移动内存，所以这是一个 <strong>O(n)</strong> 操作，但因为这个操作只是偶尔发生，所以出队操作平均时间复杂度为 <strong>O(1)</strong></p>
 <p>下面给出了改进版的队列的时间方式：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Queue</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> array = [<span class="type">T</span>?]()</div><div class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> head = <span class="number">0</span></div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> isEmpty: <span class="type">Bool</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">count</span> == <span class="number">0</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</div><div class="line">    <span class="keyword">return</span> array.<span class="built_in">count</span> - head</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">enqueue</span><span class="params">(<span class="number">_</span> element: T)</span></span> &#123;</div><div class="line">    array.append(element)</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">dequeue</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</div><div class="line">    <span class="keyword">guard</span> head &lt; array.<span class="built_in">count</span>, <span class="keyword">let</span> element = array[head] <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</div><div class="line"></div><div class="line">    array[head] = <span class="literal">nil</span></div><div class="line">    head += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">let</span> percentage = <span class="type">Double</span>(head)/<span class="type">Double</span>(array.<span class="built_in">count</span>)</div><div class="line">    <span class="keyword">if</span> array.<span class="built_in">count</span> &gt; <span class="number">50</span> &amp;&amp; percentage &gt; <span class="number">0.25</span> &#123;</div><div class="line">      array.removeFirst(head)</div><div class="line">      head = <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> element</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> front: <span class="type">T</span>? &#123;</div><div class="line">    <span class="keyword">if</span> isEmpty &#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">return</span> array[head]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>现在数组存储的元素类型是 <code>T?</code>，而不是先前的 <code>T</code>，因为我们需要某种方式来将数组的元素标记为空。<code>head</code> 变量用于存储队列首元素的下标值。</p>
 <p>绝大多数的改进都是针对 <code>dequeue()</code> 函数，在将队首元素出队时，我们首先将 <code>array[head]</code> 设置为 <code>nil</code> 来将这个元素从数组中移除。然后将 <code>head</code> 的值加一，使得下一个元素变成新的队首。</p>
 <p>数组从这样：</p>
-<p>  [ “Ada”, “Steve”, “Tim”, “Grace”, xxx, xxx ]<br>    head</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[ &quot;Ada&quot;, &quot;Steve&quot;, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]</div><div class="line">  head</div></pre></td></tr></table></figure>
 <p>变成这样：</p>
-<p>  [ xxx, “Steve”, “Tim”, “Grace”, xxx, xxx ]<br>          head</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[ xxx, &quot;Steve&quot;, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]</div><div class="line">        head</div></pre></td></tr></table></figure>
 <p>这就像在某个超市，在那里排队结账的人保持不动，而收银员从头往队尾移动来挨个结账。</p>
 <p>当然，如果我们从不移除队首的空位，随着不断地入队和出队，队列所占空间将不断增长。为了周期性地清理无用空间，我们编写了如下代码：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> percentage = <span class="type">Double</span>(head)/<span class="type">Double</span>(array.<span class="built_in">count</span>)</div><div class="line"><span class="keyword">if</span> array.<span class="built_in">count</span> &gt; <span class="number">50</span> &amp;&amp; percentage &gt; <span class="number">0.25</span> &#123;</div><div class="line">  array.removeFirst(head)</div><div class="line">  head = <span class="number">0</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -537,8 +542,7 @@
 <blockquote>
 <p><strong>注意：</strong>  50这个数字只是我凭空捏造的一个数字，在实际的项目中，你应该根据项目本身来选定一个合情合理的值。</p>
 </blockquote>
-<p>To test this in a playground, do:</p>
-<p>如果想在 Playground 中测试，可以参考下面的代码：</p>
+<p>在 Playground 中测试：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> q = <span class="type">Queue</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">q.array                   <span class="comment">// [] empty array</span></div><div class="line"></div><div class="line">q.enqueue(<span class="string">"Ada"</span>)</div><div class="line">q.enqueue(<span class="string">"Steve"</span>)</div><div class="line">q.enqueue(<span class="string">"Tim"</span>)</div><div class="line">q.array             <span class="comment">// [&#123;Some "Ada"&#125;, &#123;Some "Steve"&#125;, &#123;Some "Tim"&#125;]</span></div><div class="line">q.<span class="built_in">count</span>             <span class="comment">// 3</span></div><div class="line"></div><div class="line">q.dequeue()         <span class="comment">// "Ada"</span></div><div class="line">q.array             <span class="comment">// [nil, &#123;Some "Steve"&#125;, &#123;Some "Tim"&#125;]</span></div><div class="line">q.<span class="built_in">count</span>             <span class="comment">// 2</span></div><div class="line"></div><div class="line">q.dequeue()         <span class="comment">// "Steve"</span></div><div class="line">q.array             <span class="comment">// [nil, nil, &#123;Some "Tim"&#125;]</span></div><div class="line">q.<span class="built_in">count</span>             <span class="comment">// 1</span></div><div class="line"></div><div class="line">q.enqueue(<span class="string">"Grace"</span>)</div><div class="line">q.array             <span class="comment">// [nil, nil, &#123;Some "Tim"&#125;, &#123;Some "Grace"&#125;]</span></div><div class="line">q.<span class="built_in">count</span>             <span class="comment">// 2</span></div></pre></td></tr></table></figure>
 <p>为了测试队列的自动调整特性，将下面这段代码：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> array.<span class="built_in">count</span> &gt; <span class="number">50</span> &amp;&amp; percentage &gt; <span class="number">0.25</span> &#123;</div></pre></td></tr></table></figure>
@@ -547,8 +551,8 @@
 <p>现在，如果你再次执行出队操作，数组将看起来像下面这样：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">q.dequeue()         <span class="comment">// "Tim"</span></div><div class="line">q.array             <span class="comment">// [&#123;Some "Grace"&#125;]</span></div><div class="line">q.<span class="built_in">count</span>             <span class="comment">// 1</span></div></pre></td></tr></table></figure>
 <p>在数组前面的 <code>nil</code> 已经被移除了，数组本身也没有空间浪费了。新版本的队列实现并没有比初版复杂很多，但现在出队操作的复杂度已经从当初的 <strong>O(n)</strong> 变为了现在的 <strong>O(1)</strong>，只是因为我们在数组的使用策略上耍了一点小心机。</p>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p>事实上，队列还有很多种其他的实现方式，例如可以使用<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linked%20List/" target="_blank" rel="external">链表</a>、<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Ring%20Buffer/" target="_blank" rel="external">环形缓冲区</a>或是<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap/" target="_blank" rel="external">堆</a>来实现。</p>
-<p>队列有很多变体，包括<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Deque/" target="_blank" rel="external">双端队列</a>，一个两端都可以出队和入队的队列；<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Priority%20Queue/" target="_blank" rel="external">优先队列</a>，一个有序的队列，最重要的元素排在队首。</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p>事实上，队列还有很多种其他的实现方式，例如可以使用<a href="../Linked%20List/">链表</a>、<a href="../Ring%20Buffer/">环形缓冲区</a>或是<a href="../Heap/">堆</a>来实现。</p>
+<p>队列有很多变体，包括<a href="../Deque/">双端队列</a>，一个两端都可以出队和入队的队列；<a href="../Priority%20Queue/">优先队列</a>，一个有序的队列，最重要的元素排在队首。</p>
 <p><em>作者：Matthijs Hollemans；译者：KSCO</em><br><em>校队：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em></p>
 
       
@@ -855,7 +859,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更加高效的队列"><span class="nav-number">2.</span> <span class="nav-text">更加高效的队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读"><span class="nav-number">3.</span> <span class="nav-text">扩展阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#队列"><span class="nav-number">1.</span> <span class="nav-text">队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更加高效的队列"><span class="nav-number">1.2.</span> <span class="nav-text">更加高效的队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读"><span class="nav-number">1.3.</span> <span class="nav-text">扩展阅读</span></a></li></ol></li></ol></div>
             
 
           </div>

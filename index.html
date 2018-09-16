@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 2,394 字
+                  : 2,384 字
                 </span>
               
 
@@ -479,16 +479,20 @@
 <p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="external">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="external">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue" target="_blank" rel="external">swift-algorithm-club-cn/Queue</a></p>
 </blockquote>
 <hr>
-<blockquote>
+<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><blockquote>
 <p>这个话题已经有个辅导<a href="https://www.raywenderlich.com/148141/swift-algorithm-club-swift-queue-data-structure" target="_blank" rel="external">文章</a></p>
 </blockquote>
 <p>队列的本质是一个数组，但只能从队尾添加元素，从队首移除元素。这保证了第一个入队的元素总是第一个出队。先到先得！</p>
 <p>为什么要这样做呢？在很多算法的实现中，你可能需要将某些对象放到一个临时的列表中，之后再将其取出。通常加入和取出元素的顺序非常重要。</p>
-<p>队列可以保证元素存入和取出的顺序是先进先出(first-in first-out, FIFO)的，第一个入队的元素总是第一个出队，公平合理！<br>另外一个非常类似的数据结构是<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Stack/" target="_blank" rel="external">栈</a>，它是一个后进先出(last-in, first-out, LIFO)的结构。</p>
+<p>队列可以保证元素存入和取出的顺序是先进先出(first-in first-out, FIFO)的，第一个入队的元素总是第一个出队，公平合理！<br>另外一个非常类似的数据结构是<a href="../Stack/">栈</a>，它是一个后进先出(last-in, first-out, LIFO)的结构。</p>
 <p>举例来说，我们将一个数字入队：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.enqueue(<span class="number">10</span>)</div></pre></td></tr></table></figure>
 <p>队列现在为 <code>[ 10 ]</code>。再将下一个数字入队：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.enqueue(<span class="number">3</span>)</div></pre></td></tr></table></figure>
+<p>队列现在为 <code>[ 10, 3 ]</code>。再加入一个数字：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.enqueue(<span class="number">57</span>)</div></pre></td></tr></table></figure>
+<p>队列现在为 <code>[ 10, 3, 57 ]</code>。现在我们将第一个元素出队：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">queue.dequeue()</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/Swift算法俱乐部-队列.html#more" rel="contents">

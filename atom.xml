@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-16T11:04:18.372Z</updated>
+  <updated>2018-09-16T11:26:50.193Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E9%98%9F%E5%88%97.html"/>
     <id>http://andyron.com/2018/Swift算法俱乐部-队列.html</id>
     <published>2018-09-16T10:41:55.000Z</published>
-    <updated>2018-09-16T11:04:18.372Z</updated>
+    <updated>2018-09-16T11:26:50.193Z</updated>
     
     <summary type="html">
     
@@ -29,16 +29,20 @@
 &lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swift-algorithm-club-cn/Queue&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;blockquote&gt;
+&lt;h1 id=&quot;队列&quot;&gt;&lt;a href=&quot;#队列&quot; class=&quot;headerlink&quot; title=&quot;队列&quot;&gt;&lt;/a&gt;队列&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;这个话题已经有个辅导&lt;a href=&quot;https://www.raywenderlich.com/148141/swift-algorithm-club-swift-queue-data-structure&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;队列的本质是一个数组，但只能从队尾添加元素，从队首移除元素。这保证了第一个入队的元素总是第一个出队。先到先得！&lt;/p&gt;
 &lt;p&gt;为什么要这样做呢？在很多算法的实现中，你可能需要将某些对象放到一个临时的列表中，之后再将其取出。通常加入和取出元素的顺序非常重要。&lt;/p&gt;
-&lt;p&gt;队列可以保证元素存入和取出的顺序是先进先出(first-in first-out, FIFO)的，第一个入队的元素总是第一个出队，公平合理！&lt;br&gt;另外一个非常类似的数据结构是&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Stack/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;栈&lt;/a&gt;，它是一个后进先出(last-in, first-out, LIFO)的结构。&lt;/p&gt;
+&lt;p&gt;队列可以保证元素存入和取出的顺序是先进先出(first-in first-out, FIFO)的，第一个入队的元素总是第一个出队，公平合理！&lt;br&gt;另外一个非常类似的数据结构是&lt;a href=&quot;../Stack/&quot;&gt;栈&lt;/a&gt;，它是一个后进先出(last-in, first-out, LIFO)的结构。&lt;/p&gt;
 &lt;p&gt;举例来说，我们将一个数字入队：&lt;/p&gt;
 &lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;queue.enqueue(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;队列现在为 &lt;code&gt;[ 10 ]&lt;/code&gt;。再将下一个数字入队：&lt;/p&gt;
 &lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;queue.enqueue(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;队列现在为 &lt;code&gt;[ 10, 3 ]&lt;/code&gt;。再加入一个数字：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;queue.enqueue(&lt;span class=&quot;number&quot;&gt;57&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;队列现在为 &lt;code&gt;[ 10, 3, 57 ]&lt;/code&gt;。现在我们将第一个元素出队：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;queue.dequeue()&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -126,9 +130,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="拖延" scheme="http://andyron.com/tags/%E6%8B%96%E5%BB%B6/"/>
-    
       <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
+    
+      <category term="拖延" scheme="http://andyron.com/tags/%E6%8B%96%E5%BB%B6/"/>
     
   </entry>
   
@@ -395,9 +399,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
-    
       <category term="设计" scheme="http://andyron.com/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
     
   </entry>
   
