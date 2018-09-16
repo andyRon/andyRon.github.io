@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-14T12:07:11.468Z</updated>
+  <updated>2018-09-16T08:39:19.275Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,83 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-栈</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%A0%88.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-栈.html</id>
+    <published>2018-09-15T16:00:00.000Z</published>
+    <updated>2018-09-16T08:39:19.275Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Stack&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swift-algorithm-club-cn/Stack&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个话题已经有个辅导&lt;a href=&quot;https://www.raywenderlich.com/149213/swift-algorithm-club-swift-stack-data-structure&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;栈类似于数组，但是限制了存取操作的灵活性。栈只允许使用者从栈顶 &lt;strong&gt;压入(push)&lt;/strong&gt; 元素；从栈顶 &lt;strong&gt;弹出(pop)&lt;/strong&gt; 元素；&lt;strong&gt;取得(peek)&lt;/strong&gt; 栈顶元素，但不弹出。&lt;/p&gt;
+&lt;p&gt;这样的限制有什么意义呢？在很多算法的实现中，你可能需要将某些对象放到一个临时的列表中，之后再将其取出。通常加入和取出元素的顺序非常重要。&lt;/p&gt;
+&lt;p&gt;栈可以保证元素存入和取出的顺序是后进先出(last-in first-out, LIFO)的。栈中弹出的元素总是你最后放进去的那个。另外一个非常类似的数据结构是&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;队列&lt;/a&gt;，它是一个先进先出(first-in, first-out, FIFO)的结构。&lt;/p&gt;
+&lt;p&gt;举例来说，我们先将一个数字压入栈中：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;stack.push(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;栈现在是 &lt;code&gt;[10]&lt;/code&gt;。压入下一个数字：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;stack.push(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;栈现在是 &lt;code&gt;[10, 3]&lt;/code&gt;。再压入一个数字：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;stack.push(&lt;span class=&quot;number&quot;&gt;57&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;栈现在是 &lt;code&gt;[10, 3, 57]&lt;/code&gt;。现在把栈顶的数字弹出来：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;stack.pop()&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这行代码返回 &lt;code&gt;57&lt;/code&gt;，因为它是我们最后压入的元素。现在栈又变成了 &lt;code&gt;[10, 3]&lt;/code&gt;。&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;stack.pop()&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="栈" scheme="http://andyron.com/tags/%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读《拖延心理学》</title>
+    <link href="http://andyron.com/2018/%E6%8B%96%E5%BB%B6%E5%BF%83%E7%90%86%E5%AD%A6.html"/>
+    <id>http://andyron.com/2018/拖延心理学.html</id>
+    <published>2018-09-14T16:00:00.000Z</published>
+    <updated>2018-09-16T08:43:31.522Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;初次阅读时间：2016.7&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-590de9597eefbf80.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;作者和本书概要&quot;&gt;&lt;a href=&quot;#作者和本书概要&quot; class=&quot;headerlink&quot; title=&quot;作者和本书概要&quot;&gt;&lt;/a&gt;作者和本书概要&lt;/h1&gt;&lt;p&gt;简·博克和莱诺拉·袁她们两人是心理学博士、美国加利福尼亚大学的资深心理咨询师。 从1979年开始就为学生中的拖延者创设了第一个团体治疗课程，曾经出现在《奥普拉》和《20/20》等电视节目中，同时也是《纽约时报》、《今日美国》、《洛杉矶时报》、《人物》和《当代心理学》等出版物的专访对象。 一直致力于为全美国的学生、公司组织和公众团体提供治疗的心理工作坊和专题演讲方面的服务，终年活跃在伯克利、斯坦福大学的讲坛。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/4180711/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《拖延心理学》&lt;/a&gt; ，副标题: 向与生俱来的行为顽症宣战，原作名: Procrastination: Why You Do It, What To Do About It Now。&lt;/p&gt;
+&lt;p&gt;拖延是普遍存在的，从我阅读本书的过程中也能体会到。我们需要认识拖延，知道它背后原因，找到应对策略，然后完善自我。本书非常详细的分析了拖延的方方面面。&lt;/p&gt;
+&lt;h1 id=&quot;内容&quot;&gt;&lt;a href=&quot;#内容&quot; class=&quot;headerlink&quot; title=&quot;内容&quot;&gt;&lt;/a&gt;内容&lt;/h1&gt;&lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;拖延从根本上来说并不是一个时间管理方面的问题，也不是一个道德问题，而是一个&lt;strong&gt;复杂的心理问题&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;拖延的问题是一个人跟自身如何相处的问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;很多时候对一些事情弃之不理反而对你最为有利&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;当我们按照自己真实的样子而不是按照自己希望的样子来接受自己的时候，我们才能以最有利于我们的方式来采取行动，而不是生活在拖延的无边阴影之下。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-算法设计技巧</title>
@@ -527,47 +604,6 @@
       <category term="NSThread" scheme="http://andyron.com/tags/NSThread/"/>
     
       <category term="NSOperation" scheme="http://andyron.com/tags/NSOperation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OC中的键/值编码(KVC)</title>
-    <link href="http://andyron.com/2018/ios-oc-kvc-begin.html"/>
-    <id>http://andyron.com/2018/ios-oc-kvc-begin.html</id>
-    <published>2018-08-24T11:50:59.000Z</published>
-    <updated>2018-08-24T11:52:40.798Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1-KVC-的定义&quot;&gt;&lt;a href=&quot;#1-KVC-的定义&quot; class=&quot;headerlink&quot; title=&quot;1. KVC 的定义&quot;&gt;&lt;/a&gt;1. KVC 的定义&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;键/值编码(Key-value coding，KVC)&lt;/strong&gt; 可以允许开发者通过Key名访问对象的属性或给对象的属性赋值, 而不需要调用明确的存取方法，并有一组api供开发者使用，像操作字典一样操作对象属性/成员变量/关联对象。&lt;br&gt;这样就可以在 &lt;em&gt;运行时动态地访问和修改&lt;/em&gt; 对象的属性。而不是在编译时确定。这种机制不属于Objective-C语言的特性，而是Cocoa提供的一种特性。&lt;/p&gt;
-&lt;p&gt;通过定义一个&lt;code&gt;NSObject&lt;/code&gt;的类别&lt;code&gt;NSKeyValueCoding&lt;/code&gt;来实现KVC功能。因此所有继承了&lt;code&gt;NSObject&lt;/code&gt;的类都支持KVC。&lt;br&gt;&lt;code&gt;NSKeyValueCoding&lt;/code&gt;的四个重要方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (nullable id)valueForKey:(NSString *)key;                          //直接通过Key来取值&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (void)setValue:(nullable id)value forKey:(NSString *)key;          //通过Key来设值&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (nullable id)valueForKeyPath:(NSString *)keyPath;                  //通过KeyPath来取值&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (void)setValue:(nullable id)value forKeyPath:(NSString *)keyPath;  //通过KeyPath来设值&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-    
-      <category term="OC" scheme="http://andyron.com/tags/OC/"/>
-    
-      <category term="KVC" scheme="http://andyron.com/tags/KVC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OS数据持久化小结</title>
-    <link href="http://andyron.com/2018/ios-persistdata.html"/>
-    <id>http://andyron.com/2018/ios-persistdata.html</id>
-    <published>2018-08-23T15:23:29.000Z</published>
-    <updated>2018-08-23T15:29:08.335Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;持久化就是把数据保存在硬盘上而不是内存里，程序重启后数据不会消失。iOS中数据持久化方法有：&lt;strong&gt;plist文件（属性列表）&lt;/strong&gt;、&lt;strong&gt;UserDefaults&lt;/strong&gt;、&lt;strong&gt;NSKeyedArchiver（归档）&lt;/strong&gt;、&lt;strong&gt;SQLite3&lt;/strong&gt;、&lt;strong&gt;CoreData&lt;/strong&gt;等，另外还有&lt;a href=&quot;https://link.jianshu.com/?t=https://github.com/ccgus/fmdb&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;FMDB&lt;/strong&gt;&lt;/a&gt;（用OC封装的SQLite库）、&lt;a href=&quot;https://github.com/realm/realm-cocoa&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;realm&lt;/a&gt;（代替&lt;strong&gt;SQLite3&lt;/strong&gt;和&lt;strong&gt;CoreData&lt;/strong&gt;新的数据库）。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
     
   </entry>
   
