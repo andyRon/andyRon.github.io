@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-16T11:26:50.193Z</updated>
+  <updated>2018-09-17T04:36:19.929Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-插入排序</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-插入排序.html</id>
+    <published>2018-09-16T16:00:00.000Z</published>
+    <updated>2018-09-17T04:36:19.929Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Insertion%20Sort&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swift-algorithm-club-cn/Insertion Sort&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-356b8d2db83067f0.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;插入排序动画&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目标：把数组从低到高（或从高到低）排序&lt;/p&gt;
+&lt;p&gt;您将获得按正确的顺序排列一系列数字。插入排序算法的工作原理如下:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;把一系列数字放在一个未排序的堆里。&lt;/li&gt;
+&lt;li&gt;从堆中挑选一个数字。 你选择哪一个并不重要，但从堆顶挑选是最容易。&lt;/li&gt;
+&lt;li&gt;把这个数插入一个新的数组。&lt;/li&gt;
+&lt;li&gt;从未排序堆中再选择一个数字，并将其插入之前的数组中。 这个数字在第一个数字之前或之后，所以现在这两个数字被排序。&lt;/li&gt;
+&lt;li&gt;再从堆中选择一个数字，并将其插入到数组中的正确排序位置。&lt;/li&gt;
+&lt;li&gt;继续这样做，直到堆里没有数字。 最终得到一个空堆和一个排序的数组。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这就是为什么这被称为“插入”排序，因为你从堆中取一个数字并将其插入数组中的正确排序位置。&lt;/p&gt;
+&lt;h2 id=&quot;例子&quot;&gt;&lt;a href=&quot;#例子&quot; class=&quot;headerlink&quot; title=&quot;例子&quot;&gt;&lt;/a&gt;例子&lt;/h2&gt;&lt;p&gt;假设这边有需要排序的一些数字  &lt;code&gt;[ 8, 3, 5, 4, 6 ]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;选择第一个数字&lt;code&gt;8&lt;/code&gt;，然后将其插入新数组中。 新数组是空的，所以插入很容易。 排序的数组现在是&lt;code&gt;[8]&lt;/code&gt;，堆是&lt;code&gt;[3,5,4,6]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;从堆中选择下一个数字&lt;code&gt;3&lt;/code&gt;，然后将其插入到已排序的数组中。 &lt;code&gt;3&lt;/code&gt;应该在&lt;code&gt;8&lt;/code&gt;之前，所以排序的数组现在是&lt;code&gt;[3,8]&lt;/code&gt;，而堆被缩减为&lt;code&gt;[5,4,6]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;从堆中选择下一个数字&lt;code&gt;5&lt;/code&gt;，然后将其插入到已排序的数组中。 &lt;code&gt;5&lt;/code&gt;介于&lt;code&gt;3&lt;/code&gt;和&lt;code&gt;8&lt;/code&gt;之间。 排序的数组是&lt;code&gt;[3,5,8]&lt;/code&gt;，堆是&lt;code&gt;[4,6]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;重复上面的过程直到堆为空。&lt;/p&gt;
+&lt;h2 id=&quot;原地排序&quot;&gt;&lt;a href=&quot;#原地排序&quot; class=&quot;headerlink&quot; title=&quot;原地排序&quot;&gt;&lt;/a&gt;原地排序&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;译注：&lt;strong&gt;原地排序&lt;/strong&gt;就是指在排序过程中不申请多余的存储空间，只利用原来存储待排数据的存储空间进行比较和交换的数据排序。包括：希尔排序、冒泡排序、插入排序、选择排序、堆排序、快速排序。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上面的解释使你看起来需要两个数组：一个用于存放未排序的堆，另一个用于存放按次序排好的数字。&lt;/p&gt;
+&lt;p&gt;但您可以执行&lt;em&gt;原地&lt;/em&gt;插入排序，而无需创建单独的数组。 您只需追踪数组的哪个部分已经排序，哪个部分是未排序。&lt;/p&gt;
+&lt;p&gt;最初，数组是&lt;code&gt;[8,3,5,4,6]&lt;/code&gt;。 &lt;code&gt;|&lt;/code&gt;条显示已排序部分的结束位置和堆的开始位置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[| 8, 3, 5, 4, 6 ]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这表明排序的部分是空的，堆开始于&lt;code&gt;8&lt;/code&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="插入排序" scheme="http://andyron.com/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-队列</title>
@@ -130,9 +182,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
-    
       <category term="拖延" scheme="http://andyron.com/tags/%E6%8B%96%E5%BB%B6/"/>
+    
+      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
     
   </entry>
   
@@ -399,9 +451,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="设计" scheme="http://andyron.com/tags/%E8%AE%BE%E8%AE%A1/"/>
-    
       <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
+    
+      <category term="设计" scheme="http://andyron.com/tags/%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
@@ -598,26 +650,6 @@
     
     
       <category term="Disqus" scheme="http://andyron.com/tags/Disqus/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用LeanClound给hexo+next博客添加文章阅读数</title>
-    <link href="http://andyron.com/2018/leanclound-hexo-next.html"/>
-    <id>http://andyron.com/2018/leanclound-hexo-next.html</id>
-    <published>2018-08-31T07:35:36.000Z</published>
-    <updated>2018-08-31T09:37:25.133Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://andyron.com&quot;&gt;个人博客&lt;/a&gt;之前用的&lt;a href=&quot;http://theme-next.iissnan.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NexT&lt;/a&gt; 框架介绍 &lt;strong&gt;不蒜子统计&lt;/strong&gt; 来统计文章阅读数、网站访问人数和网站访问总数。但是总是发现文章阅读数老是出现问题，因此把文章阅读数换成用&lt;a href=&quot;https://leancloud.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeanCloud&lt;/a&gt;来统计，看起来也方便。&lt;a href=&quot;https://leancloud.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeanCloud&lt;/a&gt;的免费的开发版完全满足了我博客这种小网站的需求了。&lt;br&gt;配置起来也很方便，下面做个记录：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://andyron.com/categories/hexo/"/>
-    
-    
-      <category term="LeanClound" scheme="http://andyron.com/tags/LeanClound/"/>
     
   </entry>
   
