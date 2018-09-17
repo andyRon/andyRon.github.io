@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-17T04:36:19.929Z</updated>
+  <updated>2018-09-17T04:40:58.552Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html"/>
     <id>http://andyron.com/2018/Swift算法俱乐部-插入排序.html</id>
     <published>2018-09-16T16:00:00.000Z</published>
-    <updated>2018-09-17T04:36:19.929Z</updated>
+    <updated>2018-09-17T04:40:58.552Z</updated>
     
     <summary type="html">
     
@@ -46,14 +46,6 @@
 &lt;p&gt;从堆中选择下一个数字&lt;code&gt;3&lt;/code&gt;，然后将其插入到已排序的数组中。 &lt;code&gt;3&lt;/code&gt;应该在&lt;code&gt;8&lt;/code&gt;之前，所以排序的数组现在是&lt;code&gt;[3,8]&lt;/code&gt;，而堆被缩减为&lt;code&gt;[5,4,6]&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;从堆中选择下一个数字&lt;code&gt;5&lt;/code&gt;，然后将其插入到已排序的数组中。 &lt;code&gt;5&lt;/code&gt;介于&lt;code&gt;3&lt;/code&gt;和&lt;code&gt;8&lt;/code&gt;之间。 排序的数组是&lt;code&gt;[3,5,8]&lt;/code&gt;，堆是&lt;code&gt;[4,6]&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;重复上面的过程直到堆为空。&lt;/p&gt;
-&lt;h2 id=&quot;原地排序&quot;&gt;&lt;a href=&quot;#原地排序&quot; class=&quot;headerlink&quot; title=&quot;原地排序&quot;&gt;&lt;/a&gt;原地排序&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;译注：&lt;strong&gt;原地排序&lt;/strong&gt;就是指在排序过程中不申请多余的存储空间，只利用原来存储待排数据的存储空间进行比较和交换的数据排序。包括：希尔排序、冒泡排序、插入排序、选择排序、堆排序、快速排序。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;上面的解释使你看起来需要两个数组：一个用于存放未排序的堆，另一个用于存放按次序排好的数字。&lt;/p&gt;
-&lt;p&gt;但您可以执行&lt;em&gt;原地&lt;/em&gt;插入排序，而无需创建单独的数组。 您只需追踪数组的哪个部分已经排序，哪个部分是未排序。&lt;/p&gt;
-&lt;p&gt;最初，数组是&lt;code&gt;[8,3,5,4,6]&lt;/code&gt;。 &lt;code&gt;|&lt;/code&gt;条显示已排序部分的结束位置和堆的开始位置：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[| 8, 3, 5, 4, 6 ]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这表明排序的部分是空的，堆开始于&lt;code&gt;8&lt;/code&gt;。&lt;/p&gt;
     
     </summary>
     
@@ -223,14 +215,15 @@
     <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%A4%A7O%E8%A1%A8%E7%A4%BA%E6%B3%95.html"/>
     <id>http://andyron.com/2018/Swift算法俱乐部-大O表示法.html</id>
     <published>2018-09-14T10:09:21.000Z</published>
-    <updated>2018-09-14T12:07:40.886Z</updated>
+    <updated>2018-09-17T04:51:58.461Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
 &lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;大O表示法&quot;&gt;&lt;a href=&quot;#大O表示法&quot; class=&quot;headerlink&quot; title=&quot;大O表示法&quot;&gt;&lt;/a&gt;大O表示法&lt;/h1&gt;&lt;p&gt;知道某个算法的运行速度和占用的内存空间，对于选择正确的算法来解决问题非常有帮助。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-514c3ef55574c28b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;知道某个算法的运行速度和占用的内存空间，对于选择正确的算法来解决问题非常有帮助。&lt;/p&gt;
 &lt;p&gt;大O表示法 能让你对一个算法的运行时间和占用内存有个大概概念。当有人说，“这个算法在最糟情况下的运行时间是 &lt;strong&gt;O(n^2)&lt;/strong&gt;，而且占用了 &lt;strong&gt;O(n)&lt;/strong&gt; 大小的空间”时，他的意思是这个算法有点慢，不过没占多大内存。&lt;/p&gt;
 &lt;p&gt;要知道一个算法的大O 表示法通常要通过数学分析。在这里我们不会涉及具体的数学，不过知道不同的值意味着什么会很有用。所以这里有一张方便的表。&lt;strong&gt;n&lt;/strong&gt; 在这里代表的意思是数据的个数。举个例子，当对一个有 100 个元素的数组进行排序时，&lt;strong&gt;n = 100&lt;/strong&gt;。&lt;/p&gt;
 &lt;table&gt;

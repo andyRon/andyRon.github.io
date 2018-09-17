@@ -111,7 +111,7 @@
 <meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-356b8d2db83067f0.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2018-09-17T04:36:19.929Z">
+<meta property="og:updated_time" content="2018-09-17T04:40:58.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Swift算法俱乐部-插入排序">
 <meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
@@ -495,6 +495,7 @@
 <p>从堆中选择下一个数字<code>3</code>，然后将其插入到已排序的数组中。 <code>3</code>应该在<code>8</code>之前，所以排序的数组现在是<code>[3,8]</code>，而堆被缩减为<code>[5,4,6]</code>。</p>
 <p>从堆中选择下一个数字<code>5</code>，然后将其插入到已排序的数组中。 <code>5</code>介于<code>3</code>和<code>8</code>之间。 排序的数组是<code>[3,5,8]</code>，堆是<code>[4,6]</code>。</p>
 <p>重复上面的过程直到堆为空。</p>
+<a id="more"></a>
 <h2 id="原地排序"><a href="#原地排序" class="headerlink" title="原地排序"></a>原地排序</h2><blockquote>
 <p>译注：<strong>原地排序</strong>就是指在排序过程中不申请多余的存储空间，只利用原来存储待排数据的存储空间进行比较和交换的数据排序。包括：希尔排序、冒泡排序、插入排序、选择排序、堆排序、快速排序。</p>
 </blockquote>
@@ -503,7 +504,6 @@
 <p>最初，数组是<code>[8,3,5,4,6]</code>。 <code>|</code>条显示已排序部分的结束位置和堆的开始位置：</p>
 <pre><code>[| 8, 3, 5, 4, 6 ]
 </code></pre><p>这表明排序的部分是空的，堆开始于<code>8</code>。</p>
-<a id="more"></a>
 <p>处理完第一个数字后，结果为：</p>
 <pre><code>[ 8 | 3, 5, 4, 6 ]
 </code></pre><p>排好序的部分是<code>[8]</code>，未排序的堆是<code>[ 3, 5, 4, 6 ]</code>。<code>|</code>条向右移动了一个位置。</p>
