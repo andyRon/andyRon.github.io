@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="算法与数据结构,swift,二分搜索," />
 
 
 
@@ -102,17 +102,20 @@
 
 
 
-<meta name="description" content="将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。 拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：  接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。 实现部分(.m): 类的@implementation指令、全局变量的定">
+<meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="keywords" content="算法与数据结构,swift,二分搜索">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OC基础学习5：源文件组织">
-<meta property="og:url" content="http://andyron.com/2017/oc-basic-5.html">
+<meta property="og:title" content="【译】Swift算法俱乐部-二分搜索">
+<meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-二分搜索.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。 拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：  接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。 实现部分(.m): 类的@implementation指令、全局变量的定">
+<meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-09T02:59:50.000Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-ce8f3414be0fbe16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-18T17:31:41.887Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OC基础学习5：源文件组织">
-<meta name="twitter:description" content="将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。 拆分接口和实现根据@interface和@implementation，OC的代码通常放在两种文件里：  接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。 实现部分(.m): 类的@implementation指令、全局变量的定">
+<meta name="twitter:title" content="【译】Swift算法俱乐部-二分搜索">
+<meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-ce8f3414be0fbe16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -140,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/oc-basic-5.html"/>
+  <link rel="canonical" href="http://andyron.com/2018/Swift算法俱乐部-二分搜索.html"/>
 
 
 
 
 
-  <title>OC基础学习5：源文件组织 | 欣欣向戎</title>
+  <title>【译】Swift算法俱乐部-二分搜索 | 欣欣向戎</title>
   
 
 
@@ -331,7 +334,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-5.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/Swift算法俱乐部-二分搜索.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -348,7 +351,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">OC基础学习5：源文件组织</h1>
+          <h1 class="post-title" itemprop="name headline">【译】Swift算法俱乐部-二分搜索</h1>
         
 
         <div class="post-meta">
@@ -360,8 +363,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T00:00:00+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-19T01:22:00+08:00">
+                2018-09-19
               </time>
             
 
@@ -383,8 +386,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
                   </a>
                 </span>
 
@@ -401,9 +404,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/oc-basic-5.html#comments" itemprop="discussionUrl">
+                <a href="/2018/Swift算法俱乐部-二分搜索.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/oc-basic-5.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/Swift算法俱乐部-二分搜索.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -411,7 +414,7 @@
 
           
           
-             <span id="/2017/oc-basic-5.html" class="leancloud_visitors" data-flag-title="OC基础学习5：源文件组织">
+             <span id="/2018/Swift算法俱乐部-二分搜索.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-二分搜索">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 681 字
+                  : 2,432 字
                 </span>
               
 
@@ -453,7 +456,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 3 分钟
+                  ≈ 10 分钟
                 </span>
               
             </div>
@@ -471,35 +474,88 @@
       
 
       
-        <p>将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。</p>
-<h3 id="拆分接口和实现"><a href="#拆分接口和实现" class="headerlink" title="拆分接口和实现"></a>拆分接口和实现</h3><p>根据<code>@interface</code>和<code>@implementation</code>，OC的代码通常放在两种文件里：</p>
+        <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="external">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="external">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Search" target="_blank" rel="external">swift-algorithm-club-cn/Binary Search</a></p>
+</blockquote>
+<hr>
+<p><img src="https://upload-images.jianshu.io/upload_images/1678135-ce8f3414be0fbe16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Binary Search"></p>
+<p>目标：在数组中快速寻找一个元素。</p>
+<p>假设你有一个数字数组，你想确定一个特定的数字是否在该数组中，如果在，那么获得这个数字的索引。</p>
+<p>对于上面的情况，Swift的<code>indexOf()</code>函数足够完成：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> numbers = [<span class="number">11</span>, <span class="number">59</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">53</span>, <span class="number">17</span>, <span class="number">31</span>, <span class="number">7</span>, <span class="number">19</span>, <span class="number">67</span>, <span class="number">47</span>, <span class="number">13</span>, <span class="number">37</span>, <span class="number">61</span>, <span class="number">29</span>, <span class="number">43</span>, <span class="number">5</span>, <span class="number">41</span>, <span class="number">23</span>]</div><div class="line"></div><div class="line">numbers.indexOf(<span class="number">43</span>)  <span class="comment">// returns 15</span></div></pre></td></tr></table></figure>
+<p>内置的<code>indexOf()</code>函数执行的是<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linear%20Search/" target="_blank" rel="external">线性搜索</a>。代码大概是：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">linearSearch</span>&lt;T: Equatable&gt;<span class="params">(<span class="number">_</span> a: [T], <span class="number">_</span> key: T)</span></span> -&gt; <span class="type">Int</span>? &#123;</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span> ..&lt; a.<span class="built_in">count</span> &#123;</div><div class="line">        <span class="keyword">if</span> a[i] == key &#123;</div><div class="line">            <span class="keyword">return</span> i</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>使用如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">linearSearch(numbers, <span class="number">43</span>)  <span class="comment">// returns 15</span></div></pre></td></tr></table></figure>
+<p>有什么问题呢？ <code>linearSearch（）</code>从头开始遍历整个数组，直到找到你正在寻找的元素。 在最坏的情况是数值不在数组中，那么之前的遍历就白费。</p>
+<p>平均而言，线性搜索算法需要查看数组中一半的值。 如果您的数组足够大，这将会变得非常慢！</p>
+<h2 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h2><p>提升速度的经典方法是使用 <em>二分搜索</em>。 诀窍是将数组分成两半，直到找到值。</p>
+<p>对于大小为<code>n</code>的数组，性能不是线性搜索的<strong>O(n)</strong>，而是只有 <strong>O(log n)</strong>。换句话说，对具有1,000,000个元素的数组进行二分搜索只需要大约20个步骤来查找要查找的内容，因为<code>log_2（1,000,000）= 19.9</code>。对于具有十亿个元素的数组，它只需要30步。 （然而，你上一次使用数十亿项的数组是什么时候？）</p>
+<p>听起来很棒，但使用二分搜索有一个缺点：数组必须被排好序的。 在实践中，这通常不是问题。</p>
+<p>下面二分搜索的工作原理：</p>
 <ul>
-<li>接口部分(.h)：类的@interface指令、公共struct定义、enum常量、#defines和extern全局变量等。</li>
-<li>实现部分(.m): 类的@implementation指令、全局变量的定义、私有struct等。</li>
+<li>将数组分成两半，并确定您要查找的内容（称为<em>搜索键</em>）是在左半部分还是在右半部分。</li>
+<li>您如何确定<em>搜索键</em>的键在哪一半呢？ 这就是首先要对数组进行排序的原因，排好序你就可以做一个简单的<code>&lt;</code>或<code>&gt;</code>比较。</li>
+<li>如果<em>搜索键</em>位于左半部分，则在那里重复该过程：将左半部分分成两个更小的部分，并查看<em>搜索键</em>位于哪一块。 （同样，对于右半部分同样处理。）</li>
+<li>重复此操作直到找到<em>搜索键</em>。 如果无法进一步拆分数组，则必须遗憾地得出结论，<em>搜索键</em>不在数组中。</li>
 </ul>
-<p>另外，复杂的项目可以拥有多个<strong>目标</strong>，它们源文件的配置各不相同，构建规则也不同。<strong>群组</strong>关系仅仅是有Xcode负责管理的一项奇妙的功能。</p>
-<h3 id="拆分Car程序"><a href="#拆分Car程序" class="headerlink" title="拆分Car程序"></a>拆分Car程序</h3><ul>
-<li><code>#import</code> 带尖号的是导入系统头文件(只读)，如<code>#import &lt;Foundation/Foundation.h&gt;</code>；双引号是项目本地的代码文件，如<code>#import &quot;Engine.h&quot;</code>。</li>
-<li><p>拆分上一篇中的Car程序<br>首先拆分继承自<code>NSObject</code>的类：<code>Tire</code>和<code>Engine</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//  Tire.h</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface Tire : NSObject</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//  Tire.m</div><div class="line"></div><div class="line">#import &quot;Tire.h&quot;</div><div class="line"></div><div class="line">@implementation Tire</div><div class="line">//#pragma mark -</div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a Tire.&quot;);</div><div class="line">&#125; //description</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//  Engine.h</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface Engine : NSObject</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//  Engine.m</div><div class="line">#import &quot;Engine.h&quot;</div><div class="line"></div><div class="line">@implementation Engine</div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a Engine.&quot;);</div><div class="line">&#125; //description</div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="使用跨文件依赖关系"><a href="#使用跨文件依赖关系" class="headerlink" title="使用跨文件依赖关系"></a>使用跨文件依赖关系</h3><ul>
-<li><p><code>@class</code> 是告诉编译器：“这是一个类，只会通过指针来引用它，不需要关注此类的更多信息”。可减少必须导入的头文件的数量，从而缩短编译时间。<br>拆分<code>Car</code>类：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//  Car.h</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@class Engine;</div><div class="line">@class Tire;</div><div class="line"></div><div class="line">@interface Car : NSObject</div><div class="line">- (Engine *) engine;</div><div class="line">- (void) setEngine: (Engine *) newEngine;</div><div class="line">- (Tire *) tireAtIndex: (int) index;</div><div class="line">- (void) setTire: (Tire *) tire atIndex: (int) index;</div><div class="line">- (void)print;</div><div class="line">@end //Car</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">//  Car.m</div><div class="line"></div><div class="line">#import &quot;Car.h&quot;</div><div class="line">#import &quot;Tire.h&quot;</div><div class="line">#import &quot;Engine.h&quot;</div><div class="line"></div><div class="line">@implementation Car</div><div class="line">&#123;</div><div class="line">    Engine *engine;</div><div class="line">    Tire *tires[4];</div><div class="line">&#125;</div><div class="line">- (Engine *) engine</div><div class="line">&#123;</div><div class="line">    return (engine);</div><div class="line">&#125; //engine</div><div class="line">- (void) setEngine:(Engine *)newEngine</div><div class="line">&#123;</div><div class="line">    engine = newEngine;</div><div class="line">&#125; //setEngine</div><div class="line">- (void) setTire:(Tire *)tire atIndex:(int)index</div><div class="line">&#123;</div><div class="line">    if (index&lt;0 || index&gt;3) &#123;</div><div class="line">        NSLog(@&quot;bad index (%d) in setTire:atIndex&quot;, index);</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line">    tires[index] = tire;</div><div class="line">&#125; // setTire</div><div class="line">- (Tire *) tireAtIndex:(int)index</div><div class="line">&#123;</div><div class="line">    if (index&lt;0 || index&gt;3) &#123;</div><div class="line">        NSLog(@&quot;bad index (%d) in setTire:atIndex&quot;, index);</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line">    return tires[index];</div><div class="line">&#125; // tireAtIndex</div><div class="line"></div><div class="line">- (id)init</div><div class="line">&#123;</div><div class="line">    if (self = [super init]) &#123;  //?</div><div class="line">        engine = [Engine new];</div><div class="line">        tires[0] = [Tire new];</div><div class="line">        tires[1] = [Tire new];</div><div class="line">        tires[2] = [Tire new];</div><div class="line">        tires[3] = [Tire new];</div><div class="line">    &#125;</div><div class="line">    return (self);</div><div class="line">&#125;</div><div class="line">- (void)print</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;%@&quot;, engine);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[0]);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[1]);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[2]);</div><div class="line">    NSLog(@&quot;%@&quot;, tires[3]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end //Car</div></pre></td></tr></table></figure>
-</li>
-<li><p>编译器需要先知道所有关于超类的信息才能成功地为其子类编译@interface部分。<br>拆分<code>Slant6</code>和<code>AllWeatherRadial</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//  Slant6.h</div><div class="line"></div><div class="line">#import &quot;Engine.h&quot;</div><div class="line"></div><div class="line">@interface Slant6 : Engine</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//  Slant6.m</div><div class="line"></div><div class="line">#import &quot;Slant6.h&quot;</div><div class="line"></div><div class="line">@implementation Slant6</div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a slant-6.VROOM!&quot;);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//  AllWeatherRadial.h</div><div class="line"></div><div class="line">#import &quot;Tire.h&quot;</div><div class="line"></div><div class="line">@interface AllWeatherRadial : Tire</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//  AllWeatherRadial.m</div><div class="line"></div><div class="line">#import &quot;AllWeatherRadial.h&quot;</div><div class="line"></div><div class="line">@implementation AllWeatherRadial</div><div class="line">-(NSString *)description</div><div class="line">&#123;</div><div class="line">    return (@&quot;I am a tire for rain or shine.&quot;);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>最后是<code>main.m</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//  main.m</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &quot;Car.h&quot;</div><div class="line">#import &quot;Tire.h&quot;</div><div class="line">#import &quot;Engine.h&quot;</div><div class="line">#import &quot;Slant6.h&quot;</div><div class="line">#import &quot;AllWeatherRadial.h&quot;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">   </div><div class="line">    Car *car = [Car new];</div><div class="line">    </div><div class="line">    Engine *engine = [Slant6 new];</div><div class="line">    [car setEngine:engine];</div><div class="line">    for (int i=0; i&lt;4; i++) &#123;</div><div class="line">        Tire *tire = [AllWeatherRadial new];</div><div class="line">        [car setTire:tire atIndex:i];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    [car print];</div><div class="line">    </div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>现在你知道为什么它被称为“二分”搜索：在每一步中它将数组分成两半。 <em>分而治之</em> 可以快速缩小<em>搜索键</em>所在的位置。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>这是Swift中二分搜索的递归实现：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">binarySearch</span>&lt;T: Comparable&gt;<span class="params">(<span class="number">_</span> a: [T], key: T, range: Range&lt;Int&gt;)</span></span> -&gt; <span class="type">Int</span>? &#123;</div><div class="line">    <span class="keyword">if</span> range.lowerBound &gt;= range.upperBound &#123;</div><div class="line">        <span class="comment">// If we get here, then the search key is not present in the array.</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// Calculate where to split the array.</span></div><div class="line">        <span class="keyword">let</span> midIndex = range.lowerBound + (range.upperBound - range.lowerBound) / <span class="number">2</span></div><div class="line"></div><div class="line">        <span class="comment">// Is the search key in the left half?</span></div><div class="line">        <span class="keyword">if</span> a[midIndex] &gt; key &#123;</div><div class="line">            <span class="keyword">return</span> binarySearch(a, key: key, range: range.lowerBound ..&lt; midIndex)</div><div class="line"></div><div class="line">        <span class="comment">// Is the search key in the right half?</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> a[midIndex] &lt; key &#123;</div><div class="line">            <span class="keyword">return</span> binarySearch(a, key: key, range: midIndex + <span class="number">1</span> ..&lt; range.upperBound)</div><div class="line"></div><div class="line">        <span class="comment">// If we get here, then we've found the search key!</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> midIndex</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>尝试一下，将代码复制到 playground 并执行以下操作：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> numbers = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">37</span>, <span class="number">41</span>, <span class="number">43</span>, <span class="number">47</span>, <span class="number">53</span>, <span class="number">59</span>, <span class="number">61</span>, <span class="number">67</span>]</div><div class="line"></div><div class="line">binarySearch(numbers, key: <span class="number">43</span>, range: <span class="number">0</span> ..&lt; numbers.<span class="built_in">count</span>)  <span class="comment">// gives 13</span></div></pre></td></tr></table></figure>
+<p>请注意，<code>numbers</code>数组已排序。 否则二分搜索算法不能工作！</p>
+<p>二分搜索通过将数组分成两半来搜索，但我们实际上并没有创建两个新数组。 我们使用Swift<code>Range</code>对象跟踪这些拆分。起初，此范围涵盖整个数组，<code>0 .. &lt;numbers.count</code>。 当我们拆分数组时，范围变得越来越小。</p>
+<blockquote>
+<p><strong>注意：</strong> 需要注意的一点是<code>range.upperBound</code>总是指向最后一个元素之后的元素。 在这个例子中，范围是<code>0 .. &lt;19</code>，因为数组中有19个数字，所以<code>range.lowerBound = 0</code>和<code>range.upperBound = 19</code>。但是在我们的数组中，最后一个元素是在索引18而不是19，因为我们从0开始计数。在处理范围时要记住这一点：<code>upperBound</code>总是比最后一个元素的索引多一。</p>
+</blockquote>
+<h2 id="分步执行示例"><a href="#分步执行示例" class="headerlink" title="分步执行示例"></a>分步执行示例</h2><p>查看算法的详细工作方式或许是很有用的。</p>
+<p>上例中的数组由19个数字组成，排序后如下所示：</p>
+<pre><code>[ 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67 ]
+</code></pre><p>我们试图确定数字<code>43</code>是否在这个数组中。</p>
+<p>将数组拆分为一半，我们需要知道中间对象的索引。 这是由这行代码确定：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> midIndex = range.lowerBound + (range.upperBound - range.lowerBound) / <span class="number">2</span></div></pre></td></tr></table></figure>
+<p>最初，范围有<code>lowerBound = 0</code>和<code>upperBound = 19</code>。 细看，我们发现<code>midIndex</code>是<code>0 +（19 - 0）/ 2 = 19/2 = 9</code>。 它实际上是<code>9.5</code>，但因为我们使用的是整数，所以答案是向下舍入了。</p>
+<p>在下图中，<code>*</code>处表示中间项。 如您所见，每侧的项目数相同，因此我们将在中间分开。</p>
+<pre><code>[ 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67 ]
+                                  *
+</code></pre><p>二分搜索将确定使用哪一半的相关代码是：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> a[midIndex] &gt; key &#123;</div><div class="line">    <span class="comment">// use left half</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> a[midIndex] &lt; key &#123;</div><div class="line">    <span class="comment">// use right half</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> midIndex</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这种情况下，<code>a[midIndex] = 29</code>。 这比<em>搜索键</em>的值小，所以我们可以得出结论，<em>搜索键</em>永远不会出现在数组的左半部分。毕竟，左半部分只包含小于<code>29</code>的数字。 因此，<em>搜索键</em>肯定位于右半部分（或根本不在数组中）。</p>
+<p>现在我们可以简单地重复二分搜索，数组间距从<code>midIndex + 1</code>到<code>range.upperBound</code>：</p>
+<pre><code>[ x, x, x, x, x, x, x, x, x, x | 31, 37, 41, 43, 47, 53, 59, 61, 67 ]
+</code></pre><p>由于我们不再需要关注数组的左半部分，我用<code>x</code>标记了它。 从现在开始，我们只看右半部分，从数组索引10开始。</p>
+<p>我们计算新的中间元素的索引：<code>midIndex = 10 +（19 - 10）/ 2 = 14</code>，然后再将数组从中间拆分。</p>
+<pre><code>[ x, x, x, x, x, x, x, x, x, x | 31, 37, 41, 43, 47, 53, 59, 61, 67 ]
+                                                 *
+</code></pre><p>正如你所看到的，<code>a [14]</code>是数组右半部分的中间元素。</p>
+<p><em>搜索键</em>是大于还是小于<code>a [14]</code>？ 小，因为<code>43 &lt;47</code>。 这次我们取左半边并忽略右边较大的数字：</p>
+<pre><code>[ x, x, x, x, x, x, x, x, x, x | 31, 37, 41, 43 | x, x, x, x, x ]
+</code></pre><p>新的<code>midIndex</code>如下：</p>
+<pre><code>[ x, x, x, x, x, x, x, x, x, x | 31, 37, 41, 43 | x, x, x, x, x ]
+                                     *
+</code></pre><p><em>搜索键</em>大于<code>37</code>，因此继续右侧：</p>
+<pre><code>[ x, x, x, x, x, x, x, x, x, x | x, x | 41, 43 | x, x, x, x, x ]
+                                        *
+</code></pre><p>同样，<em>搜索键</em>更大，因此再次拆分并采取右侧：</p>
+<pre><code>[ x, x, x, x, x, x, x, x, x, x | x, x | x | 43 | x, x, x, x, x ]
+                                            *
+</code></pre><p>现在我们已经完成了。搜索键等于我们正在查看的数组元素，所以我们终于找到了我们要搜索的内容：数字<code>43</code>位于数组索引<code>13</code>。 </p>
+<p>这可能看起来像很多工作，但实际上只需要四个步骤就能找到数组中的<em>搜索键</em>，因为<code>log_2（19）= 4.23</code>。通过线性搜索，它将花费14个步骤。</p>
+<p>如果我们要搜索<code>42</code>而不是<code>43</code>会发生什么？在这种情况下，最后我们不能再进一步拆分数组。 <code>range.upperBound</code>变得小于<code>range.lowerBound</code>。这告诉算法搜索键不在数组中，它返回<code>nil</code>。</p>
+<blockquote>
+<p><strong>注意：</strong> 二分搜索许多执行会计算 <code>midIndex = (lowerBound + upperBound) / 2</code>。这包含了一个在非常大的数组中会出现的细微bug，因为<code>lowerBound + upperBound</code>可能溢出一个整数可以容纳的最大数。这种情况不太可能发生在64位CPU上，但绝对可能在32位机器上发生。</p>
+</blockquote>
+<h2 id="迭代与递归"><a href="#迭代与递归" class="headerlink" title="迭代与递归"></a>迭代与递归</h2><p>二分搜索本质上是递归的，因为您将相同的逻辑一遍又一遍地应用于越来越小的子数组。 但是，这并不意味着您必须将<code>binarySearch()</code>实现为递归函数。 将递归算法转换为迭代版本通常更有效，使用简单的循环而不是大量的递归函数调用。</p>
+<p>这是Swift中二分搜索的迭代实现：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">binarySearch</span>&lt;T: Comparable&gt;<span class="params">(<span class="number">_</span> a: [T], key: T)</span></span> -&gt; <span class="type">Int</span>? &#123;</div><div class="line">    <span class="keyword">var</span> lowerBound = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> upperBound = a.<span class="built_in">count</span></div><div class="line">    <span class="keyword">while</span> lowerBound &lt; upperBound &#123;</div><div class="line">        <span class="keyword">let</span> midIndex = lowerBound + (upperBound - lowerBound) / <span class="number">2</span></div><div class="line">        <span class="keyword">if</span> a[midIndex] == key &#123;</div><div class="line">            <span class="keyword">return</span> midIndex</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> a[midIndex] &lt; key &#123;</div><div class="line">            lowerBound = midIndex + <span class="number">1</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            upperBound = midIndex</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如您所见，代码与递归版本非常相似。 主要区别在于使用<code>while</code>循环。</p>
+<p>使用迭代实现：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> numbers = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">37</span>, <span class="number">41</span>, <span class="number">43</span>, <span class="number">47</span>, <span class="number">53</span>, <span class="number">59</span>, <span class="number">61</span>, <span class="number">67</span>]</div><div class="line"></div><div class="line">binarySearch(numbers, key: <span class="number">43</span>)  <span class="comment">// gives 13</span></div></pre></td></tr></table></figure>
+<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>数组必须先排序是一个问题？ 排序是需要时间的 —— 二分搜索和排序的组合可能比进行简单的线性搜索要慢。但是在您只排序一次然后进行多次搜索的情况下，二分搜索会起到大作用。</p>
+<p><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm" target="_blank" rel="external">二分搜索的维基百科</a>  </p>
+<p><em>作者：Matthijs Hollemans</em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em></p>
 
       
     </div>
@@ -549,7 +605,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/oc-basic-5.html" title="OC基础学习5：源文件组织">http://andyron.com/2017/oc-basic-5.html</a>
+      <a href="http://andyron.com/2018/Swift算法俱乐部-二分搜索.html" title="【译】Swift算法俱乐部-二分搜索">http://andyron.com/2018/Swift算法俱乐部-二分搜索.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -563,6 +619,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
+          
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/二分搜索/" rel="tag"><i class="fa fa-tag"></i> 二分搜索</a>
+          
+        </div>
+      
 
       
       
@@ -572,8 +638,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/oc-basic-3-inheritance.html" rel="next" title="OC基础学习3：继承(inheritance)">
-                <i class="fa fa-chevron-left"></i> OC基础学习3：继承(inheritance)
+              <a href="/2018/Swift算法俱乐部-插入排序.html" rel="next" title="【译】Swift算法俱乐部-插入排序">
+                <i class="fa fa-chevron-left"></i> 【译】Swift算法俱乐部-插入排序
               </a>
             
           </div>
@@ -581,10 +647,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/oc-basic-4-composition.html" rel="prev" title="OC基础学习4：复合（composition）">
-                OC基础学习4：复合（composition） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -805,7 +867,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#拆分接口和实现"><span class="nav-number">1.</span> <span class="nav-text">拆分接口和实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拆分Car程序"><span class="nav-number">2.</span> <span class="nav-text">拆分Car程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用跨文件依赖关系"><span class="nav-number">3.</span> <span class="nav-text">使用跨文件依赖关系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分而治之"><span class="nav-number">1.</span> <span class="nav-text">分而治之</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分步执行示例"><span class="nav-number">3.</span> <span class="nav-text">分步执行示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代与递归"><span class="nav-number">4.</span> <span class="nav-text">迭代与递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束"><span class="nav-number">5.</span> <span class="nav-text">结束</span></a></li></ol></div>
             
 
           </div>
@@ -975,9 +1037,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/oc-basic-5.html';
-          this.page.identifier = '2017/oc-basic-5.html';
-          this.page.title = 'OC基础学习5：源文件组织';
+          this.page.url = 'http://andyron.com/2018/Swift算法俱乐部-二分搜索.html';
+          this.page.identifier = '2018/Swift算法俱乐部-二分搜索.html';
+          this.page.title = '【译】Swift算法俱乐部-二分搜索';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';
