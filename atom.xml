@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-18T17:31:41.887Z</updated>
+  <updated>2018-09-18T18:22:08.967Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-线性搜索</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%BA%BF%E6%80%A7%E6%90%9C%E7%B4%A2.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-线性搜索.html</id>
+    <published>2018-09-18T18:20:00.000Z</published>
+    <updated>2018-09-18T18:22:08.967Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linear%20Search&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swift-algorithm-club-cn/Linear Search&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-6fb15436aa3d81c1.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;Linear Search&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目标：在数组中查找特定值。&lt;/p&gt;
+&lt;p&gt;我们有一组通用对象。 通过线性搜索，我们迭代数组中的所有对象，并将每个对象与我们正在寻找的对象进行比较。 如果两个对象相等，我们停止并返回当前对象在数组中的索引。 如果不相等，只要数组中还有对象，我们就会继续寻找下一个。&lt;/p&gt;
+&lt;h2 id=&quot;一个例子&quot;&gt;&lt;a href=&quot;#一个例子&quot; class=&quot;headerlink&quot; title=&quot;一个例子&quot;&gt;&lt;/a&gt;一个例子&lt;/h2&gt;&lt;p&gt;假设我们有一个数组&lt;code&gt;[5,2,4,7]&lt;/code&gt;，我们想检查数组是否包含数字&lt;code&gt;2&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;我们首先将数组中的第一个数字&lt;code&gt;5&lt;/code&gt;与我们正在寻找的数字&lt;code&gt;2&lt;/code&gt;进行比较。 它们显然不一样，所以我们继续比较下一个数组元素。&lt;/p&gt;
+&lt;p&gt;我们将数组中的数字&lt;code&gt;2&lt;/code&gt;与数字&lt;code&gt;2&lt;/code&gt;进行比较，注意到它们是相等的。 现在我们可以停止迭代并返回1，这是数组中数字&lt;code&gt;2&lt;/code&gt;的索引。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="线性搜索" scheme="http://andyron.com/tags/%E7%BA%BF%E6%80%A7%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-二分搜索</title>
@@ -208,9 +241,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
-    
       <category term="拖延" scheme="http://andyron.com/tags/%E6%8B%96%E5%BB%B6/"/>
+    
+      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
     
   </entry>
   
@@ -478,9 +511,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="设计" scheme="http://andyron.com/tags/%E8%AE%BE%E8%AE%A1/"/>
-    
       <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
+    
+      <category term="设计" scheme="http://andyron.com/tags/%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
@@ -624,30 +657,6 @@
 &lt;p&gt;我只负责制造作品，不负责用户体验，也没有售后服务，更不会根据大家的口味来改进。  &lt;/p&gt;
 &lt;p&gt;充满挫败甚至后悔，但遗憾并不多。 &lt;/p&gt;
 &lt;p&gt;得之我幸，不得我也没什么不幸。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《黑客与画家》记录</title>
-    <link href="http://andyron.com/2018/%E9%BB%91%E5%AE%A2%E4%B8%8E%E7%94%BB%E5%AE%B6.html"/>
-    <id>http://andyron.com/2018/黑客与画家.html</id>
-    <published>2018-08-31T15:05:52.000Z</published>
-    <updated>2018-09-15T03:12:08.924Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;注：&lt;/code&gt; 本文是我几年前的记录，整理时发现还可以再看看。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/0069RVTdgy1futackby83j31kw23vh1p.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;保罗-格雷厄姆其人其事&quot;&gt;&lt;a href=&quot;#保罗-格雷厄姆其人其事&quot; class=&quot;headerlink&quot; title=&quot;保罗-格雷厄姆其人其事&quot;&gt;&lt;/a&gt;保罗-格雷厄姆其人其事&lt;/h3&gt;&lt;p&gt;“运营创业公司，每天都像在战斗；而为大公司工作，就像在窒息中挣扎。”&lt;br&gt;&lt;strong&gt; “我生活的中得一切，都正在成为计算机。所以，如果你想理解我们目前的世界以及它的未知动向，那么多了解一些黑客的想法会对你有帮助。” &lt;/strong&gt;&lt;br&gt;Y Combinator&lt;br&gt;创始人本身比他的创意更重要&lt;br&gt;内耗&lt;/p&gt;
-&lt;h3 id=&quot;译者序&quot;&gt;&lt;a href=&quot;#译者序&quot; class=&quot;headerlink&quot; title=&quot;译者序&quot;&gt;&lt;/a&gt;译者序&lt;/h3&gt;&lt;p&gt;表面上这是一个机器的时代，但是实际上机器的设计者决定了我们的时代。&lt;br&gt;stallman：“出于兴趣而解决某个难题，不管它有没用，这就是黑客。” 好玩，高智商，探索精神&lt;br&gt;真正的黑客致力于改变世界，让世界运转得更好。&lt;/p&gt;
-&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;计算机世界就像是智力世界的大西部，在那里没有你不敢想得事件，只要你愿意承担冒险后果。&lt;/p&gt;
     
     </summary>
     
