@@ -351,7 +351,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-14.html" itemprop="url">以撸代码的形式学习Swift-14：Initialization</a></h1>
+                <a class="post-title-link" href="/2017/swift-14.html" itemprop="url">以撸代码的形式学习Swift-14：构造过程(Initialization)</a></h1>
         
 
         <div class="post-meta">
@@ -392,7 +392,7 @@
 
           
           
-             <span id="/2017/swift-14.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-14：Initialization">
+             <span id="/2017/swift-14.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-14：构造过程(Initialization)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,996 字
+                  : 2,009 字
                 </span>
               
 
@@ -453,7 +453,12 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p><strong>构造过程</strong>是使用类、结构体或枚举类型的实例之前的准备过程<br>通过定义<strong>构造器</strong>( Initializers )来实现构造过程</p>
+</blockquote>
+<h3 id="1-存储属性的初始赋值"><a href="#1-存储属性的初始赋值" class="headerlink" title="1 存储属性的初始赋值"></a>1 存储属性的初始赋值</h3><p>类和结构体在创建实例时，<strong>必须</strong>为所有存储型属性设置合适的初始值。</p>
+<p>当你为存储型属性设置默认值或者在构造器中为其赋值时，它们的值是被直接设置的，不会触发任何属性观察者。</p>
+<h3 id="2-自定义构造过程"><a href="#2-自定义构造过程" class="headerlink" title="2 自定义构造过程"></a>2 自定义构造过程</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-14.html#more" rel="contents">
@@ -521,7 +526,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-13.html" itemprop="url">以撸代码的形式学习Swift-13：Inheritance</a></h1>
+                <a class="post-title-link" href="/2017/swift-13.html" itemprop="url">以撸代码的形式学习Swift-13：继承(Inheritance)</a></h1>
         
 
         <div class="post-meta">
@@ -584,7 +589,7 @@
 
           
           
-             <span id="/2017/swift-13.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-13：Inheritance">
+             <span id="/2017/swift-13.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-13：继承(Inheritance)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -610,7 +615,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 267 字
+                  : 268 字
                 </span>
               
 
@@ -645,7 +650,11 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>一个类可以继承(inherit)另一个类的方法(methods)，属性(properties)和其它特性<br>类可以调用和访问超类的方法，属性和下标(subscripts)，并且可以重写(override)这些方法，属性和下标来优化或修改它们的行为。<br>可以为类中继承来的属性添加属性观察器(property observers)</p>
+</blockquote>
+<h3 id="1-基类-base-class"><a href="#1-基类-base-class" class="headerlink" title="1 基类(base class)"></a>1 基类(base class)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> currentSpeed = <span class="number">0.0</span></div><div class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"traveling at <span class="subst">\(currentSpeed)</span> miles per hour"</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="comment">// 什么也不做-因为车辆不一定会有噪音</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> someVehicle = <span class="type">Vehicle</span>()</div></pre></td></tr></table></figure>
+<h3 id="2-子类生成-Subclassing"><a href="#2-子类生成-Subclassing" class="headerlink" title="2 子类生成(Subclassing)"></a>2 子类生成(Subclassing)</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-13.html#more" rel="contents">
@@ -713,7 +722,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-12.html" itemprop="url">以撸代码的形式学习Swift-12：Subscripts</a></h1>
+                <a class="post-title-link" href="/2017/swift-12.html" itemprop="url">以撸代码的形式学习Swift-12：下标(Subscripts)</a></h1>
         
 
         <div class="post-meta">
@@ -776,7 +785,7 @@
 
           
           
-             <span id="/2017/swift-12.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-12：Subscripts">
+             <span id="/2017/swift-12.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-12：下标(Subscripts)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -837,7 +846,11 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>下标 (subscripts)可以定义在类(class)、结构体(structure)和枚举(enumeration)中，是访问集合(collection)，列表(list)或序列(sequence)中元素的快捷方式。<br>一个类型可以定义多个下标，通过不同索引类型进行重载。</p>
+</blockquote>
+<h3 id="1-下标语法"><a href="#1-下标语法" class="headerlink" title="1 下标语法"></a>1 下标语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TimesTable</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> multiplier: <span class="type">Int</span></div><div class="line">    <span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> multiplier * index</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> threeTimesTable = <span class="type">TimesTable</span>(multiplier: <span class="number">3</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"six times three is <span class="subst">\(threeTimesTable[<span class="number">6</span>])</span>"</span>)</div></pre></td></tr></table></figure>
+<h3 id="2-下标用法"><a href="#2-下标用法" class="headerlink" title="2 下标用法"></a>2 下标用法</h3><p>字典通过下标返回是可选类型<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-12.html#more" rel="contents">
@@ -1295,7 +1308,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-11.html" itemprop="url">以撸代码的形式学习Swift-11：Methods</a></h1>
+                <a class="post-title-link" href="/2017/swift-11.html" itemprop="url">以撸代码的形式学习Swift-11：方法(Methods)</a></h1>
         
 
         <div class="post-meta">
@@ -1358,7 +1371,7 @@
 
           
           
-             <span id="/2017/swift-11.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-11：Methods">
+             <span id="/2017/swift-11.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-11：方法(Methods)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1384,7 +1397,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 512 字
+                  : 516 字
                 </span>
               
 
@@ -1400,7 +1413,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 2 分钟
+                  ≈ 3 分钟
                 </span>
               
             </div>
@@ -1419,7 +1432,16 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+          <blockquote>
+<p>方法是与某些特定类型相关联的函数<br>实例方法为给定类型的实例封装了具体的任务与功能<br>类、结构体、枚举都可以定义<strong>实例方法</strong>，也都可以定义<strong>类型方法</strong><br>在OC中，类是唯一能定义方法的类型  </p>
+</blockquote>
+<h3 id="1-实例方法-Instance-Methods"><a href="#1-实例方法-Instance-Methods" class="headerlink" title="1 实例方法 (Instance Methods)"></a>1 实例方法 (Instance Methods)</h3><ul>
+<li>实例方法只能被它所属的类的某个特定实例调用</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">increment</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">count</span> += <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">incrementBy</span><span class="params">(amount: Int)</span></span> &#123;</div><div class="line">        <span class="built_in">count</span> += amount</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reset</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">count</span> = <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>方法的局部参数名称和外部参数名称 (Local and External Parameter Names for Methods)</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-11.html#more" rel="contents">
@@ -1487,7 +1509,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-10.html" itemprop="url">以撸代码的形式学习Swift-10：Properties</a></h1>
+                <a class="post-title-link" href="/2017/swift-10.html" itemprop="url">以撸代码的形式学习Swift-10：属性(Properties)</a></h1>
         
 
         <div class="post-meta">
@@ -1550,7 +1572,7 @@
 
           
           
-             <span id="/2017/swift-10.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-10：Properties">
+             <span id="/2017/swift-10.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-10：属性(Properties)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1576,7 +1598,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 768 字
+                  : 807 字
                 </span>
               
 
@@ -1611,7 +1633,7 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <h3 id="1-存储属性-Stored-Properties-（只能用于类和结构体）"><a href="#1-存储属性-Stored-Properties-（只能用于类和结构体）" class="headerlink" title="1 存储属性 Stored Properties （只能用于类和结构体）"></a>1 存储属性 Stored Properties （只能用于类和结构体）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 描述整数的范围，且这个范围值在被创建后不能被修改.</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">FixedLengthRange</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> firstValue: <span class="type">Int</span></div><div class="line">    <span class="keyword">let</span> length: <span class="type">Int</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 该区间表示整数0，1，2</span></div><div class="line"><span class="keyword">var</span> rangeOfThreeItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">3</span>)</div><div class="line"><span class="comment">// 该区间现在表示整数6，7，8</span></div><div class="line">rangeOfThreeItems.firstValue = <span class="number">6</span></div><div class="line"><span class="comment">// 常量结构的属性不能修改</span></div><div class="line"><span class="keyword">let</span> rangeOfFourItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">4</span>)</div><div class="line"><span class="comment">// 尽管 firstValue 是个变量属性，这里还是会报错</span></div><div class="line"><span class="comment">//rangeOfFourItems.firstValue = 6</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-10.html#more" rel="contents">
@@ -1679,7 +1701,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-9.html" itemprop="url">以撸代码的形式学习Swift-9：Classes and Structures</a></h1>
+                <a class="post-title-link" href="/2017/swift-9.html" itemprop="url">以撸代码的形式学习Swift-9：类和结构体(Classes and Structures)</a></h1>
         
 
         <div class="post-meta">
@@ -1742,7 +1764,7 @@
 
           
           
-             <span id="/2017/swift-9.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-9：Classes and Structures">
+             <span id="/2017/swift-9.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-9：类和结构体(Classes and Structures)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1768,7 +1790,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 661 字
+                  : 671 字
                 </span>
               
 
@@ -1803,7 +1825,19 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+          <blockquote>
+<p>一个单一文件中定义一个类或者结构体，系统将会自动生成面向其它代码的外部接口。</p>
+</blockquote>
+<h3 id="类和结构体的异同"><a href="#类和结构体的异同" class="headerlink" title="类和结构体的异同"></a>类和结构体的异同</h3><ul>
+<li><p>类和结构体的共同点：<br>  定义属性用于存储值<br>  定义方法用于提供功能<br>  定义下标操作使得可以通过下标语法来访问实例所包含的值<br>  定义构造器用于生成初始化值<br>  通过扩展以增加默认实现的功能<br>  实现协议以提供某种标准功能  </p>
+</li>
+<li><p>类还有如下的附加功能：<br>  继承允许一个类继承另一个类的特征<br>  类型转换允许在运行时检查和解释一个类实例的类型<br>  析构器允许一个类实例释放任何其所被分配的资源<br>  引用计数允许对一个类的多次引用  </p>
+</li>
+<li><p><strong>结构体总是通过被复制的方式在代码中传递，不使用引用计数。</strong></p>
+</li>
+<li><p>新类或结构体命名用<em>UpperCamelCase</em>（Swift类型的命名规范）</p>
+</li>
+<li>属性和方法命名用<em>lowerCamelCase</em>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-9.html#more" rel="contents">
@@ -1871,7 +1905,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-8.html" itemprop="url">以撸代码的形式学习Swift-8：Enumerations</a></h1>
+                <a class="post-title-link" href="/2017/swift-8.html" itemprop="url">以撸代码的形式学习Swift-8：枚举(Enumerations)</a></h1>
         
 
         <div class="post-meta">
@@ -1934,7 +1968,7 @@
 
           
           
-             <span id="/2017/swift-8.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-8：Enumerations">
+             <span id="/2017/swift-8.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-8：枚举(Enumerations)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1960,7 +1994,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 247 字
+                  : 261 字
                 </span>
               
 
@@ -1995,7 +2029,11 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>一等(first-class)类型<br>每个枚举定义了一个全新的类型。以大写字母开头<br>成员值(或成员)  原始值  关联值<br>不会被赋予一个默认的整型值  </p>
+</blockquote>
+<h3 id="1-枚举语法"><a href="#1-枚举语法" class="headerlink" title="1 枚举语法"></a>1 枚举语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CompassPoint</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> <span class="type">North</span></div><div class="line">    <span class="keyword">case</span> <span class="type">South</span></div><div class="line">    <span class="keyword">case</span> <span class="type">East</span></div><div class="line">    <span class="keyword">case</span> <span class="type">West</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> <span class="type">Mercury</span>, <span class="type">Venus</span>, <span class="type">Earth</span>, <span class="type">Mars</span>, <span class="type">Jupiter</span>, <span class="type">Saturn</span>, <span class="type">Uranus</span>, <span class="type">Neptune</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> directionToHead = <span class="type">CompassPoint</span>.<span class="type">West</span></div><div class="line">directionToHead = .<span class="type">East</span></div></pre></td></tr></table></figure>
+<h2 id="2-Switch-语句匹配枚举值"><a href="#2-Switch-语句匹配枚举值" class="headerlink" title="2 Switch 语句匹配枚举值"></a>2 Switch 语句匹配枚举值</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-8.html#more" rel="contents">
@@ -2063,7 +2101,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-7.html" itemprop="url">以撸代码的形式学习Swift-7：Closure</a></h1>
+                <a class="post-title-link" href="/2017/swift-7.html" itemprop="url">以撸代码的形式学习Swift-7：闭包(Closure)</a></h1>
         
 
         <div class="post-meta">
@@ -2126,7 +2164,7 @@
 
           
           
-             <span id="/2017/swift-7.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-7：Closure">
+             <span id="/2017/swift-7.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-7：闭包(Closure)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2152,7 +2190,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 683 字
+                  : 697 字
                 </span>
               
 
@@ -2187,7 +2225,11 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>闭包是自包含的函数代码块，可以在代码中被传递和使用。<br>Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。<br>闭包可以捕获和存储其所在上下文中任意常量和变量的引用。</p>
+</blockquote>
+<h3 id="1-闭包表达式-Closure-Expressions"><a href="#1-闭包表达式-Closure-Expressions" class="headerlink" title="1 闭包表达式(Closure Expressions)"></a>1 闭包表达式(Closure Expressions)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// sorted 方法(The Sorted Method)</span></div><div class="line"><span class="comment">// 原数组不会被 sorted(by:) 方法修改。</span></div><div class="line"><span class="keyword">let</span> names = [<span class="string">"Chris"</span>, <span class="string">"Alex"</span>, <span class="string">"Ewa"</span>, <span class="string">"Barry"</span>, <span class="string">"Daniella"</span>, <span class="string">"Andy"</span>, <span class="string">"Amni"</span>]</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">backward</span><span class="params">(<span class="number">_</span> s1: String, <span class="number">_</span> s2: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">    <span class="keyword">return</span> s1 &gt; s2</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> reversedNames = names.sorted(by: backward)</div></pre></td></tr></table></figure>
+<p>闭包表达式语法:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123; (parameters) -&gt; returnType <span class="keyword">in</span></div><div class="line">statements</div><div class="line">&#125;</div><div class="line">关键字`<span class="keyword">in</span>`表示闭包的参数和返回值类型定义已经完成，闭包函数体即将开始。</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-7.html#more" rel="contents">
@@ -2430,7 +2472,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 

@@ -110,7 +110,7 @@
 <meta property="og:description" content="iOS应用程序一共有五种状态：    Not Running        程序还没运行 Inactive                程序运行在foreground但没有接收事件  Active                   程序运行在foreground接收事件 Background         程序运行在background正在执行代码  Suspended">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-9b957ecea3dafd52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-16T09:04:35.400Z">
+<meta property="og:updated_time" content="2018-09-19T18:47:06.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS应用程序的状态">
 <meta name="twitter:description" content="iOS应用程序一共有五种状态：    Not Running        程序还没运行 Inactive                程序运行在foreground但没有接收事件  Active                   程序运行在foreground接收事件 Background         程序运行在background正在执行代码  Suspended">
@@ -509,7 +509,7 @@
 <li><p>可通过在APPDelegate的回调方法中打印数据，来查看应用状态变化</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool &#123;</div><div class="line"></div><div class="line">    print(&quot;`application:didFinishLaunchingWithOptions:`  Not Running -&gt; Inactive&quot;)</div><div class="line">    return true</div><div class="line">&#125;</div><div class="line"></div><div class="line">func applicationWillResignActive(_ application: UIApplication) &#123;</div><div class="line"></div><div class="line">    print(&quot;`applicationWillResignActive:`  Active -&gt; Inactive&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">func applicationDidEnterBackground(_ application: UIApplication) &#123;</div><div class="line">    </div><div class="line">    print(&quot;`applicationDidEnterBackground:`  Background -&gt; Suspended&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">func applicationWillEnterForeground(_ application: UIApplication) &#123;</div><div class="line">    </div><div class="line">    print(&quot;`applicationWillEnterForeground:` Background -&gt; Inactive&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">func applicationDidBecomeActive(_ application: UIApplication) &#123;</div><div class="line"></div><div class="line">    print(&quot;`applicationDidBecomeActive:`  Inactive -&gt; Active&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">func applicationWillTerminate(_ application: UIApplication) &#123;</div><div class="line"></div><div class="line">    print(&quot;`applicationWillTerminate:`  Suspended -&gt; Not Running&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line"></div><div class="line">    <span class="built_in">print</span>(<span class="string">"`application:didFinishLaunchingWithOptions:`  Not Running -&gt; Inactive"</span>)</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillResignActive</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</div><div class="line"></div><div class="line">    <span class="built_in">print</span>(<span class="string">"`applicationWillResignActive:`  Active -&gt; Inactive"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationDidEnterBackground</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</div><div class="line">    </div><div class="line">    <span class="built_in">print</span>(<span class="string">"`applicationDidEnterBackground:`  Background -&gt; Suspended"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillEnterForeground</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</div><div class="line">    </div><div class="line">    <span class="built_in">print</span>(<span class="string">"`applicationWillEnterForeground:` Background -&gt; Inactive"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationDidBecomeActive</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</div><div class="line"></div><div class="line">    <span class="built_in">print</span>(<span class="string">"`applicationDidBecomeActive:`  Inactive -&gt; Active"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillTerminate</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</div><div class="line"></div><div class="line">    <span class="built_in">print</span>(<span class="string">"`applicationWillTerminate:`  Suspended -&gt; Not Running"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -582,8 +582,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-6.html" rel="next" title="开始用Swift开发iOS 10 - 6 创建简单的Table Based App">
-                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 6 创建简单的Table Based App
+              <a href="/2017/swift-18.html" rel="next" title="以撸代码的形式学习Swift-18：错误处理(Error handling)">
+                <i class="fa fa-chevron-left"></i> 以撸代码的形式学习Swift-18：错误处理(Error handling)
               </a>
             
           </div>
@@ -592,8 +592,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-tutorial-1-arcode.html" rel="prev" title="iOS tutorial 1： 识别二维码（swift3）">
-                iOS tutorial 1： 识别二维码（swift3） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/beginning-ios-swift-6.html" rel="prev" title="开始用Swift开发iOS 10 - 6 创建简单的Table Based App">
+                开始用Swift开发iOS 10 - 6 创建简单的Table Based App <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -818,7 +818,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 

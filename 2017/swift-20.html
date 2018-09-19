@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift">
+<meta name="description" content="1 🌰1234567891011121314151617181920212223242526272829303132333435363738struct BlackjackCard &amp;#123;  // 二十一点        // nested Suit enumeration    enum Suit: Character &amp;#123;  // 描述扑克牌的四种花色        case">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以撸代码的形式学习Swift-20：Nested Types(嵌套类型)">
+<meta property="og:title" content="以撸代码的形式学习Swift-20：嵌套类型(Nested Types)">
 <meta property="og:url" content="http://andyron.com/2017/swift-20.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift">
+<meta property="og:description" content="1 🌰1234567891011121314151617181920212223242526272829303132333435363738struct BlackjackCard &amp;#123;  // 二十一点        // nested Suit enumeration    enum Suit: Character &amp;#123;  // 描述扑克牌的四种花色        case">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T15:45:45.438Z">
+<meta property="og:updated_time" content="2018-09-19T18:24:06.705Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以撸代码的形式学习Swift-20：Nested Types(嵌套类型)">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
+<meta name="twitter:title" content="以撸代码的形式学习Swift-20：嵌套类型(Nested Types)">
+<meta name="twitter:description" content="1 🌰1234567891011121314151617181920212223242526272829303132333435363738struct BlackjackCard &amp;#123;  // 二十一点        // nested Suit enumeration    enum Suit: Character &amp;#123;  // 描述扑克牌的四种花色        case">
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-  <title>以撸代码的形式学习Swift-20：Nested Types(嵌套类型) | 欣欣向戎</title>
+  <title>以撸代码的形式学习Swift-20：嵌套类型(Nested Types) | 欣欣向戎</title>
   
 
 
@@ -348,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-20：Nested Types(嵌套类型)</h1>
+          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-20：嵌套类型(Nested Types)</h1>
         
 
         <div class="post-meta">
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/2017/swift-20.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-20：Nested Types(嵌套类型)">
+             <span id="/2017/swift-20.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-20：嵌套类型(Nested Types)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 169 字
+                  : 163 字
                 </span>
               
 
@@ -471,8 +471,14 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> Nested Types 嵌套类型</div><div class="line"> */</div><div class="line">// 1 🌰</div><div class="line">struct BlackjackCard &#123;  // 二十一点</div><div class="line">    </div><div class="line">    // nested Suit enumeration</div><div class="line">    enum Suit: Character &#123;  // 描述扑克牌的四种花色</div><div class="line">        case spades = &quot;♠&quot;, hearts = &quot;♡&quot;, diamonds = &quot;♢&quot;, clubs = &quot;♣&quot;</div><div class="line">    &#125;</div><div class="line">    // nested Rank enumeration</div><div class="line">    enum Rank: Int &#123;</div><div class="line">        case two = 2, three, four, five, six, seven, eight, nine, ten</div><div class="line">        case jack, queen, king, ace</div><div class="line">        struct Values &#123;  // 用来反映Ace的两个数值()</div><div class="line">            let first: Int, second: Int?</div><div class="line">        &#125;</div><div class="line">        var values: Values &#123;</div><div class="line">            switch self &#123;</div><div class="line">            case .ace:</div><div class="line">                return Values(first: 1, second: 11)</div><div class="line">            case .jack, .queen, .king:</div><div class="line">                    return Values(first: 10, second: nil)</div><div class="line">            default:</div><div class="line">                return Values(first: self.rawValue, second: nil)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // BlackjackCard properties and methods</div><div class="line">    let rank: Rank, suit: Suit</div><div class="line">    var description: String &#123;</div><div class="line">        var output = &quot;suit is \(suit.rawValue),&quot;</div><div class="line">        output += &quot; value is \(rank.values.first)&quot;</div><div class="line">        if let second = rank.values.second &#123;</div><div class="line">            output += &quot; or \(second)&quot;</div><div class="line">        &#125;</div><div class="line">        return output</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let theAceOfSpades = BlackjackCard(rank: .ace, suit: .spades)</div><div class="line">print(&quot;theAceOfSpades: \(theAceOfSpades.description)&quot;)</div><div class="line"></div><div class="line">// 2 引用嵌套类型</div><div class="line">let heartsSymbol = BlackjackCard.Suit.hearts.rawValue</div></pre></td></tr></table></figure>
+        <h3 id="1-🌰"><a href="#1-🌰" class="headerlink" title="1 🌰"></a>1 🌰</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BlackjackCard</span> </span>&#123;  <span class="comment">// 二十一点</span></div><div class="line">    </div><div class="line">    <span class="comment">// nested Suit enumeration</span></div><div class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Suit</span>: <span class="title">Character</span> </span>&#123;  <span class="comment">// 描述扑克牌的四种花色</span></div><div class="line">        <span class="keyword">case</span> spades = <span class="string">"♠"</span>, hearts = <span class="string">"♡"</span>, diamonds = <span class="string">"♢"</span>, clubs = <span class="string">"♣"</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">// nested Rank enumeration</span></div><div class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Rank</span>: <span class="title">Int</span> </span>&#123;</div><div class="line">        <span class="keyword">case</span> two = <span class="number">2</span>, three, four, five, six, seven, eight, nine, ten</div><div class="line">        <span class="keyword">case</span> jack, queen, king, ace</div><div class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Values</span> </span>&#123;  <span class="comment">// 用来反映Ace的两个数值()</span></div><div class="line">            <span class="keyword">let</span> first: <span class="type">Int</span>, second: <span class="type">Int</span>?</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> values: <span class="type">Values</span> &#123;</div><div class="line">            <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</div><div class="line">            <span class="keyword">case</span> .ace:</div><div class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">1</span>, second: <span class="number">11</span>)</div><div class="line">            <span class="keyword">case</span> .jack, .queen, .king:</div><div class="line">                    <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">10</span>, second: <span class="literal">nil</span>)</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="keyword">self</span>.rawValue, second: <span class="literal">nil</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// BlackjackCard properties and methods</span></div><div class="line">    <span class="keyword">let</span> rank: <span class="type">Rank</span>, suit: <span class="type">Suit</span></div><div class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">var</span> output = <span class="string">"suit is <span class="subst">\(suit.rawValue)</span>,"</span></div><div class="line">        output += <span class="string">" value is <span class="subst">\(rank.values.first)</span>"</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> second = rank.values.second &#123;</div><div class="line">            output += <span class="string">" or <span class="subst">\(second)</span>"</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> output</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> theAceOfSpades = <span class="type">BlackjackCard</span>(rank: .ace, suit: .spades)</div><div class="line"><span class="built_in">print</span>(<span class="string">"theAceOfSpades: <span class="subst">\(theAceOfSpades.description)</span>"</span>)</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2-引用嵌套类型"><a href="#2-引用嵌套类型" class="headerlink" title="2 引用嵌套类型"></a>2 引用嵌套类型</h3><pre><code class="swift"><span class="keyword">let</span> heartsSymbol = <span class="type">BlackjackCard</span>.<span class="type">Suit</span>.hearts.rawValue
+</code></pre>
+<blockquote>
+<p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+</blockquote>
+
       
     </div>
 
@@ -521,7 +527,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/swift-20.html" title="以撸代码的形式学习Swift-20：Nested Types(嵌套类型)">http://andyron.com/2017/swift-20.html</a>
+      <a href="http://andyron.com/2017/swift-20.html" title="以撸代码的形式学习Swift-20：嵌套类型(Nested Types)">http://andyron.com/2017/swift-20.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -610,8 +616,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -759,6 +774,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-🌰"><span class="nav-number">1.</span> <span class="nav-text">1 🌰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-引用嵌套类型"><span class="nav-number">2.</span> <span class="nav-text">2 引用嵌套类型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -780,7 +811,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 
@@ -924,7 +955,7 @@
         var disqus_config = function () {
           this.page.url = 'http://andyron.com/2017/swift-20.html';
           this.page.identifier = '2017/swift-20.html';
-          this.page.title = '以撸代码的形式学习Swift-20：Nested Types(嵌套类型)';
+          this.page.title = '以撸代码的形式学习Swift-20：嵌套类型(Nested Types)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';

@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift">
+<meta name="description" content="为一个已有的类、结构体、枚举类型或者协议类型添加新功能。包括在没有权限获取原始源代码的情况下扩展类型的能力(即逆向建模)扩展可以为一个类型添加新的功能，但是不能重写已有的功能。  1 扩展的语法(Extension Syntax)1234567extension SomeType &amp;#123;   // 为 SomeType 添加的新功能写到这里&amp;#125;// 扩展一个已有类型，使其实现一些协">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以撸代码的形式学习Swift-21：Extensions">
+<meta property="og:title" content="以撸代码的形式学习Swift-21：扩展(Extensions)">
 <meta property="og:url" content="http://andyron.com/2017/swift-21.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift">
+<meta property="og:description" content="为一个已有的类、结构体、枚举类型或者协议类型添加新功能。包括在没有权限获取原始源代码的情况下扩展类型的能力(即逆向建模)扩展可以为一个类型添加新的功能，但是不能重写已有的功能。  1 扩展的语法(Extension Syntax)1234567extension SomeType &amp;#123;   // 为 SomeType 添加的新功能写到这里&amp;#125;// 扩展一个已有类型，使其实现一些协">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T15:45:48.246Z">
+<meta property="og:updated_time" content="2018-09-19T18:28:12.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以撸代码的形式学习Swift-21：Extensions">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
+<meta name="twitter:title" content="以撸代码的形式学习Swift-21：扩展(Extensions)">
+<meta name="twitter:description" content="为一个已有的类、结构体、枚举类型或者协议类型添加新功能。包括在没有权限获取原始源代码的情况下扩展类型的能力(即逆向建模)扩展可以为一个类型添加新的功能，但是不能重写已有的功能。  1 扩展的语法(Extension Syntax)1234567extension SomeType &amp;#123;   // 为 SomeType 添加的新功能写到这里&amp;#125;// 扩展一个已有类型，使其实现一些协">
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-  <title>以撸代码的形式学习Swift-21：Extensions | 欣欣向戎</title>
+  <title>以撸代码的形式学习Swift-21：扩展(Extensions) | 欣欣向戎</title>
   
 
 
@@ -348,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-21：Extensions</h1>
+          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-21：扩展(Extensions)</h1>
         
 
         <div class="post-meta">
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/2017/swift-21.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-21：Extensions">
+             <span id="/2017/swift-21.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-21：扩展(Extensions)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 549 字
+                  : 555 字
                 </span>
               
 
@@ -471,8 +471,23 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> Extensions</div><div class="line"> 为一个已有的类、结构体、枚举类型或者协议类型添加新功能。</div><div class="line"> 包括在没有权限获取原始源代码的情况下扩展类型的能力(即**逆向建模**)</div><div class="line"> */</div><div class="line">// 扩展可以为一个类型添加新的功能，但是不能重写已有的功能。</div><div class="line"></div><div class="line">// 1 扩展语法(Extension Syntax)</div><div class="line">/**</div><div class="line"> extension SomeType &#123;</div><div class="line">    // 为 SomeType 添加的新功能写到这里</div><div class="line"> &#125;</div><div class="line"> // 扩展一个已有类型，使其实现一些协议。</div><div class="line"> extension SomeType: SomeProtocol, AnotherProctocol &#123; </div><div class="line">    // 协议实现写到这里</div><div class="line"> &#125;</div><div class="line"> */</div><div class="line">// 如果你通过扩展为一个已有类型添加新功能，那么新功能对该类型的所有已有实例都是可用的，即使它们是在这个扩展定义之前创建的。</div><div class="line"></div><div class="line">// 2 计算型属性(Computed Properties)</div><div class="line">extension Double &#123;</div><div class="line">    var km: Double &#123; return self * 1_000.0 &#125;</div><div class="line">    var m : Double &#123; return self &#125;</div><div class="line">    var cm: Double &#123; return self / 100.0 &#125;</div><div class="line">    var mm: Double &#123; return self / 1_000.0 &#125;</div><div class="line">    var ft: Double &#123; return self / 3.28084 &#125;</div><div class="line">&#125;</div><div class="line">let oneInch = 25.4.mm</div><div class="line">// 扩展可以添加新的计算型属性，但是不可以添加存储型属性，也不可以为已有属性添加属性观察器。</div><div class="line"></div><div class="line">// 3 构造器(Initializers)</div><div class="line">struct Size &#123;</div><div class="line">    var width = 0.0, height = 0.0</div><div class="line">&#125;</div><div class="line">struct Point &#123;</div><div class="line">    var x = 0.0, y = 0.0</div><div class="line">&#125;</div><div class="line">struct Rect &#123;</div><div class="line">    var origin = Point()</div><div class="line">    var size = Size()</div><div class="line">&#125;</div><div class="line">let defaultRect = Rect()</div><div class="line">let memberwiseRect = Rect(origin: Point(x: 2.0, y: 2.0), size: Size(width: 5.0, height: 5.0))</div><div class="line">extension Rect &#123;</div><div class="line">    init(center: Point, size: Size) &#123;</div><div class="line">        let originX = center.x - (size.width / 2)</div><div class="line">        let originY = center.y - (size.height / 2)</div><div class="line">        self.init(origin: Point(x: originX, y: originY), size: size)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size(width: 3.0, height: 3.0))</div><div class="line"></div><div class="line">// 4 方法(Methods)</div><div class="line">extension Int &#123;</div><div class="line">    func repetitions(task: () -&gt; Void) &#123;      // 将闭包中的任务执行整数对应的次数</div><div class="line">        for _ in 0..&lt;self &#123;</div><div class="line">            task()</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">5.repetitions(task: &#123;</div><div class="line">    print(&quot;Hello!&quot;)</div><div class="line">&#125;)</div><div class="line">// 可变实例方法(Mutating Instance Methods)</div><div class="line">extension Int &#123;</div><div class="line">    mutating func square() &#123;</div><div class="line">        self = self * self</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var someInt = 3</div><div class="line">someInt.square() // 不能直接用字面量`3.square()`</div><div class="line"></div><div class="line">// 5 下标(Subscripts)</div><div class="line">extension Int &#123;</div><div class="line">    subscript(digitIndex: Int) -&gt;Int &#123;</div><div class="line">        var decimalBase = 1</div><div class="line">        for _ in 0..&lt;digitIndex &#123;</div><div class="line">            decimalBase *= 10</div><div class="line">        &#125;</div><div class="line">        return (self/decimalBase) % 10</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">12345678[2]</div><div class="line"></div><div class="line">// 6 嵌套类型(Nested Types)</div><div class="line">extension Int &#123;</div><div class="line">    enum Kind &#123;</div><div class="line">        case Negative, Zero, Positive</div><div class="line">    &#125;</div><div class="line">    var kind: Kind &#123;</div><div class="line">        switch self &#123;</div><div class="line">        case 0:</div><div class="line">            return .Zero</div><div class="line">        case let x where x &gt; 0:</div><div class="line">            return .Positive</div><div class="line">        default:</div><div class="line">            return .Negative</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">func printIntegerKinds(numbers: [Int]) &#123;</div><div class="line">    for number in numbers &#123;</div><div class="line">        switch number.kind &#123;</div><div class="line">        case .Negative:</div><div class="line">            print(&quot;- &quot;, terminator: &quot;&quot;)</div><div class="line">        case .Zero:</div><div class="line">            print(&quot;0 &quot;, terminator: &quot;&quot;)</div><div class="line">        case .Positive:</div><div class="line">            print(&quot;+ &quot;, terminator: &quot;&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    print(&quot;&quot;)</div><div class="line">&#125;</div><div class="line">printIntegerKinds(numbers: [3, 19, -27, 0, -6, 0, 7])</div></pre></td></tr></table></figure>
+        <blockquote>
+<p>为一个已有的类、结构体、枚举类型或者协议类型添加新功能。<br>包括在没有权限获取原始源代码的情况下扩展类型的能力(即<strong>逆向建模</strong>)<br>扩展可以为一个类型添加新的功能，但是不能重写已有的功能。</p>
+</blockquote>
+<h3 id="1-扩展的语法-Extension-Syntax"><a href="#1-扩展的语法-Extension-Syntax" class="headerlink" title="1 扩展的语法(Extension Syntax)"></a>1 扩展的语法(Extension Syntax)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">extension SomeType &#123;</div><div class="line">   // 为 SomeType 添加的新功能写到这里</div><div class="line">&#125;</div><div class="line">// 扩展一个已有类型，使其实现一些协议。</div><div class="line">extension SomeType: SomeProtocol, AnotherProctocol &#123; </div><div class="line">   // 协议实现写到这里</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你通过扩展为一个已有类型添加新功能，那么新功能对该类型的所有已有实例都是可用的，即使它们是在这个扩展定义之前创建的。</p>
+<h3 id="2-计算型属性-Computed-Properties"><a href="#2-计算型属性-Computed-Properties" class="headerlink" title="2 计算型属性(Computed Properties)"></a>2 计算型属性(Computed Properties)</h3><a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Double</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> km: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> * <span class="number">1_000.0</span> &#125;</div><div class="line">    <span class="keyword">var</span> m : <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> &#125;</div><div class="line">    <span class="keyword">var</span> cm: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> / <span class="number">100.0</span> &#125;</div><div class="line">    <span class="keyword">var</span> mm: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> / <span class="number">1_000.0</span> &#125;</div><div class="line">    <span class="keyword">var</span> ft: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> / <span class="number">3.28084</span> &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> oneInch = <span class="number">25.4</span>.mm</div></pre></td></tr></table></figure>
+<p>扩展可以添加新的计算型属性，但是不可以添加存储型属性，也不可以为已有属性添加属性观察器。</p>
+<h3 id="3-构造器-Initializers"><a href="#3-构造器-Initializers" class="headerlink" title="3 构造器(Initializers)"></a>3 构造器(Initializers)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Size</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> origin = <span class="type">Point</span>()</div><div class="line">    <span class="keyword">var</span> size = <span class="type">Size</span>()</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> defaultRect = <span class="type">Rect</span>()</div><div class="line"><span class="keyword">let</span> memberwiseRect = <span class="type">Rect</span>(origin: <span class="type">Point</span>(x: <span class="number">2.0</span>, y: <span class="number">2.0</span>), size: <span class="type">Size</span>(width: <span class="number">5.0</span>, height: <span class="number">5.0</span>))</div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Rect</span> </span>&#123;</div><div class="line">    <span class="keyword">init</span>(center: <span class="type">Point</span>, size: <span class="type">Size</span>) &#123;</div><div class="line">        <span class="keyword">let</span> originX = center.x - (size.width / <span class="number">2</span>)</div><div class="line">        <span class="keyword">let</span> originY = center.y - (size.height / <span class="number">2</span>)</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(origin: <span class="type">Point</span>(x: originX, y: originY), size: size)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> centerRect = <span class="type">Rect</span>(center: <span class="type">Point</span>(x: <span class="number">4.0</span>, y: <span class="number">4.0</span>), size: <span class="type">Size</span>(width: <span class="number">3.0</span>, height: <span class="number">3.0</span>))</div></pre></td></tr></table></figure>
+<h3 id="4-方法-Methods"><a href="#4-方法-Methods" class="headerlink" title="4 方法(Methods)"></a>4 方法(Methods)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Int</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">repetitions</span><span class="params">(task: <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>) &#123;      <span class="comment">// 将闭包中的任务执行整数对应的次数</span></div><div class="line">        <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="keyword">self</span> &#123;</div><div class="line">            task()</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="number">5</span>.repetitions(task: &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Hello!"</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>可变实例方法(Mutating Instance Methods)<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Int</span> </span>&#123;</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">square</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">self</span> = <span class="keyword">self</span> * <span class="keyword">self</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> someInt = <span class="number">3</span></div><div class="line">someInt.square() <span class="comment">// 不能直接用字面量`3.square()`</span></div></pre></td></tr></table></figure></p>
+<h3 id="5-下标-Subscripts"><a href="#5-下标-Subscripts" class="headerlink" title="5 下标(Subscripts)"></a>5 下标(Subscripts)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Int</span> </span>&#123;</div><div class="line">    <span class="keyword">subscript</span>(digitIndex: <span class="type">Int</span>) -&gt;<span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> decimalBase = <span class="number">1</span></div><div class="line">        <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">0</span>..&lt;digitIndex &#123;</div><div class="line">            decimalBase *= <span class="number">10</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">self</span>/decimalBase) % <span class="number">10</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="number">12345678</span>[<span class="number">2</span>]</div></pre></td></tr></table></figure>
+<h3 id="6-嵌套类型-Nested-Types"><a href="#6-嵌套类型-Nested-Types" class="headerlink" title="6 嵌套类型(Nested Types)"></a>6 嵌套类型(Nested Types)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Int</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Kind</span> </span>&#123;</div><div class="line">        <span class="keyword">case</span> <span class="type">Negative</span>, <span class="type">Zero</span>, <span class="type">Positive</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> kind: <span class="type">Kind</span> &#123;</div><div class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</div><div class="line">        <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> .<span class="type">Zero</span></div><div class="line">        <span class="keyword">case</span> <span class="keyword">let</span> x <span class="keyword">where</span> x &gt; <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> .<span class="type">Positive</span></div><div class="line">        <span class="keyword">default</span>:</div><div class="line">            <span class="keyword">return</span> .<span class="type">Negative</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">printIntegerKinds</span><span class="params">(numbers: [Int])</span></span> &#123;</div><div class="line">    <span class="keyword">for</span> number <span class="keyword">in</span> numbers &#123;</div><div class="line">        <span class="keyword">switch</span> number.kind &#123;</div><div class="line">        <span class="keyword">case</span> .<span class="type">Negative</span>:</div><div class="line">            <span class="built_in">print</span>(<span class="string">"- "</span>, terminator: <span class="string">""</span>)</div><div class="line">        <span class="keyword">case</span> .<span class="type">Zero</span>:</div><div class="line">            <span class="built_in">print</span>(<span class="string">"0 "</span>, terminator: <span class="string">""</span>)</div><div class="line">        <span class="keyword">case</span> .<span class="type">Positive</span>:</div><div class="line">            <span class="built_in">print</span>(<span class="string">"+ "</span>, terminator: <span class="string">""</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">print</span>(<span class="string">""</span>)</div><div class="line">&#125;</div><div class="line">printIntegerKinds(numbers: [<span class="number">3</span>, <span class="number">19</span>, -<span class="number">27</span>, <span class="number">0</span>, -<span class="number">6</span>, <span class="number">0</span>, <span class="number">7</span>])</div></pre></td></tr></table></figure>
+<blockquote>
+<p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+</blockquote>
+
       
     </div>
 
@@ -521,7 +536,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/swift-21.html" title="以撸代码的形式学习Swift-21：Extensions">http://andyron.com/2017/swift-21.html</a>
+      <a href="http://andyron.com/2017/swift-21.html" title="以撸代码的形式学习Swift-21：扩展(Extensions)">http://andyron.com/2017/swift-21.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -610,8 +625,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -759,6 +783,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-扩展的语法-Extension-Syntax"><span class="nav-number">1.</span> <span class="nav-text">1 扩展的语法(Extension Syntax)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-计算型属性-Computed-Properties"><span class="nav-number">2.</span> <span class="nav-text">2 计算型属性(Computed Properties)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-构造器-Initializers"><span class="nav-number">3.</span> <span class="nav-text">3 构造器(Initializers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-方法-Methods"><span class="nav-number">4.</span> <span class="nav-text">4 方法(Methods)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-下标-Subscripts"><span class="nav-number">5.</span> <span class="nav-text">5 下标(Subscripts)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-嵌套类型-Nested-Types"><span class="nav-number">6.</span> <span class="nav-text">6 嵌套类型(Nested Types)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -780,7 +820,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 
@@ -924,7 +964,7 @@
         var disqus_config = function () {
           this.page.url = 'http://andyron.com/2017/swift-21.html';
           this.page.identifier = '2017/swift-21.html';
-          this.page.title = '以撸代码的形式学习Swift-21：Extensions';
+          this.page.title = '以撸代码的形式学习Swift-21：扩展(Extensions)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';

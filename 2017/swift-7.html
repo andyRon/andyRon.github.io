@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift">
+<meta name="description" content="闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。闭包可以捕获和存储其所在上下文中任意常量和变量的引用。  1 闭包表达式(Closure Expressions)1234567// sorted 方法(The Sorted Method)// 原数组不会被 sorted">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以撸代码的形式学习Swift-7：Closure">
+<meta property="og:title" content="以撸代码的形式学习Swift-7：闭包(Closure)">
 <meta property="og:url" content="http://andyron.com/2017/swift-7.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift">
+<meta property="og:description" content="闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。闭包可以捕获和存储其所在上下文中任意常量和变量的引用。  1 闭包表达式(Closure Expressions)1234567// sorted 方法(The Sorted Method)// 原数组不会被 sorted">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T15:43:19.010Z">
+<meta property="og:updated_time" content="2018-09-19T17:26:32.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以撸代码的形式学习Swift-7：Closure">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
+<meta name="twitter:title" content="以撸代码的形式学习Swift-7：闭包(Closure)">
+<meta name="twitter:description" content="闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。闭包可以捕获和存储其所在上下文中任意常量和变量的引用。  1 闭包表达式(Closure Expressions)1234567// sorted 方法(The Sorted Method)// 原数组不会被 sorted">
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-  <title>以撸代码的形式学习Swift-7：Closure | 欣欣向戎</title>
+  <title>以撸代码的形式学习Swift-7：闭包(Closure) | 欣欣向戎</title>
   
 
 
@@ -348,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-7：Closure</h1>
+          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-7：闭包(Closure)</h1>
         
 
         <div class="post-meta">
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/2017/swift-7.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-7：Closure">
+             <span id="/2017/swift-7.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-7：闭包(Closure)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 683 字
+                  : 697 字
                 </span>
               
 
@@ -471,8 +471,30 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Closure</div><div class="line"> */</div><div class="line">// 闭包是自包含的函数代码块，可以在代码中被传递和使用。</div><div class="line">// Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。</div><div class="line">// 闭包可以捕获和存储其所在上下文中任意常量和变量的引用。</div><div class="line"></div><div class="line">// 1 闭包表达式(Closure Expressions)</div><div class="line">// sorted 方法(The Sorted Method)</div><div class="line">// 原数组不会被 sorted(by:) 方法修改。</div><div class="line">let names = [&quot;Chris&quot;, &quot;Alex&quot;, &quot;Ewa&quot;, &quot;Barry&quot;, &quot;Daniella&quot;, &quot;Andy&quot;, &quot;Amni&quot;]</div><div class="line">func backward(_ s1: String, _ s2: String) -&gt; Bool &#123;</div><div class="line">    return s1 &gt; s2</div><div class="line">&#125;</div><div class="line">var reversedNames = names.sorted(by: backward)</div><div class="line">/**</div><div class="line"> 闭包表达式语法:</div><div class="line"> &#123; (parameters) -&gt; returnType in</div><div class="line"> statements</div><div class="line"> &#125;</div><div class="line"> 关键字`in`表示闭包的参数和返回值类型定义已经完成，闭包函数体即将开始。</div><div class="line"> */</div><div class="line">var reversedNames2 = names.sorted(by: &#123;(s1:String, s2:String) -&gt; Bool in return s1&gt;s2&#125;)</div><div class="line">// 根据上下文推断类型(Inferring Type From Context)</div><div class="line">var reversedNames3 = names.sorted(by: &#123;(s1, s2)-&gt;Bool in return s1&gt;s2&#125;)</div><div class="line">// 根据上下文推断类型(Inferring Type From Context)  省略 return 和 返回值</div><div class="line">var reversedNames4 = names.sorted(by: &#123;(s1, s2) in s1&gt;s2&#125;)</div><div class="line">// 参数名称缩写(Shorthand Argument Names)：直接通过 $0 ， $1 ， $2 来顺序调用闭包的参数</div><div class="line">var reversedNames5 = names.sorted(by: &#123;$0&gt;$1&#125;)</div><div class="line">// 运算符方法(Operator Methods)</div><div class="line">var reversedNames6 = names.sorted(by: &gt;)</div><div class="line"></div><div class="line">// 2 尾随闭包(Trailing Closures):将一个很长的闭包表达式作为最后一个参数传递给函数</div><div class="line">/**</div><div class="line">// 以下是不使用尾随闭包进行函数调用 </div><div class="line">func someFunctionThatTakesAClosure(closure: &#123;</div><div class="line">// 闭包主体部分 </div><div class="line">&#125;)</div><div class="line">// 以下是使用尾随闭包进行函数调用 </div><div class="line">func someFunctionThatTakesAClosure() &#123;</div><div class="line">// 闭包主体部分 </div><div class="line">&#125;</div><div class="line"> */</div><div class="line">var reversedNames7 = names.sorted()&#123;$0&gt;$1&#125;</div><div class="line">var reversedNames8 = names.sorted&#123;$0&gt;$1&#125;        // 当闭包表达式是唯一参数时， ()可省略</div><div class="line">let digitNames = [</div><div class="line">    0: &quot;Zero&quot;, 1: &quot;One&quot;, 2: &quot;Two&quot;,   3: &quot;Three&quot;, 4: &quot;Four&quot;,</div><div class="line">    5: &quot;Five&quot;, 6: &quot;Six&quot;, 7: &quot;Seven&quot;, 8: &quot;Eight&quot;, 9: &quot;Nine&quot;</div><div class="line">]</div><div class="line">let numbers = [16, 58, 510]</div><div class="line">let strings = numbers.map &#123;</div><div class="line">    (number) -&gt; String in</div><div class="line">    var number = number</div><div class="line">    var output = &quot;&quot;</div><div class="line">    repeat &#123;</div><div class="line">        output = digitNames[number%10]! + output        // 字典下标返回一个可选值(optional value)</div><div class="line">        number /= 10</div><div class="line">    &#125; while number &gt; 0</div><div class="line">    return output</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 3 值捕获(Capturing Values)</div><div class="line">// 闭包可以在其被定义的上下文中捕获常量或变量。即使定义这些常量和变量的原作用域已经不存在，闭包仍然可以在闭包函数体内引用和修改这些值。</div><div class="line">// 嵌套函数 是 捕获值的闭包的最简单形式</div><div class="line">func makeIncrementer(forIncrement amount: Int) -&gt; () -&gt; Int &#123;</div><div class="line">    var runningTotal = 0</div><div class="line">    func incrementer() -&gt; Int &#123;</div><div class="line">        runningTotal += amount</div><div class="line">        return runningTotal</div><div class="line">    &#125;</div><div class="line">    return incrementer</div><div class="line">&#125;</div><div class="line">var funcby10 = makeIncrementer(forIncrement: 10)</div><div class="line">var funcby50 = makeIncrementer(forIncrement: 50)</div><div class="line">// 新生成的incrementer函数，都会各自获得类似全局变量的 amount和runingTotal</div><div class="line">funcby50()</div><div class="line">funcby50()</div><div class="line">funcby10()</div><div class="line"></div><div class="line">// 4 闭包是引用类型(Closures Are Reference Types)</div><div class="line">// 函数和闭包都是引用类型</div><div class="line">// 无论将函数或闭包赋值给一个常量还是变量，实际上都是将常量或变量的值设置为对应函数或闭包的引用。</div><div class="line">let funcbyTen = funcby10</div><div class="line">funcbyTen()</div></pre></td></tr></table></figure>
+        <blockquote>
+<p>闭包是自包含的函数代码块，可以在代码中被传递和使用。<br>Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。<br>闭包可以捕获和存储其所在上下文中任意常量和变量的引用。</p>
+</blockquote>
+<h3 id="1-闭包表达式-Closure-Expressions"><a href="#1-闭包表达式-Closure-Expressions" class="headerlink" title="1 闭包表达式(Closure Expressions)"></a>1 闭包表达式(Closure Expressions)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// sorted 方法(The Sorted Method)</span></div><div class="line"><span class="comment">// 原数组不会被 sorted(by:) 方法修改。</span></div><div class="line"><span class="keyword">let</span> names = [<span class="string">"Chris"</span>, <span class="string">"Alex"</span>, <span class="string">"Ewa"</span>, <span class="string">"Barry"</span>, <span class="string">"Daniella"</span>, <span class="string">"Andy"</span>, <span class="string">"Amni"</span>]</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">backward</span><span class="params">(<span class="number">_</span> s1: String, <span class="number">_</span> s2: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">    <span class="keyword">return</span> s1 &gt; s2</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> reversedNames = names.sorted(by: backward)</div></pre></td></tr></table></figure>
+<p>闭包表达式语法:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123; (parameters) -&gt; returnType <span class="keyword">in</span></div><div class="line">statements</div><div class="line">&#125;</div><div class="line">关键字`<span class="keyword">in</span>`表示闭包的参数和返回值类型定义已经完成，闭包函数体即将开始。</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reversedNames2 = names.sorted(by: &#123;(s1:<span class="type">String</span>, s2:<span class="type">String</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span> <span class="keyword">return</span> s1&gt;s2&#125;)</div></pre></td></tr></table></figure>
+<p>根据上下文推断类型(Inferring Type From Context)<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reversedNames3 = names.sorted(by: &#123;(s1, s2)-&gt;<span class="type">Bool</span> <span class="keyword">in</span> <span class="keyword">return</span> s1&gt;s2&#125;)</div></pre></td></tr></table></figure></p>
+<p>根据上下文推断类型(Inferring Type From Context)  省略 return 和 返回值<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reversedNames4 = names.sorted(by: &#123;(s1, s2) <span class="keyword">in</span> s1&gt;s2&#125;)</div></pre></td></tr></table></figure></p>
+<p>参数名称缩写(Shorthand Argument Names)：直接通过 $0 ， $1 ， $2 来顺序调用闭包的参数<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reversedNames5 = names.sorted(by: &#123;$<span class="number">0</span>&gt;$<span class="number">1</span>&#125;)</div></pre></td></tr></table></figure></p>
+<p>运算符方法(Operator Methods)<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reversedNames6 = names.sorted(by: &gt;)</div></pre></td></tr></table></figure></p>
+<h3 id="2-尾随闭包-Trailing-Closures-将一个很长的闭包表达式作为最后一个参数传递给函数"><a href="#2-尾随闭包-Trailing-Closures-将一个很长的闭包表达式作为最后一个参数传递给函数" class="headerlink" title="2 尾随闭包(Trailing Closures):将一个很长的闭包表达式作为最后一个参数传递给函数"></a>2 尾随闭包(Trailing Closures):将一个很长的闭包表达式作为最后一个参数传递给函数</h3><p>不使用尾随闭包进行函数调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func someFunctionThatTakesAClosure(closure: &#123;</div><div class="line">// 闭包主体部分 </div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>使用尾随闭包进行函数调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func someFunctionThatTakesAClosure() &#123;</div><div class="line">// 闭包主体部分 </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reversedNames7 = names.sorted()&#123;$<span class="number">0</span>&gt;$<span class="number">1</span>&#125;</div><div class="line"><span class="keyword">var</span> reversedNames8 = names.sorted&#123;$<span class="number">0</span>&gt;$<span class="number">1</span>&#125;        <span class="comment">// 当闭包表达式是唯一参数时， ()可省略</span></div><div class="line"><span class="keyword">let</span> digitNames = [</div><div class="line">    <span class="number">0</span>: <span class="string">"Zero"</span>, <span class="number">1</span>: <span class="string">"One"</span>, <span class="number">2</span>: <span class="string">"Two"</span>,   <span class="number">3</span>: <span class="string">"Three"</span>, <span class="number">4</span>: <span class="string">"Four"</span>,</div><div class="line">    <span class="number">5</span>: <span class="string">"Five"</span>, <span class="number">6</span>: <span class="string">"Six"</span>, <span class="number">7</span>: <span class="string">"Seven"</span>, <span class="number">8</span>: <span class="string">"Eight"</span>, <span class="number">9</span>: <span class="string">"Nine"</span></div><div class="line">]</div><div class="line"><span class="keyword">let</span> numbers = [<span class="number">16</span>, <span class="number">58</span>, <span class="number">510</span>]</div><div class="line"><span class="keyword">let</span> strings = numbers.<span class="built_in">map</span> &#123;</div><div class="line">    (number) -&gt; <span class="type">String</span> <span class="keyword">in</span></div><div class="line">    <span class="keyword">var</span> number = number</div><div class="line">    <span class="keyword">var</span> output = <span class="string">""</span></div><div class="line">    <span class="keyword">repeat</span> &#123;</div><div class="line">        output = digitNames[number%<span class="number">10</span>]! + output        <span class="comment">// 字典下标返回一个可选值(optional value)</span></div><div class="line">        number /= <span class="number">10</span></div><div class="line">    &#125; <span class="keyword">while</span> number &gt; <span class="number">0</span></div><div class="line">    <span class="keyword">return</span> output</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-值捕获-Capturing-Values"><a href="#3-值捕获-Capturing-Values" class="headerlink" title="3 值捕获(Capturing Values)"></a>3 值捕获(Capturing Values)</h3><p>闭包可以在其被定义的上下文中捕获常量或变量。即使定义这些常量和变量的原作用域已经不存在，闭包仍然可以在闭包函数体内引用和修改这些值。 </p>
+<p><strong>嵌套函数</strong> 是 捕获值的闭包的最简单形式</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">makeIncrementer</span><span class="params">(forIncrement amount: Int)</span></span> -&gt; () -&gt; <span class="type">Int</span> &#123;</div><div class="line">    <span class="keyword">var</span> runningTotal = <span class="number">0</span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">incrementer</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        runningTotal += amount</div><div class="line">        <span class="keyword">return</span> runningTotal</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> incrementer</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> funcby10 = makeIncrementer(forIncrement: <span class="number">10</span>)</div><div class="line"><span class="keyword">var</span> funcby50 = makeIncrementer(forIncrement: <span class="number">50</span>)</div><div class="line"><span class="comment">// 新生成的incrementer函数，都会各自获得类似全局变量的 amount和runingTotal</span></div><div class="line">funcby50()</div><div class="line">funcby50()</div><div class="line">funcby10()</div></pre></td></tr></table></figure>
+<h3 id="4-闭包是引用类型-Closures-Are-Reference-Types"><a href="#4-闭包是引用类型-Closures-Are-Reference-Types" class="headerlink" title="4 闭包是引用类型(Closures Are Reference Types)"></a>4 闭包是引用类型(Closures Are Reference Types)</h3><p>// 函数和闭包都是引用类型<br>// 无论将函数或闭包赋值给一个常量还是变量，实际上都是将常量或变量的值设置为对应函数或闭包的引用。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> funcbyTen = funcby10</div><div class="line">funcbyTen()</div></pre></td></tr></table></figure></p>
+<p>逃逸闭包(Escaping Closures)</p>
+<p>自动闭包(Autoclosures)</p>
+<blockquote>
+<p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+</blockquote>
+
       
     </div>
 
@@ -521,7 +543,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/swift-7.html" title="以撸代码的形式学习Swift-7：Closure">http://andyron.com/2017/swift-7.html</a>
+      <a href="http://andyron.com/2017/swift-7.html" title="以撸代码的形式学习Swift-7：闭包(Closure)">http://andyron.com/2017/swift-7.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -544,8 +566,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/swift-6.html" rel="next" title="以撸代码的形式学习Swift-6：Functions">
-                <i class="fa fa-chevron-left"></i> 以撸代码的形式学习Swift-6：Functions
+              <a href="/2017/swift-6.html" rel="next" title="以撸代码的形式学习Swift-6：函数(Functions)">
+                <i class="fa fa-chevron-left"></i> 以撸代码的形式学习Swift-6：函数(Functions)
               </a>
             
           </div>
@@ -554,8 +576,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/swift-8.html" rel="prev" title="以撸代码的形式学习Swift-8：Enumerations">
-                以撸代码的形式学习Swift-8：Enumerations <i class="fa fa-chevron-right"></i>
+              <a href="/2017/swift-8.html" rel="prev" title="以撸代码的形式学习Swift-8：枚举(Enumerations)">
+                以撸代码的形式学习Swift-8：枚举(Enumerations) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,8 +632,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -759,6 +790,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-闭包表达式-Closure-Expressions"><span class="nav-number">1.</span> <span class="nav-text">1 闭包表达式(Closure Expressions)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-尾随闭包-Trailing-Closures-将一个很长的闭包表达式作为最后一个参数传递给函数"><span class="nav-number">2.</span> <span class="nav-text">2 尾随闭包(Trailing Closures):将一个很长的闭包表达式作为最后一个参数传递给函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-值捕获-Capturing-Values"><span class="nav-number">3.</span> <span class="nav-text">3 值捕获(Capturing Values)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-闭包是引用类型-Closures-Are-Reference-Types"><span class="nav-number">4.</span> <span class="nav-text">4 闭包是引用类型(Closures Are Reference Types)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -780,7 +827,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 
@@ -924,7 +971,7 @@
         var disqus_config = function () {
           this.page.url = 'http://andyron.com/2017/swift-7.html';
           this.page.identifier = '2017/swift-7.html';
-          this.page.title = '以撸代码的形式学习Swift-7：Closure';
+          this.page.title = '以撸代码的形式学习Swift-7：闭包(Closure)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';

@@ -351,7 +351,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-19.html" itemprop="url">以撸代码的形式学习Swift-19：Type Casting(类型转换)</a></h1>
+                <a class="post-title-link" href="/2017/swift-19.html" itemprop="url">以撸代码的形式学习Swift-19：类型转换(Type Casting)</a></h1>
         
 
         <div class="post-meta">
@@ -414,7 +414,7 @@
 
           
           
-             <span id="/2017/swift-19.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-19：Type Casting(类型转换)">
+             <span id="/2017/swift-19.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-19：类型转换(Type Casting)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 303 字
+                  : 296 字
                 </span>
               
 
@@ -475,7 +475,7 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+          <h3 id="1-定义一个类层次作为例子"><a href="#1-定义一个类层次作为例子" class="headerlink" title="1 定义一个类层次作为例子"></a>1 定义一个类层次作为例子</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MediaItem</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span>: <span class="title">MediaItem</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> director: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, director: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.director = director</div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(name: name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Song</span>: <span class="title">MediaItem</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> artist: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, artist: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.artist = artist</div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(name: name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> library = [</div><div class="line">    <span class="type">Movie</span>(name: <span class="string">"Casablanca"</span>, director: <span class="string">"Michael Curtiz"</span>),</div><div class="line">    <span class="type">Song</span>(name: <span class="string">"Blue Suede Shoes"</span>, artist: <span class="string">"Elvis Presley"</span>),</div><div class="line">    <span class="type">Movie</span>(name: <span class="string">"Citizen Kane"</span>, director: <span class="string">"Orson Welles"</span>),</div><div class="line">    <span class="type">Song</span>(name: <span class="string">"The One And Only"</span>, artist: <span class="string">"Chesney Hawkes"</span>),</div><div class="line">    <span class="type">Song</span>(name: <span class="string">"Never Gonna Give You Up"</span>, artist: <span class="string">"Rick Astley"</span>)</div><div class="line">]</div><div class="line"><span class="comment">// 数组 library 的类型被推断为 [MediaItem]</span></div><div class="line"><span class="keyword">for</span> v <span class="keyword">in</span> library &#123;          <span class="comment">// v 在此处是 MediaItem 类型</span></div><div class="line">    <span class="built_in">print</span>(v.name)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-19.html#more" rel="contents">
@@ -927,6 +927,198 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
   
   
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/beginning-ios-swift-6.html" itemprop="url">开始用Swift开发iOS 10 - 6 创建简单的Table Based App</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T00:00:00+08:00">
+                2017-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/beginning-ios-swift-6.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/beginning-ios-swift-6.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/beginning-ios-swift-6.html" class="leancloud_visitors" data-flag-title="开始用Swift开发iOS 10 - 6 创建简单的Table Based App">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 1,178 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-919c842cc89af581.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>table view应该是iOS应用中最常用的UI element。最好的例子就是iPhone自带的一些应用，如电话，邮件，设置等。TED，Google+，Airbnb，微信等等都是很好例子。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/beginning-ios-swift-6.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
   <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-application-status.html">
 
@@ -1130,198 +1322,6 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-6.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/beginning-ios-swift-6.html" itemprop="url">开始用Swift开发iOS 10 - 6 创建简单的Table Based App</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T00:00:00+08:00">
-                2017-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Beginning_iOS_Swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/beginning-ios-swift-6.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/beginning-ios-swift-6.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/beginning-ios-swift-6.html" class="leancloud_visitors" data-flag-title="开始用Swift开发iOS 10 - 6 创建简单的Table Based App">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  : 1,178 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  ≈ 5 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-919c842cc89af581.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>table view应该是iOS应用中最常用的UI element。最好的例子就是iPhone自带的一些应用，如电话，邮件，设置等。TED，Google+，Airbnb，微信等等都是很好例子。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/beginning-ios-swift-6.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-18.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1341,7 +1341,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-18.html" itemprop="url">以撸代码的形式学习Swift-18：Error Handling</a></h1>
+                <a class="post-title-link" href="/2017/swift-18.html" itemprop="url">以撸代码的形式学习Swift-18：错误处理(Error handling)</a></h1>
         
 
         <div class="post-meta">
@@ -1404,7 +1404,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
 
           
           
-             <span id="/2017/swift-18.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-18：Error Handling">
+             <span id="/2017/swift-18.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-18：错误处理(Error handling)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1430,7 +1430,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 628 字
+                  : 629 字
                 </span>
               
 
@@ -1465,7 +1465,12 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>错误处理(Error handling)是响应错误以及从错误中恢复的过程。</p>
+</blockquote>
+<h3 id="1-表示并抛出错误"><a href="#1-表示并抛出错误" class="headerlink" title="1 表示并抛出错误"></a>1 表示并抛出错误</h3><p> <code>Error</code>空协议表明该类型可以用于错误处理</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">VendingMachineError</span>: <span class="title">Error</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> <span class="type">InvalidSelection</span> <span class="comment">//选择无效 </span></div><div class="line">    <span class="keyword">case</span> <span class="type">InsufficientFunds</span>(coinsNeeded: <span class="type">Int</span>) <span class="comment">//金额不足</span></div><div class="line">    <span class="keyword">case</span> <span class="type">OutOfStock</span> <span class="comment">//缺货</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">throw</span> <span class="type">VendingMachineError</span>.<span class="type">InsufficientFunds</span>(coinsNeeded: <span class="number">5</span>)</div></pre></td></tr></table></figure>
+<h3 id="2-处理错误"><a href="#2-处理错误" class="headerlink" title="2 处理错误"></a>2 处理错误</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-18.html#more" rel="contents">
@@ -1731,7 +1736,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-17.html" itemprop="url">以撸代码的形式学习Swift-17：Optional Chaining</a></h1>
+                <a class="post-title-link" href="/2017/swift-17.html" itemprop="url">以撸代码的形式学习Swift-17：可选链式调用(Optional Chaining)</a></h1>
         
 
         <div class="post-meta">
@@ -1794,7 +1799,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
 
           
           
-             <span id="/2017/swift-17.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-17：Optional Chaining">
+             <span id="/2017/swift-17.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-17：可选链式调用(Optional Chaining)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1820,7 +1825,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 564 字
+                  : 562 字
                 </span>
               
 
@@ -1855,7 +1860,11 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>一种可以在当前值可能为nil的可选值上请求和调用属性、方法及下标的方法</p>
+</blockquote>
+<h3 id="1-使用可选链式调用代替强制展开"><a href="#1-使用可选链式调用代替强制展开" class="headerlink" title="1 使用可选链式调用代替强制展开"></a>1 使用可选链式调用代替强制展开</h3><p>可选链式调用的返回结果与原本的返回结果具有相同的类型，但是被包装成了一个可选值。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> residence: <span class="type">Residence</span>?</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Residence</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> numberOfRooms = <span class="number">1</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> john = <span class="type">Person</span>()</div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> roomCount = john.residence?.numberOfRooms &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"John's residence has <span class="subst">\(roomCount)</span> room(s)."</span>)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Unable to retrieve the number of rooms."</span>)</div><div class="line">&#125;</div><div class="line">john.residence = <span class="type">Residence</span>()</div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> roomCount = john.residence?.numberOfRooms &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"John's residence has <span class="subst">\(roomCount)</span> room(s)."</span>)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Unable to retrieve the number of rooms."</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-17.html#more" rel="contents">
@@ -1923,7 +1932,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-16.html" itemprop="url">以撸代码的形式学习Swift-16：Automatic Reference Counting</a></h1>
+                <a class="post-title-link" href="/2017/swift-16.html" itemprop="url">以撸代码的形式学习Swift-16：自动引用计数(Automatic Reference Counting, ARC)</a></h1>
         
 
         <div class="post-meta">
@@ -1986,7 +1995,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
 
           
           
-             <span id="/2017/swift-16.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-16：Automatic Reference Counting">
+             <span id="/2017/swift-16.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-16：自动引用计数(Automatic Reference Counting, ARC)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2012,7 +2021,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 694 字
+                  : 718 字
                 </span>
               
 
@@ -2047,7 +2056,13 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>引用计数仅仅应用于类的实例</p>
+</blockquote>
+<h3 id="1-自动引用计数的工作机制"><a href="#1-自动引用计数的工作机制" class="headerlink" title="1 自动引用计数的工作机制"></a>1 自动引用计数的工作机制</h3><p>每次创建一个类的新的实例的时候，ARC会分配一块内存来储存该实例信息(包含实例的类型信息，以及这个实例所有相关的存储型属性的值)。</p>
+<p>ARC会跟踪和计算每一个实例正在被多少属性，常量和变量所引用。</p>
+<p>引用数为0时，内存释放。</p>
+<h3 id="2-🌰"><a href="#2-🌰" class="headerlink" title="2 🌰"></a>2 🌰</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span> is being initialized"</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">deinit</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span> is being deinitialized"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> reference1: <span class="type">Person</span>?</div><div class="line"><span class="keyword">var</span> reference2: <span class="type">Person</span>?</div><div class="line"><span class="keyword">var</span> reference3: <span class="type">Person</span>?</div><div class="line">reference1 = <span class="type">Person</span>(name: <span class="string">"John Appleseed"</span>)</div><div class="line">reference2 = reference1</div><div class="line">reference3 = reference1</div><div class="line">reference1 = <span class="literal">nil</span></div><div class="line">reference2 = <span class="literal">nil</span></div><div class="line">reference3 = <span class="literal">nil</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-16.html#more" rel="contents">
@@ -2115,7 +2130,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-15.html" itemprop="url">以撸代码的形式学习Swift-15：(类的)Deinitialization</a></h1>
+                <a class="post-title-link" href="/2017/swift-15.html" itemprop="url">以撸代码的形式学习Swift-15：(类的)析构过程(Deinitialization)</a></h1>
         
 
         <div class="post-meta">
@@ -2178,7 +2193,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
 
           
           
-             <span id="/2017/swift-15.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-15：(类的)Deinitialization">
+             <span id="/2017/swift-15.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-15：(类的)析构过程(Deinitialization)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2204,7 +2219,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 231 字
+                  : 228 字
                 </span>
               
 
@@ -2239,7 +2254,10 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <h3 id="1-析构过程原理"><a href="#1-析构过程原理" class="headerlink" title="1 析构过程原理"></a>1 析构过程原理</h3><p>每个类最多只能有一个析构器，而且析构器不带任何参数  </p>
+<p>析构器是在实例释放发生前被自动调用。不能主动调用析构器。  </p>
+<p>子类继承了父类的析构器，并且在子类析构器实现的最后，父类的析构器会被自动调用。</p>
+<h3 id="2-析构器实践"><a href="#2-析构器实践" class="headerlink" title="2 析构器实践"></a>2 析构器实践</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-15.html#more" rel="contents">
@@ -2482,7 +2500,7 @@ Xcode中新建一个控制器对象后会产生一个Scene，而Scene的名称�
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 

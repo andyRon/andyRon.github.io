@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift">
+<meta name="description" content="错误处理(Error handling)是响应错误以及从错误中恢复的过程。  1 表示并抛出错误 Error空协议表明该类型可以用于错误处理 123456enum VendingMachineError: Error &amp;#123;    case InvalidSelection //选择无效     case InsufficientFunds(coinsNeeded: Int) //金额不足">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以撸代码的形式学习Swift-18：Error Handling">
+<meta property="og:title" content="以撸代码的形式学习Swift-18：错误处理(Error handling)">
 <meta property="og:url" content="http://andyron.com/2017/swift-18.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift">
+<meta property="og:description" content="错误处理(Error handling)是响应错误以及从错误中恢复的过程。  1 表示并抛出错误 Error空协议表明该类型可以用于错误处理 123456enum VendingMachineError: Error &amp;#123;    case InvalidSelection //选择无效     case InsufficientFunds(coinsNeeded: Int) //金额不足">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T15:45:34.670Z">
+<meta property="og:updated_time" content="2018-09-19T18:20:16.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以撸代码的形式学习Swift-18：Error Handling">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
+<meta name="twitter:title" content="以撸代码的形式学习Swift-18：错误处理(Error handling)">
+<meta name="twitter:description" content="错误处理(Error handling)是响应错误以及从错误中恢复的过程。  1 表示并抛出错误 Error空协议表明该类型可以用于错误处理 123456enum VendingMachineError: Error &amp;#123;    case InvalidSelection //选择无效     case InsufficientFunds(coinsNeeded: Int) //金额不足">
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-  <title>以撸代码的形式学习Swift-18：Error Handling | 欣欣向戎</title>
+  <title>以撸代码的形式学习Swift-18：错误处理(Error handling) | 欣欣向戎</title>
   
 
 
@@ -348,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-18：Error Handling</h1>
+          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-18：错误处理(Error handling)</h1>
         
 
         <div class="post-meta">
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/2017/swift-18.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-18：Error Handling">
+             <span id="/2017/swift-18.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-18：错误处理(Error handling)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 628 字
+                  : 629 字
                 </span>
               
 
@@ -471,8 +471,38 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> Error Handling</div><div class="line"> 错误处理(Error handling)是响应错误以及从错误中恢复的过程。</div><div class="line"> */</div><div class="line">// 1 表示并抛出错误</div><div class="line">// `Error`空协议表明该类型可以用于错误处理</div><div class="line">enum VendingMachineError: Error &#123;</div><div class="line">    case InvalidSelection //选择无效 </div><div class="line">    case InsufficientFunds(coinsNeeded: Int) //金额不足</div><div class="line">    case OutOfStock //缺货</div><div class="line">&#125;</div><div class="line">throw VendingMachineError.InsufficientFunds(coinsNeeded: 5)</div><div class="line"></div><div class="line">// 2 处理错误</div><div class="line">// 为了标识出代码中可能会抛出错误的地方，在调用一个能抛出错误的函数、方法或者构造器之前，加上 try 关键字，或者 try? 或 try!这种变体。</div><div class="line">// 四个处理错误的方式:</div><div class="line">// 1) 用throwing函数传递错误</div><div class="line">/*</div><div class="line"> **throwing函数**: 在函数声明的参数列表之后加上 throws 关键字，为了表示一个函数、方法或构造器可以抛出错误。</div><div class="line"> </div><div class="line">    func canThrowErrors() throws -&gt; String</div><div class="line">    func cannotThrowErrors() -&gt; String</div><div class="line"> </div><div class="line"> 一个 throwing 函数可以在其内部抛出错误，并将错误传递到函数被调用时的作用域。</div><div class="line"> 只有 throwing 函数可以传递错误。任何在某个非throwing函数内部抛出的错误只能在函数内部处理。</div><div class="line"> */</div><div class="line">struct Item &#123;</div><div class="line">    var price: Int</div><div class="line">    var count: Int</div><div class="line">&#125;</div><div class="line">class VendingMachine &#123;</div><div class="line">    var inventory = [</div><div class="line">        &quot;Candy Bar&quot;: Item(price: 12, count: 7),</div><div class="line">        &quot;Chips&quot;: Item(price: 10, count: 4),</div><div class="line">        &quot;Pretzels&quot;: Item(price: 7, count: 11)</div><div class="line">    ]</div><div class="line">    var coinsDeposited = 0</div><div class="line">    func dispenseSnack(snack: String) &#123;</div><div class="line">        print(&quot;Dispensing \(snack)&quot;)</div><div class="line">    &#125;</div><div class="line">    func vend(itemNamed name: String) throws &#123;</div><div class="line">        guard let item = inventory[name] else &#123;</div><div class="line">            throw VendingMachineError.InvalidSelection</div><div class="line">        &#125;</div><div class="line">        guard item.count &gt; 0 else &#123;</div><div class="line">            throw VendingMachineError.OutOfStock</div><div class="line">        &#125;</div><div class="line">        guard item.price &lt;= coinsDeposited else &#123;</div><div class="line">            throw VendingMachineError.InsufficientFunds(coinsNeeded: item.price - coinsDeposited)</div><div class="line">        &#125;</div><div class="line">        coinsDeposited -= item.price</div><div class="line">        var newItem = item</div><div class="line">        newItem.count -= 1</div><div class="line">        inventory[name] = newItem</div><div class="line">        dispenseSnack(snack: name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let favoriteSnacks = [</div><div class="line">    &quot;Alice&quot;: &quot;Chips&quot;,</div><div class="line">    &quot;Bob&quot;: &quot;Licorice&quot;,</div><div class="line">    &quot;Eve&quot;: &quot;Pretzels&quot;,</div><div class="line">]</div><div class="line">func buyFavoriteSnack(person: String, vendingMachine: VendingMachine) throws &#123;</div><div class="line">    let snackName = favoriteSnacks[person] ?? &quot;Candy Bar&quot;</div><div class="line">    try vendingMachine.vend(itemNamed: snackName)</div><div class="line">&#125;</div><div class="line">//  throwing构造器能像throwing函数一样传递错误。</div><div class="line">struct PurchasedSnack &#123;</div><div class="line">    let name: String</div><div class="line">    init(name: String, vendingMachine: VendingMachine) throws &#123;</div><div class="line">        try vendingMachine.vend(itemNamed: name)</div><div class="line">        self.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 2) 用 Do-Catch 处理错误</div><div class="line">var vendingMachine = VendingMachine()</div><div class="line">vendingMachine.coinsDeposited = 8</div><div class="line">do &#123;</div><div class="line">    try buyFavoriteSnack(person: &quot;Alice&quot;, vendingMachine: vendingMachine)</div><div class="line">&#125; catch VendingMachineError.InvalidSelection &#123;</div><div class="line">    print(&quot;Invalid Selection.&quot;)</div><div class="line">&#125; catch VendingMachineError.OutOfStock &#123;</div><div class="line">    print(&quot;Out of Stock.&quot;)</div><div class="line">&#125; catch VendingMachineError.InsufficientFunds(let coinsNeeded) &#123;</div><div class="line">    print(&quot;Insufficient funds. Please insert an additional \(coinsNeeded) coins.&quot;)</div><div class="line">&#125;</div><div class="line">// 打印 “Insufficient funds. Please insert an additional 2 coins.”</div><div class="line">// 3) 将错误转换成可选值</div><div class="line">// 如果 someThrowingFunction() 抛出一个错误， x 和 y 的值是 nil，否则 x 和 y 的值就是该函数的返回值。</div><div class="line">// 无论 someThrowingFunction() 的返回值类型是什么类型， x 和 y 都是这个类型的可选类型。</div><div class="line">// x，y的两种形式类似，try? 更简洁。</div><div class="line">func someThrowingFunction() throws -&gt; Int &#123;</div><div class="line">    // ...</div><div class="line">    return 0</div><div class="line">&#125;</div><div class="line">let x = try? someThrowingFunction()</div><div class="line">let y: Int?</div><div class="line">do &#123;</div><div class="line">    y = try someThrowingFunction()</div><div class="line">&#125; catch &#123;</div><div class="line">    y = nil</div><div class="line">&#125;</div><div class="line">// 4) 禁用错误传递</div><div class="line">// try! 禁止错误传递，如真有错误抛出，就出现运行错误。</div><div class="line">//let photo = try! loadImage(&quot;./Resources/John Appleseed.jpg&quot;)</div><div class="line"></div><div class="line"></div><div class="line">// 3 指定清理操作</div></pre></td></tr></table></figure>
+        <blockquote>
+<p>错误处理(Error handling)是响应错误以及从错误中恢复的过程。</p>
+</blockquote>
+<h3 id="1-表示并抛出错误"><a href="#1-表示并抛出错误" class="headerlink" title="1 表示并抛出错误"></a>1 表示并抛出错误</h3><p> <code>Error</code>空协议表明该类型可以用于错误处理</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">VendingMachineError</span>: <span class="title">Error</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> <span class="type">InvalidSelection</span> <span class="comment">//选择无效 </span></div><div class="line">    <span class="keyword">case</span> <span class="type">InsufficientFunds</span>(coinsNeeded: <span class="type">Int</span>) <span class="comment">//金额不足</span></div><div class="line">    <span class="keyword">case</span> <span class="type">OutOfStock</span> <span class="comment">//缺货</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">throw</span> <span class="type">VendingMachineError</span>.<span class="type">InsufficientFunds</span>(coinsNeeded: <span class="number">5</span>)</div></pre></td></tr></table></figure>
+<h3 id="2-处理错误"><a href="#2-处理错误" class="headerlink" title="2 处理错误"></a>2 处理错误</h3><a id="more"></a>
+<p>为了标识出代码中可能会抛出错误的地方，在调用一个能抛出错误的函数、方法或者构造器之前，加上 try 关键字，或者 try? 或 try!这种变体。 </p>
+<p>四个处理错误的方式:</p>
+<ol>
+<li>用throwing函数传递错误</li>
+</ol>
+<p><strong>throwing函数</strong>: 在函数声明的参数列表之后加上 throws 关键字，为了表示一个函数、方法或构造器可以抛出错误。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">canThrowErrors</span><span class="params">()</span></span> <span class="keyword">throws</span> -&gt; <span class="type">String</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">cannotThrowErrors</span><span class="params">()</span></span> -&gt; <span class="type">String</span></div></pre></td></tr></table></figure></p>
+<p> 一个 throwing 函数可以在其内部抛出错误，并将错误传递到函数被调用时的作用域。<br> 只有 throwing 函数可以传递错误。任何在某个非throwing函数内部抛出的错误只能在函数内部处理。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Item</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> price: <span class="type">Int</span></div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">VendingMachine</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> inventory = [</div><div class="line">        <span class="string">"Candy Bar"</span>: <span class="type">Item</span>(price: <span class="number">12</span>, <span class="built_in">count</span>: <span class="number">7</span>),</div><div class="line">        <span class="string">"Chips"</span>: <span class="type">Item</span>(price: <span class="number">10</span>, <span class="built_in">count</span>: <span class="number">4</span>),</div><div class="line">        <span class="string">"Pretzels"</span>: <span class="type">Item</span>(price: <span class="number">7</span>, <span class="built_in">count</span>: <span class="number">11</span>)</div><div class="line">    ]</div><div class="line">    <span class="keyword">var</span> coinsDeposited = <span class="number">0</span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">dispenseSnack</span><span class="params">(snack: String)</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Dispensing <span class="subst">\(snack)</span>"</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">vend</span><span class="params">(itemNamed name: String)</span></span> <span class="keyword">throws</span> &#123;</div><div class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> item = inventory[name] <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="type">VendingMachineError</span>.<span class="type">InvalidSelection</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">guard</span> item.<span class="built_in">count</span> &gt; <span class="number">0</span> <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="type">VendingMachineError</span>.<span class="type">OutOfStock</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">guard</span> item.price &lt;= coinsDeposited <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="type">VendingMachineError</span>.<span class="type">InsufficientFunds</span>(coinsNeeded: item.price - coinsDeposited)</div><div class="line">        &#125;</div><div class="line">        coinsDeposited -= item.price</div><div class="line">        <span class="keyword">var</span> newItem = item</div><div class="line">        newItem.<span class="built_in">count</span> -= <span class="number">1</span></div><div class="line">        inventory[name] = newItem</div><div class="line">        dispenseSnack(snack: name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> favoriteSnacks = [</div><div class="line">    <span class="string">"Alice"</span>: <span class="string">"Chips"</span>,</div><div class="line">    <span class="string">"Bob"</span>: <span class="string">"Licorice"</span>,</div><div class="line">    <span class="string">"Eve"</span>: <span class="string">"Pretzels"</span>,</div><div class="line">]</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">buyFavoriteSnack</span><span class="params">(person: String, vendingMachine: VendingMachine)</span></span> <span class="keyword">throws</span> &#123;</div><div class="line">    <span class="keyword">let</span> snackName = favoriteSnacks[person] ?? <span class="string">"Candy Bar"</span></div><div class="line">    <span class="keyword">try</span> vendingMachine.vend(itemNamed: snackName)</div><div class="line">&#125;</div><div class="line"><span class="comment">//  throwing构造器能像throwing函数一样传递错误。</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PurchasedSnack</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, vendingMachine: <span class="type">VendingMachine</span>) <span class="keyword">throws</span> &#123;</div><div class="line">        <span class="keyword">try</span> vendingMachine.vend(itemNamed: name)</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>用 Do-Catch 处理错误</li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vendingMachine = <span class="type">VendingMachine</span>()</div><div class="line">vendingMachine.coinsDeposited = <span class="number">8</span></div><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">    <span class="keyword">try</span> buyFavoriteSnack(person: <span class="string">"Alice"</span>, vendingMachine: vendingMachine)</div><div class="line">&#125; <span class="keyword">catch</span> <span class="type">VendingMachineError</span>.<span class="type">InvalidSelection</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Invalid Selection."</span>)</div><div class="line">&#125; <span class="keyword">catch</span> <span class="type">VendingMachineError</span>.<span class="type">OutOfStock</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Out of Stock."</span>)</div><div class="line">&#125; <span class="keyword">catch</span> <span class="type">VendingMachineError</span>.<span class="type">InsufficientFunds</span>(<span class="keyword">let</span> coinsNeeded) &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Insufficient funds. Please insert an additional <span class="subst">\(coinsNeeded)</span> coins."</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">// 打印 “Insufficient funds. Please insert an additional 2 coins.”</span></div></pre></td></tr></table></figure>
+<ol>
+<li>将错误转换成可选值</li>
+</ol>
+<p>如果 someThrowingFunction() 抛出一个错误， x 和 y 的值是 nil，否则 x 和 y 的值就是该函数的返回值。<br>无论 someThrowingFunction() 的返回值类型是什么类型， x 和 y 都是这个类型的可选类型。<br>x，y的两种形式类似，try? 更简洁。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">someThrowingFunction</span><span class="params">()</span></span> <span class="keyword">throws</span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> x = <span class="keyword">try</span>? someThrowingFunction()</div><div class="line"><span class="keyword">let</span> y: <span class="type">Int</span>?</div><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">    y = <span class="keyword">try</span> someThrowingFunction()</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">    y = <span class="literal">nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>禁用错误传递</li>
+</ol>
+<p><code>try!</code> 禁止错误传递，如真有错误抛出，就出现运行错误。</p>
+<p><code>let photo = try! loadImage(&quot;./Resources/John Appleseed.jpg&quot;)</code></p>
+<h3 id="3-指定清理操作"><a href="#3-指定清理操作" class="headerlink" title="3 指定清理操作"></a>3 指定清理操作</h3><blockquote>
+<p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+</blockquote>
+
       
     </div>
 
@@ -521,7 +551,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/swift-18.html" title="以撸代码的形式学习Swift-18：Error Handling">http://andyron.com/2017/swift-18.html</a>
+      <a href="http://andyron.com/2017/swift-18.html" title="以撸代码的形式学习Swift-18：错误处理(Error handling)">http://andyron.com/2017/swift-18.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -554,8 +584,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-6.html" rel="prev" title="开始用Swift开发iOS 10 - 6 创建简单的Table Based App">
-                开始用Swift开发iOS 10 - 6 创建简单的Table Based App <i class="fa fa-chevron-right"></i>
+              <a href="/2017/ios-application-status.html" rel="prev" title="iOS应用程序的状态">
+                iOS应用程序的状态 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,8 +640,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -759,6 +798,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-表示并抛出错误"><span class="nav-number">1.</span> <span class="nav-text">1 表示并抛出错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-处理错误"><span class="nav-number">2.</span> <span class="nav-text">2 处理错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-指定清理操作"><span class="nav-number">3.</span> <span class="nav-text">3 指定清理操作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -780,7 +835,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 
@@ -924,7 +979,7 @@
         var disqus_config = function () {
           this.page.url = 'http://andyron.com/2017/swift-18.html';
           this.page.identifier = '2017/swift-18.html';
-          this.page.title = '以撸代码的形式学习Swift-18：Error Handling';
+          this.page.title = '以撸代码的形式学习Swift-18：错误处理(Error handling)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';

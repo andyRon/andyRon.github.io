@@ -555,7 +555,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-23.html" itemprop="url">以撸代码的形式学习Swift-23：Generics</a></h1>
+                <a class="post-title-link" href="/2017/swift-23.html" itemprop="url">以撸代码的形式学习Swift-23：泛型(Generics)</a></h1>
         
 
         <div class="post-meta">
@@ -618,7 +618,7 @@
 
           
           
-             <span id="/2017/swift-23.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-23：Generics">
+             <span id="/2017/swift-23.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-23：泛型(Generics)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -644,7 +644,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 666 字
+                  : 754 字
                 </span>
               
 
@@ -679,7 +679,10 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>泛型是 Swift 最强大的特性之一，许多 Swift 标准库是通过泛型代码构建的。<br>例如， Swift 的数组和字典都是泛型集合。你可以创建一个存有整型值或者字符串值的数组，有必要的话，还可以创建一个任何 Swift 支持类型的数组。类似的，你也可以创建一个字典用于存储任意指定类型的值。</p>
+</blockquote>
+<h3 id="1-泛型函数"><a href="#1-泛型函数" class="headerlink" title="1 泛型函数"></a>1 泛型函数</h3><p>T是一个占位类型，其他字母也可以，只要在尖括号中就行。<br>可以理解为：在定义的时候还不知道是啥类型，那就假设是T类型，等到调用时，给过来什么类型的参数，那T就是上面类型。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapValue</span>&lt;T&gt;<span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> T, <span class="number">_</span> b: <span class="keyword">inout</span> T)</span></span> &#123;</div><div class="line">    <span class="keyword">let</span> tmp = a</div><div class="line">    a = b</div><div class="line">    b = tmp</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span></div><div class="line"><span class="keyword">var</span> b = <span class="number">3</span></div><div class="line">swapValue(&amp;a, &amp;b)</div><div class="line"><span class="built_in">print</span>(a,b)</div><div class="line"><span class="keyword">var</span> s1 = <span class="string">"word"</span></div><div class="line"><span class="keyword">var</span> s2 = <span class="string">"单词"</span></div><div class="line">swapValue(&amp;s1, &amp;s2)</div><div class="line"><span class="built_in">print</span>(s1, s2)</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-23.html#more" rel="contents">
@@ -747,7 +750,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-22.html" itemprop="url">以撸代码的形式学习Swift-22：Protocols</a></h1>
+                <a class="post-title-link" href="/2017/swift-22.html" itemprop="url">以撸代码的形式学习Swift-22：协议(Protocols)</a></h1>
         
 
         <div class="post-meta">
@@ -810,7 +813,7 @@
 
           
           
-             <span id="/2017/swift-22.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-22：Protocols">
+             <span id="/2017/swift-22.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-22：协议(Protocols)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -836,7 +839,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,592 字
+                  : 1,608 字
                 </span>
               
 
@@ -871,7 +874,10 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>协议定义了一个蓝图，规定了用来实现某一特定任务或者功能的方法、属性，以及其他需要的东西。<br>类、结构体或枚举都可以采纳协议，并为协议定义的这些要求提供具体实现。<br>xx conform xxx protocol (xx“符合”xxx协议)</p>
+</blockquote>
+<h3 id="1-属性要求"><a href="#1-属性要求" class="headerlink" title="1 属性要求"></a>1 属性要求</h3><p>可以要求提供特定名称和类型的实例属性或类型属性<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> mustBeSettable: <span class="type">Int</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</div><div class="line">    <span class="keyword">var</span> doesNotNeedToBeSettable: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">AnotherProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">var</span> someTypeProperty: <span class="type">Int</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">FullyNamed</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> fullName: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span>: <span class="title">FullyNamed</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> fullName: <span class="type">String</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> john = <span class="type">Person</span>(fullName: <span class="string">"John Appleseed"</span>)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Starship</span>: <span class="title">FullyNamed</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">prefix</span>: <span class="type">String</span>?</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, <span class="keyword">prefix</span>: <span class="type">String</span>? = <span class="literal">nil</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">prefix</span> = <span class="keyword">prefix</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> fullName: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">prefix</span> != <span class="literal">nil</span> ? <span class="keyword">prefix</span>! + <span class="string">" "</span> : <span class="string">""</span>) + name</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-22.html#more" rel="contents">
@@ -1334,7 +1340,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-21.html" itemprop="url">以撸代码的形式学习Swift-21：Extensions</a></h1>
+                <a class="post-title-link" href="/2017/swift-21.html" itemprop="url">以撸代码的形式学习Swift-21：扩展(Extensions)</a></h1>
         
 
         <div class="post-meta">
@@ -1397,7 +1403,7 @@
 
           
           
-             <span id="/2017/swift-21.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-21：Extensions">
+             <span id="/2017/swift-21.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-21：扩展(Extensions)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1423,7 +1429,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 549 字
+                  : 555 字
                 </span>
               
 
@@ -1458,7 +1464,12 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>为一个已有的类、结构体、枚举类型或者协议类型添加新功能。<br>包括在没有权限获取原始源代码的情况下扩展类型的能力(即<strong>逆向建模</strong>)<br>扩展可以为一个类型添加新的功能，但是不能重写已有的功能。</p>
+</blockquote>
+<h3 id="1-扩展的语法-Extension-Syntax"><a href="#1-扩展的语法-Extension-Syntax" class="headerlink" title="1 扩展的语法(Extension Syntax)"></a>1 扩展的语法(Extension Syntax)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">extension SomeType &#123;</div><div class="line">   // 为 SomeType 添加的新功能写到这里</div><div class="line">&#125;</div><div class="line">// 扩展一个已有类型，使其实现一些协议。</div><div class="line">extension SomeType: SomeProtocol, AnotherProctocol &#123; </div><div class="line">   // 协议实现写到这里</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你通过扩展为一个已有类型添加新功能，那么新功能对该类型的所有已有实例都是可用的，即使它们是在这个扩展定义之前创建的。</p>
+<h3 id="2-计算型属性-Computed-Properties"><a href="#2-计算型属性-Computed-Properties" class="headerlink" title="2 计算型属性(Computed Properties)"></a>2 计算型属性(Computed Properties)</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-21.html#more" rel="contents">
@@ -1915,7 +1926,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-20.html" itemprop="url">以撸代码的形式学习Swift-20：Nested Types(嵌套类型)</a></h1>
+                <a class="post-title-link" href="/2017/swift-20.html" itemprop="url">以撸代码的形式学习Swift-20：嵌套类型(Nested Types)</a></h1>
         
 
         <div class="post-meta">
@@ -1978,7 +1989,7 @@
 
           
           
-             <span id="/2017/swift-20.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-20：Nested Types(嵌套类型)">
+             <span id="/2017/swift-20.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-20：嵌套类型(Nested Types)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2004,7 +2015,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 169 字
+                  : 163 字
                 </span>
               
 
@@ -2039,7 +2050,7 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <h3 id="1-🌰"><a href="#1-🌰" class="headerlink" title="1 🌰"></a>1 🌰</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BlackjackCard</span> </span>&#123;  <span class="comment">// 二十一点</span></div><div class="line">    </div><div class="line">    <span class="comment">// nested Suit enumeration</span></div><div class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Suit</span>: <span class="title">Character</span> </span>&#123;  <span class="comment">// 描述扑克牌的四种花色</span></div><div class="line">        <span class="keyword">case</span> spades = <span class="string">"♠"</span>, hearts = <span class="string">"♡"</span>, diamonds = <span class="string">"♢"</span>, clubs = <span class="string">"♣"</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">// nested Rank enumeration</span></div><div class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Rank</span>: <span class="title">Int</span> </span>&#123;</div><div class="line">        <span class="keyword">case</span> two = <span class="number">2</span>, three, four, five, six, seven, eight, nine, ten</div><div class="line">        <span class="keyword">case</span> jack, queen, king, ace</div><div class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Values</span> </span>&#123;  <span class="comment">// 用来反映Ace的两个数值()</span></div><div class="line">            <span class="keyword">let</span> first: <span class="type">Int</span>, second: <span class="type">Int</span>?</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> values: <span class="type">Values</span> &#123;</div><div class="line">            <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</div><div class="line">            <span class="keyword">case</span> .ace:</div><div class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">1</span>, second: <span class="number">11</span>)</div><div class="line">            <span class="keyword">case</span> .jack, .queen, .king:</div><div class="line">                    <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">10</span>, second: <span class="literal">nil</span>)</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="keyword">self</span>.rawValue, second: <span class="literal">nil</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// BlackjackCard properties and methods</span></div><div class="line">    <span class="keyword">let</span> rank: <span class="type">Rank</span>, suit: <span class="type">Suit</span></div><div class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">var</span> output = <span class="string">"suit is <span class="subst">\(suit.rawValue)</span>,"</span></div><div class="line">        output += <span class="string">" value is <span class="subst">\(rank.values.first)</span>"</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> second = rank.values.second &#123;</div><div class="line">            output += <span class="string">" or <span class="subst">\(second)</span>"</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> output</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> theAceOfSpades = <span class="type">BlackjackCard</span>(rank: .ace, suit: .spades)</div><div class="line"><span class="built_in">print</span>(<span class="string">"theAceOfSpades: <span class="subst">\(theAceOfSpades.description)</span>"</span>)</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-20.html#more" rel="contents">
@@ -2480,7 +2491,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 

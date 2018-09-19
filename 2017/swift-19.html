@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift">
+<meta name="description" content="1 定义一个类层次作为例子12345678910111213141516171819202122232425262728293031class MediaItem &amp;#123;    var name: String    init(name: String) &amp;#123;        self.name = name    &amp;#125;&amp;#125;class Movie: MediaItem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以撸代码的形式学习Swift-19：Type Casting(类型转换)">
+<meta property="og:title" content="以撸代码的形式学习Swift-19：类型转换(Type Casting)">
 <meta property="og:url" content="http://andyron.com/2017/swift-19.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift">
+<meta property="og:description" content="1 定义一个类层次作为例子12345678910111213141516171819202122232425262728293031class MediaItem &amp;#123;    var name: String    init(name: String) &amp;#123;        self.name = name    &amp;#125;&amp;#125;class Movie: MediaItem">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T15:45:41.934Z">
+<meta property="og:updated_time" content="2018-09-19T18:22:34.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以撸代码的形式学习Swift-19：Type Casting(类型转换)">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
+<meta name="twitter:title" content="以撸代码的形式学习Swift-19：类型转换(Type Casting)">
+<meta name="twitter:description" content="1 定义一个类层次作为例子12345678910111213141516171819202122232425262728293031class MediaItem &amp;#123;    var name: String    init(name: String) &amp;#123;        self.name = name    &amp;#125;&amp;#125;class Movie: MediaItem">
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-  <title>以撸代码的形式学习Swift-19：Type Casting(类型转换) | 欣欣向戎</title>
+  <title>以撸代码的形式学习Swift-19：类型转换(Type Casting) | 欣欣向戎</title>
   
 
 
@@ -348,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-19：Type Casting(类型转换)</h1>
+          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-19：类型转换(Type Casting)</h1>
         
 
         <div class="post-meta">
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/2017/swift-19.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-19：Type Casting(类型转换)">
+             <span id="/2017/swift-19.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-19：类型转换(Type Casting)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 303 字
+                  : 296 字
                 </span>
               
 
@@ -471,72 +471,18 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+        <h3 id="1-定义一个类层次作为例子"><a href="#1-定义一个类层次作为例子" class="headerlink" title="1 定义一个类层次作为例子"></a>1 定义一个类层次作为例子</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MediaItem</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span>: <span class="title">MediaItem</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> director: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, director: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.director = director</div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(name: name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Song</span>: <span class="title">MediaItem</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> artist: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, artist: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.artist = artist</div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(name: name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> library = [</div><div class="line">    <span class="type">Movie</span>(name: <span class="string">"Casablanca"</span>, director: <span class="string">"Michael Curtiz"</span>),</div><div class="line">    <span class="type">Song</span>(name: <span class="string">"Blue Suede Shoes"</span>, artist: <span class="string">"Elvis Presley"</span>),</div><div class="line">    <span class="type">Movie</span>(name: <span class="string">"Citizen Kane"</span>, director: <span class="string">"Orson Welles"</span>),</div><div class="line">    <span class="type">Song</span>(name: <span class="string">"The One And Only"</span>, artist: <span class="string">"Chesney Hawkes"</span>),</div><div class="line">    <span class="type">Song</span>(name: <span class="string">"Never Gonna Give You Up"</span>, artist: <span class="string">"Rick Astley"</span>)</div><div class="line">]</div><div class="line"><span class="comment">// 数组 library 的类型被推断为 [MediaItem]</span></div><div class="line"><span class="keyword">for</span> v <span class="keyword">in</span> library &#123;          <span class="comment">// v 在此处是 MediaItem 类型</span></div><div class="line">    <span class="built_in">print</span>(v.name)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<pre><code>/**
- Type Casting(类型转换)
- `is`  `as`
- */
+<h3 id="2-检查类型-Checking-Type-is"><a href="#2-检查类型-Checking-Type-is" class="headerlink" title="2 检查类型(Checking Type)  is"></a>2 检查类型(Checking Type)  <code>is</code></h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> movieCount = <span class="number">0</span></div><div class="line"><span class="keyword">var</span> songCount = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> library &#123;</div><div class="line">    <span class="keyword">if</span> (item <span class="keyword">is</span> <span class="type">Movie</span>) &#123;</div><div class="line">        movieCount += <span class="number">1</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item <span class="keyword">is</span> <span class="type">Song</span>) &#123;</div><div class="line">        songCount += <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-向下转型-Downcasting-as-as"><a href="#3-向下转型-Downcasting-as-as" class="headerlink" title="3 向下转型(Downcasting)    as?   as!"></a>3 向下转型(Downcasting)    <code>as?</code>   <code>as!</code></h3><p>条件形式(conditional form) as? 返回一个你试图向下转成的类型的可选值(optional value)</p>
+<p>强制形式 as! 把试图向下转型和强制解包(force-unwraps)转换结果结合为一个操作。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> library &#123;</div><div class="line">    <span class="keyword">if</span> <span class="keyword">let</span> movie = item <span class="keyword">as</span>? <span class="type">Movie</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Movie: '<span class="subst">\(movie.name)</span>', dir. <span class="subst">\(movie.director)</span>"</span>)</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="keyword">let</span> song = item <span class="keyword">as</span>? <span class="type">Song</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Song: '<span class="subst">\(song.name)</span>', by <span class="subst">\(song.artist)</span>"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-Any和AnyObject的类型转换"><a href="#4-Any和AnyObject的类型转换" class="headerlink" title="4 Any和AnyObject的类型转换"></a>4 Any和AnyObject的类型转换</h3><p>AnyObject可以表示任何类类型的实例</p>
+<p>Any可以表示任何类型，包括函数类型</p>
+<blockquote>
+<p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+</blockquote>
 
-// 1 定义一个类层次作为例子
-class MediaItem {
-    var name: String
-    init(name: String) {
-        self.name = name
-    }
-}
-class Movie: MediaItem {
-    var director: String
-    init(name: String, director: String) {
-        self.director = director
-        super.init(name: name)
-    }
-}
-class Song: MediaItem {
-    var artist: String
-    init(name: String, artist: String) {
-        self.artist = artist
-        super.init(name: name)
-    }
-}
-let library = [
-    Movie(name: &quot;Casablanca&quot;, director: &quot;Michael Curtiz&quot;),
-    Song(name: &quot;Blue Suede Shoes&quot;, artist: &quot;Elvis Presley&quot;),
-    Movie(name: &quot;Citizen Kane&quot;, director: &quot;Orson Welles&quot;),
-    Song(name: &quot;The One And Only&quot;, artist: &quot;Chesney Hawkes&quot;),
-    Song(name: &quot;Never Gonna Give You Up&quot;, artist: &quot;Rick Astley&quot;)
-]
-// 数组 library 的类型被推断为 [MediaItem]
-for v in library {          // v 在此处是 MediaItem 类型
-    print(v.name)
-}
-
-// 2 检查类型(Checking Type)  `is`
-var movieCount = 0
-var songCount = 0
-for item in library {
-    if (item is Movie) {
-        movieCount += 1
-    } else if (item is Song) {
-        songCount += 1
-    }
-}
-
-// 3 向下转型(Downcasting)    `as?`   `as!`
-// 条件形式(conditional form) as? 返回一个你试图向下转成的类型的可选值(optional value)
-// 强制形式 as! 把试图向下转型和强制解包(force-unwraps)转换结果结合为一个操作。
-for item in library {
-    if let movie = item as? Movie {
-        print(&quot;Movie: &apos;\(movie.name)&apos;, dir. \(movie.director)&quot;)
-    } else if let song = item as? Song {
-        print(&quot;Song: &apos;\(song.name)&apos;, by \(song.artist)&quot;)
-    }
-}
-
-// 4 Any和AnyObject的类型转换
-// AnyObject可以表示任何类类型的实例
-// Any可以表示任何类型，包括函数类型
-</code></pre>
       
     </div>
 
@@ -585,7 +531,7 @@ for item in library {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/swift-19.html" title="以撸代码的形式学习Swift-19：Type Casting(类型转换)">http://andyron.com/2017/swift-19.html</a>
+      <a href="http://andyron.com/2017/swift-19.html" title="以撸代码的形式学习Swift-19：类型转换(Type Casting)">http://andyron.com/2017/swift-19.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -674,8 +620,17 @@ for item in library {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -823,6 +778,22 @@ for item in library {
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-定义一个类层次作为例子"><span class="nav-number">1.</span> <span class="nav-text">1 定义一个类层次作为例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-检查类型-Checking-Type-is"><span class="nav-number">2.</span> <span class="nav-text">2 检查类型(Checking Type)  is</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-向下转型-Downcasting-as-as"><span class="nav-number">3.</span> <span class="nav-text">3 向下转型(Downcasting)    as?   as!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Any和AnyObject的类型转换"><span class="nav-number">4.</span> <span class="nav-text">4 Any和AnyObject的类型转换</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -844,7 +815,7 @@ for item in library {
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 
@@ -988,7 +959,7 @@ for item in library {
         var disqus_config = function () {
           this.page.url = 'http://andyron.com/2017/swift-19.html';
           this.page.identifier = '2017/swift-19.html';
-          this.page.title = '以撸代码的形式学习Swift-19：Type Casting(类型转换)';
+          this.page.title = '以撸代码的形式学习Swift-19：类型转换(Type Casting)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';

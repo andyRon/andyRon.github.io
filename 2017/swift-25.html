@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift">
+<meta name="description" content="1 位运算符 按位取反运算符 12let initialBits: UInt8 = 0b00001111let invertedBits = ~initialBits                     // 等于 0b11110000  按位与运算符 123let firstSixBits: UInt8 = 0b11111100let lastSixBits: UInt8 = 0b00111">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以撸代码的形式学习Swift-25：Advanced Operators">
+<meta property="og:title" content="以撸代码的形式学习Swift-25：高级运算符(Advanced Operators)">
 <meta property="og:url" content="http://andyron.com/2017/swift-25.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift">
+<meta property="og:description" content="1 位运算符 按位取反运算符 12let initialBits: UInt8 = 0b00001111let invertedBits = ~initialBits                     // 等于 0b11110000  按位与运算符 123let firstSixBits: UInt8 = 0b11111100let lastSixBits: UInt8 = 0b00111">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T15:46:00.335Z">
+<meta property="og:updated_time" content="2018-09-19T18:46:31.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以撸代码的形式学习Swift-25：Advanced Operators">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
+<meta name="twitter:title" content="以撸代码的形式学习Swift-25：高级运算符(Advanced Operators)">
+<meta name="twitter:description" content="1 位运算符 按位取反运算符 12let initialBits: UInt8 = 0b00001111let invertedBits = ~initialBits                     // 等于 0b11110000  按位与运算符 123let firstSixBits: UInt8 = 0b11111100let lastSixBits: UInt8 = 0b00111">
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-  <title>以撸代码的形式学习Swift-25：Advanced Operators | 欣欣向戎</title>
+  <title>以撸代码的形式学习Swift-25：高级运算符(Advanced Operators) | 欣欣向戎</title>
   
 
 
@@ -348,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-25：Advanced Operators</h1>
+          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-25：高级运算符(Advanced Operators)</h1>
         
 
         <div class="post-meta">
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/2017/swift-25.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-25：Advanced Operators">
+             <span id="/2017/swift-25.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-25：高级运算符(Advanced Operators)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 552 字
+                  : 668 字
                 </span>
               
 
@@ -471,8 +471,39 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> Advanced Operators</div><div class="line"> */</div><div class="line"></div><div class="line">// 1 位运算符</div><div class="line">// 按位取反运算符</div><div class="line">let initialBits: UInt8 = 0b00001111</div><div class="line">let invertedBits = ~initialBits                     // 等于 0b11110000</div><div class="line">// 按位与运算符</div><div class="line">let firstSixBits: UInt8 = 0b11111100</div><div class="line">let lastSixBits: UInt8 = 0b00111111</div><div class="line">let middleFourBits = firstSixBits &amp; lastSixBits     // 等于 00111100</div><div class="line">// 按位或运算符</div><div class="line">let someBits: UInt8 = 0b10110010</div><div class="line">let moreBits: UInt8 = 0b01011110</div><div class="line">let combinedbits = someBits | moreBits              // 等于 11111110</div><div class="line">// 按位异或运算符</div><div class="line">let firstBits: UInt8 = 0b00010100</div><div class="line">let otherBits: UInt8 = 0b00000101</div><div class="line">let outputBits = firstBits ^ otherBits              // 等于 00010001</div><div class="line">// 按位左移、右移运算符</div><div class="line">let shiftBits: UInt8 = 4                            // 00000100</div><div class="line">shiftBits &lt;&lt; 1                                      // 00001000</div><div class="line">shiftBits &lt;&lt; 2                                      // 00010000</div><div class="line">shiftBits &lt;&lt; 5                                      // 10000000</div><div class="line">shiftBits &lt;&lt; 6                                      // 00000000</div><div class="line">shiftBits &gt;&gt; 2                                      // 00000001</div><div class="line">//  使用移位运算对颜色进行RGB分解</div><div class="line">let pink: UInt32 = 0xCC6699</div><div class="line">let redComponent = (pink &amp; 0xFF0000) &gt;&gt; 16          // redComponent 是 0xCC，即 204</div><div class="line">let greenComponent = (pink &amp; 0x00FF00) &gt;&gt; 8         // greenComponent 是 0x66， 即 102</div><div class="line">let blueComponent = pink &amp; 0x0000FF                 // blueComponent 是 0x99，即 153</div><div class="line">//  有符号整数的移位运算</div><div class="line"></div><div class="line">// 2 溢出运算符</div><div class="line">// 在默认情况下，当向一个整数赋予超过它容量的值时，Swift默认会报错，而不是生成一个无效的数。</div><div class="line">var potentialOverflow = Int16.max                   // potentialOverflow 的值是 32767，这是 Int16 能容纳的最大整数</div><div class="line">//potentialOverflow += 1                            // 这里会报错</div><div class="line">// 可以选择让系统在数值溢出的时候采取截断处理，而非报错。 `&amp;+` `&amp;-` `&amp;*`</div><div class="line">var unsignedOverflow = UInt8.max                    // unsignedOverflow 等于 UInt8 所能容纳的最大整数 255 </div><div class="line">unsignedOverflow = unsignedOverflow &amp;+ 1            // 此时 unsignedOverflow 等于 0</div><div class="line">var unsignedOverflow2 = UInt8.min                   // unsignedOverflow 等于 UInt8 所能容纳的最小整数 0</div><div class="line">unsignedOverflow2 = unsignedOverflow2 &amp;- 1          // 此时 unsignedOverflow 等于 255</div><div class="line"></div><div class="line">// 3 优先级和结合性</div><div class="line"></div><div class="line">// 4 运算符函数</div><div class="line">// *运算符重载*: 类和结构体可以为现有的运算符提供自定义的实现。</div><div class="line">// 例子：向量的相加</div><div class="line">struct Vector2D &#123;</div><div class="line">    var x = 0.0, y = 0.0</div><div class="line">&#125;</div><div class="line">extension Vector2D &#123;</div><div class="line">    static func + (left: Vector2D, right: Vector2D) -&gt; Vector2D &#123;</div><div class="line">        return Vector2D(x: left.x + right.x, y: left.y + right.y)</div><div class="line">    &#125;</div><div class="line">    static prefix func - (vector: Vector2D) -&gt; Vector2D &#123;</div><div class="line">        return Vector2D(x: -vector.x, y: -vector.y)</div><div class="line">    &#125;</div><div class="line">    static func += (left: inout Vector2D, right: Vector2D) &#123;</div><div class="line">        left = left + right</div><div class="line">    &#125;</div><div class="line">    static func == (left: Vector2D, right: Vector2D) -&gt; Bool &#123;</div><div class="line">        return (left.x == right.x) &amp;&amp; (left.y == right.y)</div><div class="line">    &#125;</div><div class="line">    static func != (left: Vector2D, right: Vector2D) -&gt; Bool &#123;</div><div class="line">        return !(left == right)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let vector = Vector2D(x: 3.0, y: 1.0)</div><div class="line">let anotherVector = Vector2D(x: 2.0, y: 4.0)</div><div class="line">let combinedVector = vector + anotherVector         // combinedVector 是一个新的 Vector2D 实例，值为 (5.0, 5.0)</div><div class="line">let negative = -vector                              // negative 是一个值为 (-3.0, -1.0) 的 Vector2D 实例</div><div class="line">var original = Vector2D(x: 1.0, y: 2.0)</div><div class="line">let vectorToAdd = Vector2D(x: 3.0, y: 4.0)</div><div class="line">original += vectorToAdd                             // original 的值现在为 (4.0, 6.0)</div><div class="line">let twoThree = Vector2D(x: 2.0, y: 3.0)</div><div class="line">let anotherTwoThree = Vector2D(x: 2.0, y: 3.0)</div><div class="line">if twoThree == anotherTwoThree &#123;</div><div class="line">    print(&quot;These two vectors are equivalent.&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="1-位运算符"><a href="#1-位运算符" class="headerlink" title="1 位运算符"></a>1 位运算符</h3><ul>
+<li><p>按位取反运算符</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> initialBits: <span class="type">UInt8</span> = <span class="number">0b00001111</span></div><div class="line"><span class="keyword">let</span> invertedBits = ~initialBits                     <span class="comment">// 等于 0b11110000</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>按位与运算符</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> firstSixBits: <span class="type">UInt8</span> = <span class="number">0b11111100</span></div><div class="line"><span class="keyword">let</span> lastSixBits: <span class="type">UInt8</span> = <span class="number">0b00111111</span></div><div class="line"><span class="keyword">let</span> middleFourBits = firstSixBits &amp; lastSixBits     <span class="comment">// 等于 00111100</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>按位或运算符</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> someBits: <span class="type">UInt8</span> = <span class="number">0b10110010</span></div><div class="line"><span class="keyword">let</span> moreBits: <span class="type">UInt8</span> = <span class="number">0b01011110</span></div><div class="line"><span class="keyword">let</span> combinedbits = someBits | moreBits              <span class="comment">// 等于 11111110</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>按位异或运算符</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> firstBits: <span class="type">UInt8</span> = <span class="number">0b00010100</span></div><div class="line"><span class="keyword">let</span> otherBits: <span class="type">UInt8</span> = <span class="number">0b00000101</span></div><div class="line"><span class="keyword">let</span> outputBits = firstBits ^ otherBits              <span class="comment">// 等于 00010001</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>按位左移、右移运算符</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> shiftBits: <span class="type">UInt8</span> = <span class="number">4</span>                            <span class="comment">// 00000100</span></div><div class="line">shiftBits &lt;&lt; <span class="number">1</span>                                      <span class="comment">// 00001000</span></div><div class="line">shiftBits &lt;&lt; <span class="number">2</span>                                      <span class="comment">// 00010000</span></div><div class="line">shiftBits &lt;&lt; <span class="number">5</span>                                      <span class="comment">// 10000000</span></div><div class="line">shiftBits &lt;&lt; <span class="number">6</span>                                      <span class="comment">// 00000000</span></div><div class="line">shiftBits &gt;&gt; <span class="number">2</span>                                      <span class="comment">// 00000001</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>使用移位运算对颜色进行RGB分解</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> pink: <span class="type">UInt32</span> = <span class="number">0xCC6699</span></div><div class="line"><span class="keyword">let</span> redComponent = (pink &amp; <span class="number">0xFF0000</span>) &gt;&gt; <span class="number">16</span>          <span class="comment">// redComponent 是 0xCC，即 204</span></div><div class="line"><span class="keyword">let</span> greenComponent = (pink &amp; <span class="number">0x00FF00</span>) &gt;&gt; <span class="number">8</span>         <span class="comment">// greenComponent 是 0x66， 即 102</span></div><div class="line"><span class="keyword">let</span> blueComponent = pink &amp; <span class="number">0x0000FF</span>                 <span class="comment">// blueComponent 是 0x99，即 153</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>有符号整数的移位运算</p>
+</li>
+</ul>
+<h3 id="2-溢出运算符"><a href="#2-溢出运算符" class="headerlink" title="2 溢出运算符"></a>2 溢出运算符</h3><p>在默认情况下，当向一个整数赋予超过它容量的值时，Swift默认会报错，而不是生成一个无效的数。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> potentialOverflow = <span class="type">Int16</span>.<span class="built_in">max</span>                   <span class="comment">// potentialOverflow 的值是 32767，这是 Int16 能容纳的最大整数</span></div><div class="line"><span class="comment">//potentialOverflow += 1                            // 这里会报错</span></div><div class="line"><span class="comment">// 可以选择让系统在数值溢出的时候采取截断处理，而非报错。 `&amp;+` `&amp;-` `&amp;*`</span></div><div class="line"><span class="keyword">var</span> unsignedOverflow = <span class="type">UInt8</span>.<span class="built_in">max</span>                    <span class="comment">// unsignedOverflow 等于 UInt8 所能容纳的最大整数 255 </span></div><div class="line">unsignedOverflow = unsignedOverflow &amp;+ <span class="number">1</span>            <span class="comment">// 此时 unsignedOverflow 等于 0</span></div><div class="line"><span class="keyword">var</span> unsignedOverflow2 = <span class="type">UInt8</span>.<span class="built_in">min</span>                   <span class="comment">// unsignedOverflow 等于 UInt8 所能容纳的最小整数 0</span></div><div class="line">unsignedOverflow2 = unsignedOverflow2 &amp;- <span class="number">1</span>          <span class="comment">// 此时 unsignedOverflow 等于 255</span></div></pre></td></tr></table></figure></p>
+<h3 id="3-优先级和结合性"><a href="#3-优先级和结合性" class="headerlink" title="3 优先级和结合性"></a>3 优先级和结合性</h3><h3 id="4-运算符函数"><a href="#4-运算符函数" class="headerlink" title="4 运算符函数"></a>4 运算符函数</h3><p><em>运算符重载</em>: 类和结构体可以为现有的运算符提供自定义的实现。</p>
+<p>例子：向量的相加<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Vector2D</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Vector2D</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> + <span class="params">(<span class="keyword">left</span>: Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> -&gt; <span class="type">Vector2D</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">Vector2D</span>(x: <span class="keyword">left</span>.x + <span class="keyword">right</span>.x, y: <span class="keyword">left</span>.y + <span class="keyword">right</span>.y)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">prefix</span> <span class="function"><span class="keyword">func</span> - <span class="params">(vector: Vector2D)</span></span> -&gt; <span class="type">Vector2D</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">Vector2D</span>(x: -vector.x, y: -vector.y)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> += <span class="params">(<span class="keyword">left</span>: <span class="keyword">inout</span> Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> &#123;</div><div class="line">        <span class="keyword">left</span> = <span class="keyword">left</span> + <span class="keyword">right</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> == <span class="params">(<span class="keyword">left</span>: Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">left</span>.x == <span class="keyword">right</span>.x) &amp;&amp; (<span class="keyword">left</span>.y == <span class="keyword">right</span>.y)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> != <span class="params">(<span class="keyword">left</span>: Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">return</span> !(<span class="keyword">left</span> == <span class="keyword">right</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> vector = <span class="type">Vector2D</span>(x: <span class="number">3.0</span>, y: <span class="number">1.0</span>)</div><div class="line"><span class="keyword">let</span> anotherVector = <span class="type">Vector2D</span>(x: <span class="number">2.0</span>, y: <span class="number">4.0</span>)</div><div class="line"><span class="keyword">let</span> combinedVector = vector + anotherVector         <span class="comment">// combinedVector 是一个新的 Vector2D 实例，值为 (5.0, 5.0)</span></div><div class="line"><span class="keyword">let</span> negative = -vector                              <span class="comment">// negative 是一个值为 (-3.0, -1.0) 的 Vector2D 实例</span></div><div class="line"><span class="keyword">var</span> original = <span class="type">Vector2D</span>(x: <span class="number">1.0</span>, y: <span class="number">2.0</span>)</div><div class="line"><span class="keyword">let</span> vectorToAdd = <span class="type">Vector2D</span>(x: <span class="number">3.0</span>, y: <span class="number">4.0</span>)</div><div class="line">original += vectorToAdd                             <span class="comment">// original 的值现在为 (4.0, 6.0)</span></div><div class="line"><span class="keyword">let</span> twoThree = <span class="type">Vector2D</span>(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</div><div class="line"><span class="keyword">let</span> anotherTwoThree = <span class="type">Vector2D</span>(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</div><div class="line"><span class="keyword">if</span> twoThree == anotherTwoThree &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"These two vectors are equivalent."</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="5-自定义运算符"><a href="#5-自定义运算符" class="headerlink" title="5 自定义运算符"></a>5 自定义运算符</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">prefix</span> <span class="keyword">operator</span> +++</div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Vector2D</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">prefix</span> <span class="function"><span class="keyword">func</span> +++ <span class="params">(vector: <span class="keyword">inout</span> Vector2D)</span></span> -&gt; <span class="type">Vector2D</span> &#123;</div><div class="line">        vector += vector</div><div class="line">        <span class="keyword">return</span> vector</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> toBeDoubled = <span class="type">Vector2D</span>(x: <span class="number">1.0</span>, y: <span class="number">4.0</span>)</div><div class="line"><span class="keyword">let</span> afterDoubling = +++toBeDoubled</div><div class="line"><span class="comment">// toBeDoubled now has values of (2.0, 8.0)</span></div><div class="line"><span class="comment">// afterDoubling also has values of (2.0, 8.0)</span></div><div class="line"></div><div class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> +-: <span class="type">AdditionPrecedence</span></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Vector2D</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> +- <span class="params">(<span class="keyword">left</span>: Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> -&gt; <span class="type">Vector2D</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">Vector2D</span>(x: <span class="keyword">left</span>.x + <span class="keyword">right</span>.x, y: <span class="keyword">left</span>.y - <span class="keyword">right</span>.y)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> firstVector = <span class="type">Vector2D</span>(x: <span class="number">1.0</span>, y: <span class="number">2.0</span>)</div><div class="line"><span class="keyword">let</span> secondVector = <span class="type">Vector2D</span>(x: <span class="number">3.0</span>, y: <span class="number">4.0</span>)</div><div class="line"><span class="keyword">let</span> plusMinusVector = firstVector +- secondVector</div><div class="line"><span class="comment">// plusMinusVector is a Vector2D instance with values of (4.0, -2.0)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+</blockquote>
+
       
     </div>
 
@@ -521,7 +552,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/swift-25.html" title="以撸代码的形式学习Swift-25：Advanced Operators">http://andyron.com/2017/swift-25.html</a>
+      <a href="http://andyron.com/2017/swift-25.html" title="以撸代码的形式学习Swift-25：高级运算符(Advanced Operators)">http://andyron.com/2017/swift-25.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -610,8 +641,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -759,6 +799,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-位运算符"><span class="nav-number">1.</span> <span class="nav-text">1 位运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-溢出运算符"><span class="nav-number">2.</span> <span class="nav-text">2 溢出运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-优先级和结合性"><span class="nav-number">3.</span> <span class="nav-text">3 优先级和结合性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-运算符函数"><span class="nav-number">4.</span> <span class="nav-text">4 运算符函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-自定义运算符"><span class="nav-number">5.</span> <span class="nav-text">5 自定义运算符</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -780,7 +836,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 
@@ -924,7 +980,7 @@
         var disqus_config = function () {
           this.page.url = 'http://andyron.com/2017/swift-25.html';
           this.page.identifier = '2017/swift-25.html';
-          this.page.title = '以撸代码的形式学习Swift-25：Advanced Operators';
+          this.page.title = '以撸代码的形式学习Swift-25：高级运算符(Advanced Operators)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';

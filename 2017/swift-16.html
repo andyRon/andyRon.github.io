@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift">
+<meta name="description" content="引用计数仅仅应用于类的实例  1 自动引用计数的工作机制每次创建一个类的新的实例的时候，ARC会分配一块内存来储存该实例信息(包含实例的类型信息，以及这个实例所有相关的存储型属性的值)。 ARC会跟踪和计算每一个实例正在被多少属性，常量和变量所引用。 引用数为0时，内存释放。 2 🌰12345678910111213141516171819class Person &amp;#123;    let">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以撸代码的形式学习Swift-16：Automatic Reference Counting">
+<meta property="og:title" content="以撸代码的形式学习Swift-16：自动引用计数(Automatic Reference Counting, ARC)">
 <meta property="og:url" content="http://andyron.com/2017/swift-16.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift">
+<meta property="og:description" content="引用计数仅仅应用于类的实例  1 自动引用计数的工作机制每次创建一个类的新的实例的时候，ARC会分配一块内存来储存该实例信息(包含实例的类型信息，以及这个实例所有相关的存储型属性的值)。 ARC会跟踪和计算每一个实例正在被多少属性，常量和变量所引用。 引用数为0时，内存释放。 2 🌰12345678910111213141516171819class Person &amp;#123;    let">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T15:45:29.629Z">
+<meta property="og:updated_time" content="2018-09-19T18:14:48.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以撸代码的形式学习Swift-16：Automatic Reference Counting">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
+<meta name="twitter:title" content="以撸代码的形式学习Swift-16：自动引用计数(Automatic Reference Counting, ARC)">
+<meta name="twitter:description" content="引用计数仅仅应用于类的实例  1 自动引用计数的工作机制每次创建一个类的新的实例的时候，ARC会分配一块内存来储存该实例信息(包含实例的类型信息，以及这个实例所有相关的存储型属性的值)。 ARC会跟踪和计算每一个实例正在被多少属性，常量和变量所引用。 引用数为0时，内存释放。 2 🌰12345678910111213141516171819class Person &amp;#123;    let">
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-  <title>以撸代码的形式学习Swift-16：Automatic Reference Counting | 欣欣向戎</title>
+  <title>以撸代码的形式学习Swift-16：自动引用计数(Automatic Reference Counting, ARC) | 欣欣向戎</title>
   
 
 
@@ -348,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-16：Automatic Reference Counting</h1>
+          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-16：自动引用计数(Automatic Reference Counting, ARC)</h1>
         
 
         <div class="post-meta">
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/2017/swift-16.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-16：Automatic Reference Counting">
+             <span id="/2017/swift-16.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-16：自动引用计数(Automatic Reference Counting, ARC)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 694 字
+                  : 718 字
                 </span>
               
 
@@ -471,8 +471,33 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> Automatic Reference Counting(ARC)</div><div class="line"> </div><div class="line"> 引用计数仅仅应用于类的实例</div><div class="line"> */</div><div class="line"></div><div class="line">// 1 自动引用计数的工作机制</div><div class="line">//  每次创建一个类的新的实例的时候，ARC会分配一块内存来储存该实例信息(包含实例的类型信息，以及这个实例所有相关的存储型属性的值)。</div><div class="line">//  ARC会跟踪和计算每一个实例正在被多少属性，常量和变量所引用。</div><div class="line">//  引用数为0时，内存释放。</div><div class="line"></div><div class="line">// 2 🌰</div><div class="line">class Person &#123;</div><div class="line">    let name: String</div><div class="line">    init(name: String) &#123;</div><div class="line">        self.name = name</div><div class="line">        print(&quot;\(name) is being initialized&quot;)</div><div class="line">    &#125;</div><div class="line">    deinit &#123;</div><div class="line">        print(&quot;\(name) is being deinitialized&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var reference1: Person?</div><div class="line">var reference2: Person?</div><div class="line">var reference3: Person?</div><div class="line">reference1 = Person(name: &quot;John Appleseed&quot;)</div><div class="line">reference2 = reference1</div><div class="line">reference3 = reference1</div><div class="line">reference1 = nil</div><div class="line">reference2 = nil</div><div class="line">reference3 = nil</div><div class="line"></div><div class="line">// 3 类实例之间的循环强引用</div><div class="line">class Person2 &#123;</div><div class="line">    let name: String</div><div class="line">    init(name: String) &#123; self.name = name &#125;</div><div class="line">    var apartment: Apartment2?</div><div class="line">    deinit &#123; print(&quot;\(name) is being deinitialized&quot;) &#125;</div><div class="line">&#125;</div><div class="line">class Apartment2 &#123;</div><div class="line">    let unit: String</div><div class="line">    init(unit: String) &#123; self.unit = unit &#125;</div><div class="line">    var tenant: Person2?</div><div class="line">    deinit &#123; print(&quot;Apartment \(unit) is being deinitialized&quot;) &#125;</div><div class="line">&#125;</div><div class="line">var andy: Person2?</div><div class="line">var unit4A: Apartment2?</div><div class="line">andy = Person2(name: &quot;Andy Ron&quot;)</div><div class="line">unit4A = Apartment2(unit: &quot;4A&quot;)</div><div class="line">andy!.apartment = unit4A</div><div class="line">unit4A!.tenant = andy</div><div class="line">andy = nil</div><div class="line">unit4A = nil</div><div class="line">// john和unit4A两个变量虽然已经被赋值为nil，但之前它们引用两个实例之间的强引用关系保留了下来并且不会被断开</div><div class="line"></div><div class="line">// 4 解决实例之间的循环强引用</div><div class="line">// 弱引用(weak reference)和无主引用(unowned reference)允许循环引用中的一个实例引用另外一个实例而不保持强引用。</div><div class="line">// 4.1 弱引用:弱引用必须被声明为变量，表明其值能在运行时被修改。`weak`</div><div class="line">class Person3 &#123;</div><div class="line">    let name: String</div><div class="line">    init(name: String) &#123;</div><div class="line">        self.name = name</div><div class="line">    &#125;</div><div class="line">    var apartment: Apartment3?</div><div class="line">    deinit &#123;</div><div class="line">        print(&quot;\(name) is being deinitialized&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class Apartment3 &#123;</div><div class="line">    let unit: String</div><div class="line">    init(unit: String) &#123;</div><div class="line">        self.unit = unit</div><div class="line">    &#125;</div><div class="line">    weak var tenant: Person3?</div><div class="line">    deinit &#123;</div><div class="line">        print(&quot;Apartment \(unit) is being deinitialized&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var andy3: Person3?</div><div class="line">var unit5A: Apartment3?</div><div class="line">andy3 = Person3(name: &quot;Andy Ron3&quot;)</div><div class="line">unit5A = Apartment3(unit: &quot;5A&quot;)</div><div class="line">andy3!.apartment = unit5A</div><div class="line">unit5A!.tenant = andy3</div><div class="line">andy3 = nil                 // Person3的实例被销毁，虽然tenant还引用它，但因为时弱引用在ARC计数范围内。</div><div class="line">unit5A = nil</div><div class="line">// 4.2 无主引用 `unowned`</div><div class="line">// 和弱引用不同的是，无主引用是永远有值的。</div><div class="line">// Customer是客户，CreditCard是信用卡。客户可以有或五信用卡，但信用卡必须有对应的用户。</div><div class="line">class Customer &#123;</div><div class="line">    let name: String</div><div class="line">    var card: CreditCard?</div><div class="line">    init(name: String) &#123;</div><div class="line">        self.name = name</div><div class="line">    &#125;</div><div class="line">    deinit &#123; print(&quot;\(name) is being deinitialized&quot;) &#125;</div><div class="line">&#125;</div><div class="line">class CreditCard &#123;</div><div class="line">    let number: UInt64</div><div class="line">    unowned let customer: Customer</div><div class="line">    init(number: UInt64, customer: Customer) &#123;</div><div class="line">        self.number = number</div><div class="line">        self.customer = customer</div><div class="line">    &#125;</div><div class="line">    deinit &#123; print(&quot;Card #\(number) is being deinitialized&quot;) &#125;</div><div class="line">&#125;</div><div class="line">var john: Customer?</div><div class="line">john = Customer(name: &quot;John Appleseed&quot;)</div><div class="line">john!.card = CreditCard(number: 1234_5678_9012_3456, customer: john!)</div><div class="line">john = nil          // 客户被销毁，对应的信用卡也要被销毁。</div><div class="line">// 打印 “John Appleseed is being deinitialized”</div><div class="line">// 打印 ”Card #1234567890123456 is being deinitialized”</div><div class="line">// 4.3 无主引用以及隐式解析可选属性  ？？</div><div class="line">class Country &#123;</div><div class="line">    let name: String</div><div class="line">    var capitalCity: City!</div><div class="line">    init(name: String, capitalName: String) &#123;</div><div class="line">        self.name = name</div><div class="line">        self.capitalCity = City(name: capitalName, country: self)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class City &#123;</div><div class="line">    let name: String</div><div class="line">    unowned let country: Country</div><div class="line">    init(name: String, country: Country) &#123;</div><div class="line">        self.name = name</div><div class="line">        self.country = country</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var country = Country(name: &quot;Canada&quot;, capitalName: &quot;Ottawa&quot;)</div><div class="line">print(&quot;\(country.name)&apos;s capital city is called \(country.capitalCity.name)&quot;)</div></pre></td></tr></table></figure>
+        <blockquote>
+<p>引用计数仅仅应用于类的实例</p>
+</blockquote>
+<h3 id="1-自动引用计数的工作机制"><a href="#1-自动引用计数的工作机制" class="headerlink" title="1 自动引用计数的工作机制"></a>1 自动引用计数的工作机制</h3><p>每次创建一个类的新的实例的时候，ARC会分配一块内存来储存该实例信息(包含实例的类型信息，以及这个实例所有相关的存储型属性的值)。</p>
+<p>ARC会跟踪和计算每一个实例正在被多少属性，常量和变量所引用。</p>
+<p>引用数为0时，内存释放。</p>
+<h3 id="2-🌰"><a href="#2-🌰" class="headerlink" title="2 🌰"></a>2 🌰</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span> is being initialized"</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">deinit</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span> is being deinitialized"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> reference1: <span class="type">Person</span>?</div><div class="line"><span class="keyword">var</span> reference2: <span class="type">Person</span>?</div><div class="line"><span class="keyword">var</span> reference3: <span class="type">Person</span>?</div><div class="line">reference1 = <span class="type">Person</span>(name: <span class="string">"John Appleseed"</span>)</div><div class="line">reference2 = reference1</div><div class="line">reference3 = reference1</div><div class="line">reference1 = <span class="literal">nil</span></div><div class="line">reference2 = <span class="literal">nil</span></div><div class="line">reference3 = <span class="literal">nil</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="3-类实例之间的循环强引用"><a href="#3-类实例之间的循环强引用" class="headerlink" title="3 类实例之间的循环强引用"></a>3 类实例之间的循环强引用</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person2</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123; <span class="keyword">self</span>.name = name &#125;</div><div class="line">    <span class="keyword">var</span> apartment: <span class="type">Apartment2</span>?</div><div class="line">    <span class="keyword">deinit</span> &#123; <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span> is being deinitialized"</span>) &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apartment2</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> unit: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(unit: <span class="type">String</span>) &#123; <span class="keyword">self</span>.unit = unit &#125;</div><div class="line">    <span class="keyword">var</span> tenant: <span class="type">Person2</span>?</div><div class="line">    <span class="keyword">deinit</span> &#123; <span class="built_in">print</span>(<span class="string">"Apartment <span class="subst">\(unit)</span> is being deinitialized"</span>) &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> andy: <span class="type">Person2</span>?</div><div class="line"><span class="keyword">var</span> unit4A: <span class="type">Apartment2</span>?</div><div class="line">andy = <span class="type">Person2</span>(name: <span class="string">"Andy Ron"</span>)</div><div class="line">unit4A = <span class="type">Apartment2</span>(unit: <span class="string">"4A"</span>)</div><div class="line">andy!.apartment = unit4A</div><div class="line">unit4A!.tenant = andy</div><div class="line">andy = <span class="literal">nil</span></div><div class="line">unit4A = <span class="literal">nil</span></div><div class="line"><span class="comment">// john和unit4A两个变量虽然已经被赋值为nil，但之前它们引用两个实例之间的强引用关系保留了下来并且不会被断开</span></div></pre></td></tr></table></figure>
+<h3 id="4-解决实例之间的循环强引用"><a href="#4-解决实例之间的循环强引用" class="headerlink" title="4 解决实例之间的循环强引用"></a>4 解决实例之间的循环强引用</h3><p>弱引用(weak reference)和无主引用(unowned reference)允许循环引用中的一个实例引用另外一个实例而不保持强引用。</p>
+<ul>
+<li>4.1 弱引用:弱引用必须被声明为变量，表明其值能在运行时被修改。<code>weak</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person3</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> apartment: <span class="type">Apartment3</span>?</div><div class="line">    <span class="keyword">deinit</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span> is being deinitialized"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apartment3</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> unit: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(unit: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.unit = unit</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">weak</span> <span class="keyword">var</span> tenant: <span class="type">Person3</span>?</div><div class="line">    <span class="keyword">deinit</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Apartment <span class="subst">\(unit)</span> is being deinitialized"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> andy3: <span class="type">Person3</span>?</div><div class="line"><span class="keyword">var</span> unit5A: <span class="type">Apartment3</span>?</div><div class="line">andy3 = <span class="type">Person3</span>(name: <span class="string">"Andy Ron3"</span>)</div><div class="line">unit5A = <span class="type">Apartment3</span>(unit: <span class="string">"5A"</span>)</div><div class="line">andy3!.apartment = unit5A</div><div class="line">unit5A!.tenant = andy3</div><div class="line">andy3 = <span class="literal">nil</span>                 <span class="comment">// Person3的实例被销毁，虽然tenant还引用它，但因为时弱引用在ARC计数范围内。</span></div><div class="line">unit5A = <span class="literal">nil</span></div></pre></td></tr></table></figure>
+<ul>
+<li>4.2 无主引用 <code>unowned</code></li>
+</ul>
+<p>和弱引用不同的是，无主引用是永远有值的。<br>Customer是客户，CreditCard是信用卡。客户可以有或五信用卡，但信用卡必须有对应的用户。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">var</span> card: <span class="type">CreditCard</span>?</div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">deinit</span> &#123; <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span> is being deinitialized"</span>) &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreditCard</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> number: <span class="type">UInt64</span></div><div class="line">    <span class="keyword">unowned</span> <span class="keyword">let</span> customer: <span class="type">Customer</span></div><div class="line">    <span class="keyword">init</span>(number: <span class="type">UInt64</span>, customer: <span class="type">Customer</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.number = number</div><div class="line">        <span class="keyword">self</span>.customer = customer</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">deinit</span> &#123; <span class="built_in">print</span>(<span class="string">"Card #<span class="subst">\(number)</span> is being deinitialized"</span>) &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> john: <span class="type">Customer</span>?</div><div class="line">john = <span class="type">Customer</span>(name: <span class="string">"John Appleseed"</span>)</div><div class="line">john!.card = <span class="type">CreditCard</span>(number: <span class="number">1234_5678_9012_3456</span>, customer: john!)</div><div class="line">john = <span class="literal">nil</span>          <span class="comment">// 客户被销毁，对应的信用卡也要被销毁。</span></div><div class="line"><span class="comment">// 打印 “John Appleseed is being deinitialized”</span></div><div class="line"><span class="comment">// 打印 ”Card #1234567890123456 is being deinitialized”</span></div></pre></td></tr></table></figure>
+<ul>
+<li>4.3 无主引用以及隐式解析可选属性  </li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Country</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">var</span> capitalCity: <span class="type">City</span>!</div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, capitalName: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">        <span class="keyword">self</span>.capitalCity = <span class="type">City</span>(name: capitalName, country: <span class="keyword">self</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">City</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">unowned</span> <span class="keyword">let</span> country: <span class="type">Country</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, country: <span class="type">Country</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">        <span class="keyword">self</span>.country = country</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> country = <span class="type">Country</span>(name: <span class="string">"Canada"</span>, capitalName: <span class="string">"Ottawa"</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(country.name)</span>'s capital city is called <span class="subst">\(country.capitalCity.name)</span>"</span>)</div></pre></td></tr></table></figure>
+<h3 id="5-闭包引起的循环强引用"><a href="#5-闭包引起的循环强引用" class="headerlink" title="5 闭包引起的循环强引用"></a>5 闭包引起的循环强引用</h3><h3 id="6-解决闭包引起的循环强引用"><a href="#6-解决闭包引起的循环强引用" class="headerlink" title="6 解决闭包引起的循环强引用"></a>6 解决闭包引起的循环强引用</h3><blockquote>
+<p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+</blockquote>
+
       
     </div>
 
@@ -521,7 +546,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/swift-16.html" title="以撸代码的形式学习Swift-16：Automatic Reference Counting">http://andyron.com/2017/swift-16.html</a>
+      <a href="http://andyron.com/2017/swift-16.html" title="以撸代码的形式学习Swift-16：自动引用计数(Automatic Reference Counting, ARC)">http://andyron.com/2017/swift-16.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -544,8 +569,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/swift-15.html" rel="next" title="以撸代码的形式学习Swift-15：(类的)Deinitialization">
-                <i class="fa fa-chevron-left"></i> 以撸代码的形式学习Swift-15：(类的)Deinitialization
+              <a href="/2017/swift-15.html" rel="next" title="以撸代码的形式学习Swift-15：(类的)析构过程(Deinitialization)">
+                <i class="fa fa-chevron-left"></i> 以撸代码的形式学习Swift-15：(类的)析构过程(Deinitialization)
               </a>
             
           </div>
@@ -554,8 +579,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/swift-17.html" rel="prev" title="以撸代码的形式学习Swift-17：Optional Chaining">
-                以撸代码的形式学习Swift-17：Optional Chaining <i class="fa fa-chevron-right"></i>
+              <a href="/2017/swift-17.html" rel="prev" title="以撸代码的形式学习Swift-17：可选链式调用(Optional Chaining)">
+                以撸代码的形式学习Swift-17：可选链式调用(Optional Chaining) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,8 +635,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -759,6 +793,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-自动引用计数的工作机制"><span class="nav-number">1.</span> <span class="nav-text">1 自动引用计数的工作机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-🌰"><span class="nav-number">2.</span> <span class="nav-text">2 🌰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-类实例之间的循环强引用"><span class="nav-number">3.</span> <span class="nav-text">3 类实例之间的循环强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-解决实例之间的循环强引用"><span class="nav-number">4.</span> <span class="nav-text">4 解决实例之间的循环强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-闭包引起的循环强引用"><span class="nav-number">5.</span> <span class="nav-text">5 闭包引起的循环强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-解决闭包引起的循环强引用"><span class="nav-number">6.</span> <span class="nav-text">6 解决闭包引起的循环强引用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -780,7 +830,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 
@@ -924,7 +974,7 @@
         var disqus_config = function () {
           this.page.url = 'http://andyron.com/2017/swift-16.html';
           this.page.identifier = '2017/swift-16.html';
-          this.page.title = '以撸代码的形式学习Swift-16：Automatic Reference Counting';
+          this.page.title = '以撸代码的形式学习Swift-16：自动引用计数(Automatic Reference Counting, ARC)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';

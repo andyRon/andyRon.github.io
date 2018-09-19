@@ -351,7 +351,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-6.html" itemprop="url">以撸代码的形式学习Swift-6：Functions</a></h1>
+                <a class="post-title-link" href="/2017/swift-6.html" itemprop="url">以撸代码的形式学习Swift-6：函数(Functions)</a></h1>
         
 
         <div class="post-meta">
@@ -414,7 +414,7 @@
 
           
           
-             <span id="/2017/swift-6.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-6：Functions">
+             <span id="/2017/swift-6.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-6：函数(Functions)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 750 字
+                  : 763 字
                 </span>
               
 
@@ -475,7 +475,9 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <h3 id="1-函数的定义与调用-Defining-and-Calling-Functions"><a href="#1-函数的定义与调用-Defining-and-Calling-Functions" class="headerlink" title="1 函数的定义与调用 (Defining and Calling Functions)"></a>1 函数的定义与调用 (Defining and Calling Functions)</h3><p>参数，parameters<br>返回类型，return type<br>实参，arguments</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">greet</span><span class="params">(person: String)</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person + <span class="string">"!"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-函数参数与返回值-Function-Parameters-and-Return-Values"><a href="#2-函数参数与返回值-Function-Parameters-and-Return-Values" class="headerlink" title="2 函数参数与返回值 (Function Parameters and Return Values)"></a>2 函数参数与返回值 (Function Parameters and Return Values)</h3><p>无参数函数 (Functions Without Parameters)<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHelloWorld</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"hello, world"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-6.html#more" rel="contents">
@@ -543,7 +545,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-5.html" itemprop="url">以撸代码的形式学习Swift-5：Control Flow</a></h1>
+                <a class="post-title-link" href="/2017/swift-5.html" itemprop="url">以撸代码的形式学习Swift-5：控制流(Control Flow)</a></h1>
         
 
         <div class="post-meta">
@@ -606,7 +608,7 @@
 
           
           
-             <span id="/2017/swift-5.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-5：Control Flow">
+             <span id="/2017/swift-5.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-5：控制流(Control Flow)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -632,7 +634,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 699 字
+                  : 706 字
                 </span>
               
 
@@ -667,7 +669,9 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+          <h3 id="1-for-in"><a href="#1-for-in" class="headerlink" title="1 for in"></a>1 for in</h3><p><code>for in</code> 可用来遍历 Array Dictionary Set Range String</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span> v <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] &#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> numberOfLegs = [<span class="string">"spider"</span>: <span class="number">8</span>, <span class="string">"ant"</span>: <span class="number">6</span>, <span class="string">"cat"</span>: <span class="number">4</span>]</div><div class="line"><span class="keyword">for</span> (animalName, legCount) <span class="keyword">in</span> numberOfLegs &#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> countrys:<span class="type">Set</span> = [<span class="string">"China"</span>, <span class="string">"USA"</span>, <span class="string">"Japan"</span>]</div><div class="line"><span class="keyword">for</span> country <span class="keyword">in</span> countrys &#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span> s <span class="keyword">in</span> <span class="string">"andyron"</span> &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-while"><a href="#2-while" class="headerlink" title="2 while"></a>2 while</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-5.html#more" rel="contents">
@@ -735,7 +739,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-4.html" itemprop="url">以撸代码的形式学习Swift-4：Collection Type</a></h1>
+                <a class="post-title-link" href="/2017/swift-4.html" itemprop="url">以撸代码的形式学习Swift-4：集合类型(Collection Type)</a></h1>
         
 
         <div class="post-meta">
@@ -798,7 +802,7 @@
 
           
           
-             <span id="/2017/swift-4.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-4：Collection Type">
+             <span id="/2017/swift-4.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-4：集合类型(Collection Type)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -824,7 +828,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 756 字
+                  : 787 字
                 </span>
               
 
@@ -859,7 +863,10 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <blockquote>
+<p>Collection 分为 Arrays, Sets, Dictionaries(Collection，Sets有时都翻译成集合)</p>
+</blockquote>
+<h3 id="1-数组-Arrays-是有序数据的集。"><a href="#1-数组-Arrays-是有序数据的集。" class="headerlink" title="1 数组(Arrays)是有序数据的集。"></a>1 数组(Arrays)是有序数据的集。</h3><p>一个数组中只能有一种数据类型  </p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-4.html#more" rel="contents">
@@ -927,7 +934,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-3.html" itemprop="url">以撸代码的形式学习Swift-3：Strings and Characters</a></h1>
+                <a class="post-title-link" href="/2017/swift-3.html" itemprop="url">以撸代码的形式学习Swift-3：字符串和字符(Strings and Characters)</a></h1>
         
 
         <div class="post-meta">
@@ -990,7 +997,7 @@
 
           
           
-             <span id="/2017/swift-3.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-3：Strings and Characters">
+             <span id="/2017/swift-3.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-3：字符串和字符(Strings and Characters)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1016,7 +1023,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 566 字
+                  : 565 字
                 </span>
               
 
@@ -1051,7 +1058,8 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+          <h3 id="1-字符串字面量-String-Literals"><a href="#1-字符串字面量-String-Literals" class="headerlink" title="1 字符串字面量(String Literals)"></a>1 字符串字面量(String Literals)</h3><p>“Some string literal value”</p>
+<h3 id="2-初始化空字符串-Initializing-an-Empty-String"><a href="#2-初始化空字符串-Initializing-an-Empty-String" class="headerlink" title="2 初始化空字符串 (Initializing an Empty String)"></a>2 初始化空字符串 (Initializing an Empty String)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> emptyString = <span class="string">""</span></div><div class="line"><span class="keyword">var</span> anotherEmptyString = <span class="type">String</span>()</div><div class="line"><span class="keyword">if</span> emptyString.isEmpty &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Nothing to see here"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-3.html#more" rel="contents">
@@ -1119,7 +1127,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-2.html" itemprop="url">以撸代码的形式学习Swift-2：Basic Operators</a></h1>
+                <a class="post-title-link" href="/2017/swift-2.html" itemprop="url">以撸代码的形式学习Swift-2：基础运算符(Basic Operators)</a></h1>
         
 
         <div class="post-meta">
@@ -1182,7 +1190,7 @@
 
           
           
-             <span id="/2017/swift-2.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-2：Basic Operators">
+             <span id="/2017/swift-2.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-2：基础运算符(Basic Operators)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1208,7 +1216,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 314 字
+                  : 320 字
                 </span>
               
 
@@ -1224,7 +1232,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 1 分钟
+                  ≈ 2 分钟
                 </span>
               
             </div>
@@ -1243,7 +1251,8 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br>
+          <h3 id="1-赋值运算符-Assignment-Operator"><a href="#1-赋值运算符-Assignment-Operator" class="headerlink" title="1 赋值运算符(Assignment Operator)"></a>1 赋值运算符(Assignment Operator)</h3><p> 赋值操作并不返回任何值<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> b = <span class="number">10</span></div><div class="line"><span class="keyword">var</span> <span class="built_in">c</span> = <span class="number">5</span></div><div class="line"><span class="keyword">let</span> (x, y) = (<span class="number">2</span>, <span class="number">5</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="2-算术运算符-Arithmetic-Operators"><a href="#2-算术运算符-Arithmetic-Operators" class="headerlink" title="2 算术运算符(Arithmetic Operators)"></a>2 算术运算符(Arithmetic Operators)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> + <span class="number">2</span></div><div class="line"><span class="number">5</span> - <span class="number">3</span></div><div class="line"><span class="number">2</span> * <span class="number">3</span></div><div class="line"><span class="number">10.0</span> / <span class="number">2.5</span></div><div class="line"><span class="string">"hello, "</span> + <span class="string">"world"</span></div><div class="line"><span class="comment">// 溢出运算(如 a &amp;+ b )</span></div><div class="line"><span class="comment">// 求余运算符(Remainder Operator)</span></div><div class="line"><span class="comment">// a % b    a = (b × 倍数) + 余数    倍数是整数，可以是负数</span></div><div class="line"><span class="number">9</span> % <span class="number">4</span>           <span class="comment">// 1   9 = 4*2 + 1</span></div><div class="line">-<span class="number">9</span> % <span class="number">4</span>          <span class="comment">// -1  -9 = 4*-2 + (-1)</span></div><div class="line"><span class="comment">// 自增和自减运算 (最新版的swift已经去掉)</span></div><div class="line"><span class="comment">// 一元负号运算符/一元正号运算符</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-2.html#more" rel="contents">
@@ -1311,7 +1320,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-1.html" itemprop="url">以撸代码的形式学习Swift-1：The Basics</a></h1>
+                <a class="post-title-link" href="/2017/swift-1.html" itemprop="url">以撸代码的形式学习Swift-1：基础(The Basics)</a></h1>
         
 
         <div class="post-meta">
@@ -1374,7 +1383,7 @@
 
           
           
-             <span id="/2017/swift-1.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-1：The Basics">
+             <span id="/2017/swift-1.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-1：基础(The Basics)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1400,7 +1409,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,004 字
+                  : 1,015 字
                 </span>
               
 
@@ -1416,7 +1425,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 4 分钟
+                  ≈ 5 分钟
                 </span>
               
             </div>
@@ -1435,7 +1444,7 @@
 
       
         
-          <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+          <h3 id="1-常量和变量-Constants-and-Variables"><a href="#1-常量和变量-Constants-and-Variables" class="headerlink" title="1 常量和变量(Constants and Variables)"></a>1 常量和变量(Constants and Variables)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 声明：常量 let 变量 var</span></div><div class="line"><span class="keyword">let</span> constants = <span class="number">10</span></div><div class="line"><span class="keyword">var</span> variables = <span class="number">0</span></div><div class="line"><span class="comment">// 多个声明</span></div><div class="line"><span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span>, z = <span class="number">0.0</span></div><div class="line"><span class="comment">// 类型标注(type annotation)</span></div><div class="line"><span class="keyword">var</span> welcomeMessage: <span class="type">String</span></div><div class="line"><span class="comment">// 常量和变量的命名</span></div><div class="line"><span class="comment">// 常量与变量名不能包含数学符号，箭头，保留的(或者非法的)Unicode 码位，连线与制表符。也不能以数字开头。</span></div><div class="line"><span class="comment">// 常量与变量不能修改类型也不能互换</span></div><div class="line"><span class="comment">// 使用反引号（`）来使用保留关键字</span></div><div class="line"><span class="keyword">let</span> π = <span class="number">3.14159</span></div><div class="line"><span class="keyword">let</span> 你好 = <span class="string">"你好世界"</span></div><div class="line"><span class="keyword">let</span> `<span class="keyword">let</span>` = <span class="string">"hihi"</span></div><div class="line"><span class="comment">// 输出常量和变量 `func print(_ items: Any..., separator: String = default, terminator: String = default)`  三种参数：输出项、分隔符、结束符</span></div><div class="line"><span class="built_in">print</span>(<span class="number">1</span>,`<span class="keyword">let</span>`, separator: <span class="string">","</span>, terminator: <span class="string">"&lt;br/&gt;"</span>)</div><div class="line"><span class="built_in">print</span>(x, y, z, `<span class="keyword">let</span>`)</div><div class="line"><span class="comment">// 字符串插值(string interpolation)</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"The current value of constants is <span class="subst">\(constants)</span>"</span>)</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-1.html#more" rel="contents">
@@ -1678,7 +1687,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共132.0k字</span>
+  <span class="post-count">  全站共132.5k字</span>
 
 </div>
 
