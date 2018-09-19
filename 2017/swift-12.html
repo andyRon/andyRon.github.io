@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445/** Subscripts */// 下标 (subscripts)可以定义在类(class)、结构体(structure)和枚举(enumeration)中，是访问集合(">
+<meta name="description" content="playground文件在andyRon/LearnSwift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以撸代码的形式学习Swift-12：Subscripts">
 <meta property="og:url" content="http://andyron.com/2017/swift-12.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445/** Subscripts */// 下标 (subscripts)可以定义在类(class)、结构体(structure)和枚举(enumeration)中，是访问集合(">
+<meta property="og:description" content="playground文件在andyRon/LearnSwift">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-09T06:01:28.000Z">
+<meta property="og:updated_time" content="2018-09-19T15:45:18.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以撸代码的形式学习Swift-12：Subscripts">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445/** Subscripts */// 下标 (subscripts)可以定义在类(class)、结构体(structure)和枚举(enumeration)中，是访问集合(">
+<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
 
 
 
@@ -471,7 +471,7 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> Subscripts</div><div class="line"> */</div><div class="line">// 下标 (subscripts)可以定义在类(class)、结构体(structure)和枚举(enumeration)中，是访问集合(c ollection)，列表(list)或序列(sequence)中元素的快捷方式。</div><div class="line">// 一个类型可以定义多个下标，通过不同索引类型进行重载。</div><div class="line">// 1 下标语法</div><div class="line">struct TimesTable &#123;</div><div class="line">    let multiplier: Int</div><div class="line">    subscript(index: Int) -&gt; Int &#123;</div><div class="line">        return multiplier * index</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let threeTimesTable = TimesTable(multiplier: 3)</div><div class="line">print(&quot;six times three is \(threeTimesTable[6])&quot;)</div><div class="line">// 2 下标用法</div><div class="line">// 字典通过下标返回是可选类型</div><div class="line">var numberOfLegs = [&quot;spider&quot;: 8, &quot;ant&quot;: 6, &quot;cat&quot;: 4]</div><div class="line">numberOfLegs[&quot;bird&quot;] = 2</div><div class="line">// 3 下标选项</div><div class="line">// 下标可以接受任意数量的入参，并且这些入参可以是任意类型。下标的返回值也可以是任意类型。下标可以使用变量参数和可变参数，但不能使用输入输出参数，也不能给参数设置默认值。</div><div class="line">// 一个 Double 类型的二维矩阵</div><div class="line">struct Matrix &#123;</div><div class="line">    let rows: Int, columns: Int</div><div class="line">    var grid: [Double]</div><div class="line">    init(rows: Int, columns: Int) &#123;</div><div class="line">        self.rows = rows</div><div class="line">        self.columns = columns</div><div class="line">        grid = Array(repeating: 0.0, count: rows * columns)</div><div class="line">    &#125;</div><div class="line">    func indexIsValidForRow(row: Int, column: Int) -&gt; Bool &#123;</div><div class="line">        return row &gt;= 0 &amp;&amp; row &lt; rows &amp;&amp; column &gt;= 0 &amp;&amp; column &lt; columns</div><div class="line">    &#125;</div><div class="line">    subscript(row: Int, column: Int) -&gt; Double &#123;</div><div class="line">        get &#123;</div><div class="line">            assert(indexIsValidForRow(row: row, column: column), &quot;Index out of range&quot;)</div><div class="line">            return grid[(row * columns) + column]</div><div class="line">        &#125;</div><div class="line">        set &#123;</div><div class="line">            assert(indexIsValidForRow(row: row, column: column), &quot;Index out of range&quot;)</div><div class="line">            grid[(row * columns) + column] = newValue</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var matrix = Matrix(rows: 2, columns: 3)</div><div class="line">matrix[1, 2] = 2</div></pre></td></tr></table></figure>
       
     </div>

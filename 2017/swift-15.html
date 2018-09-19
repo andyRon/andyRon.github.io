@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift 1234567891011121314151617181920212223242526272829303132333435363738394041424344/**  (类的)Deinitialization */// 1 析构过程原理// 每个类最多只能有一个析构器，而且析构器不带任何参数// 析构器是在实例释放发生前被自动调用。不">
+<meta name="description" content="playground文件在andyRon/LearnSwift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以撸代码的形式学习Swift-15：(类的)Deinitialization">
 <meta property="og:url" content="http://andyron.com/2017/swift-15.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift 1234567891011121314151617181920212223242526272829303132333435363738394041424344/**  (类的)Deinitialization */// 1 析构过程原理// 每个类最多只能有一个析构器，而且析构器不带任何参数// 析构器是在实例释放发生前被自动调用。不">
+<meta property="og:description" content="playground文件在andyRon/LearnSwift">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-09T06:04:07.000Z">
+<meta property="og:updated_time" content="2018-09-19T15:45:26.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以撸代码的形式学习Swift-15：(类的)Deinitialization">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift 1234567891011121314151617181920212223242526272829303132333435363738394041424344/**  (类的)Deinitialization */// 1 析构过程原理// 每个类最多只能有一个析构器，而且析构器不带任何参数// 析构器是在实例释放发生前被自动调用。不">
+<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
 
 
 
@@ -471,7 +471,7 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">  (类的)Deinitialization</div><div class="line"> */</div><div class="line"></div><div class="line">// 1 析构过程原理</div><div class="line">// 每个类最多只能有一个析构器，而且析构器不带任何参数</div><div class="line">// 析构器是在实例释放发生前被自动调用。不能主动调用析构器。</div><div class="line">// 子类继承了父类的析构器，并且在子类析构器实现的最后，父类的析构器会被自动调用。</div><div class="line"></div><div class="line">// 2 析构器实践</div><div class="line">class Bank &#123;</div><div class="line">    static var coinsInBank = 10_000</div><div class="line">    static func vendCoins(numberOfCoinsRequested: Int) -&gt; Int &#123;</div><div class="line">        let numberOfCoinsToVend = min(numberOfCoinsRequested, coinsInBank)</div><div class="line">        coinsInBank -= numberOfCoinsToVend</div><div class="line">        return numberOfCoinsToVend</div><div class="line">    &#125;</div><div class="line">    static func receiveCoins(coins: Int) &#123;</div><div class="line">        coinsInBank += coins</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class Player &#123;</div><div class="line">    var coinsInPurse: Int</div><div class="line">    init(coins: Int) &#123;</div><div class="line">        coinsInPurse = Bank.vendCoins(numberOfCoinsRequested: coins)</div><div class="line">    &#125;</div><div class="line">    func winCoins(coins: Int) &#123;</div><div class="line">        coinsInPurse += Bank.vendCoins(numberOfCoinsRequested: coins)</div><div class="line">    &#125;</div><div class="line">    deinit &#123;</div><div class="line">        Bank.receiveCoins(coins: coinsInPurse)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var playerOne: Player? = Player(coins: 100)</div><div class="line">print(&quot;A new player has joined the game with \(playerOne!.coinsInPurse) coins&quot;)</div><div class="line">print(&quot;There are now \(Bank.coinsInBank) coins left in the bank&quot;)</div><div class="line"></div><div class="line">playerOne!.winCoins(coins: 2_000)</div><div class="line">print(&quot;PlayerOne won 2000 coins &amp; now has \(playerOne!.coinsInPurse) coins&quot;)</div><div class="line">print(&quot;The bank now only has \(Bank.coinsInBank) coins left&quot;)</div><div class="line"></div><div class="line">playerOne = nil</div><div class="line">print(&quot;PlayerOne has left the game&quot;)</div><div class="line">print(&quot;The bank now has \(Bank.coinsInBank) coins&quot;)</div></pre></td></tr></table></figure>
       
     </div>

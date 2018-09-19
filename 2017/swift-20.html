@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445/** Nested Types 嵌套类型 */// 1 🌰struct BlackjackCard &amp;#123;  // 二十一点        // nested Su">
+<meta name="description" content="playground文件在andyRon/LearnSwift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以撸代码的形式学习Swift-20：Nested Types(嵌套类型)">
 <meta property="og:url" content="http://andyron.com/2017/swift-20.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445/** Nested Types 嵌套类型 */// 1 🌰struct BlackjackCard &amp;#123;  // 二十一点        // nested Su">
+<meta property="og:description" content="playground文件在andyRon/LearnSwift">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-09T06:04:48.000Z">
+<meta property="og:updated_time" content="2018-09-19T15:45:45.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以撸代码的形式学习Swift-20：Nested Types(嵌套类型)">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445/** Nested Types 嵌套类型 */// 1 🌰struct BlackjackCard &amp;#123;  // 二十一点        // nested Su">
+<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
 
 
 
@@ -471,7 +471,7 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> Nested Types 嵌套类型</div><div class="line"> */</div><div class="line">// 1 🌰</div><div class="line">struct BlackjackCard &#123;  // 二十一点</div><div class="line">    </div><div class="line">    // nested Suit enumeration</div><div class="line">    enum Suit: Character &#123;  // 描述扑克牌的四种花色</div><div class="line">        case spades = &quot;♠&quot;, hearts = &quot;♡&quot;, diamonds = &quot;♢&quot;, clubs = &quot;♣&quot;</div><div class="line">    &#125;</div><div class="line">    // nested Rank enumeration</div><div class="line">    enum Rank: Int &#123;</div><div class="line">        case two = 2, three, four, five, six, seven, eight, nine, ten</div><div class="line">        case jack, queen, king, ace</div><div class="line">        struct Values &#123;  // 用来反映Ace的两个数值()</div><div class="line">            let first: Int, second: Int?</div><div class="line">        &#125;</div><div class="line">        var values: Values &#123;</div><div class="line">            switch self &#123;</div><div class="line">            case .ace:</div><div class="line">                return Values(first: 1, second: 11)</div><div class="line">            case .jack, .queen, .king:</div><div class="line">                    return Values(first: 10, second: nil)</div><div class="line">            default:</div><div class="line">                return Values(first: self.rawValue, second: nil)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // BlackjackCard properties and methods</div><div class="line">    let rank: Rank, suit: Suit</div><div class="line">    var description: String &#123;</div><div class="line">        var output = &quot;suit is \(suit.rawValue),&quot;</div><div class="line">        output += &quot; value is \(rank.values.first)&quot;</div><div class="line">        if let second = rank.values.second &#123;</div><div class="line">            output += &quot; or \(second)&quot;</div><div class="line">        &#125;</div><div class="line">        return output</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let theAceOfSpades = BlackjackCard(rank: .ace, suit: .spades)</div><div class="line">print(&quot;theAceOfSpades: \(theAceOfSpades.description)&quot;)</div><div class="line"></div><div class="line">// 2 引用嵌套类型</div><div class="line">let heartsSymbol = BlackjackCard.Suit.hearts.rawValue</div></pre></td></tr></table></figure>
       
     </div>

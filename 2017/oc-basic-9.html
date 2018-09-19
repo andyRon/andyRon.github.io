@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="1 使用属性 接口代码简化没有使用属性：12345678910111213#import &amp;quot;Tire.h&amp;quot;@interface AllWeatherRadial : Tire&amp;#123;    // 轮胎在潮湿和积雪的道路上的性能    float rainHandling;    float snowHandling;&amp;#125;- (void) setRainHandlin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T06:28:03.000Z">
+<meta property="og:updated_time" content="2018-09-19T15:49:56.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习9：属性">
 <meta name="twitter:description" content="1 使用属性 接口代码简化没有使用属性：12345678910111213#import &amp;quot;Tire.h&amp;quot;@interface AllWeatherRadial : Tire&amp;#123;    // 轮胎在潮湿和积雪的道路上的性能    float rainHandling;    float snowHandling;&amp;#125;- (void) setRainHandlin">
@@ -475,6 +475,7 @@
 <li>接口代码简化<br>没有使用属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &quot;Tire.h&quot;</div><div class="line"></div><div class="line">@interface AllWeatherRadial : Tire</div><div class="line">&#123;</div><div class="line">    // 轮胎在潮湿和积雪的道路上的性能</div><div class="line">    float rainHandling;</div><div class="line">    float snowHandling;</div><div class="line">&#125;</div><div class="line">- (void) setRainHandling:(float)rainHandling;</div><div class="line">- (float) rainHandling;</div><div class="line">- (void) setSnowHandling:(float)snowHandling;</div><div class="line">- (float) snowHandling;</div><div class="line">@end</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <p>使用属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@interface AllWeatherRadial : Tire</div><div class="line">&#123;</div><div class="line">    // 轮胎在潮湿和积雪的道路上的性能</div><div class="line">    float rainHandling;</div><div class="line">    float snowHandling;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@property float rainHandling;</div><div class="line">@property float snowHandling;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
 <p><strong><code>@ property</code>预编译指令的作用是自动声明属性的setter和getter方法。</strong></p>
 <ul>

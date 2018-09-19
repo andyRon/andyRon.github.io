@@ -102,19 +102,19 @@
 
 
 
-<meta name="description" content="类别（category）是一种为现有的类添加新方法的方式。 1 创建类别一般，只是习惯  把类别代码放在独立的文件中命名：”类名称+类别名称”，如 NSString+NumberConvenience   开始创建类别    生成两个文件，NSString+NumberConvenience.h:12345#import &amp;lt;Foundation/Foundation.h&amp;gt;@interf">
+<meta name="description" content="类别（category）是一种为现有的类添加新方法的方式。 1 创建类别一般，只是习惯  把类别代码放在独立的文件中命名：”类名称+类别名称”，如 NSString+NumberConvenience   开始创建类别">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OC基础学习10：类别（category）">
 <meta property="og:url" content="http://andyron.com/2017/oc-basic-10.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="类别（category）是一种为现有的类添加新方法的方式。 1 创建类别一般，只是习惯  把类别代码放在独立的文件中命名：”类名称+类别名称”，如 NSString+NumberConvenience   开始创建类别    生成两个文件，NSString+NumberConvenience.h:12345#import &amp;lt;Foundation/Foundation.h&amp;gt;@interf">
+<meta property="og:description" content="类别（category）是一种为现有的类添加新方法的方式。 1 创建类别一般，只是习惯  把类别代码放在独立的文件中命名：”类名称+类别名称”，如 NSString+NumberConvenience   开始创建类别">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-834501c2fd48d0ef.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-e132ad7117afe284.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-11T14:57:27.000Z">
+<meta property="og:updated_time" content="2018-09-19T15:50:10.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习10：类别（category）">
-<meta name="twitter:description" content="类别（category）是一种为现有的类添加新方法的方式。 1 创建类别一般，只是习惯  把类别代码放在独立的文件中命名：”类名称+类别名称”，如 NSString+NumberConvenience   开始创建类别    生成两个文件，NSString+NumberConvenience.h:12345#import &amp;lt;Foundation/Foundation.h&amp;gt;@interf">
+<meta name="twitter:description" content="类别（category）是一种为现有的类添加新方法的方式。 1 创建类别一般，只是习惯  把类别代码放在独立的文件中命名：”类名称+类别名称”，如 NSString+NumberConvenience   开始创建类别">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-834501c2fd48d0ef.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -484,6 +484,7 @@
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-834501c2fd48d0ef.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-e132ad7117afe284.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<a id="more"></a>
 <p>生成两个文件，<code>NSString+NumberConvenience.h</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (NumberConvenience)</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
 <p><code>NSString+NumberConvenience.m</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+NumberConvenience.h&quot;</div><div class="line"></div><div class="line">@implementation NSString (NumberConvenience)</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
 <p>类别名在括号中。<br>可以在<code>@implementation</code>部分实现自己的方法。<strong>任何NSString类的对象都将响应在类别中的方法。正是这种兼容性使类别成为了一种非常强大的概念。</strong></p>

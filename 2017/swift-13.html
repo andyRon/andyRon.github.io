@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354/** Inheritance */// 一个类可以继承(inherit)另一个类的方法(methods)，属性(properties)和">
+<meta name="description" content="playground文件在andyRon/LearnSwift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以撸代码的形式学习Swift-13：Inheritance">
 <meta property="og:url" content="http://andyron.com/2017/swift-13.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354/** Inheritance */// 一个类可以继承(inherit)另一个类的方法(methods)，属性(properties)和">
+<meta property="og:description" content="playground文件在andyRon/LearnSwift">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-09T06:01:39.000Z">
+<meta property="og:updated_time" content="2018-09-19T15:45:21.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以撸代码的形式学习Swift-13：Inheritance">
-<meta name="twitter:description" content="playground文件在andyRon/LearnSwift 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354/** Inheritance */// 一个类可以继承(inherit)另一个类的方法(methods)，属性(properties)和">
+<meta name="twitter:description" content="playground文件在andyRon/LearnSwift">
 
 
 
@@ -471,7 +471,7 @@
       
 
       
-        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
+        <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a><br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> Inheritance</div><div class="line"> */</div><div class="line">// 一个类可以继承(inherit)另一个类的方法(methods)，属性(properties)和其它特性</div><div class="line">// 类可以调用和访问超类的方法，属性和下标(subscripts)，并且可以重写(override)这些方 法，属性和下标来优化或修改它们的行为。</div><div class="line">// 可以为类中继承来的属性添加属性观察器(property observers)</div><div class="line">// 1 基类(base class)</div><div class="line">class Vehicle &#123;</div><div class="line">    var currentSpeed = 0.0</div><div class="line">    var description: String &#123;</div><div class="line">        return &quot;traveling at \(currentSpeed) miles per hour&quot;</div><div class="line">    &#125;</div><div class="line">    func makeNoise() &#123;</div><div class="line">        // 什么也不做-因为车辆不一定会有噪音</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let someVehicle = Vehicle()</div><div class="line"></div><div class="line">// 2 子类生成(Subclassing)</div><div class="line">class Bicycle: Vehicle &#123;</div><div class="line">    var hasBasket = false</div><div class="line">&#125;</div><div class="line">let bicycle = Bicycle()</div><div class="line">bicycle.hasBasket = true</div><div class="line">bicycle.currentSpeed = 15.0</div><div class="line">print(&quot;Bicycle: \(bicycle.description)&quot;)</div><div class="line">class Tandem: Bicycle &#123;</div><div class="line">    var currentNumberOfPassengers = 0</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 3 重写(Overriding)</div><div class="line">// 任何缺少`override`关键字的重写都会在编译时被诊断为错误。</div><div class="line">// 访问超类的方法，属性及下标。 `super`</div><div class="line">class Train: Vehicle &#123;</div><div class="line">    override func makeNoise() &#123;</div><div class="line">        print(&quot;Choo Choo&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let train = Train()</div><div class="line">train.makeNoise()</div><div class="line">class Car: Vehicle &#123;</div><div class="line">    var gear = 1</div><div class="line">    override var description: String &#123;</div><div class="line">        return super.description + &quot; in gear \(gear)&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class AutomaticCar: Car &#123;</div><div class="line">    override var currentSpeed: Double &#123;</div><div class="line">        didSet &#123;</div><div class="line">            gear = Int(currentSpeed / 10.0) + 1</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 4 防止重写 (`final var`, `final func`, `final class func`, `final subscript`)</div></pre></td></tr></table></figure>
       
     </div>

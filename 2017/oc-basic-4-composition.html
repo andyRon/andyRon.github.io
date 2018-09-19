@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&amp;#123;    Engine *engine;    Tire *tires[4];&amp;#125;* (void)print;@end //Car 自">
+<meta name="description" content="复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&amp;#123;    Engine *engine;    Tire *tires[4];&amp;#125;* (void)print;@end //Car">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OC基础学习4：复合（composition）">
 <meta property="og:url" content="http://andyron.com/2017/oc-basic-4-composition.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&amp;#123;    Engine *engine;    Tire *tires[4];&amp;#125;* (void)print;@end //Car 自">
+<meta property="og:description" content="复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&amp;#123;    Engine *engine;    Tire *tires[4];&amp;#125;* (void)print;@end //Car">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-09T03:13:36.000Z">
+<meta property="og:updated_time" content="2018-09-19T15:48:11.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习4：复合（composition）">
-<meta name="twitter:description" content="复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&amp;#123;    Engine *engine;    Tire *tires[4];&amp;#125;* (void)print;@end //Car 自">
+<meta name="twitter:description" content="复合: 对象间的组合（类中中包括类）composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。1234567@interface Car : NSObject&amp;#123;    Engine *engine;    Tire *tires[4];&amp;#125;* (void)print;@end //Car">
 
 
 
@@ -472,6 +472,7 @@
 
       
         <h3 id="复合-对象间的组合（类中中包括类）"><a href="#复合-对象间的组合（类中中包括类）" class="headerlink" title="复合: 对象间的组合（类中中包括类）"></a>复合: 对象间的组合（类中中包括类）</h3><p>composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复合是通过包含作为实例变量的对象指针实现的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@interface Car : NSObject</div><div class="line">&#123;</div><div class="line">    Engine *engine;</div><div class="line">    Tire *tires[4];</div><div class="line">&#125;</div><div class="line">* (void)print;</div><div class="line">@end //Car</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h3 id="自定义NSLog"><a href="#自定义NSLog" class="headerlink" title="自定义NSLog()"></a>自定义NSLog()</h3><p><code>NSLog()</code>使用<code>%@</code>格式说明符表示输出对象，也就是<code>NSLog()</code>会给这个对象发送了description消息，然后对象的description方法生成一个<code>NSString</code>并将其返回。**在类中提供description方法就可以自定义<code>NSLog()</code>如何输出对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@interface Tire : NSObject</div><div class="line">@end //Tire 轮胎</div><div class="line">@implementation Tire</div><div class="line">- (NSString *)description &#123;</div><div class="line">    return (@&quot;I am a tire.&quot;);</div><div class="line">&#125;</div><div class="line">@end</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    Tire *tire = [Tire new];</div><div class="line">    NSLog(@&quot;%@&quot;, tire);    // 输出 &quot;I am a tire.&quot;</div><div class="line">     </div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="存取方法"><a href="#存取方法" class="headerlink" title="存取方法"></a>存取方法</h3><ul>
 <li><strong>存取</strong>(accessor) 方法是用来读取或改变某个对象属性的方法。分为 getter方法 和 setter方法。</li>
@@ -555,8 +556,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/oc-basic-5.html" rel="next" title="OC基础学习5：源文件组织">
-                <i class="fa fa-chevron-left"></i> OC基础学习5：源文件组织
+              <a href="/2017/oc-basic-1-c.html" rel="next" title="OC基础学习1：对C的扩展">
+                <i class="fa fa-chevron-left"></i> OC基础学习1：对C的扩展
               </a>
             
           </div>
@@ -565,8 +566,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/oc-basic-3-inheritance.html" rel="prev" title="OC基础学习3：继承(inheritance)">
-                OC基础学习3：继承(inheritance) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/oc-basic-2.html" rel="prev" title="OC基础学习2：面向对象编程的基础知识">
+                OC基础学习2：面向对象编程的基础知识 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

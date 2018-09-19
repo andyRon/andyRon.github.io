@@ -332,7 +332,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-network-2.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-network-4.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -351,7 +351,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/ios-network-2.html" itemprop="url">iOS网络编程(二)：NSURLConnection介绍</a></h1>
+                <a class="post-title-link" href="/2017/ios-network-4.html" itemprop="url">iOS网络编程(四)：缓存类NSURLCache介绍</a></h1>
         
 
         <div class="post-meta">
@@ -404,9 +404,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/ios-network-2.html#comments" itemprop="discussionUrl">
+                <a href="/2017/ios-network-4.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/ios-network-2.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/ios-network-4.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,7 +414,7 @@
 
           
           
-             <span id="/2017/ios-network-2.html" class="leancloud_visitors" data-flag-title="iOS网络编程(二)：NSURLConnection介绍">
+             <span id="/2017/ios-network-4.html" class="leancloud_visitors" data-flag-title="iOS网络编程(四)：缓存类NSURLCache介绍">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 429 字
+                  : 259 字
                 </span>
               
 
@@ -456,7 +456,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 2 分钟
+                  ≈ 1 分钟
                 </span>
               
             </div>
@@ -475,17 +475,10 @@
 
       
         
-          <blockquote>
-<p><a href="https://developer.apple.com/documentation/foundation/nsurlconnection" target="_blank" rel="external">NSURLConnection</a>在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。</p>
-</blockquote>
-<p>网络请求分为同步和异步两种：</p>
-<ul>
-<li>同步是指在请求结果返回之前，程序代码会卡在请求处，之后的代码不会被执行，请求返回结果后，之后的代码再执行。</li>
-<li>异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。</li>
-</ul>
+          <p>网络请求中缓存类<code>NSURLCache</code>常用属性和方法：</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/ios-network-2.html#more" rel="contents">
+            <a class="btn" href="/2017/ios-network-4.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1648,16 +1641,11 @@
 
       
         
-          
-          1 正式协议
-声明协议
-
-123@protocol NSCoding- (id) copyWithZone: (NSZone *) zone;@end
-继承父协议：12@protocol MySuperDuberProtocol &lt;MyParentProtocol&gt;@end
-
-采用协议
-123456@interface Car ：NSObject &lt;NSCopying, NSCoding&gt;&#123;// instance variables&#125;// method
-          ...
+          <h3 id="1-正式协议"><a href="#1-正式协议" class="headerlink" title="1 正式协议"></a>1 正式协议</h3><ul>
+<li>声明协议</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@protocol NSCoding</div><div class="line">- (id) copyWithZone: (NSZone *) zone;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>继承父协议：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@protocol MySuperDuberProtocol &lt;MyParentProtocol&gt;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/oc-basic-11.html#more" rel="contents">
@@ -1849,20 +1837,16 @@
 
       
         
-          
-          类别（category）是一种为现有的类添加新方法的方式。
-1 创建类别一般，只是习惯
-
-把类别代码放在独立的文件中命名：”类名称+类别名称”，如 NSString+NumberConvenience
-
-
-开始创建类别
-
-
-
-生成两个文件，NSString+NumberConvenience.h:12345#import &lt;Foundation/Foundation.h&gt;@interface NSString (NumberConvenience)@end
-NSString+Numb
-          ...
+          <p>类别（category）是一种为现有的类添加新方法的方式。</p>
+<h3 id="1-创建类别"><a href="#1-创建类别" class="headerlink" title="1 创建类别"></a>1 创建类别</h3><p>一般，只是习惯</p>
+<blockquote>
+<p>把类别代码放在独立的文件中<br>命名：”类名称+类别名称”，如 <strong>NSString+NumberConvenience</strong></p>
+</blockquote>
+<ul>
+<li>开始创建类别</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-834501c2fd48d0ef.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-e132ad7117afe284.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/oc-basic-10.html#more" rel="contents">
@@ -2054,10 +2038,10 @@ NSString+Numb
 
       
         
-          
-          1 使用属性
-接口代码简化没有使用属性：12345678910111213#import &quot;Tire.h&quot;@interface AllWeatherRadial : Tire&#123;    // 轮胎在潮湿和积雪的道路上的性能    float rainHandling;    float snowHandling;&#125;- (void) setRainHandling:(float)rainHandling;- (float) rainHandling;- (vo
-          ...
+          <h3 id="1-使用属性"><a href="#1-使用属性" class="headerlink" title="1 使用属性"></a>1 使用属性</h3><ul>
+<li>接口代码简化<br>没有使用属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &quot;Tire.h&quot;</div><div class="line"></div><div class="line">@interface AllWeatherRadial : Tire</div><div class="line">&#123;</div><div class="line">    // 轮胎在潮湿和积雪的道路上的性能</div><div class="line">    float rainHandling;</div><div class="line">    float snowHandling;</div><div class="line">&#125;</div><div class="line">- (void) setRainHandling:(float)rainHandling;</div><div class="line">- (float) rainHandling;</div><div class="line">- (void) setSnowHandling:(float)snowHandling;</div><div class="line">- (float) snowHandling;</div><div class="line">@end</div></pre></td></tr></table></figure>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/oc-basic-9.html#more" rel="contents">
@@ -2249,19 +2233,20 @@ NSString+Numb
 
       
         
-          
-          1 分配(allocation)对象alloc方法干的事件：
-
-1 从操作系统获得一块内存。2 指定为存储对象的实例变量的位置。3 对内存初始化：BOOL类型被初始化为：NO；int类型被初始化为：0；float类型被初始化为：0.0；所有指针被初始化为nil。
-
-
-初始化对象init方法Car *car = [[Car alloc] init];
-
-初始化要做些什么
-
-CarParts程序中初始car对象是，init方法中创建engine对象和全部4个tire对象
-懒性求值(lazy eval
-          ...
+          <h3 id="1-分配-allocation-对象"><a href="#1-分配-allocation-对象" class="headerlink" title="1 分配(allocation)对象"></a>1 分配(allocation)对象</h3><p><code>alloc</code>方法干的事件：</p>
+<blockquote>
+<p>1 从操作系统获得一块内存。<br>2 指定为存储对象的实例变量的位置。<br>3 对内存初始化：<code>BOOL</code>类型被初始化为：<code>NO</code>；<code>int</code>类型被初始化为：<code>0</code>；<code>float</code>类型被初始化为：<code>0.0</code>；所有指针被初始化为<code>nil</code>。</p>
+</blockquote>
+<ul>
+<li><p>初始化对象<br><code>init</code>方法<br><code>Car *car = [[Car alloc] init];</code></p>
+</li>
+<li><p>初始化要做些什么</p>
+<ol>
+<li>CarParts程序中初始car对象是，init方法中创建engine对象和全部4个tire对象</li>
+<li><strong>懒性求值(lazy evaluation)</strong>，只为engine对象和tire对象预留位置</li>
+</ol>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/oc-basic-8.html#more" rel="contents">
