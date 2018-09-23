@@ -112,7 +112,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-b740499f7c9123ba.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-2114876be820349b.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-23T07:59:00.529Z">
+<meta property="og:updated_time" content="2018-09-23T08:36:46.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Swift算法俱乐部-归并排序">
 <meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
@@ -568,10 +568,10 @@
 <h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>归并排序算法的速度取决于它需要排序的数组的大小。 数组越大，它需要做的工作就越多。</p>
 <p>初始数组是否已经排序不会影响归并排序算法的速度，因为无论元素的初始顺序如何，您都将进行相同数量的拆分和比较。</p>
 <p>因此，最佳，最差和平均情况的时间复杂度将始终为 <strong>O(n log n)</strong>。</p>
-<p>归并排序算法的一个缺点是它需要一个临时的“工作”数组，其大小与被排序的数组相同。 它不是<strong>原地</strong>排序，不像例如<a href="../Quicksort/">quicksort</a>。</p>
+<p>归并排序算法的一个缺点是它需要一个临时的“工作”数组，其大小与被排序的数组相同。 它不是<strong>原地</strong>排序，不像例如<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Quicksort/" target="_blank" rel="external">quicksort</a>。</p>
 <p>大多数实现归并排序算法是<strong>稳定的</strong>排序。这意味着具有相同排序键的数组元素在排序后将保持相对于彼此的相同顺序。这对于数字或字符串等简单值并不重要，但在排序更复杂的对象时，如果不是<strong>稳定的</strong>排序可能会出现问题。</p>
 <blockquote>
-<p>译注：当元素相同时，排序后依然保持排序之前的相对顺序，那么这个排序算法就是<strong>稳定</strong>的。稳定的排序有：<a href="../Insertion%20Sort/">插入排序</a>、<a href="../Counting%20Sort/">计数排序</a>、<a href="../Merge%20Sort/">归并排序</a>、<a href="../Radix%20Sort/">基数排序</a>等等，详见<a href="https://zh.wikipedia.org/wiki/排序算法#穩定的排序" target="_blank" rel="external">穩定的排序</a>。</p>
+<p>译注：当元素相同时，排序后依然保持排序之前的相对顺序，那么这个排序算法就是<strong>稳定</strong>的。稳定的排序有：<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Insertion%20Sort/" target="_blank" rel="external">插入排序</a>、<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Counting%20Sort/" target="_blank" rel="external">计数排序</a>、<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Merge%20Sort/" target="_blank" rel="external">归并排序</a>、<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Radix%20Sort/" target="_blank" rel="external">基数排序</a>等等，详见<a href="https://zh.wikipedia.org/wiki/排序算法#穩定的排序" target="_blank" rel="external">穩定的排序</a>。</p>
 </blockquote>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p><a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank" rel="external">归并排序的维基百科</a>  </p>
 <p><a href="https://zh.wikipedia.org/wiki/归并排序" target="_blank" rel="external">归并排序的中文维基百科</a></p>
