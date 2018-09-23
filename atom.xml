@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-18T18:22:08.967Z</updated>
+  <updated>2018-09-23T07:59:00.529Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-归并排序</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-归并排序.html</id>
+    <published>2018-09-23T07:47:00.000Z</published>
+    <updated>2018-09-23T07:59:00.529Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Merge%20Sort&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swift-algorithm-club-cn/Merge Sort&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个主题已经有辅导&lt;a href=&quot;https://www.raywenderlich.com/154256/swift-algorithm-club-swift-merge-sort&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;目标：将数组从低到高（或从高到低）排序&lt;/p&gt;
+&lt;p&gt;归并排序是1945年由John von Neumann发明的，是一种有效的算法，最佳、最差和平均时间复杂度都是&lt;strong&gt;O(n log n)&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;归并排序算法使用&lt;strong&gt;分而治之&lt;/strong&gt;方法，即将一个大问题分解为较小的问题并解决它们。 归并排序算法可分为 &lt;strong&gt;先拆分&lt;/strong&gt; 和 &lt;strong&gt;后合并&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;假设您需要按正确的顺序对长度为 &lt;em&gt;n&lt;/em&gt; 的数组进行排序。 归并排序算法的工作原理如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将数字放在未排序的堆中。&lt;/li&gt;
+&lt;li&gt;将堆分成两部分。 那么现在就有&lt;strong&gt;两个未排序的数字堆&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;继续分裂&lt;strong&gt;两个未排序的数字堆&lt;/strong&gt;，直到你不能分裂为止。 最后，你将拥有 &lt;em&gt;n&lt;/em&gt; 个堆，每堆中有一个数字。&lt;/li&gt;
+&lt;li&gt;通过顺序配对，开始 &lt;strong&gt;合并&lt;/strong&gt; 堆。 在每次合并期间，将内容按排序顺序排列。 这很容易，因为每个单独的堆已经排序（译注：单个数字没有所谓的顺序，就是排好序的）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;例子&quot;&gt;&lt;a href=&quot;#例子&quot; class=&quot;headerlink&quot; title=&quot;例子&quot;&gt;&lt;/a&gt;例子&lt;/h2&gt;&lt;h3 id=&quot;拆分&quot;&gt;&lt;a href=&quot;#拆分&quot; class=&quot;headerlink&quot; title=&quot;拆分&quot;&gt;&lt;/a&gt;拆分&lt;/h3&gt;&lt;p&gt;假设给你一个长度为&lt;em&gt;n&lt;/em&gt;的未排序数组：&lt;code&gt;[2,1,5,4,9]&lt;/code&gt;。 目标是不断拆分堆，直到你不能拆分为止。&lt;/p&gt;
+&lt;p&gt;首先，将数组分成两半：&lt;code&gt;[2,1]&lt;/code&gt;和&lt;code&gt;[5,4,9]&lt;/code&gt;。 你能继续拆分吗？ 是的你可以！&lt;/p&gt;
+&lt;p&gt;专注于左边堆。 将&lt;code&gt;[2,1]&lt;/code&gt;拆分为&lt;code&gt;[2]&lt;/code&gt;和&lt;code&gt;[1]&lt;/code&gt;。 你能继续拆分吗？ 不能了。检查右边的堆。&lt;/p&gt;
+&lt;p&gt;将&lt;code&gt;[5,4,9]&lt;/code&gt;拆分为&lt;code&gt;[5]&lt;/code&gt;和&lt;code&gt;[4,9]&lt;/code&gt;。 不出所料，&lt;code&gt;[5]&lt;/code&gt;不能再拆分了，但是&lt;code&gt;[4,9]&lt;/code&gt;可以分成&lt;code&gt;[4]&lt;/code&gt;和&lt;code&gt;[9]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;拆分最终结果为：&lt;code&gt;[2]``[1]``[5]``[4]``[9]&lt;/code&gt;。 请注意，每个堆只包含一个元素。&lt;/p&gt;
+&lt;h3 id=&quot;合并&quot;&gt;&lt;a href=&quot;#合并&quot; class=&quot;headerlink&quot; title=&quot;合并&quot;&gt;&lt;/a&gt;合并&lt;/h3&gt;&lt;p&gt;您已经拆分了数组，您现在应该 &lt;strong&gt;合并并排序&lt;/strong&gt; 拆分后的堆。 请记住，这个想法是解决许多小问题而不是一个大问题。 对于每次合并迭代，您必须关注将一堆与另一堆合并。&lt;/p&gt;
+&lt;p&gt;对于堆 &lt;code&gt;[2]&lt;/code&gt; &lt;code&gt;[1]&lt;/code&gt; &lt;code&gt;[5]&lt;/code&gt; &lt;code&gt;[4]&lt;/code&gt; &lt;code&gt;[9]&lt;/code&gt;，第一次合并的结果是&lt;code&gt;[1,2]&lt;/code&gt;和&lt;code&gt;[4,5]&lt;/code&gt; 和&lt;code&gt;[9]&lt;/code&gt;。 由于&lt;code&gt;[9]&lt;/code&gt;的位置落单，所以在合并过程中没有堆与之合并了。&lt;/p&gt;
+&lt;p&gt;下一次将合并&lt;code&gt;[1,2]&lt;/code&gt;和&lt;code&gt;[4,5]&lt;/code&gt;。 结果&lt;code&gt;[1,2,4,5]&lt;/code&gt;，再次由于&lt;code&gt;[9]&lt;/code&gt;的位置落单不需要合并。&lt;/p&gt;
+&lt;p&gt;只剩下两堆&lt;code&gt;[1,2,4,5]&lt;/code&gt;和&lt;code&gt;[9]&lt;/code&gt;，合并后完成排序的数组为&lt;code&gt;[1,2,4,5,9]&lt;/code&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="归并排序" scheme="http://andyron.com/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-线性搜索</title>
@@ -241,9 +290,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="拖延" scheme="http://andyron.com/tags/%E6%8B%96%E5%BB%B6/"/>
-    
       <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
+    
+      <category term="拖延" scheme="http://andyron.com/tags/%E6%8B%96%E5%BB%B6/"/>
     
   </entry>
   
@@ -633,34 +682,6 @@
     </summary>
     
       <category term="图解TCP/IP" scheme="http://andyron.com/categories/%E5%9B%BE%E8%A7%A3TCP-IP/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《我所理解的生活》记录</title>
-    <link href="http://andyron.com/2018/%E6%88%91%E6%89%80%E7%90%86%E8%A7%A3%E7%9A%84%E7%94%9F%E6%B4%BB.html"/>
-    <id>http://andyron.com/2018/我所理解的生活.html</id>
-    <published>2018-08-31T15:41:30.000Z</published>
-    <updated>2018-09-08T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;注：&lt;/code&gt; 本文是我几年前的记录，整理时发现还可以再看看。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/0069RVTdgy1futbbk56k0j31kw23vto3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;序&quot;&gt;&lt;a href=&quot;#序&quot; class=&quot;headerlink&quot; title=&quot;序&quot;&gt;&lt;/a&gt;序&lt;/h2&gt;&lt;p&gt;我所理解的生活就是除了造谣以外，去造其他一切东西。  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;这世道让那些不说粗话但最缺德的人能做道德评判家，这世道让那些话不脏但心眼脏、手段脏的人当道。&lt;/strong&gt;  &lt;/p&gt;
-&lt;p&gt;我所理解的生活就是做着自己喜欢的事件，养活自己，养活家人。&lt;/p&gt;
-&lt;p&gt;你在台面上看见我成功一次，我在台面下就干砸十次，那又如何，我又没死，不停地干就行了，人们只会记住你成功的那一次。&lt;/p&gt;
-&lt;p&gt;我只负责制造作品，不负责用户体验，也没有售后服务，更不会根据大家的口味来改进。  &lt;/p&gt;
-&lt;p&gt;充满挫败甚至后悔，但遗憾并不多。 &lt;/p&gt;
-&lt;p&gt;得之我幸，不得我也没什么不幸。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
