@@ -114,7 +114,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-dc7624f2f8b15ccd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-1b7d0c0efe288cc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-dd42367b50303e3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-24T03:56:52.436Z">
+<meta property="og:updated_time" content="2018-09-24T06:39:58.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Swift算法俱乐部-树">
 <meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
@@ -493,7 +493,7 @@
 <p>没有父节点的节点是 <em>root</em> 节点。 没有子节点的节点是 <em>leaf</em> 节点。</p>
 <p>树中的指针不能形成循环。 这不是树：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/1678135-1b7d0c0efe288cc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Not a tree"></p>
-<p>这种结构称为<a href="../Graph/">图</a>。 树实际上是一种非常简单的图形形式。 （类似地，<a href="../Linked％20List/">链表</a>是树的简单版本。想一想！）</p>
+<p>这种结构称为<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Graph/" target="_blank" rel="external">图</a>。 树实际上是一种非常简单的图形形式。 （类似地，<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linked％20List/" target="_blank" rel="external">链表</a>是树的简单版本。想一想！）</p>
 <p>本文讨论通用树。 通用树对每个节点可能有多少个子节点或树中节点的顺序没有任何限制。</p>
 <p>这是在Swift中的基本实现：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> value: <span class="type">T</span></div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">weak</span> <span class="keyword">var</span> parent: <span class="type">TreeNode</span>?</div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> children = [<span class="type">TreeNode</span>&lt;<span class="type">T</span>&gt;]()</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">init</span>(value: <span class="type">T</span>) &#123;</div><div class="line">    <span class="keyword">self</span>.value = value</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">addChild</span><span class="params">(<span class="number">_</span> node: TreeNode&lt;T&gt;)</span></span> &#123;</div><div class="line">    children.append(node)</div><div class="line">    node.parent = <span class="keyword">self</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -516,7 +516,7 @@
 <li><p><strong>节点的深度。</strong> 此节点与根节点之间的连接数。 例如，<code>tea</code> 的深度为2，因为需要两次跳跃才能到达根部。 （根本身的深度为0.）</p>
 </li>
 </ul>
-<p>构建树的方法有很多种。 例如，有时您根本不需要 <code>parent</code> 属性。 或者，您可能只需要为每个节点提供最多两个子节点 - 这样的树称为<a href="../Binary％20Tree/">二叉树</a>。 一种非常常见的树类型是<a href="../Binary％20Search％20Tree/">二叉搜索树</a>（或BST），它是二叉树的更严格版本，其中节点以特定方式排序以加速搜索。</p>
+<p>构建树的方法有很多种。 例如，有时您根本不需要 <code>parent</code> 属性。 或者，您可能只需要为每个节点提供最多两个子节点 - 这样的树称为<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Tree/" target="_blank" rel="external">二叉树</a>。 一种非常常见的树类型是<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Search%20Tree/" target="_blank" rel="external">二叉搜索树</a>（或BST），它是二叉树的更严格版本，其中节点以特定方式排序以加速搜索。</p>
 <p>我在这里展示的通用树非常适合描述分层数据，但它实际上取决于您的应用程序需要具备哪种额外功能。</p>
 <p>下面是一个如何使用<code>TreeNode</code>类来确定树是否包含特定值的示例。 首先看一下节点自己的<code>value</code>属性，如果没有匹配，那么依次看看这个节点所有的子节点。 当然，这些子节点也是<code>TreeNode</code>，所以它们将递归地重复相同的过程：首先看看它们自己的<code>value</code>属性，然后看看它们的子节点。 它们的子节点也会再次做同样的事情，等等…递归和树齐头并进。</p>
 <p>这是代码：</p>
@@ -528,7 +528,7 @@
 <p>那么我们可以使用以下数组描述树：</p>
 <pre><code>[ -1, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 6, 6 ]
 </code></pre><p>数组中的每个项的值都是指向其父节点的指针。索引3处的项<code>tea</code>，其值为1，因为其父项为<code>hot</code>。根节点指向<code>-1</code>，因为它没有父节点。您只能将这些树从一个节点遍历到根节点，而不是相反。</p>
-<p>顺便说一句，有时您会看到使用术语 <em>forest</em> 的算法。 显而易见，这是给予单独树对象集合的名称。 有关此示例，请参阅<a href="../Union-Find/">union-find</a>。</p>
+<p>顺便说一句，有时您会看到使用术语 <em>forest</em> 的算法。 显而易见，这是给予单独树对象集合的名称。 有关此示例，请参阅 <a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Union-Find/" target="_blank" rel="external">union-find</a>。</p>
 <p><em>作者：Matthijs Hollemans</em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em>  </p>
 
       
