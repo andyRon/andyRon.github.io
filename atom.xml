@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-23T09:57:17.896Z</updated>
+  <updated>2018-09-24T03:56:52.436Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-树</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%A0%91.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-树.html</id>
+    <published>2018-09-24T03:51:00.000Z</published>
+    <updated>2018-09-24T03:56:52.436Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Tree&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swift-algorithm-club-cn/Tree&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个话题已经有个辅导&lt;a href=&quot;https://www.raywenderlich.com/138190/swift-algorithm-club-swift-tree-data-structure&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;树表示对象之间的层次关系。 这是一个树的结构：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-6de5f684447d3f8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;A tree&quot;&gt;&lt;/p&gt;
+&lt;p&gt;树由节点组成，这些节点彼此连接。&lt;/p&gt;
+&lt;p&gt;节点可以连接到他们的子节点，也可以连接到他们的父节点。 子节点是给定节点下的节点; 父节点是上面的节点。 节点始终只有一个父节点，但可以有多个子节点。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-dc7624f2f8b15ccd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;A tree&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="tree" scheme="http://andyron.com/tags/tree/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-统计出现次数</title>
@@ -666,27 +701,6 @@
 &lt;p&gt;网络拓扑（Topology）&lt;/p&gt;
 &lt;h3 id=&quot;2数据链路相关技术&quot;&gt;&lt;a href=&quot;#2数据链路相关技术&quot; class=&quot;headerlink&quot; title=&quot;2数据链路相关技术&quot;&gt;&lt;/a&gt;2数据链路相关技术&lt;/h3&gt;&lt;h4 id=&quot;2-1MAC地址&quot;&gt;&lt;a href=&quot;#2-1MAC地址&quot; class=&quot;headerlink&quot; title=&quot;2.1MAC地址&quot;&gt;&lt;/a&gt;2.1MAC地址&lt;/h4&gt;&lt;p&gt;MAC地址长48比特，一般被烧入到ROM中。任意一个网卡的MAC地址是全世界唯一的（虚拟网卡除外）。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNbRwgy1fuyg9h5k7vj30yi0lagn3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="图解TCP/IP" scheme="http://andyron.com/categories/%E5%9B%BE%E8%A7%A3TCP-IP/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>图解TCP/IP-2-TCP/IP基础知识</title>
-    <link href="http://andyron.com/2018/tujie-TCP-IP-2.html"/>
-    <id>http://andyron.com/2018/tujie-TCP-IP-2.html</id>
-    <published>2018-09-04T04:27:36.000Z</published>
-    <updated>2018-09-04T05:15:43.359Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1TCP-IP出现的背景及其历史&quot;&gt;&lt;a href=&quot;#1TCP-IP出现的背景及其历史&quot; class=&quot;headerlink&quot; title=&quot;1TCP/IP出现的背景及其历史&quot;&gt;&lt;/a&gt;1TCP/IP出现的背景及其历史&lt;/h3&gt;&lt;p&gt;军用技术&lt;br&gt;ARPANET  &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws3.sinaimg.cn/large/0069RVTdgy1fuxe4g75qaj310w0goabv.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;UNIX系统的普及与互联网的扩张  &lt;/p&gt;
-&lt;p&gt;商用互联网服务的启蒙     ISP&lt;/p&gt;
     
     </summary>
     
