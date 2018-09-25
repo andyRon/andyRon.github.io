@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-09-24T06:39:58.458Z</updated>
+  <updated>2018-09-25T01:33:38.304Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -17,11 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【译】Swift算法俱乐部-二维数组</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-二维数组.html</id>
+    <published>2018-09-25T01:31:00.000Z</published>
+    <updated>2018-09-25T01:33:38.304Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Array2D&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swift-algorithm-club-cn/Array2D&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;在C和Objective-C中，您可以编写下面代码，&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int cookies[9][7];
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;制作9x7网格的cookies。 这将创建一个包含63个元素的二维数组。 要在第3列和第6行找到cookie，您可以写：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;myCookie = cookies[3][6];
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这段代码在Swift中不能成立的。 要在Swift中创建一个多维数组，您可以编写：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; cookies = [[&lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;]]()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;...&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; row = [&lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;]()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;...&lt;span class=&quot;number&quot;&gt;7&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    row.append(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  cookies.append(row)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后，要查找cookie，您可以写：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="二维数组" scheme="http://andyron.com/tags/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【译】Swift算法俱乐部-树</title>
     <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%A0%91.html"/>
     <id>http://andyron.com/2018/Swift算法俱乐部-树.html</id>
     <published>2018-09-24T03:51:00.000Z</published>
-    <updated>2018-09-24T06:39:58.458Z</updated>
+    <updated>2018-09-24T06:43:41.169Z</updated>
     
     <summary type="html">
     
@@ -361,9 +395,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
-    
       <category term="拖延" scheme="http://andyron.com/tags/%E6%8B%96%E5%BB%B6/"/>
+    
+      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
     
   </entry>
   
@@ -686,29 +720,6 @@
       &lt;p&gt;TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。&lt;/p&gt;
 &lt;h3 id=&quot;1IP即网际协议&quot;&gt;&lt;a href=&quot;#1IP即网际协议&quot; class=&quot;headerlink&quot; title=&quot;1IP即网际协议&quot;&gt;&lt;/a&gt;1IP即网际协议&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/006tNbRwgy1fuzz5b87o4j30w80c83za.jpg&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;主机&lt;/strong&gt;：配置IP地址，但不进行路由控制的设备。&lt;br&gt;&lt;strong&gt;路由器&lt;/strong&gt;：配置IP地址又有路由控制的设备。&lt;br&gt;&lt;strong&gt;节点&lt;/strong&gt;：主机和路由器的统称。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="图解TCP/IP" scheme="http://andyron.com/categories/%E5%9B%BE%E8%A7%A3TCP-IP/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>图解TCP/IP-3-数据链路</title>
-    <link href="http://andyron.com/2018/tujie-TCP-IP-3.html"/>
-    <id>http://andyron.com/2018/tujie-TCP-IP-3.html</id>
-    <published>2018-09-05T04:27:36.000Z</published>
-    <updated>2018-09-05T02:58:09.079Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1数据链路的作用&quot;&gt;&lt;a href=&quot;#1数据链路的作用&quot; class=&quot;headerlink&quot; title=&quot;1数据链路的作用&quot;&gt;&lt;/a&gt;1数据链路的作用&lt;/h3&gt;&lt;p&gt;二进制0、1表示信息，在通信媒介中国对应是 电压的高低、光的闪灭以及电波的强弱等信号。  &lt;/p&gt;
-&lt;p&gt;数据链路被视为网络传输中的最小单位。  &lt;/p&gt;
-&lt;p&gt;不同的数据链路网路：&lt;br&gt;以太网&lt;br&gt;FDDI（Fiber Distributed Data Interface，光纤分布式数据接口）&lt;br&gt;ATM（Asynchronous Transfer Mode，异步传输方式）&lt;br&gt;无线LAN&lt;br&gt;蓝牙  &lt;/p&gt;
-&lt;p&gt;网络拓扑（Topology）&lt;/p&gt;
-&lt;h3 id=&quot;2数据链路相关技术&quot;&gt;&lt;a href=&quot;#2数据链路相关技术&quot; class=&quot;headerlink&quot; title=&quot;2数据链路相关技术&quot;&gt;&lt;/a&gt;2数据链路相关技术&lt;/h3&gt;&lt;h4 id=&quot;2-1MAC地址&quot;&gt;&lt;a href=&quot;#2-1MAC地址&quot; class=&quot;headerlink&quot; title=&quot;2.1MAC地址&quot;&gt;&lt;/a&gt;2.1MAC地址&lt;/h4&gt;&lt;p&gt;MAC地址长48比特，一般被烧入到ROM中。任意一个网卡的MAC地址是全世界唯一的（虚拟网卡除外）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNbRwgy1fuyg9h5k7vj30yi0lagn3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     

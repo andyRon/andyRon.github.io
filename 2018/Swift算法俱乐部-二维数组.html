@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="算法与数据结构,swift,二维数组," />
 
 
 
@@ -102,16 +102,20 @@
 
 
 
-<meta name="description" content="Just for fun.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欣欣向戎">
-<meta property="og:url" content="http://andyron.com/archives/2017/page/8/index.html">
+<meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="keywords" content="算法与数据结构,swift,二维数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Swift算法俱乐部-二维数组">
+<meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-二维数组.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.">
+<meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-23c580bf5f081edc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-25T01:33:38.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欣欣向戎">
-<meta name="twitter:description" content="Just for fun.">
+<meta name="twitter:title" content="【译】Swift算法俱乐部-二维数组">
+<meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-23c580bf5f081edc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -139,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/archives/2017/page/8/"/>
+  <link rel="canonical" href="http://andyron.com/2018/Swift算法俱乐部-二维数组.html"/>
 
 
 
 
 
-  <title>归档 | 欣欣向戎</title>
+  <title>【译】Swift算法俱乐部-二维数组 | 欣欣向戎</title>
   
 
 
@@ -180,7 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
@@ -320,402 +324,304 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-        
-      非常好! 目前共计 140 篇文章。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/Swift算法俱乐部-二维数组.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【译】Swift算法俱乐部-二维数组</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T09:31:00+08:00">
+                2018-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/Swift算法俱乐部-二维数组.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/Swift算法俱乐部-二维数组.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/Swift算法俱乐部-二维数组.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-二维数组">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 894 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="external">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="external">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Array2D" target="_blank" rel="external">swift-algorithm-club-cn/Array2D</a></p>
+</blockquote>
+<hr>
+<p>在C和Objective-C中，您可以编写下面代码，</p>
+<pre><code>int cookies[9][7];
+</code></pre><p>制作9x7网格的cookies。 这将创建一个包含63个元素的二维数组。 要在第3列和第6行找到cookie，您可以写：</p>
+<pre><code>myCookie = cookies[3][6];
+</code></pre><p>这段代码在Swift中不能成立的。 要在Swift中创建一个多维数组，您可以编写：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cookies = [[<span class="type">Int</span>]]()</div><div class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>...<span class="number">9</span> &#123;</div><div class="line">  <span class="keyword">var</span> row = [<span class="type">Int</span>]()</div><div class="line">  <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>...<span class="number">7</span> &#123;</div><div class="line">    row.append(<span class="number">0</span>)</div><div class="line">  &#125;</div><div class="line">  cookies.append(row)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后，要查找cookie，您可以写：</p>
+<a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> myCookie = cookies[<span class="number">3</span>][<span class="number">6</span>]</div></pre></td></tr></table></figure>
+<p>您还可以使用一行代码中创建上面的数组：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cookies = [[<span class="type">Int</span>]](repeating: [<span class="type">Int</span>](repeating: <span class="number">0</span>, <span class="built_in">count</span>: <span class="number">7</span>), <span class="built_in">count</span>: <span class="number">9</span>)</div></pre></td></tr></table></figure>
+<p>这看起来很复杂，但您可以使用辅助函数简化它：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">dim</span>&lt;T&gt;<span class="params">(<span class="number">_</span> <span class="built_in">count</span>: Int, <span class="number">_</span> value: T)</span></span> -&gt; [<span class="type">T</span>] &#123;</div><div class="line">  <span class="keyword">return</span> [<span class="type">T</span>](repeating: value, <span class="built_in">count</span>: <span class="built_in">count</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>译注：这边的<code>dim</code>，应该是<code>dimension</code>（维度）的缩写。</p>
+</blockquote>
+<p>然后，你可以这样创建数组：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cookies = dim(<span class="number">9</span>, dim(<span class="number">7</span>, <span class="number">0</span>))</div></pre></td></tr></table></figure>
+<p>Swift推断数组的数据类型必须是<code>Int</code>，因为您指定了<code>0</code>作为数组元素的默认值。 要使用字符串数组，您可以编写：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cookies = dim(<span class="number">9</span>, dim(<span class="number">7</span>, <span class="string">"yum"</span>))</div></pre></td></tr></table></figure>
+<p><code>dim()</code>函数可以更容易地创建更多维度的数组：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> threeDimensions = dim(<span class="number">2</span>, dim(<span class="number">3</span>, dim(<span class="number">4</span>, <span class="number">0</span>)))</div></pre></td></tr></table></figure>
+<p>以这种方式使用多维数组或多个嵌套数组的缺点是无法跟踪什么维度代表什么。</p>
+<p>然而，您可以创建自己的类型，其作用类似于二维数组，使用起来更方便：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Array2D</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">let</span> columns: <span class="type">Int</span></div><div class="line">  <span class="keyword">public</span> <span class="keyword">let</span> rows: <span class="type">Int</span></div><div class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> array: [<span class="type">T</span>]</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">init</span>(columns: <span class="type">Int</span>, rows: <span class="type">Int</span>, initialValue: <span class="type">T</span>) &#123;</div><div class="line">    <span class="keyword">self</span>.columns = columns</div><div class="line">    <span class="keyword">self</span>.rows = rows</div><div class="line">    array = .<span class="keyword">init</span>(repeating: initialValue, <span class="built_in">count</span>: rows*columns)</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">public</span> <span class="keyword">subscript</span>(column: <span class="type">Int</span>, row: <span class="type">Int</span>) -&gt; <span class="type">T</span> &#123;</div><div class="line">    <span class="keyword">get</span> &#123;</div><div class="line">      <span class="built_in">precondition</span>(column &lt; columns, <span class="string">"Column <span class="subst">\(column)</span> Index is out of range. Array&lt;T&gt;(columns: <span class="subst">\(columns)</span>, rows:<span class="subst">\(rows)</span>)"</span>)</div><div class="line">      <span class="built_in">precondition</span>(row &lt; rows, <span class="string">"Row <span class="subst">\(row)</span> Index is out of range. Array&lt;T&gt;(columns: <span class="subst">\(columns)</span>, rows:<span class="subst">\(rows)</span>)"</span>)</div><div class="line">      <span class="keyword">return</span> array[row*columns + column]</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">set</span> &#123;</div><div class="line">      <span class="built_in">precondition</span>(column &lt; columns, <span class="string">"Column <span class="subst">\(column)</span> Index is out of range. Array&lt;T&gt;(columns: <span class="subst">\(columns)</span>, rows:<span class="subst">\(rows)</span>)"</span>)</div><div class="line">      <span class="built_in">precondition</span>(row &lt; rows, <span class="string">"Row <span class="subst">\(row)</span> Index is out of range. Array&lt;T&gt;(columns: <span class="subst">\(columns)</span>, rows:<span class="subst">\(rows)</span>)"</span>)</div><div class="line">      array[row*columns + column] = newValue</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>译注：<code>precondition(_:_:file:line:)</code>函数类似<code>assert</code>，满足条件会造成程序的提前终止并抛出错误信息，详细查看<a href="https://developer.apple.com/documentation/swift/1540960-precondition" target="_blank" rel="external">官方文档</a>。此处有来表示当下标超过范围的提示，效果如下：<br><img src="https://upload-images.jianshu.io/upload_images/1678135-23c580bf5f081edc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</blockquote>
+<p><code>Array2D</code>是一个泛型，因此能够支持所有类型对象，而不是只能是数字</p>
+<p>创建<code>Array2D</code>示例代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cookies = <span class="type">Array2D</span>(columns: <span class="number">9</span>, rows: <span class="number">7</span>, initialValue: <span class="number">0</span>)</div></pre></td></tr></table></figure>
+<p>通过使用下标函数，您可以从数组中检索一个对象：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> myCookie = cookies[column, row]</div></pre></td></tr></table></figure>
+<p>或者设置对象：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cookies[column, row] = newCookie</div></pre></td></tr></table></figure>
+<p>在内部，<code>Array2D</code>使用单个一维数组来存储数据。 该数组中对象的索引由<code>(row x numberOfColumns) + column</code>给出，但作为<code>Array2D</code>的用户，您只需要考虑<code>column</code>和<code>row</code>，具体事件将 由<code>Array2D</code>完成。 这是将基本类型包装成包装类或结构中的优点。</p>
+<p><em>作者： Matthijs Hollemans</em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em></p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/swift-document.html" itemprop="url">
-              
-                <span itemprop="name">swift的文档注释</span>
-              
-            </a>
-        
-      </h2>
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2018/Swift算法俱乐部-二维数组.html" title="【译】Swift算法俱乐部-二维数组">http://andyron.com/2018/Swift算法俱乐部-二维数组.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-14T00:00:00+08:00"
-              content="2017-07-14" >
-          07-14
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
+          
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/二维数组/" rel="tag"><i class="fa fa-tag"></i> 二维数组</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/Swift算法俱乐部-树.html" rel="next" title="【译】Swift算法俱乐部-树">
+                <i class="fa fa-chevron-left"></i> 【译】Swift算法俱乐部-树
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/swift-21.html" itemprop="url">
-              
-                <span itemprop="name">以撸代码的形式学习Swift-21：扩展(Extensions)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-13T13:44:20+08:00"
-              content="2017-07-13" >
-          07-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/beginning-ios-swift-9.html" itemprop="url">
-              
-                <span itemprop="name">开始用Swift开发iOS 10 - 9 Table Row的删除, UITableViewRowAction和UIActivityViewController的使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-12T00:00:00+08:00"
-              content="2017-07-12" >
-          07-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/beginning-ios-swift-8.html" itemprop="url">
-              
-                <span itemprop="name">开始用Swift开发iOS 10 - 8 Table View和UIAlertController的交互</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-11T00:00:00+08:00"
-              content="2017-07-11" >
-          07-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/swift-20.html" itemprop="url">
-              
-                <span itemprop="name">以撸代码的形式学习Swift-20：嵌套类型(Nested Types)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-10T13:44:08+08:00"
-              content="2017-07-10" >
-          07-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/beginning-ios-swift-7.html" itemprop="url">
-              
-                <span itemprop="name">开始用Swift开发iOS 10 - 7 定制Table Views</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-10T00:00:00+08:00"
-              content="2017-07-10" >
-          07-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/swift-19.html" itemprop="url">
-              
-                <span itemprop="name">以撸代码的形式学习Swift-19：类型转换(Type Casting)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-09T13:43:50+08:00"
-              content="2017-07-09" >
-          07-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/xcode-scene-name.html" itemprop="url">
-              
-                <span itemprop="name">Xcode中Scene里的名称</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-08T00:00:00+08:00"
-              content="2017-07-08" >
-          07-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/ios-tutorial-1-arcode.html" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 1： 识别二维码（swift3）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-08T00:00:00+08:00"
-              content="2017-07-08" >
-          07-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/ios-application-status.html" itemprop="url">
-              
-                <span itemprop="name">iOS应用程序的状态</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-07T00:00:00+08:00"
-              content="2017-07-07" >
-          07-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2017/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/archives/2017/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2017/page/11/">11</a><a class="extend next" rel="next" href="/archives/2017/page/9/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -723,6 +629,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -1030,11 +947,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -1053,6 +968,18 @@
       <script id="dsq-count-scr" src="https://http-andyron-com.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2018/Swift算法俱乐部-二维数组.html';
+          this.page.identifier = '2018/Swift算法俱乐部-二维数组.html';
+          this.page.title = '【译】Swift算法俱乐部-二维数组';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-andyron-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

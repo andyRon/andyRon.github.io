@@ -114,7 +114,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-dc7624f2f8b15ccd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-1b7d0c0efe288cc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-dd42367b50303e3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-24T06:39:58.458Z">
+<meta property="og:updated_time" content="2018-09-24T06:43:41.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Swift算法俱乐部-树">
 <meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
@@ -493,7 +493,7 @@
 <p>没有父节点的节点是 <em>root</em> 节点。 没有子节点的节点是 <em>leaf</em> 节点。</p>
 <p>树中的指针不能形成循环。 这不是树：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/1678135-1b7d0c0efe288cc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Not a tree"></p>
-<p>这种结构称为<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Graph/" target="_blank" rel="external">图</a>。 树实际上是一种非常简单的图形形式。 （类似地，<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linked％20List/" target="_blank" rel="external">链表</a>是树的简单版本。想一想！）</p>
+<p>这种结构称为<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Graph/" target="_blank" rel="external">图</a>。 树实际上是一种非常简单的图形形式。 （类似地，<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linked%20List/" target="_blank" rel="external">链表</a>是树的简单版本。想一想！）</p>
 <p>本文讨论通用树。 通用树对每个节点可能有多少个子节点或树中节点的顺序没有任何限制。</p>
 <p>这是在Swift中的基本实现：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> value: <span class="type">T</span></div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">weak</span> <span class="keyword">var</span> parent: <span class="type">TreeNode</span>?</div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> children = [<span class="type">TreeNode</span>&lt;<span class="type">T</span>&gt;]()</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">init</span>(value: <span class="type">T</span>) &#123;</div><div class="line">    <span class="keyword">self</span>.value = value</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">addChild</span><span class="params">(<span class="number">_</span> node: TreeNode&lt;T&gt;)</span></span> &#123;</div><div class="line">    children.append(node)</div><div class="line">    node.parent = <span class="keyword">self</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -622,6 +622,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/Swift算法俱乐部-二维数组.html" rel="prev" title="【译】Swift算法俱乐部-二维数组">
+                【译】Swift算法俱乐部-二维数组 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -690,7 +694,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">139</span>
+                <span class="site-state-item-count">140</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -712,7 +716,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -844,7 +848,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共138.0k字</span>
+  <span class="post-count">  全站共138.9k字</span>
 
 </div>
 
