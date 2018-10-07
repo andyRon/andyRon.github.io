@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="算法与数据结构,swift,查找最大／最小值," />
 
 
 
@@ -102,16 +102,18 @@
 
 
 
-<meta name="description" content="Just for fun.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欣欣向戎">
-<meta property="og:url" content="http://andyron.com/categories/Objective-C/index.html">
+<meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="keywords" content="算法与数据结构,swift,查找最大／最小值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Swift算法俱乐部-查找最大／最小值">
+<meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-查找最大／最小值.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.">
+<meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-07T12:33:55.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欣欣向戎">
-<meta name="twitter:description" content="Just for fun.">
+<meta name="twitter:title" content="【译】Swift算法俱乐部-查找最大／最小值">
+<meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 
 
 
@@ -139,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/categories/Objective-C/"/>
+  <link rel="canonical" href="http://andyron.com/2018/Swift算法俱乐部-查找最大／最小值.html"/>
 
 
 
@@ -148,7 +150,7 @@
 
 
 
-  <title>分类: Objective-C | 欣欣向戎</title>
+  <title>【译】Swift算法俱乐部-查找最大／最小值 | 欣欣向戎</title>
   
 
 
@@ -183,7 +185,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
@@ -323,301 +325,317 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>Objective-C<small>分类</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/ios-oc-kvc-begin.html" itemprop="url">
-              
-                <span itemprop="name">OC中的键/值编码(KVC)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-24T19:50:59+08:00"
-              content="2018-08-24" >
-          08-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-13.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习13：文件加载与保存</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-12T21:13:34+08:00"
-              content="2017-09-12" >
-          09-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-12.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习12：代码块（Block）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-12T21:13:20+08:00"
-              content="2017-09-12" >
-          09-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-11.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习11：协议</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-11T22:43:14+08:00"
-              content="2017-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-10.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习10：类别（category）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-11T22:43:00+08:00"
-              content="2017-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-9.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习9：属性</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-11T22:42:58+08:00"
-              content="2017-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-8.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习8：对象初始化</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-10T23:50:09+08:00"
-              content="2017-09-10" >
-          09-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-7.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习7：内存管理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-11T00:00:00+08:00"
-              content="2017-08-11" >
-          08-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-6.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习6：Fondation-Kit介绍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-23T00:00:00+08:00"
-              content="2017-07-23" >
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/oc-basic-2.html" itemprop="url">
-              
-                <span itemprop="name">OC基础学习2：面向对象编程的基础知识</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T00:00:00+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/Objective-C/page/2/">2</a><a class="extend next" rel="next" href="/categories/Objective-C/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/Swift算法俱乐部-查找最大／最小值.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【译】Swift算法俱乐部-查找最大／最小值</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-07T20:31:00+08:00">
+                2018-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/Swift算法俱乐部-查找最大／最小值.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/Swift算法俱乐部-查找最大／最小值.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/Swift算法俱乐部-查找最大／最小值.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-查找最大／最小值">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 1,087 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="external">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="external">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Select%20Minimum%20Maximum" target="_blank" rel="external">swift-algorithm-club-cn/Select Minimum Maximum</a></p>
+</blockquote>
+<hr>
+<p>目标：查找未排序数组中的最大/最小值。</p>
+<h2 id="最大值或最小值"><a href="#最大值或最小值" class="headerlink" title="最大值或最小值"></a>最大值或最小值</h2><p>我们有一个通用对象数组，我们迭代所有对象，跟踪遇到的最小/最大元素。</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>假设我们想在未排序列表<code>[8,3,9,4,6]</code>中找到最大值。</p>
+<p>选择第一个数字<code>8</code>，并将其存储作为目前为止的最大元素。</p>
+<p>从列表中选择下一个数字<code>3</code>，并将其与当前最大值进行比较。 <code>3</code>小于<code>8</code>所以最大值<code>8</code>不会改变。</p>
+<p>从列表中选择下一个数字<code>9</code>，并将其与当前最大值进行比较。 <code>9</code>大于<code>8</code>所以我们存储<code>9</code>作为最大值。</p>
+<p>重复此过程，直到处理完列表中的所有元素。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>在Swift中的一个简单实现：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">minimum</span>&lt;T: Comparable&gt;<span class="params">(<span class="number">_</span> array: [T])</span></span> -&gt; <span class="type">T</span>? &#123;</div><div class="line">  <span class="keyword">guard</span> <span class="keyword">var</span> minimum = array.first <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">for</span> element <span class="keyword">in</span> array.<span class="built_in">dropFirst</span>() &#123;</div><div class="line">    minimum = element &lt; minimum ? element : minimum</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> minimum</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">maximum</span>&lt;T: Comparable&gt;<span class="params">(<span class="number">_</span> array: [T])</span></span> -&gt; <span class="type">T</span>? &#123;</div><div class="line">  <span class="keyword">guard</span> <span class="keyword">var</span> maximum = array.first <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">for</span> element <span class="keyword">in</span> array.<span class="built_in">dropFirst</span>() &#123;</div><div class="line">    maximum = element &gt; maximum ? element : maximum</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> maximum</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>将代码放在 playground 测试：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> array = [ <span class="number">8</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">6</span> ]</div><div class="line">minimum(array)   <span class="comment">// This will return 3</span></div><div class="line">maximum(array)   <span class="comment">// This will return 9</span></div></pre></td></tr></table></figure>
+<h3 id="Swift的标准库"><a href="#Swift的标准库" class="headerlink" title="Swift的标准库"></a>Swift的标准库</h3><p>Swift库已经包含一个叫做<code>SequenceType</code>的扩展，它可返回序列中的最小/最大元素。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> array = [ <span class="number">8</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">6</span> ]</div><div class="line">array.<span class="built_in">minElement</span>()   <span class="comment">// This will return 3</span></div><div class="line">array.<span class="built_in">maxElement</span>()   <span class="comment">// This will return 9</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> array = [ <span class="number">8</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">6</span> ]</div><div class="line"><span class="comment">//swift3</span></div><div class="line">array.<span class="built_in">min</span>()   <span class="comment">// This will return 3</span></div><div class="line">array.<span class="built_in">max</span>()   <span class="comment">// This will return 9</span></div></pre></td></tr></table></figure>
+<h2 id="最大值和最小值"><a href="#最大值和最小值" class="headerlink" title="最大值和最小值"></a>最大值和最小值</h2><p>要同时查找数组中包含的最大值和最小值，为了最小化比较次数，我们可以成对比较。</p>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>假设我们想要在未排序列表<code>[8,3,9,6,4]</code>中找到最小值和最大值。</p>
+<p>选择第一个数字<code>8</code>，并将其存储为目前为止的最小和最大值。</p>
+<p>因为我们有一个奇数项目，我们从列表中删除<code>8</code>，留下两队<code>[3,9]</code>和<code>[6,4]</code>。</p>
+<p>从列表中选择下一对数字，<code>[3,9]</code>。 在这两个数字中，<code>3</code>是较小的数字，因此我们将<code>3</code>与当前最小值<code>8</code>进行比较，并将<code>9</code>与当前最大值<code>8</code>进行比较。 <code>3</code>小于<code>8</code>，所以新的最小值是<code>3</code>。 <code>9</code>大于<code>8</code>，所以新的最大值是<code>9</code>。</p>
+<p>从列表中选择下一对数字，<code>[6,4]</code>。 这里，<code>4</code>是较小的一个，所以我们将<code>4</code>与当前最小<code>3</code>进行比较，并将<code>6</code>与当前最大<code>9</code>进行比较。 <code>4</code>大于<code>3</code>，所以最小值不会改变。 <code>6</code>小于<code>9</code>，因此最大值不会改变。</p>
+<p>结果是最小值为<code>3</code>，最大值为<code>9</code>。</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><p>在Swift中的一个简单实现：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">minimumMaximum</span>&lt;T: Comparable&gt;<span class="params">(<span class="number">_</span> array: [T])</span></span> -&gt; (minimum: <span class="type">T</span>, maximum: <span class="type">T</span>)? &#123;</div><div class="line">  <span class="keyword">guard</span> <span class="keyword">var</span> minimum = array.first <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> maximum = minimum</div><div class="line"></div><div class="line">  <span class="comment">// if 'array' has an odd number of items, let 'minimum' or 'maximum' deal with the leftover</span></div><div class="line">  <span class="keyword">let</span> start = array.<span class="built_in">count</span> % <span class="number">2</span> <span class="comment">// 1 if odd, skipping the first element</span></div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">stride</span>(from: start, to: array.<span class="built_in">count</span>, by: <span class="number">2</span>) &#123;</div><div class="line">    <span class="keyword">let</span> pair = (array[i], array[i+<span class="number">1</span>])</div><div class="line"></div><div class="line">    <span class="keyword">if</span> pair.<span class="number">0</span> &gt; pair.<span class="number">1</span> &#123;</div><div class="line">      <span class="keyword">if</span> pair.<span class="number">0</span> &gt; maximum &#123;</div><div class="line">        maximum = pair.<span class="number">0</span></div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span> pair.<span class="number">1</span> &lt; minimum &#123;</div><div class="line">        minimum = pair.<span class="number">1</span></div><div class="line">      &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">if</span> pair.<span class="number">1</span> &gt; maximum &#123;</div><div class="line">        maximum = pair.<span class="number">1</span></div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span> pair.<span class="number">0</span> &lt; minimum &#123;</div><div class="line">        minimum = pair.<span class="number">0</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> (minimum, maximum)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在playground测试：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> result = minimumMaximum(array)!</div><div class="line">result.minimum   <span class="comment">// This will return 3</span></div><div class="line">result.maximum   <span class="comment">// This will return 9</span></div></pre></td></tr></table></figure>
+<p>通过成对挑选元素并将其最大值和最小值与当前的最小值和最大值进行比较，我们将每2个元素的比较次数减少到3次。</p>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>这些算法以<strong>O(n)</strong>运行。 将数组中的每个对象与当前的最小值/最大值进行比较，所花费的时间与数组长度成比例。</p>
+<p><em>作者：<a href="https://github.com/chris-pilcher" target="_blank" rel="external">Chris Pilcher</a></em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em>  </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
 
+      
+    </div>
+
+    <div>
+      
+        <!-- 版权声明 -->
+
+
+  <ul class="post-copyright">
+
+
+    <li class="post-copyright-title">
+      <strong>本文标题：</strong>
+      【译】Swift算法俱乐部-查找最大／最小值
+    </li>
+
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+
+    <li class="post-copyright-date">
+      <strong>发布时间：</strong>
+      2018年10月07日 - 20:31
+    </li>
+
+    <li class="post-copyright-updated">
+      <strong>最后更新：</strong>
+      2018年10月07日 - 20:33
+    </li>
+
+
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2018/Swift算法俱乐部-查找最大／最小值.html" title="【译】Swift算法俱乐部-查找最大／最小值">http://andyron.com/2018/Swift算法俱乐部-查找最大／最小值.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
+          
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/查找最大／最小值/" rel="tag"><i class="fa fa-tag"></i> 查找最大／最小值</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/科学是怎样败给迷信的.html" rel="next" title="读《科学是怎样败给迷信的》——迷信有时简直太可怕了">
+                <i class="fa fa-chevron-left"></i> 读《科学是怎样败给迷信的》——迷信有时简直太可怕了
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -625,6 +643,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -644,8 +673,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -793,6 +831,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最大值或最小值"><span class="nav-number">1.</span> <span class="nav-text">最大值或最小值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">1.1.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swift的标准库"><span class="nav-number">1.3.</span> <span class="nav-text">Swift的标准库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大值和最小值"><span class="nav-number">2.</span> <span class="nav-text">最大值和最小值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子-1"><span class="nav-number">2.1.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-1"><span class="nav-number">2.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能"><span class="nav-number">3.</span> <span class="nav-text">性能</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -932,10 +986,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -953,6 +1007,18 @@
       <script id="dsq-count-scr" src="https://http-andyron-com.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2018/Swift算法俱乐部-查找最大／最小值.html';
+          this.page.identifier = '2018/Swift算法俱乐部-查找最大／最小值.html';
+          this.page.title = '【译】Swift算法俱乐部-查找最大／最小值';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-andyron-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

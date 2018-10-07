@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-10-07T09:50:54.720Z</updated>
+  <updated>2018-10-07T12:33:55.922Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-查找最大／最小值</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9F%A5%E6%89%BE%E6%9C%80%E5%A4%A7%EF%BC%8F%E6%9C%80%E5%B0%8F%E5%80%BC.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-查找最大／最小值.html</id>
+    <published>2018-10-07T12:31:00.000Z</published>
+    <updated>2018-10-07T12:33:55.922Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Select%20Minimum%20Maximum&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swift-algorithm-club-cn/Select Minimum Maximum&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;目标：查找未排序数组中的最大/最小值。&lt;/p&gt;
+&lt;h2 id=&quot;最大值或最小值&quot;&gt;&lt;a href=&quot;#最大值或最小值&quot; class=&quot;headerlink&quot; title=&quot;最大值或最小值&quot;&gt;&lt;/a&gt;最大值或最小值&lt;/h2&gt;&lt;p&gt;我们有一个通用对象数组，我们迭代所有对象，跟踪遇到的最小/最大元素。&lt;/p&gt;
+&lt;h3 id=&quot;例子&quot;&gt;&lt;a href=&quot;#例子&quot; class=&quot;headerlink&quot; title=&quot;例子&quot;&gt;&lt;/a&gt;例子&lt;/h3&gt;&lt;p&gt;假设我们想在未排序列表&lt;code&gt;[8,3,9,4,6]&lt;/code&gt;中找到最大值。&lt;/p&gt;
+&lt;p&gt;选择第一个数字&lt;code&gt;8&lt;/code&gt;，并将其存储作为目前为止的最大元素。&lt;/p&gt;
+&lt;p&gt;从列表中选择下一个数字&lt;code&gt;3&lt;/code&gt;，并将其与当前最大值进行比较。 &lt;code&gt;3&lt;/code&gt;小于&lt;code&gt;8&lt;/code&gt;所以最大值&lt;code&gt;8&lt;/code&gt;不会改变。&lt;/p&gt;
+&lt;p&gt;从列表中选择下一个数字&lt;code&gt;9&lt;/code&gt;，并将其与当前最大值进行比较。 &lt;code&gt;9&lt;/code&gt;大于&lt;code&gt;8&lt;/code&gt;所以我们存储&lt;code&gt;9&lt;/code&gt;作为最大值。&lt;/p&gt;
+&lt;p&gt;重复此过程，直到处理完列表中的所有元素。&lt;/p&gt;
+&lt;h3 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h3&gt;&lt;p&gt;在Swift中的一个简单实现：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;minimum&lt;/span&gt;&amp;lt;T: Comparable&amp;gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;number&quot;&gt;_&lt;/span&gt; array: [T])&lt;/span&gt;&lt;/span&gt; -&amp;gt; &lt;span class=&quot;type&quot;&gt;T&lt;/span&gt;? &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;guard&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; minimum = array.first &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; element &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; array.&lt;span class=&quot;built_in&quot;&gt;dropFirst&lt;/span&gt;() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    minimum = element &amp;lt; minimum ? element : minimum&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; minimum&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;maximum&lt;/span&gt;&amp;lt;T: Comparable&amp;gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;number&quot;&gt;_&lt;/span&gt; array: [T])&lt;/span&gt;&lt;/span&gt; -&amp;gt; &lt;span class=&quot;type&quot;&gt;T&lt;/span&gt;? &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;guard&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; maximum = array.first &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; element &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; array.&lt;span class=&quot;built_in&quot;&gt;dropFirst&lt;/span&gt;() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    maximum = element &amp;gt; maximum ? element : maximum&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; maximum&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="查找最大／最小值" scheme="http://andyron.com/tags/%E6%9F%A5%E6%89%BE%E6%9C%80%E5%A4%A7%EF%BC%8F%E6%9C%80%E5%B0%8F%E5%80%BC/"/>
+    
+  </entry>
   
   <entry>
     <title>读《科学是怎样败给迷信的》——迷信有时简直太可怕了</title>
@@ -96,9 +132,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="选择排序" scheme="http://andyron.com/tags/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
     
@@ -130,9 +166,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="二维数组" scheme="http://andyron.com/tags/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/"/>
     
@@ -165,9 +201,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="tree" scheme="http://andyron.com/tags/tree/"/>
     
@@ -201,9 +237,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="统计出现次数" scheme="http://andyron.com/tags/%E7%BB%9F%E8%AE%A1%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/"/>
     
@@ -214,7 +250,7 @@
     <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html"/>
     <id>http://andyron.com/2018/Swift算法俱乐部-归并排序.html</id>
     <published>2018-09-23T07:47:00.000Z</published>
-    <updated>2018-09-28T02:24:24.035Z</updated>
+    <updated>2018-10-07T12:31:22.778Z</updated>
     
     <summary type="html">
     
@@ -250,9 +286,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="归并排序" scheme="http://andyron.com/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
     
@@ -283,9 +319,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="线性搜索" scheme="http://andyron.com/tags/%E7%BA%BF%E6%80%A7%E6%90%9C%E7%B4%A2/"/>
     
@@ -317,9 +353,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="二分搜索" scheme="http://andyron.com/tags/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/"/>
     
@@ -361,9 +397,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="插入排序" scheme="http://andyron.com/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
     
@@ -402,9 +438,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
   </entry>
   
@@ -443,9 +479,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="栈" scheme="http://andyron.com/tags/%E6%A0%88/"/>
     
@@ -483,9 +519,9 @@
       <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
-    
       <category term="拖延" scheme="http://andyron.com/tags/%E6%8B%96%E5%BB%B6/"/>
+    
+      <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
     
   </entry>
   
@@ -513,9 +549,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
   </entry>
   
@@ -621,9 +657,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
   </entry>
   
@@ -655,9 +691,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
   </entry>
   
@@ -707,26 +743,6 @@
       <category term="心理学" scheme="http://andyron.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
     
       <category term="营销" scheme="http://andyron.com/tags/%E8%90%A5%E9%94%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图解TCP/IP-5-iP协议相关技术</title>
-    <link href="http://andyron.com/2018/tujie-TCP-IP-5.html"/>
-    <id>http://andyron.com/2018/tujie-TCP-IP-5.html</id>
-    <published>2018-09-10T16:00:00.000Z</published>
-    <updated>2018-09-13T03:05:16.643Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;仅凭IP无法完成通信&lt;/p&gt;
-&lt;h3 id=&quot;1-DNS&quot;&gt;&lt;a href=&quot;#1-DNS&quot; class=&quot;headerlink&quot; title=&quot;1 DNS&quot;&gt;&lt;/a&gt;1 DNS&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/0069RVTdgy1fv5v1beh9jj30uw0ledhp.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/0069RVTdgy1fv5v1n71qgj30qu0padh5.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="图解TCP/IP" scheme="http://andyron.com/categories/%E5%9B%BE%E8%A7%A3TCP-IP/"/>
-    
     
   </entry>
   
