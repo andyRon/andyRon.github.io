@@ -102,17 +102,19 @@
 
 
 
-<meta name="description" content="泛型是 Swift 最强大的特性之一，许多 Swift 标准库是通过泛型代码构建的。例如， Swift 的数组和字典都是泛型集合。你可以创建一个存有整型值或者字符串值的数组，有必要的话，还可以创建一个任何 Swift 支持类型的数组。类似的，你也可以创建一个字典用于存储任意指定类型的值。  1 泛型函数T是一个占位类型，其他字母也可以，只要在尖括号中就行。可以理解为：在定义的时候还不知道是啥类型">
+<meta name="description" content="作者和本书概要尼克·利特尔黑尔斯，英国睡眠协会的前任会长、英超曼联队御用的运动睡眠教练，曾经给 NBA、英国天空车队、英式橄榄球联合会、美国国家橄榄球联盟、英超足球联赛选手、奥运会英国代表队、皇家马德里足球俱乐部做睡眠指导。很多世界级顶级体育名将，比如足球名将大卫·贝克汉姆、瑞恩·吉格斯、保罗·斯科尔斯、尼基·巴特和内维尔兄弟等，都采纳了其睡眠方案，他们的工作和生活的质量都得到了提升。 《睡眠革">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以撸代码的形式学习Swift-23：泛型(Generics)">
-<meta property="og:url" content="http://andyron.com/2017/swift-23.html">
+<meta property="og:title" content="读《睡眠革命》--睡眠质量直接影响生活和工作质量">
+<meta property="og:url" content="http://andyron.com/2018/《睡眠革命》.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="泛型是 Swift 最强大的特性之一，许多 Swift 标准库是通过泛型代码构建的。例如， Swift 的数组和字典都是泛型集合。你可以创建一个存有整型值或者字符串值的数组，有必要的话，还可以创建一个任何 Swift 支持类型的数组。类似的，你也可以创建一个字典用于存储任意指定类型的值。  1 泛型函数T是一个占位类型，其他字母也可以，只要在尖括号中就行。可以理解为：在定义的时候还不知道是啥类型">
+<meta property="og:description" content="作者和本书概要尼克·利特尔黑尔斯，英国睡眠协会的前任会长、英超曼联队御用的运动睡眠教练，曾经给 NBA、英国天空车队、英式橄榄球联合会、美国国家橄榄球联盟、英超足球联赛选手、奥运会英国代表队、皇家马德里足球俱乐部做睡眠指导。很多世界级顶级体育名将，比如足球名将大卫·贝克汉姆、瑞恩·吉格斯、保罗·斯科尔斯、尼基·巴特和内维尔兄弟等，都采纳了其睡眠方案，他们的工作和生活的质量都得到了提升。 《睡眠革">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T18:57:07.638Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-39a2685008e3d55b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-07T04:41:28.760Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以撸代码的形式学习Swift-23：泛型(Generics)">
-<meta name="twitter:description" content="泛型是 Swift 最强大的特性之一，许多 Swift 标准库是通过泛型代码构建的。例如， Swift 的数组和字典都是泛型集合。你可以创建一个存有整型值或者字符串值的数组，有必要的话，还可以创建一个任何 Swift 支持类型的数组。类似的，你也可以创建一个字典用于存储任意指定类型的值。  1 泛型函数T是一个占位类型，其他字母也可以，只要在尖括号中就行。可以理解为：在定义的时候还不知道是啥类型">
+<meta name="twitter:title" content="读《睡眠革命》--睡眠质量直接影响生活和工作质量">
+<meta name="twitter:description" content="作者和本书概要尼克·利特尔黑尔斯，英国睡眠协会的前任会长、英超曼联队御用的运动睡眠教练，曾经给 NBA、英国天空车队、英式橄榄球联合会、美国国家橄榄球联盟、英超足球联赛选手、奥运会英国代表队、皇家马德里足球俱乐部做睡眠指导。很多世界级顶级体育名将，比如足球名将大卫·贝克汉姆、瑞恩·吉格斯、保罗·斯科尔斯、尼基·巴特和内维尔兄弟等，都采纳了其睡眠方案，他们的工作和生活的质量都得到了提升。 《睡眠革">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-39a2685008e3d55b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -140,7 +142,7 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/swift-23.html"/>
+  <link rel="canonical" href="http://andyron.com/2018/《睡眠革命》.html"/>
 
 
 
@@ -149,7 +151,7 @@
 
 
 
-  <title>以撸代码的形式学习Swift-23：泛型(Generics) | 欣欣向戎</title>
+  <title>读《睡眠革命》--睡眠质量直接影响生活和工作质量 | 欣欣向戎</title>
   
 
 
@@ -334,7 +336,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-23.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/《睡眠革命》.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -351,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">以撸代码的形式学习Swift-23：泛型(Generics)</h1>
+          <h1 class="post-title" itemprop="name headline">读《睡眠革命》--睡眠质量直接影响生活和工作质量</h1>
         
 
         <div class="post-meta">
@@ -363,8 +365,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T13:44:42+08:00">
-                2017-07-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-07T11:58:30+08:00">
+                2018-10-07
               </time>
             
 
@@ -386,8 +388,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/swift/" itemprop="url" rel="index">
-                    <span itemprop="name">swift</span>
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
                   </a>
                 </span>
 
@@ -404,9 +406,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/swift-23.html#comments" itemprop="discussionUrl">
+                <a href="/2018/《睡眠革命》.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-23.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/《睡眠革命》.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,7 +416,7 @@
 
           
           
-             <span id="/2017/swift-23.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-23：泛型(Generics)">
+             <span id="/2018/《睡眠革命》.html" class="leancloud_visitors" data-flag-title="读《睡眠革命》--睡眠质量直接影响生活和工作质量">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -440,7 +442,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 754 字
+                  : 1,071 字
                 </span>
               
 
@@ -456,7 +458,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 3 分钟
+                  ≈ 4 分钟
                 </span>
               
             </div>
@@ -474,22 +476,45 @@
       
 
       
-        <blockquote>
-<p>泛型是 Swift 最强大的特性之一，许多 Swift 标准库是通过泛型代码构建的。<br>例如， Swift 的数组和字典都是泛型集合。你可以创建一个存有整型值或者字符串值的数组，有必要的话，还可以创建一个任何 Swift 支持类型的数组。类似的，你也可以创建一个字典用于存储任意指定类型的值。</p>
-</blockquote>
-<h3 id="1-泛型函数"><a href="#1-泛型函数" class="headerlink" title="1 泛型函数"></a>1 泛型函数</h3><p>T是一个占位类型，其他字母也可以，只要在尖括号中就行。<br>可以理解为：在定义的时候还不知道是啥类型，那就假设是T类型，等到调用时，给过来什么类型的参数，那T就是上面类型。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapValue</span>&lt;T&gt;<span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> T, <span class="number">_</span> b: <span class="keyword">inout</span> T)</span></span> &#123;</div><div class="line">    <span class="keyword">let</span> tmp = a</div><div class="line">    a = b</div><div class="line">    b = tmp</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span></div><div class="line"><span class="keyword">var</span> b = <span class="number">3</span></div><div class="line">swapValue(&amp;a, &amp;b)</div><div class="line"><span class="built_in">print</span>(a,b)</div><div class="line"><span class="keyword">var</span> s1 = <span class="string">"word"</span></div><div class="line"><span class="keyword">var</span> s2 = <span class="string">"单词"</span></div><div class="line">swapValue(&amp;s1, &amp;s2)</div><div class="line"><span class="built_in">print</span>(s1, s2)</div></pre></td></tr></table></figure></p>
+        <p><img src="https://upload-images.jianshu.io/upload_images/1678135-39a2685008e3d55b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="作者和本书概要"><a href="#作者和本书概要" class="headerlink" title="作者和本书概要"></a>作者和本书概要</h2><p>尼克·利特尔黑尔斯，英国睡眠协会的前任会长、英超曼联队御用的运动睡眠教练，曾经给 NBA、英国天空车队、英式橄榄球联合会、美国国家橄榄球联盟、英超足球联赛选手、奥运会英国代表队、皇家马德里足球俱乐部做睡眠指导。很多世界级顶级体育名将，比如足球名将大卫·贝克汉姆、瑞恩·吉格斯、保罗·斯科尔斯、尼基·巴特和内维尔兄弟等，都采纳了其睡眠方案，他们的工作和生活的质量都得到了提升。</p>
+<p><a href="https://book.douban.com/subject/27023900/" target="_blank" rel="external">《睡眠革命》</a>的精髓是<strong>如何让睡眠变得高效，把睡眠当作一个工具，增强智力和体力。</strong> </p>
+<p>睡眠占据了我们整个生命三分之一左右的时间，非常有必要认真对待。</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><h3 id="一、如何打造一个合适的睡眠环境"><a href="#一、如何打造一个合适的睡眠环境" class="headerlink" title="一、如何打造一个合适的睡眠环境"></a>一、如何打造一个合适的睡眠环境</h3><ul>
+<li><a href="https://zh.wikipedia.org/wiki/褪黑素" target="_blank" rel="external">褪黑素</a>是人体的一种激素，能够帮助人体进入睡眠。正常来说，夜间人体会分泌比白天多5-10倍的褪黑素，但因为现代生活的各种光线的影响，会让褪黑素的分泌减少，久而久之就影响睡眠。</li>
+</ul>
 <a id="more"></a>
-<h3 id="2-类型参数"><a href="#2-类型参数" class="headerlink" title="2 类型参数"></a>2 类型参数</h3><p>T就是类型参数。可以定义多个类型参数。</p>
-<h3 id="3-命名类型参数：就是把类型参数命名为一个容易阅读的名字（大写字母开头的驼峰命名法）。"><a href="#3-命名类型参数：就是把类型参数命名为一个容易阅读的名字（大写字母开头的驼峰命名法）。" class="headerlink" title="3 命名类型参数：就是把类型参数命名为一个容易阅读的名字（大写字母开头的驼峰命名法）。"></a>3 命名类型参数：就是把类型参数命名为一个容易阅读的名字（大写字母开头的驼峰命名法）。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Dictionary&lt;Key, Value&gt;</div><div class="line">Array&lt;Element&gt;</div></pre></td></tr></table></figure>
-<h3 id="4-泛型类型"><a href="#4-泛型类型" class="headerlink" title="4 泛型类型"></a>4 泛型类型</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Stack</span>&lt;<span class="title">Element</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">var</span> items = [<span class="type">Element</span>]()</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(item: Element)</span></span> &#123;</div><div class="line">        items.append(item)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Element</span> &#123;</div><div class="line">        <span class="keyword">return</span> items.removeLast()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> stackOfStrings = <span class="type">Stack</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">stackOfStrings.push(item: <span class="string">"uno"</span>)</div><div class="line">stackOfStrings.push(item: <span class="string">"dos"</span>)</div><div class="line">stackOfStrings.push(item: <span class="string">"tres"</span>)</div><div class="line">stackOfStrings.push(item: <span class="string">"cuatro"</span>)</div></pre></td></tr></table></figure>
-<h3 id="5-扩展一个泛型类型"><a href="#5-扩展一个泛型类型" class="headerlink" title="5 扩展一个泛型类型"></a>5 扩展一个泛型类型</h3><p>不需要在扩展的定义中提供类型参数列表。原始类型定义中声明的类型参数列表在扩展中可以直接使用，并且这些来自原始类型中的参数名称会被用作原始定义中类型参数的引用。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Stack</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> topItem: <span class="type">Element</span>? &#123;</div><div class="line">        <span class="keyword">return</span> items.isEmpty ? <span class="literal">nil</span> : items[items.<span class="built_in">count</span> - <span class="number">1</span>]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="6-类型约束：指定一个类型参数必须继承自指定类，或者符合一个特定的协议或协议组合。"><a href="#6-类型约束：指定一个类型参数必须继承自指定类，或者符合一个特定的协议或协议组合。" class="headerlink" title="6 类型约束：指定一个类型参数必须继承自指定类，或者符合一个特定的协议或协议组合。"></a>6 类型约束：指定一个类型参数必须继承自指定类，或者符合一个特定的协议或协议组合。</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunction</span>&lt;T: SomeClass, U: SomeProtocol&gt;<span class="params">(someT: T, someU: U)</span></span> &#123; <span class="comment">// 这里是泛型函数的函数体部分</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">findIndex</span>&lt;T&gt;<span class="params">(array: [T], <span class="number">_</span> valueToFind: T)</span></span> -&gt; <span class="type">Int</span>? &#123;</div><div class="line">    <span class="keyword">for</span> (index, value) <span class="keyword">in</span> array.enumerated() &#123;</div><div class="line">        <span class="keyword">if</span> value == valueToFind &#123;</div><div class="line">            <span class="keyword">return</span> index</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不是所有的 Swift类型都可以用等式符(==)进行比较。<br>Swift标准库中定义了一个 Equatable 协议，该协议要求任何遵循该协议的类型必须实现等式符( == )及不等符( != )。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">findIndex</span>&lt;T: Equatable&gt;<span class="params">(array: [T], <span class="number">_</span> valueToFind: T)</span></span> -&gt; <span class="type">Int</span>? &#123;</div><div class="line">    <span class="keyword">for</span> (index, value) <span class="keyword">in</span> array.enumerated() &#123;</div><div class="line">        <span class="keyword">if</span> value == valueToFind &#123;</div><div class="line">            <span class="keyword">return</span> index</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="7-关联类型"><a href="#7-关联类型" class="headerlink" title="7 关联类型"></a>7 关联类型</h3><p>关联类型为协议中的 某个类型提供了一个占位名(或者说别名)，其代表的实际类型在协议被采纳时才会被指定。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Container</span> </span>&#123;</div><div class="line">    associatedtype <span class="type">ItemType</span></div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(item: ItemType)</span></span></div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">ItemType</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Stack2</span>&lt;<span class="title">Element</span>&gt;: <span class="title">Container</span> </span>&#123;</div><div class="line">    <span class="comment">// Stack&lt;Element&gt; 的原始实现部分 </span></div><div class="line">    <span class="keyword">var</span> items = [<span class="type">Element</span>]()</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(item: Element)</span></span> &#123;</div><div class="line">        items.append(item)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Element</span> &#123;</div><div class="line">        <span class="keyword">return</span> items.removeLast()</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// Container 协议的实现部分</span></div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(item: Element)</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.push(item: item)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> items.<span class="built_in">count</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">Element</span> &#123;  <span class="comment">// swift 可以推断出ItemType就是Element</span></div><div class="line">        <span class="keyword">return</span> items[i]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="external">andyRon/LearnSwift</a></p>
-</blockquote>
+<ul>
+<li><p><strong>胎儿睡姿</strong>：侧向你的身体相对不太重要的一侧，就是你平常习惯使用相对比较少的一边。因为这一边相对来说没那么敏感。</p>
+</li>
+<li><p><strong>合适的床垫</strong>： 从你的背面、把你整个人都拍进去，然后观察照片，如果你的头部、颈部和脊柱连成了一条直线，就说明这个床垫是适合你的</p>
+</li>
+</ul>
+<ul>
+<li>选择一个闹钟（秒针走动没有声音）或者模拟日出唤醒灯</li>
+</ul>
+<h3 id="二、R90睡眠方案"><a href="#二、R90睡眠方案" class="headerlink" title="二、R90睡眠方案"></a>二、R90睡眠方案</h3><ul>
+<li>目前普通认为的“8小时睡眠最健康”，可能没那么科学。不同的人、不同成长阶段，睡眠时间都会有所不同。作者提出的<strong>R90睡眠方案</strong>，就是把睡眠时间分隔成90分钟一个周期、每晚需要4-5个周期，，从起床时间点倒推算出晚上入睡的时间点。通过尝试来找到合适自己的睡眠时间，掌控自己的睡眠就这么简单。</li>
+</ul>
+<ul>
+<li>准备上床睡觉的那段时间和你刚醒来的一段时间，也是睡眠的一部分，是个<strong>修复的过程</strong>。</li>
+</ul>
+<h3 id="三、睡觉前后应该做什么样的准备来提升一整夜的睡眠质量"><a href="#三、睡觉前后应该做什么样的准备来提升一整夜的睡眠质量" class="headerlink" title="三、睡觉前后应该做什么样的准备来提升一整夜的睡眠质量"></a>三、睡觉前后应该做什么样的准备来提升一整夜的睡眠质量</h3><ul>
+<li>睡觉前做一些有助于入睡的事情，其实是很有必要的。</li>
+</ul>
+<p>🌰 比如可以整理收拾一下东西。准备好明天上班或者出行的衣服，也可以做做家务，洗个碗，洗个衣服之类的。又比如，可以拿出纸和笔，列一份清单，把自己在想的事情都写下来，什么想法啊、担心和关心的事情啊，都写下来。在写的过程中，是非常放松和随意的。完成之后，就把这个清单放到钥匙边，或者其他第二天一定会带走的东西旁边，等明天再处理这些事情。这样做，也是给自己一个暗示，躺在床上的时候你很清楚地知道，自己已经把所有问题都处理好了，可以没有任何负担地休息了。</p>
+<ul>
+<li><p><strong>用鼻子呼吸</strong>，用口腔呼吸会大幅提高打鼾和睡眠呼吸暂停症的发生率。</p>
+</li>
+<li><p>怎么知道自己睡觉时是用鼻子还是嘴呼吸呢？留意一下，自己早上醒来，如果觉得口干舌燥，就说明你夜里是用嘴呼吸的；如果口腔还是湿润的，就说明是用鼻子呼吸的。</p>
+</li>
+<li><p>解决<strong>用鼻子呼吸</strong>的问题。在临睡前，贴上<strong>鼻贴</strong>来扩张鼻腔通道，然后用轻薄、低过敏性的医用胶带封上自己的嘴巴，让自己慢慢习惯在夜里用鼻子呼吸。</p>
+</li>
+</ul>
+<ul>
+<li>睡醒的第一件事不要看手机</li>
+</ul>
+<p>睡眠占了一个人一生三分之一的时间，通过清醒的时间去掌控它，那一天24小时都是有价值的。</p>
 
       
     </div>
@@ -539,7 +564,7 @@
 
     <li class="post-copyright-title">
       <strong>本文标题：</strong>
-      以撸代码的形式学习Swift-23：泛型(Generics)
+      读《睡眠革命》--睡眠质量直接影响生活和工作质量
     </li>
 
     <li class="post-copyright-author">
@@ -549,18 +574,18 @@
 
     <li class="post-copyright-date">
       <strong>发布时间：</strong>
-      2017年07月14日 - 13:44
+      2018年10月07日 - 11:58
     </li>
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年09月20日 - 02:57
+      2018年10月07日 - 12:41
     </li>
 
 
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/swift-23.html" title="以撸代码的形式学习Swift-23：泛型(Generics)">http://andyron.com/2017/swift-23.html</a>
+      <a href="http://andyron.com/2018/《睡眠革命》.html" title="读《睡眠革命》--睡眠质量直接影响生活和工作质量">http://andyron.com/2018/《睡眠革命》.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -583,8 +608,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/swift-22.html" rel="next" title="以撸代码的形式学习Swift-22：协议(Protocols)">
-                <i class="fa fa-chevron-left"></i> 以撸代码的形式学习Swift-22：协议(Protocols)
+              <a href="/2018/Swift算法俱乐部-选择排序.html" rel="next" title="【译】Swift算法俱乐部-选择排序">
+                <i class="fa fa-chevron-left"></i> 【译】Swift算法俱乐部-选择排序
               </a>
             
           </div>
@@ -592,10 +617,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/ios-tutorial-3-speechframework.html" rel="prev" title="iOS tutorial 3：Speech Framework的简单使用">
-                iOS tutorial 3：Speech Framework的简单使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -816,7 +837,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-泛型函数"><span class="nav-number">1.</span> <span class="nav-text">1 泛型函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-类型参数"><span class="nav-number">2.</span> <span class="nav-text">2 类型参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-命名类型参数：就是把类型参数命名为一个容易阅读的名字（大写字母开头的驼峰命名法）。"><span class="nav-number">3.</span> <span class="nav-text">3 命名类型参数：就是把类型参数命名为一个容易阅读的名字（大写字母开头的驼峰命名法）。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-泛型类型"><span class="nav-number">4.</span> <span class="nav-text">4 泛型类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-扩展一个泛型类型"><span class="nav-number">5.</span> <span class="nav-text">5 扩展一个泛型类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-类型约束：指定一个类型参数必须继承自指定类，或者符合一个特定的协议或协议组合。"><span class="nav-number">6.</span> <span class="nav-text">6 类型约束：指定一个类型参数必须继承自指定类，或者符合一个特定的协议或协议组合。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-关联类型"><span class="nav-number">7.</span> <span class="nav-text">7 关联类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#作者和本书概要"><span class="nav-number">1.</span> <span class="nav-text">作者和本书概要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">2.</span> <span class="nav-text">内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、如何打造一个合适的睡眠环境"><span class="nav-number">2.1.</span> <span class="nav-text">一、如何打造一个合适的睡眠环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、R90睡眠方案"><span class="nav-number">2.2.</span> <span class="nav-text">二、R90睡眠方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、睡觉前后应该做什么样的准备来提升一整夜的睡眠质量"><span class="nav-number">2.3.</span> <span class="nav-text">三、睡觉前后应该做什么样的准备来提升一整夜的睡眠质量</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -986,9 +1007,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/swift-23.html';
-          this.page.identifier = '2017/swift-23.html';
-          this.page.title = '以撸代码的形式学习Swift-23：泛型(Generics)';
+          this.page.url = 'http://andyron.com/2018/《睡眠革命》.html';
+          this.page.identifier = '2018/《睡眠革命》.html';
+          this.page.title = '读《睡眠革命》--睡眠质量直接影响生活和工作质量';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';
