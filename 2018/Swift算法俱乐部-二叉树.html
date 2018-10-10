@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Core ML,机器学习," />
+  <meta name="keywords" content="swift,算法与数据结构,二叉树," />
 
 
 
@@ -102,30 +102,21 @@
 
 
 
-<meta name="description" content="Xcode 9 beta &amp;amp; iOS11 beta &amp;amp; Swift4  Core ML是一个能集成机器学习模型到app中的框架。">
-<meta name="keywords" content="Core ML,机器学习">
+<meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="keywords" content="swift,算法与数据结构,二叉树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识Core ML：建立一个简单的图片内容识别应用">
-<meta property="og:url" content="http://andyron.com/2017/introducing-coreml.html">
+<meta property="og:title" content="【译】Swift算法俱乐部-二叉树">
+<meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-二叉树.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Xcode 9 beta &amp;amp; iOS11 beta &amp;amp; Swift4  Core ML是一个能集成机器学习模型到app中的框架。">
+<meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-0728b42427f4be66.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a58c97bd99763a5d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-5518e5b29d240853.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-4eb0e1ea7f8d54c6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a0170f0f39f3bf29.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-f0c8d4f30c507584.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a8a32614f80198cb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-727b50551939071d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-e7edb9197a900eea.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-19T18:48:56.807Z">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Tree/Images/BinaryTree.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Tree/Images/Operations.png">
+<meta property="og:updated_time" content="2018-10-10T02:21:14.573Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识Core ML：建立一个简单的图片内容识别应用">
-<meta name="twitter:description" content="Xcode 9 beta &amp;amp; iOS11 beta &amp;amp; Swift4  Core ML是一个能集成机器学习模型到app中的框架。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="【译】Swift算法俱乐部-二叉树">
+<meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="twitter:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Tree/Images/BinaryTree.png">
 
 
 
@@ -153,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/2017/introducing-coreml.html"/>
+  <link rel="canonical" href="http://andyron.com/2018/Swift算法俱乐部-二叉树.html"/>
 
 
 
@@ -162,7 +153,7 @@
 
 
 
-  <title>初识Core ML：建立一个简单的图片内容识别应用 | 欣欣向戎</title>
+  <title>【译】Swift算法俱乐部-二叉树 | 欣欣向戎</title>
   
 
 
@@ -357,7 +348,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/introducing-coreml.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/Swift算法俱乐部-二叉树.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -374,7 +365,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">初识Core ML：建立一个简单的图片内容识别应用</h1>
+          <h1 class="post-title" itemprop="name headline">【译】Swift算法俱乐部-二叉树</h1>
         
 
         <div class="post-meta">
@@ -386,8 +377,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T23:44:18+08:00">
-                2017-09-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-10T10:20:00+08:00">
+                2018-10-10
               </time>
             
 
@@ -409,8 +400,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
                   </a>
                 </span>
 
@@ -427,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/introducing-coreml.html#comments" itemprop="discussionUrl">
+                <a href="/2018/Swift算法俱乐部-二叉树.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/introducing-coreml.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/Swift算法俱乐部-二叉树.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -437,7 +428,7 @@
 
           
           
-             <span id="/2017/introducing-coreml.html" class="leancloud_visitors" data-flag-title="初识Core ML：建立一个简单的图片内容识别应用">
+             <span id="/2018/Swift算法俱乐部-二叉树.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-二叉树">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -463,7 +454,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 695 字
+                  : 1,135 字
                 </span>
               
 
@@ -479,7 +470,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 3 分钟
+                  ≈ 5 分钟
                 </span>
               
             </div>
@@ -497,63 +488,70 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<blockquote>
-<p>Xcode 9 beta &amp; iOS11 beta &amp; Swift4</p>
+        <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="external">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="external">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Tree" target="_blank" rel="external">swift-algorithm-club-cn/Binary Tree</a></p>
 </blockquote>
-<p><a href="https://developer.apple.com/documentation/coreml" target="_blank" rel="external">Core ML</a>是一个能集成机器学习模型到app中的框架。</p>
+<hr>
+<p>二叉树是一种<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Tree/" target="_blank" rel="external">树</a>，其中每个节点具有0,1或2个子节点。 这是一个二叉树：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Tree/Images/BinaryTree.png" alt="一个二叉树"></p>
+<p>子节点通常称为 <em>左</em> 子节点 和 <em>右</em> 子节点。 如果节点没有任何子节点，则称为 <em>叶子</em>节点。 <em>根</em> 是树顶部的节点（程序员习惯树颠倒了😀）。</p>
+<p>节点通常会有一个返回其父节点的连接，但这不是绝对必要的。</p>
+<p>二叉树通常用作<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Search%20Tree/" target="_blank" rel="external">二叉搜索树</a>。 在这种情况下，节点必须按特定顺序排列（左侧是较小的值，右侧是较大的值）。 但这不是所有二叉树的要求。</p>
+<p>例如，这是一个二叉树，表示一系列算术运算，<code>(5 * (a - 10)) + (-4 * (3 / b))</code>：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Tree/Images/Operations.png" alt="一个二叉树"></p>
 <a id="more"></a>
-<h3 id="一、新建初始项目"><a href="#一、新建初始项目" class="headerlink" title="一、新建初始项目"></a>一、新建初始项目</h3><ol>
-<li>新建项目<strong>CoreMLDemo</strong>，以<strong>single-view application template</strong>模板</li>
-<li>建立如下如下UI<br><img src="http://upload-images.jianshu.io/upload_images/1678135-0728b42427f4be66.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>以下是在Swift中实现通用二叉树的方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">indirect</span> <span class="class"><span class="keyword">enum</span> <span class="title">BinaryTree</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">case</span> node(<span class="type">BinaryTree</span>&lt;<span class="type">T</span>&gt;, <span class="type">T</span>, <span class="type">BinaryTree</span>&lt;<span class="type">T</span>&gt;)</div><div class="line">  <span class="keyword">case</span> empty</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如何使用它的一个例子，让我们构建上面算术运算树：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// leaf nodes</span></div><div class="line"><span class="keyword">let</span> node5 = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"5"</span>, .empty)</div><div class="line"><span class="keyword">let</span> nodeA = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"a"</span>, .empty)</div><div class="line"><span class="keyword">let</span> node10 = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"10"</span>, .empty)</div><div class="line"><span class="keyword">let</span> node4 = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"4"</span>, .empty)</div><div class="line"><span class="keyword">let</span> node3 = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"3"</span>, .empty)</div><div class="line"><span class="keyword">let</span> nodeB = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"b"</span>, .empty)</div><div class="line"></div><div class="line"><span class="comment">// intermediate nodes on the left</span></div><div class="line"><span class="keyword">let</span> <span class="type">Aminus10</span> = <span class="type">BinaryTree</span>.node(nodeA, <span class="string">"-"</span>, node10)</div><div class="line"><span class="keyword">let</span> timesLeft = <span class="type">BinaryTree</span>.node(node5, <span class="string">"*"</span>, <span class="type">Aminus10</span>)</div><div class="line"></div><div class="line"><span class="comment">// intermediate nodes on the right</span></div><div class="line"><span class="keyword">let</span> minus4 = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"-"</span>, node4)</div><div class="line"><span class="keyword">let</span> divide3andB = <span class="type">BinaryTree</span>.node(node3, <span class="string">"/"</span>, nodeB)</div><div class="line"><span class="keyword">let</span> timesRight = <span class="type">BinaryTree</span>.node(minus4, <span class="string">"*"</span>, divide3andB)</div><div class="line"></div><div class="line"><span class="comment">// root node</span></div><div class="line"><span class="keyword">let</span> tree = <span class="type">BinaryTree</span>.node(timesLeft, <span class="string">"+"</span>, timesRight)</div></pre></td></tr></table></figure>
+<p>您需要反向构建树，从叶子节点开始，一直到顶部。</p>
+<p>添加<code>description</code>属性以便打印树，这会很有用的：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">BinaryTree</span>: <span class="title">CustomStringConvertible</span> </span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</div><div class="line">    <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</div><div class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .node(<span class="keyword">left</span>, value, <span class="keyword">right</span>):</div><div class="line">      <span class="keyword">return</span> <span class="string">"value: <span class="subst">\(value)</span>, left = [<span class="subst">\(<span class="keyword">left</span>.description)</span>], right = [<span class="subst">\(<span class="keyword">right</span>.description)</span>]"</span></div><div class="line">    <span class="keyword">case</span> .empty:</div><div class="line">      <span class="keyword">return</span> <span class="string">""</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你 <code>print(tree)</code> 你应该看到这样的东西：</p>
+<pre><code>value: +, left = [value: *, left = [value: 5, left = [], right = []], right = [value: -, left = [value: a, left = [], right = []], right = [value: 10, left = [], right = []]]], right = [value: *, left = [value: -, left = [], right = [value: 4, left = [], right = []]], right = [value: /, left = [value: 3, left = [], right = []], right = [value: b, left = [], right = []]]]
+</code></pre><p>通过一点想象力，您可以看到树形结构。 ;-)如果你缩进它会清晰的看到：</p>
+<pre><code>value: +, 
+    left = [value: *, 
+        left = [value: 5, left = [], right = []], 
+        right = [value: -, 
+            left = [value: a, left = [], right = []], 
+            right = [value: 10, left = [], right = []]]], 
+    right = [value: *, 
+        left = [value: -, 
+            left = [], 
+            right = [value: 4, left = [], right = []]], 
+        right = [value: /, 
+            left = [value: 3, left = [], right = []], 
+            right = [value: b, left = [], right = []]]]
+</code></pre><p>另一个有用的属性是计算树中的节点数：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</div><div class="line">  <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</div><div class="line">  <span class="keyword">case</span> <span class="keyword">let</span> .node(<span class="keyword">left</span>, <span class="number">_</span>, <span class="keyword">right</span>):</div><div class="line">    <span class="keyword">return</span> <span class="keyword">left</span>.<span class="built_in">count</span> + <span class="number">1</span> + <span class="keyword">right</span>.<span class="built_in">count</span></div><div class="line">  <span class="keyword">case</span> .empty:</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对于示例的树，<code>tree.count</code>应该是12。</p>
+<p>您经常需要对树进行的操作遍历它们，即以某种顺序查看所有节点。 遍历二叉树有三种方法：</p>
+<ol>
+<li><em>In-order</em>（或<em>深度优先</em>）： 首先查看节点的左子节点，然后查看节点本身，最后查看其右子节点。</li>
+<li><em>Pre-order</em>： 首先查看节点，然后查看其左右子节点。</li>
+<li><em>Post-order</em>： 首先查看左右子节点最后处理节点本身。</li>
 </ol>
-<h3 id="二、实现照相和获取图片库功能"><a href="#二、实现照相和获取图片库功能" class="headerlink" title="二、实现照相和获取图片库功能"></a>二、实现照相和获取图片库功能</h3><ol>
-<li><p>遵守两个协议：<br><code>class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {</code></p>
-</li>
-<li><p>添加两个接口，并关联。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@IBOutlet</span> <span class="keyword">var</span> imageView: <span class="type">UIImageView</span>!</div><div class="line"><span class="meta">@IBOutlet</span> <span class="keyword">var</span> classifier: <span class="type">UILabel</span>!</div></pre></td></tr></table></figure>
-</li>
-<li><p>实现两个Action</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">camera</span><span class="params">(<span class="number">_</span> sender: Any)</span></span> &#123;</div><div class="line">    <span class="keyword">if</span> !<span class="type">UIImagePickerController</span>.isSourceTypeAvailable(.camera) &#123;</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> cameraPicker = <span class="type">UIImagePickerController</span>()</div><div class="line">    cameraPicker.delegate = <span class="keyword">self</span></div><div class="line">    cameraPicker.sourceType = .camera</div><div class="line">    cameraPicker.allowsEditing = <span class="literal">false</span></div><div class="line">    </div><div class="line">    present(cameraPicker, animated: <span class="literal">true</span>, completion: <span class="literal">nil</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">openLibrary</span><span class="params">(<span class="number">_</span> sender: Any)</span></span> &#123;</div><div class="line">    <span class="keyword">let</span> picker = <span class="type">UIImagePickerController</span>()</div><div class="line">    picker.allowsEditing = <span class="literal">false</span></div><div class="line">    picker.delegate = <span class="keyword">self</span></div><div class="line">    picker.sourceType = .photoLibrary</div><div class="line">    present(picker, animated: <span class="literal">true</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>实现协议<code>UIImagePickerControllerDelegate</code>中的方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span>  <span class="title">imagePickerControllerDidCancel</span><span class="params">(<span class="number">_</span> picker: UIImagePickerController)</span></span> &#123;</div><div class="line">    dismiss(animated: <span class="literal">true</span>, completion: <span class="literal">nil</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>Info.plist</code>中添加📷使用请求，<code>Privacy – Camera Usage Description and Privacy</code></p>
-</li>
-</ol>
-<h3 id="三、集成Core-ML-Data-Model"><a href="#三、集成Core-ML-Data-Model" class="headerlink" title="三、集成Core ML Data Model"></a>三、集成Core ML Data Model</h3><ol>
-<li>到Apple机器学习官网 <a href="https://developer.apple.com/machine-learning/" target="_blank" rel="external">Machine Learning</a>下载Core ML models，目前有6个Model，识别图片的使用<code>Inception v3</code>。下载得到一个<code>mlmodel</code>结尾的文件，直接拖到项目中，会自动生成对应model名的swift的类文件，可以直接在代码中使用。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-a58c97bd99763a5d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/1678135-5518e5b29d240853.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4.jpg"></li>
-<li><p>在<code>ViewController.swift</code>中引入Core ML:<br><code>import CoreML</code></p>
-</li>
-<li><p>初始<code>Inceptionv3</code>:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> model: <span class="type">Inceptionv3</span>!</div><div class="line"></div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewWillAppear</span><span class="params">(<span class="number">_</span> animated: Bool)</span></span> &#123;</div><div class="line">    model = <span class="type">Inceptionv3</span>()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>实现<code>UIImagePickerControllerDelegate</code>协议的<code>imagePickerController(_:didFinishPickingMediaWithInfo)</code>方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">imagePickerController</span><span class="params">(<span class="number">_</span> picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])</span></span> &#123;</div><div class="line">    </div><div class="line">    picker.dismiss(animated: <span class="literal">true</span>)</div><div class="line">    classifier.text = <span class="string">"Analyzing Image..."</span></div><div class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> image = info[<span class="string">"UIImagePickerControllerOriginalImage"</span>] <span class="keyword">as</span>? <span class="type">UIImage</span> <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="type">UIGraphicsBeginImageContextWithOptions</span>(<span class="type">CGSize</span>(width: <span class="number">299</span>, height: <span class="number">299</span>), <span class="literal">true</span>, <span class="number">2.0</span>)</div><div class="line">    image.draw(<span class="keyword">in</span>: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="number">299</span>, height: <span class="number">299</span>))</div><div class="line">    <span class="keyword">let</span> newImage = <span class="type">UIGraphicsGetImageFromCurrentImageContext</span>()!</div><div class="line">    <span class="type">UIGraphicsEndImageContext</span>()</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] <span class="keyword">as</span> <span class="type">CFDictionary</span></div><div class="line">    <span class="keyword">var</span> pixelBuffer : <span class="type">CVPixelBuffer</span>?</div><div class="line">    <span class="keyword">let</span> status = <span class="type">CVPixelBufferCreate</span>(kCFAllocatorDefault, <span class="type">Int</span>(newImage.size.width), <span class="type">Int</span>(newImage.size.height), kCVPixelFormatType_32ARGB, attrs, &amp;pixelBuffer)</div><div class="line">    <span class="keyword">guard</span> (status == kCVReturnSuccess) <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="type">CVPixelBufferLockBaseAddress</span>(pixelBuffer!, <span class="type">CVPixelBufferLockFlags</span>(rawValue: <span class="number">0</span>))</div><div class="line">    <span class="keyword">let</span> pixelData = <span class="type">CVPixelBufferGetBaseAddress</span>(pixelBuffer!)</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> rgbColorSpace = <span class="type">CGColorSpaceCreateDeviceRGB</span>()</div><div class="line">    <span class="keyword">let</span> context = <span class="type">CGContext</span>(data: pixelData, width: <span class="type">Int</span>(newImage.size.width), height: <span class="type">Int</span>(newImage.size.height), bitsPerComponent: <span class="number">8</span>, bytesPerRow: <span class="type">CVPixelBufferGetBytesPerRow</span>(pixelBuffer!), space: rgbColorSpace, bitmapInfo: <span class="type">CGImageAlphaInfo</span>.noneSkipFirst.rawValue) <span class="comment">//3</span></div><div class="line">    </div><div class="line">    context?.translateBy(x: <span class="number">0</span>, y: newImage.size.height)</div><div class="line">    context?.scaleBy(x: <span class="number">1.0</span>, y: -<span class="number">1.0</span>)</div><div class="line">    </div><div class="line">    <span class="type">UIGraphicsPushContext</span>(context!)</div><div class="line">    newImage.draw(<span class="keyword">in</span>: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: newImage.size.width, height: newImage.size.height))</div><div class="line">    <span class="type">UIGraphicsPopContext</span>()</div><div class="line">    <span class="type">CVPixelBufferUnlockBaseAddress</span>(pixelBuffer!, <span class="type">CVPixelBufferLockFlags</span>(rawValue: <span class="number">0</span>))</div><div class="line">    imageView.image = newImage</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用Core ML<br>在上面<code>imagePickerController(_:didFinishPickingMediaWithInfo)</code>方法最后添加：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> prediction = <span class="keyword">try</span>? model.prediction(image: pixelBuffer!) <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span></div><div class="line">&#125;</div><div class="line">classifier.text = <span class="string">"I think this is a <span class="subst">\(prediction.classLabel)</span>."</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>现在就可运行识别图片内容了，我已几个简单的做了实验，效果还可以：</p>
-<p>能识别🐶的种类，哈巴狗pug<br><img src="http://upload-images.jianshu.io/upload_images/1678135-81f1ccb3d631fea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>🍌应该相对而言简单：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-4eb0e1ea7f8d54c6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>朋友家的猫，我也不知道猫的种类，识别为波斯猫(Persian cat):<br><img src="http://upload-images.jianshu.io/upload_images/1678135-a0170f0f39f3bf29.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这个我就不知道是怎么识别为浓咖啡(espresso)的了🤔<br><img src="http://upload-images.jianshu.io/upload_images/1678135-f0c8d4f30c507584.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="yes1.jpg"></p>
-<p>当然识别相差比较奇怪的。<br>小米手环识别成听诊器（stethoscope）😢<br><img src="http://upload-images.jianshu.io/upload_images/1678135-a8a32614f80198cb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>kindle识别不出😢😢😢<br><img src="http://upload-images.jianshu.io/upload_images/1678135-727b50551939071d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-e7edb9197a900eea.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="四、Core-ML学习资源"><a href="#四、Core-ML学习资源" class="headerlink" title="四、Core ML学习资源"></a>四、Core ML学习资源</h3><p>官方文档   <a href="https://developer.apple.com/documentation/coreml" target="_blank" rel="external">official Core ML documentation</a></p>
-<p> WWDC 2017：</p>
-<ul>
-<li><a href="https://developer.apple.com/videos/play/wwdc2017/703/" target="_blank" rel="external">Introducing Core ML</a></li>
-<li><a href="https://developer.apple.com/videos/play/wwdc2017/710/" target="_blank" rel="external">Core ML in Depth</a></li>
-</ul>
-<blockquote>
-<p>代码 <a href="https://github.com/andyRon/LearniOSByProject/tree/master/86" target="_blank" rel="external">CoreMLDemo</a> （由于<code>Inceptionv3.mlmodel</code>比较大，我就没有上传到github上，直接到 <a href="https://developer.apple.com/machine-learning/" target="_blank" rel="external">Machine Learning</a>然后拖到项目中即可）</p>
-<p>参考：<a href="http://appcoda.com/coreml-introduction/" target="_blank" rel="external">Introduction to Core ML: Building a Simple Image Recognition App</a> </p>
-</blockquote>
+<p>以下是您实现的方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">traverseInOrder</span><span class="params">(process: <span class="params">(T)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</div><div class="line">  <span class="keyword">if</span> <span class="keyword">case</span> <span class="keyword">let</span> .node(<span class="keyword">left</span>, value, <span class="keyword">right</span>) = <span class="keyword">self</span> &#123;</div><div class="line">    <span class="keyword">left</span>.traverseInOrder(process: process)</div><div class="line">    process(value)</div><div class="line">    <span class="keyword">right</span>.traverseInOrder(process: process)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">traversePreOrder</span><span class="params">(process: <span class="params">(T)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</div><div class="line">  <span class="keyword">if</span> <span class="keyword">case</span> <span class="keyword">let</span> .node(<span class="keyword">left</span>, value, <span class="keyword">right</span>) = <span class="keyword">self</span> &#123;</div><div class="line">    process(value)</div><div class="line">    <span class="keyword">left</span>.traversePreOrder(process: process)</div><div class="line">    <span class="keyword">right</span>.traversePreOrder(process: process)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">traversePostOrder</span><span class="params">(process: <span class="params">(T)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</div><div class="line">  <span class="keyword">if</span> <span class="keyword">case</span> <span class="keyword">let</span> .node(<span class="keyword">left</span>, value, <span class="keyword">right</span>) = <span class="keyword">self</span> &#123;</div><div class="line">    <span class="keyword">left</span>.traversePostOrder(process: process)</div><div class="line">    <span class="keyword">right</span>.traversePostOrder(process: process)</div><div class="line">    process(value)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这些函数会被递归调用，在使用树结构时很常见。</p>
+<p>例如，如果您按 <em>Post-order</em> 遍历算术运算树，您将按以下顺序查看值：</p>
+<pre><code>5
+a
+10
+-
+*
+4
+-
+3
+b
+/
+*
++
+</code></pre><p>叶子节点首先出现。 根节点最后出现。</p>
+<p>您可以使用堆栈计算机来评估这些表达式，类似于以下伪代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">tree.traversePostOrder &#123; s <span class="keyword">in</span> </div><div class="line">  <span class="keyword">switch</span> s &#123;</div><div class="line">  <span class="keyword">case</span> this <span class="keyword">is</span> a numeric literal, such <span class="keyword">as</span> <span class="number">5</span>:</div><div class="line">    push it onto the stack</div><div class="line">  <span class="keyword">case</span> this <span class="keyword">is</span> a variable name, such <span class="keyword">as</span> a:</div><div class="line">    look up the value of a and push it onto the stack</div><div class="line">  <span class="keyword">case</span> this <span class="keyword">is</span> an <span class="keyword">operator</span>, such <span class="keyword">as</span> *:</div><div class="line">    pop the two top-most items off the stack, multiply them,</div><div class="line">    and push the result back onto the stack</div><div class="line">  &#125;</div><div class="line">  the result <span class="keyword">is</span> <span class="keyword">in</span> the top-most item on the stack</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>作者：Matthijs Hollemans</em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em></p>
 
       
     </div>
@@ -603,7 +601,7 @@
 
     <li class="post-copyright-title">
       <strong>本文标题：</strong>
-      初识Core ML：建立一个简单的图片内容识别应用
+      【译】Swift算法俱乐部-二叉树
     </li>
 
     <li class="post-copyright-author">
@@ -613,18 +611,18 @@
 
     <li class="post-copyright-date">
       <strong>发布时间：</strong>
-      2017年09月03日 - 23:44
+      2018年10月10日 - 10:20
     </li>
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年09月20日 - 02:48
+      2018年10月10日 - 10:21
     </li>
 
 
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andyron.com/2017/introducing-coreml.html" title="初识Core ML：建立一个简单的图片内容识别应用">http://andyron.com/2017/introducing-coreml.html</a>
+      <a href="http://andyron.com/2018/Swift算法俱乐部-二叉树.html" title="【译】Swift算法俱乐部-二叉树">http://andyron.com/2018/Swift算法俱乐部-二叉树.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -640,9 +638,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Core-ML/" rel="tag"><i class="fa fa-tag"></i> Core ML</a>
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
           
-            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
+          
+            <a href="/tags/二叉树/" rel="tag"><i class="fa fa-tag"></i> 二叉树</a>
           
         </div>
       
@@ -655,8 +655,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/github-hexo.html" rel="next" title="使用github和hexo创建免费的静态个人博客网站">
-                <i class="fa fa-chevron-left"></i> 使用github和hexo创建免费的静态个人博客网站
+              <a href="/2018/Swift算法俱乐部-查找最大／最小值.html" rel="next" title="【译】Swift算法俱乐部-查找最大／最小值">
+                <i class="fa fa-chevron-left"></i> 【译】Swift算法俱乐部-查找最大／最小值
               </a>
             
           </div>
@@ -664,10 +664,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/ios-animation-1-clock.html" rel="prev" title="iOS动画(一)：时钟动画(Swift)">
-                iOS动画(一)：时钟动画(Swift) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -888,7 +884,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、新建初始项目"><span class="nav-number">1.</span> <span class="nav-text">一、新建初始项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、实现照相和获取图片库功能"><span class="nav-number">2.</span> <span class="nav-text">二、实现照相和获取图片库功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、集成Core-ML-Data-Model"><span class="nav-number">3.</span> <span class="nav-text">三、集成Core ML Data Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Core-ML学习资源"><span class="nav-number">4.</span> <span class="nav-text">四、Core ML学习资源</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
@@ -1058,9 +1054,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://andyron.com/2017/introducing-coreml.html';
-          this.page.identifier = '2017/introducing-coreml.html';
-          this.page.title = '初识Core ML：建立一个简单的图片内容识别应用';
+          this.page.url = 'http://andyron.com/2018/Swift算法俱乐部-二叉树.html';
+          this.page.identifier = '2018/Swift算法俱乐部-二叉树.html';
+          this.page.title = '【译】Swift算法俱乐部-二叉树';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-andyron-com.disqus.com/embed.js';
