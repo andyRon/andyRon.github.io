@@ -102,16 +102,17 @@
 
 
 
-<meta name="description" content="Just for fun.👨‍💻✍️🎨">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欣欣向戎">
-<meta property="og:url" content="http://andyron.com/categories/iOS/page/5/index.html">
+<meta name="description" content="高阶函数（Higher-order function） 在数学和计算机科学中，高阶函数是至少满足下列一个条件的函数：  接受一个或多个函数作为输入 输出一个函数  函数式编程中，高阶函数比较常见了。  注：$0, $1, $2… 表示闭包第一个参数，第二个参数，第三个参数…。 详细可参考以撸代码的形式学习Swift-7：闭包(Closure)  1 sorted 根据给定的条件（一个用于比较的闭包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift中的高阶函数：sorted, map, reduce, forEach, flatMap, filter">
+<meta property="og:url" content="http://andyron.com/2018/swift-higher-order-function.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="Just for fun.👨‍💻✍️🎨">
+<meta property="og:description" content="高阶函数（Higher-order function） 在数学和计算机科学中，高阶函数是至少满足下列一个条件的函数：  接受一个或多个函数作为输入 输出一个函数  函数式编程中，高阶函数比较常见了。  注：$0, $1, $2… 表示闭包第一个参数，第二个参数，第三个参数…。 详细可参考以撸代码的形式学习Swift-7：闭包(Closure)  1 sorted 根据给定的条件（一个用于比较的闭包">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-15T13:07:24.724Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欣欣向戎">
-<meta name="twitter:description" content="Just for fun.👨‍💻✍️🎨">
+<meta name="twitter:title" content="Swift中的高阶函数：sorted, map, reduce, forEach, flatMap, filter">
+<meta name="twitter:description" content="高阶函数（Higher-order function） 在数学和计算机科学中，高阶函数是至少满足下列一个条件的函数：  接受一个或多个函数作为输入 输出一个函数  函数式编程中，高阶函数比较常见了。  注：$0, $1, $2… 表示闭包第一个参数，第二个参数，第三个参数…。 详细可参考以撸代码的形式学习Swift-7：闭包(Closure)  1 sorted 根据给定的条件（一个用于比较的闭包">
 
 
 
@@ -139,7 +140,7 @@
 
 
 
-  <link rel="canonical" href="http://andyron.com/categories/iOS/page/5/"/>
+  <link rel="canonical" href="http://andyron.com/2018/swift-higher-order-function.html"/>
 
 
 
@@ -148,7 +149,7 @@
 
 
 
-  <title>分类: iOS | 欣欣向戎</title>
+  <title>Swift中的高阶函数：sorted, map, reduce, forEach, flatMap, filter | 欣欣向戎</title>
   
 
 
@@ -183,7 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
@@ -333,189 +334,310 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>iOS<small>分类</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/ios-tutorial-3-speechframework.html" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 3：Speech Framework的简单使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-15T00:00:00+08:00"
-              content="2017-07-15" >
-          07-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/ios-tutorial-2-facerecognition.html" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 2：用Core Image进行面部识别(Swift)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-14T00:00:00+08:00"
-              content="2017-07-14" >
-          07-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/swift-document.html" itemprop="url">
-              
-                <span itemprop="name">swift的文档注释</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-14T00:00:00+08:00"
-              content="2017-07-14" >
-          07-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/xcode-scene-name.html" itemprop="url">
-              
-                <span itemprop="name">Xcode中Scene里的名称</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-08T00:00:00+08:00"
-              content="2017-07-08" >
-          07-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/ios-tutorial-1-arcode.html" itemprop="url">
-              
-                <span itemprop="name">iOS tutorial 1： 识别二维码（swift3）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-08T00:00:00+08:00"
-              content="2017-07-08" >
-          07-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/ios-application-status.html" itemprop="url">
-              
-                <span itemprop="name">iOS应用程序的状态</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-07T00:00:00+08:00"
-              content="2017-07-07" >
-          07-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/iOS/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/categories/iOS/">1</a><span class="space">&hellip;</span><a class="page-number" href="/categories/iOS/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/swift-higher-order-function.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Swift中的高阶函数：sorted, map, reduce, forEach, flatMap, filter</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T20:41:19+08:00">
+                2018-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift/" itemprop="url" rel="index">
+                    <span itemprop="name">swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/swift-higher-order-function.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/swift-higher-order-function.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/swift-higher-order-function.html" class="leancloud_visitors" data-flag-title="Swift中的高阶函数：sorted, map, reduce, forEach, flatMap, filter">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 761 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>高阶函数（Higher-order function）</strong></p>
+<p>在数学和计算机科学中，<a href="https://en.wikipedia.org/wiki/Higher-order_function" target="_blank" rel="noopener"><strong>高阶函数</strong></a>是至少满足下列一个条件的函数：</p>
+<ul>
+<li>接受一个或多个函数作为输入</li>
+<li>输出一个函数</li>
+</ul>
+<p>函数式编程中，高阶函数比较常见了。</p>
+<blockquote>
+<p>注：<code>$0</code>, <code>$1</code>, <code>$2</code>… 表示闭包第一个参数，第二个参数，第三个参数…。 详细可参考<a href="http://andyron.com/2017/swift-7-closure">以撸代码的形式学习Swift-7：闭包(Closure)</a></p>
+</blockquote>
+<h3 id="1-sorted"><a href="#1-sorted" class="headerlink" title="1 sorted"></a>1 sorted</h3><p> 根据给定的条件（一个用于比较的闭包）来对数组进行排序。</p>
+<p> 函数原型：<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">sorted</span><span class="params">(by areInIncreasingOrder: <span class="params">(Element, Element)</span></span></span> <span class="keyword">throws</span> -&gt; <span class="type">Bool</span>) <span class="keyword">rethrows</span> -&gt; [<span class="type">Element</span>]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> res = numbers.sorted &#123;</span><br><span class="line">    $<span class="number">0</span> &lt; $<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(res.description)</span><br></pre></td></tr></table></figure>
+<h3 id="2-map"><a href="#2-map" class="headerlink" title="2 map"></a>2 map</h3><p> 返回一个包含对原数组每个元素进行给定闭包处理后元素的数组。（也就是每个元素进行相同处理）</p>
+<p> 函数原型：<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">map</span>&lt;T&gt;<span class="params">(<span class="number">_</span> transform: <span class="params">(Element)</span></span></span> <span class="keyword">throws</span> -&gt; <span class="type">T</span>) <span class="keyword">rethrows</span> -&gt; [<span class="type">T</span>]</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">let</span> brr = arr.<span class="built_in">map</span> &#123;</span><br><span class="line">    <span class="string">"No."</span> + <span class="type">String</span>($<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// brr = ["No.1", "No.2", "No.4"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-reduce"><a href="#3-reduce" class="headerlink" title="3 reduce"></a>3 reduce</h3><p> Returns the result of combining the elements of the sequence using the given closure.（ 返回使用给定闭包组合序列元素的结果。）</p>
+<p> 函数原型：<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">reduce</span>&lt;Result&gt;<span class="params">(<span class="number">_</span> initialResult: Result, <span class="number">_</span> nextPartialResult: <span class="params">(Result, Element)</span></span></span> <span class="keyword">throws</span> -&gt; <span class="type">Result</span>) <span class="keyword">rethrows</span> -&gt; <span class="type">Result</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> crr = arr.<span class="built_in">reduce</span>(<span class="number">0</span>) &#123;</span><br><span class="line">    (prevSum: <span class="type">Int</span>, element: <span class="type">Int</span>) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> prevSum + element</span><br><span class="line">&#125;   <span class="comment">// crr = 7</span></span><br><span class="line"><span class="keyword">let</span> drr = arr.<span class="built_in">reduce</span>(<span class="string">""</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> $<span class="number">0</span> == <span class="string">""</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">String</span>($<span class="number">1</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> $<span class="number">0</span> + <span class="string">" "</span> + <span class="type">String</span>($<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(drr)      <span class="comment">// drr = "1 2 4"</span></span><br><span class="line"><span class="keyword">let</span> res2 = [<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">9</span>].<span class="built_in">reduce</span>(<span class="number">2</span>) &#123;</span><br><span class="line">    (prevSum: <span class="type">Int</span>, element: <span class="type">Int</span>) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> prevSum + element</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(res2) <span class="comment">// 27。 2+3+5+8+9 = 27</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-forEach"><a href="#4-forEach" class="headerlink" title="4 forEach"></a>4 forEach</h3><p> Calls the given closure on each element in the sequence in the same order as a for-in loop.(与<code>for-in</code>类似)</p>
+<p> 函数原型：<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">forEach</span><span class="params">(<span class="number">_</span> body: <span class="params">(Element)</span></span></span> <span class="keyword">throws</span> -&gt; <span class="type">Void</span>) <span class="keyword">rethrows</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"Swift"</span>,<span class="string">"OC"</span>,<span class="string">"iOS"</span>,<span class="string">"macOS"</span>].forEach &#123;</span><br><span class="line">    <span class="built_in">print</span>($<span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-flatMap"><a href="#5-flatMap" class="headerlink" title="5 flatMap"></a>5 flatMap</h3><p> Returns an array containing the concatenated results of calling the given transformation with each element of this sequence.（返回一个数组，其中包含使用此序列的每个元素调用给定转换的连接结果。）</p>
+<p> 函数原型：<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">flatMap</span><span class="params">(<span class="number">_</span> transform: <span class="params">(Element)</span></span></span> <span class="keyword">throws</span> -&gt; <span class="type">String</span>?) <span class="keyword">rethrows</span> -&gt; [<span class="type">String</span>]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> collections = [[<span class="number">5</span>, <span class="number">2</span>, <span class="number">7</span>], [<span class="number">4</span>, <span class="number">8</span>], [<span class="number">9</span>, <span class="number">1</span>, <span class="number">3</span>]]</span><br><span class="line"><span class="keyword">let</span> flat = collections.flatMap &#123; $<span class="number">0</span> &#125;</span><br><span class="line"><span class="comment">// [5, 2, 7, 4, 8, 9, 1, 3]</span></span><br></pre></td></tr></table></figure>
+<p><strong>flatMap和map的区别</strong>是，对二维数组时flatMap有个降维处理，对于一位数组，两者没有明显区别<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbersCompound = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]]</span><br><span class="line"><span class="keyword">let</span> mapped = numbersCompound.<span class="built_in">map</span> &#123; $<span class="number">0</span>.<span class="built_in">map</span>&#123; <span class="string">"<span class="subst">\($<span class="number">0</span>)</span>-map"</span> &#125; &#125;</span><br><span class="line"><span class="built_in">print</span>(mapped)       <span class="comment">// [["1-map", "2-map", "3-map"], ["4-map", "5-map", "6-map"]]</span></span><br><span class="line"><span class="keyword">let</span> flatMapped = numbersCompound.flatMap &#123; $<span class="number">0</span>.<span class="built_in">map</span>&#123; <span class="string">"<span class="subst">\($<span class="number">0</span>)</span>-flatMap"</span> &#125; &#125;</span><br><span class="line"><span class="built_in">print</span>(flatMapped)   <span class="comment">// ["1-flatMap", "2-flatMap", "3-flatMap", "4-flatMap", "5-flatMap", "6-flatMap"]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> numbers2 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">let</span> mapres = numbers2.<span class="built_in">map</span> &#123; <span class="type">Array</span>(repeating: $<span class="number">0</span>, <span class="built_in">count</span>: $<span class="number">0</span>) &#125;</span><br><span class="line"><span class="comment">// [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4]]</span></span><br><span class="line"><span class="keyword">let</span> flatMapres = numbers2.flatMap &#123; <span class="type">Array</span>(repeating: $<span class="number">0</span>, <span class="built_in">count</span>: $<span class="number">0</span>) &#125;</span><br><span class="line"><span class="comment">// [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：新版Swift使用了<code>Sequence.compactMap(_:)</code>来替代<code>Sequence.flatMap</code>，<a href="https://github.com/apple/swift-evolution/blob/master/proposals/0187-introduce-filtermap.md" target="_blank" rel="noopener">详细</a></p>
+</blockquote>
+<h3 id="6-filter"><a href="#6-filter" class="headerlink" title="6 filter"></a>6 filter</h3><p> Returns an array containing, in order, the elements of the sequence that satisfy the given predicate.（返回一个数组，该数组按顺序包含满足给定闭包的序列元素。）</p>
+<p> 函数原型：<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">filter</span><span class="params">(<span class="number">_</span> isIncluded: <span class="params">(Element)</span></span></span> <span class="keyword">throws</span> -&gt; <span class="type">Bool</span>) <span class="keyword">rethrows</span> -&gt; [<span class="type">Element</span>]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> err = arr.<span class="built_in">filter</span> &#123;</span><br><span class="line">    $<span class="number">0</span> % <span class="number">2</span> == <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// err = [2, 4]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="noopener">andyRon/LearnSwift</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
 
+      
+    </div>
+
+    <div>
+      
+        <!-- 版权声明 -->
+
+
+  <ul class="post-copyright">
+
+
+    <li class="post-copyright-title">
+      <strong>本文标题：</strong>
+      Swift中的高阶函数：sorted, map, reduce, forEach, flatMap, filter
+    </li>
+
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+
+    <li class="post-copyright-date">
+      <strong>发布时间：</strong>
+      2018年10月15日 - 20:41
+    </li>
+
+    <li class="post-copyright-updated">
+      <strong>最后更新：</strong>
+      2018年10月15日 - 21:07
+    </li>
+
+
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2018/swift-higher-order-function.html" title="Swift中的高阶函数：sorted, map, reduce, forEach, flatMap, filter">http://andyron.com/2018/swift-higher-order-function.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/Swift算法俱乐部-二叉树.html" rel="next" title="【译】Swift算法俱乐部-二叉树">
+                <i class="fa fa-chevron-left"></i> 【译】Swift算法俱乐部-二叉树
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -523,6 +645,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -542,8 +675,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -691,6 +833,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-sorted"><span class="nav-number">1.</span> <span class="nav-text">1 sorted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-map"><span class="nav-number">2.</span> <span class="nav-text">2 map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-reduce"><span class="nav-number">3.</span> <span class="nav-text">3 reduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-forEach"><span class="nav-number">4.</span> <span class="nav-text">4 forEach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-flatMap"><span class="nav-number">5.</span> <span class="nav-text">5 flatMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-filter"><span class="nav-number">6.</span> <span class="nav-text">6 filter</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -830,10 +988,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -851,6 +1009,18 @@
       <script id="dsq-count-scr" src="https://http-andyron-com.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2018/swift-higher-order-function.html';
+          this.page.identifier = '2018/swift-higher-order-function.html';
+          this.page.title = 'Swift中的高阶函数：sorted, map, reduce, forEach, flatMap, filter';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-andyron-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
