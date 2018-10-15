@@ -453,7 +453,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 666 字
+                  : 672 字
                 </span>
               
 
@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 2 分钟
+                  ≈ 3 分钟
                 </span>
               
             </div>
@@ -488,7 +488,7 @@
 
       
         <blockquote>
-<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="external">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="external">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linear%20Search" target="_blank" rel="external">swift-algorithm-club-cn/Linear Search</a></p>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linear%20Search" target="_blank" rel="noopener">swift-algorithm-club-cn/Linear Search</a></p>
 </blockquote>
 <hr>
 <p><img src="https://upload-images.jianshu.io/upload_images/1678135-6fb15436aa3d81c1.gif?imageMogr2/auto-orient/strip" alt="Linear Search"></p>
@@ -499,13 +499,13 @@
 <p>我们将数组中的数字<code>2</code>与数字<code>2</code>进行比较，注意到它们是相等的。 现在我们可以停止迭代并返回1，这是数组中数字<code>2</code>的索引。</p>
 <a id="more"></a>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>这是Swift线性搜索的简单实现：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">linearSearch</span>&lt;T: Equatable&gt;<span class="params">(<span class="number">_</span> array: [T], <span class="number">_</span> object: T)</span></span> -&gt; <span class="type">Int</span>? &#123;</div><div class="line">  <span class="keyword">for</span> (index, obj) <span class="keyword">in</span> array.enumerated() <span class="keyword">where</span> obj == object &#123;</div><div class="line">    <span class="keyword">return</span> index</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">linearSearch</span>&lt;T: Equatable&gt;<span class="params">(<span class="number">_</span> array: [T], <span class="number">_</span> object: T)</span></span> -&gt; <span class="type">Int</span>? &#123;</span><br><span class="line">  <span class="keyword">for</span> (index, obj) <span class="keyword">in</span> array.enumerated() <span class="keyword">where</span> obj == object &#123;</span><br><span class="line">    <span class="keyword">return</span> index</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>将此代码放在playground里测试：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> array = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>]</div><div class="line">linearSearch(array, <span class="number">2</span>) 	<span class="comment">// This will return 1</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>]</span><br><span class="line">linearSearch(array, <span class="number">2</span>) 	<span class="comment">// This will return 1</span></span><br></pre></td></tr></table></figure>
 <h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>线性搜索性能是<strong>O(n)</strong> 。它将我们要查找的对象与数组中的每个对象进行比较，因此它所花费的时间与数组长度成正比。在最坏的情况下，我们需要查看数组中的所有元素。</p>
 <p>最好的情况是 <strong>O(1)</strong>，但这种情况很少见，因为我们要查找的对象必须位于数组的开头才能立即找到。你可能会很幸运，但大部分时间你都不会。平均而言，线性搜索需要查看数组中对象的一半。</p>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p><a href="https://en.wikipedia.org/wiki/Linear_search" target="_blank" rel="external">线性搜索的维基百科</a></p>
-<p><em>作者：<a href="http://www.github.com/BalestraPatrick" target="_blank" rel="external">Patrick Balestra</a></em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em></p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p><a href="https://en.wikipedia.org/wiki/Linear_search" target="_blank" rel="noopener">线性搜索的维基百科</a></p>
+<p><em>作者：<a href="http://www.github.com/BalestraPatrick" target="_blank" rel="noopener">Patrick Balestra</a></em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em></p>
 
       
     </div>
@@ -870,7 +870,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

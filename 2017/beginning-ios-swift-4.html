@@ -507,7 +507,7 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-f0dd9898bfd2e4e3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cover"><br>前一篇<a href="http://www.jianshu.com/p/4390decb221b" target="_blank" rel="external">开始用Swift开发iOS 10 - 3 介绍Auto Layout</a>中提到Auto Layout工具栏有个stack按钮，这是<strong>Stack View</strong>功能。为了解决复杂UI时布局约束定义困难，Apple从iOS 9开始引入<strong>Stack View</strong>。<br>这篇文章将学习到：</p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-f0dd9898bfd2e4e3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cover"><br>前一篇<a href="http://www.jianshu.com/p/4390decb221b" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 3 介绍Auto Layout</a>中提到Auto Layout工具栏有个stack按钮，这是<strong>Stack View</strong>功能。为了解决复杂UI时布局约束定义困难，Apple从iOS 9开始引入<strong>Stack View</strong>。<br>这篇文章将学习到：</p>
 <ol>
 <li>用<strong>Stack View</strong>布局UI。</li>
 <li>用image views展示图片。</li>
@@ -526,11 +526,11 @@
 <li>新建项目 <strong>StackViewDemo</strong></li>
 <li><p>向Xcode中添加图片</p>
 <ul>
-<li><p>从<a href="https://www.appcoda.com/resources/swift3/stackviewdemo- images.zip" target="_blank" rel="external">图片</a>下载所需图片，加压后有3组9张图片，每组有3张不同类型的图片，针对不同类型的设备：</p>
+<li><p>从<a href="https://www.appcoda.com/resources/swift3/stackviewdemo- images.zip" target="_blank" rel="noopener">图片</a>下载所需图片，加压后有3组9张图片，每组有3张不同类型的图片，针对不同类型的设备：</p>
 <ul>
 <li>user1.png  （ non-Retina的一些老设备）</li>
-<li>user1@2x.png     （iPhone 4/4s/5/5s/6）</li>
-<li>user1@3x.png     （iPhone 6 Plus等高分辨的）</li>
+<li><a href="mailto:user1@2x.png" target="_blank" rel="noopener">user1@2x.png</a>     （iPhone 4/4s/5/5s/6）</li>
+<li><a href="mailto:user1@3x.png" target="_blank" rel="noopener">user1@3x.png</a>     （iPhone 6 Plus等高分辨的）</li>
 </ul>
 </li>
 <li><p>拖动图片竟然xcode的asset catalog中，xcode会自动组织这些有规律的图片，使用时直接用user1,不需要靠后面的@2或@3。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-2ca3cfd74a817aa4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -563,7 +563,7 @@
 <li>同时选中两个stack view，点击stack 按钮，再生成一个新的大vertical stack view</li>
 </ul>
 <h3 id="为stack-view添加布局约束"><a href="#为stack-view添加布局约束" class="headerlink" title="为stack view添加布局约束"></a>为stack view添加布局约束</h3><ul>
-<li>选中大的stack view，添加space constraints，上，左右，分别为70，0，0<br><img src="http://upload-images.jianshu.io/upload_images/1678135-28a56053d77bc843.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>添加约束后，如果出现布局问题，可通过<strong>issue indicator</strong>解决，可参考<a href="http://www.jianshu.com/p/4390decb221b" target="_blank" rel="external">上一篇文章</a>。</li>
+<li>选中大的stack view，添加space constraints，上，左右，分别为70，0，0<br><img src="http://upload-images.jianshu.io/upload_images/1678135-28a56053d77bc843.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>添加约束后，如果出现布局问题，可通过<strong>issue indicator</strong>解决，可参考<a href="http://www.jianshu.com/p/4390decb221b" target="_blank" rel="noopener">上一篇文章</a>。</li>
 <li>看预览assistant editor，查看其它设备会发现两个问题：<ul>
 <li><em>Instant Developer</em> label文本在小屏幕设备被截断</li>
 <li>图片的宽高比改变了</li>
@@ -613,8 +613,8 @@
 <li>在<strong>wR hR</strong>时，修改图像stack view的上下空间为30</li>
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-be5ed68d79195b94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="external">Beginning-iOS-Programming-with-Swift</a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
       
     </div>
@@ -708,7 +708,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/swift-17.html" rel="next" title="以撸代码的形式学习Swift-17：可选链式调用(Optional Chaining)">
+              <a href="/2017/swift-17-optional-chaining.html" rel="next" title="以撸代码的形式学习Swift-17：可选链式调用(Optional Chaining)">
                 <i class="fa fa-chevron-left"></i> 以撸代码的形式学习Swift-17：可选链式调用(Optional Chaining)
               </a>
             
@@ -718,7 +718,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/swift-18.html" rel="prev" title="以撸代码的形式学习Swift-18：错误处理(Error handling)">
+              <a href="/2017/swift-18-error-handling.html" rel="prev" title="以撸代码的形式学习Swift-18：错误处理(Error handling)">
                 以撸代码的形式学习Swift-18：错误处理(Error handling) <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -969,7 +969,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

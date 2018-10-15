@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,012 字
+                  : 1,018 字
                 </span>
               
 
@@ -512,11 +512,11 @@
 <li>打开Xcode，选择”Create a new Xcode project”</li>
 </ol>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-505f2cb5e3970c67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Xcode - Welcome Dialog.png"></p>
-<ol>
+<ol start="2">
 <li>选择 <strong>iOS &gt; Single View Application</strong> and click Next</li>
 </ol>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-1972be06a5e86016.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Xcode Project Template Selection.png"></p>
-<ol>
+<ol start="3">
 <li>填写项目的一些选项:</li>
 </ol>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-a66d5b992f2e73cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Options for your new project.png"></p>
@@ -530,7 +530,7 @@
 <li><strong>Devices: iPhone</strong> </li>
 <li><strong>Use Core Data: [unchecked]</strong> </li>
 <li><strong>Include Unit Tests: [unchecked]</strong></li>
-<li><strong>Include UI Tests: [unchecked]</strong><ol>
+<li><strong>Include UI Tests: [unchecked]</strong><ol start="4">
 <li>选择一个项目保持位置，然后生成项目 </li>
 </ol>
 </li>
@@ -543,7 +543,7 @@
 <li>Toolbar(工具栏)</li>
 </ol>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-54ff9a073ad1e438.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ol>
+<ol start="2">
 <li>Tab bar(便签页栏)：类似浏览器的标签页，快捷键也和大部分软件的相同(<strong>⌘+T</strong>新建，<strong>⌘+W</strong>关闭)，单个标签页时是隐藏的</li>
 <li>Navigator area(导航区域)<br>这个区域最上面有八个图标（快捷键分别对应<strong>⌘+1</strong> ~ <strong>⌘+8</strong>）：<ul>
 <li>project navigator(源代码文件、图片文件、数据模型、属性列表等)</li>
@@ -580,7 +580,7 @@
 <h3 id="写代码"><a href="#写代码" class="headerlink" title="写代码"></a>写代码</h3><ul>
 <li>选择<strong>main.storyboard</strong>，点击工具栏右侧的<strong>Assistant editor</strong>(<strong>option+⌘+return</strong>)，编辑区出现两部分，<strong>Ctrl</strong>拖动按钮到右侧<code>ViewController</code>类中：</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-0af965fe38504f2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>然后写下如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@IBAction func showMessage() &#123;</div><div class="line">    let alertController = UIAlertController(title: &quot;Welcome to My First App&quot;,</div><div class="line">message: &quot;Hello World&quot;, preferredStyle: UIAlertControllerStyle.alert)</div><div class="line">    alertController.addAction(UIAlertAction(title: &quot;OK&quot;, style:</div><div class="line">UIAlertActionStyle.default, handler: nil))</div><div class="line">    present(alertController, animated: true, completion: nil)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1678135-0af965fe38504f2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>然后写下如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@IBAction func showMessage() &#123;</span><br><span class="line">    let alertController = UIAlertController(title: &quot;Welcome to My First App&quot;,</span><br><span class="line">message: &quot;Hello World&quot;, preferredStyle: UIAlertControllerStyle.alert)</span><br><span class="line">    alertController.addAction(UIAlertAction(title: &quot;OK&quot;, style:</span><br><span class="line">UIAlertActionStyle.default, handler: nil))</span><br><span class="line">    present(alertController, animated: true, completion: nil)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>上面的方法是先连接关系，然后写代码；也可以先写好代码，然后建立关系：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-b3c146af55ef5ddc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><code>@IBAction</code>表示一个<strong>Action</strong>的标识符，没有特殊意义，当建立好关系后，<code>@IBAction</code>右侧会出现一个实心的点，点击会出现会出现以个弹框表示连接的地方：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-64d17ca33f03f18f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ul>
 <li>修改按钮的颜色。选中按钮，在属性检查器中修改对应属性<br><img src="http://upload-images.jianshu.io/upload_images/1678135-5a232bf159a861ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
@@ -592,8 +592,8 @@
 <li>添加<code>@IBAction</code>方法代码</li>
 <li>通过先写好代码然后建立关系的方法，把几个button都与同一个<code>@IBAction</code>方法建立关系<br><img src="http://upload-images.jianshu.io/upload_images/1678135-b8c284c5d1ddd299.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
 </ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift/releases/download/2/HelloWorld.zip" target="_blank" rel="external">HelloWorld</a><br><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift/releases/download/2/HelloWordExercise.zip" target="_blank" rel="external">HelloWordExercise</a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift/releases/download/2/HelloWorld.zip" target="_blank" rel="noopener">HelloWorld</a><br><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift/releases/download/2/HelloWordExercise.zip" target="_blank" rel="noopener">HelloWordExercise</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
       
     </div>
@@ -687,8 +687,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/swift-11.html" rel="next" title="以撸代码的形式学习Swift-11：方法(Methods)">
-                <i class="fa fa-chevron-left"></i> 以撸代码的形式学习Swift-11：方法(Methods)
+              <a href="/2017/beginning-ios-swift-3.html" rel="next" title="开始用Swift开发iOS 10 - 3 介绍Auto Layout">
+                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 3 介绍Auto Layout
               </a>
             
           </div>
@@ -697,8 +697,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-3.html" rel="prev" title="开始用Swift开发iOS 10 - 3 介绍Auto Layout">
-                开始用Swift开发iOS 10 - 3 介绍Auto Layout <i class="fa fa-chevron-right"></i>
+              <a href="/2017/swift-12-subscripts.html" rel="prev" title="以撸代码的形式学习Swift-12：下标(Subscripts)">
+                以撸代码的形式学习Swift-12：下标(Subscripts) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -948,7 +948,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

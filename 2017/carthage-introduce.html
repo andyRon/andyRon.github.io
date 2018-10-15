@@ -467,7 +467,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 727 字
+                  : 757 字
                 </span>
               
 
@@ -533,13 +533,13 @@
 </li>
 <li><p>创建空文件<code>Cartfile</code>，命令：<code>touch Cartfile</code></p>
 </li>
-<li><p>编辑<code>Cartfile</code>文件(xcode，或其它文本编辑器)，以<a href="https://github.com/SVProgressHUD/SVProgressHUD" target="_blank" rel="external">SVProgressHUD</a>为例，<code>Cartfile</code>文件内容大致如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">github &quot;SVProgressHUD/SVProgressHUD&quot; ~&gt; 1.0</div></pre></td></tr></table></figure>
+<li><p>编辑<code>Cartfile</code>文件(xcode，或其它文本编辑器)，以<a href="https://github.com/SVProgressHUD/SVProgressHUD" target="_blank" rel="noopener">SVProgressHUD</a>为例，<code>Cartfile</code>文件内容大致如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github &quot;SVProgressHUD/SVProgressHUD&quot; ~&gt; 1.0</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><code>Cartfile</code>文件格式说明:</p>
 <ul>
-<li>依赖源有两种，<code>github</code>和<code>git</code>，就是告诉<strong> Carthage</strong>到哪里下载第三方库，例子如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># Require version 2.3.1 or later</div><div class="line">github &quot;ReactiveCocoa/ReactiveCocoa&quot; &gt;= 2.3.1</div><div class="line"></div><div class="line"># Require version 1.x</div><div class="line">github &quot;Mantle/Mantle&quot; ~&gt; 1.0    # (1.0 or later, but less than 2.0)</div><div class="line"></div><div class="line"># Require exactly version 0.4.1</div><div class="line">github &quot;jspahrsummers/libextobjc&quot; == 0.4.1</div><div class="line"></div><div class="line"># Use the latest version</div><div class="line">github &quot;jspahrsummers/xcconfigs&quot;</div><div class="line"></div><div class="line"># Use the branch</div><div class="line">github &quot;jspahrsummers/xcconfigs&quot; &quot;branch&quot;</div><div class="line"></div><div class="line"># Use a project from GitHub Enterprise</div><div class="line">github &quot;https://enterprise.local/ghe/desktop/git-error-translations&quot;</div><div class="line"></div><div class="line"># Use a project from any arbitrary server, on the &quot;development&quot; branch</div><div class="line">git &quot;https://enterprise.local/desktop/git-error-translations2.git&quot; &quot;development&quot;</div><div class="line"></div><div class="line"># Use a local project</div><div class="line">git &quot;file:///directory/to/project&quot; &quot;branch&quot;</div></pre></td></tr></table></figure>
+<li>依赖源有两种，<code>github</code>和<code>git</code>，就是告诉<strong> Carthage</strong>到哪里下载第三方库，例子如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># Require version 2.3.1 or later</span><br><span class="line">github &quot;ReactiveCocoa/ReactiveCocoa&quot; &gt;= 2.3.1</span><br><span class="line"></span><br><span class="line"># Require version 1.x</span><br><span class="line">github &quot;Mantle/Mantle&quot; ~&gt; 1.0    # (1.0 or later, but less than 2.0)</span><br><span class="line"></span><br><span class="line"># Require exactly version 0.4.1</span><br><span class="line">github &quot;jspahrsummers/libextobjc&quot; == 0.4.1</span><br><span class="line"></span><br><span class="line"># Use the latest version</span><br><span class="line">github &quot;jspahrsummers/xcconfigs&quot;</span><br><span class="line"></span><br><span class="line"># Use the branch</span><br><span class="line">github &quot;jspahrsummers/xcconfigs&quot; &quot;branch&quot;</span><br><span class="line"></span><br><span class="line"># Use a project from GitHub Enterprise</span><br><span class="line">github &quot;https://enterprise.local/ghe/desktop/git-error-translations&quot;</span><br><span class="line"></span><br><span class="line"># Use a project from any arbitrary server, on the &quot;development&quot; branch</span><br><span class="line">git &quot;https://enterprise.local/desktop/git-error-translations2.git&quot; &quot;development&quot;</span><br><span class="line"></span><br><span class="line"># Use a local project</span><br><span class="line">git &quot;file:///directory/to/project&quot; &quot;branch&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
@@ -552,21 +552,21 @@
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="4">
 <li>运行Carthage</li>
 </ol>
 <ul>
 <li><code>carthage update [--platform iOS]</code><br><code>--platform iOS</code>是针对iOS的，可选项。<br>在项目根目录下会生成一个<code>Cartfile.resolved</code>文件和<code>Carthage</code>文件夹，<code>Carthage</code>文件夹中的<code>Build</code>目录下有编译好的<code>framework</code>文件，<code>Checkouts</code>目录第三库的源文件。</li>
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-dc2ec05c7cd8667e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ol>
+<ol start="5">
 <li>把库添加到项目中</li>
 </ol>
 <ul>
 <li>把编译好的<code>framework</code>文件拖动到<code>Linked Frameworks and Libraries</code>或者点击<code>+</code>选择。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-a301f33dcd1acc33.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
 <li>在<code>Build Phases</code>中添加一个<code>Run Script</code>。<br>命令为 <code>/usr/local/bin/carthage copy-frameworks</code>。<br><strong>Input Files</strong>下的条目为<code>$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework</code>。<br>具体操作如下图：<br><img src="http://upload-images.jianshu.io/upload_images/685141-eb950371914c0a67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
 </ul>
-<ol>
+<ol start="6">
 <li>编译就可以使用第三方库了</li>
 </ol>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
@@ -574,7 +574,7 @@
 <li>更新指定库：<br><code>carthage update SVProgressHUD --platform iOS</code></li>
 </ul>
 <blockquote>
-<p>参考：<br><a href="http://www.jianshu.com/p/a734be794019" target="_blank" rel="external">Carthage的安装和使用</a><br><a href="http://www.jianshu.com/p/0b71ca9309d0" target="_blank" rel="external">【译】Carthage的使用</a><br><a href="https://imtx.me/archives/1939.html" target="_blank" rel="external">Carthage 初探：四大优势与四大劣势</a><br><a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage官方地址</a></p>
+<p>参考：<br><a href="http://www.jianshu.com/p/a734be794019" target="_blank" rel="noopener">Carthage的安装和使用</a><br><a href="http://www.jianshu.com/p/0b71ca9309d0" target="_blank" rel="noopener">【译】Carthage的使用</a><br><a href="https://imtx.me/archives/1939.html" target="_blank" rel="noopener">Carthage 初探：四大优势与四大劣势</a><br><a href="https://github.com/Carthage/Carthage" target="_blank" rel="noopener">Carthage官方地址</a></p>
 </blockquote>
 
       
@@ -687,8 +687,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/downgit.html" rel="prev" title="DownGit：怎么下载github中某个文件夹？">
-                DownGit：怎么下载github中某个文件夹？ <i class="fa fa-chevron-right"></i>
+              <a href="/2017/ios-localize.html" rel="prev" title="iOS本地化(swift)">
+                iOS本地化(swift) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -938,7 +938,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

@@ -459,7 +459,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,058 字
+                  : 1,114 字
                 </span>
               
 
@@ -494,13 +494,13 @@
 
       
         <p><img src="http://upload-images.jianshu.io/upload_images/1678135-c17dfcdc817310ce.png" alt=""></p>
-<p>继续上一篇<a href="http://www.jianshu.com/p/5b41455d96d3" target="_blank" rel="external">开始用Swift开发iOS 10 - 15 使用地图</a>，这一篇通过添加一个<em>新建Restaurant</em>页面来介绍静态Table Views，<code>UIImagePickerController</code>，<code>NSLayoutConstraint</code>。静态Table Views就是固定cell数目的Table Views；<code>UIImagePickerController</code>用来从设备图片库中获取图片；<code>NSLayoutConstraint</code>就是约束类，用来用代码形式添加约束。</p>
+<p>继续上一篇<a href="http://www.jianshu.com/p/5b41455d96d3" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 15 使用地图</a>，这一篇通过添加一个<em>新建Restaurant</em>页面来介绍静态Table Views，<code>UIImagePickerController</code>，<code>NSLayoutConstraint</code>。静态Table Views就是固定cell数目的Table Views；<code>UIImagePickerController</code>用来从设备图片库中获取图片；<code>NSLayoutConstraint</code>就是约束类，用来用代码形式添加约束。</p>
 <a id="more"></a>
 <h3 id="添加新的Table-View-Controller"><a href="#添加新的Table-View-Controller" class="headerlink" title="添加新的Table View Controller"></a>添加新的Table View Controller</h3><ul>
 <li>拖动一个<strong>Table View Controller</strong>到SB中。</li>
 <li>修改成<strong>Table View</strong>的<code>content</code>为<code>static cells</code>。</li>
 <li>选中<strong>Table View Section</strong>，修改<code>Rows</code>成5。</li>
-<li>下载 [图片] (<a href="http://www.appcoda.com/resources/swift3/photoicons.zip)，拖进`Assets`" target="_blank" rel="external">http://www.appcoda.com/resources/swift3/photoicons.zip)，拖进`Assets`</a></li>
+<li>下载 [图片] (<a href="http://www.appcoda.com/resources/swift3/photoicons.zip)，拖进`Assets`" target="_blank" rel="noopener">http://www.appcoda.com/resources/swift3/photoicons.zip)，拖进`Assets`</a></li>
 <li><p>修改第一个Cell高度为250。添加<strong>Image View</strong>， <code>image</code>为<code>photoalbum</code>，大小64*64，水平和垂直居中。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-87ec7d0ab99252f1.jpg" alt=""></p>
 </li>
 <li><p>第二个cell高度为72。添加一个<strong>Label</strong>文本<code>NAME</code>。添加一个<strong>Text Field</strong>,<code>placeholder</code>为<code>Restaurant Name</code>，<code>border style</code>为 <code>none</code>，宽度为339。添加适当约束。</p>
@@ -516,14 +516,14 @@
 <li><p>在<strong>New Restaurant Controller</strong>的Navigation bar的左边添加一个<strong>bar button item</strong>，<code>System Item</code>为 <code>Cancel</code>，<code>tint</code>为<code>white</code>。</p>
 </li>
 <li><p>在<code>RestaurantTableViewController</code>中添加unwind segue的action。用<strong>control-drag</strong>关联。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-54861090b1e88a71.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h3 id="使用UIImagePickerController调用相册"><a href="#使用UIImagePickerController调用相册" class="headerlink" title="使用UIImagePickerController调用相册"></a>使用UIImagePickerController调用相册</h3><ul>
 <li>新建<code>AddRestaurantController</code>，继承至<code>UITableViewController</code>。关联<strong>New Restaurant Controller</strong>。</li>
 <li>删除除了<code>viewDidLoad</code>方法的其他方法，静态类型不需要了。</li>
-<li>添加<code>tableView(_:didSelectRowAt:)</code>：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">override func tableView(_ tableView: UITableView, didSelectRowAt indexPath:</div><div class="line">    IndexPath) &#123;</div><div class="line">    if indexPath.row == 0 &#123;</div><div class="line">        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) &#123;</div><div class="line">            let imagePicker = UIImagePickerController()</div><div class="line">            imagePicker.allowsEditing = false</div><div class="line">            imagePicker.sourceType = .photoLibrary</div><div class="line">            present(imagePicker, animated: true, completion: nil)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>添加<code>tableView(_:didSelectRowAt:)</code>：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">override func tableView(_ tableView: UITableView, didSelectRowAt indexPath:</span><br><span class="line">    IndexPath) &#123;</span><br><span class="line">    if indexPath.row == 0 &#123;</span><br><span class="line">        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) &#123;</span><br><span class="line">            let imagePicker = UIImagePickerController()</span><br><span class="line">            imagePicker.allowsEditing = false</span><br><span class="line">            imagePicker.sourceType = .photoLibrary</span><br><span class="line">            present(imagePicker, animated: true, completion: nil)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>选择第一个cell，也就是图片，通过<code>isSourceTypeAvailable</code>方法判断是否有图库可用。</p>
@@ -538,7 +538,7 @@
 <li><p>添加接口<code>@IBOutlet var photoImageView: UIImageView!</code>，并关联。</p>
 </li>
 <li><p>添加函数<code>imagePickerController(_:didFinishPickingMediaWithInfo:)</code>，当用户从图库中选择图片时调用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) &#123;</div><div class="line">    </div><div class="line">    if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage &#123;</div><div class="line">        photoImageView.image = selectedImage</div><div class="line">        photoImageView.contentMode = .scaleAspectFill</div><div class="line">        photoImageView.clipsToBounds = true</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    dismiss(animated: TUREAD, completion: nil)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) &#123;</span><br><span class="line">    </span><br><span class="line">    if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage &#123;</span><br><span class="line">        photoImageView.image = selectedImage</span><br><span class="line">        photoImageView.contentMode = .scaleAspectFill</span><br><span class="line">        photoImageView.clipsToBounds = true</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dismiss(animated: TUREAD, completion: nil)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在<code>tableView(_:didSelectRowAt:)</code>中的<code>imagePicker</code>定义后添加：</p>
 <pre><code>imagePicker.delegate = self
@@ -552,26 +552,26 @@
 leadingConstraint.isActive = true
 </code></pre></li>
 <li><p>在添加<code>imagePickerController(_:didFinishPickingMediaWithInfo:)</code>的<code>dismiss(animated: true, completion: nil)</code>之前添加4个约束代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">let leadingConstraint = NSLayoutConstraint(item: photoImageView, attribute: .leading, relatedBy: .equal, toItem: photoImageView.superview, attribute: .leading, multiplier: 1, constant: 0)</div><div class="line">        leadingConstraint.isActive = true</div><div class="line">        </div><div class="line">        let trailingConstrain = NSLayoutConstraint(item: photoImageView, attribute: .trailing, relatedBy: .equal, toItem: photoImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)</div><div class="line">        trailingConstrain.isActive = true</div><div class="line">        </div><div class="line">        let topConstraint = NSLayoutConstraint(item: photoImageView, attribute: .top, relatedBy: .equal, toItem: photoImageView.superview, attribute: .top, multiplier: 1, constant: 0)</div><div class="line">        </div><div class="line">        let buttomConstraint = NSLayoutConstraint(item: photoImageView, attribute: .bottom, relatedBy: .equal, toItem: photoImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let leadingConstraint = NSLayoutConstraint(item: photoImageView, attribute: .leading, relatedBy: .equal, toItem: photoImageView.superview, attribute: .leading, multiplier: 1, constant: 0)</span><br><span class="line">        leadingConstraint.isActive = true</span><br><span class="line">        </span><br><span class="line">        let trailingConstrain = NSLayoutConstraint(item: photoImageView, attribute: .trailing, relatedBy: .equal, toItem: photoImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)</span><br><span class="line">        trailingConstrain.isActive = true</span><br><span class="line">        </span><br><span class="line">        let topConstraint = NSLayoutConstraint(item: photoImageView, attribute: .top, relatedBy: .equal, toItem: photoImageView.superview, attribute: .top, multiplier: 1, constant: 0)</span><br><span class="line">        </span><br><span class="line">        let buttomConstraint = NSLayoutConstraint(item: photoImageView, attribute: .bottom, relatedBy: .equal, toItem: photoImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>添加约束前后对比：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c818569aaabd4a08.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h3 id="Exercise：验证添加数据"><a href="#Exercise：验证添加数据" class="headerlink" title="Exercise：验证添加数据"></a>Exercise：验证添加数据</h3><ul>
 <li>在<strong>New Restaurant Controller</strong>的Navigation controller的有右上角添加Save按钮。</li>
 <li><p>在<code>AddRestaurantController</code>中添加五个接口和一个变量，并关联。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@IBOutlet var nameTextField:UITextField!</div><div class="line">@IBOutlet var typeTextField:UITextField!</div><div class="line">@IBOutlet var locationTextField:UITextField!</div><div class="line">@IBOutlet var yesButton:UIButton!</div><div class="line">@IBOutlet var noButton:UIButton!</div><div class="line"> var isVisited: Bool = true</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@IBOutlet var nameTextField:UITextField!</span><br><span class="line">@IBOutlet var typeTextField:UITextField!</span><br><span class="line">@IBOutlet var locationTextField:UITextField!</span><br><span class="line">@IBOutlet var yesButton:UIButton!</span><br><span class="line">@IBOutlet var noButton:UIButton!</span><br><span class="line"> var isVisited: Bool = true</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>添加一个Action，关联save按钮。</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@IBAction func save(_ sender: Any) &#123;</div><div class="line">    </div><div class="line">    if (nameTextField.text?.isEmpty)! || (typeTextField.text?.isEmpty)! || (locationTextField.text?.isEmpty)! &#123;</div><div class="line">        let alertController = UIAlertController(title: &quot;Oops&quot;, message: &quot;We can&apos;t proceed because one of the fields is blank....&quot;, preferredStyle: .alert)</div><div class="line">        let alertAction = UIAlertAction(title: &quot;OK&quot;, style: .default, handler: nil)</div><div class="line">        alertController.addAction(alertAction)</div><div class="line">        present(alertController, animated: true, completion: nil)</div><div class="line">        </div><div class="line">    &#125; else &#123;</div><div class="line">        print(nameTextField.text, typeTextField.text, locationTextField.text, isVisited)</div><div class="line">        dismiss(animated: true, completion: nil)</div><div class="line">//            performSegue(withIdentifier: &quot;unwindToHomeScreen&quot;, sender: self)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@IBAction func save(_ sender: Any) &#123;</span><br><span class="line">    </span><br><span class="line">    if (nameTextField.text?.isEmpty)! || (typeTextField.text?.isEmpty)! || (locationTextField.text?.isEmpty)! &#123;</span><br><span class="line">        let alertController = UIAlertController(title: &quot;Oops&quot;, message: &quot;We can&apos;t proceed because one of the fields is blank....&quot;, preferredStyle: .alert)</span><br><span class="line">        let alertAction = UIAlertAction(title: &quot;OK&quot;, style: .default, handler: nil)</span><br><span class="line">        alertController.addAction(alertAction)</span><br><span class="line">        present(alertController, animated: true, completion: nil)</span><br><span class="line">        </span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        print(nameTextField.text, typeTextField.text, locationTextField.text, isVisited)</span><br><span class="line">        dismiss(animated: true, completion: nil)</span><br><span class="line">//            performSegue(withIdentifier: &quot;unwindToHomeScreen&quot;, sender: self)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>去除<strong> Add Restaurant view controller</strong>回到主界面有两种方法，一是<code>dismiss(animated: true, completion: nil)</code>，而是利用unwind segue。</p>
 <ul>
-<li>添加一个Action <code>toggleBeenHereButton:</code>，用于yesButton和noButton的操作。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@IBAction func toggleBeenHereButton(sender: UIButton) &#123;</div><div class="line">    if sender == yesButton &#123;</div><div class="line">        isVisited = true</div><div class="line">        yesButton.backgroundColor = UIColor.red</div><div class="line">        noButton.backgroundColor = UIColor.gray</div><div class="line">    &#125; else &#123;</div><div class="line">        isVisited = false</div><div class="line">        yesButton.backgroundColor = UIColor.gray</div><div class="line">        noButton.backgroundColor = UIColor.red</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>添加一个Action <code>toggleBeenHereButton:</code>，用于yesButton和noButton的操作。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@IBAction func toggleBeenHereButton(sender: UIButton) &#123;</span><br><span class="line">    if sender == yesButton &#123;</span><br><span class="line">        isVisited = true</span><br><span class="line">        yesButton.backgroundColor = UIColor.red</span><br><span class="line">        noButton.backgroundColor = UIColor.gray</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        isVisited = false</span><br><span class="line">        yesButton.backgroundColor = UIColor.gray</span><br><span class="line">        noButton.backgroundColor = UIColor.red</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="external">Beginning-iOS-Programming-with-Swift</a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
       
     </div>
@@ -665,8 +665,8 @@ leadingConstraint.isActive = true
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-14.html" rel="next" title="开始用Swift开发iOS 10 - 14 基础动画，模糊效果和Unwind Segue">
-                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 14 基础动画，模糊效果和Unwind Segue
+              <a href="/2017/beginning-ios-swift-15.html" rel="next" title="开始用Swift开发iOS 10 - 15 使用地图">
+                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 15 使用地图
               </a>
             
           </div>
@@ -675,8 +675,8 @@ leadingConstraint.isActive = true
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-15.html" rel="prev" title="开始用Swift开发iOS 10 - 15 使用地图">
-                开始用Swift开发iOS 10 - 15 使用地图 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/swift-0.html" rel="prev" title="以撸代码的形式学习Swift-0：说明和目录">
+                以撸代码的形式学习Swift-0：说明和目录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -926,7 +926,7 @@ leadingConstraint.isActive = true
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

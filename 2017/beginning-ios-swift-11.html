@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 989 字
+                  : 1,041 字
                 </span>
               
 
@@ -468,7 +468,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 5 分钟
+                  ≈ 6 分钟
                 </span>
               
             </div>
@@ -489,12 +489,12 @@
         <p><img src="http://upload-images.jianshu.io/upload_images/1678135-a1e3d5b30b1e86a8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>关于面向对象编程（Object Oriented Programming ，OOP）的知识就不多介绍了，这不是一门编程语言中的概念，而是编程方法。OOP最好的一地方是，它让复杂的软件分解成一个个小的部分，方便程序员开放和管理。</p>
 <a id="more"></a>
-<p>这一篇文章就把上一篇文章<a href="http://www.jianshu.com/p/ff7e904f82cd" target="_blank" rel="external">开始用Swift开发iOS 10 - 10 Navigation Controller的介绍和Segue</a>的代码整理成OOP形式。</p>
+<p>这一篇文章就把上一篇文章<a href="http://www.jianshu.com/p/ff7e904f82cd" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 10 Navigation Controller的介绍和Segue</a>的代码整理成OOP形式。</p>
 <h3 id="重新修改FoodPin项目"><a href="#重新修改FoodPin项目" class="headerlink" title="重新修改FoodPin项目"></a>重新修改FoodPin项目</h3><ul>
 <li><p>之前在<code>RestaurantTableViewController</code>类中，定义了<code>restaurantNames</code>,<code>restaurantImages</code>, <code>restaurantLocations</code>,<code>restaurantTypes</code>四个数组变量，分别表示restaurant的名字，图片名称，位置，类型。每个restaurant的信息分散在四个数组中，而且数组的内容顺序要对应，现在把四个信息组成在一个类中<code>Restaurant</code>。</p>
 </li>
 <li><p>添加类文件<code>Restaurant.swift</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">import Foundation</div><div class="line"></div><div class="line">class Restaurant &#123;</div><div class="line">    var name = &quot;&quot;</div><div class="line">    var type = &quot;&quot;</div><div class="line">    var location = &quot;&quot;</div><div class="line">    var image = &quot;&quot;</div><div class="line">    var isVisited = false</div><div class="line">    // 1</div><div class="line">    init(name: String, type: String, location: String, image: String,</div><div class="line">         isVisited: Bool) &#123;</div><div class="line">        self.name = name</div><div class="line">        self.type = type</div><div class="line">        self.location = location</div><div class="line">        self.image = image</div><div class="line">        self.isVisited = isVisited</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import Foundation</span><br><span class="line"></span><br><span class="line">class Restaurant &#123;</span><br><span class="line">    var name = &quot;&quot;</span><br><span class="line">    var type = &quot;&quot;</span><br><span class="line">    var location = &quot;&quot;</span><br><span class="line">    var image = &quot;&quot;</span><br><span class="line">    var isVisited = false</span><br><span class="line">    // 1</span><br><span class="line">    init(name: String, type: String, location: String, image: String,</span><br><span class="line">         isVisited: Bool) &#123;</span><br><span class="line">        self.name = name</span><br><span class="line">        self.type = type</span><br><span class="line">        self.location = location</span><br><span class="line">        self.image = image</span><br><span class="line">        self.isVisited = isVisited</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>1 自定义的初始化方法。<strong>在Swift中，类的所有变量都需要被初始化，或者声明为可选值。</strong></li>
 </ul>
@@ -527,13 +527,13 @@
 </ul>
 <ul>
 <li><p>更新 <code>tableView(_:numberOfRowsInSection:)</code> :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">override func tableView(_ tableView: UITableView, numberOfRowsInSection</div><div class="line">section: Int) -&gt; Int &#123;</div><div class="line">    return restaurants.count</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">override func tableView(_ tableView: UITableView, numberOfRowsInSection</span><br><span class="line">section: Int) -&gt; Int &#123;</span><br><span class="line">    return restaurants.count</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更新 <code>tableView(_:cellForRowAtIndexPath:)</code> ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</div><div class="line">    let cellIdentifier = &quot;Cell&quot;</div><div class="line">    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,</div><div class="line">                                             for: indexPath) as! RestaurantTableViewCell</div><div class="line">    // Configure the cell...</div><div class="line">    cell.nameLabel.text = restaurants[indexPath.row].name</div><div class="line">    cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)</div><div class="line">    cell.thumbnailImageView.layer.cornerRadius = 30.0</div><div class="line">    cell.thumbnailImageView.clipsToBounds = true</div><div class="line">    cell.locationLabel.text = restaurants[indexPath.row].location</div><div class="line">    cell.typeLabel.text = restaurants[indexPath.row].type</div><div class="line">    </div><div class="line">    cell.accessoryType = restaurants[indexPath.row].isVisited ? .checkmark : .none</div><div class="line">    </div><div class="line">    return cell</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</span><br><span class="line">    let cellIdentifier = &quot;Cell&quot;</span><br><span class="line">    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,</span><br><span class="line">                                             for: indexPath) as! RestaurantTableViewCell</span><br><span class="line">    // Configure the cell...</span><br><span class="line">    cell.nameLabel.text = restaurants[indexPath.row].name</span><br><span class="line">    cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)</span><br><span class="line">    cell.thumbnailImageView.layer.cornerRadius = 30.0</span><br><span class="line">    cell.thumbnailImageView.clipsToBounds = true</span><br><span class="line">    cell.locationLabel.text = restaurants[indexPath.row].location</span><br><span class="line">    cell.typeLabel.text = restaurants[indexPath.row].type</span><br><span class="line">    </span><br><span class="line">    cell.accessoryType = restaurants[indexPath.row].isVisited ? .checkmark : .none</span><br><span class="line">    </span><br><span class="line">    return cell</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更新<code>tableView(_:commit:forRowAt:)</code> :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) &#123;</div><div class="line">    if editingStyle == .delete &#123;</div><div class="line">        restaurants.remove(at: indexPath.row)</div><div class="line">    &#125;</div><div class="line">    tableView.deleteRows(at: [indexPath], with: .fade)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) &#123;</span><br><span class="line">    if editingStyle == .delete &#123;</span><br><span class="line">        restaurants.remove(at: indexPath.row)</span><br><span class="line">    &#125;</span><br><span class="line">    tableView.deleteRows(at: [indexPath], with: .fade)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更新 <code>tableView(_:editActionsForRowAt:)</code> ：</p>
 <pre><code>override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -&gt; [UITableViewRowAction]? {
@@ -566,7 +566,7 @@
 }
 </code></pre></li>
 <li><p><code>RestaurantDetailViewController</code>中的四个变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var nameText = &quot;&quot;</div><div class="line">var locationText = &quot;&quot;</div><div class="line">var typeText = &quot;&quot;</div><div class="line">var restaurantImage = &quot;&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var nameText = &quot;&quot;</span><br><span class="line">var locationText = &quot;&quot;</span><br><span class="line">var typeText = &quot;&quot;</span><br><span class="line">var restaurantImage = &quot;&quot;</span><br></pre></td></tr></table></figure>
 <p>更新为：<code>var restaurant: Restaurant!</code></p>
 <p>与之对应的<code>viewDidLoad()</code>也修改为：</p>
 <pre><code>override func viewDidLoad() {
@@ -579,12 +579,12 @@
 }
 </code></pre></li>
 <li><p>最后<code>prepare(for:sender:)</code>方法也做对应修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">override func prepare(for segue: UIStoryboardSegue, sender: Any?) &#123;</div><div class="line">    if segue.identifier == &quot;showRestaurantDetail&quot; &#123;</div><div class="line">        if let indexPath = tableView.indexPathForSelectedRow &#123;</div><div class="line">            let destinationController = segue.destination as! RestaurantDetailViewController</div><div class="line">            destinationController.restaurant = restaurants[indexPath.row]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">override func prepare(for segue: UIStoryboardSegue, sender: Any?) &#123;</span><br><span class="line">    if segue.identifier == &quot;showRestaurantDetail&quot; &#123;</span><br><span class="line">        if let indexPath = tableView.indexPathForSelectedRow &#123;</span><br><span class="line">            let destinationController = segue.destination as! RestaurantDetailViewController</span><br><span class="line">            destinationController.restaurant = restaurants[indexPath.row]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>运行没有问题。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="external">Beginning-iOS-Programming-with-Swift</a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
       
     </div>
@@ -688,7 +688,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/swift-25.html" rel="prev" title="以撸代码的形式学习Swift-25：高级运算符(Advanced Operators)">
+              <a href="/2017/swift-25-advanced-operators.html" rel="prev" title="以撸代码的形式学习Swift-25：高级运算符(Advanced Operators)">
                 以撸代码的形式学习Swift-25：高级运算符(Advanced Operators) <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -939,7 +939,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

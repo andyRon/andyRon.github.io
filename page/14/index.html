@@ -345,7 +345,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-13.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-13-inheritance.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -364,7 +364,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-13.html" itemprop="url">以撸代码的形式学习Swift-13：继承(Inheritance)</a></h1>
+                <a class="post-title-link" href="/2017/swift-13-inheritance.html" itemprop="url">以撸代码的形式学习Swift-13：继承(Inheritance)</a></h1>
         
 
         <div class="post-meta">
@@ -417,9 +417,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/swift-13.html#comments" itemprop="discussionUrl">
+                <a href="/2017/swift-13-inheritance.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-13.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/swift-13-inheritance.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -427,7 +427,7 @@
 
           
           
-             <span id="/2017/swift-13.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-13：继承(Inheritance)">
+             <span id="/2017/swift-13-inheritance.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-13：继承(Inheritance)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -453,7 +453,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 268 字
+                  : 308 字
                 </span>
               
 
@@ -491,11 +491,11 @@
           <blockquote>
 <p>一个类可以继承(inherit)另一个类的方法(methods)，属性(properties)和其它特性<br>类可以调用和访问超类的方法，属性和下标(subscripts)，并且可以重写(override)这些方法，属性和下标来优化或修改它们的行为。<br>可以为类中继承来的属性添加属性观察器(property observers)</p>
 </blockquote>
-<h3 id="1-基类-base-class"><a href="#1-基类-base-class" class="headerlink" title="1 基类(base class)"></a>1 基类(base class)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> currentSpeed = <span class="number">0.0</span></div><div class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"traveling at <span class="subst">\(currentSpeed)</span> miles per hour"</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="comment">// 什么也不做-因为车辆不一定会有噪音</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> someVehicle = <span class="type">Vehicle</span>()</div></pre></td></tr></table></figure>
+<h3 id="1-基类-base-class"><a href="#1-基类-base-class" class="headerlink" title="1 基类(base class)"></a>1 基类(base class)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> currentSpeed = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"traveling at <span class="subst">\(currentSpeed)</span> miles per hour"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 什么也不做-因为车辆不一定会有噪音</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> someVehicle = <span class="type">Vehicle</span>()</span><br></pre></td></tr></table></figure>
 <h3 id="2-子类生成-Subclassing"><a href="#2-子类生成-Subclassing" class="headerlink" title="2 子类生成(Subclassing)"></a>2 子类生成(Subclassing)</h3>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/swift-13.html#more" rel="contents">
+            <a class="btn" href="/2017/swift-13-inheritance.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -541,7 +541,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-12.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-12-subscripts.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -560,7 +560,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-12.html" itemprop="url">以撸代码的形式学习Swift-12：下标(Subscripts)</a></h1>
+                <a class="post-title-link" href="/2017/swift-12-subscripts.html" itemprop="url">以撸代码的形式学习Swift-12：下标(Subscripts)</a></h1>
         
 
         <div class="post-meta">
@@ -613,9 +613,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/swift-12.html#comments" itemprop="discussionUrl">
+                <a href="/2017/swift-12-subscripts.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-12.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/swift-12-subscripts.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -623,7 +623,7 @@
 
           
           
-             <span id="/2017/swift-12.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-12：下标(Subscripts)">
+             <span id="/2017/swift-12-subscripts.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-12：下标(Subscripts)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -649,7 +649,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 316 字
+                  : 348 字
                 </span>
               
 
@@ -665,7 +665,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 1 分钟
+                  ≈ 2 分钟
                 </span>
               
             </div>
@@ -687,11 +687,206 @@
           <blockquote>
 <p>下标 (subscripts)可以定义在类(class)、结构体(structure)和枚举(enumeration)中，是访问集合(collection)，列表(list)或序列(sequence)中元素的快捷方式。<br>一个类型可以定义多个下标，通过不同索引类型进行重载。</p>
 </blockquote>
-<h3 id="1-下标语法"><a href="#1-下标语法" class="headerlink" title="1 下标语法"></a>1 下标语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TimesTable</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> multiplier: <span class="type">Int</span></div><div class="line">    <span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> multiplier * index</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> threeTimesTable = <span class="type">TimesTable</span>(multiplier: <span class="number">3</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"six times three is <span class="subst">\(threeTimesTable[<span class="number">6</span>])</span>"</span>)</div></pre></td></tr></table></figure>
+<h3 id="1-下标语法"><a href="#1-下标语法" class="headerlink" title="1 下标语法"></a>1 下标语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TimesTable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> multiplier: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> multiplier * index</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> threeTimesTable = <span class="type">TimesTable</span>(multiplier: <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"six times three is <span class="subst">\(threeTimesTable[<span class="number">6</span>])</span>"</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="2-下标用法"><a href="#2-下标用法" class="headerlink" title="2 下标用法"></a>2 下标用法</h3><p>字典通过下标返回是可选类型<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/swift-12.html#more" rel="contents">
+            <a class="btn" href="/2017/swift-12-subscripts.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/beginning-ios-swift-2.html" itemprop="url">开始用Swift开发iOS 10 - 2 Hello World！第一个Swift APP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-04T00:00:00+08:00">
+                2017-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Beginning_iOS_Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/beginning-ios-swift-2.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/beginning-ios-swift-2.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/beginning-ios-swift-2.html" class="leancloud_visitors" data-flag-title="开始用Swift开发iOS 10 - 2 Hello World！第一个Swift APP">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 1,018 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-6958f1329a48a5a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="预览.png"></p>
+<blockquote>
+<p>“Hello,World”已经成为编程世界里开始的惯例。</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/beginning-ios-swift-2.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -932,7 +1127,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-2.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-11-methods.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -951,202 +1146,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/beginning-ios-swift-2.html" itemprop="url">开始用Swift开发iOS 10 - 2 Hello World！第一个Swift APP</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-04T00:00:00+08:00">
-                2017-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Beginning_iOS_Swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/beginning-ios-swift-2.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/beginning-ios-swift-2.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/beginning-ios-swift-2.html" class="leancloud_visitors" data-flag-title="开始用Swift开发iOS 10 - 2 Hello World！第一个Swift APP">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  : 1,012 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  ≈ 4 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-6958f1329a48a5a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="预览.png"></p>
-<blockquote>
-<p>“Hello,World”已经成为编程世界里开始的惯例。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/beginning-ios-swift-2.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-11.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/swift-11.html" itemprop="url">以撸代码的形式学习Swift-11：方法(Methods)</a></h1>
+                <a class="post-title-link" href="/2017/swift-11-methods.html" itemprop="url">以撸代码的形式学习Swift-11：方法(Methods)</a></h1>
         
 
         <div class="post-meta">
@@ -1199,9 +1199,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/swift-11.html#comments" itemprop="discussionUrl">
+                <a href="/2017/swift-11-methods.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-11.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/swift-11-methods.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1209,7 +1209,7 @@
 
           
           
-             <span id="/2017/swift-11.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-11：方法(Methods)">
+             <span id="/2017/swift-11-methods.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-11：方法(Methods)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1235,7 +1235,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 516 字
+                  : 593 字
                 </span>
               
 
@@ -1276,13 +1276,13 @@
 <h3 id="1-实例方法-Instance-Methods"><a href="#1-实例方法-Instance-Methods" class="headerlink" title="1 实例方法 (Instance Methods)"></a>1 实例方法 (Instance Methods)</h3><ul>
 <li>实例方法只能被它所属的类的某个特定实例调用</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">increment</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">count</span> += <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">incrementBy</span><span class="params">(amount: Int)</span></span> &#123;</div><div class="line">        <span class="built_in">count</span> += amount</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reset</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">count</span> = <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">increment</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">incrementBy</span><span class="params">(amount: Int)</span></span> &#123;</span><br><span class="line">        <span class="built_in">count</span> += amount</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reset</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>方法的局部参数名称和外部参数名称 (Local and External Parameter Names for Methods)</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/swift-11.html#more" rel="contents">
+            <a class="btn" href="/2017/swift-11-methods.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1328,7 +1328,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-10.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-10-properties.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1347,7 +1347,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-10.html" itemprop="url">以撸代码的形式学习Swift-10：属性(Properties)</a></h1>
+                <a class="post-title-link" href="/2017/swift-10-properties.html" itemprop="url">以撸代码的形式学习Swift-10：属性(Properties)</a></h1>
         
 
         <div class="post-meta">
@@ -1400,9 +1400,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/swift-10.html#comments" itemprop="discussionUrl">
+                <a href="/2017/swift-10-properties.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-10.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/swift-10-properties.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1410,7 +1410,7 @@
 
           
           
-             <span id="/2017/swift-10.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-10：属性(Properties)">
+             <span id="/2017/swift-10-properties.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-10：属性(Properties)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1436,7 +1436,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 807 字
+                  : 939 字
                 </span>
               
 
@@ -1452,7 +1452,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 4 分钟
+                  ≈ 5 分钟
                 </span>
               
             </div>
@@ -1471,10 +1471,10 @@
 
       
         
-          <h3 id="1-存储属性-Stored-Properties-（只能用于类和结构体）"><a href="#1-存储属性-Stored-Properties-（只能用于类和结构体）" class="headerlink" title="1 存储属性 Stored Properties （只能用于类和结构体）"></a>1 存储属性 Stored Properties （只能用于类和结构体）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 描述整数的范围，且这个范围值在被创建后不能被修改.</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">FixedLengthRange</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> firstValue: <span class="type">Int</span></div><div class="line">    <span class="keyword">let</span> length: <span class="type">Int</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 该区间表示整数0，1，2</span></div><div class="line"><span class="keyword">var</span> rangeOfThreeItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">3</span>)</div><div class="line"><span class="comment">// 该区间现在表示整数6，7，8</span></div><div class="line">rangeOfThreeItems.firstValue = <span class="number">6</span></div><div class="line"><span class="comment">// 常量结构的属性不能修改</span></div><div class="line"><span class="keyword">let</span> rangeOfFourItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">4</span>)</div><div class="line"><span class="comment">// 尽管 firstValue 是个变量属性，这里还是会报错</span></div><div class="line"><span class="comment">//rangeOfFourItems.firstValue = 6</span></div></pre></td></tr></table></figure>
+          <h3 id="1-存储属性-Stored-Properties-（只能用于类和结构体）"><a href="#1-存储属性-Stored-Properties-（只能用于类和结构体）" class="headerlink" title="1 存储属性 Stored Properties （只能用于类和结构体）"></a>1 存储属性 Stored Properties （只能用于类和结构体）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 描述整数的范围，且这个范围值在被创建后不能被修改.</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">FixedLengthRange</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> firstValue: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> length: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 该区间表示整数0，1，2</span></span><br><span class="line"><span class="keyword">var</span> rangeOfThreeItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">3</span>)</span><br><span class="line"><span class="comment">// 该区间现在表示整数6，7，8</span></span><br><span class="line">rangeOfThreeItems.firstValue = <span class="number">6</span></span><br><span class="line"><span class="comment">// 常量结构的属性不能修改</span></span><br><span class="line"><span class="keyword">let</span> rangeOfFourItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 尽管 firstValue 是个变量属性，这里还是会报错</span></span><br><span class="line"><span class="comment">//rangeOfFourItems.firstValue = 6</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/swift-10.html#more" rel="contents">
+            <a class="btn" href="/2017/swift-10-properties.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1520,7 +1520,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-9.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-9-structures-classes.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1539,7 +1539,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-9.html" itemprop="url">以撸代码的形式学习Swift-9：类和结构体(Classes and Structures)</a></h1>
+                <a class="post-title-link" href="/2017/swift-9-structures-classes.html" itemprop="url">以撸代码的形式学习Swift-9：类和结构体(Classes and Structures)</a></h1>
         
 
         <div class="post-meta">
@@ -1592,9 +1592,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/swift-9.html#comments" itemprop="discussionUrl">
+                <a href="/2017/swift-9-structures-classes.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-9.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/swift-9-structures-classes.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1602,7 +1602,7 @@
 
           
           
-             <span id="/2017/swift-9.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-9：类和结构体(Classes and Structures)">
+             <span id="/2017/swift-9-structures-classes.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-9：类和结构体(Classes and Structures)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1628,7 +1628,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 671 字
+                  : 711 字
                 </span>
               
 
@@ -1678,7 +1678,7 @@
 <li>属性和方法命名用<em>lowerCamelCase</em>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/swift-9.html#more" rel="contents">
+            <a class="btn" href="/2017/swift-9-structures-classes.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1724,7 +1724,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-8.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-8-enumerations.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -1743,7 +1743,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-8.html" itemprop="url">以撸代码的形式学习Swift-8：枚举(Enumerations)</a></h1>
+                <a class="post-title-link" href="/2017/swift-8-enumerations.html" itemprop="url">以撸代码的形式学习Swift-8：枚举(Enumerations)</a></h1>
         
 
         <div class="post-meta">
@@ -1796,9 +1796,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/swift-8.html#comments" itemprop="discussionUrl">
+                <a href="/2017/swift-8-enumerations.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-8.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/swift-8-enumerations.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1806,7 +1806,7 @@
 
           
           
-             <span id="/2017/swift-8.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-8：枚举(Enumerations)">
+             <span id="/2017/swift-8-enumerations.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-8：枚举(Enumerations)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1832,7 +1832,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 261 字
+                  : 292 字
                 </span>
               
 
@@ -1870,11 +1870,11 @@
           <blockquote>
 <p>一等(first-class)类型<br>每个枚举定义了一个全新的类型。以大写字母开头<br>成员值(或成员)  原始值  关联值<br>不会被赋予一个默认的整型值  </p>
 </blockquote>
-<h3 id="1-枚举语法"><a href="#1-枚举语法" class="headerlink" title="1 枚举语法"></a>1 枚举语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CompassPoint</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> <span class="type">North</span></div><div class="line">    <span class="keyword">case</span> <span class="type">South</span></div><div class="line">    <span class="keyword">case</span> <span class="type">East</span></div><div class="line">    <span class="keyword">case</span> <span class="type">West</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> <span class="type">Mercury</span>, <span class="type">Venus</span>, <span class="type">Earth</span>, <span class="type">Mars</span>, <span class="type">Jupiter</span>, <span class="type">Saturn</span>, <span class="type">Uranus</span>, <span class="type">Neptune</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> directionToHead = <span class="type">CompassPoint</span>.<span class="type">West</span></div><div class="line">directionToHead = .<span class="type">East</span></div></pre></td></tr></table></figure>
+<h3 id="1-枚举语法"><a href="#1-枚举语法" class="headerlink" title="1 枚举语法"></a>1 枚举语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CompassPoint</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">North</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">South</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">East</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">West</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Mercury</span>, <span class="type">Venus</span>, <span class="type">Earth</span>, <span class="type">Mars</span>, <span class="type">Jupiter</span>, <span class="type">Saturn</span>, <span class="type">Uranus</span>, <span class="type">Neptune</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> directionToHead = <span class="type">CompassPoint</span>.<span class="type">West</span></span><br><span class="line">directionToHead = .<span class="type">East</span></span><br></pre></td></tr></table></figure>
 <h2 id="2-Switch-语句匹配枚举值"><a href="#2-Switch-语句匹配枚举值" class="headerlink" title="2 Switch 语句匹配枚举值"></a>2 Switch 语句匹配枚举值</h2>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/swift-8.html#more" rel="contents">
+            <a class="btn" href="/2017/swift-8-enumerations.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2116,7 +2116,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-6.html">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-6-functions.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -2135,7 +2135,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/swift-6.html" itemprop="url">以撸代码的形式学习Swift-6：函数(Functions)</a></h1>
+                <a class="post-title-link" href="/2017/swift-6-functions.html" itemprop="url">以撸代码的形式学习Swift-6：函数(Functions)</a></h1>
         
 
         <div class="post-meta">
@@ -2188,9 +2188,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/swift-6.html#comments" itemprop="discussionUrl">
+                <a href="/2017/swift-6-functions.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-6.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/swift-6-functions.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2198,7 +2198,7 @@
 
           
           
-             <span id="/2017/swift-6.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-6：函数(Functions)">
+             <span id="/2017/swift-6-functions.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-6：函数(Functions)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2224,7 +2224,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 763 字
+                  : 844 字
                 </span>
               
 
@@ -2260,11 +2260,11 @@
       
         
           <h3 id="1-函数的定义与调用-Defining-and-Calling-Functions"><a href="#1-函数的定义与调用-Defining-and-Calling-Functions" class="headerlink" title="1 函数的定义与调用 (Defining and Calling Functions)"></a>1 函数的定义与调用 (Defining and Calling Functions)</h3><p>参数，parameters<br>返回类型，return type<br>实参，arguments</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">greet</span><span class="params">(person: String)</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person + <span class="string">"!"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-函数参数与返回值-Function-Parameters-and-Return-Values"><a href="#2-函数参数与返回值-Function-Parameters-and-Return-Values" class="headerlink" title="2 函数参数与返回值 (Function Parameters and Return Values)"></a>2 函数参数与返回值 (Function Parameters and Return Values)</h3><p>无参数函数 (Functions Without Parameters)<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHelloWorld</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"hello, world"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">greet</span><span class="params">(person: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person + <span class="string">"!"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-函数参数与返回值-Function-Parameters-and-Return-Values"><a href="#2-函数参数与返回值-Function-Parameters-and-Return-Values" class="headerlink" title="2 函数参数与返回值 (Function Parameters and Return Values)"></a>2 函数参数与返回值 (Function Parameters and Return Values)</h3><p>无参数函数 (Functions Without Parameters)<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHelloWorld</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello, world"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/swift-6.html#more" rel="contents">
+            <a class="btn" href="/2017/swift-6-functions.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2504,7 +2504,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

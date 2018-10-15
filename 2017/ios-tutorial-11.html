@@ -464,7 +464,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 187 字
+                  : 227 字
                 </span>
               
 
@@ -506,17 +506,19 @@
 <ul>
 <li>新建项目Carousel Effect</li>
 <li><p>在IB构建UI。Collection View 里的 Scroll Direction 设置成水平滚动。<code>UIVisualEffectView</code>是用来添加模糊效果的，也可以使用类似如下的代码构建：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let blurEffect = UIBlurEffect(style: .dark)</div><div class="line">let blurEffectView = UIVisualEffectView(effect: blurEffect)</div><div class="line">blurEffectView.frame = view.bounds</div><div class="line">backgroundImageView.addSubview(blurEffectView)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let blurEffect = UIBlurEffect(style: .dark)</span><br><span class="line">let blurEffectView = UIVisualEffectView(effect: blurEffect)</span><br><span class="line">blurEffectView.frame = view.bounds</span><br><span class="line">backgroundImageView.addSubview(blurEffectView)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建数据类<code>Interest</code></p>
 </li>
 <li>创建<code>UICollectionViewCell</code></li>
-<li>实现<code>UICollectionViewDataSource</code>的方法（有点类似UITableViewDataSource）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">class ViewController: UIViewController, UICollectionViewDataSource &#123;</div><div class="line"></div><div class="line">    @IBOutlet weak var backgroundImageView: UIImageView!</div><div class="line">    @IBOutlet weak var collectionView: UICollectionView!</div><div class="line">    </div><div class="line">    var interests = Interest.createInterests()</div><div class="line">    </div><div class="line">    override func viewDidLoad() &#123;</div><div class="line">        super.viewDidLoad()</div><div class="line">        </div><div class="line">        collectionView.dataSource = self</div><div class="line">        collectionView.dataSource = self</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    override var preferredStatusBarStyle : UIStatusBarStyle &#123;</div><div class="line">        return UIStatusBarStyle.lightContent</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    func numberOfSections(in collectionView: UICollectionView) -&gt; Int &#123;</div><div class="line">        return 1</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int &#123;</div><div class="line">        return interests.count</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell &#123;</div><div class="line">        let CellIdentifier = &quot;InterestCell&quot;</div><div class="line">        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! InterestCollectionViewCell</div><div class="line">        </div><div class="line">        cell.interest = self.interests[indexPath.item]</div><div class="line">        </div><div class="line">        return cell</div><div class="line">        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>实现<code>UICollectionViewDataSource</code>的方法（有点类似UITableViewDataSource）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class ViewController: UIViewController, UICollectionViewDataSource &#123;</span><br><span class="line"></span><br><span class="line">    @IBOutlet weak var backgroundImageView: UIImageView!</span><br><span class="line">    @IBOutlet weak var collectionView: UICollectionView!</span><br><span class="line">    </span><br><span class="line">    var interests = Interest.createInterests()</span><br><span class="line">    </span><br><span class="line">    override func viewDidLoad() &#123;</span><br><span class="line">        super.viewDidLoad()</span><br><span class="line">        </span><br><span class="line">        collectionView.dataSource = self</span><br><span class="line">        collectionView.dataSource = self</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    override var preferredStatusBarStyle : UIStatusBarStyle &#123;</span><br><span class="line">        return UIStatusBarStyle.lightContent</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    func numberOfSections(in collectionView: UICollectionView) -&gt; Int &#123;</span><br><span class="line">        return 1</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int &#123;</span><br><span class="line">        return interests.count</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell &#123;</span><br><span class="line">        let CellIdentifier = &quot;InterestCell&quot;</span><br><span class="line">        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! InterestCollectionViewCell</span><br><span class="line">        </span><br><span class="line">        cell.interest = self.interests[indexPath.item]</span><br><span class="line">        </span><br><span class="line">        return cell</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
-<p>详细代码： <a href="https://github.com/andyRon/LearniOSByProject/tree/master/79" target="_blank" rel="external">Carousel Effect</a></p>
-<p>参考：<strong><a href="https://github.com/allenwong/30DaysofSwift" target="_blank" rel="external">30DaysofSwift</a></strong></p>
+<p>详细代码： <a href="https://github.com/andyRon/LearniOSByProject/tree/master/79" target="_blank" rel="noopener">Carousel Effect</a></p>
+</blockquote>
+<blockquote>
+<p>参考：<strong><a href="https://github.com/allenwong/30DaysofSwift" target="_blank" rel="noopener">30DaysofSwift</a></strong></p>
 </blockquote>
 
       
@@ -627,8 +629,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-tutorial-12.html" rel="prev" title="iOS tutorial 12：视频背景">
-                iOS tutorial 12：视频背景 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/ios-tutorial-9.html" rel="prev" title="iOS tutorial 9：本地视频播放">
+                iOS tutorial 9：本地视频播放 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -853,7 +855,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

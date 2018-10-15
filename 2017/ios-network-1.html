@@ -451,7 +451,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 631 字
+                  : 672 字
                 </span>
               
 
@@ -486,7 +486,7 @@
 
       
         <blockquote>
-<p><a href="https://developer.apple.com/documentation/foundation/nsurlsession?language=objc" target="_blank" rel="external">NSURLSession</a>是iOS7之后被用来代替NSURLConnection的网络开发框架，前者相对于后者的优势是支持后台处理能力</p>
+<p><a href="https://developer.apple.com/documentation/foundation/nsurlsession?language=objc" target="_blank" rel="noopener">NSURLSession</a>是iOS7之后被用来代替NSURLConnection的网络开发框架，前者相对于后者的优势是支持后台处理能力</p>
 </blockquote>
 <a id="more"></a>
 <h3 id="NSURLSession的配置"><a href="#NSURLSession的配置" class="headerlink" title="NSURLSession的配置"></a>NSURLSession的配置</h3><p>通过<code>NSURLSessionConfiguration</code>来配置Session的三种类型：</p>
@@ -505,42 +505,44 @@
 <p><code>NSURLSessionConfiguration</code>还可以配置如缓存，网络模式等参数。</p>
 <h3 id="NSURLSession的两种进行网络请求方式"><a href="#NSURLSession的两种进行网络请求方式" class="headerlink" title="NSURLSession的两种进行网络请求方式"></a><code>NSURLSession</code>的两种进行网络请求方式</h3><ol>
 <li><p>通过block的方式获取网络数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//创建session配置对象</div><div class="line">NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];</div><div class="line">//创建请求对象</div><div class="line">NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;https://www.baidu.com&quot;]];</div><div class="line">//创建session对象</div><div class="line">NSURLSession * defaultSession = [NSURLSession sessionWithConfiguration:defaultConfiguration];</div><div class="line">//添加任务</div><div class="line">NSURLSessionTask * task= [defaultSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</div><div class="line">    NSLog(@&quot;%@&quot;,response);</div><div class="line">&#125;];</div><div class="line">//开始任务</div><div class="line">[task resume];</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//创建session配置对象</span><br><span class="line">NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];</span><br><span class="line">//创建请求对象</span><br><span class="line">NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;https://www.baidu.com&quot;]];</span><br><span class="line">//创建session对象</span><br><span class="line">NSURLSession * defaultSession = [NSURLSession sessionWithConfiguration:defaultConfiguration];</span><br><span class="line">//添加任务</span><br><span class="line">NSURLSessionTask * task= [defaultSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;,response);</span><br><span class="line">&#125;];</span><br><span class="line">//开始任务</span><br><span class="line">[task resume];</span><br></pre></td></tr></table></figure>
 <p>在block中进行数据处理</p>
 </li>
 <li><p>通过代理回调获取网络数据</p>
 <ul>
-<li>首先采用协议 <code>NSURLSessionDataDelegate</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@interface ViewController ()&lt;NSURLSessionDataDelegate&gt;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<li>首先采用协议 <code>NSURLSessionDataDelegate</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface ViewController ()&lt;NSURLSessionDataDelegate&gt;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ol>
 <ul>
 <li><p>配置</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];</div><div class="line">NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;https://www.baidu.com&quot;]];</div><div class="line">NSURLSession * defaultSession = [NSURLSession sessionWithConfiguration:defaultConfiguration delegate:self delegateQueue:[NSOperationQueue mainQueue]];</div><div class="line"></div><div class="line">NSURLSessionTask * task= [defaultSession dataTaskWithRequest:request];</div><div class="line"></div><div class="line">[task resume];</div></pre></td></tr></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];</span><br><span class="line">NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;https://www.baidu.com&quot;]];</span><br><span class="line">NSURLSession * defaultSession = [NSURLSession sessionWithConfiguration:defaultConfiguration delegate:self delegateQueue:[NSOperationQueue mainQueue]];</span><br><span class="line"></span><br><span class="line">NSURLSessionTask * task= [defaultSession dataTaskWithRequest:request];</span><br><span class="line"></span><br><span class="line">[task resume];</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>实现代理方法</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//开始接受数据</div><div class="line">-(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data&#123;</div><div class="line">    NSLog(@&quot;=======%@&quot;,data);</div><div class="line">&#125;</div><div class="line">//接受数据结束</div><div class="line">-(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error&#123;</div><div class="line">    NSLog(@&quot;完成：error%@&quot;,error);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//开始接受数据</span><br><span class="line">-(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data&#123;</span><br><span class="line">    NSLog(@&quot;=======%@&quot;,data);</span><br><span class="line">&#125;</span><br><span class="line">//接受数据结束</span><br><span class="line">-(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error&#123;</span><br><span class="line">    NSLog(@&quot;完成：error%@&quot;,error);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="后台处理下载任务"><a href="#后台处理下载任务" class="headerlink" title="后台处理下载任务"></a>后台处理下载任务</h3><p>这是NSURLSession最大的优势。使用代理的方式进行后台处理下载任务。配置和代理方式相同，主要是实现一些代理方法。</p>
 <ul>
 <li><p>下载进度监听的代理方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 下载进度监听</div><div class="line">- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;######&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 下载进度监听</span><br><span class="line">- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@&quot;######&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在下载过程中点击Home键使应用程序进入后台，下载任务依然在进行，当后台下载完成后会与AppDelegate进行交互，会调用AppDelegate中的代理方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-(void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler&#123;</div><div class="line">    NSLog(@&quot;下载任务在后台完成&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-(void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler&#123;</span><br><span class="line">    NSLog(@&quot;下载任务在后台完成&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>下载完成后，可查看下载的文件所在位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//此方法只有下载成功才会调用， 文件放在location位置</div><div class="line">-(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location&#123;</div><div class="line">    NSLog(@&quot;下载临时文件的位置%@&quot;, location);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//此方法只有下载成功才会调用， 文件放在location位置</span><br><span class="line">-(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location&#123;</span><br><span class="line">    NSLog(@&quot;下载临时文件的位置%@&quot;, location);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在后台完成无人所有任务时调用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 后台所有任务都完成</div><div class="line">-(void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;All tasks are finished&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 后台所有任务都完成</span><br><span class="line">-(void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@&quot;All tasks are finished&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
-<p>代码：<a href="https://github.com/andyRon/LearniOSByProject/tree/master/91-network" target="_blank" rel="external">NSURLSession(delegate), NSURLSession(block)</a><br>深入学习：<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html#//apple_ref/doc/uid/10000165i" target="_blank" rel="external">URL Session Programming Guide</a></p>
-<p>参考<br><a href="https://my.oschina.net/u/2340880/blog/618888?spm=5176.100239.blogcont39440.7.Snsasi" target="_blank" rel="external">iOS网络编程之二——NSURLSession的简单使用</a></p>
+<p>代码：<a href="https://github.com/andyRon/LearniOSByProject/tree/master/91-network" target="_blank" rel="noopener">NSURLSession(delegate), NSURLSession(block)</a><br>深入学习：<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html#//apple_ref/doc/uid/10000165i" target="_blank" rel="noopener">URL Session Programming Guide</a></p>
+</blockquote>
+<blockquote>
+<p>参考<br><a href="https://my.oschina.net/u/2340880/blog/618888?spm=5176.100239.blogcont39440.7.Snsasi" target="_blank" rel="noopener">iOS网络编程之二——NSURLSession的简单使用</a></p>
 </blockquote>
 
       
@@ -651,8 +653,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-network-4.html" rel="prev" title="iOS网络编程(四)：缓存类NSURLCache介绍">
-                iOS网络编程(四)：缓存类NSURLCache介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/ios-network-2.html" rel="prev" title="iOS网络编程(二)：NSURLConnection介绍">
+                iOS网络编程(二)：NSURLConnection介绍 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -902,7 +904,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

@@ -459,7 +459,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 933 字
+                  : 975 字
                 </span>
               
 
@@ -494,7 +494,7 @@
 
       
         <p><img src="http://upload-images.jianshu.io/upload_images/1678135-976e6d01ee3c8a7d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><a href="http://www.jianshu.com/p/c01ca903a056" target="_blank" rel="external">开始用Swift开发iOS 10 - 6 创建简单的Table Based App</a>是basic风格的Table，这一部分将：</p>
+<p><a href="http://www.jianshu.com/p/c01ca903a056" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 6 创建简单的Table Based App</a>是basic风格的Table，这一部分将：</p>
 <ol>
 <li>使用<code>UITableViewController</code> 代替 <code>UITableView</code></li>
 <li>展示table view cell中不同的图片显示方式</li>
@@ -506,18 +506,18 @@
 <li>删除<code>Main.storyboard</code>中的 view controller，删除<code>ViewController.swift</code></li>
 <li>拖动一个<strong>Table View Controller</strong>到IB中，选中其<code>Is Initial View Controller</code></li>
 <li>新建类<code>RestaurantTableViewController</code>，继承至<code>UITableViewController</code>。将<strong>Table View Controller</strong>的<code>Class</code>属性设置为<code>RestaurantTableViewController</code>。</li>
-<li>在<a href="http://www.appcoda.com/resources/swift3/simpletable-image1.zip" target="_blank" rel="external">simpletable-image1.zip</a>和<a href="http://www.appcoda.com/resources/swift3/simpletable-image2.zip" target="_blank" rel="external">simpletable-image2.zip</a>处下载图片，拖到asset catalog</li>
+<li>在<a href="http://www.appcoda.com/resources/swift3/simpletable-image1.zip" target="_blank" rel="noopener">simpletable-image1.zip</a>和<a href="http://www.appcoda.com/resources/swift3/simpletable-image2.zip" target="_blank" rel="noopener">simpletable-image2.zip</a>处下载图片，拖到asset catalog</li>
 <li><p>在类<code>RestaurantTableViewController</code>中添加以变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var restaurantNames = [&quot;Cafe Deadend&quot;, &quot;Homei&quot;, &quot;Teakha&quot;, &quot;Cafe Loisl&quot;, &quot;PetiteOyster&quot;, &quot;For Kee Restaurant&quot;, &quot;Po&apos;s Atelier&quot;, &quot;Bourke Street Bakery&quot;, &quot;Haigh&apos;sChocolate&quot;, &quot;Palomino Espresso&quot;, &quot;Upstate&quot;, &quot;Traif&quot;, &quot;Graham Avenue Meats&quot;,&quot;Waffle &amp; Wolf&quot;, &quot;Five Leaves&quot;, &quot;Cafe Lore&quot;, &quot;Confessional&quot;, &quot;Barrafina&quot;,&quot;Donostia&quot;, &quot;Royal Oak&quot;, &quot;CASK Pub and Kitchen&quot;]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var restaurantNames = [&quot;Cafe Deadend&quot;, &quot;Homei&quot;, &quot;Teakha&quot;, &quot;Cafe Loisl&quot;, &quot;PetiteOyster&quot;, &quot;For Kee Restaurant&quot;, &quot;Po&apos;s Atelier&quot;, &quot;Bourke Street Bakery&quot;, &quot;Haigh&apos;sChocolate&quot;, &quot;Palomino Espresso&quot;, &quot;Upstate&quot;, &quot;Traif&quot;, &quot;Graham Avenue Meats&quot;,&quot;Waffle &amp; Wolf&quot;, &quot;Five Leaves&quot;, &quot;Cafe Lore&quot;, &quot;Confessional&quot;, &quot;Barrafina&quot;,&quot;Donostia&quot;, &quot;Royal Oak&quot;, &quot;CASK Pub and Kitchen&quot;]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在类<code>RestaurantTableViewController</code>中添加代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">override func tableView(_ tableView: UITableView, cellForRowAt indexPath:</div><div class="line">IndexPath) -&gt; UITableViewCell &#123;</div><div class="line">    let cellIdentifier = &quot;Cell&quot;</div><div class="line">    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,</div><div class="line">for: indexPath)</div><div class="line">    // Configure the cell...</div><div class="line">    cell.textLabel?.text = restaurantNames[indexPath.row]</div><div class="line">    cell.imageView?.image = UIImage(named: &quot;restaurant.jpg&quot;)</div><div class="line">return cell &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">override func tableView(_ tableView: UITableView, cellForRowAt indexPath:</span><br><span class="line">IndexPath) -&gt; UITableViewCell &#123;</span><br><span class="line">    let cellIdentifier = &quot;Cell&quot;</span><br><span class="line">    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,</span><br><span class="line">for: indexPath)</span><br><span class="line">    // Configure the cell...</span><br><span class="line">    cell.textLabel?.text = restaurantNames[indexPath.row]</span><br><span class="line">    cell.imageView?.image = UIImage(named: &quot;restaurant.jpg&quot;)</span><br><span class="line">return cell &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>插入代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</div><div class="line">        let cellIdentifier = &quot;Cell&quot;</div><div class="line">        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,</div><div class="line">                                                 for: indexPath)</div><div class="line">        // Configure the cell...</div><div class="line">        cell.textLabel?.text = restaurantNames[indexPath.row]</div><div class="line">        cell.imageView?.image = UIImage(named: &quot;restaurant.jpg&quot;)</div><div class="line">        return cell</div><div class="line">   &#125;</div><div class="line"></div><div class="line">  override func numberOfSections(in tableView: UITableView) -&gt; Int &#123;</div><div class="line">    return 1</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  override func tableView(_ tableView: UITableView, numberOfRowsInSection</div><div class="line">section: Int) -&gt; Int &#123;</div><div class="line">    return restaurantNames.count</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</span><br><span class="line">        let cellIdentifier = &quot;Cell&quot;</span><br><span class="line">        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,</span><br><span class="line">                                                 for: indexPath)</span><br><span class="line">        // Configure the cell...</span><br><span class="line">        cell.textLabel?.text = restaurantNames[indexPath.row]</span><br><span class="line">        cell.imageView?.image = UIImage(named: &quot;restaurant.jpg&quot;)</span><br><span class="line">        return cell</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">  override func numberOfSections(in tableView: UITableView) -&gt; Int &#123;</span><br><span class="line">    return 1</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  override func tableView(_ tableView: UITableView, numberOfRowsInSection</span><br><span class="line">section: Int) -&gt; Int &#123;</span><br><span class="line">    return restaurantNames.count</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在类<code>RestaurantTableViewController</code>中加入图片名称变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var restaurantImages = [&quot;cafedeadend.jpg&quot;, &quot;homei.jpg&quot;, &quot;teakha.jpg&quot;,</div><div class="line">&quot;cafeloisl.jpg&quot;, &quot;petiteoyster.jpg&quot;, &quot;forkeerestaurant.jpg&quot;, &quot;posatelier.jpg&quot;,</div><div class="line">&quot;bourkestreetbakery.jpg&quot;, &quot;haighschocolate.jpg&quot;, &quot;palominoespresso.jpg&quot;,</div><div class="line">&quot;upstate.jpg&quot;, &quot;traif.jpg&quot;, &quot;grahamavenuemeats.jpg&quot;, &quot;wafflewolf.jpg&quot;,</div><div class="line">&quot;fiveleaves.jpg&quot;, &quot;cafelore.jpg&quot;, &quot;confessional.jpg&quot;, &quot;barrafina.jpg&quot;,</div><div class="line">&quot;donostia.jpg&quot;, &quot;royaloak.jpg&quot;, &quot;caskpubkitchen.jpg&quot;]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var restaurantImages = [&quot;cafedeadend.jpg&quot;, &quot;homei.jpg&quot;, &quot;teakha.jpg&quot;,</span><br><span class="line">&quot;cafeloisl.jpg&quot;, &quot;petiteoyster.jpg&quot;, &quot;forkeerestaurant.jpg&quot;, &quot;posatelier.jpg&quot;,</span><br><span class="line">&quot;bourkestreetbakery.jpg&quot;, &quot;haighschocolate.jpg&quot;, &quot;palominoespresso.jpg&quot;,</span><br><span class="line">&quot;upstate.jpg&quot;, &quot;traif.jpg&quot;, &quot;grahamavenuemeats.jpg&quot;, &quot;wafflewolf.jpg&quot;,</span><br><span class="line">&quot;fiveleaves.jpg&quot;, &quot;cafelore.jpg&quot;, &quot;confessional.jpg&quot;, &quot;barrafina.jpg&quot;,</span><br><span class="line">&quot;donostia.jpg&quot;, &quot;royaloak.jpg&quot;, &quot;caskpubkitchen.jpg&quot;]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>并修改对应代码：<br><code>cell.imageView?.image = UIImage(named: restaurantImages[indexPath.row])</code></p>
@@ -537,29 +537,29 @@
 <h3 id="为Custom-Cell创建类"><a href="#为Custom-Cell创建类" class="headerlink" title="为Custom Cell创建类"></a>为Custom Cell创建类</h3><ul>
 <li>创建继承至<code>UITableViewCell</code>的类<code>RestaurantTableViewCell</code></li>
 <li><p>在<code>RestaurantTableViewCell</code>中建立四个outlet，分别对应图片和三个label</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@IBOutlet var nameLabel: UILabel!</div><div class="line">@IBOutlet var locationLabel: UILabel!</div><div class="line">@IBOutlet var typeLabel: UILabel!</div><div class="line">@IBOutlet var thumbnailImageView: UIImageView!</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@IBOutlet var nameLabel: UILabel!</span><br><span class="line">@IBOutlet var locationLabel: UILabel!</span><br><span class="line">@IBOutlet var typeLabel: UILabel!</span><br><span class="line">@IBOutlet var thumbnailImageView: UIImageView!</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>建立代码中接口与storyboard之间的联系<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c3a40f445bcce841.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 </li>
 </ul>
 <h3 id="修改Table-View-Controller代码"><a href="#修改Table-View-Controller代码" class="headerlink" title="修改Table View Controller代码"></a>修改Table View Controller代码</h3><ul>
 <li><p>由于已经为Custom Cell创建了类<code>RestaurantTableViewCell</code>，所以Table View Controller中生成Cell的待修改为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,</div><div class="line">                                                 for: indexPath) as! RestaurantTableViewCell</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,</span><br><span class="line">                                                 for: indexPath) as! RestaurantTableViewCell</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>由于Cell的风格不是<code>sytle</code>了，而是定制的，所以文本和图片代码要做出修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cell.nameLabel.text = restaurantNames[indexPath.row]</div><div class="line">cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cell.nameLabel.text = restaurantNames[indexPath.row]</span><br><span class="line">cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="图片圆角"><a href="#图片圆角" class="headerlink" title="图片圆角"></a>图片圆角</h3><ul>
-<li>可通过<code>UIView</code>的<code>layer</code>属性（<code>CALayer</code>）修改图片圆脚，<code>cornerRadius</code>表示圆角的半径，由于图片的尺寸是60*60，所以圆角的半径设置为30后，图片看上去是个圆。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cell.thumbnailImageView.layer.cornerRadius = 30.0</div><div class="line">cell.thumbnailImageView.clipsToBounds = true</div></pre></td></tr></table></figure>
+<li>可通过<code>UIView</code>的<code>layer</code>属性（<code>CALayer</code>）修改图片圆脚，<code>cornerRadius</code>表示圆角的半径，由于图片的尺寸是60*60，所以圆角的半径设置为30后，图片看上去是个圆。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cell.thumbnailImageView.layer.cornerRadius = 30.0</span><br><span class="line">cell.thumbnailImageView.clipsToBounds = true</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-331895ff8e2659c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><ul>
-<li>添加“Type”和“Location”。添加如下两个数组变量：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var restaurantLocations = [&quot;Hong Kong&quot;, &quot;Hong Kong&quot;, &quot;Hong Kong&quot;, &quot;Hong Kong&quot;,</div><div class="line">                               &quot;Hong Kong&quot;, &quot;Hong Kong&quot;, &quot;Hong Kong&quot;, &quot;Sydney&quot;, &quot;Sydney&quot;, &quot;Sydney&quot;, &quot;NewYork&quot;, &quot;New York&quot;, &quot;New York&quot;, &quot;New York&quot;, &quot;New York&quot;, &quot;New York&quot;, &quot;New York&quot;,</div><div class="line">                               &quot;London&quot;, &quot;London&quot;, &quot;London&quot;, &quot;London&quot;]</div><div class="line"> var restaurantTypes = [&quot;Coffee &amp; Tea Shop&quot;, &quot;Cafe&quot;, &quot;Tea House&quot;, &quot;Austrian Causual Drink&quot;, &quot;French&quot;, &quot;Bakery&quot;, &quot;Bakery&quot;, &quot;Chocolate&quot;, &quot;Cafe&quot;, &quot;American Seafood&quot;, &quot;American&quot;, &quot;American&quot;, &quot;Breakfast &amp; Brunch&quot;, &quot;Coffee &amp; Tea&quot;, &quot;Coffee &amp; Tea&quot;, &quot;Latin American&quot;, &quot;Spanish&quot;, &quot;Spanish&quot;, &quot;Spanish&quot;, &quot;British&quot;, &quot;Thai&quot;]</div></pre></td></tr></table></figure>
+<li>添加“Type”和“Location”。添加如下两个数组变量：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var restaurantLocations = [&quot;Hong Kong&quot;, &quot;Hong Kong&quot;, &quot;Hong Kong&quot;, &quot;Hong Kong&quot;,</span><br><span class="line">                               &quot;Hong Kong&quot;, &quot;Hong Kong&quot;, &quot;Hong Kong&quot;, &quot;Sydney&quot;, &quot;Sydney&quot;, &quot;Sydney&quot;, &quot;NewYork&quot;, &quot;New York&quot;, &quot;New York&quot;, &quot;New York&quot;, &quot;New York&quot;, &quot;New York&quot;, &quot;New York&quot;,</span><br><span class="line">                               &quot;London&quot;, &quot;London&quot;, &quot;London&quot;, &quot;London&quot;]</span><br><span class="line"> var restaurantTypes = [&quot;Coffee &amp; Tea Shop&quot;, &quot;Cafe&quot;, &quot;Tea House&quot;, &quot;Austrian Causual Drink&quot;, &quot;French&quot;, &quot;Bakery&quot;, &quot;Bakery&quot;, &quot;Chocolate&quot;, &quot;Cafe&quot;, &quot;American Seafood&quot;, &quot;American&quot;, &quot;American&quot;, &quot;Breakfast &amp; Brunch&quot;, &quot;Coffee &amp; Tea&quot;, &quot;Coffee &amp; Tea&quot;, &quot;Latin American&quot;, &quot;Spanish&quot;, &quot;Spanish&quot;, &quot;Spanish&quot;, &quot;British&quot;, &quot;Thai&quot;]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>然后再在Cell时赋值即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cell.locationLabel.text = restaurantLocations[indexPath.row] </div><div class="line">cell.typeLabel.text = restaurantTypes[indexPath.row]</div></pre></td></tr></table></figure></p>
+<p>然后再在Cell时赋值即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cell.locationLabel.text = restaurantLocations[indexPath.row] </span><br><span class="line">cell.typeLabel.text = restaurantTypes[indexPath.row]</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>重新设计界面：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-b1d1c6fbd1cde556.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><ul>
 <li>修改<strong>Table View</strong>和<strong>Table View Cell</strong>的<code>Row Height</code>都为300。</li>
@@ -568,8 +568,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="external">Beginning-iOS-Programming-with-Swift</a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
       
     </div>
@@ -663,7 +663,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/swift-19.html" rel="next" title="以撸代码的形式学习Swift-19：类型转换(Type Casting)">
+              <a href="/2017/swift-19-type-casting.html" rel="next" title="以撸代码的形式学习Swift-19：类型转换(Type Casting)">
                 <i class="fa fa-chevron-left"></i> 以撸代码的形式学习Swift-19：类型转换(Type Casting)
               </a>
             
@@ -673,7 +673,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/swift-20.html" rel="prev" title="以撸代码的形式学习Swift-20：嵌套类型(Nested Types)">
+              <a href="/2017/swift-20-nested-types.html" rel="prev" title="以撸代码的形式学习Swift-20：嵌套类型(Nested Types)">
                 以撸代码的形式学习Swift-20：嵌套类型(Nested Types) <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -924,7 +924,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

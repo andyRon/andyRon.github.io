@@ -451,7 +451,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,558 字
+                  : 1,578 字
                 </span>
               
 
@@ -486,13 +486,13 @@
 
       
         <blockquote>
-<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="external">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="external">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Selection%20Sort" target="_blank" rel="external">swift-algorithm-club-cn/Selection Sort</a></p>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Selection%20Sort" target="_blank" rel="noopener">swift-algorithm-club-cn/Selection Sort</a></p>
 </blockquote>
 <hr>
 <p>目标：将数组从低到高（或从高到低）排序。</p>
 <p>您将获得一系列需要按正确顺序排列的数字。 选择排序算法将数组分为两部分：数组的开头是排序的，数组的其余部分是仍然需要排序的数字。</p>
 <pre><code>[ ...sorted numbers... | ...unsorted numbers... ]
-</code></pre><p>这类似于<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Insertion%20Sort/" target="_blank" rel="external">插入排序</a>，但区别在于如何将新数字添加到已排序部分。</p>
+</code></pre><p>这类似于<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Insertion%20Sort/" target="_blank" rel="noopener">插入排序</a>，但区别在于如何将新数字添加到已排序部分。</p>
 <p>它的工作原理如下：</p>
 <ul>
 <li>找到数组中的最小数字。 从索引0开始，遍历数组中的所有数字，并追踪最小数字的位置。</li>
@@ -524,9 +524,9 @@
 <pre><code>[ 3, 4, 5, 6, 8 |]
 </code></pre><p>选择排序是<em>原地</em>排序，因为所有内容都发生在同一个数组中而不使用额外的内存。您也可以将其实现为 <em>稳定</em>排序，以便相同的元素不会相互交换（请注意，下面给出的版本不稳定）。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>这是Swift中选择排序的一个实现：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">selectionSort</span><span class="params">(<span class="number">_</span> array: [Int])</span></span> -&gt; [<span class="type">Int</span>] &#123;</div><div class="line">  <span class="keyword">guard</span> array.<span class="built_in">count</span> &gt; <span class="number">1</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> array &#125;  <span class="comment">// 1</span></div><div class="line"></div><div class="line">  <span class="keyword">var</span> a = array                    <span class="comment">// 2</span></div><div class="line"></div><div class="line">  <span class="keyword">for</span> x <span class="keyword">in</span> <span class="number">0</span> ..&lt; a.<span class="built_in">count</span> - <span class="number">1</span> &#123;     <span class="comment">// 3</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> lowest = x</div><div class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> x + <span class="number">1</span> ..&lt; a.<span class="built_in">count</span> &#123;   <span class="comment">// 4</span></div><div class="line">      <span class="keyword">if</span> a[y] &lt; a[lowest] &#123;</div><div class="line">        lowest = y</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> x != lowest &#123;               <span class="comment">// 5</span></div><div class="line">      a.swapAt(x, lowest)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> a</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">selectionSort</span><span class="params">(<span class="number">_</span> array: [Int])</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">  <span class="keyword">guard</span> array.<span class="built_in">count</span> &gt; <span class="number">1</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> array &#125;  <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> a = array                    <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> x <span class="keyword">in</span> <span class="number">0</span> ..&lt; a.<span class="built_in">count</span> - <span class="number">1</span> &#123;     <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> lowest = x</span><br><span class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> x + <span class="number">1</span> ..&lt; a.<span class="built_in">count</span> &#123;   <span class="comment">// 4</span></span><br><span class="line">      <span class="keyword">if</span> a[y] &lt; a[lowest] &#123;</span><br><span class="line">        lowest = y</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> x != lowest &#123;               <span class="comment">// 5</span></span><br><span class="line">      a.swapAt(x, lowest)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>将此代码放在 playground 测试：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> list = [ <span class="number">10</span>, -<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">27</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">26</span> ]</div><div class="line">selectionSort(list)</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [ <span class="number">10</span>, -<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">27</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">26</span> ]</span><br><span class="line">selectionSort(list)</span><br></pre></td></tr></table></figure>
 <p>代码逐步说明：</p>
 <ol>
 <li><p>如果数组为空或仅包含单个元素，则无需排序。</p>
@@ -547,11 +547,11 @@
 <blockquote>
 <p><strong>注意：</strong> 外循环以索引<code>a.count - 2</code>结束。 最后一个元素将自动处于正确的位置，因为此时没有剩下其他较小的元素了。</p>
 </blockquote>
-<p>源文件<a href="https://github.com/andyRon/swift-algorithm-club-cn/blob/master/Selection%20Sort/SelectionSort.swift" target="_blank" rel="external">SelectionSort.swift</a>是一个使用泛型的函数版本，因此您也可以使用它来对字符串和其他数据类型进行排序。</p>
-<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>选择排序很容易理解，但执行速度慢 <strong>O(n^2)</strong>。它比<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Insertion%20Sort/" target="_blank" rel="external">插入排序</a>更糟，但优于<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Bubble%20Sort/" target="_blank" rel="external">冒泡排序</a>。查找数组其余部分中的最低元素很慢，特别是因为内部循环将重复执行。</p>
-<p><a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap%20Sort/" target="_blank" rel="external">堆排序</a>使用与选择排序相同的原则，但使用了一种快速方法在数组的其余部分中查找最小值。 堆排序性能是 <strong>O(nlogn)</strong>。</p>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p><a href="https://en.wikipedia.org/wiki/Selection_sort" target="_blank" rel="external">选择排序的维基百科</a></p>
-<p><em>作者：Matthijs Hollemans</em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="external">Andy Ron</a></em>  </p>
+<p>源文件<a href="https://github.com/andyRon/swift-algorithm-club-cn/blob/master/Selection%20Sort/SelectionSort.swift" target="_blank" rel="noopener">SelectionSort.swift</a>是一个使用泛型的函数版本，因此您也可以使用它来对字符串和其他数据类型进行排序。</p>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>选择排序很容易理解，但执行速度慢 <strong>O(n^2)</strong>。它比<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Insertion%20Sort/" target="_blank" rel="noopener">插入排序</a>更糟，但优于<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Bubble%20Sort/" target="_blank" rel="noopener">冒泡排序</a>。查找数组其余部分中的最低元素很慢，特别是因为内部循环将重复执行。</p>
+<p><a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap%20Sort/" target="_blank" rel="noopener">堆排序</a>使用与选择排序相同的原则，但使用了一种快速方法在数组的其余部分中查找最小值。 堆排序性能是 <strong>O(nlogn)</strong>。</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p><a href="https://en.wikipedia.org/wiki/Selection_sort" target="_blank" rel="noopener">选择排序的维基百科</a></p>
+<p><em>作者：Matthijs Hollemans</em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em>  </p>
 
       
     </div>
@@ -916,7 +916,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

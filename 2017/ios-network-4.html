@@ -451,7 +451,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 259 字
+                  : 299 字
                 </span>
               
 
@@ -487,9 +487,9 @@
       
         <p>网络请求中缓存类<code>NSURLCache</code>常用属性和方法：</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">//获取当前应用的缓存管理对象</div><div class="line">+ (NSURLCache *)sharedURLCache;</div><div class="line"></div><div class="line">//设置自定义的NSURLCache作为应用缓存管理对象</div><div class="line">+ (void)setSharedURLCache:(NSURLCache *)cache;</div><div class="line"></div><div class="line">//初始化一个应用缓存对象</div><div class="line">/*</div><div class="line">memoryCapacity 设置内存缓存容量</div><div class="line">diskCapacity 设置磁盘缓存容量</div><div class="line">path 磁盘缓存路径</div><div class="line">内容缓存会在应用程序退出后 清空 磁盘缓存不会</div><div class="line">*/</div><div class="line">- (instancetype)initWithMemoryCapacity:(NSUInteger)memoryCapacity diskCapacity:(NSUInteger)diskCapacity diskPath:(nullable NSString *)path;</div><div class="line"></div><div class="line">//获取某一请求的缓存</div><div class="line">- (nullable NSCachedURLResponse *)cachedResponseForRequest:(NSURLRequest *)request;</div><div class="line"></div><div class="line">//给请求设置指定的缓存</div><div class="line">- (void)storeCachedResponse:(NSCachedURLResponse *)cachedResponse forRequest:(NSURLRequest *)request;</div><div class="line"></div><div class="line">//移除某个请求的缓存</div><div class="line">- (void)removeCachedResponseForRequest:(NSURLRequest *)request;</div><div class="line"></div><div class="line">//移除所有缓存数据</div><div class="line">- (void)removeAllCachedResponses;</div><div class="line"></div><div class="line">//移除某个时间起的缓存设置</div><div class="line">- (void)removeCachedResponsesSinceDate:(NSDate *)date NS_AVAILABLE(10_10, 8_0);</div><div class="line"></div><div class="line">//内存缓存容量大小</div><div class="line">@property NSUInteger memoryCapacity;</div><div class="line"></div><div class="line">//磁盘缓存容量大小</div><div class="line">@property NSUInteger diskCapacity;</div><div class="line"></div><div class="line">//当前已用内存容量</div><div class="line">@property (readonly) NSUInteger currentMemoryUsage;</div><div class="line"></div><div class="line">//当前已用磁盘容量</div><div class="line">@property (readonly) NSUInteger currentDiskUsage;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">//获取当前应用的缓存管理对象</span><br><span class="line">+ (NSURLCache *)sharedURLCache;</span><br><span class="line"></span><br><span class="line">//设置自定义的NSURLCache作为应用缓存管理对象</span><br><span class="line">+ (void)setSharedURLCache:(NSURLCache *)cache;</span><br><span class="line"></span><br><span class="line">//初始化一个应用缓存对象</span><br><span class="line">/*</span><br><span class="line">memoryCapacity 设置内存缓存容量</span><br><span class="line">diskCapacity 设置磁盘缓存容量</span><br><span class="line">path 磁盘缓存路径</span><br><span class="line">内容缓存会在应用程序退出后 清空 磁盘缓存不会</span><br><span class="line">*/</span><br><span class="line">- (instancetype)initWithMemoryCapacity:(NSUInteger)memoryCapacity diskCapacity:(NSUInteger)diskCapacity diskPath:(nullable NSString *)path;</span><br><span class="line"></span><br><span class="line">//获取某一请求的缓存</span><br><span class="line">- (nullable NSCachedURLResponse *)cachedResponseForRequest:(NSURLRequest *)request;</span><br><span class="line"></span><br><span class="line">//给请求设置指定的缓存</span><br><span class="line">- (void)storeCachedResponse:(NSCachedURLResponse *)cachedResponse forRequest:(NSURLRequest *)request;</span><br><span class="line"></span><br><span class="line">//移除某个请求的缓存</span><br><span class="line">- (void)removeCachedResponseForRequest:(NSURLRequest *)request;</span><br><span class="line"></span><br><span class="line">//移除所有缓存数据</span><br><span class="line">- (void)removeAllCachedResponses;</span><br><span class="line"></span><br><span class="line">//移除某个时间起的缓存设置</span><br><span class="line">- (void)removeCachedResponsesSinceDate:(NSDate *)date NS_AVAILABLE(10_10, 8_0);</span><br><span class="line"></span><br><span class="line">//内存缓存容量大小</span><br><span class="line">@property NSUInteger memoryCapacity;</span><br><span class="line"></span><br><span class="line">//磁盘缓存容量大小</span><br><span class="line">@property NSUInteger diskCapacity;</span><br><span class="line"></span><br><span class="line">//当前已用内存容量</span><br><span class="line">@property (readonly) NSUInteger currentMemoryUsage;</span><br><span class="line"></span><br><span class="line">//当前已用磁盘容量</span><br><span class="line">@property (readonly) NSUInteger currentDiskUsage;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>参考：<a href="https://yq.aliyun.com/articles/39448" target="_blank" rel="external">iOS网络编程之六——数据缓存类NSURLCache使用解析</a></p>
+<p>参考：<a href="https://yq.aliyun.com/articles/39448" target="_blank" rel="noopener">iOS网络编程之六——数据缓存类NSURLCache使用解析</a></p>
 </blockquote>
 
       
@@ -590,8 +590,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-network-1.html" rel="next" title="iOS网络编程(一)：NSURLSession介绍">
-                <i class="fa fa-chevron-left"></i> iOS网络编程(一)：NSURLSession介绍
+              <a href="/2017/ios-network-2.html" rel="next" title="iOS网络编程(二)：NSURLConnection介绍">
+                <i class="fa fa-chevron-left"></i> iOS网络编程(二)：NSURLConnection介绍
               </a>
             
           </div>
@@ -600,8 +600,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-network-2.html" rel="prev" title="iOS网络编程(二)：NSURLConnection介绍">
-                iOS网络编程(二)：NSURLConnection介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/ios-network-3.html" rel="prev" title="iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍">
+                iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -826,7 +826,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

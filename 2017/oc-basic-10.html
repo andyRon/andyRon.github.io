@@ -453,7 +453,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 481 字
+                  : 507 字
                 </span>
               
 
@@ -498,8 +498,8 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-834501c2fd48d0ef.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-e132ad7117afe284.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <a id="more"></a>
-<p>生成两个文件，<code>NSString+NumberConvenience.h</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (NumberConvenience)</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
-<p><code>NSString+NumberConvenience.m</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+NumberConvenience.h&quot;</div><div class="line"></div><div class="line">@implementation NSString (NumberConvenience)</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>生成两个文件，<code>NSString+NumberConvenience.h</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface NSString (NumberConvenience)</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p><code>NSString+NumberConvenience.m</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NSString+NumberConvenience.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation NSString (NumberConvenience)</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
 <p>类别名在括号中。<br>可以在<code>@implementation</code>部分实现自己的方法。<strong>任何NSString类的对象都将响应在类别中的方法。正是这种兼容性使类别成为了一种非常强大的概念。</strong></p>
 <ul>
 <li><p>类别的缺陷</p>
@@ -518,9 +518,9 @@
 <li><p>类扩展（class extentsion）：特殊的类别</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@interface Things : NSObject</div><div class="line"></div><div class="line">@property (assign) NSInteger thing1;</div><div class="line">@property (readonly, assign) NSInteger thing2;</div><div class="line"></div><div class="line">- (void)resetAllValues;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@interface Things()</div><div class="line">&#123;</div><div class="line">    NSInteger thing4;</div><div class="line">    </div><div class="line">&#125;</div><div class="line">@property (readwrite, assign) NSInteger thing2;</div><div class="line">@property (assign) NSInteger thing3;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<h3 id="2-利用类别分散实现代码"><a href="#2-利用类别分散实现代码" class="headerlink" title="2 利用类别分散实现代码"></a>2 利用类别分散实现代码</h3><p>不能将<code>@implementation</code>分散到多个不同的<code>.m</code>文件中。可以通过类别把大型的单个类分散到多个不同的<code>.m</code>文件中。<br>以AppKit中的<code>NSWindow</code>为例，在<code>NSWindow.h</code>中搜索<code>@interface</code>大约能搜到5个类别声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@interface NSWindow(NSEvent)</div><div class="line">@interface NSWindow(NSCursorRect)</div><div class="line">@interface NSWindow(NSDrag)</div><div class="line">@interface NSWindow(NSCarbonExtensions)</div><div class="line">@interface NSWindow(NSDeprecated)</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@interface Things : NSObject</span><br><span class="line"></span><br><span class="line">@property (assign) NSInteger thing1;</span><br><span class="line">@property (readonly, assign) NSInteger thing2;</span><br><span class="line"></span><br><span class="line">- (void)resetAllValues;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@interface Things()</span><br><span class="line">&#123;</span><br><span class="line">    NSInteger thing4;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">@property (readwrite, assign) NSInteger thing2;</span><br><span class="line">@property (assign) NSInteger thing3;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h3 id="2-利用类别分散实现代码"><a href="#2-利用类别分散实现代码" class="headerlink" title="2 利用类别分散实现代码"></a>2 利用类别分散实现代码</h3><p>不能将<code>@implementation</code>分散到多个不同的<code>.m</code>文件中。可以通过类别把大型的单个类分散到多个不同的<code>.m</code>文件中。<br>以AppKit中的<code>NSWindow</code>为例，在<code>NSWindow.h</code>中搜索<code>@interface</code>大约能搜到5个类别声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@interface NSWindow(NSEvent)</span><br><span class="line">@interface NSWindow(NSCursorRect)</span><br><span class="line">@interface NSWindow(NSDrag)</span><br><span class="line">@interface NSWindow(NSCarbonExtensions)</span><br><span class="line">@interface NSWindow(NSDeprecated)</span><br></pre></td></tr></table></figure></p>
 <p><strong>类别可以访问其继承的类的实例变量。</strong></p>
 <h3 id="3-通过类别创建前向引用"><a href="#3-通过类别创建前向引用" class="headerlink" title="3 通过类别创建前向引用"></a>3 通过类别创建前向引用</h3><p>没有真正的私有方法。不在头文件声明，也可以调用，不过编译器会提示警告，并且app store会拒绝上架。<br>可通过在类别中声明方法避免这种警告。</p>
 
@@ -877,7 +877,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

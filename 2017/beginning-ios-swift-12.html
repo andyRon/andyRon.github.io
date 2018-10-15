@@ -461,7 +461,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,192 字
+                  : 1,231 字
                 </span>
               
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 5 分钟
+                  ≈ 6 分钟
                 </span>
               
             </div>
@@ -518,7 +518,7 @@
 <p>用<strong>Ctrl-drag</strong>从<em>Field</em>Label到<em>Value</em>Label，选择<strong>Equal Widths</strong>，生成一个<em>Field</em>Label与<em>Value</em>Label宽度相同的约束。修改<strong>Multiplier</strong>值为0.5，就是<em>Field</em>Label的宽度是<em>Value</em>Label的一半。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-0920f1f14cc8acf4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-582d1ae0dab6c52c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ul>
-<li>新建<code>RestaurantDetailTableViewCell</code>类文件，继承至<code>UITableViewCell</code>。添加两个接口，并关联上面的两个Label。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@IBOutlet var fieldLabel:UILabel!</div><div class="line">@IBOutlet var valueLabel:UILabel!</div></pre></td></tr></table></figure>
+<li>新建<code>RestaurantDetailTableViewCell</code>类文件，继承至<code>UITableViewCell</code>。添加两个接口，并关联上面的两个Label。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@IBOutlet var fieldLabel:UILabel!</span><br><span class="line">@IBOutlet var valueLabel:UILabel!</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="更新-RestaurantDetailViewController"><a href="#更新-RestaurantDetailViewController" class="headerlink" title="更新 RestaurantDetailViewController"></a>更新 RestaurantDetailViewController</h3><ul>
@@ -526,7 +526,7 @@
 <pre><code>class RestaurantDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 </code></pre></li>
 <li><p>实现<code>UITableViewDataSource</code>的相关方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;</div><div class="line">        return 4</div><div class="line">&#125;</div><div class="line"></div><div class="line">func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</div><div class="line">    </div><div class="line">    let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for: indexPath) as! RestaurantDetailTableViewCell</div><div class="line">    // Configure the cell...</div><div class="line">    switch indexPath.row &#123;</div><div class="line">    case 0:</div><div class="line">        cell.fieldLabel.text = &quot;Name&quot;</div><div class="line">        cell.valueLabel.text = restaurant.name</div><div class="line">    case 1:</div><div class="line">        cell.fieldLabel.text = &quot;Type&quot;</div><div class="line">        cell.valueLabel.text = restaurant.type</div><div class="line">    case 2:</div><div class="line">        cell.fieldLabel.text = &quot;Location&quot;</div><div class="line">        cell.valueLabel.text = restaurant.location</div><div class="line">    case 3:</div><div class="line">        cell.fieldLabel.text = &quot;Been here&quot;</div><div class="line">        cell.valueLabel.text = (restaurant.isVisited) ? &quot;Yes, I&apos;ve been herebefore&quot; : &quot;No&quot;</div><div class="line">    default:</div><div class="line">        cell.fieldLabel.text = &quot;&quot;</div><div class="line">        cell.valueLabel.text = &quot;&quot;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    cell.backgroundColor = UIColor.clear</div><div class="line">    </div><div class="line">    return cell</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;</span><br><span class="line">        return 4</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</span><br><span class="line">    </span><br><span class="line">    let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for: indexPath) as! RestaurantDetailTableViewCell</span><br><span class="line">    // Configure the cell...</span><br><span class="line">    switch indexPath.row &#123;</span><br><span class="line">    case 0:</span><br><span class="line">        cell.fieldLabel.text = &quot;Name&quot;</span><br><span class="line">        cell.valueLabel.text = restaurant.name</span><br><span class="line">    case 1:</span><br><span class="line">        cell.fieldLabel.text = &quot;Type&quot;</span><br><span class="line">        cell.valueLabel.text = restaurant.type</span><br><span class="line">    case 2:</span><br><span class="line">        cell.fieldLabel.text = &quot;Location&quot;</span><br><span class="line">        cell.valueLabel.text = restaurant.location</span><br><span class="line">    case 3:</span><br><span class="line">        cell.fieldLabel.text = &quot;Been here&quot;</span><br><span class="line">        cell.valueLabel.text = (restaurant.isVisited) ? &quot;Yes, I&apos;ve been herebefore&quot; : &quot;No&quot;</span><br><span class="line">    default:</span><br><span class="line">        cell.fieldLabel.text = &quot;&quot;</span><br><span class="line">        cell.valueLabel.text = &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cell.backgroundColor = UIColor.clear</span><br><span class="line">    </span><br><span class="line">    return cell</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>把table view的<code>delegate</code>和<code>dataSource</code>接口设置成<strong>Restaurant Detail View Controller</strong> 。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-ddcc3909a2f7ecc8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 </li>
@@ -547,10 +547,10 @@
 <ul>
 <li>修改navigation bar的背景颜色：<pre><code>UINavigationBar.appearance().barTintColor = UIColor(red: 216.0/255.0, green: 74.0/255.0, blue: 32.0/255.0, alpha: 1.0)
 </code></pre></li>
-<li>修改title样式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if let barFont = UIFont(name: &quot;Avenir-Light&quot;, size: 24.0) &#123;</div><div class="line">     UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:barFont]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>修改title样式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if let barFont = UIFont(name: &quot;Avenir-Light&quot;, size: 24.0) &#123;</span><br><span class="line">     UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:barFont]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><code>Avenir-Light</code>是字体名称，详细的iOS字体可查 <a href="http://iosfonts.com" target="_blank" rel="external">http://iosfonts.com</a> 。</p>
+<p><code>Avenir-Light</code>是字体名称，详细的iOS字体可查 <a href="http://iosfonts.com" target="_blank" rel="noopener">http://iosfonts.com</a> 。</p>
 <ul>
 <li><code>tintColor</code>控制Navigation items和bar button items的颜色<br><code>UINavigationBar.appearance().tintColor = UIColor.white</code></li>
 </ul>
@@ -572,14 +572,14 @@
 </li>
 </ul>
 <p>首先明确两个控制器中的<code>navigationController</code>属性指的是同一个Navigation Controller ，<code>viewDidLoad</code>方法是view第一次加载时调用，之后就不再调用了。 也就是说当从<em>detail view</em>返回，<code>hidesBarsOnSwipe</code>已经被设置为<code>false</code>，而到<em>restaurant table view controller</em>的<code>viewDidLoad</code>不再调用，所以<em>Navigation Bar</em>不能再隐藏。</p>
-<p>解决办法是使用<code>viewWillAppear</code>，这个方法是在视图每一次显示时调用。<br>在<code>RestaurantTableViewController</code>中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">override func viewWillAppear(_ animated: Bool) &#123;</div><div class="line">    super.viewWillAppear(animated)</div><div class="line">    navigationController?.hidesBarsOnSwipe = true</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在<code>RestaurantDetailViewController</code>中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">override func viewWillAppear(_ animated: Bool) &#123;</div><div class="line">    super.viewWillAppear(animated)</div><div class="line">    navigationController?.hidesBarsOnSwipe = false</div><div class="line">    navigationController?.setNavigationBarHidden(false, animated: true)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>解决办法是使用<code>viewWillAppear</code>，这个方法是在视图每一次显示时调用。<br>在<code>RestaurantTableViewController</code>中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">override func viewWillAppear(_ animated: Bool) &#123;</span><br><span class="line">    super.viewWillAppear(animated)</span><br><span class="line">    navigationController?.hidesBarsOnSwipe = true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>RestaurantDetailViewController</code>中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">override func viewWillAppear(_ animated: Bool) &#123;</span><br><span class="line">    super.viewWillAppear(animated)</span><br><span class="line">    navigationController?.hidesBarsOnSwipe = false</span><br><span class="line">    navigationController?.setNavigationBarHidden(false, animated: true)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="修改Status-Bar样式"><a href="#修改Status-Bar样式" class="headerlink" title="修改Status Bar样式"></a>修改Status Bar样式</h3><p>app中Status Bar的默认样式是黑色。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-c65272604046c5c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>在<code>Info.plist</code>中添加一个key为<strong>View controller-based status bar appearance</strong>，值为<em>NO</em>。然后<code>application(_:didFinishLaunchingWithOptions:)</code>中添加：<code>UIApplication.shared.statusBarStyle = .lightContent</code>。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-21e69b027d900e64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="external">Beginning-iOS-Programming-with-Swift</a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
       
     </div>
@@ -934,7 +934,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

@@ -454,7 +454,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 294 字
+                  : 325 字
                 </span>
               
 
@@ -470,7 +470,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 1 分钟
+                  ≈ 2 分钟
                 </span>
               
             </div>
@@ -496,9 +496,9 @@
 <h3 id="Xcode新建pch文件"><a href="#Xcode新建pch文件" class="headerlink" title="Xcode新建pch文件"></a>Xcode新建pch文件</h3><p><img src="http://upload-images.jianshu.io/upload_images/1678135-dbbffc7d6c416334.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h3 id="Xcode配置pch文件"><a href="#Xcode配置pch文件" class="headerlink" title="Xcode配置pch文件"></a>Xcode配置pch文件</h3><p><img src="http://upload-images.jianshu.io/upload_images/1678135-fd124ee0916804b1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h3 id="pch文件的简单例子"><a href="#pch文件的简单例子" class="headerlink" title="pch文件的简单例子"></a>pch文件的简单例子</h3><p>一个小项目的pch文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">#ifndef PrefixHeader_pch</div><div class="line">#define PrefixHeader_pch</div><div class="line"></div><div class="line">// Include any system framework and library headers here that should be included in all compilation units.</div><div class="line">// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.</div><div class="line"></div><div class="line">#import &quot;ARSearchBar.h&quot;</div><div class="line">#import &lt;FMDB.h&gt;</div><div class="line">#import &quot;ARSqliteTool.h&quot;</div><div class="line">#import &lt;AFNetworking.h&gt;</div><div class="line">#import &lt;SSZipArchive.h&gt;</div><div class="line">#import &lt;MobileCoreServices/MobileCoreServices.h&gt;</div><div class="line">#import &lt;SystemConfiguration/SystemConfiguration.h&gt;</div><div class="line"></div><div class="line">#define ARUserDefaults [NSUserDefaults standardUserDefaults]</div><div class="line">#define ARScreenBounds [UIScreen mainScreen].bounds</div><div class="line">#define ARScreenWidth [UIScreen mainScreen].bounds.size.width</div><div class="line">#define ARScreenHeight [UIScreen mainScreen].bounds.size.height</div><div class="line"></div><div class="line"></div><div class="line">#define WeakSelf __weak typeof(self) weakSelf = self;</div><div class="line">/**</div><div class="line"> *  1.返回一个RGBA格式的UIColor对象</div><div class="line"> */</div><div class="line">#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]</div><div class="line"></div><div class="line">/**</div><div class="line"> *  2.返回一个RGB格式的UIColor对象</div><div class="line"> */</div><div class="line">#define RGB(r, g, b) RGBA(r, g, b, 1.0f)</div><div class="line"></div><div class="line">#endif /* PrefixHeader_pch */</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#ifndef PrefixHeader_pch</span><br><span class="line">#define PrefixHeader_pch</span><br><span class="line"></span><br><span class="line">// Include any system framework and library headers here that should be included in all compilation units.</span><br><span class="line">// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.</span><br><span class="line"></span><br><span class="line">#import &quot;ARSearchBar.h&quot;</span><br><span class="line">#import &lt;FMDB.h&gt;</span><br><span class="line">#import &quot;ARSqliteTool.h&quot;</span><br><span class="line">#import &lt;AFNetworking.h&gt;</span><br><span class="line">#import &lt;SSZipArchive.h&gt;</span><br><span class="line">#import &lt;MobileCoreServices/MobileCoreServices.h&gt;</span><br><span class="line">#import &lt;SystemConfiguration/SystemConfiguration.h&gt;</span><br><span class="line"></span><br><span class="line">#define ARUserDefaults [NSUserDefaults standardUserDefaults]</span><br><span class="line">#define ARScreenBounds [UIScreen mainScreen].bounds</span><br><span class="line">#define ARScreenWidth [UIScreen mainScreen].bounds.size.width</span><br><span class="line">#define ARScreenHeight [UIScreen mainScreen].bounds.size.height</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#define WeakSelf __weak typeof(self) weakSelf = self;</span><br><span class="line">/**</span><br><span class="line"> *  1.返回一个RGBA格式的UIColor对象</span><br><span class="line"> */</span><br><span class="line">#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *  2.返回一个RGB格式的UIColor对象</span><br><span class="line"> */</span><br><span class="line">#define RGB(r, g, b) RGBA(r, g, b, 1.0f)</span><br><span class="line"></span><br><span class="line">#endif /* PrefixHeader_pch */</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>参考：<a href="http://www.cnblogs.com/manmq/p/6377882.html" target="_blank" rel="external">http://www.cnblogs.com/manmq/p/6377882.html</a></p>
+<p>参考：<a href="http://www.cnblogs.com/manmq/p/6377882.html" target="_blank" rel="noopener">http://www.cnblogs.com/manmq/p/6377882.html</a></p>
 </blockquote>
 
       
@@ -860,7 +860,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

@@ -468,7 +468,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 828 字
+                  : 845 字
                 </span>
               
 
@@ -503,7 +503,7 @@
 
       
         <p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH9zFIR06TCTQq74gAr0iwaok1wKae_RD87NZcsei9gds6Lrv-Bw" alt=""></p>
-<p>示例代码在github上<a href="https://github.com/andyRon/LearniOSByProject/tree/master/76" target="_blank" rel="external">localizationsDemo</a></p>
+<p>示例代码在github上<a href="https://github.com/andyRon/LearniOSByProject/tree/master/76" target="_blank" rel="noopener">localizationsDemo</a></p>
 <a id="more"></a>
 <h3 id="1-项目中需要配置的语言"><a href="#1-项目中需要配置的语言" class="headerlink" title="1 项目中需要配置的语言"></a>1 项目中需要配置的语言</h3><p>这就是项目中其他不同形式本地化可以添加的语种设置。</p>
 <ul>
@@ -564,11 +564,11 @@
 </ul>
 <p>最后的英文中的状态结果为：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-8b35d8463946cfa6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="5-优化本地化代码书写方式"><a href="#5-优化本地化代码书写方式" class="headerlink" title="5 优化本地化代码书写方式"></a>5 优化本地化代码书写方式</h3><p>本地化时，<code>NSLocalizedString(&quot;labelName&quot;, comment: &quot;Label&quot;)</code>或<code>NSLocalizedString(&quot;labelName&quot;, tableName: &quot;andy&quot;, bundle: Bundle.main, value: &quot;&quot;, comment: &quot;Label&quot;)</code>这两种方法代码写法有点繁琐，参考stackoverflow中一个问题<a href="https://stackoverflow.com/questions/25081757/whats-nslocalizedstring-equivalent-in-swift" target="_blank" rel="external">What’s NSLocalizedString equivalent in Swift?</a><br><a href="https://stackoverflow.com/questions/ask" target="_blank" rel="external">Ask</a>的一个答案，扩展一下<code>String</code>：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">String</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> localized: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">NSLocalizedString</span>(<span class="keyword">self</span>, tableName: <span class="literal">nil</span>, bundle: <span class="type">Bundle</span>.main, value: <span class="string">""</span>, comment: <span class="string">""</span>)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">localized</span><span class="params">(withComment:String)</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">NSLocalizedString</span>(<span class="keyword">self</span>, tableName: <span class="literal">nil</span>, bundle: <span class="type">Bundle</span>.main, value: <span class="string">""</span>, comment: withComment)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">localized</span><span class="params">(tableName: String)</span></span> -&gt; <span class="type">String</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">NSLocalizedString</span>(<span class="keyword">self</span>, tableName: tableName, bundle: <span class="type">Bundle</span>.main, value: <span class="string">""</span>, comment: <span class="string">""</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>然后，原本下面的写法：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.label.text = <span class="type">NSLocalizedString</span>(<span class="string">"labelName"</span>, comment: <span class="string">"Label"</span>)</div><div class="line"><span class="keyword">self</span>.label2.text = <span class="type">NSLocalizedString</span>(<span class="string">"labelName"</span>, tableName: <span class="string">"andy"</span>, bundle: <span class="type">Bundle</span>.main, value: <span class="string">""</span>, comment: <span class="string">"Label"</span>)</div><div class="line"><span class="keyword">self</span>.imageView.image = <span class="type">UIImage</span>(named: <span class="type">NSLocalizedString</span>(<span class="string">"Swift_Logo"</span>, comment: <span class="string">""</span>))</div></pre></td></tr></table></figure></p>
-<p>就可以写成：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.label.text = <span class="string">"labelName"</span>.localized</div><div class="line"><span class="keyword">self</span>.label2.text = <span class="string">"labelName"</span>.localized(tableName: <span class="string">"andy"</span>)</div><div class="line"><span class="keyword">self</span>.imageView.image = <span class="type">UIImage</span>(named: <span class="string">"Swift_Logo"</span>.localized)</div></pre></td></tr></table></figure></p>
+<h3 id="5-优化本地化代码书写方式"><a href="#5-优化本地化代码书写方式" class="headerlink" title="5 优化本地化代码书写方式"></a>5 优化本地化代码书写方式</h3><p>本地化时，<code>NSLocalizedString(&quot;labelName&quot;, comment: &quot;Label&quot;)</code>或<code>NSLocalizedString(&quot;labelName&quot;, tableName: &quot;andy&quot;, bundle: Bundle.main, value: &quot;&quot;, comment: &quot;Label&quot;)</code>这两种方法代码写法有点繁琐，参考stackoverflow中一个问题<a href="https://stackoverflow.com/questions/25081757/whats-nslocalizedstring-equivalent-in-swift" target="_blank" rel="noopener">What’s NSLocalizedString equivalent in Swift?</a><br><a href="https://stackoverflow.com/questions/ask" target="_blank" rel="noopener">Ask</a>的一个答案，扩展一下<code>String</code>：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">String</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> localized: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">NSLocalizedString</span>(<span class="keyword">self</span>, tableName: <span class="literal">nil</span>, bundle: <span class="type">Bundle</span>.main, value: <span class="string">""</span>, comment: <span class="string">""</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">localized</span><span class="params">(withComment:String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">NSLocalizedString</span>(<span class="keyword">self</span>, tableName: <span class="literal">nil</span>, bundle: <span class="type">Bundle</span>.main, value: <span class="string">""</span>, comment: withComment)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">localized</span><span class="params">(tableName: String)</span></span> -&gt; <span class="type">String</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">NSLocalizedString</span>(<span class="keyword">self</span>, tableName: tableName, bundle: <span class="type">Bundle</span>.main, value: <span class="string">""</span>, comment: <span class="string">""</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后，原本下面的写法：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.label.text = <span class="type">NSLocalizedString</span>(<span class="string">"labelName"</span>, comment: <span class="string">"Label"</span>)</span><br><span class="line"><span class="keyword">self</span>.label2.text = <span class="type">NSLocalizedString</span>(<span class="string">"labelName"</span>, tableName: <span class="string">"andy"</span>, bundle: <span class="type">Bundle</span>.main, value: <span class="string">""</span>, comment: <span class="string">"Label"</span>)</span><br><span class="line"><span class="keyword">self</span>.imageView.image = <span class="type">UIImage</span>(named: <span class="type">NSLocalizedString</span>(<span class="string">"Swift_Logo"</span>, comment: <span class="string">""</span>))</span><br></pre></td></tr></table></figure></p>
+<p>就可以写成：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.label.text = <span class="string">"labelName"</span>.localized</span><br><span class="line"><span class="keyword">self</span>.label2.text = <span class="string">"labelName"</span>.localized(tableName: <span class="string">"andy"</span>)</span><br><span class="line"><span class="keyword">self</span>.imageView.image = <span class="type">UIImage</span>(named: <span class="string">"Swift_Logo"</span>.localized)</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>参考：<br><a href="http://www.jianshu.com/p/cad6d3ff3a94" target="_blank" rel="external">【iOS】浅谈多语言本地化(国际化)</a><br><a href="http://www.jianshu.com/p/88c1b65e3ddb" target="_blank" rel="external">3分钟实现iOS语言本地化/国际化（图文详解）</a><br><a href="https://stackoverflow.com/questions/25081757/whats-nslocalizedstring-equivalent-in-swift" target="_blank" rel="external">What’s NSLocalizedString equivalent in Swift?</a><br><a href="https://stackoverflow.com/questions/ask" target="_blank" rel="external">Ask</a></p>
+<p>参考：<br><a href="http://www.jianshu.com/p/cad6d3ff3a94" target="_blank" rel="noopener">【iOS】浅谈多语言本地化(国际化)</a><br><a href="http://www.jianshu.com/p/88c1b65e3ddb" target="_blank" rel="noopener">3分钟实现iOS语言本地化/国际化（图文详解）</a><br><a href="https://stackoverflow.com/questions/25081757/whats-nslocalizedstring-equivalent-in-swift" target="_blank" rel="noopener">What’s NSLocalizedString equivalent in Swift?</a><br><a href="https://stackoverflow.com/questions/ask" target="_blank" rel="noopener">Ask</a></p>
 </blockquote>
 
       
@@ -673,8 +673,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/downgit.html" rel="next" title="DownGit：怎么下载github中某个文件夹？">
-                <i class="fa fa-chevron-left"></i> DownGit：怎么下载github中某个文件夹？
+              <a href="/2017/carthage-introduce.html" rel="next" title="Carthage的使用">
+                <i class="fa fa-chevron-left"></i> Carthage的使用
               </a>
             
           </div>
@@ -683,8 +683,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-tutorial-8-ibinspectable-ibdesignable.html" rel="prev" title="iOS tutorial 8：使用IBInspectable 和 IBDesignable定制UI">
-                iOS tutorial 8：使用IBInspectable 和 IBDesignable定制UI <i class="fa fa-chevron-right"></i>
+              <a href="/2017/downgit.html" rel="prev" title="DownGit：怎么下载github中某个文件夹？">
+                DownGit：怎么下载github中某个文件夹？ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -934,7 +934,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

@@ -451,7 +451,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 429 字
+                  : 471 字
                 </span>
               
 
@@ -486,7 +486,7 @@
 
       
         <blockquote>
-<p><a href="https://developer.apple.com/documentation/foundation/nsurlconnection" target="_blank" rel="external">NSURLConnection</a>在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。</p>
+<p><a href="https://developer.apple.com/documentation/foundation/nsurlconnection" target="_blank" rel="noopener">NSURLConnection</a>在iOS7之后基本被NSURLSession，但为了兼容，有必要学习一下。</p>
 </blockquote>
 <p>网络请求分为同步和异步两种：</p>
 <ul>
@@ -494,20 +494,22 @@
 <li>异步是指在发送请求之后，一边在子线程中接收返回数据，一边执行之后的代码，当返回数据接收完毕后，采用回调的方式通知主线程做处理。</li>
 </ul>
 <a id="more"></a>
-<h3 id="一、NSURLConnection同步请求"><a href="#一、NSURLConnection同步请求" class="headerlink" title="一、NSURLConnection同步请求"></a>一、NSURLConnection同步请求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 同步</div><div class="line">- (void)tongbu &#123;</div><div class="line">    NSURL * url = [NSURL URLWithString:@&quot;https://www.baidu.com&quot;];</div><div class="line">    NSURLRequest * request = [NSURLRequest requestWithURL:url];</div><div class="line">    NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];</div><div class="line">    NSLog(@&quot;%@&quot;,data);</div><div class="line">    NSLog(@&quot;继续执行&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="一、NSURLConnection同步请求"><a href="#一、NSURLConnection同步请求" class="headerlink" title="一、NSURLConnection同步请求"></a>一、NSURLConnection同步请求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 同步</span><br><span class="line">- (void)tongbu &#123;</span><br><span class="line">    NSURL * url = [NSURL URLWithString:@&quot;https://www.baidu.com&quot;];</span><br><span class="line">    NSURLRequest * request = [NSURLRequest requestWithURL:url];</span><br><span class="line">    NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];</span><br><span class="line">    NSLog(@&quot;%@&quot;,data);</span><br><span class="line">    NSLog(@&quot;继续执行&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="而、NSURLConnection异步请求"><a href="#而、NSURLConnection异步请求" class="headerlink" title="而、NSURLConnection异步请求"></a>而、NSURLConnection异步请求</h3><ol>
 <li><p>block方式的异步请求</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// block的异步</div><div class="line">- (void)yibu &#123;</div><div class="line">    NSURL * url = [NSURL URLWithString:@&quot;https://www.baidu.com&quot;];</div><div class="line">    NSURLRequest * request = [NSURLRequest requestWithURL:url];</div><div class="line">    //其中的queue参数决定block中的代码在哪个队列中执行</div><div class="line">    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) &#123;</div><div class="line">        NSLog(@&quot;%@&quot;,data);</div><div class="line">    &#125;];</div><div class="line">    NSLog(@&quot;继续执行&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// block的异步</span><br><span class="line">- (void)yibu &#123;</span><br><span class="line">    NSURL * url = [NSURL URLWithString:@&quot;https://www.baidu.com&quot;];</span><br><span class="line">    NSURLRequest * request = [NSURLRequest requestWithURL:url];</span><br><span class="line">    //其中的queue参数决定block中的代码在哪个队列中执行</span><br><span class="line">    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;,data);</span><br><span class="line">    &#125;];</span><br><span class="line">    NSLog(@&quot;继续执行&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>代理回调方式的异步请求<br>采用协议和声明一个用户接受数据的可变NSData：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@interface ViewController ()&lt;NSURLConnectionDataDelegate&gt;</div><div class="line">&#123;</div><div class="line">    NSMutableData * _data;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@interface ViewController ()&lt;NSURLConnectionDataDelegate&gt;</span><br><span class="line">&#123;</span><br><span class="line">    NSMutableData * _data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>请求代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 代理回调的异步</div><div class="line">- (void)yibu_delegate &#123;</div><div class="line">    _data = [[NSMutableData alloc]init];</div><div class="line">    NSURL * url = [NSURL URLWithString:@&quot;https://www.baidu.com&quot;];</div><div class="line">    NSURLRequest * request = [NSURLRequest requestWithURL:url];</div><div class="line">    [NSURLConnection connectionWithRequest:request delegate:self];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>实现代理方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response&#123;</div><div class="line">    //开始接收数据</div><div class="line">    [_data setLength:0];</div><div class="line">    NSLog(@&quot;%s&quot;,&quot;开始接收数据&quot;);</div><div class="line">&#125;</div><div class="line">-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data&#123;</div><div class="line">    //正在接收数据</div><div class="line">    [_data appendData:data];</div><div class="line">    NSLog(@&quot;%s&quot;,&quot;正在接收数据&quot;);</div><div class="line">&#125;</div><div class="line">-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error&#123;</div><div class="line">    //接收数据失败</div><div class="line">    NSLog(@&quot;%@&quot;,error);</div><div class="line">&#125;</div><div class="line">-(void)connectionDidFinishLoading:(NSURLConnection *)connection&#123;</div><div class="line">    //接收数据完成</div><div class="line">    NSLog(@&quot;%@&quot;,_data);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>请求代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 代理回调的异步</span><br><span class="line">- (void)yibu_delegate &#123;</span><br><span class="line">    _data = [[NSMutableData alloc]init];</span><br><span class="line">    NSURL * url = [NSURL URLWithString:@&quot;https://www.baidu.com&quot;];</span><br><span class="line">    NSURLRequest * request = [NSURLRequest requestWithURL:url];</span><br><span class="line">    [NSURLConnection connectionWithRequest:request delegate:self];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现代理方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response&#123;</span><br><span class="line">    //开始接收数据</span><br><span class="line">    [_data setLength:0];</span><br><span class="line">    NSLog(@&quot;%s&quot;,&quot;开始接收数据&quot;);</span><br><span class="line">&#125;</span><br><span class="line">-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data&#123;</span><br><span class="line">    //正在接收数据</span><br><span class="line">    [_data appendData:data];</span><br><span class="line">    NSLog(@&quot;%s&quot;,&quot;正在接收数据&quot;);</span><br><span class="line">&#125;</span><br><span class="line">-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error&#123;</span><br><span class="line">    //接收数据失败</span><br><span class="line">    NSLog(@&quot;%@&quot;,error);</span><br><span class="line">&#125;</span><br><span class="line">-(void)connectionDidFinishLoading:(NSURLConnection *)connection&#123;</span><br><span class="line">    //接收数据完成</span><br><span class="line">    NSLog(@&quot;%@&quot;,_data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>代码：<a href="https://github.com/andyRon/LearniOSByProject/tree/master/91-network" target="_blank" rel="external">NSURLConnection</a></p>
-<p>参考：<a href="https://yq.aliyun.com/articles/39436" target="_blank" rel="external">iOS网络编程之三——NSURLConnection的简单使用</a></p>
+<p>代码：<a href="https://github.com/andyRon/LearniOSByProject/tree/master/91-network" target="_blank" rel="noopener">NSURLConnection</a></p>
+</blockquote>
+<blockquote>
+<p>参考：<a href="https://yq.aliyun.com/articles/39436" target="_blank" rel="noopener">iOS网络编程之三——NSURLConnection的简单使用</a></p>
 </blockquote>
 
       
@@ -608,8 +610,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-network-4.html" rel="next" title="iOS网络编程(四)：缓存类NSURLCache介绍">
-                <i class="fa fa-chevron-left"></i> iOS网络编程(四)：缓存类NSURLCache介绍
+              <a href="/2017/ios-network-1.html" rel="next" title="iOS网络编程(一)：NSURLSession介绍">
+                <i class="fa fa-chevron-left"></i> iOS网络编程(一)：NSURLSession介绍
               </a>
             
           </div>
@@ -618,8 +620,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-network-3.html" rel="prev" title="iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍">
-                iOS网络编程(三)：请求类NSURLRequest和请求响应类NSURLResponse介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/ios-network-4.html" rel="prev" title="iOS网络编程(四)：缓存类NSURLCache介绍">
+                iOS网络编程(四)：缓存类NSURLCache介绍 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -869,7 +871,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

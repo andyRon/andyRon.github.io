@@ -460,7 +460,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 324 字
+                  : 375 字
                 </span>
               
 
@@ -502,25 +502,27 @@
 <li>在上面的<code>UITableViewCell</code>的中添加一个<code>UIImageView</code>作为视频的预览图、一个<code>UIButton</code>作为开始播放、两个<code>UILabel</code>分别用于显示视频的名称和来源。并修改一定样式和添加一定约束</li>
 <li>添加几张图片和一个视频</li>
 <li><p>添加一个cell的类，并添加三个接口。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class VideoCell: UITableViewCell &#123;</div><div class="line"></div><div class="line">    @IBOutlet var previewImageView: UIImageView!</div><div class="line">    @IBOutlet var nameLabel: UILabel!</div><div class="line">    @IBOutlet var sourceLabel: UILabel!</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class VideoCell: UITableViewCell &#123;</span><br><span class="line"></span><br><span class="line">    @IBOutlet var previewImageView: UIImageView!</span><br><span class="line">    @IBOutlet var nameLabel: UILabel!</span><br><span class="line">    @IBOutlet var sourceLabel: UILabel!</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>添加一个<code>video</code>枚举，用来存储视频信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">struct video &#123;</div><div class="line">    let image: String</div><div class="line">    let title: String</div><div class="line">    let source: String</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct video &#123;</span><br><span class="line">    let image: String</span><br><span class="line">    let title: String</span><br><span class="line">    let source: String</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使<code>ViewController</code>符合table view代理和数据的协议，并实现所需方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat &#123;</div><div class="line">     return 220</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"> func numberOfSectionsInTableView(tableView: UITableView) -&gt; Int &#123;</div><div class="line">     return 2</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"> func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;</div><div class="line">     return data.count</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"> func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</div><div class="line">     </div><div class="line">     let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for: indexPath) as! VideoCell</div><div class="line">     </div><div class="line">     let video = data[indexPath.row]</div><div class="line">     </div><div class="line">     cell.previewImageView.image = UIImage(named: video.image)</div><div class="line">     cell.nameLabel.text = video.title</div><div class="line">     cell.sourceLabel.text = video.source</div><div class="line">     </div><div class="line">     return cell</div><div class="line">     </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat &#123;</span><br><span class="line">     return 220</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> func numberOfSectionsInTableView(tableView: UITableView) -&gt; Int &#123;</span><br><span class="line">     return 2</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;</span><br><span class="line">     return data.count</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</span><br><span class="line">     </span><br><span class="line">     let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for: indexPath) as! VideoCell</span><br><span class="line">     </span><br><span class="line">     let video = data[indexPath.row]</span><br><span class="line">     </span><br><span class="line">     cell.previewImageView.image = UIImage(named: video.image)</span><br><span class="line">     cell.nameLabel.text = video.title</span><br><span class="line">     cell.sourceLabel.text = video.source</span><br><span class="line">     </span><br><span class="line">     return cell</span><br><span class="line">     </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>引入播放视频所需框架，并定义相关变量。</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import AVFoundation</div><div class="line">import AVKit</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">    var playViewController : AVPlayerViewController?</div><div class="line">    var playerView : AVPlayer?</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import AVFoundation</span><br><span class="line">import AVKit</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">    var playViewController : AVPlayerViewController?</span><br><span class="line">    var playerView : AVPlayer?</span><br></pre></td></tr></table></figure>
 <ul>
 <li>实现视频播放按钮方法。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@IBAction func playVideo(_ sender: UIButton) &#123;</div><div class="line">    let path = Bundle.main.path(forResource: &quot;KL&quot;, ofType: &quot;mp4&quot;)</div><div class="line">    </div><div class="line">    playerView = AVPlayer(url: URL(fileURLWithPath: path!))</div><div class="line">    </div><div class="line">    playViewController = AVPlayerViewController()</div><div class="line">    playViewController?.player = playerView</div><div class="line">    </div><div class="line">    present(playViewController!, animated: true, completion: &#123;</div><div class="line">        self.playViewController?.player?.play()</div><div class="line">    &#125;)</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@IBAction func playVideo(_ sender: UIButton) &#123;</span><br><span class="line">    let path = Bundle.main.path(forResource: &quot;KL&quot;, ofType: &quot;mp4&quot;)</span><br><span class="line">    </span><br><span class="line">    playerView = AVPlayer(url: URL(fileURLWithPath: path!))</span><br><span class="line">    </span><br><span class="line">    playViewController = AVPlayerViewController()</span><br><span class="line">    playViewController?.player = playerView</span><br><span class="line">    </span><br><span class="line">    present(playViewController!, animated: true, completion: &#123;</span><br><span class="line">        self.playViewController?.player?.play()</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>详细代码： <a href="https://github.com/andyRon/LearniOSByProject/tree/master/78" target="_blank" rel="external">PlayLocalVideo</a></p>
-<p>参考： <strong><a href="https://github.com/allenwong/30DaysofSwift" target="_blank" rel="external">30DaysofSwift</a></strong></p>
+<p>详细代码： <a href="https://github.com/andyRon/LearniOSByProject/tree/master/78" target="_blank" rel="noopener">PlayLocalVideo</a></p>
+</blockquote>
+<blockquote>
+<p>参考： <strong><a href="https://github.com/allenwong/30DaysofSwift" target="_blank" rel="noopener">30DaysofSwift</a></strong></p>
 </blockquote>
 
       
@@ -615,8 +617,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/alamofire-introduce.html" rel="next" title="Alamofire：Swift的HTTP 网络库">
-                <i class="fa fa-chevron-left"></i> Alamofire：Swift的HTTP 网络库
+              <a href="/2017/ios-tutorial-11.html" rel="next" title="iOS tutorial 11：照片横屏滑动">
+                <i class="fa fa-chevron-left"></i> iOS tutorial 11：照片横屏滑动
               </a>
             
           </div>
@@ -625,8 +627,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-tutorial-10-uiscrolview.html" rel="prev" title="iOS tutorial 10：UIScrollView滚动视图">
-                iOS tutorial 10：UIScrollView滚动视图 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/ios-tutorial-12.html" rel="prev" title="iOS tutorial 12：视频背景">
+                iOS tutorial 12：视频背景 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -851,7 +853,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

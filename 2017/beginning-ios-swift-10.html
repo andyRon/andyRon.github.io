@@ -459,7 +459,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 771 字
+                  : 810 字
                 </span>
               
 
@@ -475,7 +475,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 3 分钟
+                  ≈ 4 分钟
                 </span>
               
             </div>
@@ -494,7 +494,7 @@
 
       
         <p><img src="http://upload-images.jianshu.io/upload_images/1678135-cc712153ff8b3681.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>接着上一篇<a href="http://www.jianshu.com/p/eba45f0c195d" target="_blank" rel="external">开始用Swift开发iOS 10 - 9 Table Row的删除, UITableViewRowAction和UIActivityViewController的使用</a>的代码，继续学习Navigation Controller和Segue。</p>
+<p>接着上一篇<a href="http://www.jianshu.com/p/eba45f0c195d" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 9 Table Row的删除, UITableViewRowAction和UIActivityViewController的使用</a>的代码，继续学习Navigation Controller和Segue。</p>
 <a id="more"></a>
 <h3 id="创造Navigation-Controller"><a href="#创造Navigation-Controller" class="headerlink" title="创造Navigation Controller"></a>创造Navigation Controller</h3><ul>
 <li>选中<strong>Restaurant Table View Controller</strong>然后点击菜单栏中的<strong>Editor &gt; Embed in &gt; Navigation Controller</strong>；生成了新的一Scene（<strong>Navigation Controller Scene</strong>）。</li>
@@ -525,7 +525,7 @@
 <li><p>创建新类文件<code>RestaurantDetailViewController</code>，继承至<code>UIViewController</code>。是新建scene与<code>RestaurantDetailViewController</code>的联系。</p>
 </li>
 <li><p>在<code>RestaurantDetailViewController</code>中加入一个outlet和一个变量，outlet关联Image View，<code>restaurantImage</code>用与接受table view传来的图像名称数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@IBOutlet var restaurantImageView:UIImageView!</div><div class="line">var restaurantImage = &quot;&quot;</div><div class="line"></div><div class="line">override func viewDidLoad() &#123;</div><div class="line">    super.viewDidLoad()</div><div class="line"></div><div class="line">    restaurantImageView.image = UIImage(named: restaurantImage)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@IBOutlet var restaurantImageView:UIImageView!</span><br><span class="line">var restaurantImage = &quot;&quot;</span><br><span class="line"></span><br><span class="line">override func viewDidLoad() &#123;</span><br><span class="line">    super.viewDidLoad()</span><br><span class="line"></span><br><span class="line">    restaurantImageView.image = UIImage(named: restaurantImage)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="通过segues传递数据"><a href="#通过segues传递数据" class="headerlink" title="通过segues传递数据"></a>通过segues传递数据</h3><p>segue管理view controller之间的过渡。当segue触发时，storyboard会通知源view controller（如<code>RestaurantTableViewController</code>）调用方法<code>prepare(for:sender:)</code>，可以通过此方法传递数据。</p>
@@ -533,21 +533,21 @@
 <li><p>当storyboard中结构复杂时，segue可能会有很多，同一个view controller可能与各级view controller之间有segue，这种情况最好给segue一个唯一identifier。设置segue的identifier为 <em>showRestaurantDetail</em>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-3db4a88afc8d275a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 </li>
 <li><p>在<code>RestaurantTableViewController</code>中添加<code>prepareForSegue</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">override func prepare(for segue: UIStoryboardSegue, sender: Any?) &#123;</div><div class="line">    if segue.identifier == &quot;showRestaurantDetail&quot; &#123;</div><div class="line">        if let indexPath = tableView.indexPathForSelectedRow &#123;</div><div class="line">            let destinationController = segue.destination as! RestaurantDetailViewController</div><div class="line">            destinationController.restaurantImage = restaurantImages[indexPath.row]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">override func prepare(for segue: UIStoryboardSegue, sender: Any?) &#123;</span><br><span class="line">    if segue.identifier == &quot;showRestaurantDetail&quot; &#123;</span><br><span class="line">        if let indexPath = tableView.indexPathForSelectedRow &#123;</span><br><span class="line">            let destinationController = segue.destination as! RestaurantDetailViewController</span><br><span class="line">            destinationController.restaurantImage = restaurantImages[indexPath.row]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="为详情页面添加三个标签"><a href="#为详情页面添加三个标签" class="headerlink" title="为详情页面添加三个标签"></a>为详情页面添加三个标签</h3><p><img src="http://upload-images.jianshu.io/upload_images/1678135-6bc9580d3e6383bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ul>
 <li>添加三个标签，Text分别为<em>Name</em>，<em>Location</em>，<em>Type</em>（注意：虽然Text会被替代，但不要开始留空，因为留空会使之后生成stack view时，大小不确定）；三个label生成一个stack view，调整字体和大小，添加适当的约束。</li>
 <li><p>添加三个outlet，和三个与之对应的变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@IBOutlet var nameLabel: UILabel!</div><div class="line">@IBOutlet var locationLabel: UILabel!</div><div class="line">@IBOutlet var typeLabel: UILabel!</div><div class="line"></div><div class="line">var nameText = &quot;&quot;</div><div class="line">var locationText = &quot;&quot;</div><div class="line">var typeText = &quot;&quot;</div><div class="line"></div><div class="line">override func viewDidLoad() &#123;</div><div class="line">    super.viewDidLoad()</div><div class="line"></div><div class="line">    restaurantImageView.image = UIImage(named: restaurantImage)</div><div class="line">    nameLabel.text = nameText</div><div class="line">    locationLabel.text = locationText</div><div class="line">    typeLabel.text = typeText</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@IBOutlet var nameLabel: UILabel!</span><br><span class="line">@IBOutlet var locationLabel: UILabel!</span><br><span class="line">@IBOutlet var typeLabel: UILabel!</span><br><span class="line"></span><br><span class="line">var nameText = &quot;&quot;</span><br><span class="line">var locationText = &quot;&quot;</span><br><span class="line">var typeText = &quot;&quot;</span><br><span class="line"></span><br><span class="line">override func viewDidLoad() &#123;</span><br><span class="line">    super.viewDidLoad()</span><br><span class="line"></span><br><span class="line">    restaurantImageView.image = UIImage(named: restaurantImage)</span><br><span class="line">    nameLabel.text = nameText</span><br><span class="line">    locationLabel.text = locationText</span><br><span class="line">    typeLabel.text = typeText</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改<code>RestaurantTableViewController</code>中的<code>prepareForSegue</code>方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">override func prepare(for segue: UIStoryboardSegue, sender: Any?) &#123;</div><div class="line">    if segue.identifier == &quot;showRestaurantDetail&quot; &#123;</div><div class="line">        if let indexPath = tableView.indexPathForSelectedRow &#123;</div><div class="line">            let destinationController = segue.destination as! RestaurantDetailViewController</div><div class="line">            destinationController.restaurantImage = restaurantImages[indexPath.row]</div><div class="line">            destinationController.nameText = restaurantNames[indexPath.row]</div><div class="line">            destinationController.locationText = restaurantLocations[indexPath.row]</div><div class="line">            destinationController.typeText = restaurantTypes[indexPath.row]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">override func prepare(for segue: UIStoryboardSegue, sender: Any?) &#123;</span><br><span class="line">    if segue.identifier == &quot;showRestaurantDetail&quot; &#123;</span><br><span class="line">        if let indexPath = tableView.indexPathForSelectedRow &#123;</span><br><span class="line">            let destinationController = segue.destination as! RestaurantDetailViewController</span><br><span class="line">            destinationController.restaurantImage = restaurantImages[indexPath.row]</span><br><span class="line">            destinationController.nameText = restaurantNames[indexPath.row]</span><br><span class="line">            destinationController.locationText = restaurantLocations[indexPath.row]</span><br><span class="line">            destinationController.typeText = restaurantTypes[indexPath.row]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="external">Beginning-iOS-Programming-with-Swift</a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
       
     </div>
@@ -641,8 +641,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-tutorial-4-calayer.html" rel="next" title="iOS tutorial 4：CALayer介绍(swift)">
-                <i class="fa fa-chevron-left"></i> iOS tutorial 4：CALayer介绍(swift)
+              <a href="/2017/ios-tutorial-5.html" rel="next" title="iOS tutorial 5：关于地理定位和特定区域(Swift)">
+                <i class="fa fa-chevron-left"></i> iOS tutorial 5：关于地理定位和特定区域(Swift)
               </a>
             
           </div>
@@ -902,7 +902,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 

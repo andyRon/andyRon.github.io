@@ -518,7 +518,7 @@
 <a id="more"></a>
 <p>在iOS 8 时，Apple发布<strong>TestFlight</strong>用于<strong>Beta测试</strong>。之前<strong>TestFlight</strong>一直是独立用户mobile app测试的mobile平台，在2014年2月，Apple收购的<strong>TestFlight</strong>母公司Burstly。现在<strong>TestFlight</strong>已经集成到<strong>iTunes Connect</strong>中，允许开发只通过邮件地址邀请<strong>Beta测试</strong>用户。</p>
 <h3 id="在iTunes-Connect中创建一个App-Record"><a href="#在iTunes-Connect中创建一个App-Record" class="headerlink" title="在iTunes Connect中创建一个App Record"></a>在iTunes Connect中创建一个App Record</h3><blockquote>
-<p><a href="https://itunesconnect.apple.com" target="_blank" rel="external"><strong>iTunes Connect</strong></a> 是为iOS开发者提供在App Store管理销售他们apps的Web应用工具。</p>
+<p><a href="https://itunesconnect.apple.com" target="_blank" rel="noopener"><strong>iTunes Connect</strong></a> 是为iOS开发者提供在App Store管理销售他们apps的Web应用工具。</p>
 </blockquote>
 <p>在上传app之前，必须要在 <strong>iTunes Connect</strong>中有<strong>App Record</strong>。</p>
 <ul>
@@ -536,7 +536,7 @@
 <h3 id="价格与销售范围"><a href="#价格与销售范围" class="headerlink" title="价格与销售范围"></a>价格与销售范围</h3><p><img src="http://upload-images.jianshu.io/upload_images/1678135-1bf1e759bf10f8a8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h3 id="准备提交"><a href="#准备提交" class="headerlink" title="准备提交"></a>准备提交</h3><p>这一步主要添加截图、app描述、app图标、联系信息等信息</p>
 <ol>
-<li><p>预览图和截图<br>提高至少一张5.5 英寸的截图(1242x2208 pixels) ，<strong>iTunes Connect</strong>会自动生成其他屏幕尺寸的图片。详细可参考<a href="https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/Properties.html" target="_blank" rel="external">iTunes Connect Developer Guide</a> 或 <a href="http://help.apple.com/itunes-connect/developer/#/" target="_blank" rel="external">iTunes Connect 开发人员帮助</a>（中文）</p>
+<li><p>预览图和截图<br>提高至少一张5.5 英寸的截图(1242x2208 pixels) ，<strong>iTunes Connect</strong>会自动生成其他屏幕尺寸的图片。详细可参考<a href="https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/Properties.html" target="_blank" rel="noopener">iTunes Connect Developer Guide</a> 或 <a href="http://help.apple.com/itunes-connect/developer/#/" target="_blank" rel="noopener">iTunes Connect 开发人员帮助</a>（中文）</p>
 </li>
 <li><p>app描述<br>填写一些相关描述，关键词（以逗号分隔），URL等<br><img src="http://upload-images.jianshu.io/upload_images/1678135-49ff96ceaa4b7deb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 </li>
@@ -544,18 +544,18 @@
 </li>
 </ol>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-5e9201b7d2f00c56.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这边的App Store 图标要求是1024x1024 pixels，不能包含隐藏元素。</p>
-<ol>
+<ol start="4">
 <li>App 审核信息</li>
 </ol>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-edd038b09a0a8fe4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ol>
+<ol start="5">
 <li>版本发布</li>
 </ol>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-972f925fa466d188.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h3 id="更新Build-string"><a href="#更新Build-string" class="headerlink" title="更新Build string"></a>更新Build string</h3><p>回到Xcode，确认版本数字与<strong>iTunes Connect</strong>中一致。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-7b6141bbece57a95.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h3 id="准备App-Icon和启动页图片"><a href="#准备App-Icon和启动页图片" class="headerlink" title="准备App Icon和启动页图片"></a>准备App Icon和启动页图片</h3><ul>
-<li>利用类似<a href="http://icon.wuruihong.com/" target="_blank" rel="external">图标工场</a>这种移动应用图标生成工具，可生成一些大小的图标。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-7e9359fc4e0867a6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>利用类似<a href="http://icon.wuruihong.com/" target="_blank" rel="noopener">图标工场</a>这种移动应用图标生成工具，可生成一些大小的图标。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-7e9359fc4e0867a6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
 </ul>
 <p>可以在Finder中直接复制<code>AppIcon.appiconset</code>目录替代即可。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-0dff23eff4750d20.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -583,7 +583,7 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-203ab660c5e3786e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-2764ffab4578853e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h3 id="管理内部测试用户"><a href="#管理内部测试用户" class="headerlink" title="管理内部测试用户"></a>管理内部测试用户</h3><ul>
-<li>内部用户也就是 iTunes Connect 用户，最多可添加25个。可在<a href="https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/users_roles" target="_blank" rel="external">用户和职能</a>中添加。</li>
+<li>内部用户也就是 iTunes Connect 用户，最多可添加25个。可在<a href="https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/users_roles" target="_blank" rel="noopener">用户和职能</a>中添加。</li>
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1678135-d3daed1be257fa19.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ul>
@@ -603,8 +603,8 @@
 <li>填写完整测试信息<br><img src="http://upload-images.jianshu.io/upload_images/1678135-9168eb9c5d57f76c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
 <li>新建群组，比如就叫<em>外部测试员</em>：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-fe3c76bf740c8d0d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
 </ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="external">Beginning-iOS-Programming-with-Swift</a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="external">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="external">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
       
     </div>
@@ -959,7 +959,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共145.4k字</span>
+  <span class="post-count">  全站共154.3k字</span>
 
 </div>
 
