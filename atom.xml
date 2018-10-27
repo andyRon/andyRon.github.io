@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-10-15T13:07:24.724Z</updated>
+  <updated>2018-10-27T08:06:32.166Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>读《混乱》—— 机械化中需要一点点混乱</title>
+    <link href="http://andyron.com/2018/%E6%B7%B7%E4%B9%B1.html"/>
+    <id>http://andyron.com/2018/混乱.html</id>
+    <published>2018-10-27T07:58:30.000Z</published>
+    <updated>2018-10-27T08:06:32.166Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;提到混乱，就想到两个影视剧中的台词&quot;&gt;&lt;a href=&quot;#提到混乱，就想到两个影视剧中的台词&quot; class=&quot;headerlink&quot; title=&quot;提到混乱，就想到两个影视剧中的台词&quot;&gt;&lt;/a&gt;提到混乱，就想到两个影视剧中的台词&lt;/h2&gt;&lt;h3 id=&quot;第一个是权力的游戏：混乱是阶梯-Chaos-is-a-ladder&quot;&gt;&lt;a href=&quot;#第一个是权力的游戏：混乱是阶梯-Chaos-is-a-ladder&quot; class=&quot;headerlink&quot; title=&quot;第一个是权力的游戏：混乱是阶梯(Chaos is a ladder)&quot;&gt;&lt;/a&gt;第一个是权力的游戏：&lt;strong&gt;混乱是阶梯(Chaos is a ladder)&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;S03E06，约48min处&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-84032dac49abc342.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;权力的游戏S03E06，约48min处&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Swift中的高阶函数：sorted, map, reduce, forEach, flatMap, filter</title>
@@ -717,40 +736,6 @@
 &lt;h4 id=&quot;然而…&quot;&gt;&lt;a href=&quot;#然而…&quot; class=&quot;headerlink&quot; title=&quot;然而…&quot;&gt;&lt;/a&gt;&lt;strong&gt;然而…&lt;/strong&gt;&lt;/h4&gt;&lt;p&gt;了解一点现有算法解决问题时所用的奇技淫巧可能会给予你启发，让你能更好地优化自己的代码。&lt;/p&gt;
 &lt;p&gt;除了自带的标准数组和字典之外，了解一些其它的数据结构让你在构建自己的 App 时拥有更多的选择。&lt;/p&gt;
 &lt;p&gt;学习算法和数据结构会助你成为更好的开发者！（当然也就意味了可以赚到更多的$$$）&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-什么是算法和数据结构？</title>
-    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9F.html"/>
-    <id>http://andyron.com/2018/Swift算法俱乐部-什么是算法和数据结构？.html</id>
-    <published>2018-09-14T10:08:23.000Z</published>
-    <updated>2018-09-14T12:07:02.125Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;什么是算法和数据结构？&quot;&gt;&lt;a href=&quot;#什么是算法和数据结构？&quot; class=&quot;headerlink&quot; title=&quot;什么是算法和数据结构？&quot;&gt;&lt;/a&gt;什么是算法和数据结构？&lt;/h1&gt;&lt;p&gt;一个算法就像一张教计算机“烹饪”的“食谱”。如果你了解做菜的过程，你就能理解算法的定义。&lt;/p&gt;
-&lt;p&gt;下面有一张关于&lt;a href=&quot;http://allrecipes.com/recipe/21014/good-old-fashioned-pancakes/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;制作薄饼的食谱&lt;/a&gt;：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在一个大碗里，将面粉，发酵粉，盐和糖过筛。&lt;/li&gt;
-&lt;li&gt;加入牛奶、鸡蛋和融化了的奶油。&lt;/li&gt;
-&lt;li&gt;搅拌混合直至丝柔顺滑。&lt;/li&gt;
-&lt;li&gt;中火加热平底锅。&lt;/li&gt;
-&lt;li&gt;将搅拌好的面糊缓慢倒入锅中，每个薄饼大概用1/4杯的面糊即可。&lt;/li&gt;
-&lt;li&gt;薄饼两面都呈黄褐色即可出锅享用了。&lt;/li&gt;
-&lt;/ol&gt;
     
     </summary>
     
