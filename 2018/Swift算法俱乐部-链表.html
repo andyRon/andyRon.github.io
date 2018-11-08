@@ -1,0 +1,1691 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="google-site-verification" content="WbjivD7TTMEtYj5PSWVYMaX2uAfY6lr-R517vwDhLWo" />
+<meta name="baidu-site-verification" content="ZmrU9vDYWs" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法与数据结构,swift,链表," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="欣欣向戎" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="keywords" content="算法与数据结构,swift,链表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Swift算法俱乐部-链表">
+<meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-链表.html">
+<meta property="og:site_name" content="欣欣向戎">
+<meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-d7d3d78ad3f0af28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-11-08T10:37:18.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】Swift算法俱乐部-链表">
+<meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-d7d3d78ad3f0af28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andyron.com/2018/Swift算法俱乐部-链表.html"/>
+
+
+
+
+
+
+
+
+  <title>【译】Swift算法俱乐部-链表 | 欣欣向戎</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e29ae2ff2bac53a3addad74e238d0108";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欣欣向戎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">AndyRon's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/Swift算法俱乐部-链表.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【译】Swift算法俱乐部-链表</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T18:33:00+08:00">
+                2018-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/Swift算法俱乐部-链表.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/Swift算法俱乐部-链表.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/Swift算法俱乐部-链表.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-链表">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 4,861 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 20 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linked%20List" target="_blank" rel="noopener">swift-algorithm-club-cn/Linked List</a></p>
+</blockquote>
+<hr>
+<p><img src="https://upload-images.jianshu.io/upload_images/1678135-d7d3d78ad3f0af28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>链表(Linked List)</strong>  </p>
+<blockquote>
+<p>这个主题已经有辅导<a href="https://www.raywenderlich.com/144083/swift-algorithm-club-swift-linked-list-data-structure" target="_blank" rel="noopener">文章</a></p>
+</blockquote>
+<p>链表是一系列数据项，就像数组一样。 数组分配了一大块内存来存储对象，而链表中的元素在内存中是完全独立的对象，并通过链接连接：</p>
+<pre><code>+--------+    +--------+    +--------+    +--------+
+|        |    |        |    |        |    |        |
+| node 0 |---&gt;| node 1 |---&gt;| node 2 |---&gt;| node 3 |
+|        |    |        |    |        |    |        |
++--------+    +--------+    +--------+    +--------+
+</code></pre><a id="more"></a>
+<p>链表的元素称为 <em>节点</em>。 上图显示了 <em>单链表</em>，其中每个节点只有一个引用 - 或叫做“指针” - 到下一个节点。 在 <em>双向链表</em>中，如下所示，节点还有指向前一个节点的指针：</p>
+<pre><code>+--------+    +--------+    +--------+    +--------+
+|        |---&gt;|        |---&gt;|        |---&gt;|        |
+| node 0 |    | node 1 |    | node 2 |    | node 3 |
+|        |&lt;---|        |&lt;---|        |&lt;---|        |
++--------+    +--------+    +--------+    +--------+
+</code></pre><p>您需要跟踪链表的开始位置。 这通常用一个名为 <em>head</em> 的指针完成：</p>
+<pre><code>         +--------+    +--------+    +--------+    +--------+
+head ---&gt;|        |---&gt;|        |---&gt;|        |---&gt;|        |---&gt; nil
+         | node 0 |    | node 1 |    | node 2 |    | node 3 |
+ nil &lt;---|        |&lt;---|        |&lt;---|        |&lt;---|        |&lt;--- tail
+         +--------+    +--------+    +--------+    +--------+
+</code></pre><p>引用链表末尾也很有用，称为 <em>tail</em>。 注意，最后一个节点的“下一个”指针是<code>nil</code>，第一个节点的“前一个”指针也是<code>nil</code>。</p>
+<h2 id="链表的性能"><a href="#链表的性能" class="headerlink" title="链表的性能"></a>链表的性能</h2><p>链表上的大多数操作时间复杂度都是 <strong>O(n)</strong> ，因此链表通常比数组慢。但是，它们也更加灵活 —— 而不是像数组一样复制大块内存，链表上的许多操作只需要更改几个指针。</p>
+<p>时间复杂度是<strong>O(n)</strong>的原因是你不能简单地写<code>list[2]</code>来从链表中访问节点2。 如果你已经没有对该节点的引用，你必须从<code>head</code>开始，然后按照<code>next</code>指针逐个访问（或者从<code>tail</code>开始，使用<code>previous</code>指针，逐个访问并找到指定节点）。</p>
+<p>但是一旦你有一个节点的引用，插入和删除等操作真的很快。 只是寻找节点慢。</p>
+<p>这意味着当您处理链表时，应尽可能在前面插入新项目。 这是<strong>O(1)</strong>操作。 如果你跟踪<code>tail</code>指针，同样可以在后面插入。</p>
+<h2 id="单链表-vs-双链表"><a href="#单链表-vs-双链表" class="headerlink" title="单链表 vs 双链表"></a>单链表 vs 双链表</h2><p>单链表使用比双链表使用更少的内存，因为它不需要存储所有那些<code>previous</code>指针。</p>
+<p>但是如果你需要找到一个节点以前的节点，你就搞砸了。 您必须从头部开始并遍历整个链表，直到到达正确的节点。</p>
+<p>对于许多任务，双向链表使事情变得更容易。</p>
+<h2 id="为什么使用链表？"><a href="#为什么使用链表？" class="headerlink" title="为什么使用链表？"></a>为什么使用链表？</h2><p>使用链表的典型示例是<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue/" target="_blank" rel="noopener">队列</a>。 使用数组，从队列前面删除元素很慢，因为它需要向下移动内存中的所有其他元素。 但是通过链接链表，只需将<code>head</code>更改为指向第二个元素即可。 快多了。</p>
+<p>但说实话，现在你几乎不需要编写自己的链表。 不过，了解它们的工作方式仍然很有用; 将对象链接在一起的原则也与<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Tree/" target="_blank" rel="noopener">树</a>和<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Graph/" target="_blank" rel="noopener">图</a>一起使用。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>我们首先定义一个描述节点的类型：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedListNode</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> value: <span class="type">T</span></span><br><span class="line">  <span class="keyword">var</span> next: <span class="type">LinkedListNode</span>?</span><br><span class="line">  <span class="keyword">weak</span> <span class="keyword">var</span> previous: <span class="type">LinkedListNode</span>?</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">init</span>(value: <span class="type">T</span>) &#123;</span><br><span class="line">    <span class="keyword">self</span>.value = value</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一种泛型类型，因此<code>T</code>可以是您想要存储在节点中的任何类型的数据。 我们将在后面的示例中使用字符串。</p>
+<p>这边定义的是一个双向链表，每个节点都有一个<code>next</code>和<code>previous</code>指针。 如果没有下一个或前一个节点，则这些可以是<code>nil</code>，因此这些变量必须是可选项。 （在下文中，我将指出哪些函数需要更改，如果这只是单个而不是双向链表。）</p>
+<blockquote>
+<p><strong>注意：</strong> 为避免循环强引用，我们声明<code>previous</code>指针为弱。 如果链表中有一个节点<code>A</code>后面跟着节点<code>B</code>，那么<code>A</code>指向<code>B</code>，而<code>B</code>指向<code>A</code>。 在某些情况下，即使在删除节点后，此循环强引用也可能导致节点保持活动状态。 我们不希望这样，所以我们使其中一个指针<code>weak</code>来打破循环。</p>
+</blockquote>
+<p>让我们开始构建<code>LinkedList</code>。 这是第一点：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">typealias</span> <span class="type">Node</span> = <span class="type">LinkedListNode</span>&lt;<span class="type">T</span>&gt;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">var</span> head: <span class="type">Node</span>?</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> isEmpty: <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> head == <span class="literal">nil</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> first: <span class="type">Node</span>? &#123;</span><br><span class="line">    <span class="keyword">return</span> head</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>理想情况下，我们希望类名尽可能具有描述性，但是，我们不希望每次要使用类时都打长名称，因此，我们在<code>LinkedList</code>中给<code>LinkedListNode&lt;T&gt;</code>定义了一个短的别名<code>Node</code>。</p>
+<p>这个链表只有一个<code>head</code>指针，没有尾部。 添加尾指针留给读者练习。 （如果我们还有一个尾指针，我会指出哪些函数会有所不同。）</p>
+<p>如果<code>head</code>为nil，则链表为空。 因为<code>head</code>是一个私有变量，所以我添加了属性<code>first</code>来返回对链表中第一个节点的引用。</p>
+<p>在playground中测试：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = <span class="type">LinkedList</span>&lt;<span class="type">String</span>&gt;()</span><br><span class="line">list.isEmpty   <span class="comment">// true</span></span><br><span class="line">list.first     <span class="comment">// nil</span></span><br></pre></td></tr></table></figure>
+<p>我们还添加一个属性，为您提供链表中的最后一个节点。 这是将开始变得有趣了：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">var</span> last: <span class="type">Node</span>? &#123;</span><br><span class="line">  <span class="keyword">guard</span> <span class="keyword">var</span> node = head <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> <span class="keyword">let</span> next = node.next &#123;</span><br><span class="line">    node = next</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你是Swift的新手，你可能已经看过<code>if let</code>但也许不是<code>if var</code>。 它做了同样的事情 - 它解开<code>head</code>可选项并将结果放入一个名为<code>node</code>的新局部变量中。 区别在于<code>node</code>不是常量而是当前运行环境下的变量，因此我们可以在循环内更改它。</p>
+<p>循环也做了一些Swift魔法。 <code>while let next = node.next</code>保持循环，直到<code>node.next</code>为<code>nil</code>。 您可以写如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> node: <span class="type">Node</span>? = head</span><br><span class="line"><span class="keyword">while</span> node != <span class="literal">nil</span> &amp;&amp; node!.next != <span class="literal">nil</span> &#123;</span><br><span class="line">  node = node!.next</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但这对我来说并不是很开心。 我们可以很好地利用Swift对解包选项的内置支持。 你会在随后的代码中看到一堆这样的循环。</p>
+<blockquote>
+<p><strong>注意：</strong> 如果我们保留一个尾指针，<code>last</code>只会做<code>return tail</code>。 但我们没有，所以它必须从头到尾逐步完成整个链表。这是一项昂贵的操作，特别是如果链表很长的话。</p>
+</blockquote>
+<p>当然，<code>last</code>只返回nil，因为链表中没有任何节点。 让我们添加一个方法，将新节点添加到链表的末尾：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(value: T)</span></span> &#123;</span><br><span class="line">  <span class="keyword">let</span> newNode = <span class="type">Node</span>(value: value)</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">let</span> lastNode = last &#123;</span><br><span class="line">    newNode.previous = lastNode</span><br><span class="line">    lastNode.next = newNode</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    head = newNode</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>append()</code>方法首先创建一个新的<code>Node</code>对象，然后请求我们刚刚添加的最后一个节点<code>last</code>属性。 如果没有这样的节点，链表仍然是空的，我们使<code>head</code>指向这个新的<code>Node</code>。但是如果我们确实找到了一个有效的最后节点对象，我们连接<code>next</code>和<code>previous</code>指针将这个新节点链接到链中。许多链表代码涉及这种<code>next</code>和<code>previous</code>指针操作。</p>
+<p>在playground中测试：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list.append(<span class="string">"Hello"</span>)</span><br><span class="line">list.isEmpty         <span class="comment">// false</span></span><br><span class="line">list.first!.value    <span class="comment">// "Hello"</span></span><br><span class="line">list.last!.value     <span class="comment">// "Hello"</span></span><br></pre></td></tr></table></figure>
+<p>The list looks like this:<br>这个链表目前看上去是：</p>
+<pre><code>         +---------+
+head ---&gt;|         |---&gt; nil
+         | &quot;Hello&quot; |
+ nil &lt;---|         |
+         +---------+
+</code></pre><p>增加第二个节点：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list.append(<span class="string">"World"</span>)</span><br><span class="line">list.first!.value    <span class="comment">// "Hello"</span></span><br><span class="line">list.last!.value     <span class="comment">// "World"</span></span><br></pre></td></tr></table></figure>
+<p>现在链表看上去是：</p>
+<pre><code>         +---------+    +---------+
+head ---&gt;|         |---&gt;|         |---&gt; nil
+         | &quot;Hello&quot; |    | &quot;World&quot; |
+ nil &lt;---|         |&lt;---|         |
+         +---------+    +---------+
+</code></pre><p>您可以通过查看<code>next</code>和<code>previous</code>指针来自行验证：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list.first!.previous          <span class="comment">// nil</span></span><br><span class="line">list.first!.next!.value       <span class="comment">// "World"</span></span><br><span class="line">list.last!.previous!.value    <span class="comment">// "Hello"</span></span><br><span class="line">list.last!.next               <span class="comment">// nil</span></span><br></pre></td></tr></table></figure>
+<p>让我们添加一个方法来计算链表中有多少个节点。 这与我们已经完成的工作非常相似：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</span><br><span class="line">  <span class="keyword">guard</span> <span class="keyword">var</span> node = head <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">1</span></span><br><span class="line">  <span class="keyword">while</span> <span class="keyword">let</span> next = node.next &#123;</span><br><span class="line">    node = next</span><br><span class="line">    <span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">count</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它以相同的方式循环遍历链表，但这次增加了一个计数器。</p>
+<blockquote>
+<p><strong>注意：</strong> 加快获得<code>count</code>的速度（从<strong>O(n)</strong>到<strong>O(1)</strong>）的一种方法是跟踪一个计算链表中有多少节点的变量。 无论何时添加或删除节点，都会更新此变量。</p>
+</blockquote>
+<p>如果我们想在链表中的特定索引处找到节点，该怎么办？使用数组我们可以编写一个<strong>O(1)</strong>操作<code>array[index]</code>。这更多地涉及链接链表，但代码遵循类似的模式：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">node</span><span class="params">(atIndex index: Int)</span></span> -&gt; <span class="type">Node</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> index == <span class="number">0</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> head!</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> node = head!.next</span><br><span class="line">    <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>..&lt;index &#123;</span><br><span class="line">      node = node?.next</span><br><span class="line">      <span class="keyword">if</span> node == <span class="literal">nil</span> &#123; <span class="comment">//(*1)</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node!</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先，我们检查给定的索引是否为0。 因为如果它是0，它会按原样返回head。<br>但是，当给定索引大于0时，它从头开始，然后继续追踪node.next指针逐步执行链表。<br>与此时计数方法的不同之处在于存在两种终止条件。<br>一种是当for循环语句到达索引时，我们能够获取给定索引的节点。<br>第二个是<code>for-loop</code>语句中的<code>node.next</code>返回nil并导致break。（<code>*1</code>）<br>这意味着给定的索引超出范围并导致崩溃。</p>
+<p>测试一下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list.nodeAt(<span class="number">0</span>)!.value    <span class="comment">// "Hello"</span></span><br><span class="line">list.nodeAt(<span class="number">1</span>)!.value    <span class="comment">// "World"</span></span><br><span class="line"><span class="comment">// list.nodeAt(2)           // crash</span></span><br></pre></td></tr></table></figure>
+<p>为了好玩，我们也可以实现<code>subscript</code>（下标）方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">T</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> node = node(atIndex: index)</span><br><span class="line">  <span class="keyword">return</span> node.value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在可以编写如下内容：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list[<span class="number">0</span>]   <span class="comment">// "Hello"</span></span><br><span class="line">list[<span class="number">1</span>]   <span class="comment">// "World"</span></span><br><span class="line">list[<span class="number">2</span>]   <span class="comment">// crash!</span></span><br></pre></td></tr></table></figure>
+<p>它在<code>list [2]</code>上崩溃，因为该索引上没有节点。</p>
+<p>到目前为止，我们已经编写了将新节点添加到链表末尾的代码，但这很慢，因为您需要先找到链表的末尾。（如果我们使用尾指针会很快。）因此，如果链表中项目的顺序无关紧要，则应在链表的前面执行插入操作。 这总是一个<strong>O(1)</strong>操作。</p>
+<p>让我们编写一个方法，允许您在链表中的任何索引处插入新节点。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">insert</span><span class="params">(<span class="number">_</span> node: Node, at index: Int)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> newNode = node</span><br><span class="line">    <span class="keyword">if</span> index == <span class="number">0</span> &#123;</span><br><span class="line">        newNode.next = head</span><br><span class="line">        head?.previous = newNode</span><br><span class="line">        head = newNode</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> prev = <span class="keyword">self</span>.node(at: index-<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">let</span> next = prev.next</span><br><span class="line">        </span><br><span class="line">        newNode.previous = prev</span><br><span class="line">        newNode.next = prev.next</span><br><span class="line">        prev.next = newNode</span><br><span class="line">        next?.previous = newNode</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>与<code>node(at:)</code>方法一样，<code>insert(_:at:)</code>方法也会根据索引参数是否为0进行判断。<br>首先让我们来看看前一种情况（译注：也就是<code>index == 0</code>，插入最前面的情况）。 假设我们有以下链表和新节点（C）。</p>
+<pre><code>         +---------+     +---------+
+head ---&gt;|         |----&gt;|         |-----//-----&gt;
+         |    A    |     |    B    |
+ nil &lt;---|         |&lt;----|         |&lt;----//------
+         +---------+     +---------+ 
+             [0]             [1]
+
+
+         +---------+ 
+ new ---&gt;|         |----&gt; nil
+         |    C    |
+         |         |
+         +---------+
+</code></pre><p>现在将新节点放在第一个节点之前。 通过这种方式：</p>
+<pre><code>new.next = head
+head.previous = new
+
+         +---------+            +---------+     +---------+
+ new ---&gt;|         |--&gt; head --&gt;|         |----&gt;|         |-----//-----&gt;
+         |    C    |            |    A    |     |    B    |
+         |         |&lt;-----------|         |&lt;----|         |&lt;----//------
+         +---------+            +---------+     +---------+ 
+</code></pre><p>最后，用新节点作为头部。</p>
+<pre><code>head = new
+
+         +---------+    +---------+     +---------+
+head ---&gt;|         |---&gt;|         |----&gt;|         |-----//-----&gt;
+         |    C    |    |    A    |     |    B    |
+ nil &lt;---|         |&lt;---|         |&lt;----|         |&lt;----//------
+         +---------+    +---------+     +---------+ 
+             [0]            [1]             [2]
+</code></pre><p>但是，当给定索引大于0时，必须获取节点的上一个和下一个索引并在它们之间插入。<br>您还可以使用<code>node(at:)</code>获取上一个和下一个节点，如下所示：</p>
+<pre><code>         +---------+         +---------+     +---------+    
+head ---&gt;|         |---//---&gt;|         |----&gt;|         |----
+         |         |         |    A    |     |    B    |    
+ nil &lt;---|         |---//&lt;---|         |&lt;----|         |&lt;---
+         +---------+         +---------+     +---------+    
+             [0]              [index-1]        [index]      
+                                  ^               ^ 
+                                  |               | 
+                                 prev            next
+
+prev = node(at: index-1)
+next = prev.next
+</code></pre><p>现在在prev和next之间插入新节点。</p>
+<pre><code>new.prev = prev; prev.next = new  // connect prev and new.
+new.next = next; next.prev = new  // connect new and next.
+
+         +---------+         +---------+     +---------+     +---------+
+head ---&gt;|         |---//---&gt;|         |----&gt;|         |----&gt;|         |
+         |         |         |    A    |     |    C    |     |    B    |
+ nil &lt;---|         |---//&lt;---|         |&lt;----|         |&lt;----|         |
+         +---------+         +---------+     +---------+     +---------+
+             [0]              [index-1]        [index]        [index+1]
+                                  ^               ^               ^
+                                  |               |               |
+                                 prev            new             next
+</code></pre><p>测试：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list.insert(<span class="type">LinedListNode</span>(value: <span class="string">"Swift"</span>), at: <span class="number">1</span>)</span><br><span class="line">list[<span class="number">0</span>]     <span class="comment">// "Hello"</span></span><br><span class="line">list[<span class="number">1</span>]     <span class="comment">// "Swift"</span></span><br><span class="line">list[<span class="number">2</span>]     <span class="comment">// "World</span></span><br></pre></td></tr></table></figure>
+<p>还可以尝试在链表的前面和后面添加新节点，以验证其是否正常工作。</p>
+<blockquote>
+<p><strong>注意：</strong> <code>node(at:)</code> 和 <code>insert(_:at:)</code>函数也可以与单链表一起使用，因为我们不依赖于节点的<code>previous</code>指针来查找前一个元素。</p>
+</blockquote>
+<p>我们还需要什么？ 当然要删除节点！ 首先我们要做<code>removeAll()</code>，这很简单：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">removeAll</span><span class="params">()</span></span> &#123;</span><br><span class="line">  head = <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你有一个尾指针，你也可以在这里设置为<code>nil</code>。</p>
+<p>接下来，我们将添加一些可以删除单个节点的函数。 如果你已经有了对节点的引用，那么使用<code>remove()</code>是最优的，因为你不需要遍历链表来首先找到节点。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">remove</span><span class="params">(node: Node)</span></span> -&gt; <span class="type">T</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> prev = node.previous</span><br><span class="line">  <span class="keyword">let</span> next = node.next</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">let</span> prev = prev &#123;</span><br><span class="line">    prev.next = next</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    head = next</span><br><span class="line">  &#125;</span><br><span class="line">  next?.previous = prev</span><br><span class="line"></span><br><span class="line">  node.previous = <span class="literal">nil</span></span><br><span class="line">  node.next = <span class="literal">nil</span></span><br><span class="line">  <span class="keyword">return</span> node.value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当我们将此节点从链表中取出时，我们将断开指向上一个节点和下一个节点的链接。 要使链表再次完整，我们必须将前一个节点链接到下一个节点。</p>
+<p>不要忘记<code>head</code>指针！ 如果这是链表中的第一个节点，则需要更新<code>head</code>以指向下一个节点。 （同样，当你有一个尾指针，这是最后一个节点）。 当然，如果没有剩余的节点，<code>head</code>应该变为<code>nil</code>。</p>
+<p>尝试一下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list.remove(node: list.first!)   <span class="comment">// "Hello"</span></span><br><span class="line">list.<span class="built_in">count</span>                     <span class="comment">// 2</span></span><br><span class="line">list[<span class="number">0</span>]                        <span class="comment">// "Swift"</span></span><br><span class="line">list[<span class="number">1</span>]                        <span class="comment">// "World"</span></span><br></pre></td></tr></table></figure>
+<p>如果你没有对节点的引用，你可以使用<code>removeLast()</code>或 <code>removeAt()</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">removeLast</span><span class="params">()</span></span> -&gt; <span class="type">T</span> &#123;</span><br><span class="line">    <span class="built_in">assert</span>(!isEmpty)</span><br><span class="line">    <span class="keyword">return</span> remove(node: last!)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">remove</span><span class="params">(at index: Int)</span></span> -&gt; <span class="type">T</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">self</span>.node(at: index)</span><br><span class="line">    <span class="keyword">return</span> remove(node: node)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所有这些删除函数都返回已删除元素的值。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list.removeLast()              <span class="comment">// "World"</span></span><br><span class="line">list.<span class="built_in">count</span>                     <span class="comment">// 1</span></span><br><span class="line">list[<span class="number">0</span>]                        <span class="comment">// "Swift"</span></span><br><span class="line"></span><br><span class="line">list.remove(at: <span class="number">0</span>)          <span class="comment">// "Swift"</span></span><br><span class="line">list.<span class="built_in">count</span>                     <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong> 对于单链表，删除最后一个节点稍微复杂一些。 您不能只使用<code>last</code>来查找链表的末尾，因为您还需要对倒数第二个节点的引用。 相反，使用<code>nodesBeforeAndAfter()</code>辅助方法。 如果链表有一个尾指针，那么<code>removeLast()</code>非常快，但你需要记住让<code>tail</code>指向前一个节点。</p>
+</blockquote>
+<p>我们的<code>LinkedList</code>类还可以做一些有趣的事情。 一些很方便可读的调试输出：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">LinkedList</span>: <span class="title">CustomStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="string">"["</span></span><br><span class="line">    <span class="keyword">var</span> node = head</span><br><span class="line">    <span class="keyword">while</span> node != <span class="literal">nil</span> &#123;</span><br><span class="line">      s += <span class="string">"<span class="subst">\(node!.value)</span>"</span></span><br><span class="line">      node = node!.next</span><br><span class="line">      <span class="keyword">if</span> node != <span class="literal">nil</span> &#123; s += <span class="string">", "</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s + <span class="string">"]"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这将如下形式打印链表：</p>
+<pre><code>[Hello, Swift, World]
+</code></pre><p>如何反转链表，使头部成为尾部，反之亦然？ 有一个非常快速的算法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">reverse</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">var</span> node = head</span><br><span class="line">  tail = node           <span class="comment">// If you had a tail pointer</span></span><br><span class="line">  <span class="keyword">while</span> <span class="keyword">let</span> currentNode = node &#123;</span><br><span class="line">    node = currentNode.next</span><br><span class="line">    <span class="built_in">swap</span>(&amp;currentNode.next, &amp;currentNode.previous)</span><br><span class="line">    head = currentNode</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这循环遍历整个链表，并简单地交换每个节点的<code>next</code>和<code>previous</code>指针。 它还将<code>head</code>指针移动到最后一个元素。 （如果你有一个尾部指针，你还需要更新它。）你最终得到这样的东西：</p>
+<pre><code>         +--------+    +--------+    +--------+    +--------+
+tail ---&gt;|        |&lt;---|        |&lt;---|        |&lt;---|        |---&gt; nil
+         | node 0 |    | node 1 |    | node 2 |    | node 3 |
+ nil &lt;---|        |---&gt;|        |---&gt;|        |---&gt;|        |&lt;--- head
+         +--------+    +--------+    +--------+    +--------+
+</code></pre><p>数组有<code>map()</code>和<code>filter()</code>函数，那么没有理由说链接链表没有。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">map</span>&lt;U&gt;<span class="params">(transform: <span class="params">(T)</span></span></span> -&gt; <span class="type">U</span>) -&gt; <span class="type">LinkedList</span>&lt;<span class="type">U</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="type">LinkedList</span>&lt;<span class="type">U</span>&gt;()</span><br><span class="line">    <span class="keyword">var</span> node = head</span><br><span class="line">    <span class="keyword">while</span> node != <span class="literal">nil</span> &#123;</span><br><span class="line">        result.append(transform(node!.value))</span><br><span class="line">        node = node!.next</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用如下：（译注：创建一个新链表，用来存放之前链表中字符串的长度）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = <span class="type">LinkedList</span>&lt;<span class="type">String</span>&gt;()</span><br><span class="line">list.append(<span class="string">"Hello"</span>)</span><br><span class="line">list.append(<span class="string">"Swifty"</span>)</span><br><span class="line">list.append(<span class="string">"Universe"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> m = list.<span class="built_in">map</span> &#123; s <span class="keyword">in</span> s.<span class="built_in">count</span> &#125;</span><br><span class="line">m  <span class="comment">// [5, 6, 8]</span></span><br></pre></td></tr></table></figure>
+<p><code>filter()</code>函数：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">filter</span><span class="params">(predicate: <span class="params">(T)</span></span></span> -&gt; <span class="type">Bool</span>) -&gt; <span class="type">LinkedList</span>&lt;<span class="type">T</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="type">LinkedList</span>&lt;<span class="type">T</span>&gt;()</span><br><span class="line">    <span class="keyword">var</span> node = head</span><br><span class="line">    <span class="keyword">while</span> node != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> predicate(node!.value) &#123;</span><br><span class="line">            result.append(node!.value)</span><br><span class="line">        &#125;</span><br><span class="line">        node = node!.next</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个简单的使用例子：（译注：筛选出链表中字符串长度大于5的元素并组成新的链表）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f = list.<span class="built_in">filter</span> &#123; s <span class="keyword">in</span> s.<span class="built_in">count</span> &gt; <span class="number">5</span> &#125;</span><br><span class="line">f    <span class="comment">// [Universe, Swifty]</span></span><br></pre></td></tr></table></figure>
+<p>为读者练习：<code>map()</code> 和<code>filter()</code> 的这些实现不是很快，因为它们将新节点追加到新链表的末尾。 回想一下，append是<strong>O(n)</strong>，因为它需要扫描整个链表以找到最后一个节点。 你能加快速度吗？ （提示：跟踪您添加的最后一个节点。）</p>
+<h2 id="另一种方法"><a href="#另一种方法" class="headerlink" title="另一种方法"></a>另一种方法</h2><p>到目前为止，您看到的<code>LinkedList</code>版本使用的是类，具有引用语义。 这没有什么不对，但这确实使它们比Swift的其他集合（例如<code>Array</code>和<code>Dictionary</code>）更重要。(<strong>译注：</strong> 这里应该是想表达，<code>Array</code>和<code>Dictionary</code>都是结构体，链表也可以使用结构体和枚举实现)</p>
+<p>可以使用枚举实现具有值语义的链表。 这看起来有点像这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">ListNode</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">indirect</span> <span class="keyword">case</span> node(<span class="type">T</span>, next: <span class="type">ListNode</span>&lt;<span class="type">T</span>&gt;)</span><br><span class="line">  <span class="keyword">case</span> end</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>与基于类的版本的最大区别在于，您对此链表所做的任何修改都将导致创建<em>新副本</em>。 这是否是您想要的取决于应用程序。</p>
+<p>[如果有需求，我可能会更详细地填写此部分。]</p>
+<h2 id="符合Collection协议"><a href="#符合Collection协议" class="headerlink" title="符合Collection协议"></a>符合Collection协议</h2><p>符合Sequence协议的类型，其元素可以多次遍历。非破坏性地通过索引的下标访问，应该符合Swift标准库中定义的Collection协议。</p>
+<p>这样做可以访问处理数据集合时常见的大量属性和操作。 除此之外，它还允许自定义类型遵循Swift开发人员常用的模式。</p>
+<p>为了符合这个协议，类需要提供：<br>   1 <code>startIndex</code>和<code>endIndex</code>属性。<br>   2 对元素的下标访问为O(1)。 需要记录这种时间复杂性的变化。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// The position of the first element in a nonempty collection.</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">var</span> startIndex: <span class="type">Index</span> &#123;</span><br><span class="line">  <span class="keyword">get</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">LinkedListIndex</span>&lt;<span class="type">T</span>&gt;(node: head, tag: <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="comment">/// The collection's "past the end" position---that is, the position one</span></span><br><span class="line"><span class="comment">/// greater than the last valid subscript argument.</span></span><br><span class="line"><span class="comment">/// - Complexity: O(n), where n is the number of elements in the list.</span></span><br><span class="line"><span class="comment">///   This diverts from the protocol's expectation.</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">var</span> endIndex: <span class="type">Index</span> &#123;</span><br><span class="line">  <span class="keyword">get</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> h = <span class="keyword">self</span>.head &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="type">LinkedListIndex</span>&lt;<span class="type">T</span>&gt;(node: h, tag: <span class="built_in">count</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="type">LinkedListIndex</span>&lt;<span class="type">T</span>&gt;(node: <span class="literal">nil</span>, tag: startIndex.tag)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">subscript</span>(position: <span class="type">Index</span>) -&gt; <span class="type">T</span> &#123;</span><br><span class="line">  <span class="keyword">get</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> position.node!.value</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为集合负责管理自己的索引，下面的实现保留对链表中节点的引用。 索引中的标记属性表示链表中节点的位置。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Custom index type that contains a reference to the node at index 'tag'</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">LinkedListIndex</span>&lt;<span class="title">T</span>&gt; : <span class="title">Comparable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">fileprivate</span> <span class="keyword">let</span> node: <span class="type">LinkedList</span>&lt;<span class="type">T</span>&gt;.<span class="type">LinkedListNode</span>&lt;<span class="type">T</span>&gt;?</span><br><span class="line">  <span class="keyword">fileprivate</span> <span class="keyword">let</span> tag: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">func</span>==&lt;T&gt;<span class="params">(lhs: LinkedListIndex&lt;T&gt;, rhs: LinkedListIndex&lt;T&gt;)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (lhs.tag == rhs.tag)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">func</span>&lt; &lt;T&gt;<span class="params">(lhs: LinkedListIndex&lt;T&gt;, rhs: LinkedListIndex&lt;T&gt;)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (lhs.tag &lt; rhs.tag)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，链接能够通过以下实现计算给定的索引之后的索引。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">index</span><span class="params">(after idx: Index)</span></span> -&gt; <span class="type">Index</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="type">LinkedListIndex</span>&lt;<span class="type">T</span>&gt;(node: idx.node?.next, tag: idx.tag+<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="要注意的一些事情"><a href="#要注意的一些事情" class="headerlink" title="要注意的一些事情"></a>要注意的一些事情</h2><p>链接链表是灵活的，但许多操作是<strong>O(n)</strong>。</p>
+<p>在链表上执行操作时，您总是需要小心更新相关的<code>next</code>和<code>previous</code>指针，还可能更新<code>head</code>和<code>tail</code>指针。 如果你搞砸了，你的链表将不再正确，你的程序可能会在某些时候崩溃。 小心！</p>
+<p>处理链表时，通常可以使用递归：处理第一个元素，然后在链表的其余部分再次递归调用该函数。 当没有下一个元素时你就完成了。 这就是链表是LISP等函数式编程语言的基础的原因。</p>
+<p><em>作者：Matthijs Hollemans</em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em>  </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        <!-- 版权声明 -->
+
+
+  <ul class="post-copyright">
+
+
+    <li class="post-copyright-title">
+      <strong>本文标题：</strong>
+      【译】Swift算法俱乐部-链表
+    </li>
+
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+
+    <li class="post-copyright-date">
+      <strong>发布时间：</strong>
+      2018年11月08日 - 18:33
+    </li>
+
+    <li class="post-copyright-updated">
+      <strong>最后更新：</strong>
+      2018年11月08日 - 18:37
+    </li>
+
+
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2018/Swift算法俱乐部-链表.html" title="【译】Swift算法俱乐部-链表">http://andyron.com/2018/Swift算法俱乐部-链表.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
+          
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/链表/" rel="tag"><i class="fa fa-tag"></i> 链表</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/ios-tutorial-16-TravelVlogs.html" rel="next" title="iOS-tutorial-16：TravelVlogs——使用AVKit和AVFoundation创建视频应用">
+                <i class="fa fa-chevron-left"></i> iOS-tutorial-16：TravelVlogs——使用AVKit和AVFoundation创建视频应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="AndyRon" />
+          <p class="site-author-name" itemprop="name">AndyRon</p>
+           
+              <p class="site-description motion-element" itemprop="description">Just for fun.👨‍💻✍️🎨</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">155</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">93</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/andyRon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/efce1a2a95ab" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AndyRon8" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/andyronm" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://500px.com/andymron" target="_blank" title="500px">
+                  
+                    <i class="fa fa-fw fa-500px"></i>
+                  
+                  500px
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:rongming.2008@163.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.appcoda.com" title="Appcoda" target="_blank">Appcoda</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/" title="阮一峰的个人网站" target="_blank">阮一峰的个人网站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.raywenderlich.com" title="Ray Wenderlich" target="_blank">Ray Wenderlich</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#链表的性能"><span class="nav-number">1.</span> <span class="nav-text">链表的性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表-vs-双链表"><span class="nav-number">2.</span> <span class="nav-text">单链表 vs 双链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用链表？"><span class="nav-number">3.</span> <span class="nav-text">为什么使用链表？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#另一种方法"><span class="nav-number">5.</span> <span class="nav-text">另一种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#符合Collection协议"><span class="nav-number">6.</span> <span class="nav-text">符合Collection协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要注意的一些事情"><span class="nav-number">7.</span> <span class="nav-text">要注意的一些事情</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AndyRon</span>
+  <span class="post-count">  全站共183.3k字</span>
+
+</div>
+
+
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+--!>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://http-andyron-com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2018/Swift算法俱乐部-链表.html';
+          this.page.identifier = '2018/Swift算法俱乐部-链表.html';
+          this.page.title = '【译】Swift算法俱乐部-链表';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-andyron-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("rgq6Qsvb0ISrHdgsraNlqt7H-gzGzoHsz", "T35WL0YkQ4GVOUDOkizK5FAd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
