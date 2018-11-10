@@ -2137,8 +2137,8 @@
   
   
 
-  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/carthage-introduce.html">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/oc-basic-7.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyRon">
@@ -2157,7 +2157,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/carthage-introduce.html" itemprop="url">Carthage的使用</a></h1>
+                <a class="post-title-link" href="/2017/oc-basic-7.html" itemprop="url">OC基础学习7：内存管理</a></h1>
         
 
         <div class="post-meta">
@@ -2192,19 +2192,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
                   </a>
                 </span>
 
@@ -2221,9 +2210,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/carthage-introduce.html#comments" itemprop="discussionUrl">
+                <a href="/2017/oc-basic-7.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/carthage-introduce.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/oc-basic-7.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2231,7 +2220,7 @@
 
           
           
-             <span id="/2017/carthage-introduce.html" class="leancloud_visitors" data-flag-title="Carthage的使用">
+             <span id="/2017/oc-basic-7.html" class="leancloud_visitors" data-flag-title="OC基础学习7：内存管理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2257,7 +2246,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 757 字
+                  : 477 字
                 </span>
               
 
@@ -2273,7 +2262,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 3 分钟
+                  ≈ 2 分钟
                 </span>
               
             </div>
@@ -2292,17 +2281,19 @@
 
       
         
-          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="Carthage与CocoaPods的简单比较"><a href="#Carthage与CocoaPods的简单比较" class="headerlink" title="Carthage与CocoaPods的简单比较"></a>Carthage与CocoaPods的简单比较</h3><ul>
-<li>CocoaPods 的优势：<ul>
-<li>使用方便，除编写 Podfile 以外其他几乎都是自动完成；</li>
-<li>软件包数量多，主流支持；</li>
-</ul>
-</li>
+          <h2 id="1-对象生命周期"><a href="#1-对象生命周期" class="headerlink" title="1 对象生命周期"></a>1 对象生命周期</h2><blockquote>
+<p>诞生（通过alloc或new方法实现） -&gt; 生存（接收消息并执行操作） -&gt; 交友（通过复合以及向方法传递参数） -&gt; 死去（被释放掉）</p>
+</blockquote>
+<h3 id="引用计数-reference-counting-保留计数-retain-counting"><a href="#引用计数-reference-counting-保留计数-retain-counting" class="headerlink" title="引用计数(reference counting) / 保留计数(retain counting)"></a>引用计数(reference counting) / 保留计数(retain counting)</h3><ul>
+<li><code>alloc</code>, <code>new</code>, <code>copy</code>: 创建对象，保留计数被设置为1</li>
+<li><code>retain</code>: 保留计数加1。如<code>[[car retain] setTire: tire atIndex:2];</code>表示要求car对象将其保留计数的值加1并执行setTire操作。</li>
+<li><code>release</code>: 保留计数减1</li>
+<li><code>dealloc</code>: 保留计数归0时自动调用</li>
+<li><code>retainCount</code>: 获得对象保留计数当前值</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/carthage-introduce.html#more" rel="contents">
+            <a class="btn" href="/2017/oc-basic-7.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
