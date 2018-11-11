@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a77b124e0fd294e3..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-485f98d116b57409.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-926ac158226a8ff5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-16T09:10:35.467Z">
+<meta property="og:updated_time" content="2018-11-11T01:25:09.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于iOS多线程，这边勉强可以看看(OC&amp;Swift)">
 <meta name="twitter:description" content="iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：关于iOS多线程，我说，你听，没准你就懂了！、谈iOS多线程(NSThread、NSOperation、GCD)编程、iOS多线程：『GCD』详尽总结、iOS多线程：『pthread、NSThread』详尽总结、iOS多线程：『NSOperation、NSOperationQueue』详尽总结、关于iOS多线程，你看我就够了等，但不自">
@@ -459,7 +459,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 6,549 字
+                  : 6,619 字
                 </span>
               
 
@@ -475,7 +475,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 27 分钟
+                  ≈ 28 分钟
                 </span>
               
             </div>
@@ -495,10 +495,11 @@
       
         <p><img src="https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="搜多线程谷歌给的第一张图🙄"></p>
 <p>iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：<a href="https://www.jianshu.com/p/51fd1362249e" target="_blank" rel="noopener">关于iOS多线程，我说，你听，没准你就懂了！</a>、<a href="http://www.jianshu.com/p/6e6f4e005a0b" target="_blank" rel="noopener">谈iOS多线程(NSThread、NSOperation、GCD)编程</a>、<a href="http://www.jianshu.com/p/2d57c72016c6" target="_blank" rel="noopener">iOS多线程：『GCD』详尽总结</a>、<a href="https://www.jianshu.com/p/cbaeea5368b1" target="_blank" rel="noopener">iOS多线程：『pthread、NSThread』详尽总结</a>、<a href="https://www.jianshu.com/p/4b1d77054b35" target="_blank" rel="noopener">iOS多线程：『NSOperation、NSOperationQueue』详尽总结</a>、<a href="https://www.jianshu.com/p/0b0d9b1f1f19" target="_blank" rel="noopener">关于iOS多线程，你看我就够了</a>等，但不自己整理一下，敲一下代码总是感觉不深刻 ，于是就有这篇文章，断断续续整理了好久。  </p>
-<p>示例我尽量把不同知识点代码独立开，看着简单一些，容易理解。示例代码我都用OC和Swift分别写了，不过文中都是以OC说明的，英文如果用两种语言一起，看起来可能比较乱，文章也会更加长（已经非常长了😂😂）。<br>Swift写法可能有比较大区别，也有些功能取消，但看一下代码应该能明白了。<br>文中的所有示例代码：<strong><a href="https://github.com/andyRon/iOS-Multithreading" target="_blank" rel="noopener">andyRon/iOS-Multithreading</a></strong></p>
+<p>示例我尽量把不同知识点代码独立开，看着简单一些，容易理解。示例代码我都用OC和Swift分别写了，不过文中都是以OC说明的，因为如果用两种语言一起，看起来可能比较乱，文章也会更加长（已经非常长了😂😂）。<br>Swift写法可能有比较大区别，也有些功能取消，但看一下代码应该能明白了。<br>文中的所有示例代码：<strong><a href="https://github.com/andyRon/iOS-Multithreading" target="_blank" rel="noopener">andyRon/iOS-Multithreading</a></strong></p>
 <p>先看个大概：<br><img src="https://upload-images.jianshu.io/upload_images/1678135-29de3060eff432c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <a id="more"></a>
-<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><h3 id="1-1-一些概念"><a href="#1-1-一些概念" class="headerlink" title="1.1 一些概念"></a>1.1 一些概念</h3><ul>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>一些帮助理解的概念，可以先简单看一下，然后读完全文再回来看一下这一部分，可能就比较清晰了。🙂</p>
+<h3 id="1-1-一些概念"><a href="#1-1-一些概念" class="headerlink" title="1.1 一些概念"></a>1.1 一些概念</h3><ul>
 <li><p>系统中正在运行的每一个应用程序都是一个 <strong>进程(Process)</strong> ，每个进程系统都会分配给它独立的内存运行。也就是说，在iOS系统中中，每一个应用都是一个进程。</p>
 </li>
 <li><p>一个进程的所有任务都在 <strong>线程(Thread)</strong> 中进行，因此每个进程至少要有一个线程，也就是<strong>主线程</strong>。那多线程其实就是一个进程开启多条线程，让所有任务并发执行。</p>
@@ -556,7 +557,7 @@
 <li>每个NSThread对象对应一个线程，真正最原始的线程，相对简单，但是需要手动管理所有的线程活动，如生命周期、线程同步、睡眠等。</li>
 <li>怎么选择？<br>简单而安全的选择NSOperation实现多线程即可。<br>处理大量并发数据，又追求性能效率的选择GCD。</li>
 </ul>
-<h2 id="3-NSTread"><a href="#3-NSTread" class="headerlink" title="3 NSTread"></a>3 NSTread</h2><p>生命周期还是需要程序员手动管理，所以这套方案也是偶尔用用。</p>
+<h2 id="3-NSTread"><a href="#3-NSTread" class="headerlink" title="3 NSTread"></a>3 NSTread</h2><p>生命周期还是需要程序员手动管理，所以这套方案也是偶尔用用，不过获取当前线程(<code>[NSThread currentThread]</code>)和获取主线程(<code>[NSThread mainThread]</code>)的这两个方法会经常使用。</p>
 <h3 id="3-1-NSThread三种线程开启方式"><a href="#3-1-NSThread三种线程开启方式" class="headerlink" title="3.1 NSThread三种线程开启方式"></a>3.1 NSThread三种线程开启方式</h3><ul>
 <li><p>动态开启</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selector(doSomething1:) object:(@&quot;NSThread1&quot;)];</span><br><span class="line">[thread1 start];</span><br></pre></td></tr></table></figure>
@@ -871,7 +872,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年09月16日 - 17:10
+      2018年11月11日 - 09:25
     </li>
 
 
@@ -1175,7 +1176,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共186.7k字</span>
+  <span class="post-count">  全站共186.8k字</span>
 
 </div>
 
