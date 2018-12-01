@@ -1,0 +1,1694 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="google-site-verification" content="WbjivD7TTMEtYj5PSWVYMaX2uAfY6lr-R517vwDhLWo" />
+<meta name="baidu-site-verification" content="ZmrU9vDYWs" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法与数据结构,swift,二叉搜索树,Binary Search Tree,BST," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="欣欣向戎" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="keywords" content="算法与数据结构,swift,二叉搜索树,Binary Search Tree,BST">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Swift算法俱乐部-二叉搜索树">
+<meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-二叉搜索树.html">
+<meta property="og:site_name" content="欣欣向戎">
+<meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-905dc1c1ccb31281.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Tree1.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Tree2.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Searching.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Traversing.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/DeleteTwoChildren.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/DeleteLeaf.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Tree2.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Tree2.png">
+<meta property="og:updated_time" content="2018-12-01T03:37:35.118Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】Swift算法俱乐部-二叉搜索树">
+<meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-905dc1c1ccb31281.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andyron.com/2018/Swift算法俱乐部-二叉搜索树.html"/>
+
+
+
+
+
+
+
+
+  <title>【译】Swift算法俱乐部-二叉搜索树 | 欣欣向戎</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e29ae2ff2bac53a3addad74e238d0108";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欣欣向戎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">AndyRon's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/Swift算法俱乐部-二叉搜索树.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【译】Swift算法俱乐部-二叉搜索树</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T11:30:00+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/Swift算法俱乐部-二叉搜索树.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/Swift算法俱乐部-二叉搜索树.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/Swift算法俱乐部-二叉搜索树.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-二叉搜索树">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 5,708 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 24 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Search%20Tree" target="_blank" rel="noopener">swift-algorithm-club-cn/Binary Search Tree</a></p>
+</blockquote>
+<hr>
+<p><img src="https://upload-images.jianshu.io/upload_images/1678135-905dc1c1ccb31281.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>二叉搜索树(Binary Search Tree, BST)</strong></p>
+<blockquote>
+<p>这个话题已经有个辅助<a href="https://www.raywenderlich.com/139821/swift-algorithm-club-swift-binary-search-tree-data-structure" target="_blank" rel="noopener">文章</a></p>
+</blockquote>
+<p>二叉搜索树（或者叫做二分搜索树）是一种特殊的<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Tree/" target="_blank" rel="noopener">二叉树</a>（每个节点最多有两个子节点），它执行插入和删除，以便始终对树进行排序。</p>
+<blockquote>
+<p><strong>译注：</strong> sort，平常都可以理解为从大到小或从小到大的排序，但本文有点不同，可以理解为是按一定规则的整理。因为“排序”在汉语中也不是简单理解为从大到小或从小到大，所以我还是把sort翻译成<em>排序</em>，但注意和平常理解的排序有点不同。</p>
+</blockquote>
+<p>有关树的更多信息，<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Tree/" target="_blank" rel="noopener">请先阅读</a>。</p>
+<a id="more"></a>
+<h2 id="“始终排序”属性"><a href="#“始终排序”属性" class="headerlink" title="“始终排序”属性"></a>“始终排序”属性</h2><p>下面是一个有效二叉搜索树的示例：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Tree1.png" alt="二叉搜索树"></p>
+<p>注意每个左子节点小于其父节点，并且每个右子节点大于其父节点。 这是二叉搜索树的关键特性。</p>
+<p>例如，<code>2</code>小于<code>7</code>，因此它在左边; <code>5</code>大于<code>2</code>，因此它在右边。</p>
+<h2 id="插入新节点"><a href="#插入新节点" class="headerlink" title="插入新节点"></a>插入新节点</h2><p>执行插入时，我们首先将新值与根节点进行比较。 如果新值较小，我们采取 <em>左</em> 分支; 如果更大，我们采取 <em>右</em> 分支。我们沿着这条路向下走，直到找到一个我们可以插入新值的空位。 </p>
+<p>假设我们要插入新值<code>9</code>：</p>
+<ul>
+<li>我们从树的根（值为<code>7</code>的节点）开始，并将其与新值<code>9</code>进行比较。</li>
+<li><code>9 &gt; 7</code>，因此我们走右边的分支，并重复相同的过程，但这次节点是<code>10</code>。</li>
+<li>因为<code>9 &lt; 10</code>，所以我们走左边的分支。</li>
+<li>我们现在到了一个没有更多值可供比较的地方。 在该位置插入<code>9</code>的新节点。</li>
+</ul>
+<p>插入新值<code>9</code>后树结构：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Tree2.png" alt="After adding 9"></p>
+<p>只有一个可能的位置可以在树中插入新元素。 找到这个地方通常很快。 它需要 <strong>O(h)</strong> 时间，其中 <strong>h</strong> 是树的高度。</p>
+<blockquote>
+<p><strong> 注意：</strong> 节点的 <em>高度</em> 是从该节点到最低叶节点所需的步骤数。 整棵树的<em>高度</em>是从根到最低叶节点的距离。 二叉搜索树上的许多操作都以树的高度表示。</p>
+</blockquote>
+<p>By following this simple rule – smaller values on the left, larger values on the right – we keep the tree sorted, so whenever we query it, we can check if a value is in the tree.<br>通过遵循这个简单的规则 —— 左侧较小的值，右侧较大的值 —— 我们保持树的排序，因此无论何时都可以查询某值是否在树种。</p>
+<h2 id="搜索树"><a href="#搜索树" class="headerlink" title="搜索树"></a>搜索树</h2><p>要在树中查找值，我们执行与插入相同的步骤：</p>
+<ul>
+<li>如果该值小于当前节点，则选择左分支。</li>
+<li>如果该值大于当前节点，则选择右分支。</li>
+<li>如果该值等于当前节点，我们就找到了它！</li>
+</ul>
+<p>像大多数树操作一样，这是递归执行的，直到找到我们正在查找的内容或查完要查看的所有节点。</p>
+<p>以下是搜索值<code>5</code>的示例：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Searching.png" alt="搜索树"></p>
+<p>使用树的结构搜索很快。 它在 <strong>O(h)</strong> 时间内运行。 如果你有一个具有一百万个节点的均衡树，那么在这棵树中只需要大约20步就可以找到任何东西。（这个想法与数组中的<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Search/" target="_blank" rel="noopener">二分搜索</a>非常相似）</p>
+<blockquote>
+<p><strong>注：</strong> <code>2^0 + 2^1 + 2^2 + ... + 2^19</code> 大约是百万级别。</p>
+</blockquote>
+<h2 id="遍历树"><a href="#遍历树" class="headerlink" title="遍历树"></a>遍历树</h2><p>有时您需要查看所有节点而不是仅查看一个节点。</p>
+<p>遍历二叉树有三种方法：</p>
+<ol>
+<li><em>中序</em>（或 <em>深度优先</em>，In-order/depth-first）：首先查看节点的左子节点，然后查看节点本身，最后查看其右子节点。</li>
+<li><em>前序</em>（Pre-order）：首先查看节点本身，然后查看其左右子节点。</li>
+<li><em>后序</em>（Post-order）：首先查看左右子节点并最后处理节点本身。</li>
+</ol>
+<p>遍历树的过程也是递归的。</p>
+<p>如果按中序遍历二叉搜索树，它会查看所有节点，就好像它们从低到高排序一样。 对于示例树，将打印<code>1, 2, 5, 7, 9, 10</code>：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Traversing.png" alt="遍历树"></p>
+<h2 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h2><p>删除节点很容易。不过删除节点后，需要将节点替换为左侧最大的子节点或右侧的最小子节点。这样，树在删除节点后仍然排序。在以下示例中，将删除10并替换为9（Figure 2）或11（Figure 3）。</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/DeleteTwoChildren.png" alt="Deleting a node with two children"></p>
+<p>请注意，当节点至少有一个子节点时，需要进行替换。 如果它没有子节点，您只需将其与其父节点断开连接：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/DeleteLeaf.png" alt="Deleting a leaf node"></p>
+<h2 id="代码（解决方案1）"><a href="#代码（解决方案1）" class="headerlink" title="代码（解决方案1）"></a>代码（解决方案1）</h2><p>说了太多理论了。让我们看看如何在Swift中实现二叉搜索树。您可以采取不同的实现方法。首先，我将向您展示如何制作基于类的版本，但我们还将介绍如何使用枚举制作版本。</p>
+<p>以下是<code>BinarySearchTree</code>类的示例：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinarySearchTree</span>&lt;<span class="title">T</span>: <span class="title">Comparable</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span>(<span class="keyword">set</span>) <span class="keyword">public</span> <span class="keyword">var</span> value: <span class="type">T</span></span><br><span class="line">    <span class="keyword">private</span>(<span class="keyword">set</span>) <span class="keyword">public</span> <span class="keyword">var</span> parent: <span class="type">BinarySearchTree</span>?</span><br><span class="line">    <span class="keyword">private</span>(<span class="keyword">set</span>) <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">left</span>: <span class="type">BinarySearchTree</span>?</span><br><span class="line">    <span class="keyword">private</span>(<span class="keyword">set</span>) <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">right</span>: <span class="type">BinarySearchTree</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(value: <span class="type">T</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.value = value</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// 是否是根节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> isRoot: <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> parent == <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// 是否是叶节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> isLeaf: <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">left</span> == <span class="literal">nil</span> &amp;&amp; <span class="keyword">right</span> == <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// 是否是左子节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> isLeftChild: <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> parent?.<span class="keyword">left</span> === <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// 是否是右子节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> isRightChild: <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> parent?.<span class="keyword">right</span> === <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// 是否有左子节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> hasLeftChild: <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">left</span> != <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// 是否有右子节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> hasRightChild: <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">right</span> != <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// 是否有子节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> hasAnyChild: <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> hasLeftChild || hasRightChild</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// 是否左右两个子节点都有</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> hasBothChildren: <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> hasLeftChild &amp;&amp; hasRightChild</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// 当前节点包括子树中的所有节点总数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">left</span>?.<span class="built_in">count</span> ?? <span class="number">0</span>) + <span class="number">1</span> + (<span class="keyword">right</span>?.<span class="built_in">count</span> ?? <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此类仅描述单个节点而不是整个树。 它是泛型类型，因此节点可以存储任何类型的数据。 它还包含了<code>left</code>和<code>right</code>子节点以及一个<code>parent</code>节点的引用。</p>
+<p>以下是如何使用它：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tree = <span class="type">BinarySearchTree</span>&lt;<span class="type">Int</span>&gt;(value: <span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+<p><code>count</code>属性是此节点描述的子树中有多少个节点（<strong>译注：</strong>本身+此节点的所有子节点）。这不仅仅计算节点的直接子节点，还计算它们的子节点和子节点的子节点，等等。如果此节点是根节点，则<code>count</code>表示计算整个树中有多少个节点。</p>
+<blockquote>
+<p><strong>注意：</strong> 因为<code>left</code>，<code>right</code>和<code>parent</code>是可选的，我们可以很好地利用Swift的可选值链（<code>?</code>）和 空合运算符（<code>??</code>）。 你也可以用<code>if let</code>，但那不简洁。</p>
+<p><strong>译注：</strong>关于空合运算符，可查看我之前写的一篇文章<a href="http://andyron.com/2017/swift-question">Swift中的问号三种用法</a></p>
+</blockquote>
+<h3 id="插入节点"><a href="#插入节点" class="headerlink" title="插入节点"></a>插入节点</h3><p>只有树节点本身是没有什么用的，所以需要如何向树添加新节点的方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">insert</span><span class="params">(value: T)</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> value &lt; <span class="keyword">self</span>.value &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = <span class="keyword">left</span> &#123;</span><br><span class="line">      <span class="keyword">left</span>.insert(value: value)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">left</span> = <span class="type">BinarySearchTree</span>(value: value)</span><br><span class="line">      <span class="keyword">left</span>?.parent = <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">right</span> = <span class="keyword">right</span> &#123;</span><br><span class="line">      <span class="keyword">right</span>.insert(value: value)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">right</span> = <span class="type">BinarySearchTree</span>(value: value)</span><br><span class="line">      <span class="keyword">right</span>?.parent = <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>像许多其他树操作一样，插入最容易用递归实现。 我们将新值与现有节点的值进行比较，并决定是将其添加到左侧分支还是右侧分支。</p>
+<p>如果没有更多的左或右子节点，我们创建一个新节点<code>BinarySearchTree</code>对象，并通过设置其<code>parent</code>属性将其连接到树。</p>
+<blockquote>
+<p><strong>注意：</strong> 因为二叉搜索树的都是左边有较小的节点而右边有较大的节点，所以你应该总是在根节点开始（比较）插入元素，以确保它仍然是一个有效的二叉树！  </p>
+</blockquote>
+<p>构建上面示例中完整的树：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tree = <span class="type">BinarySearchTree</span>&lt;<span class="type">Int</span>&gt;(value: <span class="number">7</span>)</span><br><span class="line">tree.insert(<span class="number">2</span>)</span><br><span class="line">tree.insert(<span class="number">5</span>)</span><br><span class="line">tree.insert(<span class="number">10</span>)</span><br><span class="line">tree.insert(<span class="number">9</span>)</span><br><span class="line">tree.insert(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Note:</strong> For reasons that will become clear later, you should insert the numbers in a random order. If you insert them in a sorted order, the tree will not have the right shape.<br><strong>注意：</strong> 由于后来会变得明确的原因，您应该以随机顺序插入数字。 如果按排序顺序插入它们，则树的形状将不正确。 （？？由于理解不够深，翻译的不准确，保留原文）</p>
+</blockquote>
+<p>为方便起见，让我们添加一个以数组的方式初始化的方法，这个方法为数组中所有元素调用<code>insert()</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">convenience</span> <span class="keyword">init</span>(array: [<span class="type">T</span>]) &#123;</span><br><span class="line">  <span class="built_in">precondition</span>(array.<span class="built_in">count</span> &gt; <span class="number">0</span>)</span><br><span class="line">  <span class="keyword">self</span>.<span class="keyword">init</span>(value: array.first!)</span><br><span class="line">  <span class="keyword">for</span> v <span class="keyword">in</span> array.<span class="built_in">dropFirst</span>() &#123;</span><br><span class="line">    insert(value: v)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在可以简单的使用：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tree = <span class="type">BinarySearchTree</span>&lt;<span class="type">Int</span>&gt;(array: [<span class="number">7</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>数组中的第一个值成为树的根节点。</p>
+<h3 id="调试输出"><a href="#调试输出" class="headerlink" title="调试输出"></a>调试输出</h3><p>使用复杂的数据结构时，拥有人类可读的调试输出很有用。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">BinarySearchTree</span>: <span class="title">CustomStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="string">""</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = <span class="keyword">left</span> &#123;</span><br><span class="line">      s += <span class="string">"(<span class="subst">\(<span class="keyword">left</span>.description)</span>) &lt;- "</span></span><br><span class="line">    &#125;</span><br><span class="line">    s += <span class="string">"<span class="subst">\(value)</span>"</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">right</span> = <span class="keyword">right</span> &#123;</span><br><span class="line">      s += <span class="string">" -&gt; (<span class="subst">\(<span class="keyword">right</span>.description)</span>)"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当你执行<code>print(tree)</code>时，你应该得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((1) &lt;- 2 -&gt; (5)) &lt;- 7 -&gt; ((9) &lt;- 10)</span><br></pre></td></tr></table></figure>
+<p>根节点位于中间。 发挥一些想象力，您应该看到这确实对应于下面的树：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Tree2.png" alt="The tree"></p>
+<p>您可能想知道插入重复项时会发生什么？我们总是将它们插入正确的分支中。 试试看！</p>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p>我们现在做什么，让树有一些价值？ 当然，搜索它们吧！ 快速查找项是二叉搜索树的主要目的。:-)</p>
+<p>这是<code>search()</code>的实现：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">search</span><span class="params">(value: T)</span></span> -&gt; <span class="type">BinarySearchTree</span>? &#123;</span><br><span class="line">  <span class="keyword">if</span> value &lt; <span class="keyword">self</span>.value &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">left</span>?.search(value)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> value &gt; <span class="keyword">self</span>.value &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">right</span>?.search(value)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>  <span class="comment">// found it!</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我希望逻辑清楚：这从当前节点（通常是根节点）开始并比较这些值。 如果搜索值小于节点的值，我们继续在左侧分支中搜索;如果搜索值更大，我们会跳到右侧分支中搜索。</p>
+<p>如果没有更多的节点要看 —— 当<code>left</code>或<code>right</code>为nil时 —— 那么我们返回<code>nil</code>表示搜索值不在树中。</p>
+<blockquote>
+<p><strong>注意：</strong> 在Swift中，可以通过可选链方便地完成; 当你写<code>left?.search(value)</code>时，如果<code>left</code>为nil，它会自动返回nil。 没有必要使用<code>if</code>语句显式检查。</p>
+</blockquote>
+<p>搜索是一个递归过程，但您也可以使用简单的迭代来实现它：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">search</span><span class="params">(<span class="number">_</span> value: T)</span></span> -&gt; <span class="type">BinarySearchTree</span>? &#123;</span><br><span class="line">  <span class="keyword">var</span> node: <span class="type">BinarySearchTree</span>? = <span class="keyword">self</span></span><br><span class="line">  <span class="keyword">while</span> <span class="keyword">let</span> n = node &#123;</span><br><span class="line">    <span class="keyword">if</span> value &lt; n.value &#123;</span><br><span class="line">      node = n.<span class="keyword">left</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> value &gt; n.value &#123;</span><br><span class="line">      node = n.<span class="keyword">right</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> node</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>验证您是否理解这两个实现是等效的。 就个人而言，我更喜欢使用迭代代码而不是递归代码，但您的意见可能会有所不同。;-)</p>
+<p>测试搜索：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tree.search(value: <span class="number">5</span>)</span><br><span class="line">tree.search(value: <span class="number">2</span>)</span><br><span class="line">tree.search(value: <span class="number">7</span>)</span><br><span class="line">tree.search(value: <span class="number">6</span>)   <span class="comment">// nil</span></span><br></pre></td></tr></table></figure>
+<p>前三行返回相应的<code>BinaryTreeNode</code>对象。 最后一行返回<code>nil</code>，因为没有值为<code>6</code>的节点。</p>
+<blockquote>
+<p><strong>注意：</strong> 如果树中有重复项，<code>search()</code>返回“最高”节点。 这是有道理的，因为我们开始从根节点向下搜索。</p>
+</blockquote>
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><p>还记得有三种不同的方法可以查看树中的所有节点吗？ 如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">traverseInOrder</span><span class="params">(process: <span class="params">(T)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">  <span class="keyword">left</span>?.traverseInOrder(process: process)</span><br><span class="line">  process(value)</span><br><span class="line">  <span class="keyword">right</span>?.traverseInOrder(process: process)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">traversePreOrder</span><span class="params">(process: <span class="params">(T)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">  process(value)</span><br><span class="line">  <span class="keyword">left</span>?.traversePreOrder(process: process)</span><br><span class="line">  <span class="keyword">right</span>?.traversePreOrder(process: process)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">traversePostOrder</span><span class="params">(process: <span class="params">(T)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">  <span class="keyword">left</span>?.traversePostOrder(process: process)</span><br><span class="line">  <span class="keyword">right</span>?.traversePostOrder(process: process)</span><br><span class="line">  process(value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它们都以不同的顺序工作。 请注意，所有工作都是递归完成的。 Swift的可选链清楚地表明，当没有左或右子节点时，忽略对<code>traverseInOrder()</code>等的调用。</p>
+<p>要打印出从低到高排序的树的所有值，您可以编写：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree.traverseInOrder &#123; value <span class="keyword">in</span> <span class="built_in">print</span>(value) &#125;</span><br></pre></td></tr></table></figure>
+<p>打印结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">5</span><br><span class="line">7</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+<p>你还可以在树中添加<code>map()</code>和<code>filter()</code>方法。 例如，这是map的实现：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">map</span><span class="params">(formula: <span class="params">(T)</span></span></span> -&gt; <span class="type">T</span>) -&gt; [<span class="type">T</span>] &#123;</span><br><span class="line">  <span class="keyword">var</span> a = [<span class="type">T</span>]()</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = <span class="keyword">left</span> &#123; a += <span class="keyword">left</span>.<span class="built_in">map</span>(formula: formula) &#125;</span><br><span class="line">  a.append(formula(value))</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">right</span> = <span class="keyword">right</span> &#123; a += <span class="keyword">right</span>.<span class="built_in">map</span>(formula: formula) &#125;</span><br><span class="line">  <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这将在树中的每个节点上调用<code>formula</code>闭包，并在结果以数组返回。 <code>map()</code>通过按中序遍历树来工作。</p>
+<p>一个非常简单的如何使用<code>map()</code>的例子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">toArray</span><span class="params">()</span></span> -&gt; [<span class="type">T</span>] &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">map</span> &#123; $<span class="number">0</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这会将树的内容重新转换为已排序的数组。 在playground上试一试：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree.toArray()   <span class="comment">// [1, 2, 5, 7, 9, 10]</span></span><br></pre></td></tr></table></figure>
+<p>作为练习，看看是否可以实现<code>filter</code>和<code>reduce</code>。</p>
+<blockquote>
+<p><strong>译注：</strong><code>map</code>,  <code>filter</code>和<code>reduce</code>都是高阶函数，关于高阶函数可查看我总结的文章 <a href="http://andyron.com/2018/swift-higher-order-function">Swift中的高阶函数：sorted, map, reduce, forEach, flatMap, filter</a> 。</p>
+</blockquote>
+<h3 id="删除节点-1"><a href="#删除节点-1" class="headerlink" title="删除节点"></a>删除节点</h3><p>我们可以通过定义一些辅助函数来使代码更具可读性。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">reconnectParentTo</span><span class="params">(node: BinarySearchTree?)</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">let</span> parent = parent &#123;</span><br><span class="line">    <span class="keyword">if</span> isLeftChild &#123;</span><br><span class="line">      parent.<span class="keyword">left</span> = node</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      parent.<span class="keyword">right</span> = node</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  node?.parent = parent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对树进行更改涉及更改<code>parent</code>和<code>left</code>和<code>right</code>指针。 此功能有助于实现此功能。 它接受当前节点的父节点 - 即<code>self</code> - 并将其连接到另一个节点，该节点将是<code>self</code>的子节点之一。</p>
+<p>我们还需要一个返回节点最小值和最大值的函数：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">minimum</span><span class="params">()</span></span> -&gt; <span class="type">BinarySearchTree</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> node = <span class="keyword">self</span></span><br><span class="line">  <span class="keyword">while</span> <span class="keyword">let</span> next = node.<span class="keyword">left</span> &#123;</span><br><span class="line">    node = next</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">maximum</span><span class="params">()</span></span> -&gt; <span class="type">BinarySearchTree</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> node = <span class="keyword">self</span></span><br><span class="line">  <span class="keyword">while</span> <span class="keyword">let</span> next = node.<span class="keyword">right</span> &#123;</span><br><span class="line">    node = next</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其余代码是不言自明的：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">@discardableResult <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">remove</span><span class="params">()</span></span> -&gt; <span class="type">BinarySearchTree</span>? &#123;</span><br><span class="line">  <span class="keyword">let</span> replacement: <span class="type">BinarySearchTree</span>?</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Replacement for current node can be either biggest one on the left or</span></span><br><span class="line">  <span class="comment">// smallest one on the right, whichever is not nil</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">right</span> = <span class="keyword">right</span> &#123;</span><br><span class="line">    replacement = <span class="keyword">right</span>.minimum()</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = <span class="keyword">left</span> &#123;</span><br><span class="line">    replacement = <span class="keyword">left</span>.maximum()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    replacement = <span class="literal">nil</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  replacement?.remove()</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Place the replacement on current node's position</span></span><br><span class="line">  replacement?.<span class="keyword">right</span> = <span class="keyword">right</span></span><br><span class="line">  replacement?.<span class="keyword">left</span> = <span class="keyword">left</span></span><br><span class="line">  <span class="keyword">right</span>?.parent = replacement</span><br><span class="line">  <span class="keyword">left</span>?.parent = replacement</span><br><span class="line">  reconnectParentTo(node:replacement)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// The current node is no longer part of the tree, so clean it up.</span></span><br><span class="line">  parent = <span class="literal">nil</span></span><br><span class="line">  <span class="keyword">left</span> = <span class="literal">nil</span></span><br><span class="line">  <span class="keyword">right</span> = <span class="literal">nil</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> replacement</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>译注：</strong> swift正常的方法如果有返回值的话,调用的时候必须有一个接收方,否则的话编译器会报一个警告,如果在方法前加上<code>@discardableResult</code> 不处理的时候就不会有警告了。</p>
+</blockquote>
+<h3 id="深度和高度"><a href="#深度和高度" class="headerlink" title="深度和高度"></a>深度和高度</h3><p>回想一下节点的高度是到最低叶节点的距离。 我们可以用以下函数来计算：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">height</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> isLeaf &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> + <span class="built_in">max</span>(<span class="keyword">left</span>?.height() ?? <span class="number">0</span>, <span class="keyword">right</span>?.height() ?? <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们看一下左右分支的高度并取最大值。 同样，这是一个递归过程。 由于这会查看此节点的所有子节点，因此性能为 <strong>O(n)</strong>。</p>
+<blockquote>
+<p><strong>注意：</strong> Swift的空合运算符方便处理<code>left</code>或<code>right</code>指针为<code>nil</code>的情况。 你也可以用<code>if let</code>，但这更简洁。</p>
+</blockquote>
+<p>试试看：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree.height()  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>您还可以计算节点的 <em>深度</em>，即到根节点的距离。 这是代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">depth</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> node = <span class="keyword">self</span></span><br><span class="line">  <span class="keyword">var</span> edges = <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> <span class="keyword">let</span> parent = node.parent &#123;</span><br><span class="line">    node = parent</span><br><span class="line">    edges += <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> edges</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它沿着 <code>parent</code> 指针向上逐步穿过树，直到我们到达根节点（即<code>parent</code>为nil）。 这需要 <strong>O(h)</strong> 时间。 这是一个例子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> node9 = tree.search(<span class="number">9</span>) &#123;</span><br><span class="line">  node9.depth()   <span class="comment">// returns 2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="前驱节点和后继节点"><a href="#前驱节点和后继节点" class="headerlink" title="前驱节点和后继节点"></a>前驱节点和后继节点</h3><p>二叉搜索树总是“排序”，但这并不意味着连续的数字实际上在树中是彼此相邻的。</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Binary%20Search%20Tree/Images/Tree2.png" alt="Example"></p>
+<p>请注意，通过查看其左子节点，您无法找到<code>7</code>之前的数字。 左子节点是<code>2</code>，而不是<code>5</code>。 同样地，也无法找到<code>7</code>之后的数字。</p>
+<p><code>predecessor()</code>函数以排序顺序返回其值在当前值之前的节点：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">predecessor</span><span class="params">()</span></span> -&gt; <span class="type">BinarySearchTree</span>&lt;<span class="type">T</span>&gt;? &#123;</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = <span class="keyword">left</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">left</span>.maximum()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> node = <span class="keyword">self</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">let</span> parent = node.parent &#123;</span><br><span class="line">      <span class="keyword">if</span> parent.value &lt; value &#123; <span class="keyword">return</span> parent &#125;</span><br><span class="line">      node = parent</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果该节点有左子树很容易。 在这种情况下，该节点的前驱节点是左子树中的最大值。 您可以在上面的图片中验证<code>5</code>确实是<code>7</code>左分支中的最大值。</p>
+<p>如果没有左子树，那么我们必须查看父节点，直到找到一个较小的值。如果我们想知道节点<code>9</code>的前驱节点是什么，我们一直向上，直到找到第一个具有较小值的父节点，即<code>7</code>。</p>
+<p><code>successor()</code>的代码以相同的方式工作：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">successor</span><span class="params">()</span></span> -&gt; <span class="type">BinarySearchTree</span>&lt;<span class="type">T</span>&gt;? &#123;</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">right</span> = <span class="keyword">right</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">right</span>.minimum()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> node = <span class="keyword">self</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">let</span> parent = node.parent &#123;</span><br><span class="line">      <span class="keyword">if</span> parent.value &gt; value &#123; <span class="keyword">return</span> parent &#125;</span><br><span class="line">      node = parent</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这两种方法都在 <strong>O(h)</strong> 时间内运行。</p>
+<blockquote>
+<p><strong>注意：</strong> 有一种称为<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Threaded%20Binary%20Tree" target="_blank" rel="noopener">“线索”二叉树</a>的二叉搜索树变体，其中“未使用的”左右指针被重新用于在前驱节点和后继节点之间建立直接链接。 非常聪明！</p>
+</blockquote>
+<h3 id="搜索树有效吗？"><a href="#搜索树有效吗？" class="headerlink" title="搜索树有效吗？"></a>搜索树有效吗？</h3><p>如果您打算进行破坏，可以通过在非根节点上调用<code>insert()</code>将二分搜索树变为无效树。 这是一个例子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> node1 = tree.search(<span class="number">1</span>) &#123;</span><br><span class="line">  node1.insert(<span class="number">100</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>根节点的值为<code>7</code>，因此值为<code>100</code>的节点必须位于树的右侧分支中。 但是，您不是插入根，而是插入树左侧分支中的叶节点。 所以新的<code>100</code>节点在树中的错误位置！</p>
+<p>结果，<code>tree.search(100)</code>给出nil。</p>
+<p>您可以使用以下方法检查树是否是有效的二叉搜索树：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">isBST</span><span class="params">(minValue minValue: T, maxValue: T)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> value &lt; minValue || value &gt; maxValue &#123; <span class="keyword">return</span> <span class="literal">false</span> &#125;</span><br><span class="line">  <span class="keyword">let</span> leftBST = <span class="keyword">left</span>?.isBST(minValue: minValue, maxValue: value) ?? <span class="literal">true</span></span><br><span class="line">  <span class="keyword">let</span> rightBST = <span class="keyword">right</span>?.isBST(minValue: value, maxValue: maxValue) ?? <span class="literal">true</span></span><br><span class="line">  <span class="keyword">return</span> leftBST &amp;&amp; rightBST</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这将验证左侧分支包含的值是否小于当前节点的值，右侧分支仅包含更大的值。</p>
+<p>使用如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> node1 = tree.search(<span class="number">1</span>) &#123;</span><br><span class="line">  tree.isBST(minValue: <span class="type">Int</span>.<span class="built_in">min</span>, maxValue: <span class="type">Int</span>.<span class="built_in">max</span>)  <span class="comment">// true</span></span><br><span class="line">  node1.insert(<span class="number">100</span>)                                 <span class="comment">// EVIL!!!</span></span><br><span class="line">  tree.search(<span class="number">100</span>)                                  <span class="comment">// nil</span></span><br><span class="line">  tree.isBST(minValue: <span class="type">Int</span>.<span class="built_in">min</span>, maxValue: <span class="type">Int</span>.<span class="built_in">max</span>)  <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码（解决方案2）"><a href="#代码（解决方案2）" class="headerlink" title="代码（解决方案2）"></a>代码（解决方案2）</h2><p>我们已经使用类实现二叉树节点，但您也可以使用枚举。</p>
+<p>鉴于引用类型与值类型的不同。 对基于类的树进行更改将更新内存中的相同实例，但基于枚举的树是不可变的 - 任何插入或删除都将为您提供树的全新副本。哪一个好，完全取决于你想用它做什么。</p>
+<p>以下是使用枚举创建二叉搜索树的方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">BinarySearchTree</span>&lt;<span class="title">T</span>: <span class="title">Comparable</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="type">Empty</span></span><br><span class="line">  <span class="keyword">case</span> <span class="type">Leaf</span>(<span class="type">T</span>)</span><br><span class="line">  <span class="keyword">indirect</span> <span class="keyword">case</span> <span class="type">Node</span>(<span class="type">BinarySearchTree</span>, <span class="type">T</span>, <span class="type">BinarySearchTree</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>枚举有三种情况：</p>
+<ul>
+<li><code>Empty</code>标记分支的结尾（基于类的版本使用<code>nil</code>引用）。</li>
+<li>没有子节点的叶节点的<code>Leaf</code>。</li>
+<li>具有一个或两个子节点的节点的<code>Node</code>。 这标记为<code>indirect</code>，因此它可以保存<code>BinarySearchTree</code>值。 如果没有<code>indirect</code>，你就无法生成递归枚举。</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong>此二叉树中的节点没有对其父节点的引用。 这不是一个主要障碍，但它会使某些操作实施起来更加麻烦。</p>
+</blockquote>
+<p>这个实现是递归的，枚举的每个情况都将被区别对待。 例如，这是您可以计算树中节点数和树高的方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> .<span class="type">Empty</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  <span class="keyword">case</span> .<span class="type">Leaf</span>: <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">case</span> <span class="keyword">let</span> .<span class="type">Node</span>(<span class="keyword">left</span>, <span class="number">_</span>, <span class="keyword">right</span>): <span class="keyword">return</span> <span class="keyword">left</span>.<span class="built_in">count</span> + <span class="number">1</span> + <span class="keyword">right</span>.<span class="built_in">count</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">var</span> height: <span class="type">Int</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> .<span class="type">Empty</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  <span class="keyword">case</span> .<span class="type">Leaf</span>: <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">case</span> <span class="keyword">let</span> .<span class="type">Node</span>(<span class="keyword">left</span>, <span class="number">_</span>, <span class="keyword">right</span>): <span class="keyword">return</span> <span class="number">1</span> + <span class="built_in">max</span>(<span class="keyword">left</span>.height, <span class="keyword">right</span>.height)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>插入新节点如下所示：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">insert</span><span class="params">(newValue: T)</span></span> -&gt; <span class="type">BinarySearchTree</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> .<span class="type">Empty</span>:</span><br><span class="line">    <span class="keyword">return</span> .<span class="type">Leaf</span>(newValue)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> .<span class="type">Leaf</span>(<span class="keyword">let</span> value):</span><br><span class="line">    <span class="keyword">if</span> newValue &lt; value &#123;</span><br><span class="line">      <span class="keyword">return</span> .<span class="type">Node</span>(.<span class="type">Leaf</span>(newValue), value, .<span class="type">Empty</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> .<span class="type">Node</span>(.<span class="type">Empty</span>, value, .<span class="type">Leaf</span>(newValue))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> .<span class="type">Node</span>(<span class="keyword">let</span> <span class="keyword">left</span>, <span class="keyword">let</span> value, <span class="keyword">let</span> <span class="keyword">right</span>):</span><br><span class="line">    <span class="keyword">if</span> newValue &lt; value &#123;</span><br><span class="line">      <span class="keyword">return</span> .<span class="type">Node</span>(<span class="keyword">left</span>.insert(newValue), value, <span class="keyword">right</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> .<span class="type">Node</span>(<span class="keyword">left</span>, value, <span class="keyword">right</span>.insert(newValue))</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在playground尝试：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tree = <span class="type">BinarySearchTree</span>.<span class="type">Leaf</span>(<span class="number">7</span>)</span><br><span class="line">tree = tree.insert(<span class="number">2</span>)</span><br><span class="line">tree = tree.insert(<span class="number">5</span>)</span><br><span class="line">tree = tree.insert(<span class="number">10</span>)</span><br><span class="line">tree = tree.insert(<span class="number">9</span>)</span><br><span class="line">tree = tree.insert(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>请注意，对于每次插入，都会返回一个新的树对象，因此需要将结果分配回<code>tree</code>变量。</p>
+<p>这是最重要的搜索功能：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">search</span><span class="params">(x: T)</span></span> -&gt; <span class="type">BinarySearchTree</span>? &#123;</span><br><span class="line">  <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> .<span class="type">Empty</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">  <span class="keyword">case</span> .<span class="type">Leaf</span>(<span class="keyword">let</span> y):</span><br><span class="line">    <span class="keyword">return</span> (x == y) ? <span class="keyword">self</span> : <span class="literal">nil</span></span><br><span class="line">  <span class="keyword">case</span> <span class="keyword">let</span> .<span class="type">Node</span>(<span class="keyword">left</span>, y, <span class="keyword">right</span>):</span><br><span class="line">    <span class="keyword">if</span> x &lt; y &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">left</span>.search(x)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> y &lt; x &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">right</span>.search(x)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>大多数这些功能具有相同的结构。</p>
+<p>在playground尝试：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tree.search(<span class="number">10</span>)</span><br><span class="line">tree.search(<span class="number">1</span>)</span><br><span class="line">tree.search(<span class="number">11</span>)   <span class="comment">// nil</span></span><br></pre></td></tr></table></figure>
+<p>要打印树以进行调试，可以使用以下方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">BinarySearchTree</span>: <span class="title">CustomDebugStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> debugDescription: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> .<span class="type">Empty</span>: <span class="keyword">return</span> <span class="string">"."</span></span><br><span class="line">    <span class="keyword">case</span> .<span class="type">Leaf</span>(<span class="keyword">let</span> value): <span class="keyword">return</span> <span class="string">"<span class="subst">\(value)</span>"</span></span><br><span class="line">    <span class="keyword">case</span> .<span class="type">Node</span>(<span class="keyword">let</span> <span class="keyword">left</span>, <span class="keyword">let</span> value, <span class="keyword">let</span> <span class="keyword">right</span>):</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"(<span class="subst">\(<span class="keyword">left</span>.debugDescription)</span> &lt;- <span class="subst">\(value)</span> -&gt; <span class="subst">\(<span class="keyword">right</span>.debugDescription)</span>)"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当你执行<code>print(tree)</code>时，它看起来像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((1 &lt;- 2 -&gt; 5) &lt;- 7 -&gt; (9 &lt;- 10 -&gt; .))</span><br></pre></td></tr></table></figure>
+<p>根节点位于中间，点表示该位置没有子节点。</p>
+<h2 id="当树变得不平衡时……"><a href="#当树变得不平衡时……" class="headerlink" title="当树变得不平衡时……"></a>当树变得不平衡时……</h2><p>当二叉制搜索树的左右子树包含相同数量的节点时，它是<em>平衡的</em>。 在这种情况下，树的高度为 <em>log(n)</em>，其中 <em>n</em> 是节点数。 这是理想的情况。</p>
+<p>如果一个分支明显长于另一个分支，则搜索变得非常慢。 我们最终检查的花费超出了我们的需要。 在最坏的情况下，树的高度可以变为 <em>n</em>。 这样的树就像 <a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linked%20List/" target="_blank" rel="noopener">链表</a> 而不是二叉搜索树，性能降低到 <strong>O(n)</strong>。 不好！</p>
+<p>使二叉制搜索树平衡的一种方法是以完全随机的顺序插入节点。 平均而言，应该很好地平衡树，但不保证，也不总是实用。</p>
+<p>另一种解决方案是使用 <em>自平衡</em> 二叉树。 插入或删除节点后，此类型的数据结构会调整树以使其保持平衡。 要查看示例，请查看<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/AVL%20Tree" target="_blank" rel="noopener">AVL树</a>和<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Red-Black%20Tree" target="_blank" rel="noopener">红黑树</a>。</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p><a href="https://en.wikipedia.org/wiki/Binary_search_tree" target="_blank" rel="noopener">二叉树搜索的维基百科</a></p>
+<p><em>作者：<a href="http://www.github.com/nameghino" target="_blank" rel="noopener">Nicolas Ameghino</a> 和 Matthijs Hollemans</em><br><em>译者：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em>  </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        <!-- 版权声明 -->
+
+
+  <ul class="post-copyright">
+
+
+    <li class="post-copyright-title">
+      <strong>本文标题：</strong>
+      【译】Swift算法俱乐部-二叉搜索树
+    </li>
+
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+
+    <li class="post-copyright-date">
+      <strong>发布时间：</strong>
+      2018年12月01日 - 11:30
+    </li>
+
+    <li class="post-copyright-updated">
+      <strong>最后更新：</strong>
+      2018年12月01日 - 11:37
+    </li>
+
+
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2018/Swift算法俱乐部-二叉搜索树.html" title="【译】Swift算法俱乐部-二叉搜索树">http://andyron.com/2018/Swift算法俱乐部-二叉搜索树.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
+          
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/二叉搜索树/" rel="tag"><i class="fa fa-tag"></i> 二叉搜索树</a>
+          
+            <a href="/tags/Binary-Search-Tree/" rel="tag"><i class="fa fa-tag"></i> Binary Search Tree</a>
+          
+            <a href="/tags/BST/" rel="tag"><i class="fa fa-tag"></i> BST</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/Swift算法俱乐部-哈希表.html" rel="next" title="【译】Swift算法俱乐部-哈希表">
+                <i class="fa fa-chevron-left"></i> 【译】Swift算法俱乐部-哈希表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="AndyRon" />
+          <p class="site-author-name" itemprop="name">AndyRon</p>
+           
+              <p class="site-description motion-element" itemprop="description">Just for fun.👨‍💻✍️🎨</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">158</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">111</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/andyRon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/efce1a2a95ab" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AndyRon8" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/andyronm" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://500px.com/andymron" target="_blank" title="500px">
+                  
+                    <i class="fa fa-fw fa-500px"></i>
+                  
+                  500px
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:rongming.2008@163.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.appcoda.com" title="Appcoda" target="_blank">Appcoda</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/" title="阮一峰的个人网站" target="_blank">阮一峰的个人网站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.raywenderlich.com" title="Ray Wenderlich" target="_blank">Ray Wenderlich</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#“始终排序”属性"><span class="nav-number">1.</span> <span class="nav-text">“始终排序”属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入新节点"><span class="nav-number">2.</span> <span class="nav-text">插入新节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索树"><span class="nav-number">3.</span> <span class="nav-text">搜索树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历树"><span class="nav-number">4.</span> <span class="nav-text">遍历树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除节点"><span class="nav-number">5.</span> <span class="nav-text">删除节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码（解决方案1）"><span class="nav-number">6.</span> <span class="nav-text">代码（解决方案1）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入节点"><span class="nav-number">6.1.</span> <span class="nav-text">插入节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试输出"><span class="nav-number">6.2.</span> <span class="nav-text">调试输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索"><span class="nav-number">6.3.</span> <span class="nav-text">搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历"><span class="nav-number">6.4.</span> <span class="nav-text">遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除节点-1"><span class="nav-number">6.5.</span> <span class="nav-text">删除节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度和高度"><span class="nav-number">6.6.</span> <span class="nav-text">深度和高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前驱节点和后继节点"><span class="nav-number">6.7.</span> <span class="nav-text">前驱节点和后继节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索树有效吗？"><span class="nav-number">6.8.</span> <span class="nav-text">搜索树有效吗？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码（解决方案2）"><span class="nav-number">7.</span> <span class="nav-text">代码（解决方案2）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当树变得不平衡时……"><span class="nav-number">8.</span> <span class="nav-text">当树变得不平衡时……</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读"><span class="nav-number">9.</span> <span class="nav-text">扩展阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AndyRon</span>
+  <span class="post-count">  全站共195.2k字</span>
+
+</div>
+
+
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+--!>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://http-andyron-com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2018/Swift算法俱乐部-二叉搜索树.html';
+          this.page.identifier = '2018/Swift算法俱乐部-二叉搜索树.html';
+          this.page.title = '【译】Swift算法俱乐部-二叉搜索树';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-andyron-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("rgq6Qsvb0ISrHdgsraNlqt7H-gzGzoHsz", "T35WL0YkQ4GVOUDOkizK5FAd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

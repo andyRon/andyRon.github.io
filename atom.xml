@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-11-15T10:12:48.499Z</updated>
+  <updated>2018-12-01T03:37:35.118Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-二叉搜索树</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-二叉搜索树.html</id>
+    <published>2018-12-01T03:30:00.000Z</published>
+    <updated>2018-12-01T03:37:35.118Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Search%20Tree&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Binary Search Tree&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-905dc1c1ccb31281.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;二叉搜索树(Binary Search Tree, BST)&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个话题已经有个辅助&lt;a href=&quot;https://www.raywenderlich.com/139821/swift-algorithm-club-swift-binary-search-tree-data-structure&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;二叉搜索树（或者叫做二分搜索树）是一种特殊的&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;二叉树&lt;/a&gt;（每个节点最多有两个子节点），它执行插入和删除，以便始终对树进行排序。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;译注：&lt;/strong&gt; sort，平常都可以理解为从大到小或从小到大的排序，但本文有点不同，可以理解为是按一定规则的整理。因为“排序”在汉语中也不是简单理解为从大到小或从小到大，所以我还是把sort翻译成&lt;em&gt;排序&lt;/em&gt;，但注意和平常理解的排序有点不同。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有关树的更多信息，&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;请先阅读&lt;/a&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="二叉搜索树" scheme="http://andyron.com/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
+    
+      <category term="Binary Search Tree" scheme="http://andyron.com/tags/Binary-Search-Tree/"/>
+    
+      <category term="BST" scheme="http://andyron.com/tags/BST/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-哈希表</title>
@@ -598,42 +639,6 @@
       <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="tree" scheme="http://andyron.com/tags/tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-统计出现次数</title>
-    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%BB%9F%E8%AE%A1%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0.html"/>
-    <id>http://andyron.com/2018/Swift算法俱乐部-统计出现次数.html</id>
-    <published>2018-09-23T09:46:00.000Z</published>
-    <updated>2018-09-28T02:24:10.428Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Count%20Occurrences&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Count Occurrences&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;目标：计算某个值在数组中出现的次数。&lt;/p&gt;
-&lt;p&gt;显而易见的方法是从数组的开头直到结束的&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linear%20Search/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;线性搜索&lt;/a&gt;，计算您遇到该值的次数。 这是一个 &lt;strong&gt;O(n)&lt;/strong&gt; 算法。&lt;/p&gt;
-&lt;p&gt;但是，如果数组已经排过序的，则可以通过使用修改&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Search&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;二分搜索&lt;/a&gt;来更快的完成这个任务，时间复杂度为&lt;strong&gt;O(logn)&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;假设我们有以下数组：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[ 0, 1, 1, 3, 3, 3, 3, 6, 8, 10, 11, 11 ]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果我们想知道值&lt;code&gt;3&lt;/code&gt;出现的次数，我们可以进行常规二分搜索。 这可以获得四个&lt;code&gt;3&lt;/code&gt;索引中的一个：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[ 0, 1, 1, 3, 3, 3, 3, 6, 8, 10, 11, 11 ]
-           *  *  *  *
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="统计出现次数" scheme="http://andyron.com/tags/%E7%BB%9F%E8%AE%A1%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/"/>
     
   </entry>
   
