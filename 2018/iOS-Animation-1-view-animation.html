@@ -1,0 +1,1769 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="google-site-verification" content="WbjivD7TTMEtYj5PSWVYMaX2uAfY6lr-R517vwDhLWo" />
+<meta name="baidu-site-verification" content="ZmrU9vDYWs" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS动画,View Animation,视图动画," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="欣欣向戎" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="这个部分介绍UIKit动画API，这些API专门用于轻松制作视图动画(View Animations)，同时避免核心动画(Core Animation)(见系统学习iOS动画之三：图层动画)的复杂性。 UIKit动画API不仅易于使用，而且提供了大量灵活性和强大功能，可以处理大多数（当然不是全部）动画要求。 UIKit动画API可以在屏幕上为最终继承自UIView的任何对象设置动画，例如：UILa">
+<meta name="keywords" content="iOS动画,View Animation,视图动画">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统学习iOS动画之一：视图动画">
+<meta property="og:url" content="http://andyron.com/2018/iOS-Animation-1-view-animation.html">
+<meta property="og:site_name" content="欣欣向戎">
+<meta property="og:description" content="这个部分介绍UIKit动画API，这些API专门用于轻松制作视图动画(View Animations)，同时避免核心动画(Core Animation)(见系统学习iOS动画之三：图层动画)的复杂性。 UIKit动画API不仅易于使用，而且提供了大量灵活性和强大功能，可以处理大多数（当然不是全部）动画要求。 UIKit动画API可以在屏幕上为最终继承自UIView的任何对象设置动画，例如：UILa">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fx9ypkbsm2j307r07e746.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fw8zt5x34nj30cm05na9x.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxa1kn5wvyj30c3045jrb.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxaa9ghw07j309703k0t1.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fxaa9nort9j309v033glr.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fw6k7ynuqlg30k40ga0ut.gif">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fw6k8dv4rhg30k40gago8.gif">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fw90biqpzjj306x057a9x.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fw90cubqxvj307u04smx2.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxa8xbxmwyg308o0600tk.gif">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxa9oee75sg308o0600xz.gif">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fxaa0o57jkg308o0600uw.gif">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxacr7vt00g308o060gnr.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fxadarv6e8g308o0600us.gif">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxacyc0ddpj30ce058dft.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxad2gmf6qj30bk04odft.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fxad4mayy0j30d404kmx5.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fxaw38os0lg308o060mz4.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fxaxrpmv62g308o060qae.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fw6f5gckt8g30900fytpt.gif">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxb39hzhp8g308s0fp474.gif">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxb3n4t33fj30cw06pjrd.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxb4ib3jfhg308s0fp7ix.gif">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fw6g60qxyuj30oe06mgmf.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fw6jejb346j30ew04wmx3.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fxyhhins84g308j03z0wl.gif">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxc3lp861sg308e060tfd.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fxyhrbg9xzg308g04i76e.gif">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxc3uwcwnig308m0foap6.gif">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fw6pom0519j30ai05kgll.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxc49qm354j30dm05eaa8.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fw6q1i7cigj30ef04jweh.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fxca0wyg3sg308m0607ce.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fxcajmwugeg308m0fndxy.gif">
+<meta property="og:updated_time" content="2018-12-21T04:21:25.122Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="系统学习iOS动画之一：视图动画">
+<meta name="twitter:description" content="这个部分介绍UIKit动画API，这些API专门用于轻松制作视图动画(View Animations)，同时避免核心动画(Core Animation)(见系统学习iOS动画之三：图层动画)的复杂性。 UIKit动画API不仅易于使用，而且提供了大量灵活性和强大功能，可以处理大多数（当然不是全部）动画要求。 UIKit动画API可以在屏幕上为最终继承自UIView的任何对象设置动画，例如：UILa">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fx9ypkbsm2j307r07e746.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andyron.com/2018/iOS-Animation-1-view-animation.html"/>
+
+
+
+
+
+
+
+
+  <title>系统学习iOS动画之一：视图动画 | 欣欣向戎</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e29ae2ff2bac53a3addad74e238d0108";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欣欣向戎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">AndyRon's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/iOS-Animation-1-view-animation.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">系统学习iOS动画之一：视图动画</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T20:22:00+08:00">
+                2018-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS-Animation/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS-Animation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/iOS-Animation-1-view-animation.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/iOS-Animation-1-view-animation.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/iOS-Animation-1-view-animation.html" class="leancloud_visitors" data-flag-title="系统学习iOS动画之一：视图动画">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 6,580 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 28 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这个部分介绍<strong>UIKit动画API</strong>，这些API专门用于轻松制作<strong>视图动画(View Animations)</strong>，同时避免<strong>核心动画(Core Animation)</strong>(见<a href="http://andyron.com/2018/iOS-Animation-3-Layer-Animations">系统学习iOS动画之三：图层动画</a>)的复杂性。</p>
+<p><strong>UIKit动画</strong>API不仅易于使用，而且提供了大量灵活性和强大功能，可以处理大多数（当然不是全部）动画要求。</p>
+<p><strong>UIKit动画</strong>API可以在屏幕上为最终继承自<code>UIView</code>的任何对象设置动画，例如：<code>UILabel</code>，<code>UIImageView</code>，<code>UIButton</code>等等，也可以是自己创建的任何自定义最终继承自<code>UIView</code>类。</p>
+<p>本文包括五个章节，完成两个项目<strong>BahamaAirLoginScreen</strong>和<strong>Flight Info</strong>。</p>
+<p><em>BahamaAirLoginScreen</em> 是一个登录页面项目，1、2、3章节为这个项目的一些UI添加各种动画。</p>
+<p><a href="#1-视图动画入门">1-视图动画入门</a> —— 学习如何移动，缩放和淡化视图等基本的UIKit API。<br><a href="#2-弹簧动画">2-弹簧动画</a> —— 在线性动画的概念基础上，使用弹簧动画创造出更引人注目的效果。😊<br><a href="#3-过渡动画">3-过渡动画</a> —— 视图的出现和消失。      </p>
+<p><em>Flight Info</em> 是一个航班状态变化项目，4、5章节用一些高级一点动画来完成这个项目。</p>
+<p><a href="#4-练习视图动画">4-练习视图动画</a> —— 练习前面学到的动画技术。<br><a href="#5-关键帧动画">5-关键帧动画</a> —— 使用关键帧动画来创建由许多不同阶段组成的复杂动画。  </p>
+<a id="more"></a>
+<h2 id="1-视图动画入门"><a href="#1-视图动画入门" class="headerlink" title="1-视图动画入门"></a>1-视图动画入门</h2><h3 id="第一个动画"><a href="#第一个动画" class="headerlink" title="第一个动画"></a>第一个动画</h3><p><a href="http://andyron.com/2018/iOS-Animation-0#关于代码">开始项目</a> <strong>BahamaAirLoginScreen</strong>是一个简单的登录页面，有两个TextField，一个Label，一个Button，4个云图片和一个背景图片，效果如下：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fx9ypkbsm2j307r07e746.jpg" alt=""></p>
+<p>让Label和两个TextField在视图显示之前移动到屏幕外。在<code>viewWillAppear()</code>中添加：</p>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">heading.center.x    -=  view.bounds.width</span><br><span class="line">username.center.x   -=  view.bounds.width</span><br><span class="line">password.center.x   -=  view.bounds.width</span><br></pre></td></tr></table></figure>
+<p>  <img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fw8zt5x34nj30cm05na9x.jpg" alt=""></p>
+<p>添加Label和两个TextField进入屏幕的动画，在<code>viewDidAppear()</code>中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>) &#123;</span><br><span class="line">  <span class="keyword">self</span>.heading.center.x += <span class="keyword">self</span>.view.bounds.width</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.3</span>, options: [],</span><br><span class="line">  animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.username.center.x += <span class="keyword">self</span>.view.bounds.width</span><br><span class="line">  &#125;, </span><br><span class="line">  completion: <span class="literal">nil</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.4</span>, options: [],</span><br><span class="line">  animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.password.center.x += <span class="keyword">self</span>.view.bounds.width</span><br><span class="line">  &#125;, </span><br><span class="line">  completion: <span class="literal">nil</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>这样heading和TextField就有了前后分别进入屏幕的动画。</p>
+<p>类似<code>UIView.animate(...)</code>的方法，根据参数的不同有好几个，不同参数的意义：</p>
+<p> <code>withDuration</code> ：动画持续时间。</p>
+<p> <code>delay</code> ：动画开始之前的延迟时间。</p>
+<p> <code>options</code> ：<code>UIView.AnimationOptions</code>的数组，用来定义动画的变化形式，之后会详细说明。</p>
+<p> <code>animations</code> ：提供动画的闭包，也就是动画代码。</p>
+<p> <code>completion</code> ：动画执行完成后的闭包 。 </p>
+<p>还有 <code>usingSpringWithDamping</code>和<code>initialSpringVelocity</code>之后章节会提到。</p>
+<h3 id="可动画属性"><a href="#可动画属性" class="headerlink" title="可动画属性"></a>可动画属性</h3><p>前面，使用<code>center</code>创建简单的位置变化视图动画。</p>
+<p>并非所有视图属性都可以设置动画，但所有视图动画（从最简单到最复杂）都可以通过动画视图上的属性来构建。下面来看看可用于动画的属性有哪些：</p>
+<h4 id="位置的大小"><a href="#位置的大小" class="headerlink" title="位置的大小"></a>位置的大小</h4><p><code>bounds</code>  <code>frame</code> <code>center</code>  </p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxa1kn5wvyj30c3045jrb.jpg" alt=""></p>
+<h4 id="外形-Appearance"><a href="#外形-Appearance" class="headerlink" title="外形(Appearance)"></a>外形(Appearance)</h4><p><code>backgroundColor</code><br><code>alpha</code> : 可创建淡入和淡出效果。</p>
+<p>  <img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxaa9ghw07j309703k0t1.jpg" alt=""></p>
+<h4 id="转换-Transformation"><a href="#转换-Transformation" class="headerlink" title="转换(Transformation)"></a>转换(Transformation)</h4><p><code>transform</code> ： 设置视图的旋转，缩放和/或位置的动画。</p>
+<p>  <img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxaa9nort9j309v033glr.jpg" alt="image-20181116174323974"></p>
+<p>这些看起来像是非常基本的动画，可以制作令人惊讶的复杂动画效果！😉</p>
+<h3 id="动画选项"><a href="#动画选项" class="headerlink" title="动画选项"></a>动画选项</h3><p>动画选项(Animation options)就是之前提到的<code>options</code>参数，它是<code>UIView.AnimationOptions</code>的数组。<code>UIView.AnimationOptions</code>是结构体，有很多常量值，具体可查看<a href="https://developer.apple.com/documentation/uikit/uiview/animationoptions" target="_blank" rel="noopener">官方文档</a> 。</p>
+<p>下面说明几个常用的</p>
+<h4 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h4><p><code>.repeat</code>  ：动画一直重复。</p>
+<p> <code>.autoreverse</code> ：如果仅有<code>.repeat</code>参数动画的过程，就像是 <code>b-&gt;e   b-&gt;e  ...</code>，而有了<code>.autoreverse</code>，动画过程就像是<code>b-&gt;e-&gt;b-&gt;e ...</code>。看下图很容易看出区别。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fw6k7ynuqlg30k40ga0ut.gif" alt=""></p>
+<h4 id="动画缓动"><a href="#动画缓动" class="headerlink" title="动画缓动"></a>动画缓动</h4><p>Animation easing，我暂且把它叫做 <strong>动画缓动</strong>。</p>
+<blockquote>
+<p>curve:弯曲；使弯曲。ease：减轻，缓和。</p>
+</blockquote>
+<p>在现实生活中，事物并不只是突然开始或停止移动。 像汽车或火车这样的物体会慢慢加速直到达到目标速度，除非它们碰到砖墙，否则它们会逐渐减速直到它们完全停在最终目的地。</p>
+<p>为了使动画看起来更逼真，可以在开始时慢慢加速，在结束前放慢速度，一般称为<strong>缓入(ease-in)</strong>和<strong>缓出(ease-out)</strong>。</p>
+<p><code>.curveLinear</code> ：不对动画应用加速或减速。<br><code>.curveEaseIn</code> ：动画的开始时慢，结束时快。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UIView.animate(withDuration: 1, delay: 0.6, options: [.repeat, .autoreverse, .curveEaseIn], animations: &#123;</span><br><span class="line">  self.password.center.x += self.view.bounds.width</span><br><span class="line">&#125;, completion: nil)</span><br></pre></td></tr></table></figure>
+<p><code>.curveEaseOut</code> ：动画开始时快，结束时慢。 </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">1</span>, delay: <span class="number">0.6</span>, options: [.<span class="keyword">repeat</span>, .autoreverse, .curveEaseOut], animations: &#123;</span><br><span class="line">          <span class="keyword">self</span>.password.center.x += <span class="keyword">self</span>.view.bounds.width</span><br><span class="line">      &#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fw6k8dv4rhg30k40gago8.gif" alt=""></p>
+<p> <code>.curveEaseInOut</code>  ：动画开始结束都慢，中间快</p>
+<h3 id="云的淡入动画"><a href="#云的淡入动画" class="headerlink" title="云的淡入动画"></a>云的淡入动画</h3><p>这个很好理解，就是云的<code>UIImageView</code>的透明度变化动画。先在<code>viewWillAppear()</code>中把云设置成透明：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cloud1.alpha = <span class="number">0.0</span></span><br><span class="line">cloud2.alpha = <span class="number">0.0</span></span><br><span class="line">cloud3.alpha = <span class="number">0.0</span></span><br><span class="line">cloud4.alpha = <span class="number">0.0</span></span><br></pre></td></tr></table></figure>
+<p>然后在<code>viewDidAppear()</code>中添加动画。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.5</span>, options: [], animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.cloud1.alpha = <span class="number">1.0</span></span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.7</span>, options: [], animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.cloud2.alpha = <span class="number">1.0</span></span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.9</span>, options: [], animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.cloud3.alpha = <span class="number">1.0</span></span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">1.1</span>, options: [], animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.cloud4.alpha = <span class="number">1.0</span></span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="2-弹簧动画"><a href="#2-弹簧动画" class="headerlink" title="2-弹簧动画"></a>2-弹簧动画</h2><p><a href="#1-视图动画入门">1-视图动画入门</a>中动画是单一方向上的动作，可以理解为一点移动到另一个。</p>
+<p> 这一章节是稍微复杂一点的<strong>弹簧动画(Springs)</strong>：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fw90biqpzjj306x057a9x.jpg" alt=""></p>
+<p>用点变化描述弹簧动画：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fw90cubqxvj307u04smx2.jpg" alt=""></p>
+<p>视图从A点到B点，在B点来回递减振荡，直到视图在B点停止。这是一个很好的效果， 让我们的动画添加了一种活泼，真实的感觉。 </p>
+<p>本章的<a href="http://andyron.com/2018/iOS-Animation-0#关于代码">开始项目</a> <strong>BahamaAirLoginScreen</strong>是上一章节的完成项目。</p>
+<p>在<code>viewWillAppear()</code>中添加:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loginButton.center.y += <span class="number">30.0</span></span><br><span class="line">loginButton.alpha = <span class="number">0.0</span></span><br></pre></td></tr></table></figure>
+<p>然后再在<code>viewDidAppear()</code>中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.5</span>, </span><br><span class="line">usingSpringWithDamping: <span class="number">0.5</span>, initialSpringVelocity: <span class="number">0.0</span>, options: [], animations: &#123;</span><br><span class="line">  <span class="keyword">self</span>.loginButton.center.y -= <span class="number">30.0</span></span><br><span class="line">  <span class="keyword">self</span>.loginButton.alpha = <span class="number">1.0</span></span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p>这样<strong>Log In</strong>按钮就有个向上移动的动画变成了两个属性同时变化的动画。</p>
+<p><code>usingSpringWithDamping</code> ：阻尼参数， 介于0.0 ~ 1.0，接近0.0的值创建一个更有弹性的动画，而接近1.0的值创建一个看起来很僵硬的效果。 您可以将此值视为弹簧的<strong>“刚度”</strong>。</p>
+<p><code>initialSpringVelocity</code> ：  初始速度， 要平滑开始动画，请将此值与视图之前的视图速度相匹配。</p>
+<p>效果：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxa8xbxmwyg308o0600tk.gif" alt=""></p>
+<h3 id="与用户交互的动画"><a href="#与用户交互的动画" class="headerlink" title="与用户交互的动画"></a>与用户交互的动画</h3><p>让登录按钮产生一个与用户交互的动画，在<strong>Log In</strong>按钮的Action <code>logIn()</code>方法中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">1.5</span>, delay: <span class="number">0.0</span>, usingSpringWithDamping: <span class="number">0.2</span>, initialSpringVelocity: <span class="number">0.0</span>, options: [], animations: &#123;</span><br><span class="line">  <span class="keyword">self</span>.loginButton.bounds.size.width += <span class="number">80.0</span></span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p>点击后有个宽度变大的简单动画。</p>
+<p>继续在<code>logIn()</code>中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.33</span>, delay: <span class="number">0.0</span>, usingSpringWithDamping: <span class="number">0.7</span>, initialSpringVelocity: <span class="number">0.0</span>, options: [], animations: &#123;</span><br><span class="line">  <span class="keyword">self</span>.loginButton.center.y += <span class="number">60.0</span></span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p>点击后宽度变大的同时向下移动移动位置。</p>
+<p>给用户反馈的另一个好方法是通过颜色变化。 在上面动画闭包中添加:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.loginButton.backgroundColor = <span class="type">UIColor</span>(red: <span class="number">0.85</span>, green: <span class="number">0.83</span>, blue: <span class="number">0.45</span>, alpha: <span class="number">1.0</span>)</span><br></pre></td></tr></table></figure>
+<p>最后一个给用户反馈的方法：activity indicator(活动指示器，俗称菊花转😅)。 登录按钮应该通过网络启动用户身份验证活动，通过菊花转让用户知道登录操作正在进行。</p>
+<p>继续在上面动画闭包中添加(<code>spinner</code>已经在<code>viewDidLoad</code>中初始化了，并且<code>alpha</code>设置为0.0)：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.spinner.center = <span class="type">CGPoint</span>(x: <span class="number">40.0</span>, y: <span class="keyword">self</span>.loginButton.frame.size.height/<span class="number">2</span>)</span><br><span class="line"><span class="keyword">self</span>.spinner.alpha = <span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<p>让菊花转也随着登录按钮的向下移动而移动，最终登录按钮的效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxa9oee75sg308o0600xz.gif" alt=""></p>
+<h3 id="把文本框的动画修改为弹簧动画"><a href="#把文本框的动画修改为弹簧动画" class="headerlink" title="把文本框的动画修改为弹簧动画"></a>把文本框的动画修改为弹簧动画</h3><p>把之前<code>viewDidAppear()</code>中的</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.3</span>, options: [], animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.username.center.x += <span class="keyword">self</span>.view.bounds.width</span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">1</span>, delay: <span class="number">0.6</span>, options: [], animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.password.center.x += <span class="keyword">self</span>.view.bounds.width</span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.3</span>, usingSpringWithDamping: <span class="number">0.6</span>, initialSpringVelocity: <span class="number">0.0</span>, options: [], animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.username.center.x += <span class="keyword">self</span>.view.bounds.width</span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.4</span>, usingSpringWithDamping: <span class="number">0.6</span>, initialSpringVelocity: <span class="number">0.0</span>, options: [], animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.password.center.x += <span class="keyword">self</span>.view.bounds.width</span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p>效果为：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxaa0o57jkg308o0600uw.gif" alt=""></p>
+<h2 id="3-过渡动画"><a href="#3-过渡动画" class="headerlink" title="3-过渡动画"></a>3-过渡动画</h2><p><strong>过渡动画(Transitions)</strong></p>
+<p>本章节的<a href="http://andyron.com/2018/iOS-Animation-0#开始项目">开始项目</a> 是前一章节的完成项目。</p>
+<h3 id="过渡的例子"><a href="#过渡的例子" class="headerlink" title="过渡的例子"></a>过渡的例子</h3><p>使用过渡动画的各种动画场景。</p>
+<h4 id="添加视图"><a href="#添加视图" class="headerlink" title="添加视图"></a>添加视图</h4><p>要在屏幕上添加新视图的动画，可以调用类似于前面章节中使用的方法。 这次的不同之处在于，需要预先选择一个预定义的过渡效果，并为动画容器视图设置动画。<br>过渡动画是设置在容器视图上，因此动画作用在添加到容器视图的所有子视图。</p>
+<p>下面做一个测试（结束后，删除相应代码继续之后内容）：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> animationContainerView: <span class="type">UIView</span>!</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">  <span class="comment">//设置动画容器视图</span></span><br><span class="line">  animationContainerView = <span class="type">UIView</span>(frame: view.bounds)</span><br><span class="line">  animationContainerView.frame = view.bounds</span><br><span class="line">  view.addSubview(animationContainerView)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(<span class="number">_</span> animated: Bool)</span></span> &#123;</span><br><span class="line">  <span class="keyword">super</span>.viewDidAppear(animated)</span><br><span class="line"></span><br><span class="line">  <span class="comment">//创建新视图</span></span><br><span class="line">  <span class="keyword">let</span> newView = <span class="type">UIImageView</span>(image: <span class="type">UIImage</span>(named: <span class="string">"banner"</span>))</span><br><span class="line">  newView.center = animationContainerView.center</span><br><span class="line"></span><br><span class="line">  <span class="comment">//通过过渡动画增加新视图</span></span><br><span class="line">  <span class="type">UIView</span>.transition(with: animationContainerView, </span><br><span class="line">    duration: <span class="number">0.33</span>, </span><br><span class="line">    options: [.curveEaseOut, .transitionFlipFromBottom], </span><br><span class="line">    animations: &#123;  </span><br><span class="line">      <span class="keyword">self</span>.animationContainerView.addSubview(newView)</span><br><span class="line">    &#125;, </span><br><span class="line">    completion: <span class="literal">nil</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxacr7vt00g308o060gnr.gif" alt=""></p>
+<p><code>transitionFlipFromBottom</code>被<code>transitionFlipFromLeft</code>替代后的效果：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxadarv6e8g308o0600us.gif" alt=""></p>
+<p>完整的预定义过渡动画的选项如下，这些动画选项和上两节中出现<code>options</code>一样属于<code>UIView.AnimationOptions</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.transitionFlipFromLeft</span><br><span class="line">.transitionFlipFromRight</span><br><span class="line">.transitionCurlUp</span><br><span class="line">.transitionCurlDown</span><br><span class="line">.transitionCrossDissolve</span><br><span class="line">.transitionFlipFromTop</span><br><span class="line">.transitionFlipFromBottom</span><br></pre></td></tr></table></figure>
+<h4 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h4><p>从屏幕中删除子视图的过渡动画操作和添加类似。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxacyc0ddpj30ce058dft.jpg" alt=""></p>
+<p>参考代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.transition(with: animationContainerView, duration: <span class="number">0.33</span>,</span><br><span class="line">                  options: [.curveEaseOut, .transitionFlipFromBottom],</span><br><span class="line">                  animations: &#123;</span><br><span class="line">                      <span class="keyword">self</span>.newView.removeFromSuperview()</span><br><span class="line">                  &#125;,</span><br><span class="line">                  completion: <span class="literal">nil</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="隐藏或显示视图"><a href="#隐藏或显示视图" class="headerlink" title="隐藏或显示视图"></a>隐藏或显示视图</h4><p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxad2gmf6qj30bk04odft.jpg" alt=""></p>
+<p>添加和删除都会改变视图层次结构，这也是需要一个容器视图的原因。隐藏或显示的过渡动画使用视图本身作为动画容器。</p>
+<p>参考代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.transition(with: <span class="keyword">self</span>.newView, duration: <span class="number">0.33</span>, </span><br><span class="line">  options: [.curveEaseOut, .transitionFlipFromBottom], </span><br><span class="line">  animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.newView.isHidden = <span class="literal">true</span></span><br><span class="line">  &#125;, </span><br><span class="line">  completion: <span class="literal">nil</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="一个视图替代另个视图"><a href="#一个视图替代另个视图" class="headerlink" title="一个视图替代另个视图"></a>一个视图替代另个视图</h4><p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxad4mayy0j30d404kmx5.jpg" alt=""></p>
+<p>参考代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">UIView</span>.transition(from: oldView, to: newView, duration: <span class="number">0.33</span>, </span><br><span class="line">  options: .transitionFlipFromTop, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="组合过渡动画"><a href="#组合过渡动画" class="headerlink" title="组合过渡动画"></a>组合过渡动画</h3><p>这一部分将模拟一些用户身份验证过程，几个不同的进度消息变化的动画。 一旦用户点击登录按钮，将向他们显示消息，包括“Connecting…”，“Authorizing”和“Failed”。</p>
+<p>在<code>ViewController</code>中添加方法<code>showMessage()</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">showMessage</span><span class="params">(index: Int)</span></span> &#123;</span><br><span class="line">    label.text = messages[index]</span><br><span class="line"></span><br><span class="line">    <span class="type">UIView</span>.transition(with: status, duration: <span class="number">0.33</span>, options: [.curveEaseOut, .transitionCurlDown], animations: &#123;</span><br><span class="line">        <span class="keyword">self</span>.status.isHidden = <span class="literal">false</span></span><br><span class="line">    &#125;, completion: &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">    &#125;)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>并在登录按钮的Action<code>logIn</code>方法的下移动画的<code>completion</code>闭包中添加调用<code>self.showMessage(index: 0)</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">1.5</span>, delay: <span class="number">0.0</span>, usingSpringWithDamping: <span class="number">0.2</span>, initialSpringVelocity: <span class="number">0.0</span>, options:[], animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.loginButton.bounds.size.width += <span class="number">80.0</span></span><br><span class="line">&#125;, completion: &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">self</span>.showMessage(index: <span class="number">0</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>动画选项<code>.transitionCurlDown</code>的效果，就像一张纸翻下来，看起来如下：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxaw38os0lg308o060mz4.gif" alt=""></p>
+<p>这种效果很好的让静态文本标签的消息得到用户的关注。</p>
+<blockquote>
+<p>注意：iPhone模拟器提供了慢动画查看，方便看清那些比较快动画的过程，<strong>Debug/Slow Animations</strong>(<code>Command + T</code>)。</p>
+</blockquote>
+<p>添加一个状态信息消除动画方法:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">removeMessage</span><span class="params">(index: Int)</span></span> &#123;</span><br><span class="line">    <span class="type">UIView</span>.animate(withDuration: <span class="number">0.33</span>, delay: <span class="number">0.0</span>, options: [], animations: &#123;</span><br><span class="line">        <span class="keyword">self</span>.status.center.x += <span class="keyword">self</span>.view.frame.size.width</span><br><span class="line">    &#125;) &#123; (<span class="number">_</span>) <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">self</span>.status.isHidden = <span class="literal">true</span></span><br><span class="line">        <span class="keyword">self</span>.status.center = <span class="keyword">self</span>.statusPosition</span><br><span class="line"></span><br><span class="line">        <span class="keyword">self</span>.showMessage(index: index+<span class="number">1</span>) </span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个信息消除方法在什么地方调用呢？当然是状态信息显示结束后调用，因此在<code>showMessage</code>方法的<code>completion</code>闭包中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">delay(<span class="number">2.0</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> index &lt; <span class="keyword">self</span>.messages.<span class="built_in">count</span>-<span class="number">1</span> &#123;</span><br><span class="line">    <span class="keyword">self</span>.removeMessage(index: index)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//reset form</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="恢复初始状态"><a href="#恢复初始状态" class="headerlink" title="恢复初始状态"></a>恢复初始状态</h3><p>当“Connecting…”、“Authorizing”和“Failed”等几个信息显示完后，需要将信息标签删除和将登录按钮恢复原样。</p>
+<p>添加<code>resetForm()</code>函数：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">resetForm</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// 状态信息标签消失动画</span></span><br><span class="line">    <span class="type">UIView</span>.transition(with: status, duration: <span class="number">0.2</span>, options: .transitionFlipFromTop, animations: &#123;</span><br><span class="line">        <span class="keyword">self</span>.status.isHidden = <span class="literal">true</span></span><br><span class="line">        <span class="keyword">self</span>.status.center = <span class="keyword">self</span>.statusPosition</span><br><span class="line">    &#125;, completion: <span class="literal">nil</span>)</span><br><span class="line">    <span class="comment">// 登录按钮和菊花转恢复原来状态的动画</span></span><br><span class="line">    <span class="type">UIView</span>.animate(withDuration: <span class="number">0.2</span>, delay: <span class="number">0.0</span>, options: [], animations: &#123;</span><br><span class="line">        <span class="keyword">self</span>.spinner.center = <span class="type">CGPoint</span>(x: -<span class="number">20.0</span>, y: <span class="number">16.0</span>)</span><br><span class="line">        <span class="keyword">self</span>.spinner.alpha = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">self</span>.loginButton.backgroundColor = <span class="type">UIColor</span>(red: <span class="number">0.63</span>, green: <span class="number">0.84</span>, blue: <span class="number">0.35</span>, alpha: <span class="number">1.0</span>)</span><br><span class="line">        <span class="keyword">self</span>.loginButton.bounds.size.width -= <span class="number">80.0</span></span><br><span class="line">        <span class="keyword">self</span>.loginButton.center.y -= <span class="number">60.0</span></span><br><span class="line">    &#125;, completion: <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在之前的<code>//reset form</code>处调用，<code>resetForm()</code>。</p>
+<p>结合之前的效果：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxaxrpmv62g308o060qae.gif" alt=""></p>
+<h3 id="背景中☁️的动画"><a href="#背景中☁️的动画" class="headerlink" title="背景中☁️的动画"></a>背景中☁️的动画</h3><p>如果背景中的那些云在屏幕上缓慢移动，并从左侧移动到右侧，然后到右侧消失后再左侧从新开始缓慢移动，那不是很酷吗？（之前的gif可以看到云在移动，到目前为止，云只有透明度变化动画，实际上是因为我做GIF时项目已经完成了，GIF是我补做的，所以就。。😬）</p>
+<p>添加一个<code>animateCloud(cloud: UIImageView)</code>方法，代码为:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">animateCloud</span><span class="params">(cloud: UIImageView)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 假设云从进入屏幕到离开屏幕需要大约60.0s，可以计算出云移动的速度</span></span><br><span class="line">    <span class="keyword">let</span> cloudSpeed = view.frame.size.width / <span class="number">60.0</span></span><br><span class="line">    <span class="comment">// 云的初始位置不一定是在座边缘</span></span><br><span class="line">    <span class="keyword">let</span> duration:<span class="type">CGFloat</span> = (view.frame.size.width - cloud.frame.origin.x) / cloudSpeed</span><br><span class="line">    <span class="type">UIView</span>.animate(withDuration: <span class="type">TimeInterval</span>(duration), delay: <span class="number">0.0</span>, options: .curveLinear, animations: &#123;</span><br><span class="line">        cloud.frame.origin.x = <span class="keyword">self</span>.view.frame.size.width</span><br><span class="line">    &#125;) &#123; (<span class="number">_</span>) <span class="keyword">in</span></span><br><span class="line">        cloud.frame.origin.x = -cloud.frame.size.width</span><br><span class="line">        <span class="keyword">self</span>.animateCloud(cloud: cloud)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<ol>
+<li><p>首先，计算☁️平均移动速度。<em>假设云从进入屏幕到离开屏幕需要大约60.0s（当然这个时间自定义）</em>。</p>
+</li>
+<li><p>接下来，计算☁️移动到屏幕右侧的持续时间。这边要注意，☁️不是从屏幕的左边缘开始，☁️移动的距离是<code>view.frame.size.width - cloud.frame.origin.x</code>。</p>
+</li>
+<li><p>然后创建动画方法<code>animate(withDuration:delay:options:animations:completion:)</code>。这边<code>TimeInterval</code>是<code>Double</code>别名，动画选项使用<code>.curveLinear</code>(不加速也不减速)，这种情况很少见，但作为☁️的缓慢移动非常适合。</p>
+<p>动画闭包中<code>cloud.frame.origin.x = self.view.frame.size.width</code>，就把☁️移动到屏幕右边区域外。</p>
+<p>到屏幕右区域外，立即在完成闭包中让☁️到左边缘外，<code>cloud.frame.origin.x = -cloud.frame.size.width</code>。</p>
+</li>
+</ol>
+<p>最后不要忘记，把开始四个☁️的动画，在<code>viewDidAppear()</code>中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">animateCloud(cloud: cloud1)</span><br><span class="line">animateCloud(cloud: cloud2)</span><br><span class="line">animateCloud(cloud: cloud3)</span><br><span class="line">animateCloud(cloud: cloud4)</span><br></pre></td></tr></table></figure>
+<p>整体效果：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fw6f5gckt8g30900fytpt.gif" alt="整体效果"></p>
+<h2 id="4-练习视图动画"><a href="#4-练习视图动画" class="headerlink" title="4-练习视图动画"></a>4-练习视图动画</h2><p>本章是练习之前学习的动画。</p>
+<p>本章节的<a href="http://andyron.com/2018/iOS-Animation-0#开始项目">开始项目</a> <strong>Flight Info</strong>  是定时改变几个视图（几个图片和一个Label），代码也非常简单：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">changeFlight</span><span class="params">(to data: FlightData)</span></span> &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// populate the UI with the next flight's data</span></span><br><span class="line">  summary.text = data.summary</span><br><span class="line">  flightNr.text = data.flightNr</span><br><span class="line">  gateNr.text = data.gateNr</span><br><span class="line">  departingFrom.text = data.departingFrom</span><br><span class="line">  arrivingTo.text = data.arrivingTo</span><br><span class="line">  flightStatus.text = data.flightStatus</span><br><span class="line">  bgImageView.image = <span class="type">UIImage</span>(named: data.weatherImageName)</span><br><span class="line">  snowView.isHidden = !data.showWeatherEffects</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// schedule next flight</span></span><br><span class="line">  delay(seconds: <span class="number">3.0</span>) &#123;</span><br><span class="line">    <span class="keyword">self</span>.changeFlight(to: data.isTakingOff ? parisToRome : londonToParis)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中雪花❄️将在后面的章节<a href="http://andyron.com/2018/iOS-Animation-7-other-Animations#26-粒子发射器">26-粒子发射器</a>学习，效果为：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxb39hzhp8g308s0fp474.gif" alt="开始项目图示"> </p>
+<h3 id="淡出淡入动画-Crossfading-animations"><a href="#淡出淡入动画-Crossfading-animations" class="headerlink" title="淡出淡入动画(Crossfading animations)"></a>淡出淡入动画(Crossfading animations)</h3><p>首先需要让两个背景图像之间平滑过渡。 第一直觉可能是简单地淡出当前的图像然后淡入新的图像（透明度的变化）。 但是当<code>alpha</code>接近零时，这种方法会显示图像背后的内容，效果看上去不好。如下所示：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxb3n4t33fj30cw06pjrd.jpg" alt=""></p>
+<p>在<code>ViewController</code>中添加背景图片淡入淡出的效果：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fade</span><span class="params">(imageView: UIImageView, toImage: UIImage, showEffects: Bool)</span></span> &#123;</span><br><span class="line">    <span class="type">UIView</span>.transition(with: imageView, duration: <span class="number">1.0</span>, options: .transitionCrossDissolve, animations: &#123;</span><br><span class="line">        imageView.image = toImage</span><br><span class="line">    &#125;, completion: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">    <span class="type">UIView</span>.animate(withDuration: <span class="number">1.0</span>, delay: <span class="number">0.0</span>, options: .curveEaseOut, animations: &#123;</span><br><span class="line">        <span class="keyword">self</span>.snowView.alpha = showEffects ? <span class="number">1.0</span> : <span class="number">0.0</span></span><br><span class="line">    &#125;, completion: <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>showEffects</code>参数表示显示或隐藏降雪效果。</p>
+<p>给<code>changeFlight</code>方法添加一个是否有动画的参数<code>animated</code>，并更新<code>changeFlight</code>方法:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">changeFlight</span><span class="params">(to data: FlightData, animated: Bool = <span class="literal">false</span>)</span></span> &#123;</span><br><span class="line">    summary.text = data.summary</span><br><span class="line">    flightNR.text = data.flightNr</span><br><span class="line">    gateNr.text = data.gateNr</span><br><span class="line">    departingFrom.text = data.departingFrom</span><br><span class="line">    arrivingTo.text = data.arrivingTo</span><br><span class="line">    flightStatus.text = data.flightStatus</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> animated &#123;</span><br><span class="line">        fade(imageView: bgImageView,</span><br><span class="line">             toImage: <span class="type">UIImage</span>(named: data.weatherImageName)!,</span><br><span class="line">             showEffects: data.showWeatherEffects)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        bgImageView.image = <span class="type">UIImage</span>(named: data.weatherImageName)</span><br><span class="line">        snowView.isHidden = !data.showWeatherEffects</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继续在<code>changeFlight</code>加一段让背景图不停循环变换的代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delay(seconds: <span class="number">3.0</span>) &#123;</span><br><span class="line">    <span class="keyword">self</span>.changeFlight(to: data.isTakingOff ? parisToRome : londonToParis, animated: <span class="literal">true</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在的效果是：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxb4ib3jfhg308s0fp7ix.gif" alt=""></p>
+<p>对比开始时的效果，现在图像之间过渡非常流畅，因为在背景图淡入淡出的同时也对雪景效果进行了淡入淡出，动画看起来很无缝。 你甚至可以在罗马看到它一瞬间下雪！😝😝</p>
+<p>不知不觉掌握了一种重要的技术：<strong>过渡动画可用于视图的不可动画属性。</strong>（<a href="#可动画属性">1-视图动画入门</a>中的可用于动画的属性中没有<code>image</code>）</p>
+<p>动画选项<code>.transitionCrossDissolve</code>很适合当前项目的效果，其它如<code>.transitionFlipFromLeft</code>转换就不大适合，可以试试看。</p>
+<h3 id="立体过渡-Cube-transitions"><a href="#立体过渡-Cube-transitions" class="headerlink" title="立体过渡(Cube transitions)"></a>立体过渡(Cube transitions)</h3><p>假装3d转换时文字背景颜色</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fw6g60qxyuj30oe06mgmf.jpg" alt=""></p>
+<p>这不是一个真正的3D效果，但它看起来非常接近。可以通过辅助视图来实现立体过渡动画。<br>具体的方法是添加一个临时Label，同时对这个两个标签的高度进行动画，最后再删除。</p>
+<p>在<code>ViewController</code>中添加一个枚举：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">AnimationDirection</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> positive = <span class="number">1</span></span><br><span class="line">    <span class="keyword">case</span> negative = -<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  这个枚举的1和-1在之后表示在y轴变换时是向下还是向上。</p>
+<p>添加一个<code>cubeTransition</code>方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">cubeTransition</span><span class="params">(label: UILabel, text: String, direction: AnimationDirection)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> auxLabel = <span class="type">UILabel</span>(frame: label.frame)</span><br><span class="line">    auxLabel.text = text</span><br><span class="line">    auxLabel.font = label.font</span><br><span class="line">    auxLabel.textAlignment = label.textAlignment</span><br><span class="line">    auxLabel.textColor = label.textColor</span><br><span class="line">    auxLabel.backgroundColor = label.backgroundColor</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  这是在构造一个临时辅助的Label，把原来Label属性复制给它，除了<code>text</code>使用新的值。</p>
+<p>在Y轴方向变换辅助Label，向<code>cubeTransition</code>方法中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> auxLabelOffset = <span class="type">CGFloat</span>(direction.rawValue) * label.frame.size.height/<span class="number">2.0</span></span><br><span class="line">auxLabel.transform = <span class="type">CGAffineTransform</span>(translationX: <span class="number">0.0</span>, y: auxLabelOffset).scaledBy(x: <span class="number">1.0</span>, y: <span class="number">0.1</span>)</span><br><span class="line">label.superview?.addSubview(auxLabel)</span><br></pre></td></tr></table></figure>
+<p> 当单独在Y轴缩放文本时，看起来就像一个竖着的平面被渐渐被推到，从而形成了<strong>假远景效果</strong>（faux-perspective effect）：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fw6jejb346j30ew04wmx3.jpg" alt=""></p>
+<p>动画代码，继续在<code>cubeTransition</code>方法中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.0</span>, options: .curveEaseOut, animations: &#123;</span><br><span class="line">    auxLabel.transform = .identity</span><br><span class="line">    <span class="comment">// 原本的Label在Y轴上向反方向转换</span></span><br><span class="line">    label.transform = <span class="type">CGAffineTransform</span>(translationX: <span class="number">0.0</span>, y: -auxLabelOffset).scaledBy(x: <span class="number">1.0</span>, y: <span class="number">0.1</span>)</span><br><span class="line">&#125;,completion: &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">    <span class="comment">// 把辅助Label的文本赋值给原来的Label，然后删除辅助Label</span></span><br><span class="line">    label.text = auxLabel.text</span><br><span class="line">    label.transform = .identity</span><br><span class="line"></span><br><span class="line">    auxLabel.removeFromSuperview()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>最后要在<code>changeFlight</code>方法中添加这个假的3D转动效果动画：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> animated &#123;</span><br><span class="line">    fade(imageView: bgImageView,</span><br><span class="line">         toImage: <span class="type">UIImage</span>(named: data.weatherImageName)!,</span><br><span class="line">         showEffects: data.showWeatherEffects)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> direction: <span class="type">AnimationDirection</span> = data.isTakingOff ?</span><br><span class="line">    .positive : .negative</span><br><span class="line">    cubeTransition(label: flightNr, text: data.flightNr, direction: direction)</span><br><span class="line">    cubeTransition(label: gateNr, text: data.gateNr, direction: direction)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 不需要动画</span></span><br><span class="line">    bgImageView.image = <span class="type">UIImage</span>(named: data.weatherImageName)</span><br><span class="line">    snowView.isHidden = !data.showWeatherEffects</span><br><span class="line"></span><br><span class="line">    flightNr.text = data.flightNr</span><br><span class="line">    gateNr.text = data.gateNr</span><br><span class="line"></span><br><span class="line">    departingFrom.text = data.departingFrom</span><br><span class="line">    arrivingTo.text = data.arrivingTo</span><br><span class="line"></span><br><span class="line">    flightStatus.text = data.flightStatus</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终，航班号和入口号的Label转换效果（我故意加长了动画<code>duration</code>，方便观看）：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxyhhins84g308j03z0wl.gif" alt=""></p>
+<h3 id="淡入淡出和反弹的过渡"><a href="#淡入淡出和反弹的过渡" class="headerlink" title="淡入淡出和反弹的过渡"></a>淡入淡出和反弹的过渡</h3><p>为启程地和目的地Label添加<strong>淡入淡出和反弹的过渡</strong>(Fade and bounce transitions)动画。</p>
+<p>先添加方法<code>moveLabel</code>，和上面的类似，创建一个辅助Label，并把原Label的一些属性复制给它。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">moveLabel</span><span class="params">(label: UILabel, text: String, offset: CGPoint)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> auxLabel = <span class="type">UILabel</span>(frame: label.frame)</span><br><span class="line">    auxLabel.text = text</span><br><span class="line">    auxLabel.font = label.font</span><br><span class="line">    auxLabel.textAlignment = label.textAlignment</span><br><span class="line">    auxLabel.textColor = label.textColor</span><br><span class="line">    auxLabel.backgroundColor = .clear</span><br><span class="line"></span><br><span class="line">    auxLabel.transform = <span class="type">CGAffineTransform</span>(translationX: offset.x, y: offset.y)</span><br><span class="line">    auxLabel.alpha = <span class="number">0</span></span><br><span class="line">    view.addSubview(auxLabel)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为原Label添加偏移转换和透明度渐渐降低动画，在<code>moveLabel</code>方法里添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, delay: <span class="number">0.0</span>, options: .curveEaseIn, animations: &#123;</span><br><span class="line">    label.transform = <span class="type">CGAffineTransform</span>(translationX: offset.x, y: offset.y)</span><br><span class="line">    label.alpha = <span class="number">0.0</span></span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p>为辅助Label添加动画，并在动画结束后删除，在<code>moveLabel</code>方法里添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.25</span>, delay: <span class="number">0.1</span>, options: .curveEaseIn, animations: &#123;</span><br><span class="line">    auxLabel.transform = .identity</span><br><span class="line">    auxLabel.alpha = <span class="number">1.0</span></span><br><span class="line">&#125;, completion: &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">    auxLabel.removeFromSuperview()</span><br><span class="line">    label.text = text</span><br><span class="line">    label.alpha = <span class="number">1.0</span></span><br><span class="line">    label.transform = .identity</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>最后还是在<code>changeFlight</code>方法的<code>if animated {</code>中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 启程地和目的地Label动画</span></span><br><span class="line"><span class="keyword">let</span> offsetDeparting = <span class="type">CGPoint</span>(x: <span class="type">CGFloat</span>(direction.rawValue * <span class="number">80</span>), y: <span class="number">0.0</span>)</span><br><span class="line">moveLabel(label: departingFrom, text: data.departingFrom, offset: offsetDeparting)</span><br><span class="line"><span class="keyword">let</span> offsetArriving = <span class="type">CGPoint</span>(x: <span class="number">0.0</span>, y: <span class="type">CGFloat</span>(direction.rawValue * <span class="number">50</span>))</span><br><span class="line">moveLabel(label: arrivingTo, text: data.arrivingTo, offset: offsetArriving)</span><br></pre></td></tr></table></figure>
+<p>启程地和目的地Label动画的方向可以修改。</p>
+<p>效果图：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxc3lp861sg308e060tfd.gif" alt=""></p>
+<h3 id="航班状态条的动画"><a href="#航班状态条的动画" class="headerlink" title="航班状态条的动画"></a>航班状态条的动画</h3><p>可以使用前面的假的3D转动效果动画，<code>changeFlight</code>的<code>if animated {</code>中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cubeTransition(label: flightStatus, text: data.flightStatus, direction: direction)</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxyhrbg9xzg308g04i76e.gif" alt=""></p>
+<p>本章节最终的效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxc3uwcwnig308m0foap6.gif" alt=""></p>
+<h2 id="5-关键帧动画"><a href="#5-关键帧动画" class="headerlink" title="5-关键帧动画"></a>5-关键帧动画</h2><p>很多时候，需要多个连续的动画。 前面的章节，已经使用动画闭包和完成闭包包含两个动画效果。</p>
+<p>这种方法适用于连接两个简单的动画，但是当我们想要将三个，四个或更多动画组合在一起时，就会导致一些令人难以置信的混乱和复杂的代码。</p>
+<p>让我们看看如果想将多个动画链接在一起并以矩形模式移动视图，它会是什么样子：</p>
+<p>假设实现如下效果：<br><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fw6pom0519j30ai05kgll.jpg" alt=""></p>
+<p>为了达到这个目的，可以将几个动画和完成闭包链接起来：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, </span><br><span class="line">  animations: &#123;</span><br><span class="line">    view.center.x += <span class="number">200.0</span></span><br><span class="line">  &#125;, </span><br><span class="line">  completion: &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">    <span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, </span><br><span class="line">      animations: &#123;</span><br><span class="line">        view.center.y += <span class="number">100.0</span></span><br><span class="line">      &#125;, </span><br><span class="line">      completion: &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">        <span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, </span><br><span class="line">          animations: &#123;</span><br><span class="line">            view.center.x -= <span class="number">200.0</span></span><br><span class="line">          &#125;, </span><br><span class="line">          completion: &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">            <span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, </span><br><span class="line">              animations: &#123;</span><br><span class="line">                view.center.y -= <span class="number">100.0</span></span><br><span class="line">              &#125;</span><br><span class="line">            )</span><br><span class="line">          &#125;</span><br><span class="line">        )</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+<p>看上去复杂繁琐，这个时候就需要，使用本章节将要学习的<strong>关键帧动画(Keyframe Animations)</strong>，它可以代替上面繁琐的嵌套。</p>
+<p><a href="READM.md#关于代码">开始项目</a>使用上一章节的完成项目<strong>Flight Info</strong>，通过让✈️“飞机来”，学习关键帧动画。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxc49qm354j30dm05eaa8.jpg" alt="image-20181013172100870"></p>
+<p>让飞机✈️起飞可以分成四个不同阶段的动画(当然具体怎么分可以视情况而定)：</p>
+<ol>
+<li><p>在跑道上移动</p>
+</li>
+<li><p>给✈️一点高度，向上倾斜飞行</p>
+</li>
+<li><p>给飞机更大的倾斜和更快的速度，向上倾斜加速飞行</p>
+</li>
+<li><p>最后10%时飞机渐渐淡出视图</p>
+</li>
+</ol>
+<p>完整的动画可能会让人难以置信，但将动画分解为各个阶段会使其更易于管理。 一旦为每个阶段定义了关键帧，就会容易解决问题。</p>
+<h3 id="设置关键帧动画"><a href="#设置关键帧动画" class="headerlink" title="设置关键帧动画"></a>设置关键帧动画</h3><p>将让飞机从起始位置起飞，绕圈，然后降落并滑行回到起点。 每次屏幕在航班背景之间切换时，都会运行此动画。完整的动画将看起来像这样：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fw6q1i7cigj30ef04jweh.jpg" alt=""></p>
+<p>在<code>ViewController</code>中添加<code>planeDepart()</code>方法:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">planeDepart</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">let</span> originalCenter = planeImage.center</span><br><span class="line"></span><br><span class="line">  <span class="type">UIView</span>.animateKeyframes(withDuration: <span class="number">1.5</span>, delay: <span class="number">0.0</span>,</span><br><span class="line">    animations: &#123;</span><br><span class="line">      <span class="comment">//add keyframes</span></span><br><span class="line">    &#125;, </span><br><span class="line">    completion: <span class="literal">nil</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>并在<code>changeFlight</code>的 <code>if animated {}</code>调用<code>planeDepart()</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> animated &#123;</span><br><span class="line">    planeDepart()</span><br><span class="line"></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>添加第一个keyframe，在上面<code>//add keyframes</code>添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.addKeyframe(withRelativeStartTime: <span class="number">0.0</span>, relativeDuration: <span class="number">0.25</span>, animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.planeImage.center.x += <span class="number">80.0</span></span><br><span class="line">    <span class="keyword">self</span>.planeImage.center.y -= <span class="number">10.0</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>addKeyframe（withRelativeStartTime:relativeDuration:animations:)</code> 与之前动画参数设置不同。<code>withRelativeStartTime</code>和<code>relativeDuration</code>都是相对时间百分比，相对于<code>withDuration</code>。</p>
+<p>使用相对值可以指定<code>keyframe</code>应该持续总时间的一小部分; UIKit获取每个<code>keyframe</code>的相对持续时间，并自动计算每个<code>keyframe</code>的确切持续时间，为我们节省了大量工作。<br>上面的代码的意思就是从<code>1.5*0.0</code>开始，持续时间<code>1.5*0.25</code>，✈️向右移动80.0，向上移动10.0。</p>
+<p>接着上面，添加第二个keyframe：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.addKeyframe(withRelativeStartTime: <span class="number">0.1</span>, relativeDuration: <span class="number">0.4</span>, animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.planeImage.transform = <span class="type">CGAffineTransform</span>(rotationAngle: -.pi/<span class="number">8</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这一步是让✈️有个向上倾斜的角度。</p>
+<p>接着，添加第三个keyframe：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.addKeyframe(withRelativeStartTime: <span class="number">0.25</span>, relativeDuration: <span class="number">0.25</span>, animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.planeImage.center.x += <span class="number">100.0</span></span><br><span class="line">    <span class="keyword">self</span>.planeImage.center.y -= <span class="number">50.0</span></span><br><span class="line">    <span class="keyword">self</span>.planeImage.alpha = <span class="number">0.0</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这一步在移动同时逐渐消失。</p>
+<p>添加第四个keyframe：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.addKeyframe(withRelativeStartTime: <span class="number">0.51</span>, relativeDuration: <span class="number">0.01</span>, animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.planeImage.transform = .identity</span><br><span class="line">    <span class="keyword">self</span>.planeImage.center = <span class="type">CGPoint</span>(x: <span class="number">0.0</span>, y: originalCenter.y)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p> 这一步让✈️回到与原来高度相同的屏幕左边缘，不过现在换处于透明度为0状态。</p>
+<p>添加第五个keyframe：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.addKeyframe(withRelativeStartTime: <span class="number">0.55</span>, relativeDuration: <span class="number">0.45</span>, animations: &#123;</span><br><span class="line">    <span class="keyword">self</span>.planeImage.alpha = <span class="number">1.0</span></span><br><span class="line">    <span class="keyword">self</span>.planeImage.center = originalCenter</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>让飞机回到原来位置。</p>
+<p>现在来看这个五个keyframe的开始时间，它们不是一个接着一个的，而是有交集的，这是因为分步动画本身就有交叉，✈️在跑道上移动过程中也会有向上移动，机头也会渐渐向上倾斜，我把每一步的开始和持续时间列出来，得到这个时间可能需要之前不停调节，看什么时间分隔比较流畅🙂，下面是比较流畅的时间分隔方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(0.0, 0.25)</span><br><span class="line">(0.1, 0.4)</span><br><span class="line">(0.25, 0.25)</span><br><span class="line">(0.51, 0.01)</span><br><span class="line">(0.55, 0.45)</span><br></pre></td></tr></table></figure>
+<p>效果为：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxca0wyg3sg308m0607ce.gif" alt=""></p>
+<h3 id="关键帧动画中的计算模式"><a href="#关键帧动画中的计算模式" class="headerlink" title="关键帧动画中的计算模式"></a>关键帧动画中的计算模式</h3><p>关键帧动画不支持标准视图动画中可用的内置<a href="#动画缓动">动画缓动</a>。 这是设计好的; 关键帧应该在特定时间开始和结束并相互流动。</p>
+<p>如果上面动画的每个阶段都有一个缓动曲线，那么飞机就会抖动，而不是从一个动画平稳地移动到下一个动画。 </p>
+<p>上面没有提到<a href="https://developer.apple.com/documentation/uikit/uiview/1622552-animatekeyframes" target="_blank" rel="noopener"><code>animateKeyframes(withDuration:delay:options:animations:completion:)</code></a>方法，这方法有一个<code>options</code>参数（<code>UIViewKeyframeAnimationOptions</code>），可以提供几种计算模式的选择，每种模式提供了一种不同的方法来计算动画的中间帧以及不同的优化器，以实现帧之前的转化， 有关更多详细信息，可查看文档<a href="https://developer.apple.com/documentation/uikit/uiviewkeyframeanimationoptions?language=objc" target="_blank" rel="noopener"><code>UIViewKeyframeAnimationOptions</code></a>。</p>
+<h3 id="航班出发时间动画"><a href="#航班出发时间动画" class="headerlink" title="航班出发时间动画"></a>航班出发时间动画</h3><p>由于航班出发时间在屏幕顶部，变化时可以简单先向上移动到屏幕外，然后变化后再向下移动到屏幕内。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">summarySwitch</span><span class="params">(to summaryText: String)</span></span> &#123;</span><br><span class="line">    <span class="type">UIView</span>.animateKeyframes(withDuration: <span class="number">1.0</span>, delay: <span class="number">0.0</span>, animations: &#123;</span><br><span class="line">        <span class="type">UIView</span>.addKeyframe(withRelativeStartTime: <span class="number">0.0</span>, relativeDuration: <span class="number">0.45</span>, animations: &#123;</span><br><span class="line">            <span class="keyword">self</span>.summary.center.y -= <span class="number">100.0</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="type">UIView</span>.addKeyframe(withRelativeStartTime: <span class="number">0.5</span>, relativeDuration: <span class="number">0.45</span>, animations: &#123;</span><br><span class="line">            <span class="keyword">self</span>.summary.center.y += <span class="number">100.0</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;, completion: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">    delay(seconds: <span class="number">0.5</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.summary.text = summaryText</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同样在<code>changeFlight</code>的 <code>if animated {}</code>中调用<code>summarySwitch()</code>。</p>
+<p>本章最后效果：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxcajmwugeg308m0fndxy.gif" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        <!-- 版权声明 -->
+
+
+  <ul class="post-copyright">
+
+
+    <li class="post-copyright-title">
+      <strong>本文标题：</strong>
+      系统学习iOS动画之一：视图动画
+    </li>
+
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+
+    <li class="post-copyright-date">
+      <strong>发布时间：</strong>
+      2018年12月13日 - 20:22
+    </li>
+
+    <li class="post-copyright-updated">
+      <strong>最后更新：</strong>
+      2018年12月21日 - 12:21
+    </li>
+
+
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2018/iOS-Animation-1-view-animation.html" title="系统学习iOS动画之一：视图动画">http://andyron.com/2018/iOS-Animation-1-view-animation.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS动画/" rel="tag"><i class="fa fa-tag"></i> iOS动画</a>
+          
+            <a href="/tags/View-Animation/" rel="tag"><i class="fa fa-tag"></i> View Animation</a>
+          
+            <a href="/tags/视图动画/" rel="tag"><i class="fa fa-tag"></i> 视图动画</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/iOS-Animation-0.html" rel="next" title="系统学习iOS动画之零：说明和目录">
+                <i class="fa fa-chevron-left"></i> 系统学习iOS动画之零：说明和目录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/iOS-Animation-2-Auto-Layout.html" rel="prev" title="系统学习iOS动画之二：自动布局">
+                系统学习iOS动画之二：自动布局 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="AndyRon" />
+          <p class="site-author-name" itemprop="name">AndyRon</p>
+           
+              <p class="site-description motion-element" itemprop="description">Just for fun.👨‍💻✍️🎨</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">167</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">122</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/andyRon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/efce1a2a95ab" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AndyRon8" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/andyronm" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://500px.com/andymron" target="_blank" title="500px">
+                  
+                    <i class="fa fa-fw fa-500px"></i>
+                  
+                  500px
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:rongming.2008@163.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.appcoda.com" title="Appcoda" target="_blank">Appcoda</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/" title="阮一峰的个人网站" target="_blank">阮一峰的个人网站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.raywenderlich.com" title="Ray Wenderlich" target="_blank">Ray Wenderlich</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-视图动画入门"><span class="nav-number">1.</span> <span class="nav-text">1-视图动画入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个动画"><span class="nav-number">1.1.</span> <span class="nav-text">第一个动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可动画属性"><span class="nav-number">1.2.</span> <span class="nav-text">可动画属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#位置的大小"><span class="nav-number">1.2.1.</span> <span class="nav-text">位置的大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外形-Appearance"><span class="nav-number">1.2.2.</span> <span class="nav-text">外形(Appearance)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换-Transformation"><span class="nav-number">1.2.3.</span> <span class="nav-text">转换(Transformation)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画选项"><span class="nav-number">1.3.</span> <span class="nav-text">动画选项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重复"><span class="nav-number">1.3.1.</span> <span class="nav-text">重复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动画缓动"><span class="nav-number">1.3.2.</span> <span class="nav-text">动画缓动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#云的淡入动画"><span class="nav-number">1.4.</span> <span class="nav-text">云的淡入动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-弹簧动画"><span class="nav-number">2.</span> <span class="nav-text">2-弹簧动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#与用户交互的动画"><span class="nav-number">2.1.</span> <span class="nav-text">与用户交互的动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把文本框的动画修改为弹簧动画"><span class="nav-number">2.2.</span> <span class="nav-text">把文本框的动画修改为弹簧动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-过渡动画"><span class="nav-number">3.</span> <span class="nav-text">3-过渡动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过渡的例子"><span class="nav-number">3.1.</span> <span class="nav-text">过渡的例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加视图"><span class="nav-number">3.1.1.</span> <span class="nav-text">添加视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除视图"><span class="nav-number">3.1.2.</span> <span class="nav-text">删除视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏或显示视图"><span class="nav-number">3.1.3.</span> <span class="nav-text">隐藏或显示视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个视图替代另个视图"><span class="nav-number">3.1.4.</span> <span class="nav-text">一个视图替代另个视图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合过渡动画"><span class="nav-number">3.2.</span> <span class="nav-text">组合过渡动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#恢复初始状态"><span class="nav-number">3.3.</span> <span class="nav-text">恢复初始状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景中☁️的动画"><span class="nav-number">3.4.</span> <span class="nav-text">背景中☁️的动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-练习视图动画"><span class="nav-number">4.</span> <span class="nav-text">4-练习视图动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#淡出淡入动画-Crossfading-animations"><span class="nav-number">4.1.</span> <span class="nav-text">淡出淡入动画(Crossfading animations)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#立体过渡-Cube-transitions"><span class="nav-number">4.2.</span> <span class="nav-text">立体过渡(Cube transitions)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#淡入淡出和反弹的过渡"><span class="nav-number">4.3.</span> <span class="nav-text">淡入淡出和反弹的过渡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#航班状态条的动画"><span class="nav-number">4.4.</span> <span class="nav-text">航班状态条的动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-关键帧动画"><span class="nav-number">5.</span> <span class="nav-text">5-关键帧动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置关键帧动画"><span class="nav-number">5.1.</span> <span class="nav-text">设置关键帧动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键帧动画中的计算模式"><span class="nav-number">5.2.</span> <span class="nav-text">关键帧动画中的计算模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#航班出发时间动画"><span class="nav-number">5.3.</span> <span class="nav-text">航班出发时间动画</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AndyRon</span>
+  <span class="post-count">  全站共238.2k字</span>
+
+</div>
+
+
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+--!>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://http-andyron-com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2018/iOS-Animation-1-view-animation.html';
+          this.page.identifier = '2018/iOS-Animation-1-view-animation.html';
+          this.page.title = '系统学习iOS动画之一：视图动画';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-andyron-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("rgq6Qsvb0ISrHdgsraNlqt7H-gzGzoHsz", "T35WL0YkQ4GVOUDOkizK5FAd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

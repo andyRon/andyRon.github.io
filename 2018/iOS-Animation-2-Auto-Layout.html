@@ -1,0 +1,1568 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="google-site-verification" content="WbjivD7TTMEtYj5PSWVYMaX2uAfY6lr-R517vwDhLWo" />
+<meta name="baidu-site-verification" content="ZmrU9vDYWs" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS动画,自动布局,Auto Layout," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="欣欣向戎" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="自动布局(Auto Layout) 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。 自动布局背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系来定义应用程序的UI元素的布局。 我们平常开发时已将自动布局用于静态的布局，在本文中将学习使用约束来设置动画。">
+<meta name="keywords" content="iOS动画,自动布局,Auto Layout">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统学习iOS动画之二：自动布局">
+<meta property="og:url" content="http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html">
+<meta property="og:site_name" content="欣欣向戎">
+<meta property="og:description" content="自动布局(Auto Layout) 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。 自动布局背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系来定义应用程序的UI元素的布局。 我们平常开发时已将自动布局用于静态的布局，在本文中将学习使用约束来设置动画。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxcjf2es69j30et07nglp.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxcjoqulgej31ak0tsq4n.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxck453c9tg308m06lgon.gif">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fw8o6ki0mtj30lm0g6q37.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fxd5otisznj30ws0jgjwi.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fw8ok05sq2g308q0frafs.gif">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxd8wuzg5tj31jk0scdkm.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fxd8x38aexj30a405fq30.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fw8p3arxskg308s0fntcl.gif">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fw8pe0psf2g308s0fn4lk.gif">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fxd80nixp6j308g03o0sj.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fw8pwyg73og308s0fnjw3.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fw8q0dbfjcg308s0fndid.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fw8qbtmmeag308s0fnafk.gif">
+<meta property="og:updated_time" content="2018-12-21T04:20:21.434Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="系统学习iOS动画之二：自动布局">
+<meta name="twitter:description" content="自动布局(Auto Layout) 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。 自动布局背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系来定义应用程序的UI元素的布局。 我们平常开发时已将自动布局用于静态的布局，在本文中将学习使用约束来设置动画。">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxcjf2es69j30et07nglp.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html"/>
+
+
+
+
+
+
+
+
+  <title>系统学习iOS动画之二：自动布局 | 欣欣向戎</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e29ae2ff2bac53a3addad74e238d0108";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欣欣向戎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">AndyRon's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">系统学习iOS动画之二：自动布局</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-14T20:22:00+08:00">
+                2018-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS-Animation/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS-Animation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/iOS-Animation-2-Auto-Layout.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/iOS-Animation-2-Auto-Layout.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/iOS-Animation-2-Auto-Layout.html" class="leancloud_visitors" data-flag-title="系统学习iOS动画之二：自动布局">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 1,662 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 7 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>自动布局(Auto Layout)</strong> 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。</p>
+<p><strong>自动布局</strong>背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系来定义应用程序的UI元素的布局。</p>
+<p>我们平常开发时已将自动布局用于静态的布局，在本文中将学习使用约束来设置动画。</p>
+<a id="more"></a>
+<h2 id="6-自动布局的介绍"><a href="#6-自动布局的介绍" class="headerlink" title="6-自动布局的介绍"></a>6-自动布局的介绍</h2><p>本章节是用自动布局完成下一章节需要使用的项目<strong>Packing List</strong> 。关于自动布局，可参考我之前的文章<a href="http://andyron.com/2017/beginning-ios-swift-3.html">开始用Swift开发iOS 10 - 3 介绍Auto Layout</a>，这里就不重复了。</p>
+<h2 id="7-约束动画"><a href="#7-约束动画" class="headerlink" title="7-约束动画"></a>7-约束动画</h2><p><strong>约束动画(Animating Constraints)</strong>并不比属性动画困难; 它只是有点不同。 通常，只需使用新约束替换现有约束，然后让<strong>Auto Layout</strong>为两个状态之间的UI设置动画就可以了。</p>
+<h3 id="设置约束动画"><a href="#设置约束动画" class="headerlink" title="设置约束动画"></a>设置约束动画</h3><p><a href="http://andyron.com/2018/iOS-Animation-0#关于代码">开始项目</a><strong>Packing List</strong>大概如下：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxcjf2es69j30et07nglp.jpg" alt=""></p>
+<h4 id="导航栏高度变化"><a href="#导航栏高度变化" class="headerlink" title="导航栏高度变化"></a>导航栏高度变化</h4><p>在<code>ViewController</code>中添加约束接口：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> menuHeightConstraint: <span class="type">NSLayoutConstraint</span>!</span><br></pre></td></tr></table></figure>
+<p>并让它与导航栏视图的高度约束关联：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxcjoqulgej31ak0tsq4n.jpg" alt=""></p>
+<p>在右上角加号按钮的Action方法<code>actionToggleMenu()</code>中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">isMenuOpen = !isMenuOpen</span><br><span class="line">menuHeightConstraint.constant = isMenuOpen ? <span class="number">200.0</span> : <span class="number">60.0</span></span><br><span class="line">titleLabel.text = isMenuOpen ? <span class="string">"Select Item"</span> : <span class="string">"Packing List”</span></span><br></pre></td></tr></table></figure>
+<p>点击加号按钮后导航栏高度变大，并且title变化。</p>
+<h4 id="布局变化的动画"><a href="#布局变化的动画" class="headerlink" title="布局变化的动画"></a>布局变化的动画</h4><p>继续在<code>actionToggleMenu()</code>添加布局变化的弹簧动画：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">1.0</span>, delay: <span class="number">0.0</span>, usingSpringWithDamping: <span class="number">0.4</span>, initialSpringVelocity: <span class="number">10.0</span>, options: .curveEaseIn, animations: &#123;</span><br><span class="line">    <span class="comment">// 强制更新布局</span></span><br><span class="line">    <span class="keyword">self</span>.view.layoutIfNeeded()</span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p> 在<code>menuHeightConstraint.constant = isMenuOpen ? 200.0 : 60.0</code>已经更新了约束值，但iOS还没有机会更新布局。通过从动画闭包中调用<code>layoutIfNeeded()</code>强制更新布局，可以设置布局中涉及的每个视图的中心和边界。比如table view也随着Menu的收缩或增大而收缩或增大，这就是约束的效果，现在相当于一次设置两个动画😊。</p>
+<p>效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxck453c9tg308m06lgon.gif" alt=""></p>
+<h4 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h4><p>让<code>+</code>旋转45°变成<code>x</code>在上面的动画闭包中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> angle: <span class="type">CGFloat</span> = <span class="keyword">self</span>.isMenuOpen ? .pi/<span class="number">4</span> : <span class="number">0.0</span></span><br><span class="line"><span class="keyword">self</span>.buttonMenu.transform = <span class="type">CGAffineTransform</span>(rotationAngle: angle)</span><br></pre></td></tr></table></figure>
+<h3 id="查看约束"><a href="#查看约束" class="headerlink" title="查看约束"></a>查看约束</h3><p>直接用可视化的方式为视图约束添加代码接口（outlet）是相对简单的方式。有的时候不方便在Interfa Builder使用<strong>Control-drag</strong>方式添加接口或者不方便添加有太多outlet，这时可以利用<code>UIView</code>提供的<code>constraints</code>属性，它是当前视图所有约束的数组。</p>
+<p>比如下面代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">titleLabel.superview?.constraints.forEach &#123; constraint <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"-&gt; <span class="subst">\(constraint.description)</span>\n"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打印结果：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-&gt; &lt;<span class="type">NSLayoutConstraint</span>:<span class="number">0x600002d04320</span> <span class="type">UIView</span>:<span class="number">0x7ff7df530c00</span>.height == <span class="number">200</span>   (active)&gt;</span><br><span class="line"></span><br><span class="line">-&gt; &lt;<span class="type">NSLayoutConstraint</span>:<span class="number">0x600002d02210</span> <span class="type">UILabel</span>:<span class="number">0x7ff7df525350</span>'<span class="type">Select</span> <span class="type">Item'</span>.centerX == <span class="type">UIView</span>:<span class="number">0x7ff7df530c00</span>.centerX   (active)&gt;</span><br><span class="line"></span><br><span class="line">-&gt; &lt;<span class="type">NSLayoutConstraint</span>:<span class="number">0x600002d02a30</span> <span class="type">UILabel</span>:<span class="number">0x7ff7df525350</span>'<span class="type">Select</span> <span class="type">Item'</span>.centerY == <span class="type">UIView</span>:<span class="number">0x7ff7df530c00</span>.centerY + <span class="number">5</span>   (active)&gt;</span><br><span class="line"></span><br><span class="line">-&gt; &lt;<span class="type">NSLayoutConstraint</span>:<span class="number">0x600002d02d00</span> <span class="type">H</span>:[<span class="type">UIButton</span>:<span class="number">0x7ff7df715d20</span>'+']-(<span class="number">8</span>)-|   (active, names: '|':<span class="type">UIView</span>:<span class="number">0x7ff7df530c00</span> )&gt;</span><br><span class="line"></span><br><span class="line">-&gt; &lt;<span class="type">NSLayoutConstraint</span>:<span class="number">0x600002d030c0</span> <span class="type">UIButton</span>:<span class="number">0x7ff7df715d20</span>'+'.centerY == <span class="type">UILabel</span>:<span class="number">0x7ff7df525350</span>'<span class="type">Select</span> <span class="type">Item'</span>.centerY   (active)&gt;</span><br></pre></td></tr></table></figure>
+<p>看上去有点乱，不过仔细看还是能看出有五个约束分别对应于：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fw8o6ki0mtj30lm0g6q37.jpg" alt=""></p>
+<h3 id="设置UILabel的约束动画"><a href="#设置UILabel的约束动画" class="headerlink" title="设置UILabel的约束动画"></a>设置UILabel的约束动画</h3><p>在 <code>actionToggleMenu()</code>的<code>isMenuOpen = !isMenuOpen</code>下添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">titleLabel.superview?.constraints.forEach &#123; constraint <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">if</span> constraint.firstItem === titleLabel &amp;&amp; constraint.firstAttribute == .centerX &#123;</span><br><span class="line">        constraint.constant = isMenuOpen ? -<span class="number">100.0</span> : <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>约束表达式的通用形式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firstItem.firstItemAttribute == secondItem.secondItemAttribute * multiplier + constant</span><br></pre></td></tr></table></figure>
+<p>对应于 <code>NSLayoutConstraint</code>的各种属性，名字看着很明显，其中<code>==</code>对应于属性<code>relation</code>，当然也可以是<code>&lt;=</code>、<code>&gt;=</code>等。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxd5otisznj30ws0jgjwi.jpg" alt=""></p>
+<p>实际例子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Superview</span>.<span class="type">CenterX</span> = <span class="number">1.0</span> * <span class="type">UILabel</span>.<span class="type">CenterX</span> + <span class="number">0.0</span></span><br></pre></td></tr></table></figure>
+<p>这边的效果：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fw8ok05sq2g308q0frafs.gif" alt=""></p>
+<h3 id="替代约束"><a href="#替代约束" class="headerlink" title="替代约束"></a>替代约束</h3><p>每个约束可以添加 <code>Identifier</code>属性，在代码中就可以通过 <code>Identifier</code>获取这个约束。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxd8wuzg5tj31jk0scdkm.jpg" alt="image-20181015101142175"></p>
+<p>继续在上面的约束后添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> constraint.identifier == <span class="string">"TitleCenterY"</span> &#123;</span><br><span class="line">    constraint.isActive = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">let</span> newConstraint = <span class="type">NSLayoutConstraint</span>(item: titleLabel, attribute: .centerY, relatedBy: .<span class="built_in">equal</span>, toItem: titleLabel.superview!, attribute: .centerY, multiplier: isMenuOpen ? <span class="number">0.67</span> : <span class="number">1.0</span>, constant: <span class="number">5.0</span>)</span><br><span class="line">    newConstraint.identifier = <span class="string">"TitleCenterY"</span></span><br><span class="line">    newConstraint.isActive = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>新加的约束可以表示为<code>Title.CenterY = Menu.CenterY * 0.67 + 0.0</code>，图示：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxd8x38aexj30a405fq30.jpg" alt="image-20181015101900852"></p>
+<p>运行后效果：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fw8p3arxskg308s0fntcl.gif" alt=""></p>
+<h3 id="添加导航栏内容"><a href="#添加导航栏内容" class="headerlink" title="添加导航栏内容"></a>添加导航栏内容</h3><p>在 <code>actionToggleMenu()</code>中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> isMenuOpen &#123;</span><br><span class="line">    slider = <span class="type">HorizontalItemList</span>(inView: view)</span><br><span class="line">    slider.didSelectItem = &#123; index <span class="keyword">in</span></span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">"add <span class="subst">\(index)</span>"</span>)</span><br><span class="line">                            <span class="keyword">self</span>.items.append(index)</span><br><span class="line">                            <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">                            <span class="keyword">self</span>.actionToggleMenu(<span class="keyword">self</span>)</span><br><span class="line">                           &#125;</span><br><span class="line">    <span class="keyword">self</span>.titleLabel.superview!.addSubview(slider)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    slider.removeFromSuperview()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>HorizontalItemList</code>是自定义的一个<code>UIScrollView</code>子类，用于menu中左右滚动的视图，</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fw8pe0psf2g308s0fn4lk.gif" alt=""></p>
+<h3 id="动态创建视图"><a href="#动态创建视图" class="headerlink" title="动态创建视图"></a>动态创建视图</h3><p>当点击TableView的cell时，会调用<code>showItem(_:)</code>，在这个方法中添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击后创造图片</span></span><br><span class="line"><span class="keyword">let</span> imageView = <span class="type">UIImageView</span>(image: <span class="type">UIImage</span>(named: <span class="string">"summericons_100px_0<span class="subst">\(index)</span>.png"</span>))</span><br><span class="line">imageView.backgroundColor = <span class="type">UIColor</span>(red: <span class="number">0.0</span>, green: <span class="number">0.0</span>, blue: <span class="number">0.0</span>, alpha: <span class="number">0.5</span>)</span><br><span class="line">imageView.layer.cornerRadius = <span class="number">5.0</span></span><br><span class="line">imageView.layer.masksToBounds = <span class="literal">true</span></span><br><span class="line">imageView.translatesAutoresizingMaskIntoConstraints = <span class="literal">false</span></span><br><span class="line">view.addSubview(imageView)</span><br></pre></td></tr></table></figure>
+<p>添加约束代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> conx = imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)</span><br></pre></td></tr></table></figure>
+<p>此方法使用新的<code>NSLayoutAnchor</code>类，这使得创建常见约束非常容易。 在这里，您将在图像视图的中心x锚点和视图控制器的视图之间创建约束。</p>
+<p>添加图片底部约束：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> conBottom = imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: imageView.frame.height)</span><br></pre></td></tr></table></figure>
+<p>此约束设置图像视图的底部以匹配视图控制器视图的底部，加上图像高度; 这会将图像定位在屏幕底部边缘之外，这将作为动画的起点。</p>
+<p>添加图片宽度约束：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> conWidth = imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: <span class="number">0.33</span>, constant: -<span class="number">50.0</span>)</span><br></pre></td></tr></table></figure>
+<p>这将图像宽度设置为屏幕宽度的1/3减去50磅。 目标尺寸是屏幕的1/3; 你将动画50磅的差异，使图像“成长”到位。</p>
+<p>最后，添加高度和宽度相等约束，并激活上面所有约束：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> conHeight = imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)</span><br><span class="line"><span class="type">NSLayoutConstraint</span>.activate([conx, conBottom, conWidth, conHeight])</span><br></pre></td></tr></table></figure>
+<p>此时点击TableView的Cell，只能看到下面：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxd80nixp6j308g03o0sj.jpg" alt=""></p>
+<h3 id="为动态创建的视图创建动画"><a href="#为动态创建的视图创建动画" class="headerlink" title="为动态创建的视图创建动画"></a>为动态创建的视图创建动画</h3><p>在<code>showItem(_:)</code>添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.8</span>, delay: <span class="number">0.0</span>, usingSpringWithDamping: <span class="number">0.4</span>, initialSpringVelocity: <span class="number">0.0</span>, animations: &#123;</span><br><span class="line">    conBottom.constant = -imageView.frame.size.height/<span class="number">2</span></span><br><span class="line">    conWidth.constant = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">self</span>.view.layoutIfNeeded()</span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p>但是此时的效果是：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fw8pwyg73og308s0fnjw3.gif" alt=""></p>
+<p><strong>想一想：</strong>添加了一个视图，设置了一些约束，然后改变了这些约束并设置了布局变化的动画。 但是，视图从未有机会执行其初始布局，因此图像从其左上角的<code>(0, 0)</code>的默认位置开始🙄。</p>
+<p>要解决此问题，只要在动画开始之前进行初始布局，在动画前添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view.layoutIfNeeded()</span><br></pre></td></tr></table></figure>
+<p>效果变成从下面上来：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fw8q0dbfjcg308s0fndid.gif" alt=""></p>
+<h3 id="移出已经出现的图片"><a href="#移出已经出现的图片" class="headerlink" title="移出已经出现的图片"></a>移出已经出现的图片</h3><p>上面的弹出图片会重叠在一起，下个图片出来之前，需要把上一个图片移出。</p>
+<p>在之前的代码下添加：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.8</span>, delay: <span class="number">1.0</span>, usingSpringWithDamping: <span class="number">0.4</span>, initialSpringVelocity: <span class="number">0.0</span>, animations: &#123;</span><br><span class="line">            conBottom.constant = imageView.frame.size.height</span><br><span class="line">            conWidth.constant = -<span class="number">50.0</span></span><br><span class="line">            <span class="keyword">self</span>.view.layoutIfNeeded()</span><br><span class="line">        &#125;) &#123; (<span class="number">_</span>) <span class="keyword">in</span></span><br><span class="line">            imageView.removeFromSuperview()</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>效果为：😝</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fw8qbtmmeag308s0fnafk.gif" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        <!-- 版权声明 -->
+
+
+  <ul class="post-copyright">
+
+
+    <li class="post-copyright-title">
+      <strong>本文标题：</strong>
+      系统学习iOS动画之二：自动布局
+    </li>
+
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+
+    <li class="post-copyright-date">
+      <strong>发布时间：</strong>
+      2018年12月14日 - 20:22
+    </li>
+
+    <li class="post-copyright-updated">
+      <strong>最后更新：</strong>
+      2018年12月21日 - 12:20
+    </li>
+
+
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html" title="系统学习iOS动画之二：自动布局">http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS动画/" rel="tag"><i class="fa fa-tag"></i> iOS动画</a>
+          
+            <a href="/tags/自动布局/" rel="tag"><i class="fa fa-tag"></i> 自动布局</a>
+          
+            <a href="/tags/Auto-Layout/" rel="tag"><i class="fa fa-tag"></i> Auto Layout</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/iOS-Animation-1-view-animation.html" rel="next" title="系统学习iOS动画之一：视图动画">
+                <i class="fa fa-chevron-left"></i> 系统学习iOS动画之一：视图动画
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/iOS-Animation-3-Layer-Animations.html" rel="prev" title="系统学习iOS动画之三：图层动画">
+                系统学习iOS动画之三：图层动画 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="AndyRon" />
+          <p class="site-author-name" itemprop="name">AndyRon</p>
+           
+              <p class="site-description motion-element" itemprop="description">Just for fun.👨‍💻✍️🎨</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">167</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">122</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/andyRon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/efce1a2a95ab" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AndyRon8" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/andyronm" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://500px.com/andymron" target="_blank" title="500px">
+                  
+                    <i class="fa fa-fw fa-500px"></i>
+                  
+                  500px
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:rongming.2008@163.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.appcoda.com" title="Appcoda" target="_blank">Appcoda</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/" title="阮一峰的个人网站" target="_blank">阮一峰的个人网站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.raywenderlich.com" title="Ray Wenderlich" target="_blank">Ray Wenderlich</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-自动布局的介绍"><span class="nav-number">1.</span> <span class="nav-text">6-自动布局的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-约束动画"><span class="nav-number">2.</span> <span class="nav-text">7-约束动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置约束动画"><span class="nav-number">2.1.</span> <span class="nav-text">设置约束动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导航栏高度变化"><span class="nav-number">2.1.1.</span> <span class="nav-text">导航栏高度变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局变化的动画"><span class="nav-number">2.1.2.</span> <span class="nav-text">布局变化的动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#旋转"><span class="nav-number">2.1.3.</span> <span class="nav-text">旋转</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看约束"><span class="nav-number">2.2.</span> <span class="nav-text">查看约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置UILabel的约束动画"><span class="nav-number">2.3.</span> <span class="nav-text">设置UILabel的约束动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替代约束"><span class="nav-number">2.4.</span> <span class="nav-text">替代约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加导航栏内容"><span class="nav-number">2.5.</span> <span class="nav-text">添加导航栏内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态创建视图"><span class="nav-number">2.6.</span> <span class="nav-text">动态创建视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为动态创建的视图创建动画"><span class="nav-number">2.7.</span> <span class="nav-text">为动态创建的视图创建动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移出已经出现的图片"><span class="nav-number">2.8.</span> <span class="nav-text">移出已经出现的图片</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AndyRon</span>
+  <span class="post-count">  全站共238.2k字</span>
+
+</div>
+
+
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+--!>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://http-andyron-com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html';
+          this.page.identifier = '2018/iOS-Animation-2-Auto-Layout.html';
+          this.page.title = '系统学习iOS动画之二：自动布局';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-andyron-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("rgq6Qsvb0ISrHdgsraNlqt7H-gzGzoHsz", "T35WL0YkQ4GVOUDOkizK5FAd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
