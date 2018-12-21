@@ -146,7 +146,7 @@
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fw6q1i7cigj30ef04jweh.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fxca0wyg3sg308m0607ce.gif">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fxcajmwugeg308m0fndxy.gif">
-<meta property="og:updated_time" content="2018-12-21T04:21:25.122Z">
+<meta property="og:updated_time" content="2018-12-21T04:36:10.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统学习iOS动画之一：视图动画">
 <meta name="twitter:description" content="这个部分介绍UIKit动画API，这些API专门用于轻松制作视图动画(View Animations)，同时避免核心动画(Core Animation)(见系统学习iOS动画之三：图层动画)的复杂性。 UIKit动画API不仅易于使用，而且提供了大量灵活性和强大功能，可以处理大多数（当然不是全部）动画要求。 UIKit动画API可以在屏幕上为最终继承自UIView的任何对象设置动画，例如：UILa">
@@ -735,7 +735,7 @@
 <p>为了达到这个目的，可以将几个动画和完成闭包链接起来：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, </span><br><span class="line">  animations: &#123;</span><br><span class="line">    view.center.x += <span class="number">200.0</span></span><br><span class="line">  &#125;, </span><br><span class="line">  completion: &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">    <span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, </span><br><span class="line">      animations: &#123;</span><br><span class="line">        view.center.y += <span class="number">100.0</span></span><br><span class="line">      &#125;, </span><br><span class="line">      completion: &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">        <span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, </span><br><span class="line">          animations: &#123;</span><br><span class="line">            view.center.x -= <span class="number">200.0</span></span><br><span class="line">          &#125;, </span><br><span class="line">          completion: &#123; <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">            <span class="type">UIView</span>.animate(withDuration: <span class="number">0.5</span>, </span><br><span class="line">              animations: &#123;</span><br><span class="line">                view.center.y -= <span class="number">100.0</span></span><br><span class="line">              &#125;</span><br><span class="line">            )</span><br><span class="line">          &#125;</span><br><span class="line">        )</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
 <p>看上去复杂繁琐，这个时候就需要，使用本章节将要学习的<strong>关键帧动画(Keyframe Animations)</strong>，它可以代替上面繁琐的嵌套。</p>
-<p><a href="READM.md#关于代码">开始项目</a>使用上一章节的完成项目<strong>Flight Info</strong>，通过让✈️“飞机来”，学习关键帧动画。</p>
+<p><a href="http://andyron.com/2018/iOS-Animation-0#关于代码">开始项目</a>使用上一章节的完成项目<strong>Flight Info</strong>，通过让✈️“飞机来”，学习关键帧动画。</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxc49qm354j30dm05eaa8.jpg" alt="image-20181013172100870"></p>
 <p>让飞机✈️起飞可以分成四个不同阶段的动画(当然具体怎么分可以视情况而定)：</p>
 <ol>
@@ -847,7 +847,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月21日 - 12:21
+      2018年12月21日 - 12:36
     </li>
 
 
@@ -1170,26 +1170,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i> 访问人数
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人次
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i> 总访问量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      次
-    </span>
-  
-</div>
-
 
         
       </div>

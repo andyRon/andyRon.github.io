@@ -104,13 +104,13 @@
 
 
 
-<meta name="description" content="之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，视图控制器的转场动画(View Controller Transition Animations)。 iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。 在本文中，将学习如何使用动画创建自己的自定义视图控制器转换。 17-视图控制">
+<meta name="description" content="之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，视图控制器的转场动画(View Controller Transition Animations)。 iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。 在本文，将学习如何使用动画创建自己的自定义视图控制器转换。 预览： 17-视">
 <meta name="keywords" content="iOS动画,转场,视图控制器的转场动画,View Controller Transition Animations">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统学习iOS动画之四：视图控制器的转场动画">
 <meta property="og:url" content="http://andyron.com/2018/iOS-Animation-4-View-Controller-Transition-Animations.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，视图控制器的转场动画(View Controller Transition Animations)。 iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。 在本文中，将学习如何使用动画创建自己的自定义视图控制器转换。 17-视图控制">
+<meta property="og:description" content="之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，视图控制器的转场动画(View Controller Transition Animations)。 iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。 在本文，将学习如何使用动画创建自己的自定义视图控制器转换。 预览： 17-视">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxshdgh771j308k0a1gm3.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fx8i1nv0jdg308o0fq1ky.gif">
@@ -139,10 +139,10 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fy9iqrfex0g308q0fogwz.gif">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fy9kfeum2qj30db04zaae.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fy9krwbad6g308q0fogzr.gif">
-<meta property="og:updated_time" content="2018-12-21T04:20:13.418Z">
+<meta property="og:updated_time" content="2018-12-21T04:46:07.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统学习iOS动画之四：视图控制器的转场动画">
-<meta name="twitter:description" content="之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，视图控制器的转场动画(View Controller Transition Animations)。 iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。 在本文中，将学习如何使用动画创建自己的自定义视图控制器转换。 17-视图控制">
+<meta name="twitter:description" content="之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，视图控制器的转场动画(View Controller Transition Animations)。 iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。 在本文，将学习如何使用动画创建自己的自定义视图控制器转换。 预览： 17-视">
 <meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxshdgh771j308k0a1gm3.jpg">
 
 
@@ -481,7 +481,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 6,025 字
+                  : 6,026 字
                 </span>
               
 
@@ -517,7 +517,8 @@
       
         <p>之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，<strong>视图控制器的转场动画(View Controller Transition Animations)</strong>。</p>
 <p>iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。</p>
-<p>在本文中，将学习如何使用动画创建自己的自定义视图控制器转换。</p>
+<p>在本文，将学习如何使用动画创建自己的自定义视图控制器转换。</p>
+<p><strong>预览：</strong></p>
 <p><a href="#17-视图控制器转场和屏幕旋转转场">17-视图控制器转场和屏幕旋转转场</a>   了解如何通过自定义动画转场<strong>呈现</strong>视图控制器 - 作为奖励，您将创建动画转场以处理设备方向更改。</p>
 <p><a href="#18-导航控制器转场">18-导航控制器转场</a></p>
 <p><a href="#19-交互式导航控制器转场">19-交互式导航控制器转场</a></p>
@@ -837,7 +838,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月21日 - 12:20
+      2018年12月21日 - 12:46
     </li>
 
 
@@ -1162,26 +1163,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i> 访问人数
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人次
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i> 总访问量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      次
-    </span>
-  
-</div>
-
 
         
       </div>

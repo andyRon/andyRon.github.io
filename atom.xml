@@ -72,13 +72,14 @@
     <link href="http://andyron.com/2018/iOS-Animation-4-View-Controller-Transition-Animations.html"/>
     <id>http://andyron.com/2018/iOS-Animation-4-View-Controller-Transition-Animations.html</id>
     <published>2018-12-16T04:22:00.000Z</published>
-    <updated>2018-12-21T04:20:13.418Z</updated>
+    <updated>2018-12-21T04:46:07.901Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，&lt;strong&gt;视图控制器的转场动画(View Controller Transition Animations)&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。&lt;/p&gt;
-&lt;p&gt;在本文中，将学习如何使用动画创建自己的自定义视图控制器转换。&lt;/p&gt;
+&lt;p&gt;在本文，将学习如何使用动画创建自己的自定义视图控制器转换。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;预览：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#17-视图控制器转场和屏幕旋转转场&quot;&gt;17-视图控制器转场和屏幕旋转转场&lt;/a&gt;   了解如何通过自定义动画转场&lt;strong&gt;呈现&lt;/strong&gt;视图控制器 - 作为奖励，您将创建动画转场以处理设备方向更改。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#18-导航控制器转场&quot;&gt;18-导航控制器转场&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#19-交互式导航控制器转场&quot;&gt;19-交互式导航控制器转场&lt;/a&gt;&lt;/p&gt;
@@ -185,7 +186,7 @@
     <link href="http://andyron.com/2018/iOS-Animation-1-view-animation.html"/>
     <id>http://andyron.com/2018/iOS-Animation-1-view-animation.html</id>
     <published>2018-12-13T12:22:00.000Z</published>
-    <updated>2018-12-21T04:21:25.122Z</updated>
+    <updated>2018-12-21T04:36:10.142Z</updated>
     
     <summary type="html">
     
@@ -259,9 +260,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="AVL树" scheme="http://andyron.com/tags/AVL%E6%A0%91/"/>
     
@@ -320,9 +321,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="二叉搜索树" scheme="http://andyron.com/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
     
@@ -355,9 +356,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="哈希表" scheme="http://andyron.com/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
@@ -438,9 +439,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="链表" scheme="http://andyron.com/tags/%E9%93%BE%E8%A1%A8/"/>
     
@@ -491,9 +492,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="基数排序" scheme="http://andyron.com/tags/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"/>
     
@@ -519,9 +520,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="计数排序" scheme="http://andyron.com/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/"/>
     
@@ -548,9 +549,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="希尔排序" scheme="http://andyron.com/tags/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"/>
     
