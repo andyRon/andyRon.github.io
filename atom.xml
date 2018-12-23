@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-12-21T04:25:48.592Z</updated>
+  <updated>2018-12-23T08:36:02.260Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-快速排序</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-快速排序.html</id>
+    <published>2018-12-23T03:30:00.000Z</published>
+    <updated>2018-12-23T08:36:02.260Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Quicksort&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Quicksort&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;快速排序(Quicksort)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;目标：将数组从低到高（或从高到低）排序。&lt;/p&gt;
+&lt;p&gt;快速排序是历史上最着名的算法之一。 它是由Tony Hoare于1959年发明的，当时递归仍然是一个相当模糊的概念。&lt;/p&gt;
+&lt;p&gt;这是Swift中的一个实现，应该很容易理解：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;quicksort&lt;/span&gt;&amp;lt;T: Comparable&amp;gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;number&quot;&gt;_&lt;/span&gt; a: [T])&lt;/span&gt;&lt;/span&gt; -&amp;gt; [&lt;span class=&quot;type&quot;&gt;T&lt;/span&gt;] &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;guard&lt;/span&gt; a.&lt;span class=&quot;built_in&quot;&gt;count&lt;/span&gt; &amp;gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123; &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; pivot = a[a.&lt;span class=&quot;built_in&quot;&gt;count&lt;/span&gt;/&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; less = a.&lt;span class=&quot;built_in&quot;&gt;filter&lt;/span&gt; &amp;#123; $&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &amp;lt; pivot &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;equal&lt;/span&gt; = a.&lt;span class=&quot;built_in&quot;&gt;filter&lt;/span&gt; &amp;#123; $&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; == pivot &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; greater = a.&lt;span class=&quot;built_in&quot;&gt;filter&lt;/span&gt; &amp;#123; $&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &amp;gt; pivot &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; quicksort(less) + &lt;span class=&quot;built_in&quot;&gt;equal&lt;/span&gt; + quicksort(greater)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="快速排序" scheme="http://andyron.com/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="Quicksort" scheme="http://andyron.com/tags/Quicksort/"/>
+    
+  </entry>
   
   <entry>
     <title>系统学习iOS动画之七：其它类型的动画</title>
@@ -260,9 +294,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="AVL树" scheme="http://andyron.com/tags/AVL%E6%A0%91/"/>
     
@@ -321,9 +355,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="二叉搜索树" scheme="http://andyron.com/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
     
@@ -356,9 +390,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="哈希表" scheme="http://andyron.com/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
@@ -439,9 +473,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="链表" scheme="http://andyron.com/tags/%E9%93%BE%E8%A1%A8/"/>
     
@@ -492,9 +526,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="基数排序" scheme="http://andyron.com/tags/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"/>
     
@@ -520,9 +554,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="计数排序" scheme="http://andyron.com/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/"/>
     
@@ -549,9 +583,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="希尔排序" scheme="http://andyron.com/tags/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"/>
     
@@ -611,30 +645,6 @@
       <category term="电子书" scheme="http://andyron.com/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/"/>
     
       <category term="链接" scheme="http://andyron.com/tags/%E9%93%BE%E6%8E%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读《腾讯传》—— 腾讯的发展也是中国互联网企业的缩影</title>
-    <link href="http://andyron.com/2018/%E8%AF%BB%E3%80%8A%E8%85%BE%E8%AE%AF%E4%BC%A0%E3%80%8B.html"/>
-    <id>http://andyron.com/2018/读《腾讯传》.html</id>
-    <published>2018-10-30T03:41:30.000Z</published>
-    <updated>2018-10-30T05:21:49.890Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNbRwgy1fwnsx9vp1rj308o0bugll.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;作者和本书概要&quot;&gt;&lt;a href=&quot;#作者和本书概要&quot; class=&quot;headerlink&quot; title=&quot;作者和本书概要&quot;&gt;&lt;/a&gt;作者和本书概要&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;吴晓波&lt;/strong&gt;：著名财经作家，“吴晓波频道”、蓝狮子出版创始人，常年从事中国企业史和公司案例研究。著有《大败局》I和II、《激荡三十年》《跌荡一百年》《浩荡两千年》《历代经济变革得失》等广具影响力的财经书籍，著作两次入选《亚洲周刊》年度最佳图书。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/26929955/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《腾讯传1998-2016：中国互联网公司进化论》&lt;/a&gt;，腾讯官方唯一授权的权威传记，腾讯的发展路径，亦是中国互联网企业成长的缩影。&lt;strong&gt;读懂腾讯，读懂中国互联网。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="互联网" scheme="http://andyron.com/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
-    
-      <category term="腾讯" scheme="http://andyron.com/tags/%E8%85%BE%E8%AE%AF/"/>
     
   </entry>
   
