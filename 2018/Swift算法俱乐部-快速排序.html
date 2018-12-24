@@ -113,7 +113,7 @@
 <meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Quicksort/Images/Example.png">
-<meta property="og:updated_time" content="2018-12-23T08:36:02.260Z">
+<meta property="og:updated_time" content="2018-12-23T08:38:45.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Swift算法俱乐部-快速排序">
 <meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
@@ -555,7 +555,7 @@ greater: [ ]
 </code></pre><p>要实现上面操作的关键是，在分区之后，基准元素已经处于其最终排序位置。 其余的数字尚未排序，它们只是以基准数分区了。 快速排序对数组进行多次分区，直到所有值都在最终位置。</p>
 <p>无法保证每次分区将元素保持在相同的相对顺序中，因此在使用基准“8”进行分区之后，也可能得到类似这样的内容：</p>
 <pre><code>[ 3, 0, 5, 2, -1, 1, 8, 8, 14, 26, 10, 27, 9 ]
-</code></pre><p>唯一可以保证的是在基准元素左边是所有较小的元素，而右边是所有较大的元素。 因为分区改变相等元素的原始顺序，所以快速排序不会产生“稳定”排序（与<a href="../Merge%20Sort/">归并排序</a>不同）。 这大部分时间都不是什么大不了的事。</p>
+</code></pre><p>唯一可以保证的是在基准元素左边是所有较小的元素，而右边是所有较大的元素。 因为分区改变相等元素的原始顺序，所以快速排序不会产生“稳定”排序（与<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Merge%20Sort/" target="_blank" rel="noopener">归并排序</a>不同）。 这大部分时间都不是什么大不了的事。</p>
 <h2 id="Lomuto的分区方案"><a href="#Lomuto的分区方案" class="headerlink" title="Lomuto的分区方案"></a>Lomuto的分区方案</h2><p>在快速排序的第一个例子中，我告诉你，分区是通过调用Swift的<code>filter()</code>函数三次来完成的。 这不是很高效。 因此，让我们看一个更智能的分区算法，它可以 <em>in place</em>，即通过修改原始数组。</p>
 <p>这是在Swift中实现Lomuto的分区方案：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partitionLomuto</span>&lt;T: Comparable&gt;<span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> [T], low: Int, high: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> pivot = a[high]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> i = low</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> low..&lt;high &#123;</span><br><span class="line">    <span class="keyword">if</span> a[j] &lt;= pivot &#123;</span><br><span class="line">      (a[i], a[j]) = (a[j], a[i])</span><br><span class="line">      i += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  (a[i], a[high]) = (a[high], a[i])</span><br><span class="line">  <span class="keyword">return</span> i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -769,7 +769,7 @@ greater than pivot: [ 7, 6, 5 ]
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月23日 - 16:36
+      2018年12月23日 - 16:38
     </li>
 
 
