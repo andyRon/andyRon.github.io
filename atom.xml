@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-12-25T03:54:12.799Z</updated>
+  <updated>2018-12-25T04:28:36.921Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -17,16 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【译】Swift算法俱乐部-固定大小数组</title>
-    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%9B%BA%E5%AE%9A%E5%A4%A7%E5%B0%8F%E6%95%B0%E7%BB%84.html"/>
-    <id>http://andyron.com/2018/Swift算法俱乐部-固定大小数组.html</id>
-    <published>2018-12-25T03:30:00.000Z</published>
-    <updated>2018-12-25T03:54:12.799Z</updated>
+    <title>【译】Swift算法俱乐部-有序数组</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-有序数组.html</id>
+    <published>2018-12-25T04:30:00.000Z</published>
+    <updated>2018-12-25T04:28:36.921Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Fixed%20Size%20Arra&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Fixed-Size Arrays&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Ordered%20Array&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Ordered Array&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;有序数组(Ordered Array)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这是一个始终从低到高排序的数组。 每当您向此数组添加新元素时，它都会插入到其排序位置。&lt;/p&gt;
+&lt;p&gt;当您希望对数据进行排序并且相对较少地插入新元素时，有序数组非常有用。在这种情况下，它比排序整个数组更快。但是，如果您需要经常更改数组，则使用常规数组并手动对其进行排序可能会更快。&lt;/p&gt;
+&lt;p&gt;实现是非常基础的。 它只是Swift内置数组的包装器：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="有序数组" scheme="http://andyron.com/tags/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="Ordered Array" scheme="http://andyron.com/tags/Ordered-Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-固定大小数组</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%9B%BA%E5%AE%9A%E5%A4%A7%E5%B0%8F%E6%95%B0%E7%BB%84.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-固定大小数组.html</id>
+    <published>2018-12-25T03:30:00.000Z</published>
+    <updated>2018-12-25T04:26:42.740Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Fixed%20Size%20Array&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Fixed-Size Arrays&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;固定大小数组(Fixed-Size Arrays)&lt;/strong&gt;&lt;/p&gt;
@@ -623,32 +656,6 @@
       <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="希尔排序" scheme="http://andyron.com/tags/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读《分享时代：如何缔造影响力》</title>
-    <link href="http://andyron.com/2018/%E5%88%86%E4%BA%AB%E6%97%B6%E4%BB%A3%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BC%94%E9%80%A0%E5%BD%B1%E5%93%8D%E5%8A%9B.html"/>
-    <id>http://andyron.com/2018/分享时代：如何缔造影响力.html</id>
-    <published>2018-11-04T07:06:00.000Z</published>
-    <updated>2018-11-04T07:22:57.564Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-59abc0694135351e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;分享时代&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;作者和本书概要&quot;&gt;&lt;a href=&quot;#作者和本书概要&quot; class=&quot;headerlink&quot; title=&quot;作者和本书概要&quot;&gt;&lt;/a&gt;作者和本书概要&lt;/h2&gt;&lt;p&gt;作者&lt;strong&gt;布赖恩·克雷默(Bryan Kramer)&lt;/strong&gt;， 知名演讲人、咨询师、教练、畅销书作者。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/26827114/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《分享时代：如何缔造影响力》&lt;/a&gt;原著名是《Shareology: how sharing is powering the human economy》，本书是一本教你通过分享提升影响力的书。它深刻剖析了人类分享的本质，同时为读者阐明了分享经济在未来将要发挥的力量。更重要的是，本书告诉你如何建立个人影响力，如何把有价值的内容传递到目标客户中从而提升企业的影响力。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="分享" scheme="http://andyron.com/tags/%E5%88%86%E4%BA%AB/"/>
-    
-      <category term="个人品牌" scheme="http://andyron.com/tags/%E4%B8%AA%E4%BA%BA%E5%93%81%E7%89%8C/"/>
-    
-      <category term="影响力" scheme="http://andyron.com/tags/%E5%BD%B1%E5%93%8D%E5%8A%9B/"/>
     
   </entry>
   
