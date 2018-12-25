@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2018-12-23T08:38:45.601Z</updated>
+  <updated>2018-12-25T03:54:12.799Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-固定大小数组</title>
+    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%9B%BA%E5%AE%9A%E5%A4%A7%E5%B0%8F%E6%95%B0%E7%BB%84.html"/>
+    <id>http://andyron.com/2018/Swift算法俱乐部-固定大小数组.html</id>
+    <published>2018-12-25T03:30:00.000Z</published>
+    <updated>2018-12-25T03:54:12.799Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Fixed%20Size%20Arra&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Fixed-Size Arrays&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;固定大小数组(Fixed-Size Arrays)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;早期的编程语言没有非常奇特的数组。 您将创建具有固定大小的数组，从那时起它将永远不会增长或缩小。 甚至C和Objective-C中的标准数组仍然是这种类型。&lt;/p&gt;
+&lt;p&gt;当您定义这样的数组时，&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int myArray[10];
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;编译器分配一个可以容纳40个字节的连续内存块（假设&lt;code&gt;int&lt;/code&gt;是4个字节）：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Fixed%20Size%20Array/Images/array.png&quot; alt=&quot;An array with room for 10 elements&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="固定大小数组" scheme="http://andyron.com/tags/%E5%9B%BA%E5%AE%9A%E5%A4%A7%E5%B0%8F%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="Fixed-Size Arrays" scheme="http://andyron.com/tags/Fixed-Size-Arrays/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-快速排序</title>
@@ -614,37 +649,6 @@
       <category term="个人品牌" scheme="http://andyron.com/tags/%E4%B8%AA%E4%BA%BA%E5%93%81%E7%89%8C/"/>
     
       <category term="影响力" scheme="http://andyron.com/tags/%E5%BD%B1%E5%93%8D%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读《知识的边界》—— 自下而上，链接一切</title>
-    <link href="http://andyron.com/2018/%E7%9F%A5%E8%AF%86%E7%9A%84%E8%BE%B9%E7%95%8C.html"/>
-    <id>http://andyron.com/2018/知识的边界.html</id>
-    <published>2018-10-31T11:58:30.000Z</published>
-    <updated>2018-10-30T07:25:36.166Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-3a4fed480423778b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Too Big to Know&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;作者和本书概要&quot;&gt;&lt;a href=&quot;#作者和本书概要&quot; class=&quot;headerlink&quot; title=&quot;作者和本书概要&quot;&gt;&lt;/a&gt;作者和本书概要&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;戴维·温伯格&lt;/strong&gt; 是哈佛大学伯克曼网络与社会研究中心的资深研究员，还曾担任过美国总统候选人的网络政策顾问。在过去二十多年的时间里，他都在思考互联网对于人类的思想、沟通和社会的影响，写了很多重要的著作，可以称得上一位互联网思想家。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/26279954/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《知识的边界》&lt;/a&gt;，英文书名为“Too Big to Know”，直接翻译就是“大到不可知”。看这个书名的意思有点和另一本畅销书&lt;a href=&quot;https://book.douban.com/subject/26645277/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《浅薄 - 互联网如何毒化了我们的大脑》&lt;/a&gt;观点类似：互联网带来了信息过载的问题，知识碎片化的问题，网络世界实在是太大了，大到我们根本不可能去理解它。然而恰恰相反，本书的作者&lt;strong&gt;戴维·温伯格&lt;/strong&gt;认为，如果有人认为互联网成为了获取知识的阻碍，那么很可能是因为他没有真正理解正在发生的知识变革，&lt;strong&gt;互联网创造出的无限连接的信息网络，让我们更接近知识的真相&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/26279954/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《知识的边界》&lt;/a&gt; 和 &lt;a href=&quot;https://book.douban.com/subject/26645277/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《浅薄 - 互联网如何毒化了我们的大脑》&lt;/a&gt; 两本书观点有点对立可以一起看看。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="知识" scheme="http://andyron.com/tags/%E7%9F%A5%E8%AF%86/"/>
-    
-      <category term="互联网" scheme="http://andyron.com/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
-    
-      <category term="纸质书" scheme="http://andyron.com/tags/%E7%BA%B8%E8%B4%A8%E4%B9%A6/"/>
-    
-      <category term="电子书" scheme="http://andyron.com/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/"/>
-    
-      <category term="链接" scheme="http://andyron.com/tags/%E9%93%BE%E6%8E%A5/"/>
     
   </entry>
   
