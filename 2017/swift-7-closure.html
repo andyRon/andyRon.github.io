@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="闭包,Closure," />
 
 
 
@@ -105,13 +105,14 @@
 
 
 <meta name="description" content="闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。闭包可以捕获和存储其所在上下文中任意常量和变量的引用。  1 闭包表达式(Closure Expressions)1234567// sorted 方法(The Sorted Method)// 原数组不会被 sorted">
+<meta name="keywords" content="闭包,Closure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以撸代码的形式学习Swift-7：闭包(Closure)">
 <meta property="og:url" content="http://andyron.com/2017/swift-7-closure.html">
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。闭包可以捕获和存储其所在上下文中任意常量和变量的引用。  1 闭包表达式(Closure Expressions)1234567// sorted 方法(The Sorted Method)// 原数组不会被 sorted">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T10:08:26.141Z">
+<meta property="og:updated_time" content="2018-12-26T09:21:06.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以撸代码的形式学习Swift-7：闭包(Closure)">
 <meta name="twitter:description" content="闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。闭包可以捕获和存储其所在上下文中任意常量和变量的引用。  1 闭包表达式(Closure Expressions)1234567// sorted 方法(The Sorted Method)// 原数组不会被 sorted">
@@ -487,23 +488,30 @@
 
       
         <blockquote>
-<p>闭包是自包含的函数代码块，可以在代码中被传递和使用。<br>Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。<br>闭包可以捕获和存储其所在上下文中任意常量和变量的引用。</p>
+<p>闭包是自包含的函数代码块，可以在代码中被传递和使用。<br>Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。<br><strong>闭包可以捕获和存储其所在上下文中任意常量和变量的引用。</strong></p>
 </blockquote>
 <h3 id="1-闭包表达式-Closure-Expressions"><a href="#1-闭包表达式-Closure-Expressions" class="headerlink" title="1 闭包表达式(Closure Expressions)"></a>1 闭包表达式(Closure Expressions)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sorted 方法(The Sorted Method)</span></span><br><span class="line"><span class="comment">// 原数组不会被 sorted(by:) 方法修改。</span></span><br><span class="line"><span class="keyword">let</span> names = [<span class="string">"Chris"</span>, <span class="string">"Alex"</span>, <span class="string">"Ewa"</span>, <span class="string">"Barry"</span>, <span class="string">"Daniella"</span>, <span class="string">"Andy"</span>, <span class="string">"Amni"</span>]</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">backward</span><span class="params">(<span class="number">_</span> s1: String, <span class="number">_</span> s2: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> s1 &gt; s2</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> reversedNames = names.sorted(by: backward)</span><br></pre></td></tr></table></figure>
 <p>闭包表达式语法:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; (parameters) -&gt; returnType <span class="keyword">in</span></span><br><span class="line">statements</span><br><span class="line">&#125;</span><br><span class="line">关键字`<span class="keyword">in</span>`表示闭包的参数和返回值类型定义已经完成，闭包函数体即将开始。</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reversedNames2 = names.sorted(by: &#123;(s1:<span class="type">String</span>, s2:<span class="type">String</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span> <span class="keyword">return</span> s1&gt;s2&#125;)</span><br></pre></td></tr></table></figure>
-<p>根据上下文推断类型(Inferring Type From Context)<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reversedNames3 = names.sorted(by: &#123;(s1, s2)-&gt;<span class="type">Bool</span> <span class="keyword">in</span> <span class="keyword">return</span> s1&gt;s2&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>根据上下文推断类型(Inferring Type From Context)  省略 return 和 返回值<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reversedNames4 = names.sorted(by: &#123;(s1, s2) <span class="keyword">in</span> s1&gt;s2&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>参数名称缩写(Shorthand Argument Names)：直接通过 $0 ， $1 ， $2 来顺序调用闭包的参数<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reversedNames5 = names.sorted(by: &#123;$<span class="number">0</span>&gt;$<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>运算符方法(Operator Methods)<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reversedNames6 = names.sorted(by: &gt;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-尾随闭包-Trailing-Closures-将一个很长的闭包表达式作为最后一个参数传递给函数"><a href="#2-尾随闭包-Trailing-Closures-将一个很长的闭包表达式作为最后一个参数传递给函数" class="headerlink" title="2 尾随闭包(Trailing Closures):将一个很长的闭包表达式作为最后一个参数传递给函数"></a>2 尾随闭包(Trailing Closures):将一个很长的闭包表达式作为最后一个参数传递给函数</h3><p>不使用尾随闭包进行函数调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func someFunctionThatTakesAClosure(closure: &#123;</span><br><span class="line">// 闭包主体部分 </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>使用尾随闭包进行函数调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func someFunctionThatTakesAClosure() &#123;</span><br><span class="line">// 闭包主体部分 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>根据上下文推断类型(Inferring Type From Context)</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reversedNames3 = names.sorted(by: &#123;(s1, s2)-&gt;<span class="type">Bool</span> <span class="keyword">in</span> <span class="keyword">return</span> s1&gt;s2&#125;)</span><br></pre></td></tr></table></figure>
+<p>根据上下文推断类型(Inferring Type From Context)  省略 return 和 返回值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reversedNames4 = names.sorted(by: &#123;(s1, s2) <span class="keyword">in</span> s1&gt;s2&#125;)</span><br></pre></td></tr></table></figure>
+<p>参数名称缩写(Shorthand Argument Names)：直接通过 $0 ， $1 ， $2 来顺序调用闭包的参数</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reversedNames5 = names.sorted(by: &#123;$<span class="number">0</span>&gt;$<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>运算符方法(Operator Methods)</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reversedNames6 = names.sorted(by: &gt;)</span><br></pre></td></tr></table></figure>
+<h3 id="2-尾随闭包-Trailing-Closures-将一个很长的闭包表达式作为最后一个参数传递给函数"><a href="#2-尾随闭包-Trailing-Closures-将一个很长的闭包表达式作为最后一个参数传递给函数" class="headerlink" title="2 尾随闭包(Trailing Closures):将一个很长的闭包表达式作为最后一个参数传递给函数"></a>2 尾随闭包(Trailing Closures):将一个很长的闭包表达式作为最后一个参数传递给函数</h3><p>不使用尾随闭包进行函数调用：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunctionThatTakesAClosure</span><span class="params">(closure: &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">// 闭包主体部分 </span></span></span><br><span class="line"><span class="function"><span class="params">&#125;)</span></span></span><br></pre></td></tr></table></figure>
+<p>使用尾随闭包进行函数调用：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunctionThatTakesAClosure</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="comment">// 闭包主体部分 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reversedNames7 = names.sorted()&#123;$<span class="number">0</span>&gt;$<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">var</span> reversedNames8 = names.sorted&#123;$<span class="number">0</span>&gt;$<span class="number">1</span>&#125;        <span class="comment">// 当闭包表达式是唯一参数时， ()可省略</span></span><br><span class="line"><span class="keyword">let</span> digitNames = [</span><br><span class="line">    <span class="number">0</span>: <span class="string">"Zero"</span>, <span class="number">1</span>: <span class="string">"One"</span>, <span class="number">2</span>: <span class="string">"Two"</span>,   <span class="number">3</span>: <span class="string">"Three"</span>, <span class="number">4</span>: <span class="string">"Four"</span>,</span><br><span class="line">    <span class="number">5</span>: <span class="string">"Five"</span>, <span class="number">6</span>: <span class="string">"Six"</span>, <span class="number">7</span>: <span class="string">"Seven"</span>, <span class="number">8</span>: <span class="string">"Eight"</span>, <span class="number">9</span>: <span class="string">"Nine"</span></span><br><span class="line">]</span><br><span class="line"><span class="keyword">let</span> numbers = [<span class="number">16</span>, <span class="number">58</span>, <span class="number">510</span>]</span><br><span class="line"><span class="keyword">let</span> strings = numbers.<span class="built_in">map</span> &#123;</span><br><span class="line">    (number) -&gt; <span class="type">String</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">var</span> number = number</span><br><span class="line">    <span class="keyword">var</span> output = <span class="string">""</span></span><br><span class="line">    <span class="keyword">repeat</span> &#123;</span><br><span class="line">        output = digitNames[number%<span class="number">10</span>]! + output        <span class="comment">// 字典下标返回一个可选值(optional value)</span></span><br><span class="line">        number /= <span class="number">10</span></span><br><span class="line">    &#125; <span class="keyword">while</span> number &gt; <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3-值捕获-Capturing-Values"><a href="#3-值捕获-Capturing-Values" class="headerlink" title="3 值捕获(Capturing Values)"></a>3 值捕获(Capturing Values)</h3><p>闭包可以在其被定义的上下文中捕获常量或变量。即使定义这些常量和变量的原作用域已经不存在，闭包仍然可以在闭包函数体内引用和修改这些值。 </p>
 <p><strong>嵌套函数</strong> 是 捕获值的闭包的最简单形式</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">makeIncrementer</span><span class="params">(forIncrement amount: Int)</span></span> -&gt; () -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> runningTotal = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">incrementer</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        runningTotal += amount</span><br><span class="line">        <span class="keyword">return</span> runningTotal</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> incrementer</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> funcby10 = makeIncrementer(forIncrement: <span class="number">10</span>)</span><br><span class="line"><span class="keyword">var</span> funcby50 = makeIncrementer(forIncrement: <span class="number">50</span>)</span><br><span class="line"><span class="comment">// 新生成的incrementer函数，都会各自获得类似全局变量的 amount和runingTotal</span></span><br><span class="line">funcby50()</span><br><span class="line">funcby50()</span><br><span class="line">funcby10()</span><br></pre></td></tr></table></figure>
-<h3 id="4-闭包是引用类型-Closures-Are-Reference-Types"><a href="#4-闭包是引用类型-Closures-Are-Reference-Types" class="headerlink" title="4 闭包是引用类型(Closures Are Reference Types)"></a>4 闭包是引用类型(Closures Are Reference Types)</h3><p>// 函数和闭包都是引用类型<br>// 无论将函数或闭包赋值给一个常量还是变量，实际上都是将常量或变量的值设置为对应函数或闭包的引用。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> funcbyTen = funcby10</span><br><span class="line">funcbyTen()</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-闭包是引用类型-Closures-Are-Reference-Types"><a href="#4-闭包是引用类型-Closures-Are-Reference-Types" class="headerlink" title="4 闭包是引用类型(Closures Are Reference Types)"></a>4 闭包是引用类型(Closures Are Reference Types)</h3><p>// 函数和闭包都是引用类型<br>// 无论将函数或闭包赋值给一个常量还是变量，实际上都是将常量或变量的值设置为对应函数或闭包的引用。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> funcbyTen = funcby10</span><br><span class="line">funcbyTen()</span><br></pre></td></tr></table></figure>
 <p>逃逸闭包(Escaping Closures)</p>
 <p>自动闭包(Autoclosures)</p>
 <blockquote>
@@ -573,7 +581,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年10月15日 - 18:08
+      2018年12月26日 - 17:21
     </li>
 
 
@@ -592,6 +600,14 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/闭包/" rel="tag"><i class="fa fa-tag"></i> 闭包</a>
+          
+            <a href="/tags/Closure/" rel="tag"><i class="fa fa-tag"></i> Closure</a>
+          
+        </div>
       
 
       
@@ -693,7 +709,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">170</span>
+                <span class="site-state-item-count">171</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -715,7 +731,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">128</span>
+                <span class="site-state-item-count">155</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -863,7 +879,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共245.6k字</span>
+  <span class="post-count">  全站共246.0k字</span>
 
 </div>
 

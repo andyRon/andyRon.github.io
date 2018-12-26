@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="继承,Inheritance," />
 
 
 
@@ -105,13 +105,14 @@
 
 
 <meta name="description" content="一个类可以继承(inherit)另一个类的方法(methods)，属性(properties)和其它特性类可以调用和访问超类的方法，属性和下标(subscripts)，并且可以重写(override)这些方法，属性和下标来优化或修改它们的行为。可以为类中继承来的属性添加属性观察器(property observers)  1 基类(base class)12345678910class Vehi">
+<meta name="keywords" content="继承,Inheritance">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以撸代码的形式学习Swift-13：继承(Inheritance)">
 <meta property="og:url" content="http://andyron.com/2017/swift-13-inheritance.html">
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="一个类可以继承(inherit)另一个类的方法(methods)，属性(properties)和其它特性类可以调用和访问超类的方法，属性和下标(subscripts)，并且可以重写(override)这些方法，属性和下标来优化或修改它们的行为。可以为类中继承来的属性添加属性观察器(property observers)  1 基类(base class)12345678910class Vehi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T10:35:53.155Z">
+<meta property="og:updated_time" content="2018-12-26T09:31:51.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以撸代码的形式学习Swift-13：继承(Inheritance)">
 <meta name="twitter:description" content="一个类可以继承(inherit)另一个类的方法(methods)，属性(properties)和其它特性类可以调用和访问超类的方法，属性和下标(subscripts)，并且可以重写(override)这些方法，属性和下标来优化或修改它们的行为。可以为类中继承来的属性添加属性观察器(property observers)  1 基类(base class)12345678910class Vehi">
@@ -494,7 +495,11 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bicycle</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> hasBasket = <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> bicycle = <span class="type">Bicycle</span>()</span><br><span class="line">bicycle.hasBasket = <span class="literal">true</span></span><br><span class="line">bicycle.currentSpeed = <span class="number">15.0</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Bicycle: <span class="subst">\(bicycle.description)</span>"</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tandem</span>: <span class="title">Bicycle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> currentNumberOfPassengers = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3-重写-Overriding"><a href="#3-重写-Overriding" class="headerlink" title="3 重写(Overriding)"></a>3 重写(Overriding)</h3><p>任何缺少<code>override</code>关键字的重写都会在编译时被诊断为错误。<br> 访问超类的方法，属性及下标。 <code>super</code></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Train</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Choo Choo"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> train = <span class="type">Train</span>()</span><br><span class="line">train.makeNoise()</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> gear = <span class="number">1</span></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.description + <span class="string">" in gear <span class="subst">\(gear)</span>"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutomaticCar</span>: <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> currentSpeed: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            gear = <span class="type">Int</span>(currentSpeed / <span class="number">10.0</span>) + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-防止重写-final-var-final-func-final-class-func-final-subscript"><a href="#4-防止重写-final-var-final-func-final-class-func-final-subscript" class="headerlink" title="4 防止重写 (final var, final func, final class func, final subscript)"></a>4 防止重写 (<code>final var</code>, <code>final func</code>, <code>final class func</code>, <code>final subscript</code>)</h3><blockquote>
+<h3 id="4-防止重写"><a href="#4-防止重写" class="headerlink" title="4 防止重写"></a>4 防止重写</h3><p><code>final var</code>  </p>
+<p><code>final func</code></p>
+<p><code>final class func</code></p>
+<p><code>final subscript</code></p>
+<blockquote>
 <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="noopener">andyRon/LearnSwift</a></p>
 </blockquote>
 
@@ -561,7 +566,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年10月15日 - 18:35
+      2018年12月26日 - 17:31
     </li>
 
 
@@ -580,6 +585,14 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/继承/" rel="tag"><i class="fa fa-tag"></i> 继承</a>
+          
+            <a href="/tags/Inheritance/" rel="tag"><i class="fa fa-tag"></i> Inheritance</a>
+          
+        </div>
       
 
       
@@ -681,7 +694,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">170</span>
+                <span class="site-state-item-count">171</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -703,7 +716,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">128</span>
+                <span class="site-state-item-count">155</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -823,7 +836,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基类-base-class"><span class="nav-number">1.</span> <span class="nav-text">1 基类(base class)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-子类生成-Subclassing"><span class="nav-number">2.</span> <span class="nav-text">2 子类生成(Subclassing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-重写-Overriding"><span class="nav-number">3.</span> <span class="nav-text">3 重写(Overriding)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-防止重写-final-var-final-func-final-class-func-final-subscript"><span class="nav-number">4.</span> <span class="nav-text">4 防止重写 (final var, final func, final class func, final subscript)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基类-base-class"><span class="nav-number">1.</span> <span class="nav-text">1 基类(base class)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-子类生成-Subclassing"><span class="nav-number">2.</span> <span class="nav-text">2 子类生成(Subclassing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-重写-Overriding"><span class="nav-number">3.</span> <span class="nav-text">3 重写(Overriding)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-防止重写"><span class="nav-number">4.</span> <span class="nav-text">4 防止重写</span></a></li></ol></div>
             
 
           </div>
@@ -851,7 +864,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共245.6k字</span>
+  <span class="post-count">  全站共246.0k字</span>
 
 </div>
 

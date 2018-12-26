@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS, Swift" />
+  <meta name="keywords" content="类,结构体,Classes,Structures," />
 
 
 
@@ -105,13 +105,14 @@
 
 
 <meta name="description" content="一个单一文件中定义一个类或者结构体，系统将会自动生成面向其它代码的外部接口。  类和结构体的异同 类和结构体的共同点：  定义属性用于存储值  定义方法用于提供功能  定义下标操作使得可以通过下标语法来访问实例所包含的值  定义构造器用于生成初始化值  通过扩展以增加默认实现的功能  实现协议以提供某种标准功能    类还有如下的附加功能：  继承允许一个类继承另一个类的特征  类型转换允许在运">
+<meta name="keywords" content="类,结构体,Classes,Structures">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以撸代码的形式学习Swift-9：类和结构体(Classes and Structures)">
 <meta property="og:url" content="http://andyron.com/2017/swift-9-structures-classes.html">
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="一个单一文件中定义一个类或者结构体，系统将会自动生成面向其它代码的外部接口。  类和结构体的异同 类和结构体的共同点：  定义属性用于存储值  定义方法用于提供功能  定义下标操作使得可以通过下标语法来访问实例所包含的值  定义构造器用于生成初始化值  通过扩展以增加默认实现的功能  实现协议以提供某种标准功能    类还有如下的附加功能：  继承允许一个类继承另一个类的特征  类型转换允许在运">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T10:35:25.618Z">
+<meta property="og:updated_time" content="2018-12-26T09:25:18.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以撸代码的形式学习Swift-9：类和结构体(Classes and Structures)">
 <meta name="twitter:description" content="一个单一文件中定义一个类或者结构体，系统将会自动生成面向其它代码的外部接口。  类和结构体的异同 类和结构体的共同点：  定义属性用于存储值  定义方法用于提供功能  定义下标操作使得可以通过下标语法来访问实例所包含的值  定义构造器用于生成初始化值  通过扩展以增加默认实现的功能  实现协议以提供某种标准功能    类还有如下的附加功能：  继承允许一个类继承另一个类的特征  类型转换允许在运">
@@ -503,19 +504,21 @@
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Resolution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> height = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VideoMode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> resolution = <span class="type">Resolution</span>()</span><br><span class="line">    <span class="keyword">var</span> interlaced = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">var</span> frameRate = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="类和结构体实例"><a href="#类和结构体实例" class="headerlink" title="类和结构体实例"></a>类和结构体实例</h3><ul>
-<li><p>结构体和类都使用构造器语法来生成新的实例， <code>()</code>是最简单的构造器语法。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> someResolution = <span class="type">Resolution</span>()</span><br><span class="line"><span class="keyword">let</span> someVideoMode = <span class="type">VideoMode</span>()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>结构体的成员逐一构造器</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> hd = <span class="type">Resolution</span>(width: <span class="number">1920</span>, height: <span class="number">1080</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>结构体和枚举是值类型。所有的基本类型:整数(Integer)、浮 点数(floating-point)、布尔值(Boolean)、字符串(string)、数组(array)和字典(dictionary)，都是 值类型，并且在底层都是以结构体的形式所实现。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cinema = hd</span><br><span class="line">cinema.width = <span class="number">2048</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"hd is still <span class="subst">\(hd.width)</span> pixels wide"</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>类是引用类型</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tenEighty = <span class="type">VideoMode</span>()</span><br><span class="line">tenEighty.resolution = hd</span><br><span class="line">tenEighty.interlaced = <span class="literal">true</span></span><br><span class="line">tenEighty.name = <span class="string">"1080i"</span></span><br><span class="line">tenEighty.frameRate = <span class="number">25.0</span></span><br><span class="line"><span class="keyword">let</span> alsoTenEighty = tenEighty</span><br><span class="line">alsoTenEighty.frameRate = <span class="number">30.0</span></span><br><span class="line">tenEighty.frameRate</span><br><span class="line"><span class="comment">// 恒等运算符:判定两个常量或者变量是否引用同一个类实例</span></span><br><span class="line">tenEighty === alsoTenEighty</span><br></pre></td></tr></table></figure>
-</li>
+<li>结构体和类都使用构造器语法来生成新的实例， <code>()</code>是最简单的构造器语法。</li>
 </ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> someResolution = <span class="type">Resolution</span>()</span><br><span class="line"><span class="keyword">let</span> someVideoMode = <span class="type">VideoMode</span>()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结构体的成员逐一构造器</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> hd = <span class="type">Resolution</span>(width: <span class="number">1920</span>, height: <span class="number">1080</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结构体和枚举是值类型。所有的基本类型:整数(Integer)、浮 点数(floating-point)、布尔值(Boolean)、字符串(string)、数组(array)和字典(dictionary)，都是 值类型，并且在底层都是以结构体的形式所实现。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cinema = hd</span><br><span class="line">cinema.width = <span class="number">2048</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"hd is still <span class="subst">\(hd.width)</span> pixels wide"</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>类是引用类型</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tenEighty = <span class="type">VideoMode</span>()</span><br><span class="line">tenEighty.resolution = hd</span><br><span class="line">tenEighty.interlaced = <span class="literal">true</span></span><br><span class="line">tenEighty.name = <span class="string">"1080i"</span></span><br><span class="line">tenEighty.frameRate = <span class="number">25.0</span></span><br><span class="line"><span class="keyword">let</span> alsoTenEighty = tenEighty</span><br><span class="line">alsoTenEighty.frameRate = <span class="number">30.0</span></span><br><span class="line">tenEighty.frameRate</span><br><span class="line"><span class="comment">// 恒等运算符:判定两个常量或者变量是否引用同一个类实例</span></span><br><span class="line">tenEighty === alsoTenEighty</span><br></pre></td></tr></table></figure>
 <h3 id="建议选择结构体的情况："><a href="#建议选择结构体的情况：" class="headerlink" title="建议选择结构体的情况："></a>建议选择结构体的情况：</h3><ul>
 <li>该数据结构的主要目的是用来封装少量相关简单数据值。</li>
 <li>有理由预计该数据结构的实例在被赋值或传递时，封装的数据将会被拷贝而不是被引用。 </li>
@@ -523,7 +526,7 @@
 <li>该数据结构不需要去继承另一个既有类型的属性或者行为。</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width: <span class="type">Double</span> = <span class="number">1.0</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Double</span> = <span class="number">1.0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Path</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> start: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> length: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> y: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> z: <span class="type">Double</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Swift中的String，Array和Dictionary是值类型，OC中的NSString， NSArray和NSDictionary是引用类型</p>
+<p>Swift中的<code>String</code>，<code>Array</code>和<code>Dictionary</code>是值类型，OC中的<code>NSString</code>， <code>NSArray</code>和<code>NSDictionary</code>是引用类型</p>
 <blockquote>
 <p>playground文件在<a href="https://github.com/andyRon/LearnSwift" target="_blank" rel="noopener">andyRon/LearnSwift</a></p>
 </blockquote>
@@ -591,7 +594,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年10月15日 - 18:35
+      2018年12月26日 - 17:25
     </li>
 
 
@@ -610,6 +613,18 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/类/" rel="tag"><i class="fa fa-tag"></i> 类</a>
+          
+            <a href="/tags/结构体/" rel="tag"><i class="fa fa-tag"></i> 结构体</a>
+          
+            <a href="/tags/Classes/" rel="tag"><i class="fa fa-tag"></i> Classes</a>
+          
+            <a href="/tags/Structures/" rel="tag"><i class="fa fa-tag"></i> Structures</a>
+          
+        </div>
       
 
       
@@ -711,7 +726,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">170</span>
+                <span class="site-state-item-count">171</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -733,7 +748,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">128</span>
+                <span class="site-state-item-count">155</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -881,7 +896,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共245.6k字</span>
+  <span class="post-count">  全站共246.0k字</span>
 
 </div>
 
