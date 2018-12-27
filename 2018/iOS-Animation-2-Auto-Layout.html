@@ -104,13 +104,13 @@
 
 
 
-<meta name="description" content="自动布局(Auto Layout) 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。 自动布局背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系来定义应用程序的UI元素的布局。 我们平常开发时已将自动布局用于静态的布局，在本文中将学习使用约束来设置动画。">
+<meta name="description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。文中详细代码都放在我的Github上 andyRon/LearniOSAnimations。  自动布局(Auto Layout) 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。 自动布局背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系">
 <meta name="keywords" content="iOS动画,自动布局,Auto Layout">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统学习iOS动画之二：自动布局">
 <meta property="og:url" content="http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="自动布局(Auto Layout) 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。 自动布局背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系来定义应用程序的UI元素的布局。 我们平常开发时已将自动布局用于静态的布局，在本文中将学习使用约束来设置动画。">
+<meta property="og:description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。文中详细代码都放在我的Github上 andyRon/LearniOSAnimations。  自动布局(Auto Layout) 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。 自动布局背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxcjf2es69j30et07nglp.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxcjoqulgej31ak0tsq4n.jpg">
@@ -126,10 +126,10 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fw8pwyg73og308s0fnjw3.gif">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fw8q0dbfjcg308s0fndid.gif">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fw8qbtmmeag308s0fnafk.gif">
-<meta property="og:updated_time" content="2018-12-21T04:20:21.434Z">
+<meta property="og:updated_time" content="2018-12-27T03:55:57.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统学习iOS动画之二：自动布局">
-<meta name="twitter:description" content="自动布局(Auto Layout) 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。 自动布局背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系来定义应用程序的UI元素的布局。 我们平常开发时已将自动布局用于静态的布局，在本文中将学习使用约束来设置动画。">
+<meta name="twitter:description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。文中详细代码都放在我的Github上 andyRon/LearniOSAnimations。  自动布局(Auto Layout) 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。 自动布局背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系">
 <meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxcjf2es69j30et07nglp.jpg">
 
 
@@ -468,7 +468,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,662 字
+                  : 1,693 字
                 </span>
               
 
@@ -502,7 +502,10 @@
       
 
       
-        <p><strong>自动布局(Auto Layout)</strong> 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。</p>
+        <blockquote>
+<p>本文是我学习<a href="https://store.raywenderlich.com/products/ios-animations-by-tutorials" target="_blank" rel="noopener">《iOS Animations by Tutorials》</a> 笔记中的一篇。<br>文中详细代码都放在我的Github上 <a href="https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials" target="_blank" rel="noopener">andyRon/LearniOSAnimations</a>。</p>
+</blockquote>
+<p><strong>自动布局(Auto Layout)</strong> 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。</p>
 <p><strong>自动布局</strong>背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系来定义应用程序的UI元素的布局。</p>
 <p>我们平常开发时已将自动布局用于静态的布局，在本文中将学习使用约束来设置动画。</p>
 <a id="more"></a>
@@ -646,7 +649,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月21日 - 12:20
+      2018年12月27日 - 11:55
     </li>
 
 
@@ -946,7 +949,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共246.0k字</span>
+  <span class="post-count">  全站共246.1k字</span>
 
 </div>
 

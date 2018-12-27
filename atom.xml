@@ -39,9 +39,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="有序数组" scheme="http://andyron.com/tags/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/"/>
     
@@ -74,9 +74,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="固定大小数组" scheme="http://andyron.com/tags/%E5%9B%BA%E5%AE%9A%E5%A4%A7%E5%B0%8F%E6%95%B0%E7%BB%84/"/>
     
@@ -108,9 +108,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="快速排序" scheme="http://andyron.com/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
     
@@ -123,11 +123,14 @@
     <link href="http://andyron.com/2018/iOS-Animation-7-other-Animations.html"/>
     <id>http://andyron.com/2018/iOS-Animation-7-other-Animations.html</id>
     <published>2018-12-18T09:22:00.000Z</published>
-    <updated>2018-12-21T04:25:48.592Z</updated>
+    <updated>2018-12-27T03:56:24.411Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;前面学习很多动画方面的知识，但有两个更专业的主题不适合前面的任何部分。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;前面学习很多动画方面的知识，但有两个更专业的主题不适合前面的任何部分。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;预览：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#26-粒子发射器&quot;&gt;26-粒子发射器&lt;/a&gt; —— 学习如何创建粒子发射器并创建以下降雪效果。       &lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#27-UIImageView的帧动画&quot;&gt;27-UIImageView的帧动画&lt;/a&gt; ——  通过将帧动画与传统视图动画相结合，创建类似卡通的效果。&lt;/p&gt;
@@ -146,11 +149,14 @@
     <link href="http://andyron.com/2018/iOS-Animation-6-3D-Animations.html"/>
     <id>http://andyron.com/2018/iOS-Animation-6-3D-Animations.html</id>
     <published>2018-12-17T08:22:00.000Z</published>
-    <updated>2018-12-21T04:20:15.376Z</updated>
+    <updated>2018-12-27T03:56:12.522Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNbRwgy1fx962j0d7jj309a03g0sj.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;核心动画&lt;/strong&gt;可以帮助我们摆脱这个二维世界; 虽然它不是真正的3D框架，但&lt;strong&gt;核心动画&lt;/strong&gt;有很多好的方法可以帮助我们在3D空间中描绘二维对象。&lt;/p&gt;
 &lt;p&gt;换句话说，图层和动画仍然以二维方式进行描绘，但可以在3D空间中旋转和定位每个元素的2D平面，如下所示：&lt;/p&gt;
@@ -174,11 +180,14 @@
     <link href="http://andyron.com/2018/iOS-Animation-4-View-Controller-Transition-Animations.html"/>
     <id>http://andyron.com/2018/iOS-Animation-4-View-Controller-Transition-Animations.html</id>
     <published>2018-12-16T04:22:00.000Z</published>
-    <updated>2018-12-21T04:46:07.901Z</updated>
+    <updated>2018-12-27T03:56:07.179Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，&lt;strong&gt;视图控制器的转场动画(View Controller Transition Animations)&lt;/strong&gt;。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，&lt;strong&gt;视图控制器的转场动画(View Controller Transition Animations)&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。&lt;/p&gt;
 &lt;p&gt;在本文，将学习如何使用动画创建自己的自定义视图控制器转换。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;预览：&lt;/strong&gt;&lt;/p&gt;
@@ -209,11 +218,14 @@
     <link href="http://andyron.com/2018/iOS-Animation-3-Layer-Animations.html"/>
     <id>http://andyron.com/2018/iOS-Animation-3-Layer-Animations.html</id>
     <published>2018-12-15T12:22:00.000Z</published>
-    <updated>2018-12-21T04:23:04.911Z</updated>
+    <updated>2018-12-27T03:56:02.595Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-1-view-animation&quot;&gt;系统学习iOS动画之一：视图动画&lt;/a&gt; 学习了创建视图动画（View Animations），这一部分学习功能更强大、更偏底层的&lt;strong&gt;Core Animation(核心动画)&lt;/strong&gt; APIs。核心动画的这个名字可能令人有点误解，暂时可以理解为本文的标题&lt;strong&gt;图层动画(Layer Animations)&lt;/strong&gt;。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-1-view-animation&quot;&gt;系统学习iOS动画之一：视图动画&lt;/a&gt; 学习了创建视图动画（View Animations），这一部分学习功能更强大、更偏底层的&lt;strong&gt;Core Animation(核心动画)&lt;/strong&gt; APIs。核心动画的这个名字可能令人有点误解，暂时可以理解为本文的标题&lt;strong&gt;图层动画(Layer Animations)&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;在本书的这一部分中，将学习动画层而不是视图以及如何使用特殊图层。&lt;/p&gt;
 &lt;p&gt;图层是一个简单的模型类，它公开了许多属性来表示一些基于图像的内容。 每个&lt;code&gt;UIView&lt;/code&gt;都有一个图层支持(都有一个&lt;code&gt;layer&lt;/code&gt;属性)。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;视图 vs 图层&lt;/strong&gt;&lt;/p&gt;
@@ -262,11 +274,14 @@
     <link href="http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html"/>
     <id>http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html</id>
     <published>2018-12-14T12:22:00.000Z</published>
-    <updated>2018-12-21T04:20:21.434Z</updated>
+    <updated>2018-12-27T03:55:57.802Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;自动布局(Auto Layout)&lt;/strong&gt; 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;自动布局(Auto Layout)&lt;/strong&gt; 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;自动布局&lt;/strong&gt;背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系来定义应用程序的UI元素的布局。&lt;/p&gt;
 &lt;p&gt;我们平常开发时已将自动布局用于静态的布局，在本文中将学习使用约束来设置动画。&lt;/p&gt;
     
@@ -288,11 +303,14 @@
     <link href="http://andyron.com/2018/iOS-Animation-1-view-animation.html"/>
     <id>http://andyron.com/2018/iOS-Animation-1-view-animation.html</id>
     <published>2018-12-13T12:22:00.000Z</published>
-    <updated>2018-12-21T04:36:10.142Z</updated>
+    <updated>2018-12-27T03:55:37.866Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;这个部分介绍&lt;strong&gt;UIKit动画API&lt;/strong&gt;，这些API专门用于轻松制作&lt;strong&gt;视图动画(View Animations)&lt;/strong&gt;，同时避免&lt;strong&gt;核心动画(Core Animation)&lt;/strong&gt;(见&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-3-Layer-Animations&quot;&gt;系统学习iOS动画之三：图层动画&lt;/a&gt;)的复杂性。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个部分介绍&lt;strong&gt;UIKit动画API&lt;/strong&gt;，这些API专门用于轻松制作&lt;strong&gt;视图动画(View Animations)&lt;/strong&gt;，同时避免&lt;strong&gt;核心动画(Core Animation)&lt;/strong&gt;(见&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-3-Layer-Animations&quot;&gt;系统学习iOS动画之三：图层动画&lt;/a&gt;)的复杂性。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;UIKit动画&lt;/strong&gt;API不仅易于使用，而且提供了大量灵活性和强大功能，可以处理大多数（当然不是全部）动画要求。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;UIKit动画&lt;/strong&gt;API可以在屏幕上为最终继承自&lt;code&gt;UIView&lt;/code&gt;的任何对象设置动画，例如：&lt;code&gt;UILabel&lt;/code&gt;，&lt;code&gt;UIImageView&lt;/code&gt;，&lt;code&gt;UIButton&lt;/code&gt;等等，也可以是自己创建的任何自定义最终继承自&lt;code&gt;UIView&lt;/code&gt;类。&lt;/p&gt;
 &lt;p&gt;本文包括五个章节，完成两个项目&lt;strong&gt;BahamaAirLoginScreen&lt;/strong&gt;和&lt;strong&gt;Flight Info&lt;/strong&gt;。&lt;/p&gt;
@@ -319,7 +337,7 @@
     <link href="http://andyron.com/2018/iOS-Animation-0.html"/>
     <id>http://andyron.com/2018/iOS-Animation-0.html</id>
     <published>2018-12-12T12:22:00.000Z</published>
-    <updated>2018-12-21T04:17:19.754Z</updated>
+    <updated>2018-12-27T03:54:24.135Z</updated>
     
     <summary type="html">
     
@@ -362,9 +380,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="AVL树" scheme="http://andyron.com/tags/AVL%E6%A0%91/"/>
     
@@ -423,9 +441,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="二叉搜索树" scheme="http://andyron.com/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
     
@@ -458,9 +476,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="哈希表" scheme="http://andyron.com/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
@@ -541,9 +559,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="链表" scheme="http://andyron.com/tags/%E9%93%BE%E8%A1%A8/"/>
     
@@ -594,9 +612,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="基数排序" scheme="http://andyron.com/tags/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"/>
     
@@ -622,9 +640,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="计数排序" scheme="http://andyron.com/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/"/>
     
@@ -651,9 +669,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="希尔排序" scheme="http://andyron.com/tags/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"/>
     

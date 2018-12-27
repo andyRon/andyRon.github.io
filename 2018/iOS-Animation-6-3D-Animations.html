@@ -104,13 +104,13 @@
 
 
 
-<meta name="description" content="到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：  核心动画可以帮助我们摆脱这个二维世界; 虽然它不是真正的3D框架，但核心动画有很多好的方法可以帮助我们在3D空间中描绘二维对象。 换句话说，图层和动画仍然以二维方式进行描绘，但可以在3D空间中旋">
+<meta name="description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。文中详细代码都放在我的Github上 andyRon/LearniOSAnimations。  到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：  核心动画可">
 <meta name="keywords" content="iOS动画,3D动画">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统学习iOS动画之六：3D动画">
 <meta property="og:url" content="http://andyron.com/2018/iOS-Animation-6-3D-Animations.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：  核心动画可以帮助我们摆脱这个二维世界; 虽然它不是真正的3D框架，但核心动画有很多好的方法可以帮助我们在3D空间中描绘二维对象。 换句话说，图层和动画仍然以二维方式进行描绘，但可以在3D空间中旋">
+<meta property="og:description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。文中详细代码都放在我的Github上 andyRon/LearniOSAnimations。  到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：  核心动画可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fx962j0d7jj309a03g0sj.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fx9630g50tj30ab04jdfv.jpg">
@@ -133,10 +133,10 @@
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxvqcmw3j4j308w0fu0ym.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxvqjb5gwig308q0fo49f.gif">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxvr9roxswg308q0fo7wh.gif">
-<meta property="og:updated_time" content="2018-12-21T04:20:15.376Z">
+<meta property="og:updated_time" content="2018-12-27T03:56:12.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统学习iOS动画之六：3D动画">
-<meta name="twitter:description" content="到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：  核心动画可以帮助我们摆脱这个二维世界; 虽然它不是真正的3D框架，但核心动画有很多好的方法可以帮助我们在3D空间中描绘二维对象。 换句话说，图层和动画仍然以二维方式进行描绘，但可以在3D空间中旋">
+<meta name="twitter:description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。文中详细代码都放在我的Github上 andyRon/LearniOSAnimations。  到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：  核心动画可">
 <meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fx962j0d7jj309a03g0sj.jpg">
 
 
@@ -475,7 +475,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 4,098 字
+                  : 4,129 字
                 </span>
               
 
@@ -509,7 +509,10 @@
       
 
       
-        <p>到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：</p>
+        <blockquote>
+<p>本文是我学习<a href="https://store.raywenderlich.com/products/ios-animations-by-tutorials" target="_blank" rel="noopener">《iOS Animations by Tutorials》</a> 笔记中的一篇。<br>文中详细代码都放在我的Github上 <a href="https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials" target="_blank" rel="noopener">andyRon/LearniOSAnimations</a>。</p>
+</blockquote>
+<p>到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fx962j0d7jj309a03g0sj.jpg" alt=""></p>
 <p><strong>核心动画</strong>可以帮助我们摆脱这个二维世界; 虽然它不是真正的3D框架，但<strong>核心动画</strong>有很多好的方法可以帮助我们在3D空间中描绘二维对象。</p>
 <p>换句话说，图层和动画仍然以二维方式进行描绘，但可以在3D空间中旋转和定位每个元素的2D平面，如下所示：</p>
@@ -735,7 +738,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月21日 - 12:20
+      2018年12月27日 - 11:56
     </li>
 
 
@@ -1033,7 +1036,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共246.0k字</span>
+  <span class="post-count">  全站共246.1k字</span>
 
 </div>
 
