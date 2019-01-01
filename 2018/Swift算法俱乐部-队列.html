@@ -113,7 +113,7 @@
 <meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algor">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-beb7eb40981d277c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-01T02:00:59.176Z">
+<meta property="og:updated_time" content="2019-01-01T02:06:42.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Swift算法俱乐部-队列">
 <meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algor">
@@ -455,7 +455,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 2,495 字
+                  : 2,496 字
                 </span>
               
 
@@ -494,7 +494,8 @@
 <p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue" target="_blank" rel="noopener">swift-algorithm-club-cn/Queue</a></p>
 </blockquote>
 <hr>
-<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><blockquote>
+<p><strong>队列(Queue)</strong></p>
+<blockquote>
 <p>这个话题已经有个辅导<a href="https://www.raywenderlich.com/148141/swift-algorithm-club-swift-queue-data-structure" target="_blank" rel="noopener">文章</a></p>
 </blockquote>
 <p>队列的本质是一个数组，但只能从队尾添加元素，从队首移除元素。这保证了第一个入队的元素总是第一个出队。先到先得！</p>
@@ -636,7 +637,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年01月01日 - 10:00
+      2019年01月01日 - 10:06
     </li>
 
 
@@ -764,7 +765,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-count">172</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -786,7 +787,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">155</span>
+                <span class="site-state-item-count">157</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -906,7 +907,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#队列"><span class="nav-number">1.</span> <span class="nav-text">队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更加高效的队列"><span class="nav-number">1.2.</span> <span class="nav-text">更加高效的队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读"><span class="nav-number">1.3.</span> <span class="nav-text">扩展阅读</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更加高效的队列"><span class="nav-number">2.</span> <span class="nav-text">更加高效的队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读"><span class="nav-number">3.</span> <span class="nav-text">扩展阅读</span></a></li></ol></div>
             
 
           </div>
@@ -934,7 +935,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共246.1k字</span>
+  <span class="post-count">  全站共248.7k字</span>
 
 </div>
 
