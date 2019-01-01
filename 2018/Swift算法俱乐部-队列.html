@@ -104,18 +104,20 @@
 
 
 
-<meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algor">
 <meta name="keywords" content="算法与数据结构,swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Swift算法俱乐部-队列">
 <meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-队列.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algor">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-28T02:24:07.988Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-beb7eb40981d277c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-01T02:00:59.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Swift算法俱乐部-队列">
-<meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algor">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-beb7eb40981d277c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -487,7 +489,8 @@
       
 
       
-        <blockquote>
+        <p><img src="https://upload-images.jianshu.io/upload_images/1678135-beb7eb40981d277c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
 <p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue" target="_blank" rel="noopener">swift-algorithm-club-cn/Queue</a></p>
 </blockquote>
 <hr>
@@ -496,7 +499,7 @@
 </blockquote>
 <p>队列的本质是一个数组，但只能从队尾添加元素，从队首移除元素。这保证了第一个入队的元素总是第一个出队。先到先得！</p>
 <p>为什么要这样做呢？在很多算法的实现中，你可能需要将某些对象放到一个临时的列表中，之后再将其取出。通常加入和取出元素的顺序非常重要。</p>
-<p>队列可以保证元素存入和取出的顺序是先进先出(first-in first-out, FIFO)的，第一个入队的元素总是第一个出队，公平合理！<br>另外一个非常类似的数据结构是<a href="../Stack/">栈</a>，它是一个后进先出(last-in, first-out, LIFO)的结构。</p>
+<p>队列可以保证元素存入和取出的顺序是先进先出(first-in first-out, FIFO)的，第一个入队的元素总是第一个出队，公平合理！<br>另外一个非常类似的数据结构是<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Stack/" target="_blank" rel="noopener">栈</a>，它是一个后进先出(last-in, first-out, LIFO)的结构。</p>
 <p>举例来说，我们将一个数字入队：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue.enqueue(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
 <p>队列现在为 <code>[ 10 ]</code>。再将下一个数字入队：</p>
@@ -510,7 +513,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue.dequeue()</span><br></pre></td></tr></table></figure>
 <p>这条语句返回 <code>3</code>，下次调用 <code>dequeue</code> 将返回 <code>57</code>，以此类推。如果队列为空，出队操作将返回 <code>nil</code>，在有些实现中，会触发一个错误信息。</p>
 <blockquote>
-<p><strong>注意：</strong> 队列并不总是最好的选择，如果加入和删除元素的顺序无所谓的话，你可以选择使用<a href="../Stack/">栈</a>来达到目的。栈更加简单快速。</p>
+<p><strong>注意：</strong> 队列并不总是最好的选择，如果加入和删除元素的顺序无所谓的话，你可以选择使用<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Stack/" target="_blank" rel="noopener">栈</a>来达到目的。栈更加简单快速。</p>
 </blockquote>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>下面给出了一个简单粗暴的队列实现。它只是简单地包装了一下自带的数组，并提供了入队(enqueue)、出队(dequeue)和取得队首元素(peek)三个操作：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Queue</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> array = [<span class="type">T</span>]()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> isEmpty: <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> array.isEmpty</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> array.<span class="built_in">count</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">enqueue</span><span class="params">(<span class="number">_</span> element: T)</span></span> &#123;</span><br><span class="line">    array.append(element)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">dequeue</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</span><br><span class="line">    <span class="keyword">if</span> isEmpty &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> array.removeFirst()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> front: <span class="type">T</span>? &#123;</span><br><span class="line">    <span class="keyword">return</span> array.first</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -566,9 +569,9 @@
 <p>现在，如果你再次执行出队操作，数组将看起来像下面这样：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">q.dequeue()         <span class="comment">// "Tim"</span></span><br><span class="line">q.array             <span class="comment">// [&#123;Some "Grace"&#125;]</span></span><br><span class="line">q.<span class="built_in">count</span>             <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <p>在数组前面的 <code>nil</code> 已经被移除了，数组本身也没有空间浪费了。新版本的队列实现并没有比初版复杂很多，但现在出队操作的复杂度已经从当初的 <strong>O(n)</strong> 变为了现在的 <strong>O(1)</strong>，只是因为我们在数组的使用策略上耍了一点小心机。</p>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p>事实上，队列还有很多种其他的实现方式，例如可以使用<a href="../Linked%20List/">链表</a>、<a href="../Ring%20Buffer/">环形缓冲区</a>或是<a href="../Heap/">堆</a>来实现。</p>
-<p>队列有很多变体，包括<a href="../Deque/">双端队列</a>，一个两端都可以出队和入队的队列；<a href="../Priority%20Queue/">优先队列</a>，一个有序的队列，最重要的元素排在队首。</p>
-<p><em>作者：Matthijs Hollemans；译者：KSCO</em><br><em>校队：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em></p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p>事实上，队列还有很多种其他的实现方式，例如可以使用<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linked%20List/" target="_blank" rel="noopener">链表</a>、<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Ring%20Buffer/" target="_blank" rel="noopener">环形缓冲区</a>或是<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap/" target="_blank" rel="noopener">堆</a>来实现。</p>
+<p>队列有很多变体，包括<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Deque/" target="_blank" rel="noopener">双端队列</a>，一个两端都可以出队和入队的队列；<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Priority%20Queue/" target="_blank" rel="noopener">优先队列</a>，一个有序的队列，最重要的元素排在队首。</p>
+<p><em>作者：Matthijs Hollemans</em><br><em>译者：KSCO</em><br><em>校队：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em></p>
 
       
     </div>
@@ -633,7 +636,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年09月28日 - 10:24
+      2019年01月01日 - 10:00
     </li>
 
 
@@ -926,7 +929,7 @@
         <div class="copyright" >
   
   &copy;  2017 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
