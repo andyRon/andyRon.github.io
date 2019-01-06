@@ -2217,7 +2217,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 3,415 字
+                  : 3,419 字
                 </span>
               
 
@@ -2253,7 +2253,8 @@
       
         
           <h3 id="1-KVC-的定义"><a href="#1-KVC-的定义" class="headerlink" title="1. KVC 的定义"></a>1. KVC 的定义</h3><p><strong>键/值编码(Key-value coding，KVC)</strong> 可以允许开发者通过Key名访问对象的属性或给对象的属性赋值, 而不需要调用明确的存取方法，并有一组api供开发者使用，像操作字典一样操作对象属性/成员变量/关联对象。<br>这样就可以在 <em>运行时动态地访问和修改</em> 对象的属性。而不是在编译时确定。这种机制不属于Objective-C语言的特性，而是Cocoa提供的一种特性。</p>
-<p>通过定义一个<code>NSObject</code>的类别<code>NSKeyValueCoding</code>来实现KVC功能。因此所有继承了<code>NSObject</code>的类都支持KVC。<br><code>NSKeyValueCoding</code>的四个重要方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (nullable id)valueForKey:(NSString *)key;                          //直接通过Key来取值</span><br><span class="line">- (void)setValue:(nullable id)value forKey:(NSString *)key;          //通过Key来设值</span><br><span class="line">- (nullable id)valueForKeyPath:(NSString *)keyPath;                  //通过KeyPath来取值</span><br><span class="line">- (void)setValue:(nullable id)value forKeyPath:(NSString *)keyPath;  //通过KeyPath来设值</span><br></pre></td></tr></table></figure></p>
+<p>通过定义一个<code>NSObject</code>的类别<code>NSKeyValueCoding</code>来实现KVC功能。因此所有继承了<code>NSObject</code>的类都支持KVC。<br><code>NSKeyValueCoding</code>的四个重要方法：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span>)valueForKey:(<span class="built_in">NSString</span> *)key;                          <span class="comment">//直接通过Key来取值</span></span><br><span class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">nullable</span> <span class="keyword">id</span>)value forKey:(<span class="built_in">NSString</span> *)key;          <span class="comment">//通过Key来设值</span></span><br><span class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span>)valueForKeyPath:(<span class="built_in">NSString</span> *)keyPath;                  <span class="comment">//通过KeyPath来取值</span></span><br><span class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">nullable</span> <span class="keyword">id</span>)value forKeyPath:(<span class="built_in">NSString</span> *)keyPath;  <span class="comment">//通过KeyPath来设值</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/ios-oc-kvc-begin.html#more" rel="contents">
