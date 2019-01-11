@@ -1,0 +1,1698 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="google-site-verification" content="WbjivD7TTMEtYj5PSWVYMaX2uAfY6lr-R517vwDhLWo" />
+<meta name="baidu-site-verification" content="ZmrU9vDYWs" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法与数据结构,swift,堆,Heap," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="欣欣向戎" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="keywords" content="算法与数据结构,swift,堆,Heap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Swift算法俱乐部-堆">
+<meta property="og:url" content="http://andyron.com/2019/Swift算法俱乐部-堆.html">
+<meta property="og:site_name" content="欣欣向戎">
+<meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1fz2fdyqh68j30b407sjrb.jpg">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Heap1.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/LargeHeap.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Array.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/RegularTree.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/HeapShape.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/SortedArray.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/LargeHeap.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Heap1.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Insert1.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Insert2.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Insert3.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Heap1.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Remove1.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Remove2.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Remove3.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Remove4.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Heap1.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Remove5.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Heap1.png">
+<meta property="og:updated_time" content="2019-01-11T02:26:20.465Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】Swift算法俱乐部-堆">
+<meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1fz2fdyqh68j30b407sjrb.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andyron.com/2019/Swift算法俱乐部-堆.html"/>
+
+
+
+
+
+
+
+
+  <title>【译】Swift算法俱乐部-堆 | 欣欣向戎</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e29ae2ff2bac53a3addad74e238d0108";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/andyRon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欣欣向戎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">AndyRon's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2019/Swift算法俱乐部-堆.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【译】Swift算法俱乐部-堆</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-11T10:10:00+08:00">
+                2019-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/Swift算法俱乐部-堆.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/Swift算法俱乐部-堆.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/Swift算法俱乐部-堆.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-堆">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 4,746 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 17 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap" target="_blank" rel="noopener">swift-algorithm-club-cn/Heap</a></p>
+</blockquote>
+<hr>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fz2fdyqh68j30b407sjrb.jpg" alt=""></p>
+<p><strong>堆(Heap)</strong></p>
+<blockquote>
+<p>这个话题已经有个辅导<a href="https://www.raywenderlich.com/160631/swift-algorithm-club-heap-and-priority-queue-data-structure" target="_blank" rel="noopener">文章</a></p>
+</blockquote>
+<p>堆是数组内的<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Tree/" target="_blank" rel="noopener">二叉树</a>，因此它不使用父/子指针。 堆基于“堆属性”进行排序，“堆属性”确定树中节点的顺序。</p>
+<p>堆的一般用途：</p>
+<ul>
+<li>构建<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Priority%20Queue" target="_blank" rel="noopener">优先队列</a>。</li>
+<li>支持<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap%20Sort/" target="_blank" rel="noopener">堆排序</a>。</li>
+<li>快速计算集合中最大（或最小）值。</li>
+<li>给你的非程序员朋友留下深刻影响。</li>
+</ul>
+<a id="more"></a>
+<h2 id="堆属性"><a href="#堆属性" class="headerlink" title="堆属性"></a>堆属性</h2><p>有两种堆：<em>max-heap</em> 和 <em>min-heap</em>，它们存储树节点的顺序不同。</p>
+<p>在<em>max-heap</em>中，每个父节点的值大于其子节点。 在<em>min-heap</em>中，每个父节点的值都小于其子节点。 这称为“堆属性”，对于树中的每个节点都是如此。</p>
+<p>一个例子：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Heap1.png" alt="A max-heap"></p>
+<p>这是一个<em>max-heap</em>，因为每个父节点都大于其子节点。 <code>(10)</code>大于<code>(7)</code>和<code>(2)</code>。 <code>(7)</code>大于<code>(5)</code>和<code>(1)</code>。</p>
+<p>堆属性的结果是，<em>max-heap</em>始终将其最大项存储在树的根节点中。 对于<em>min-heap</em>，根节点始终是树中的最小项。 堆属性很有用，因为堆通常用作<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Priority%20Queue/" target="_blank" rel="noopener">优先队列</a>来快速访问“最重要的”（<strong>译注：</strong>最大或最小）元素。</p>
+<blockquote>
+<p> <strong>注意：</strong> 堆的根节点是最大或最小元素，但其他元素的排序顺序是不可预测的。例如，最大元素始终位于<em>max-heap</em>中的索引0处，但最小元素不一定是最后一个元素。 —— 唯一的保证是，最小元素是叶节点之一，但不知道是哪一个。</p>
+</blockquote>
+<h2 id="堆与常规树对比"><a href="#堆与常规树对比" class="headerlink" title="堆与常规树对比"></a>堆与常规树对比</h2><p>堆不是二叉搜索树的替代品，它们之间存在相似之处和不同之处。 以下是一些主要差异：</p>
+<p><strong>节点的顺序。</strong>在<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Search%20Tree/" target="_blank" rel="noopener">二叉搜索树（BST）</a>中，左子节点必须小于其父节点，右子节点必须更大。 堆不是这样。 在<em>max-heap</em>中，两个子节点必须小于父节点，而在<em>min-heap</em>中，子节点必须大于父节点。</p>
+<p><strong>内存。</strong>传统的树比它们存储的数据占用更多的内存。 需要为节点对象和指向左/右子节点的指针分配额外的存储空间。 堆只使用普通数组进行存储，不使用指针。</p>
+<p><strong>平衡。</strong> 二叉搜索树（BST）必须“平衡”，以便大多数操作具有<strong>O(log n)</strong>性能。 您可以按随机顺序插入和删除数据，也可以使用<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/AVL%20Tree/" target="_blank" rel="noopener">AVL树</a>或<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Red-Black%20Tree/" target="_blank" rel="noopener">红黑树</a>，但 我们实际上并不需要对整个树进行排序。 我们只是希望实现堆属性，因此平衡不是问题。 由于堆的结构方式，堆可以保证 <strong>O(log n)</strong> 的性能。</p>
+<p><strong>搜索。</strong> 虽然在二叉树中搜索速度很快，但在堆中搜索速度很慢。 搜索不是堆中的最高优先级，因为堆的目的是将最大（或最小）节点放在前面并允许相对快速的插入和删除。</p>
+<h2 id="数组中的树"><a href="#数组中的树" class="headerlink" title="数组中的树"></a>数组中的树</h2><p>用数组实现树状结构似乎比较奇怪，但它在时间和空间上都很高效的。</p>
+<p>上面例子中的树用数组存储为：</p>
+<pre><code>[ 10, 7, 2, 5, 1 ]
+</code></pre><p>这里的所有了！ 我们不需要比这个简单数组更多的存储空间了。</p>
+<p>那么，如果不允许使用任何指针，我们如何知道哪些节点是父节点，哪些节点是子节点？ 好问题！树节点的数组索引与其父节点和子节点的数组索引之间存在明确定义的关系。</p>
+<p>如果<code>i</code>是节点的索引，则以下公式给出其父节点和子节点的数组索引：</p>
+<pre><code>parent(i) = floor((i - 1)/2)
+left(i)   = 2i + 1
+right(i)  = 2i + 2
+</code></pre><p>注意<code>right(i)</code>只是<code>left(i)+ 1</code>。 左侧和右侧子节点始终紧挨着存储。</p>
+<p>对上面的例子使用这些公式。 填写数组索引，我们应该得到数组中父节点和子节点的位置：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">节点</th>
+<th style="text-align:center">数组中的索引(<code>i</code>)</th>
+<th style="text-align:center">父节点索引</th>
+<th style="text-align:center">左子节点索引</th>
+<th style="text-align:center">右子节点索引</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">10</td>
+</tr>
+</tbody>
+</table>
+<p>验证这些数组索引确实对应于上面树的图片。</p>
+<blockquote>
+<p><strong>注意：</strong> 根节点<code>(10)</code>没有父节点，因为<code>-1</code>不是有效的数组索引。 同样，节点<code>(2)</code>，<code>(5)</code>和<code>(1)</code>没有子节点，因为那些索引大于数组大小，所以用它们之前我们总是要确保我们计算的索引实际上是有效的。</p>
+</blockquote>
+<p>回想一下，在<em>max-heap</em>中，父节点的值总是大于（或等于）其子节点的值。 这意味着对于所有数组索引<code>i</code>必须满足以下条件：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array[parent(i)] &gt;= array[i]</span><br></pre></td></tr></table></figure>
+<p>验证此堆属性是否适用于示例堆中的数组。</p>
+<p>如您所见，这些等式允许我们在不需要指针的情况下找到任何节点的父索引或子索引。 这样消除了使用指针的复杂，这是一种权衡：我们节省了内存空间，但需要额外的计算。 幸运的是，计算速度很快，只需要 <strong>O(1)</strong> 时间。</p>
+<p>理解树中数组索引和位置之间的这种关系很重要。 下面👇是一个更大的堆，有15个节点分为四个级别：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/LargeHeap.png" alt="Large heap"></p>
+<p>此图片中的数字不是节点的值，而是存储节点的数组索引！ 下面👇是数组索引对应树的不同级别：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Array.png" alt="The heap array"></p>
+<p>要使公式起作用，父节点必须出现在数组中的子节点之前。 你可以在上面的图片中看到。</p>
+<p>请注意，此方案有局限性。 您可以使用常规二叉树执行以下操作，但不能使用堆执行以下操作：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/RegularTree.png" alt="Impossible with a heap"></p>
+<p>除非当前最低级别已满，否则无法开启新级别，因此堆总是具有这种形状：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/HeapShape.png" alt="The shape of a heap"></p>
+<blockquote>
+<p><strong>注意：</strong> 您<em>可以</em>使用堆模拟常规二叉树，但这会浪费空间，您需要将一些数组索引标记为空。</p>
+</blockquote>
+<p>突击测验！ 假设我们有数组：</p>
+<pre><code>[ 10, 14, 25, 33, 81, 82, 99 ]
+</code></pre><p>这是一个有效的堆吗？ 答案是肯定的！ 从低到高的排序数组是有效的<em>min-heap</em>。 我们可以按如下方式绘制这个堆：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/SortedArray.png" alt="A sorted array is a valid heap"></p>
+<p>堆属性适用于每个节点，因为父节点始终小于其子节点。 （自己验证从高到低排序的数组始终是有效的<em>max-heap</em>。）</p>
+<blockquote>
+<p><strong>注意：</strong>但并非每个<em>min-heap</em>都必须是一个排序数组！ 排序数组只是一种特殊情况。 要将堆重新转换为已排序的数组，需要使用<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap%20Sort/" target="_blank" rel="noopener">堆排序</a>。</p>
+</blockquote>
+<h2 id="更多数学！"><a href="#更多数学！" class="headerlink" title="更多数学！"></a>更多数学！</h2><p>如果你很好奇，这里有一些描述堆的某些属性的公式。 你不需要知道这些，但它们有时会派上用场。 可以跳过此部分！</p>
+<p>树的<em>height</em>定义为从根节点到最低叶节点所需的步数，或者更正式：<em>height</em>是节点之间的最大边数。 高度<em>h</em>的堆具有<em>h + 1</em>级别。</p>
+<p>这个堆的高度为3，所以它有4个级别：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/LargeHeap.png" alt="Large heap"></p>
+<p>具有<em>n</em>个节点的堆具有高度<em>h = floor(log2(n))</em>。 这是因为我们总是在添加新级别之前完全填满最低级别。 该示例有15个节点，因此高度为 <code>floor(log2(15)) = floor(3.91) = 3</code>。</p>
+<p>如果最低级别已满，则该级别包含 <em>2^h</em> 个节点。 它上面的树的其余部分包含 <em>2^h - 1</em> 个节点。 上面示例就是：最低级别有8个节点，实际上是 <code>2^3 = 8</code> 。 前三个级别包含总共7个节点，即<code>2^3 - 1 = 8 - 1 = 7</code>。</p>
+<p>因此，整个堆中的节点总数<em>n</em> 为 <em>2^(h+1) - 1</em>。 在示例中，<code>2^4 - 1 = 16 - 1 = 15</code>。</p>
+<p>在<em>n</em>个元素堆中，高度为<em>h</em>的最多有 <em>ceil(n/2^(h+1))</em> 个的节点。（<strong>译注：</strong>示例中h为0时，<code>ceil(15/2^(0+1)) = 8</code>，h为1时,<code>ceil(15/2^(1+1)) = 4</code>）</p>
+<p>叶节点总是位于数组索引 <em>floor(n/2)</em> 到 <em>n-1</em>。(<strong>译注：</strong> <code>7 ~ 14</code>) 我们将利用这一事实从数组中快速构建堆。 如果您不相信，请验证此示例。;-)</p>
+<p>只是一些数学就能照亮你的一天。☀️</p>
+<h2 id="你能用堆做什么？"><a href="#你能用堆做什么？" class="headerlink" title="你能用堆做什么？"></a>你能用堆做什么？</h2><p>在插入或删除元素之后，有两个必要的原始操作来确保堆是有效的<em>max-heap</em>或<em>min-heap</em>：</p>
+<ul>
+<li><p><code>shiftUp()</code>：如果元素比其父元素更大（<em>max-heap</em>）或更小（<em>min-heap</em>），则需要与父元素交换， 这使元素向上移动。</p>
+</li>
+<li><p><code>shiftDown()</code>。 如果元素比子元素小（max-heap）或更大（min-heap），这个操作使元素向下移动，也称为“堆化(heapify)”。</p>
+</li>
+</ul>
+<p>向上或向下移动是一个递归过程，需要<strong>O(log n)</strong>时间。</p>
+<p>以下是基于原始操作的其他操作：</p>
+<ul>
+<li><p><code>insert(value)</code>：将新元素添加到堆的末尾，然后使用<code>shiftUp()</code>来修复堆。</p>
+</li>
+<li><p><code>remove()</code>：删除并返回最大值(max-heap）或最小值(min-heap）。为了填充元素删除后留下的位置，让最后一个元素移动到根位置，然后使用<code>shiftDown()</code>修复堆。 (有时称为“提取最小值”或“提取最大值”。）</p>
+</li>
+<li><p><code>removeAtIndex(index)</code>：类似<code>remove()</code>，不仅可以删除根节点，也可以从堆中删除任何节点。如果新元素与其子元素不规整，则调用<code>shiftDown()</code>;如果元素与其父元素不规整，则调用<code>shiftUp()</code>。</p>
+</li>
+<li><p><code>replace(index, value)</code>：为节点分配一个较小(<em>min-heap</em>）或较大(<em>max-heap</em>）的值。因为这会使堆属性失效，所以它使用<code>shiftUp()</code>来修复。 (也称为“减少键”和“增加键”。）</p>
+</li>
+</ul>
+<p>以上所有操作都需要时间<strong>O(log n)</strong>因为向上或向下移动是昂贵的。还有一些操作需要更多时间：</p>
+<ul>
+<li><p><code>search(value)</code>。堆不是为高效搜索而构建的，但<code>replace()</code>和<code>removeAtIndex()</code>操作需要节点的数组索引，因此您需要找到该索引。时间：<strong>O(n)</strong>。</p>
+</li>
+<li><p><code>buildHeap(array)</code>：通过重复调用<code>insert()</code>将数组(未排序的）转换为堆。如果您对此很聪明，可以在<strong>O(n)</strong>时间内完成。</p>
+</li>
+<li><p><a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap%20Sort/" target="_blank" rel="noopener">堆排序</a>。由于堆是一个数组，我们可以使用它的唯一属性将数组从低到高排序。时间：<strong>O(n lg n)。</strong></p>
+</li>
+</ul>
+<p>堆还有一个<code>peek()</code>函数，它返回最大(<em>max-heap</em>）或最小(<em>min-heap</em>）元素，而不从堆中删除它。时间：<strong>O(1)</strong>。</p>
+<blockquote>
+<p><strong>注意：</strong> 到目前为止，您将使用堆执行的最常见操作是使用<code>insert()</code>插入新值，并使用<code>remove()</code>删除最大值或最小值。 两者都需要<strong>O(log n)</strong>时间。 其他操作用来支持更高级的使用，例如构建优先队列，其中项目的“重要性”在添加到队列后可以改变。</p>
+</blockquote>
+<h2 id="向堆中插入元素"><a href="#向堆中插入元素" class="headerlink" title="向堆中插入元素"></a>向堆中插入元素</h2><p>我们来看一个插入示例，详细了解其工作原理。 我们将值<code>16</code>插入此堆：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Heap1.png" alt="The heap before insertion"></p>
+<p>这个堆的数组是<code>[10, 7, 2, 5, 1]</code>。</p>
+<p>插入新项目的第一步是将其附加到数组的末尾。 该数组变为：</p>
+<pre><code>[ 10, 7, 2, 5, 1, 16 ]
+</code></pre><p>树结构如下：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Insert1.png" alt="The heap before insertion"></p>
+<p><code>(16)</code>被添加到最后一行的第一个可用空间。</p>
+<p>不幸的是，堆属性不再满足，因为<code>(2)</code>高于<code>(16)</code>，我们希望更高的数字高于低的数字。 (这是<em>max-heap</em>。)</p>
+<p>要恢复堆属性，我们交换<code>(16)</code>和<code>(2)</code>。</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Insert2.png" alt="The heap before insertion"></p>
+<p>我们还没有完成，因为<code>(10)</code>也小于<code>(16)</code>。 我们继续将其插入值与其父项交换，直到父项更大或到达树的顶部。 这称为<strong>shift-up</strong> 或 <strong>sifting</strong> ，并在每次插入后完成。 它会使一个太大或太小的数字“浮起”树。</p>
+<p>最后，我们得到：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Insert3.png" alt="The heap before insertion"></p>
+<p>现在每个父节点都比其子节点更大了。</p>
+<p>上移所需的时间与树的高度成正比，需要<strong>O(log n)</strong>时间。（将节点附加到数组末尾所需的时间仅为<strong>O(1)</strong>，因此不会降低它的速度。）</p>
+<h2 id="删除根节点"><a href="#删除根节点" class="headerlink" title="删除根节点"></a>删除根节点</h2><p>从树中移除<code>(10)</code>：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Heap1.png" alt="The heap before removal"></p>
+<p>顶部的空白怎么办？</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Remove1.png" alt="The root is gone"></p>
+<p>插入时，我们将新值放在数组的末尾。 在这里，我们做相反的事情：我们采用我们拥有的最后一个对象，将其直接移动到树的顶部，然后恢复堆属性。</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Remove2.png" alt="The last node goes to the root"></p>
+<p>让我们来看看如何<strong>shift-down</strong><code>(1)</code>。 要维护此<em>max-heap</em>的堆属性，我们希望顶部为最大数。 我们有两个交换位置的候选者：<code>(7)</code>和<code>(2)</code>。 选择这三个节点之间的最高数字位于顶部，那是<code>(7)</code>，所以交换<code>(1)</code>和<code>(7)</code>，得到下面👇的树：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Remove3.png" alt="The last node goes to the root"></p>
+<p>继续向下移动，直到节点没有任何子节点，或者它比两个子节点都大。 对于这个堆，只需要一个交换来恢复堆属性：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Remove4.png" alt="The last node goes to the root"></p>
+<p>完全向下移动所需的时间与树的高度成正比，这需要<strong>O(log n)</strong>时间。</p>
+<blockquote>
+<p><strong>注意：</strong> <code>shiftUp()</code>和<code>shiftDown()</code>一次只能修复一个异常元素。 如果错误的位置有多个元素，则需要为每个元素调用一次这些函数。</p>
+</blockquote>
+<h2 id="删除任意节点"><a href="#删除任意节点" class="headerlink" title="删除任意节点"></a>删除任意节点</h2><p>绝大多数情况下，将删除的是堆根节点，因为这是堆设计的目的。</p>
+<p>但是，删除任意元素可能很有用。 这是<code>remove()</code>的一般版本，可能涉及<code>shiftDown()</code>或<code>shiftUp()</code>。</p>
+<p>让我们再次采用前面的示例树，删除<code>(7)</code>：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Heap1.png" alt="The heap before removal"></p>
+<p>提醒一下，数组是：</p>
+<pre><code>[ 10, 7, 2, 5, 1 ]
+</code></pre><p>如您所知，删除元素可能会使max-heap或min-heap属性失效。 要解决这个问题，我们将要移除的节点与最后一个元素交换：</p>
+<pre><code>[ 10, 1, 2, 5, 7 ]
+</code></pre><p>最后一个元素是我们将返回的元素; 我们将调用<code>removeLast()</code>将其从堆中删除。 <code>(1)</code>现在是乱序的，因为它小于它的子节点，<code>(5)</code>是在树中应该更高。 我们调用<code>shiftDown()</code>来修复它。</p>
+<p>但是，向下移动并不是我们需要处理的唯一情况。 也可能发生新元素必须向上移动。 考虑如果从以下堆中删除<code>(5)</code>会发生什么：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Remove5.png" alt="We need to shift up"></p>
+<blockquote>
+<p>译注：这个的树对应的数组是<code>[10, 7, 9, 5, 1, 2, 8]</code>。</p>
+</blockquote>
+<p>现在<code>(5)</code>与<code>(8)</code>交换。 因为<code>(8)</code>比它的父节点(<code>(7)</code>)大，我们需要调用<code>shiftUp()</code>。</p>
+<h2 id="用数组创建堆"><a href="#用数组创建堆" class="headerlink" title="用数组创建堆"></a>用数组创建堆</h2><p>将数组转换为堆可以很方便。 只是对数组元素进行洗牌，直到满足堆属性。</p>
+<p>在代码中它看起来像这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">buildHeap</span><span class="params">(fromArray array: [T])</span></span> &#123;</span><br><span class="line">  <span class="keyword">for</span> value <span class="keyword">in</span> array &#123;</span><br><span class="line">    insert(value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们只要为数组中的每个值调用<code>insert()</code>。 简单但不是很高效。 这总共需要<strong>O(n log n)</strong>时间，因为有<strong>n</strong>个元素，每个插入需要<strong>log n</strong>时间。</p>
+<p>如果你没有跳过前面数学部分，你已经看到，对于任何堆，数组索引<em>n / 2</em>到<em>n-1</em>的元素都是树的叶节点。 我们可以简单地跳过那些叶子。 我们只需要处理其他节点，因为它们是有一个或多个子节点的父节点，因此可能是错误的顺序。</p>
+<p>代码:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">buildHeap</span><span class="params">(fromArray array: [T])</span></span> &#123;</span><br><span class="line">  elements = array</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">stride</span>(from: (nodes.<span class="built_in">count</span>/<span class="number">2</span>-<span class="number">1</span>), through: <span class="number">0</span>, by: -<span class="number">1</span>) &#123;</span><br><span class="line">    shiftDown(index: i, heapSize: elements.<span class="built_in">count</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里，<code>elements</code>是堆自己的数组。 我们从第一个非叶节点开始向后遍历这个数组，并调用<code>shiftDown()</code>。 这个简单的循环以正确的顺序放置这些节点以及我们跳过的叶节点。 这被称为<strong>Floyd算法</strong>，只需要<strong>O(n)</strong>时间。 ✌️</p>
+<h2 id="搜索堆"><a href="#搜索堆" class="headerlink" title="搜索堆"></a>搜索堆</h2><p>堆不能用于快速搜索，但如果要使用<code>removeAtIndex()</code>删除任意元素或使用<code>replace()</code>更改元素的值，则需要获取该元素的索引。搜索堆速度很慢。</p>
+<p>在<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Search%20Tree/" target="_blank" rel="noopener">二叉搜索树</a>中，根据节点的顺序，可以保证快速搜索。 由于堆以不同方式对其节点进行排序，因此二叉搜索不起作用，您需要检查树中的每个节点。</p>
+<p>再给出上面堆示例：</p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap/Images/Heap1.png" alt="The heap"></p>
+<p>如果我们想要搜索节点<code>(1)</code>的索引，我们可以通过线性搜索分步搜索数组<code>[10, 7, 2, 5, 1]</code>。</p>
+<p>即使堆属性没有考虑到搜索，我们仍然可以利用它。 我们知道在<em>max-heap</em>中父节点总是比它的子节点大，所以如果父节点已经小于我们要查找的值，我们可以忽略那些子节点(及其子节点等等）。</p>
+<p>假设我们想要查看堆是否包含值<code>8</code>(没有包含)。 我们从根<code>(10)</code>开始。 这不是我们想要的，所以我们递归地看看它的左右子节点。 左边的孩子是<code>(7)</code>。 这也不是我们想要的，但由于这是一个<em>max-heap</em>，我们知道查看<code>(7)</code>的子节点是没有意义的，它们总是小于<code>7</code>，因此左侧不会找到<code>8</code>。 同样，对于右节点，<code>(2)</code>，也找不到。</p>
+<p>尽管有一点优化，搜索仍然是<strong>O(n)</strong>操作。</p>
+<blockquote>
+<p><strong>注意：</strong> 有一种方法可以通过保留一个将节点值映射到索引的附加字典来将查找转换为<strong>O(1)</strong>操作。 如果你经常需要调用<code>replace()</code>来改变构建在堆上的<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Priority%20Queue/" target="_blank" rel="noopener">优先队列</a>中对象的“优先级”，这可能是值得做的。</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>有关用Swift代码实现，请参见<a href="https://github.com/andyRon/swift-algorithm-club-cn/blob/master/Heap/Heap.swift" target="_blank" rel="noopener">Heap.swift</a>。 大多数代码都很简单。 唯一棘手的是<code>shiftUp()</code>和<code>shiftDown()</code>。</p>
+<p>您已经知道有两种类型的堆：<em>max-heap</em>和<em>min-heap</em>。 它们之间的唯一区别在于它们如何对节点进行排序：首先是最大值或最小值。</p>
+<p>不是创建两个不同的版本，<code>MaxHeap</code>和<code>MinHeap</code>，而只有一个<code>Heap</code>对象，它需要一个<code>isOrderedBefore</code>闭包。 此闭包包含确定两个值的顺序的逻辑。 你之前可能已经看过了，因为它也是Swift的<code>sort()</code>的工作原理。</p>
+<p>要创建一个max-heap整数堆：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxHeap = <span class="type">Heap</span>&lt;<span class="type">Int</span>&gt;(<span class="built_in">sort</span>: &gt;)</span><br></pre></td></tr></table></figure>
+<p>要创建一个min-heap整数堆：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> minHeap = <span class="type">Heap</span>&lt;<span class="type">Int</span>&gt;(<span class="built_in">sort</span>: &lt;)</span><br></pre></td></tr></table></figure>
+<p>I just wanted to point this out, because where most heap implementations use the <code>&lt;</code> and <code>&gt;</code> operators to compare values, this one uses the <code>isOrderedBefore()</code> closure.<br>我只想指出这一点，因为大多数堆实现使用<code>&lt;</code>和<code>&gt;</code>运算符来比较值，这个使用<code>isOrderedBefore()</code>闭包。</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p><a href="https://en.wikipedia.org/wiki/Heap_%28data_structure%29" target="_blank" rel="noopener">Heap的维基百科</a></p>
+<p><em>作者：<a href="http://www.github.com/kevinrandrup" target="_blank" rel="noopener">Kevin Randrup</a>， Matthijs Hollemans</em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em>   </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AndyRon WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="AndyRon Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        <!-- 版权声明 -->
+
+
+  <ul class="post-copyright">
+
+
+    <li class="post-copyright-title">
+      <strong>本文标题：</strong>
+      【译】Swift算法俱乐部-堆
+    </li>
+
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyRon
+    </li>
+
+    <li class="post-copyright-date">
+      <strong>发布时间：</strong>
+      2019年01月11日 - 10:10
+    </li>
+
+    <li class="post-copyright-updated">
+      <strong>最后更新：</strong>
+      2019年01月11日 - 10:26
+    </li>
+
+
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andyron.com/2019/Swift算法俱乐部-堆.html" title="【译】Swift算法俱乐部-堆">http://andyron.com/2019/Swift算法俱乐部-堆.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
+          
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/堆/" rel="tag"><i class="fa fa-tag"></i> 堆</a>
+          
+            <a href="/tags/Heap/" rel="tag"><i class="fa fa-tag"></i> Heap</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/Swift算法俱乐部-双端队列.html" rel="next" title="【译】Swift算法俱乐部-双端队列">
+                <i class="fa fa-chevron-left"></i> 【译】Swift算法俱乐部-双端队列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="AndyRon" />
+          <p class="site-author-name" itemprop="name">AndyRon</p>
+           
+              <p class="site-description motion-element" itemprop="description">Just for fun.👨‍💻✍️🎨</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">173</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">159</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/andyRon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/efce1a2a95ab" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/andyronm" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AndyRon8" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:rongming.2008@163.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.appcoda.com" title="Appcoda" target="_blank">Appcoda</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/" title="阮一峰的个人网站" target="_blank">阮一峰的个人网站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.raywenderlich.com" title="Ray Wenderlich" target="_blank">Ray Wenderlich</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#堆属性"><span class="nav-number">1.</span> <span class="nav-text">堆属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆与常规树对比"><span class="nav-number">2.</span> <span class="nav-text">堆与常规树对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组中的树"><span class="nav-number">3.</span> <span class="nav-text">数组中的树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多数学！"><span class="nav-number">4.</span> <span class="nav-text">更多数学！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你能用堆做什么？"><span class="nav-number">5.</span> <span class="nav-text">你能用堆做什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向堆中插入元素"><span class="nav-number">6.</span> <span class="nav-text">向堆中插入元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除根节点"><span class="nav-number">7.</span> <span class="nav-text">删除根节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除任意节点"><span class="nav-number">8.</span> <span class="nav-text">删除任意节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用数组创建堆"><span class="nav-number">9.</span> <span class="nav-text">用数组创建堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索堆"><span class="nav-number">10.</span> <span class="nav-text">搜索堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">11.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读"><span class="nav-number">12.</span> <span class="nav-text">扩展阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AndyRon</span>
+  <span class="post-count">  全站共253.5k字</span>
+
+</div>
+
+
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+--!>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://http-andyron-com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://andyron.com/2019/Swift算法俱乐部-堆.html';
+          this.page.identifier = '2019/Swift算法俱乐部-堆.html';
+          this.page.title = '【译】Swift算法俱乐部-堆';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-andyron-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("rgq6Qsvb0ISrHdgsraNlqt7H-gzGzoHsz", "T35WL0YkQ4GVOUDOkizK5FAd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
