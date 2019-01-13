@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-01-11T02:26:20.465Z</updated>
+  <updated>2019-01-13T02:34:19.555Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -17,16 +17,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【译】Swift算法俱乐部-堆</title>
-    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%A0%86.html"/>
-    <id>http://andyron.com/2019/Swift算法俱乐部-堆.html</id>
-    <published>2019-01-11T02:10:00.000Z</published>
-    <updated>2019-01-11T02:26:20.465Z</updated>
+    <title>系统学习iOS动画之五：使用UIViewPropertyAnimator</title>
+    <link href="http://andyron.com/2019/iOS-Animation-5-UIViewPropertyAnimator.html"/>
+    <id>http://andyron.com/2019/iOS-Animation-5-UIViewPropertyAnimator.html</id>
+    <published>2019-01-13T02:30:00.000Z</published>
+    <updated>2019-01-13T02:34:19.555Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Heap&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;UIViewPropertyAnimator&lt;/code&gt;是从iOS10开始引入，它能够创建易于交互，可中断和/或可逆的视图动画。&lt;/p&gt;
+&lt;p&gt;这个类让某些类型的视图动画更容易创建，值得学习。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;UIViewPropertyAnimator&lt;/code&gt;可以在同一个类中方便地将许多API包装在一起，这样更容易使用。&lt;/p&gt;
+&lt;p&gt;此外，这个新类不能完全取代了&lt;code&gt;UIView.animate(withDuration...)&lt;/code&gt;API集。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;内容预览：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#20-UIViewPropertyAnimator入门&quot;&gt;20-UIViewPropertyAnimator入门&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#21-深入UIViewPropertyAnimator&quot;&gt;21-深入UIViewPropertyAnimator&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#22-用UIViewPropertyAnimator进行交互式动画&quot;&gt;22-用UIViewPropertyAnimator进行交互式动画&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#23-用UIViewPropertyAnimator自定义视图控制器转场&quot;&gt;23-用UIViewPropertyAnimator自定义视图控制器转场&lt;/a&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文的四个章节都是使用同一个项目 &lt;strong&gt;LockSearch&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="iOS-Animation" scheme="http://andyron.com/categories/iOS-Animation/"/>
+    
+    
+      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
+    
+      <category term="UIViewPropertyAnimator" scheme="http://andyron.com/tags/UIViewPropertyAnimator/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-堆</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%A0%86.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-堆.html</id>
+    <published>2019-01-11T02:10:00.000Z</published>
+    <updated>2019-01-11T02:39:38.725Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。  &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。  &lt;/p&gt;
+&lt;p&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。  &lt;/p&gt;
+&lt;p&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Heap&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNc79gy1fz2fdyqh68j30b407sjrb.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -379,7 +418,7 @@
     <link href="http://andyron.com/2018/iOS-Animation-1-view-animation.html"/>
     <id>http://andyron.com/2018/iOS-Animation-1-view-animation.html</id>
     <published>2018-12-13T12:22:00.000Z</published>
-    <updated>2018-12-27T03:55:37.866Z</updated>
+    <updated>2019-01-13T02:37:13.488Z</updated>
     
     <summary type="html">
     
@@ -413,7 +452,7 @@
     <link href="http://andyron.com/2018/iOS-Animation-0.html"/>
     <id>http://andyron.com/2018/iOS-Animation-0.html</id>
     <published>2018-12-12T12:22:00.000Z</published>
-    <updated>2018-12-27T03:54:24.135Z</updated>
+    <updated>2019-01-13T02:37:58.616Z</updated>
     
     <summary type="html">
     
@@ -422,7 +461,7 @@
 &lt;p&gt; &lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 全书分为7个部分，27小章节，内容非常丰富，我对应7个部分分别总结为7篇文章，有几篇文章可能比较长，特别是动图比较多，用手机看的小伙伴请慎重，对自己温柔一点🥴。&lt;/p&gt;
 &lt;p&gt;开发环境：&lt;strong&gt;Xcode 10.1, Swift 4.2, macOS Mojave 10.14.1&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;p&gt;目录可以很好看清整体脉络，每一篇文章的开始我也列出了小章节的题目，这样可以系统的学习iOS动画，那边有问题也好及时发先并对应到系统点上。要不可能越学越乱，这方面我自己深有体会的😕🤔。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-1-view-animation&quot;&gt;系统学习iOS动画之一：视图动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-2-Auto-Layout&quot;&gt;系统学习iOS动画之二：自动布局动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-3-Layer-Animations&quot;&gt;系统学习iOS动画之三：图层动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-4-View-Controller-Transition-Animations&quot;&gt;系统学习iOS动画之四：视图控制器的转场动画&lt;/a&gt;&lt;br&gt;系统学习iOS动画之五：使用UIViewPropertyAnimator&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-6-3D-Animations&quot;&gt;系统学习iOS动画之六：3D动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-7-other-Animations&quot;&gt;系统学习iOS动画之七：其它类型的动画&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-1-view-animation&quot;&gt;系统学习iOS动画之一：视图动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-2-Auto-Layout&quot;&gt;系统学习iOS动画之二：自动布局动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-3-Layer-Animations&quot;&gt;系统学习iOS动画之三：图层动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-4-View-Controller-Transition-Animations&quot;&gt;系统学习iOS动画之四：视图控制器的转场动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2019/iOS-Animation-5-UIViewPropertyAnimator&quot;&gt;系统学习iOS动画之五：使用UIViewPropertyAnimator&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-6-3D-Animations&quot;&gt;系统学习iOS动画之六：3D动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-7-other-Animations&quot;&gt;系统学习iOS动画之七：其它类型的动画&lt;/a&gt;  &lt;/p&gt;
     
     </summary>
     
@@ -666,34 +705,6 @@
       <category term="AVKit" scheme="http://andyron.com/tags/AVKit/"/>
     
       <category term="AVFoundation" scheme="http://andyron.com/tags/AVFoundation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-基数排序</title>
-    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F.html"/>
-    <id>http://andyron.com/2018/Swift算法俱乐部-基数排序.html</id>
-    <published>2018-11-06T06:30:00.000Z</published>
-    <updated>2018-11-06T06:23:52.289Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Radix%20Sort&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Radix Sort&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;基数排序-Radix-Sort&quot;&gt;&lt;a href=&quot;#基数排序-Radix-Sort&quot; class=&quot;headerlink&quot; title=&quot;基数排序(Radix Sort)&quot;&gt;&lt;/a&gt;基数排序(Radix Sort)&lt;/h1&gt;&lt;p&gt;基数排序是一种排序算法，它将整数数组作为输入，并使用排序子程序（通常是另一种有效的排序算法）来按整数基数或者它们的数字对整数进行排序。 Counting Sort和Bucket Sort通常用作Radix Sort的子程序。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="基数排序" scheme="http://andyron.com/tags/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
