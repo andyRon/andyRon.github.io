@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-01-13T02:46:27.861Z</updated>
+  <updated>2019-01-15T03:53:37.623Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-堆排序</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%A0%86%E6%8E%92%E5%BA%8F.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-堆排序.html</id>
+    <published>2019-01-15T03:15:00.000Z</published>
+    <updated>2019-01-15T03:53:37.623Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。  &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。  &lt;/p&gt;
+&lt;p&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。  &lt;/p&gt;
+&lt;p&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap%20Sort&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Heap Sort&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;堆排序-Heap-Sort&quot;&gt;&lt;a href=&quot;#堆排序-Heap-Sort&quot; class=&quot;headerlink&quot; title=&quot;堆排序(Heap Sort)&quot;&gt;&lt;/a&gt;堆排序(Heap Sort)&lt;/h1&gt;&lt;p&gt;使用堆将数组从低到高排序。( &lt;strong&gt;译注：&lt;/strong&gt; 也可以从高到低排序)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;堆&lt;/a&gt;是一个部分排序的二叉树，存储在数组中。 堆排序算法利用堆的结构来执行快速排序。&lt;/p&gt;
+&lt;p&gt;要从最低到最高排序，堆排序首先将未排序的数组转换为&lt;em&gt;max-heap&lt;/em&gt;，让数组中的第一个元素是最大的。&lt;/p&gt;
+&lt;p&gt;假设，需要排序的数组为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[ 5, 13, 2, 25, 7, 17, 20, 8, 4 ]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;首先变成了一个如下所示的&lt;em&gt;max-heap&lt;/em&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap%20Sort/Images/MaxHeap.png&quot; alt=&quot;The max-heap&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="堆排序" scheme="http://andyron.com/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="Heap Sort" scheme="http://andyron.com/tags/Heap-Sort/"/>
+    
+  </entry>
   
   <entry>
     <title>系统学习iOS动画之五：使用UIViewPropertyAnimator</title>
@@ -87,9 +126,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="堆" scheme="http://andyron.com/tags/%E5%A0%86/"/>
     
@@ -121,9 +160,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="双端队列" scheme="http://andyron.com/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/"/>
     
@@ -154,9 +193,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="有序数组" scheme="http://andyron.com/tags/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/"/>
     
@@ -189,9 +228,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="固定大小数组" scheme="http://andyron.com/tags/%E5%9B%BA%E5%AE%9A%E5%A4%A7%E5%B0%8F%E6%95%B0%E7%BB%84/"/>
     
@@ -223,9 +262,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="快速排序" scheme="http://andyron.com/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
     
@@ -496,9 +535,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="AVL树" scheme="http://andyron.com/tags/AVL%E6%A0%91/"/>
     
@@ -557,9 +596,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="二叉搜索树" scheme="http://andyron.com/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
     
@@ -592,9 +631,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="哈希表" scheme="http://andyron.com/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
@@ -675,36 +714,11 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
       <category term="链表" scheme="http://andyron.com/tags/%E9%93%BE%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS-tutorial-16：TravelVlogs——使用AVKit和AVFoundation创建视频应用</title>
-    <link href="http://andyron.com/2018/ios-tutorial-16-TravelVlogs.html"/>
-    <id>http://andyron.com/2018/ios-tutorial-16-TravelVlogs.html</id>
-    <published>2018-11-07T11:21:17.000Z</published>
-    <updated>2018-12-22T06:13:57.127Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;TravelVlogs项目是介绍如何使用AVKit和AVFoundation框架构建简单的视频流应用。&lt;/p&gt;
-&lt;h2 id=&quot;预览图&quot;&gt;&lt;a href=&quot;#预览图&quot; class=&quot;headerlink&quot; title=&quot;预览图&quot;&gt;&lt;/a&gt;预览图&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-4d2e3d6beb13a837.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
-    
-      <category term="iOS tutorial" scheme="http://andyron.com/categories/iOS/iOS-tutorial/"/>
-    
-    
-      <category term="AVKit" scheme="http://andyron.com/tags/AVKit/"/>
-    
-      <category term="AVFoundation" scheme="http://andyron.com/tags/AVFoundation/"/>
     
   </entry>
   
