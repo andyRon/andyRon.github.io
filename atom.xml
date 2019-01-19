@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-01-15T03:53:37.623Z</updated>
+  <updated>2019-01-19T14:35:40.308Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -17,11 +17,86 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【译】Swift算法俱乐部-Boyer-Moore字符串搜索</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-Boyer-Moore%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-Boyer-Moore字符串搜索.html</id>
+    <published>2019-01-19T14:20:00.000Z</published>
+    <updated>2019-01-19T14:35:40.308Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。  &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。  &lt;/p&gt;
+&lt;p&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。  &lt;/p&gt;
+&lt;p&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Boyer-Moore-Horspool&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Boyer-Moore String Search&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Boyer-Moore字符串搜索(Boyer-Moore String Search)&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个主题已经有教程 &lt;a href=&quot;https://www.raywenderlich.com/163964/swift-algorithm-club-booyer-moore-string-search-algorithm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;目标：在纯Swift中编写字符串搜索算法，而无需导入&lt;code&gt;Foundation&lt;/code&gt;或使用&lt;code&gt;NSString&lt;/code&gt;的&lt;code&gt;rangeOfString()&lt;/code&gt;方法。&lt;/p&gt;
+&lt;p&gt;换句话说，我们想在&lt;code&gt;String&lt;/code&gt;上实现一个&lt;code&gt;indexOf(pattern：String)&lt;/code&gt;扩展，它返回在字符串里面第一次出现搜索模式的&lt;code&gt;String.Index&lt;/code&gt;，如果找不到模式则返回&lt;code&gt;nil&lt;/code&gt; 。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="Boyer-Moore字符串搜索" scheme="http://andyron.com/tags/Boyer-Moore%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-暴力字符串搜索</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9A%B4%E5%8A%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-暴力字符串搜索.html</id>
+    <published>2019-01-19T14:15:00.000Z</published>
+    <updated>2019-01-19T14:30:05.933Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。  &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。  &lt;/p&gt;
+&lt;p&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。  &lt;/p&gt;
+&lt;p&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Brute-Force%20String%20Search&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Brute-Force String Search&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;暴力字符串搜索(Brute-Force String Search)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果不允许导入&lt;code&gt;Foundation&lt;/code&gt;并且不能使用&lt;code&gt;NSString&lt;/code&gt;的&lt;code&gt;rangeOfString()&lt;/code&gt;方法，那么如何在纯Swift中编写字符串搜索算法呢？&lt;br&gt;目标是在&lt;code&gt;String&lt;/code&gt;上实现&lt;code&gt;indexOf(pattern: String)&lt;/code&gt;扩展，返回第一次出现的搜索模式的&lt;code&gt;String.Index&lt;/code&gt;，如果在字符串中找不到模式，则返回&lt;code&gt;nil&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Input: &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; s = &lt;span class=&quot;string&quot;&gt;&quot;Hello, World&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.indexOf(&lt;span class=&quot;string&quot;&gt;&quot;World&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Output:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;Index&lt;/span&gt;?&amp;gt; &lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Input:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; animals = &lt;span class=&quot;string&quot;&gt;&quot;🦍🐢🐡🐮🦖🐋🐶🐬🐠🐔🐷🐙🐮🦟🦂🦜🦢🐨🦇🐐🦓&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;animals.indexOf(&lt;span class=&quot;string&quot;&gt;&quot;🐮&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Output:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;Index&lt;/span&gt;?&amp;gt; &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 牛的索引是6，而不是你想象的3，因为字符串为表情符号使用更多的存储空间。 &lt;code&gt;String.Index&lt;/code&gt;的实际值并不那么重要，只要它指向字符串中的正确字符。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="暴力字符串搜索" scheme="http://andyron.com/tags/%E6%9A%B4%E5%8A%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/"/>
+    
+      <category term="Brute-Force String Search" scheme="http://andyron.com/tags/Brute-Force-String-Search/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【译】Swift算法俱乐部-堆排序</title>
     <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%A0%86%E6%8E%92%E5%BA%8F.html"/>
     <id>http://andyron.com/2019/Swift算法俱乐部-堆排序.html</id>
     <published>2019-01-15T03:15:00.000Z</published>
-    <updated>2019-01-15T03:53:37.623Z</updated>
+    <updated>2019-01-19T14:26:30.341Z</updated>
     
     <summary type="html">
     
@@ -32,7 +107,8 @@
 &lt;p&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap%20Sort&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Heap Sort&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;h1 id=&quot;堆排序-Heap-Sort&quot;&gt;&lt;a href=&quot;#堆排序-Heap-Sort&quot; class=&quot;headerlink&quot; title=&quot;堆排序(Heap Sort)&quot;&gt;&lt;/a&gt;堆排序(Heap Sort)&lt;/h1&gt;&lt;p&gt;使用堆将数组从低到高排序。( &lt;strong&gt;译注：&lt;/strong&gt; 也可以从高到低排序)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;堆排序(Heap Sort)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用堆将数组从低到高排序。( &lt;strong&gt;译注：&lt;/strong&gt; 也可以从高到低排序)&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;堆&lt;/a&gt;是一个部分排序的二叉树，存储在数组中。 堆排序算法利用堆的结构来执行快速排序。&lt;/p&gt;
 &lt;p&gt;要从最低到最高排序，堆排序首先将未排序的数组转换为&lt;em&gt;max-heap&lt;/em&gt;，让数组中的第一个元素是最大的。&lt;/p&gt;
 &lt;p&gt;假设，需要排序的数组为：&lt;/p&gt;
@@ -638,87 +714,6 @@
       <category term="哈希表" scheme="http://andyron.com/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
       <category term="Hash Table" scheme="http://andyron.com/tags/Hash-Table/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读《思考，快与慢》—— 直觉快速解决大部分事情，慢下来理性解决小部分麻烦</title>
-    <link href="http://andyron.com/2018/%E6%80%9D%E8%80%83%EF%BC%8C%E5%BF%AB%E4%B8%8E%E6%85%A2.html"/>
-    <id>http://andyron.com/2018/思考，快与慢.html</id>
-    <published>2018-11-10T04:06:00.000Z</published>
-    <updated>2018-11-10T05:51:49.533Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-f5f01c4af0d49d1c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;思考，快与慢&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;作者和本书概要&quot;&gt;&lt;a href=&quot;#作者和本书概要&quot; class=&quot;headerlink&quot; title=&quot;作者和本书概要&quot;&gt;&lt;/a&gt;作者和本书概要&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;丹尼尔·卡尼曼&lt;/strong&gt;，美国普林斯顿大学教授，历史上第一位获得诺贝尔经济学奖的心理学家（2002年），&lt;strong&gt;行为经济学&lt;/strong&gt;的鼻祖。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://book.douban.com/subject/10785583/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《思考，快与慢》&lt;/a&gt;是行为经济学流派的经典力作，运用心理学理论和经济学分析结合的方法，第一次对于影响个人和群体经济决策的偏见问题进行深入分析。它认为人并不是理性的经济动物，相反在很多情况下并不理性，&lt;strong&gt;偏见&lt;/strong&gt;与生俱来，与直觉紧密相关。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="行为经济学" scheme="http://andyron.com/tags/%E8%A1%8C%E4%B8%BA%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
-    
-      <category term="偏见" scheme="http://andyron.com/tags/%E5%81%8F%E8%A7%81/"/>
-    
-      <category term="快思考" scheme="http://andyron.com/tags/%E5%BF%AB%E6%80%9D%E8%80%83/"/>
-    
-      <category term="慢思考" scheme="http://andyron.com/tags/%E6%85%A2%E6%80%9D%E8%80%83/"/>
-    
-      <category term="锚定效应" scheme="http://andyron.com/tags/%E9%94%9A%E5%AE%9A%E6%95%88%E5%BA%94/"/>
-    
-      <category term="典型性偏好" scheme="http://andyron.com/tags/%E5%85%B8%E5%9E%8B%E6%80%A7%E5%81%8F%E5%A5%BD/"/>
-    
-      <category term="光环效应" scheme="http://andyron.com/tags/%E5%85%89%E7%8E%AF%E6%95%88%E5%BA%94/"/>
-    
-      <category term="可得性偏好" scheme="http://andyron.com/tags/%E5%8F%AF%E5%BE%97%E6%80%A7%E5%81%8F%E5%A5%BD/"/>
-    
-      <category term="因果性偏好" scheme="http://andyron.com/tags/%E5%9B%A0%E6%9E%9C%E6%80%A7%E5%81%8F%E5%A5%BD/"/>
-    
-      <category term="框架效应" scheme="http://andyron.com/tags/%E6%A1%86%E6%9E%B6%E6%95%88%E5%BA%94/"/>
-    
-      <category term="禀赋效应" scheme="http://andyron.com/tags/%E7%A6%80%E8%B5%8B%E6%95%88%E5%BA%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-链表</title>
-    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E9%93%BE%E8%A1%A8.html"/>
-    <id>http://andyron.com/2018/Swift算法俱乐部-链表.html</id>
-    <published>2018-11-08T10:33:00.000Z</published>
-    <updated>2018-11-08T10:37:18.312Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linked%20List&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Linked List&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1678135-d7d3d78ad3f0af28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;链表(Linked List)&lt;/strong&gt;  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这个主题已经有辅导&lt;a href=&quot;https://www.raywenderlich.com/144083/swift-algorithm-club-swift-linked-list-data-structure&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;链表是一系列数据项，就像数组一样。 数组分配了一大块内存来存储对象，而链表中的元素在内存中是完全独立的对象，并通过链接连接：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;+--------+    +--------+    +--------+    +--------+
-|        |    |        |    |        |    |        |
-| node 0 |---&amp;gt;| node 1 |---&amp;gt;| node 2 |---&amp;gt;| node 3 |
-|        |    |        |    |        |    |        |
-+--------+    +--------+    +--------+    +--------+
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="链表" scheme="http://andyron.com/tags/%E9%93%BE%E8%A1%A8/"/>
     
   </entry>
   

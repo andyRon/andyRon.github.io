@@ -347,6 +347,418 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-24-access-control.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/swift-24-access-control.html" itemprop="url">以撸代码的形式学习Swift-24：访问控制(Access Control)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T13:44:52+08:00">
+                2017-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift/" itemprop="url" rel="index">
+                    <span itemprop="name">swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/swift-24-access-control.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/swift-24-access-control.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/swift-24-access-control.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-24：访问控制(Access Control)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 1,159 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>可以明确地给单个类型(类、结构体、枚举)设置访问级别，也可以给这些类型的属性、方法、构造器、下标等设置访问级别。协议也可以被限定在一定的范围内使用，包括协议里的全局常量、变量和函数。<br>为某些典型场景提供了默认的访问级别<br><em>实体(entities)</em> : 对于代码中可以设置访问级别的特性(属性、基本类型、函数等)一种统称</p>
+</blockquote>
+<h3 id="1-模块和源文件"><a href="#1-模块和源文件" class="headerlink" title="1 模块和源文件"></a>1 模块和源文件</h3><ul>
+<li><em>模块</em>：独立的代码单元</li>
+<li><em>框架或应用程序</em>会作为一个独立的模块来构建和发布</li>
+<li>一个模块可以使用import关键字导入另外一个模块</li>
+<li>Xcode的每个target(例如框架或应用程序)都被当作独立的模块处理</li>
+<li><em>源文件</em>：Swift中的源代码文件</li>
+</ul>
+<h3 id="2-访问级别（低→高）"><a href="#2-访问级别（低→高）" class="headerlink" title="2 访问级别（低→高）"></a>2 访问级别（低→高）</h3><ul>
+<li>open: 类似public。可以被访问和被继承</li>
+<li>public: 可以访问同一模块源文件中的任何实体，在模块外也可以通过导入该模块来访问源文件里的所有实体。可以被访问不可以被继承</li>
+<li>internal: 可以访问同一模块源文件中的任何实体，但是不能从模块外访问该模块源文件中的实体。通常情况下，某个接口只在应用程序或框架内部使用时，你可以将其设置为internal级别。</li>
+<li>fileprivate: 限制实体只能在所在的源文件内部使用。</li>
+<li>private: 只在定义的实体中使用</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/swift-24-access-control.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-3-speechframework.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/ios-tutorial-3-speechframework.html" itemprop="url">iOS tutorial 3：Speech Framework的简单使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T00:00:00+08:00">
+                2017-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/iOS-tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/ios-tutorial-3-speechframework.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/ios-tutorial-3-speechframework.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/ios-tutorial-3-speechframework.html" class="leancloud_visitors" data-flag-title="iOS tutorial 3：Speech Framework的简单使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 931 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-c43c2495b3351f65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在WWDC 2016时，Apple介绍了<a href="https://developer.apple.com/videos/play/wwdc2016/509/" target="_blank" rel="noopener"><strong>Speech framework</strong></a>，这是一个很有用的声音识别框架。实际上这是利用<strong>Siri</strong>进行声音识别。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/ios-tutorial-3-speechframework.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-23-generics.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -736,6 +1148,198 @@
   
   
 
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-document.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/swift-document.html" itemprop="url">swift的文档注释</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T00:00:00+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/swift-document.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/swift-document.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/swift-document.html" class="leancloud_visitors" data-flag-title="swift的文档注释">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 254 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在Xcode中<strong>Quick Help </strong>为开发者提供方便快捷的简洁文档查看方式。<strong>option+点击</strong>查看弹框，<strong>option+command+2</strong>在检查器中查看。<br><img src="https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/Art/MFR_quickhelp_eg_2x.png" alt=""><br>swift的中有两种注释方式，让Xcode在<strong>Quick Help</strong>中显示。这种注释可以认为是将文档以某种规范的格式嵌入在实际代码的上方，这样就可以通过某些工具自动生成漂亮的文档文件。这种内嵌式的文档在现代编程中是很普遍的。在swift中，这两种注释方式是：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/swift-document.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/ios-tutorial-2-facerecognition.html">
 
@@ -895,198 +1499,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/ios-tutorial-2-facerecognition.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-document.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/swift-document.html" itemprop="url">swift的文档注释</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T00:00:00+08:00">
-                2017-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/swift-document.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-document.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/swift-document.html" class="leancloud_visitors" data-flag-title="swift的文档注释">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  : 254 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  ≈ 1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在Xcode中<strong>Quick Help </strong>为开发者提供方便快捷的简洁文档查看方式。<strong>option+点击</strong>查看弹框，<strong>option+command+2</strong>在检查器中查看。<br><img src="https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/Art/MFR_quickhelp_eg_2x.png" alt=""><br>swift的中有两种注释方式，让Xcode在<strong>Quick Help</strong>中显示。这种注释可以认为是将文档以某种规范的格式嵌入在实际代码的上方，这样就可以通过某些工具自动生成漂亮的文档文件。这种内嵌式的文档在现代编程中是很普遍的。在swift中，这两种注释方式是：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/swift-document.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1861,400 +2273,10 @@
 
       
         
-          <h3 id="1-🌰"><a href="#1-🌰" class="headerlink" title="1 🌰"></a>1 🌰</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BlackjackCard</span> </span>&#123;  <span class="comment">// 二十一点</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// nested Suit enumeration</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Suit</span>: <span class="title">Character</span> </span>&#123;  <span class="comment">// 描述扑克牌的四种花色</span></span><br><span class="line">        <span class="keyword">case</span> spades = <span class="string">"♠"</span>, hearts = <span class="string">"♡"</span>, diamonds = <span class="string">"♢"</span>, clubs = <span class="string">"♣"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// nested Rank enumeration</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Rank</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">case</span> two = <span class="number">2</span>, three, four, five, six, seven, eight, nine, ten</span><br><span class="line">        <span class="keyword">case</span> jack, queen, king, ace</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Values</span> </span>&#123;  <span class="comment">// 用来反映Ace的两个数值()</span></span><br><span class="line">            <span class="keyword">let</span> first: <span class="type">Int</span>, second: <span class="type">Int</span>?</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> values: <span class="type">Values</span> &#123;</span><br><span class="line">            <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">            <span class="keyword">case</span> .ace:</span><br><span class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">1</span>, second: <span class="number">11</span>)</span><br><span class="line">            <span class="keyword">case</span> .jack, .queen, .king:</span><br><span class="line">                    <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">10</span>, second: <span class="literal">nil</span>)</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="keyword">self</span>.rawValue, second: <span class="literal">nil</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// BlackjackCard properties and methods</span></span><br><span class="line">    <span class="keyword">let</span> rank: <span class="type">Rank</span>, suit: <span class="type">Suit</span></span><br><span class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> output = <span class="string">"suit is <span class="subst">\(suit.rawValue)</span>,"</span></span><br><span class="line">        output += <span class="string">" value is <span class="subst">\(rank.values.first)</span>"</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> second = rank.values.second &#123;</span><br><span class="line">            output += <span class="string">" or <span class="subst">\(second)</span>"</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> theAceOfSpades = <span class="type">BlackjackCard</span>(rank: .ace, suit: .spades)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"theAceOfSpades: <span class="subst">\(theAceOfSpades.description)</span>"</span>)</span><br></pre></td></tr></table></figure>
+          <h3 id="1-🌰"><a href="#1-🌰" class="headerlink" title="1 🌰"></a>1 🌰</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BlackjackCard</span> </span>&#123;  <span class="comment">// 二十一点</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// nested Suit enumeration</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Suit</span>: <span class="title">Character</span> </span>&#123;  <span class="comment">// 描述扑克牌的四种花色</span></span><br><span class="line">        <span class="keyword">case</span> spades = <span class="string">"♠"</span>, hearts = <span class="string">"♡"</span>, diamonds = <span class="string">"♢"</span>, clubs = <span class="string">"♣"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// nested Rank enumeration</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Rank</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">case</span> two = <span class="number">2</span>, three, four, five, six, seven, eight, nine, ten</span><br><span class="line">        <span class="keyword">case</span> jack, queen, king, ace</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Values</span> </span>&#123;  <span class="comment">// 用来反映Ace的两个数值()</span></span><br><span class="line">            <span class="keyword">let</span> first: <span class="type">Int</span>, second: <span class="type">Int</span>?</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> values: <span class="type">Values</span> &#123;</span><br><span class="line">            <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">            <span class="keyword">case</span> .ace:</span><br><span class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">1</span>, second: <span class="number">11</span>)</span><br><span class="line">            <span class="keyword">case</span> .jack, .queen, .king:</span><br><span class="line">                    <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">10</span>, second: <span class="literal">nil</span>)</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="keyword">self</span>.rawValue, second: <span class="literal">nil</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// BlackjackCard properties and methods</span></span><br><span class="line">    <span class="keyword">let</span> rank: <span class="type">Rank</span>, suit: <span class="type">Suit</span></span><br><span class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> output = <span class="string">"suit is \(suit.rawValue),"</span></span><br><span class="line">        output += <span class="string">" value is \(rank.values.first)"</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> second = rank.values.second &#123;</span><br><span class="line">            output += <span class="string">" or \(second)"</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> theAceOfSpades = <span class="type">BlackjackCard</span>(rank: .ace, suit: .spades)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"theAceOfSpades: \(theAceOfSpades.description)"</span>)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/swift-20-nested-types.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/beginning-ios-swift-7.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/beginning-ios-swift-7.html" itemprop="url">开始用Swift开发iOS 10 - 7 定制Table Views</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T00:00:00+08:00">
-                2017-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Beginning-iOS-Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Beginning_iOS_Swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/beginning-ios-swift-7.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/beginning-ios-swift-7.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/beginning-ios-swift-7.html" class="leancloud_visitors" data-flag-title="开始用Swift开发iOS 10 - 7 定制Table Views">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  : 975 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  ≈ 5 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://upload-images.jianshu.io/upload_images/1678135-976e6d01ee3c8a7d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><a href="http://www.jianshu.com/p/c01ca903a056" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 6 创建简单的Table Based App</a>是basic风格的Table，这一部分将：</p>
-<ol>
-<li>使用<code>UITableViewController</code> 代替 <code>UITableView</code></li>
-<li>展示table view cell中不同的图片显示方式</li>
-<li>设计定制的table view cell来替代basic的table view cell</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/beginning-ios-swift-7.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2017/swift-19-type-casting.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/swift-19-type-casting.html" itemprop="url">以撸代码的形式学习Swift-19：类型转换(Type Casting)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T13:43:50+08:00">
-                2017-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/swift/" itemprop="url" rel="index">
-                    <span itemprop="name">swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/swift-19-type-casting.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/swift-19-type-casting.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/swift-19-type-casting.html" class="leancloud_visitors" data-flag-title="以撸代码的形式学习Swift-19：类型转换(Type Casting)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  : 342 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  ≈ 2 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1-定义一个类层次作为例子"><a href="#1-定义一个类层次作为例子" class="headerlink" title="1 定义一个类层次作为例子"></a>1 定义一个类层次作为例子</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MediaItem</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span>: <span class="title">MediaItem</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> director: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, director: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.director = director</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(name: name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Song</span>: <span class="title">MediaItem</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> artist: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, artist: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.artist = artist</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(name: name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> library = [</span><br><span class="line">    <span class="type">Movie</span>(name: <span class="string">"Casablanca"</span>, director: <span class="string">"Michael Curtiz"</span>),</span><br><span class="line">    <span class="type">Song</span>(name: <span class="string">"Blue Suede Shoes"</span>, artist: <span class="string">"Elvis Presley"</span>),</span><br><span class="line">    <span class="type">Movie</span>(name: <span class="string">"Citizen Kane"</span>, director: <span class="string">"Orson Welles"</span>),</span><br><span class="line">    <span class="type">Song</span>(name: <span class="string">"The One And Only"</span>, artist: <span class="string">"Chesney Hawkes"</span>),</span><br><span class="line">    <span class="type">Song</span>(name: <span class="string">"Never Gonna Give You Up"</span>, artist: <span class="string">"Rick Astley"</span>)</span><br><span class="line">]</span><br><span class="line"><span class="comment">// 数组 library 的类型被推断为 [MediaItem]</span></span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> library &#123;          <span class="comment">// v 在此处是 MediaItem 类型</span></span><br><span class="line">    <span class="built_in">print</span>(v.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/swift-19-type-casting.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2340,7 +2362,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">175</span>
+                <span class="site-state-item-count">177</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -2362,7 +2384,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">162</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2485,7 +2507,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共264.8k字</span>
+  <span class="post-count">  全站共267.1k字</span>
 
 </div>
 
