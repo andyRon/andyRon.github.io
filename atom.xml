@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-07-11T04:07:32.428Z</updated>
+  <updated>2019-07-13T02:07:37.707Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,145 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-伸展树</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E4%BC%B8%E5%B1%95%E6%A0%91.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-伸展树.html</id>
+    <published>2019-07-13T01:58:00.000Z</published>
+    <updated>2019-07-13T02:07:37.707Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Splay%20Tree&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Splay Tree&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;伸展树/分裂树（Splay Tree）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;伸展树是一种数据结构，在结构上与平衡二叉搜索树相同。 在伸展树上执行的每个操作都会导致重新调整，以便快速访问最近运行的值。 在每次访问时，树被重新排列，并且使用一组特定的旋转将访问的节点移动到树的根，这些旋转一起被称为&lt;strong&gt;Splaying&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="伸展树" scheme="http://andyron.com/tags/%E4%BC%B8%E5%B1%95%E6%A0%91/"/>
+    
+      <category term="Splay Tree" scheme="http://andyron.com/tags/Splay-Tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-环形缓冲区</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-环形缓冲区.html</id>
+    <published>2019-07-13T01:35:00.000Z</published>
+    <updated>2019-07-13T01:35:00.898Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Ring%20Buffer&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Ring Buffer&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;环形缓冲区（Ring Buffer）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;也称为循环缓冲区。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;基于数组的队列&lt;/a&gt;的问题是在队列后面添加新项目很快，&lt;strong&gt;O(1)&lt;/strong&gt;，但是从队列前面删除项目很慢，&lt;strong&gt;O(n)&lt;/strong&gt;。删除速度很慢，因为它需要在内存中移动剩余的数组元素。&lt;/p&gt;
+&lt;p&gt;实现队列的更有效方法是使用环形缓冲区或循环缓冲区。 这是一个概念性地回绕到开头的数组，因此您永远不必删除任何项目。 所有操作都是&lt;strong&gt;O(1)&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;原则上它是如何工作的。 我们有一个固定大小的数组，比如5项：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[    ,    ,    ,    ,     ]
+ r
+ w
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;最初，数组为空，读（&lt;code&gt;r&lt;/code&gt;）和写（&lt;code&gt;w&lt;/code&gt;）指针位于开头。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="环形缓冲区" scheme="http://andyron.com/tags/%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA/"/>
+    
+      <category term="Ring Buffer" scheme="http://andyron.com/tags/Ring-Buffer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-有界优先队列</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%89%E7%95%8C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-有界优先队列.html</id>
+    <published>2019-07-13T01:28:00.000Z</published>
+    <updated>2019-07-13T01:28:57.334Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Bounded%20Priority%20Queue&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Bounded Priority Queue&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;有界优先队列（Bounded Priority queue）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;有界优先级队列类似于常规&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Priority%20Queue/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;优先队列&lt;/a&gt;，除了可以存储的元素数量有固定的上限。在队列处于满容量时，将新元素添加到队列时，具有最高优先级值的元素将从队列中弹出。&lt;/p&gt;
+&lt;h2 id=&quot;例子&quot;&gt;&lt;a href=&quot;#例子&quot; class=&quot;headerlink&quot; title=&quot;例子&quot;&gt;&lt;/a&gt;例子&lt;/h2&gt;&lt;p&gt;假设我们有一个最大大小为5的有界优先级队列，它具有以下值和优先级：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Value:    [ A,   B,   C,    D,    E   ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Priority: [ 4.6, 3.2, 1.33, 0.25, 0.1 ]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="有界优先队列" scheme="http://andyron.com/tags/%E6%9C%89%E7%95%8C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
+    
+      <category term="Bounded Priority Queue" scheme="http://andyron.com/tags/Bounded-Priority-Queue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-哈希集合</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%93%88%E5%B8%8C%E9%9B%86%E5%90%88.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-哈希集合.html</id>
+    <published>2019-07-13T00:58:00.000Z</published>
+    <updated>2019-07-13T01:05:22.074Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Hash%20Set&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Hash Set&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;哈希集合（Hash Set）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;集合是元素的集合，有点像数组但有两个重要的区别：集合中元素的顺序不重要，每个元素只能出现一次。&lt;/p&gt;
+&lt;p&gt;如果以下是数组，它们都会有所不同。 但是，它们都代表相同的集合：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; ,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;因为每个元素只能出现一次，所以将元素写入的次数并不重要 —— 只有其中一个元素有效。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;当我有一组对象但不关心它们的顺序时，我经常更喜欢使用数组上的集合。使用集合与程序员通信，元素的顺序并不重要。 如果你正在使用数组，那么你不能假设同样的事情。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="哈希集合" scheme="http://andyron.com/tags/%E5%93%88%E5%B8%8C%E9%9B%86%E5%90%88/"/>
+    
+      <category term="Hash Set" scheme="http://andyron.com/tags/Hash-Set/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-有序集</title>
@@ -550,163 +689,6 @@
       <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
     
       <category term="3D动画" scheme="http://andyron.com/tags/3D%E5%8A%A8%E7%94%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>系统学习iOS动画之四：视图控制器的转场动画</title>
-    <link href="http://andyron.com/2018/iOS-Animation-4-View-Controller-Transition-Animations.html"/>
-    <id>http://andyron.com/2018/iOS-Animation-4-View-Controller-Transition-Animations.html</id>
-    <published>2018-12-16T04:22:00.000Z</published>
-    <updated>2018-12-27T03:56:07.179Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，&lt;strong&gt;视图控制器的转场动画(View Controller Transition Animations)&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。&lt;/p&gt;
-&lt;p&gt;在本文，将学习如何使用动画创建自己的自定义视图控制器转换。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;预览：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#17-视图控制器转场和屏幕旋转转场&quot;&gt;17-视图控制器转场和屏幕旋转转场&lt;/a&gt;   了解如何通过自定义动画转场&lt;strong&gt;呈现&lt;/strong&gt;视图控制器 - 作为奖励，您将创建动画转场以处理设备方向更改。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#18-导航控制器转场&quot;&gt;18-导航控制器转场&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#19-交互式导航控制器转场&quot;&gt;19-交互式导航控制器转场&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;17-视图控制器转场和屏幕旋转转场&quot;&gt;&lt;a href=&quot;#17-视图控制器转场和屏幕旋转转场&quot; class=&quot;headerlink&quot; title=&quot;17-视图控制器转场和屏幕旋转转场&quot;&gt;&lt;/a&gt;17-视图控制器转场和屏幕旋转转场&lt;/h2&gt;&lt;p&gt;无论是&lt;strong&gt;呈现&lt;/strong&gt; 照相机视图控制器、地址簿还是自定义的模态屏幕，每次都调用相同的&lt;strong&gt;UIKit&lt;/strong&gt;方法：&lt;code&gt;present(_:animated:completion:)&lt;/code&gt;。 此方法将当前屏幕“放弃”，然后跳到另一个视图控制器。&lt;/p&gt;
-&lt;p&gt;下图呈现一个“New Contact”视图控制器向上滑动以覆盖当前视图（联系人列表），这是默认的动画方式：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws3.sinaimg.cn/large/006tNbRwgy1fxshdgh771j308k0a1gm3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS-Animation" scheme="http://andyron.com/categories/iOS-Animation/"/>
-    
-    
-      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
-    
-      <category term="转场" scheme="http://andyron.com/tags/%E8%BD%AC%E5%9C%BA/"/>
-    
-      <category term="视图控制器的转场动画" scheme="http://andyron.com/tags/%E8%A7%86%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
-    
-      <category term="View Controller Transition Animations" scheme="http://andyron.com/tags/View-Controller-Transition-Animations/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>系统学习iOS动画之三：图层动画</title>
-    <link href="http://andyron.com/2018/iOS-Animation-3-Layer-Animations.html"/>
-    <id>http://andyron.com/2018/iOS-Animation-3-Layer-Animations.html</id>
-    <published>2018-12-15T12:22:00.000Z</published>
-    <updated>2018-12-27T03:56:02.595Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-1-view-animation&quot;&gt;系统学习iOS动画之一：视图动画&lt;/a&gt; 学习了创建视图动画（View Animations），这一部分学习功能更强大、更偏底层的&lt;strong&gt;Core Animation(核心动画)&lt;/strong&gt; APIs。核心动画的这个名字可能令人有点误解，暂时可以理解为本文的标题&lt;strong&gt;图层动画(Layer Animations)&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;在本书的这一部分中，将学习动画层而不是视图以及如何使用特殊图层。&lt;/p&gt;
-&lt;p&gt;图层是一个简单的模型类，它公开了许多属性来表示一些基于图像的内容。 每个&lt;code&gt;UIView&lt;/code&gt;都有一个图层支持(都有一个&lt;code&gt;layer&lt;/code&gt;属性)。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;视图 vs 图层&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;由于以下原因，图层(Layers)与视图(Views)（对于动画）不同：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;图层是一个模型对象 —— 它公开数据属性并且不实现任何逻辑。 它没有复杂的自动布局依赖关系，也不用处理用户交互。&lt;/li&gt;
-&lt;li&gt;图层具有预定义的可见特征 —— 这些特征是许多影响内容在屏幕上呈现的数据属性，例如边框线，边框颜色，位置和阴影。&lt;/li&gt;
-&lt;li&gt;最后，&lt;strong&gt;Core Animation&lt;/strong&gt;优化了图层内容的缓存并直接在&lt;strong&gt;GPU&lt;/strong&gt;上快速绘图。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;单个来说，两者的优点。&lt;/p&gt;
-&lt;p&gt;视图：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;复杂视图层次结构布局，自动布局等。&lt;/li&gt;
-&lt;li&gt;用户交互。&lt;/li&gt;
-&lt;li&gt;通常具有在CPU上的主线程上执行的自定义逻辑或自定义绘图代码。&lt;/li&gt;
-&lt;li&gt;非常灵活，功能强大，子类很多类。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;图层：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;更简单的层次结构，更快地解决布局，绘制速度更快。&lt;/li&gt;
-&lt;li&gt;没有响应者链开销。&lt;/li&gt;
-&lt;li&gt;默认情况下没有自定义逻辑 并直接在GPU上绘制。&lt;/li&gt;
-&lt;li&gt;不那么灵活，子类的类更少。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;视图和图层的选择技巧： &lt;strong&gt;任何时候都可以选择视图动画; 当需要更高的性能时，就需要使用图层动画。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;两者在架构中的位置：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNbRwgy1fxdhuq4gvcj30eo0aumxf.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS-Animation" scheme="http://andyron.com/categories/iOS-Animation/"/>
-    
-    
-      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
-    
-      <category term="图层动画" scheme="http://andyron.com/tags/%E5%9B%BE%E5%B1%82%E5%8A%A8%E7%94%BB/"/>
-    
-      <category term="Layer Animations" scheme="http://andyron.com/tags/Layer-Animations/"/>
-    
-      <category term="核心动画" scheme="http://andyron.com/tags/%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>系统学习iOS动画之二：自动布局</title>
-    <link href="http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html"/>
-    <id>http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html</id>
-    <published>2018-12-14T12:22:00.000Z</published>
-    <updated>2018-12-27T03:55:57.802Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;自动布局(Auto Layout)&lt;/strong&gt; 在iOS 6中首次推出，已经存在了一段时间，每次发布新版本的iOS和Xcode都经历了一系列成功的迭代。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;自动布局&lt;/strong&gt;背后的核心理念非常简单：它允许您根据布局中的每个元素之间创建的关系来定义应用程序的UI元素的布局。&lt;/p&gt;
-&lt;p&gt;我们平常开发时已将自动布局用于静态的布局，在本文中将学习使用约束来设置动画。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS-Animation" scheme="http://andyron.com/categories/iOS-Animation/"/>
-    
-    
-      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
-    
-      <category term="自动布局" scheme="http://andyron.com/tags/%E8%87%AA%E5%8A%A8%E5%B8%83%E5%B1%80/"/>
-    
-      <category term="Auto Layout" scheme="http://andyron.com/tags/Auto-Layout/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>系统学习iOS动画之一：视图动画</title>
-    <link href="http://andyron.com/2018/iOS-Animation-1-view-animation.html"/>
-    <id>http://andyron.com/2018/iOS-Animation-1-view-animation.html</id>
-    <published>2018-12-13T12:22:00.000Z</published>
-    <updated>2019-01-13T02:37:13.488Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这个部分介绍&lt;strong&gt;UIKit动画API&lt;/strong&gt;，这些API专门用于轻松制作&lt;strong&gt;视图动画(View Animations)&lt;/strong&gt;，同时避免&lt;strong&gt;核心动画(Core Animation)&lt;/strong&gt;(见&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-3-Layer-Animations&quot;&gt;系统学习iOS动画之三：图层动画&lt;/a&gt;)的复杂性。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;UIKit动画&lt;/strong&gt;API不仅易于使用，而且提供了大量灵活性和强大功能，可以处理大多数（当然不是全部）动画要求。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;UIKit动画&lt;/strong&gt;API可以在屏幕上为最终继承自&lt;code&gt;UIView&lt;/code&gt;的任何对象设置动画，例如：&lt;code&gt;UILabel&lt;/code&gt;，&lt;code&gt;UIImageView&lt;/code&gt;，&lt;code&gt;UIButton&lt;/code&gt;等等，也可以是自己创建的任何自定义最终继承自&lt;code&gt;UIView&lt;/code&gt;类。&lt;/p&gt;
-&lt;p&gt;本文包括五个章节，完成两个项目&lt;strong&gt;BahamaAirLoginScreen&lt;/strong&gt;和&lt;strong&gt;Flight Info&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;BahamaAirLoginScreen&lt;/em&gt; 是一个登录页面项目，1、2、3章节为这个项目的一些UI添加各种动画。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#1-视图动画入门&quot;&gt;1-视图动画入门&lt;/a&gt; —— 学习如何移动，缩放和淡化视图等基本的UIKit API。&lt;br&gt;&lt;a href=&quot;#2-弹簧动画&quot;&gt;2-弹簧动画&lt;/a&gt; —— 在线性动画的概念基础上，使用弹簧动画创造出更引人注目的效果。😊&lt;br&gt;&lt;a href=&quot;#3-过渡动画&quot;&gt;3-过渡动画&lt;/a&gt; —— 视图的出现和消失。      &lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Flight Info&lt;/em&gt; 是一个航班状态变化项目，4、5章节用一些高级一点动画来完成这个项目。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#4-练习视图动画&quot;&gt;4-练习视图动画&lt;/a&gt; —— 练习前面学到的动画技术。&lt;br&gt;&lt;a href=&quot;#5-关键帧动画&quot;&gt;5-关键帧动画&lt;/a&gt; —— 使用关键帧动画来创建由许多不同阶段组成的复杂动画。  &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS-Animation" scheme="http://andyron.com/categories/iOS-Animation/"/>
-    
-    
-      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
-    
-      <category term="View Animation" scheme="http://andyron.com/tags/View-Animation/"/>
-    
-      <category term="视图动画" scheme="http://andyron.com/tags/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
