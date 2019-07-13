@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-07-11T03:37:24.360Z</updated>
+  <updated>2019-07-11T04:07:32.428Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -17,11 +17,77 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【译】Swift算法俱乐部-有序集</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%89%E5%BA%8F%E9%9B%86.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-有序集.html</id>
+    <published>2019-07-11T03:48:00.000Z</published>
+    <updated>2019-07-11T04:07:32.428Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Ordered%20Set&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Ordered Set&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;有序集（Ordered Set）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我们来看看苹果如何实现&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsorderedset&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;有序集&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Here is the example about how it works&lt;br&gt;以下是有关其工作原理的示例：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; s = &lt;span class=&quot;type&quot;&gt;AppleOrderedSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;&amp;gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.add(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.add(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.add(-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.add(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.insert(&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, at: &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(s.all()) &lt;span class=&quot;comment&quot;&gt;// [1, 2, -1, 4, 0]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.&lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt;(-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, at: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// 已经有-1在index: 2，因此这个操作不做任何事情&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(s.all()) &lt;span class=&quot;comment&quot;&gt;// [1, 2, -1, 4, 0]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.remove(-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(s.all()) &lt;span class=&quot;comment&quot;&gt;// [1, 2, 4, 0]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(s.object(at: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)) &lt;span class=&quot;comment&quot;&gt;// 2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(s.object(at: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)) &lt;span class=&quot;comment&quot;&gt;// 4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="有序集" scheme="http://andyron.com/tags/%E6%9C%89%E5%BA%8F%E9%9B%86/"/>
+    
+      <category term="Ordered Set" scheme="http://andyron.com/tags/Ordered-Set/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-多重集合</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%A4%9A%E9%87%8D%E9%9B%86%E5%90%88.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-多重集合.html</id>
+    <published>2019-07-11T03:18:00.000Z</published>
+    <updated>2019-07-11T04:07:00.898Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Multiset&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Multiset&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;多重集合（Multiset）&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;多重集合（也称为bag，简称多重集）是一种类似于常规集的数据结构，但它可以存储同一元素的多个实例。&lt;/p&gt;
+&lt;p&gt;例如，如果我将元素1,2,2添加到常规集中，则该集将仅包含两个项，因为第二次添加2无效。&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;Set&lt;/span&gt;&amp;lt;&lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;&amp;gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt;.add(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// set is now [1]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt;.add(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// set is now [1, 2]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt;.add(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// set is still [1, 2]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="多重集合" scheme="http://andyron.com/tags/%E5%A4%9A%E9%87%8D%E9%9B%86%E5%90%88/"/>
+    
+      <category term="Multiset" scheme="http://andyron.com/tags/Multiset/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【译】Swift算法俱乐部-布隆过滤器</title>
     <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8.html"/>
     <id>http://andyron.com/2019/Swift算法俱乐部-布隆过滤器.html</id>
     <published>2019-07-11T02:58:00.000Z</published>
-    <updated>2019-07-11T03:37:24.360Z</updated>
+    <updated>2019-07-11T03:48:42.363Z</updated>
     
     <summary type="html">
     
@@ -641,63 +707,6 @@
       <category term="View Animation" scheme="http://andyron.com/tags/View-Animation/"/>
     
       <category term="视图动画" scheme="http://andyron.com/tags/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>系统学习iOS动画之零：说明和目录</title>
-    <link href="http://andyron.com/2018/iOS-Animation-0.html"/>
-    <id>http://andyron.com/2018/iOS-Animation-0.html</id>
-    <published>2018-12-12T12:22:00.000Z</published>
-    <updated>2019-01-13T03:02:17.846Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;动画制作很有趣，可以为用户界面注入活力。 如果使用得当，动画可以向用户传达信息，并将用户注意力吸引到界面的重要部分。&lt;/p&gt;
-&lt;p&gt;之前也做过一些iOS动画，但一直没有系统学习过，这次我用&lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RW网站&lt;/a&gt;的书 &lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 来系统地学习iOS动画。这本书的内容和项目不复杂但很全，基本上iOS动画的各个方面都介绍了。&lt;/p&gt;
-&lt;p&gt; &lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 全书分为7个部分，27小章节，内容非常丰富，我对应7个部分分别总结为7篇文章，有几篇文章可能比较长，特别是动图比较多，用手机看的小伙伴请慎重，对自己温柔一点🥴。&lt;/p&gt;
-&lt;p&gt;开发环境：&lt;strong&gt;Xcode 10.1, Swift 4.2, macOS Mojave 10.14.1&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;p&gt;目录可以很好看清整体脉络，每一篇文章的开始我也列出了小章节的题目，这样可以系统的学习iOS动画，那边有问题也好及时发先并对应到系统点上。要不可能越学越乱，这方面我自己深有体会的😕🤔。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-1-view-animation&quot;&gt;系统学习iOS动画之一：视图动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-2-Auto-Layout&quot;&gt;系统学习iOS动画之二：自动布局动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-3-Layer-Animations&quot;&gt;系统学习iOS动画之三：图层动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-4-View-Controller-Transition-Animations&quot;&gt;系统学习iOS动画之四：视图控制器的转场动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2019/iOS-Animation-5-UIViewPropertyAnimator&quot;&gt;系统学习iOS动画之五：使用UIViewPropertyAnimator&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-6-3D-Animations&quot;&gt;系统学习iOS动画之六：3D动画&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://andyron.com/2018/iOS-Animation-7-other-Animations&quot;&gt;系统学习iOS动画之七：其它类型的动画&lt;/a&gt;  &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS-Animation" scheme="http://andyron.com/categories/iOS-Animation/"/>
-    
-    
-      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-AVL树</title>
-    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-AVL%E6%A0%91.html"/>
-    <id>http://andyron.com/2018/Swift算法俱乐部-AVL树.html</id>
-    <published>2018-12-09T02:58:00.000Z</published>
-    <updated>2019-01-11T02:12:33.892Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/AVL%20Tree&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/AVL Tree&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;AVL树(AVL Tree)&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;AVL树是&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Search%20Tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;二叉搜索树&lt;/a&gt;的自平衡形式，其中子树的高度最多只相差1。&lt;/p&gt;
-&lt;p&gt;当二叉树的左右子树包含大致相同数量的节点时，称树是 &lt;em&gt;平衡的&lt;/em&gt;。 这就是使树搜索速度非常快的原因。 但是如果二元搜索树不平衡，搜索会变得非常慢。&lt;/p&gt;
-&lt;p&gt;这是一个不平衡树的例子：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/andyRon/swift-algorithm-club-cn/raw/master/AVL%20Tree/Images/Unbalanced.png&quot; alt=&quot;Unbalanced tree&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="AVL树" scheme="http://andyron.com/tags/AVL%E6%A0%91/"/>
     
   </entry>
   
