@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-07-13T02:07:37.707Z</updated>
+  <updated>2019-07-13T03:16:20.399Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,147 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-四叉树</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%9B%9B%E5%8F%89%E6%A0%91.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-四叉树.html</id>
+    <published>2019-07-13T02:55:00.000Z</published>
+    <updated>2019-07-13T03:16:20.399Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/QuadTree&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/QuadTree&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;四叉树（QuadTree）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;四叉树是一种&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Tree&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;树&lt;/a&gt;，其中每个内部（非叶节点）节点有四个子节点。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/andyRon/swift-algorithm-club-cn/raw/master/QuadTree/Images/quadtree.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="四叉树" scheme="http://andyron.com/tags/%E5%9B%9B%E5%8F%89%E6%A0%91/"/>
+    
+      <category term="QuadTree" scheme="http://andyron.com/tags/QuadTree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-八叉树</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%85%AB%E5%8F%89%E6%A0%91.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-八叉树.html</id>
+    <published>2019-07-13T02:40:00.000Z</published>
+    <updated>2019-07-13T02:59:51.009Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Octree&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Octree&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;八叉树（Octree）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;八叉树是&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Tree&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;树&lt;/a&gt;，其中每个内部（非叶节点）节点有八个子节点。 例如，通常用于游戏中的碰撞检测。&lt;/p&gt;
+&lt;h3 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;p&gt;考虑以下问题：您需要在3D空间中存储多个对象（每个对象在某个位置使用&lt;code&gt;X&lt;/code&gt;，&lt;code&gt;Y&lt;/code&gt;和&lt;code&gt;Z&lt;/code&gt;坐标表示）然后您需要回答哪些对象位于某个3D区域。 一个天真的解决方案是将点存储在一个数组中，然后迭代这些点并分别检查每个点。 该解决方案花费O(n)。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="八叉树" scheme="http://andyron.com/tags/%E5%85%AB%E5%8F%89%E6%A0%91/"/>
+    
+      <category term="Octree" scheme="http://andyron.com/tags/Octree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-字典树</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%AD%97%E5%85%B8%E6%A0%91.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-字典树.html</id>
+    <published>2019-07-13T02:30:00.000Z</published>
+    <updated>2019-07-13T03:09:14.255Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Trie&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Trie&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;字典树（Trie）&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个话题已经有个辅导&lt;a href=&quot;https://www.raywenderlich.com/139410/swift-algorithm-club-swift-trie-data-structure&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;什么是字典树&quot;&gt;&lt;a href=&quot;#什么是字典树&quot; class=&quot;headerlink&quot; title=&quot;什么是字典树&quot;&gt;&lt;/a&gt;什么是字典树&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Trie&lt;/code&gt;（在一些其他实现中也称为前缀树或基数树）是用于存储关联数据结构的特殊类型的树。 &lt;code&gt;Trie&lt;/code&gt;作为一个字典可能如下所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Trie/images/trie.png&quot; alt=&quot;A Trie&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="字典树" scheme="http://andyron.com/tags/%E5%AD%97%E5%85%B8%E6%A0%91/"/>
+    
+      <category term="Trie" scheme="http://andyron.com/tags/Trie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-线段树</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%BA%BF%E6%AE%B5%E6%A0%91.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-线段树.html</id>
+    <published>2019-07-13T02:10:00.000Z</published>
+    <updated>2019-07-13T02:17:40.468Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Segment%20Tree&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Segment Tree&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;线段树（Segment Tree）&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有关懒惰传播的示例，请参阅此&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Segment%20Tree/LazyPropagation&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文章&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我很高兴向您介绍线段树（Segment Tree）。 它实际上是我最喜欢的数据结构之一，因为它非常灵活且实现简单。&lt;/p&gt;
+&lt;p&gt;假设你有一个某种类型的数组&lt;strong&gt;a&lt;/strong&gt;和一些关联函数&lt;strong&gt;f&lt;/strong&gt;。 例如，函数可以是求和，乘法，最小，最大，&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/GCD/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;最大公约数&lt;/a&gt;等。&lt;/p&gt;
+&lt;p&gt;你的任务是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;回答由&lt;strong&gt;l&lt;/strong&gt;和&lt;strong&gt;r&lt;/strong&gt;给出的间隔的查询，即执行 &lt;code&gt;f(a[l], a[l+1], ..., a[r-1], a[r])&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;支持替换某个索引的一个项目&lt;code&gt;a[index] = newItem&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如，如果我们有一个数字数组：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; a = [ &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;101&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;14&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;29&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;61&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;99&lt;/span&gt; ]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="线段树" scheme="http://andyron.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+      <category term="Segment Tree" scheme="http://andyron.com/tags/Segment-Tree/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-伸展树</title>
@@ -563,132 +704,6 @@
       <category term="有序数组" scheme="http://andyron.com/tags/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/"/>
     
       <category term="Ordered Array" scheme="http://andyron.com/tags/Ordered-Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-固定大小数组</title>
-    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%9B%BA%E5%AE%9A%E5%A4%A7%E5%B0%8F%E6%95%B0%E7%BB%84.html"/>
-    <id>http://andyron.com/2018/Swift算法俱乐部-固定大小数组.html</id>
-    <published>2018-12-25T03:30:00.000Z</published>
-    <updated>2018-12-25T04:26:42.740Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Fixed%20Size%20Array&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Fixed-Size Arrays&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;固定大小数组(Fixed-Size Arrays)&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;早期的编程语言没有非常奇特的数组。 您将创建具有固定大小的数组，从那时起它将永远不会增长或缩小。 甚至C和Objective-C中的标准数组仍然是这种类型。&lt;/p&gt;
-&lt;p&gt;当您定义这样的数组时，&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;int myArray[10];
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;编译器分配一个可以容纳40个字节的连续内存块（假设&lt;code&gt;int&lt;/code&gt;是4个字节）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Fixed%20Size%20Array/Images/array.png&quot; alt=&quot;An array with room for 10 elements&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="固定大小数组" scheme="http://andyron.com/tags/%E5%9B%BA%E5%AE%9A%E5%A4%A7%E5%B0%8F%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="Fixed-Size Arrays" scheme="http://andyron.com/tags/Fixed-Size-Arrays/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-快速排序</title>
-    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.html"/>
-    <id>http://andyron.com/2018/Swift算法俱乐部-快速排序.html</id>
-    <published>2018-12-23T03:30:00.000Z</published>
-    <updated>2018-12-23T08:38:45.601Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Quicksort&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Quicksort&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;快速排序(Quicksort)&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;目标：将数组从低到高（或从高到低）排序。&lt;/p&gt;
-&lt;p&gt;快速排序是历史上最着名的算法之一。 它是由Tony Hoare于1959年发明的，当时递归仍然是一个相当模糊的概念。&lt;/p&gt;
-&lt;p&gt;这是Swift中的一个实现，应该很容易理解：&lt;/p&gt;
-&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;quicksort&lt;/span&gt;&amp;lt;T: Comparable&amp;gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;number&quot;&gt;_&lt;/span&gt; a: [T])&lt;/span&gt;&lt;/span&gt; -&amp;gt; [&lt;span class=&quot;type&quot;&gt;T&lt;/span&gt;] &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;guard&lt;/span&gt; a.&lt;span class=&quot;built_in&quot;&gt;count&lt;/span&gt; &amp;gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123; &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; pivot = a[a.&lt;span class=&quot;built_in&quot;&gt;count&lt;/span&gt;/&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; less = a.&lt;span class=&quot;built_in&quot;&gt;filter&lt;/span&gt; &amp;#123; $&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &amp;lt; pivot &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;equal&lt;/span&gt; = a.&lt;span class=&quot;built_in&quot;&gt;filter&lt;/span&gt; &amp;#123; $&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; == pivot &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; greater = a.&lt;span class=&quot;built_in&quot;&gt;filter&lt;/span&gt; &amp;#123; $&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &amp;gt; pivot &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; quicksort(less) + &lt;span class=&quot;built_in&quot;&gt;equal&lt;/span&gt; + quicksort(greater)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="快速排序" scheme="http://andyron.com/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
-    
-      <category term="Quicksort" scheme="http://andyron.com/tags/Quicksort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>系统学习iOS动画之七：其它类型的动画</title>
-    <link href="http://andyron.com/2018/iOS-Animation-7-other-Animations.html"/>
-    <id>http://andyron.com/2018/iOS-Animation-7-other-Animations.html</id>
-    <published>2018-12-18T09:22:00.000Z</published>
-    <updated>2018-12-27T03:56:24.411Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;前面学习很多动画方面的知识，但有两个更专业的主题不适合前面的任何部分。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;预览：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#26-粒子发射器&quot;&gt;26-粒子发射器&lt;/a&gt; —— 学习如何创建粒子发射器并创建以下降雪效果。       &lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#27-UIImageView的帧动画&quot;&gt;27-UIImageView的帧动画&lt;/a&gt; ——  通过将帧动画与传统视图动画相结合，创建类似卡通的效果。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS-Animation" scheme="http://andyron.com/categories/iOS-Animation/"/>
-    
-    
-      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>系统学习iOS动画之六：3D动画</title>
-    <link href="http://andyron.com/2018/iOS-Animation-6-3D-Animations.html"/>
-    <id>http://andyron.com/2018/iOS-Animation-6-3D-Animations.html</id>
-    <published>2018-12-17T08:22:00.000Z</published>
-    <updated>2018-12-27T03:56:12.522Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是我学习&lt;a href=&quot;https://store.raywenderlich.com/products/ios-animations-by-tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《iOS Animations by Tutorials》&lt;/a&gt; 笔记中的一篇。&lt;br&gt;文中详细代码都放在我的Github上 &lt;a href=&quot;https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/LearniOSAnimations&lt;/a&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;到目前为止，之前的文章只使用了二维动画——这是在平面设备屏幕上动画元素的最自然方式。 毕竟，从iOS 7扁平化后的世界中的按钮，文本字段，开关和图像没有了第三维; 这些元素存在于由X和Y轴定义的平面中：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNbRwgy1fx962j0d7jj309a03g0sj.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;核心动画&lt;/strong&gt;可以帮助我们摆脱这个二维世界; 虽然它不是真正的3D框架，但&lt;strong&gt;核心动画&lt;/strong&gt;有很多好的方法可以帮助我们在3D空间中描绘二维对象。&lt;/p&gt;
-&lt;p&gt;换句话说，图层和动画仍然以二维方式进行描绘，但可以在3D空间中旋转和定位每个元素的2D平面，如下所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/006tNbRwgy1fx9630g50tj30ab04jdfv.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;上面显示的是在3D空间中旋转的两个2D图像。 透视变形使我们可以从渲染器的角度了解它们的位置。&lt;/p&gt;
-&lt;p&gt;本文将学习如何在3D空间中定位和旋转图层。&lt;code&gt;CATransform3D&lt;/code&gt;类似于&lt;code&gt;CGAffineTransform&lt;/code&gt;，但除了在x和y方向上缩放，倾斜和平移之外，它还带来了第三维：z。 z轴直接从设备屏幕朝向您的眼睛。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS-Animation" scheme="http://andyron.com/categories/iOS-Animation/"/>
-    
-    
-      <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
-    
-      <category term="3D动画" scheme="http://andyron.com/tags/3D%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
