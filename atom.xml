@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-07-13T03:16:20.399Z</updated>
+  <updated>2019-07-21T03:16:56.471Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-最大公约数算法</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E7%AE%97%E6%B3%95.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-最大公约数算法.html</id>
+    <published>2019-07-21T03:00:00.000Z</published>
+    <updated>2019-07-21T03:16:56.471Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/GCD&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Greatest Common Divisor&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;最大公约数算法（Greatest Common Divisor）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;两个数字&lt;code&gt;a&lt;/code&gt;和&lt;code&gt;b&lt;/code&gt;的 &lt;em&gt;最大公约数&lt;/em&gt;（或最大公因数）是将&lt;code&gt;a&lt;/code&gt;和&lt;code&gt;b&lt;/code&gt;整除都没有余数的最大正整数。&lt;/p&gt;
+&lt;p&gt;例如，&lt;code&gt;gcd(39, 52) = 13&lt;/code&gt;，因为13除以39(&lt;code&gt;39/13 = 3&lt;/code&gt;)以及52(&lt;code&gt;52/13 = 4&lt;/code&gt;)，而且没有比13更大的数字。&lt;/p&gt;
+&lt;p&gt;在某些时候你可能不得不在学校里了解这一点。:-)&lt;/p&gt;
+&lt;p&gt;找到两个数字的GCD的费力方法是先找出两个数字的因子，然后取其共同的最大数。 问题在于分解数字是非常困难的，特别是当它们变大时。 （从好的方面来说，这种困难也是保证您的在线支付安全的原因。）&lt;/p&gt;
+&lt;p&gt;有一种更聪明的方法来计算GCD：欧几里德的算法。 这个算法主要观点是，&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gcd(a, b) = gcd(b, a % b)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中&lt;code&gt;a％b&lt;/code&gt;是&lt;code&gt;a&lt;/code&gt;除以&lt;code&gt;b&lt;/code&gt;的余数。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="最大公约数算法" scheme="http://andyron.com/tags/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Greatest Common Divisor" scheme="http://andyron.com/tags/Greatest-Common-Divisor/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-四叉树</title>
@@ -671,39 +708,6 @@
       <category term="双端队列" scheme="http://andyron.com/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/"/>
     
       <category term="Deque" scheme="http://andyron.com/tags/Deque/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-有序数组</title>
-    <link href="http://andyron.com/2018/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84.html"/>
-    <id>http://andyron.com/2018/Swift算法俱乐部-有序数组.html</id>
-    <published>2018-12-25T04:30:00.000Z</published>
-    <updated>2018-12-25T04:28:36.921Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Ordered%20Array&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Ordered Array&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;有序数组(Ordered Array)&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;这是一个始终从低到高排序的数组。 每当您向此数组添加新元素时，它都会插入到其排序位置。&lt;/p&gt;
-&lt;p&gt;当您希望对数据进行排序并且相对较少地插入新元素时，有序数组非常有用。在这种情况下，它比排序整个数组更快。但是，如果您需要经常更改数组，则使用常规数组并手动对其进行排序可能会更快。&lt;/p&gt;
-&lt;p&gt;实现是非常基础的。 它只是Swift内置数组的包装器：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="有序数组" scheme="http://andyron.com/tags/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="Ordered Array" scheme="http://andyron.com/tags/Ordered-Array/"/>
     
   </entry>
   
