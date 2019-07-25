@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-07-24T00:32:37.653Z</updated>
+  <updated>2019-07-25T02:04:42.150Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-广度优先搜索</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-广度优先搜索.html</id>
+    <published>2019-07-25T01:58:00.000Z</published>
+    <updated>2019-07-25T02:04:42.150Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Breadth-First%20Search&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Breadth-First Search&lt;/a&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;广度优先搜索(BFS，Breadth-First Search)&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个话题已经有个辅导&lt;a href=&quot;https://www.raywenderlich.com/155801/swift-algorithm-club-swift-breadth-first-search&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;广度优先搜索（BFS，Breadth-First Search）是用于遍历、搜索&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;树&lt;/a&gt;或&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Graph/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;图&lt;/a&gt;数据结构的算法。它从源节点开始，在移动到下一级邻居之前首先探索直接邻居节点。&lt;/p&gt;
+&lt;p&gt;广度优先搜索可以用于有向图和无向图。&lt;/p&gt;
+&lt;h2 id=&quot;动画示例&quot;&gt;&lt;a href=&quot;#动画示例&quot; class=&quot;headerlink&quot; title=&quot;动画示例&quot;&gt;&lt;/a&gt;动画示例&lt;/h2&gt;&lt;p&gt;以下是广度优先搜索在图上的工作原理：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Breadth-First%20Search/Images/AnimatedExample.gif&quot; alt=&quot;广度优先搜索的动画示例&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="广度优先搜索" scheme="http://andyron.com/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
+      <category term="Breadth-First Search" scheme="http://andyron.com/tags/Breadth-First-Search/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-图</title>
@@ -664,51 +701,6 @@
       <category term="iOS动画" scheme="http://andyron.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
     
       <category term="UIViewPropertyAnimator" scheme="http://andyron.com/tags/UIViewPropertyAnimator/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-堆</title>
-    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%A0%86.html"/>
-    <id>http://andyron.com/2019/Swift算法俱乐部-堆.html</id>
-    <published>2019-01-11T02:10:00.000Z</published>
-    <updated>2019-01-11T02:39:38.725Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。  &lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。  &lt;/p&gt;
-&lt;p&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。  &lt;/p&gt;
-&lt;p&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Heap&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNc79gy1fz2fdyqh68j30b407sjrb.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;堆(Heap)&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这个话题已经有个辅导&lt;a href=&quot;https://www.raywenderlich.com/160631/swift-algorithm-club-heap-and-priority-queue-data-structure&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;堆是数组内的&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Binary%20Tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;二叉树&lt;/a&gt;，因此它不使用父/子指针。 堆基于“堆属性”进行排序，“堆属性”确定树中节点的顺序。&lt;/p&gt;
-&lt;p&gt;堆的一般用途：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;构建&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Priority%20Queue&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;优先队列&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;支持&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap%20Sort/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;堆排序&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;快速计算集合中最大（或最小）值。&lt;/li&gt;
-&lt;li&gt;给你的非程序员朋友留下深刻影响。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="堆" scheme="http://andyron.com/tags/%E5%A0%86/"/>
-    
-      <category term="Heap" scheme="http://andyron.com/tags/Heap/"/>
     
   </entry>
   
