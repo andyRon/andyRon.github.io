@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-07-26T02:08:31.626Z</updated>
+  <updated>2019-07-27T06:57:06.576Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-最短路径算法</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-最短路径算法.html</id>
+    <published>2019-07-27T03:58:00.000Z</published>
+    <updated>2019-07-27T06:57:06.576Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Shortest%20Path%20(Unweighted&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Shortest Path(Unweighted)&lt;/a&gt;)  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;最短路径算法（Shortest Path(Unweighted Graph)）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;目标：找到图中从一个节点到另一个节点的最短路径。&lt;/p&gt;
+&lt;p&gt;假设我们以下图为例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Shortest%20Path%20(Unweighted)/Images/Graph.png&quot; alt=&quot;Example graph&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我们可能想知道从节点&lt;code&gt;A&lt;/code&gt;到节点&lt;code&gt;F&lt;/code&gt;的最短路径是什么。&lt;/p&gt;
+&lt;p&gt;如果&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Graph/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;图是未加权的&lt;/a&gt;，那么找到最短路径很容易：我们可以使用广度优先搜索算法。 对于加权图，我们可以使用Dijkstra算法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="最短路径算法" scheme="http://andyron.com/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Shortest Path(Unweighted Graph)" scheme="http://andyron.com/tags/Shortest-Path-Unweighted-Graph/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-深度优先搜索</title>
@@ -661,46 +696,6 @@
       <category term="暴力字符串搜索" scheme="http://andyron.com/tags/%E6%9A%B4%E5%8A%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/"/>
     
       <category term="Brute-Force String Search" scheme="http://andyron.com/tags/Brute-Force-String-Search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-堆排序</title>
-    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%A0%86%E6%8E%92%E5%BA%8F.html"/>
-    <id>http://andyron.com/2019/Swift算法俱乐部-堆排序.html</id>
-    <published>2019-01-15T03:15:00.000Z</published>
-    <updated>2019-01-19T14:26:30.341Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。  &lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。  &lt;/p&gt;
-&lt;p&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。  &lt;/p&gt;
-&lt;p&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap%20Sort&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Heap Sort&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;堆排序(Heap Sort)&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;使用堆将数组从低到高排序。( &lt;strong&gt;译注：&lt;/strong&gt; 也可以从高到低排序)&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Heap/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;堆&lt;/a&gt;是一个部分排序的二叉树，存储在数组中。 堆排序算法利用堆的结构来执行快速排序。&lt;/p&gt;
-&lt;p&gt;要从最低到最高排序，堆排序首先将未排序的数组转换为&lt;em&gt;max-heap&lt;/em&gt;，让数组中的第一个元素是最大的。&lt;/p&gt;
-&lt;p&gt;假设，需要排序的数组为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[ 5, 13, 2, 25, 7, 17, 20, 8, 4 ]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;首先变成了一个如下所示的&lt;em&gt;max-heap&lt;/em&gt;：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Heap%20Sort/Images/MaxHeap.png&quot; alt=&quot;The max-heap&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="堆排序" scheme="http://andyron.com/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/"/>
-    
-      <category term="Heap Sort" scheme="http://andyron.com/tags/Heap-Sort/"/>
     
   </entry>
   
