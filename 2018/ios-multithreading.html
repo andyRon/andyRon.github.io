@@ -130,7 +130,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -942,6 +942,29 @@
 
     <div class="post-spread">
       
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
     </div>
   </div>
 
@@ -1006,7 +1029,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">198</span>
+                <span class="site-state-item-count">200</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -1028,7 +1051,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">201</span>
+                <span class="site-state-item-count">203</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1139,7 +1162,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text">1 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-一些概念"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 一些概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-多线程概念补充"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 多线程概念补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-四种解决方案对比"><span class="nav-number">2.</span> <span class="nav-text">2 四种解决方案对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-NSTread"><span class="nav-number">3.</span> <span class="nav-text">3 NSTread</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-NSThread三种线程开启方式"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 NSThread三种线程开启方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-NSThread拓展"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 NSThread拓展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-GCD"><span class="nav-number">4.</span> <span class="nav-text">4. GCD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-GCD的优点"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 GCD的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-任务和队列"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 任务和队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-下面👇以一个一个🌰来学习GCD，帮助搞清上面的概念"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 下面👇以一个一个🌰来学习GCD，帮助搞清上面的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-GCD-重点"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 GCD 重点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-GCD其他相关方法"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 GCD其他相关方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-NSOperation-和-NSOperationQueue"><span class="nav-number">5.</span> <span class="nav-text">5 NSOperation 和 NSOperationQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-概念"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-NSOperation-实现多线程的步骤"><span class="nav-number">5.2.</span> <span class="nav-text">5. 2 NSOperation 实现多线程的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-使用NSOperation的子类NSInvocationOperation"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 使用NSOperation的子类NSInvocationOperation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-使用NSOperation的子类NSBlockOperation"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 使用NSOperation的子类NSBlockOperation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-NSOperation的自定义子类"><span class="nav-number">5.5.</span> <span class="nav-text">5.5 NSOperation的自定义子类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-NSOperationQueue"><span class="nav-number">5.6.</span> <span class="nav-text">5.6 NSOperationQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-1-创建队列"><span class="nav-number">5.6.1.</span> <span class="nav-text">5.6.1 创建队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-2-添加操作到队列中"><span class="nav-number">5.6.2.</span> <span class="nav-text">5.6.2 添加操作到队列中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-3-maxConcurrentOperationCount"><span class="nav-number">5.6.3.</span> <span class="nav-text">5.6.3 maxConcurrentOperationCount</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-NSOperation之间的依赖"><span class="nav-number">5.7.</span> <span class="nav-text">5.7 NSOperation之间的依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-NSOperation-常用属性和方法"><span class="nav-number">5.8.</span> <span class="nav-text">5.8 NSOperation 常用属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-NSOperationQueue-常用属性和方法"><span class="nav-number">5.9.</span> <span class="nav-text">5.9 NSOperationQueue 常用属性和方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-后记"><span class="nav-number">6.</span> <span class="nav-text">6 后记</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-text">1 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-一些概念"><span class="nav-text">1.1 一些概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-多线程概念补充"><span class="nav-text">1.2 多线程概念补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-四种解决方案对比"><span class="nav-text">2 四种解决方案对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-NSTread"><span class="nav-text">3 NSTread</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-NSThread三种线程开启方式"><span class="nav-text">3.1 NSThread三种线程开启方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-NSThread拓展"><span class="nav-text">3.2 NSThread拓展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-GCD"><span class="nav-text">4. GCD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-GCD的优点"><span class="nav-text">4.1 GCD的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-任务和队列"><span class="nav-text">4.2 任务和队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-下面👇以一个一个🌰来学习GCD，帮助搞清上面的概念"><span class="nav-text">4.3 下面👇以一个一个🌰来学习GCD，帮助搞清上面的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-GCD-重点"><span class="nav-text">4.4 GCD 重点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-GCD其他相关方法"><span class="nav-text">4.5 GCD其他相关方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-NSOperation-和-NSOperationQueue"><span class="nav-text">5 NSOperation 和 NSOperationQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-概念"><span class="nav-text">5.1 概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-NSOperation-实现多线程的步骤"><span class="nav-text">5. 2 NSOperation 实现多线程的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-使用NSOperation的子类NSInvocationOperation"><span class="nav-text">5.3 使用NSOperation的子类NSInvocationOperation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-使用NSOperation的子类NSBlockOperation"><span class="nav-text">5.4 使用NSOperation的子类NSBlockOperation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-NSOperation的自定义子类"><span class="nav-text">5.5 NSOperation的自定义子类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-NSOperationQueue"><span class="nav-text">5.6 NSOperationQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-1-创建队列"><span class="nav-text">5.6.1 创建队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-2-添加操作到队列中"><span class="nav-text">5.6.2 添加操作到队列中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-3-maxConcurrentOperationCount"><span class="nav-text">5.6.3 maxConcurrentOperationCount</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-NSOperation之间的依赖"><span class="nav-text">5.7 NSOperation之间的依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-NSOperation-常用属性和方法"><span class="nav-text">5.8 NSOperation 常用属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-NSOperationQueue-常用属性和方法"><span class="nav-text">5.9 NSOperationQueue 常用属性和方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-后记"><span class="nav-text">6 后记</span></a></li></ol></div>
             
 
           </div>
@@ -1167,7 +1190,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共292.7k字</span>
+  <span class="post-count">  全站共294.6k字</span>
 
 </div>
 
@@ -1198,6 +1221,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -1757,6 +1782,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

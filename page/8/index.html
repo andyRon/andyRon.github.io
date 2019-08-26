@@ -122,7 +122,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -337,6 +337,409 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/Swift算法俱乐部-为什么要学习算法与数据结构？.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/Swift算法俱乐部-为什么要学习算法与数据结构？.html" itemprop="url">【译】Swift算法俱乐部-为什么要学习算法与数据结构？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-14T18:09:01+08:00">
+                2018-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/Swift算法俱乐部-为什么要学习算法与数据结构？.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/Swift算法俱乐部-为什么要学习算法与数据结构？.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/Swift算法俱乐部-为什么要学习算法与数据结构？.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-为什么要学习算法与数据结构？">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 879 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 3 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br><a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。</p>
+</blockquote>
+<p>如果你已经写过一些代码，你也许就会好奇学习算法和数据结构的意义何在，特别是如果你没有接受过计算机科学专业的高等教育。</p>
+<p>毕竟，在平时的编码工作中，到底会有多少机会需要自己亲自编写一个链表或排序算法呢？答案是：可能永远都不会。</p>
+<h4 id="然而…"><a href="#然而…" class="headerlink" title="然而…"></a><strong>然而…</strong></h4><p>了解一点现有算法解决问题时所用的奇技淫巧可能会给予你启发，让你能更好地优化自己的代码。</p>
+<p>除了自带的标准数组和字典之外，了解一些其它的数据结构让你在构建自己的 App 时拥有更多的选择。</p>
+<p>学习算法和数据结构会助你成为更好的开发者！（当然也就意味了可以赚到更多的$$$）</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/Swift算法俱乐部-为什么要学习算法与数据结构？.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/Swift算法俱乐部-什么是算法和数据结构？.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/Swift算法俱乐部-什么是算法和数据结构？.html" itemprop="url">【译】Swift算法俱乐部-什么是算法和数据结构？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-14T18:08:23+08:00">
+                2018-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/Swift算法俱乐部-什么是算法和数据结构？.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/Swift算法俱乐部-什么是算法和数据结构？.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/Swift算法俱乐部-什么是算法和数据结构？.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-什么是算法和数据结构？">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 514 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 2 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br><a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。欢迎有兴趣学习算法和数据结构，有时间的小伙伴一起参与翻译，欢迎issue，或者直接提交pull request。</p>
+</blockquote>
+<h1 id="什么是算法和数据结构？"><a href="#什么是算法和数据结构？" class="headerlink" title="什么是算法和数据结构？"></a>什么是算法和数据结构？</h1><p>一个算法就像一张教计算机“烹饪”的“食谱”。如果你了解做菜的过程，你就能理解算法的定义。</p>
+<p>下面有一张关于<a href="http://allrecipes.com/recipe/21014/good-old-fashioned-pancakes/" target="_blank" rel="noopener">制作薄饼的食谱</a>：</p>
+<ol>
+<li>在一个大碗里，将面粉，发酵粉，盐和糖过筛。</li>
+<li>加入牛奶、鸡蛋和融化了的奶油。</li>
+<li>搅拌混合直至丝柔顺滑。</li>
+<li>中火加热平底锅。</li>
+<li>将搅拌好的面糊缓慢倒入锅中，每个薄饼大概用1/4杯的面糊即可。</li>
+<li>薄饼两面都呈黄褐色即可出锅享用了。</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/Swift算法俱乐部-什么是算法和数据结构？.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -842,7 +1245,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 216 字
+                  : 232 字
                 </span>
               
 
@@ -877,7 +1280,11 @@
 
       
         
-          <p>仅凭IP无法完成通信</p>
+          <blockquote>
+<p>这是学习<a href="https://book.douban.com/subject/24737674/" target="_blank" rel="noopener">《图解TCP/IP（第5版）》</a>的一篇笔记。  </p>
+</blockquote>
+<p><br> </p>
+<p>仅凭IP无法完成通信</p>
 <h3 id="1-DNS"><a href="#1-DNS" class="headerlink" title="1 DNS"></a>1 DNS</h3><p><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1fv5v1beh9jj30uw0ledhp.jpg" alt=""></p>
 <p><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1fv5v1n71qgj30qu0padh5.jpg" alt=""></p>
           <!--noindex-->
@@ -1432,7 +1839,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 499 字
+                  : 515 字
                 </span>
               
 
@@ -1467,7 +1874,11 @@
 
       
         
-          <p>TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。</p>
+          <blockquote>
+<p>这是学习<a href="https://book.douban.com/subject/24737674/" target="_blank" rel="noopener">《图解TCP/IP（第5版）》</a>的一篇笔记。  </p>
+</blockquote>
+<p><br> </p>
+<p>TCP/IP的心脏是互联网层，包括IP(Internet Protocol)和ICMP(Internet Control Message Protocol)两个协议。</p>
 <h3 id="1IP即网际协议"><a href="#1IP即网际协议" class="headerlink" title="1IP即网际协议"></a>1IP即网际协议</h3><p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fuzz5b87o4j30w80c83za.jpg" alt="">  </p>
 <p><strong>主机</strong>：配置IP地址，但不进行路由控制的设备。<br><strong>路由器</strong>：配置IP地址又有路由控制的设备。<br><strong>节点</strong>：主机和路由器的统称。</p>
           <!--noindex-->
@@ -1626,7 +2037,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 398 字
+                  : 414 字
                 </span>
               
 
@@ -1661,9 +2072,13 @@
 
       
         
-          <h3 id="1数据链路的作用"><a href="#1数据链路的作用" class="headerlink" title="1数据链路的作用"></a>1数据链路的作用</h3><p>二进制0、1表示信息，在通信媒介中国对应是 电压的高低、光的闪灭以及电波的强弱等信号。  </p>
+          <blockquote>
+<p>这是学习<a href="https://book.douban.com/subject/24737674/" target="_blank" rel="noopener">《图解TCP/IP（第5版）》</a>的一篇笔记。  </p>
+</blockquote>
+<p><br> </p>
+<h3 id="1数据链路的作用"><a href="#1数据链路的作用" class="headerlink" title="1数据链路的作用"></a>1数据链路的作用</h3><p>二进制0、1表示信息，在通信媒介中对应的是<strong>电压的高低</strong>、<strong>光的闪灭</strong>以及<strong>电波的强弱</strong>等信号。  </p>
 <p>数据链路被视为网络传输中的最小单位。  </p>
-<p>不同的数据链路网路：<br>以太网<br>FDDI（Fiber Distributed Data Interface，光纤分布式数据接口）<br>ATM（Asynchronous Transfer Mode，异步传输方式）<br>无线LAN<br>蓝牙  </p>
+<p>不同的数据链路网路：<br><strong>以太网</strong><br><strong>FDDI</strong>（Fiber Distributed Data Interface，光纤分布式数据接口）<br><strong>ATM</strong>（Asynchronous Transfer Mode，异步传输方式）<br><strong>无线LAN</strong><br><strong>蓝牙</strong>  </p>
 <p>网络拓扑（Topology）</p>
 <h3 id="2数据链路相关技术"><a href="#2数据链路相关技术" class="headerlink" title="2数据链路相关技术"></a>2数据链路相关技术</h3><h4 id="2-1MAC地址"><a href="#2-1MAC地址" class="headerlink" title="2.1MAC地址"></a>2.1MAC地址</h4><p>MAC地址长48比特，一般被烧入到ROM中。任意一个网卡的MAC地址是全世界唯一的（虚拟网卡除外）。</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fuyg9h5k7vj30yi0lagn3.jpg" alt=""></p>
@@ -1823,7 +2238,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 291 字
+                  : 307 字
                 </span>
               
 
@@ -1858,408 +2273,17 @@
 
       
         
-          <h3 id="1TCP-IP出现的背景及其历史"><a href="#1TCP-IP出现的背景及其历史" class="headerlink" title="1TCP/IP出现的背景及其历史"></a>1TCP/IP出现的背景及其历史</h3><p>军用技术<br>ARPANET  </p>
+          <blockquote>
+<p>这是学习<a href="https://book.douban.com/subject/24737674/" target="_blank" rel="noopener">《图解TCP/IP（第5版）》</a>的一篇笔记。  </p>
+</blockquote>
+<p><br> </p>
+<h3 id="1TCP-IP出现的背景及其历史"><a href="#1TCP-IP出现的背景及其历史" class="headerlink" title="1TCP/IP出现的背景及其历史"></a>1TCP/IP出现的背景及其历史</h3><p>军用技术<br>ARPANET  </p>
 <p><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fuxe4g75qaj310w0goabv.jpg" alt=""></p>
 <p>UNIX系统的普及与互联网的扩张  </p>
 <p>商用互联网服务的启蒙     ISP</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/tujie-TCP-IP-2.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/tujie-TCP-IP-1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/tujie-TCP-IP-1.html" itemprop="url">图解TCP/IP-1-网络基础知识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T12:27:36+08:00">
-                2018-09-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/图解TCP-IP/" itemprop="url" rel="index">
-                    <span itemprop="name">图解TCP/IP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/tujie-TCP-IP-1.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/tujie-TCP-IP-1.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/tujie-TCP-IP-1.html" class="leancloud_visitors" data-flag-title="图解TCP/IP-1-网络基础知识">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  : 1,367 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  ≈ 5 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>现在TCP/IP不局限于链接计算机，还可以链接汽车、数码相机、家电等，另外还应用在计算机系统虚拟化和云计算。</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fuw97h2a4mj30v20nidh4.jpg" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/tujie-TCP-IP-1.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/我所理解的生活.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/我所理解的生活.html" itemprop="url">《我所理解的生活》记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-31T23:41:30+08:00">
-                2018-08-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">读书笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/我所理解的生活.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/我所理解的生活.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/我所理解的生活.html" class="leancloud_visitors" data-flag-title="《我所理解的生活》记录">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  : 1,585 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  ≈ 5 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><code>注：</code> 本文是我几年前的记录，整理时发现还可以再看看。</p>
-</blockquote>
-<p><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1futbbk56k0j31kw23vto3.jpg" alt=""></p>
-<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>我所理解的生活就是除了造谣以外，去造其他一切东西。  </p>
-<p><strong>这世道让那些不说粗话但最缺德的人能做道德评判家，这世道让那些话不脏但心眼脏、手段脏的人当道。</strong>  </p>
-<p>我所理解的生活就是做着自己喜欢的事件，养活自己，养活家人。</p>
-<p>你在台面上看见我成功一次，我在台面下就干砸十次，那又如何，我又没死，不停地干就行了，人们只会记住你成功的那一次。</p>
-<p>我只负责制造作品，不负责用户体验，也没有售后服务，更不会根据大家的口味来改进。  </p>
-<p>充满挫败甚至后悔，但遗憾并不多。 </p>
-<p>得之我幸，不得我也没什么不幸。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/我所理解的生活.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2345,7 +2369,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">198</span>
+                <span class="site-state-item-count">200</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -2367,7 +2391,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">201</span>
+                <span class="site-state-item-count">203</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2490,7 +2514,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共292.7k字</span>
+  <span class="post-count">  全站共294.6k字</span>
 
 </div>
 
@@ -2521,6 +2545,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -3068,6 +3094,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

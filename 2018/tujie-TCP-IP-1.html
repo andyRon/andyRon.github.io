@@ -104,12 +104,12 @@
 
 
 
-<meta name="description" content="现在TCP/IP不局限于链接计算机，还可以链接汽车、数码相机、家电等，另外还应用在计算机系统虚拟化和云计算。">
+<meta name="description" content="这是学习《图解TCP/IP（第5版）》的一篇笔记。     现在TCP/IP不局限于链接计算机，还可以链接汽车、数码相机、家电等，另外还应用在计算机系统虚拟化和云计算。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图解TCP&#x2F;IP-1-网络基础知识">
 <meta property="og:url" content="http://andyron.com/2018/tujie-TCP-IP-1.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="现在TCP/IP不局限于链接计算机，还可以链接汽车、数码相机、家电等，另外还应用在计算机系统虚拟化和云计算。">
+<meta property="og:description" content="这是学习《图解TCP/IP（第5版）》的一篇笔记。     现在TCP/IP不局限于链接计算机，还可以链接汽车、数码相机、家电等，另外还应用在计算机系统虚拟化和云计算。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fuw97h2a4mj30v20nidh4.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fuw95e1psij30ro0e0t9q.jpg">
@@ -140,10 +140,10 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fuwdnf0685j30sa0dw0tq.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fuwdpppi5aj30rg0hemyc.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fuwdr0h21rj30zq0mowg9.jpg">
-<meta property="og:updated_time" content="2018-09-04T04:20:06.389Z">
+<meta property="og:updated_time" content="2019-08-05T02:12:02.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图解TCP&#x2F;IP-1-网络基础知识">
-<meta name="twitter:description" content="现在TCP/IP不局限于链接计算机，还可以链接汽车、数码相机、家电等，另外还应用在计算机系统虚拟化和云计算。">
+<meta name="twitter:description" content="这是学习《图解TCP/IP（第5版）》的一篇笔记。     现在TCP/IP不局限于链接计算机，还可以链接汽车、数码相机、家电等，另外还应用在计算机系统虚拟化和云计算。">
 <meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fuw97h2a4mj30v20nidh4.jpg">
 
 
@@ -153,7 +153,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -482,7 +482,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,367 字
+                  : 1,383 字
                 </span>
               
 
@@ -516,7 +516,11 @@
       
 
       
-        <p>现在TCP/IP不局限于链接计算机，还可以链接汽车、数码相机、家电等，另外还应用在计算机系统虚拟化和云计算。</p>
+        <blockquote>
+<p>这是学习<a href="https://book.douban.com/subject/24737674/" target="_blank" rel="noopener">《图解TCP/IP（第5版）》</a>的一篇笔记。  </p>
+</blockquote>
+<p><br></p>
+<p>现在TCP/IP不局限于链接计算机，还可以链接汽车、数码相机、家电等，另外还应用在计算机系统虚拟化和云计算。</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fuw97h2a4mj30v20nidh4.jpg" alt=""></p>
 <a id="more"></a>
 <h3 id="1计算机网络出现的背景"><a href="#1计算机网络出现的背景" class="headerlink" title="1计算机网络出现的背景"></a>1计算机网络出现的背景</h3><ul>
@@ -529,8 +533,9 @@
 <h3 id="2计算机与网络发展的7个阶段"><a href="#2计算机与网络发展的7个阶段" class="headerlink" title="2计算机与网络发展的7个阶段"></a>2计算机与网络发展的7个阶段</h3><ol>
 <li><p>批处理（batch processing）： 事先先将用户程序和数据装入卡带或磁带，并由计算机按照一定的顺序读取<br><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fuw9bn2uv1j30o60aqt92.jpg" alt="批处理"></p>
 </li>
-<li><p>分时系统（time sharing system ，TSS）(1960s)：多个终端与同一个计算机连接，允许多个用户同时使用一台计算机的系统。<br>   独占性、多路性、交互性、及时性<br>  BASIC</p>
-</li>
+<li><p>分时系统（time sharing system ，TSS）(1960s)：多个终端与同一个计算机连接，允许多个用户同时使用一台计算机的系统。<br>   独占性、多路性、交互性、及时性  </p>
+<pre><code>BASIC
+</code></pre></li>
 <li><p>计算机之间的通信 (1970s)<br> 多台计算机分布式处理    通信线路</p>
 </li>
 <li><p>计算机网络的产生 (1980s)<br><strong>分组交换技术</strong>    <strong>窗口系统</strong></p>
@@ -546,7 +551,7 @@
 </ol>
 <h3 id="3协议"><a href="#3协议" class="headerlink" title="3协议"></a>3协议</h3><p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuw9qinehzj30t00g4ab4.jpg" alt=""></p>
 <ul>
-<li>协议就信是计算机之间通过网络实现通时事先达成都的一种“<strong>约定</strong>”。<br>协议如同人与人的对话：<br>将汉语和英语当作“协议”<br>将聊天当作“通信”<br>将说话的内容当作“数据” </li>
+<li>协议就信是计算机之间通过网络实现通时事先达成都的一种“<font color="#FF8C00"><strong>约定</strong></font>”。<br>协议如同人与人的对话：<br>将汉语和英语当作“协议”<br>将聊天当作“通信”<br>将说话的内容当作“数据” </li>
 </ul>
 <ul>
 <li><p>cpu通常同一时间只能运行一个程序。<strong>乱转机制</strong>    <strong>多任务调度</strong></p>
@@ -602,7 +607,7 @@
 <h3 id="7传输方式的分类"><a href="#7传输方式的分类" class="headerlink" title="7传输方式的分类"></a>7传输方式的分类</h3><ol>
 <li><p>面向有连接型与面向无连接型</p>
 </li>
-<li><p>电路交换（历史久，主要用于电话网）和 分组交换（蓄积交换）</p>
+<li><p><strong>电路交换</strong>（历史久，主要用于电话网）和 <strong>分组交换</strong>（蓄积交换）</p>
 </li>
 </ol>
 <p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fuwccd47ojj30zy0g675k.jpg" alt="分组交换"></p>
@@ -611,24 +616,24 @@
 <li><p>根据接收端数量分类</p>
 <ul>
 <li>单播（unicast）</li>
-<li>广播（broadcast)    电视播放</li>
+<li>广播（broadcast)     电视播放</li>
 <li>多播（multicast）    电视会议</li>
-<li>任播（anycast）    DNS根域名解析服务器</li>
+<li>任播（anycast）       DNS根域名解析服务器</li>
 </ul>
 <p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fuwcjl274fj310w0ywn01.jpg" alt=""></p>
 </li>
 </ol>
-<h3 id="8地址"><a href="#8地址" class="headerlink" title="8地址"></a>8地址</h3><p>1.地址的唯一性      在同一个通信网络中不允许有两个相同地址的通信主体存在。<br>2.地址的层次性    为了高效地从越来越多的地址中找出通信的目标地址。</p>
+<h3 id="8地址"><a href="#8地址" class="headerlink" title="8地址"></a>8地址</h3><p>1.地址的<strong>唯一性</strong>      在同一个通信网络中不允许有两个相同地址的通信主体存在。<br>2.地址的<strong>层次性</strong>    为了高效地从越来越多的地址中找出通信的目标地址。</p>
 <p><strong>ip地址具有层次性</strong>  </p>
 <p><strong>MAC寻址</strong> 参考 <strong>地址转发表</strong>(记录实际的MAC地址)<br><strong>IP地址</strong> 参考 <strong>路由控制表</strong>(记录之后的网络号和子网掩码)</p>
 <p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuwcphh1mxj310k0o4gou.jpg" alt=""></p>
 <h3 id="9网络的构成要素"><a href="#9网络的构成要素" class="headerlink" title="9网络的构成要素"></a>9网络的构成要素</h3><p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fuwcsdry0uj31140ycq68.jpg" alt=""></p>
 <h4 id="9-1通信媒介与数据链路"><a href="#9-1通信媒介与数据链路" class="headerlink" title="9.1通信媒介与数据链路"></a>9.1通信媒介与数据链路</h4><p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fuwcx1n84aj310k0le75o.jpg" alt=""></p>
 <ul>
-<li>传输速率，单位bps(Bits Per Second, 每秒比特数)， 又称为 <strong>带宽</strong>(Bandwidth)</li>
+<li>传输速率，单位<strong>bps</strong>(Bits Per Second, 每秒比特数)， 又称为 <strong>带宽</strong>(Bandwidth)</li>
 <li><strong>吞吐量</strong>：主机之间实际的传输速率。<br>吞吐量不仅衡量带宽，也衡量主机的CPU处理能力、网络的拥堵程度、报文中数据字段的占有份额等信息。</li>
 </ul>
-<h4 id="9-2网卡"><a href="#9-2网卡" class="headerlink" title="9.2网卡"></a>9.2网卡</h4><p>网卡，全程网络接口卡（NIC, Network Information Center），也称网络适配器、LAN卡。</p>
+<h4 id="9-2网卡"><a href="#9-2网卡" class="headerlink" title="9.2网卡"></a>9.2网卡</h4><p>网卡，全程网络接口卡（<strong>NIC</strong>, Network Information Center），也称网络适配器、LAN卡。</p>
 <h4 id="9-3中继器-Repeater"><a href="#9-3中继器-Repeater" class="headerlink" title="9.3中继器(Repeater)"></a>9.3中继器(Repeater)</h4><p>波形调整和放大<br>中继器无法改变传输速率<br>有多个端口服务的中继器被称为 <strong>集线器</strong></p>
 <h4 id="9-4网桥-2层交换机"><a href="#9-4网桥-2层交换机" class="headerlink" title="9.4网桥/2层交换机"></a>9.4网桥/2层交换机</h4><p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fuwdbya6cgj30zu0deaay.jpg" alt=""></p>
 <ul>
@@ -637,7 +642,7 @@
 <li><p><strong>交换集线器</strong> 是网桥的一种</p>
 </li>
 </ul>
-<h4 id="9-5路由器-3曾交换机"><a href="#9-5路由器-3曾交换机" class="headerlink" title="9.5路由器/3曾交换机"></a>9.5路由器/3曾交换机</h4><p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fuwdfzhkh7j30zy0buwfc.jpg" alt=""></p>
+<h4 id="9-5路由器-3层交换机"><a href="#9-5路由器-3层交换机" class="headerlink" title="9.5路由器/3层交换机"></a>9.5路由器/3层交换机</h4><p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fuwdfzhkh7j30zy0buwfc.jpg" alt=""></p>
 <p>网络是根据物理地址（MAC地址）进行处理，而路由器/3层交换机则是根据IP地址进行处理的。</p>
 <h4 id="9-6-4-7层交换机"><a href="#9-6-4-7层交换机" class="headerlink" title="9.6 4~7层交换机"></a>9.6 <strong>4~7层交换机</strong></h4><p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuwdii2ty1j30w20a8dg9.jpg" alt=""></p>
 <h4 id="9-7网关"><a href="#9-7网关" class="headerlink" title="9.7网关"></a>9.7网关</h4><p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fuwdm8ho72j30zs0am74w.jpg" alt=""></p>
@@ -718,7 +723,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年09月04日 - 12:20
+      2019年08月05日 - 10:12
     </li>
 
 
@@ -773,6 +778,29 @@
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
       
     </div>
   </div>
@@ -838,7 +866,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">198</span>
+                <span class="site-state-item-count">200</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -860,7 +888,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">201</span>
+                <span class="site-state-item-count">203</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -971,7 +999,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1计算机网络出现的背景"><span class="nav-number">1.</span> <span class="nav-text">1计算机网络出现的背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2计算机与网络发展的7个阶段"><span class="nav-number">2.</span> <span class="nav-text">2计算机与网络发展的7个阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3协议"><span class="nav-number">3.</span> <span class="nav-text">3协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4协议由谁规定"><span class="nav-number">4.</span> <span class="nav-text">4协议由谁规定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5协议分层"><span class="nav-number">5.</span> <span class="nav-text">5协议分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6OSI参考模型通信处理举例"><span class="nav-number">6.</span> <span class="nav-text">6OSI参考模型通信处理举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7传输方式的分类"><span class="nav-number">7.</span> <span class="nav-text">7传输方式的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8地址"><span class="nav-number">8.</span> <span class="nav-text">8地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9网络的构成要素"><span class="nav-number">9.</span> <span class="nav-text">9网络的构成要素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1通信媒介与数据链路"><span class="nav-number">9.1.</span> <span class="nav-text">9.1通信媒介与数据链路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2网卡"><span class="nav-number">9.2.</span> <span class="nav-text">9.2网卡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-3中继器-Repeater"><span class="nav-number">9.3.</span> <span class="nav-text">9.3中继器(Repeater)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4网桥-2层交换机"><span class="nav-number">9.4.</span> <span class="nav-text">9.4网桥/2层交换机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5路由器-3曾交换机"><span class="nav-number">9.5.</span> <span class="nav-text">9.5路由器/3曾交换机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-6-4-7层交换机"><span class="nav-number">9.6.</span> <span class="nav-text">9.6 4~7层交换机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-7网关"><span class="nav-number">9.7.</span> <span class="nav-text">9.7网关</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1计算机网络出现的背景"><span class="nav-text">1计算机网络出现的背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2计算机与网络发展的7个阶段"><span class="nav-text">2计算机与网络发展的7个阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3协议"><span class="nav-text">3协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4协议由谁规定"><span class="nav-text">4协议由谁规定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5协议分层"><span class="nav-text">5协议分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6OSI参考模型通信处理举例"><span class="nav-text">6OSI参考模型通信处理举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7传输方式的分类"><span class="nav-text">7传输方式的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8地址"><span class="nav-text">8地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9网络的构成要素"><span class="nav-text">9网络的构成要素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1通信媒介与数据链路"><span class="nav-text">9.1通信媒介与数据链路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2网卡"><span class="nav-text">9.2网卡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-3中继器-Repeater"><span class="nav-text">9.3中继器(Repeater)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4网桥-2层交换机"><span class="nav-text">9.4网桥/2层交换机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5路由器-3层交换机"><span class="nav-text">9.5路由器/3层交换机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-6-4-7层交换机"><span class="nav-text">9.6 4~7层交换机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-7网关"><span class="nav-text">9.7网关</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -999,7 +1027,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共292.7k字</span>
+  <span class="post-count">  全站共294.6k字</span>
 
 </div>
 
@@ -1030,6 +1058,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -1589,6 +1619,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

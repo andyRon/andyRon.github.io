@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-08-01T01:57:50.838Z</updated>
+  <updated>2019-08-26T12:17:57.266Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Xcode中图标含义总结</title>
+    <link href="http://andyron.com/2019/xcode-icon-summary.html"/>
+    <id>http://andyron.com/2019/xcode-icon-summary.html</id>
+    <published>2019-08-26T12:00:00.000Z</published>
+    <updated>2019-08-26T12:17:57.266Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Xcode中不少有点图标和符号，平常使用不怎么注意，仔细思考🤔一下，有的还不清楚啥意思，这边我做个小小的归纳。&lt;/p&gt;
+&lt;p&gt;按照显示位置，大概分为以下四类：&lt;/p&gt;
+&lt;h3 id=&quot;一、文件后面的字母或符号&quot;&gt;&lt;a href=&quot;#一、文件后面的字母或符号&quot; class=&quot;headerlink&quot; title=&quot;一、文件后面的字母或符号&quot;&gt;&lt;/a&gt;一、文件后面的字母或符号&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://images.andyron.com/2019/8/xcode-icon-4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这些字母或符合对应版本控制（Git，&lt;u&gt;Xcode10已经不再支持SVN&lt;/u&gt;），如果没有使用Git，也可大概看看那些文件修改了或者是新加的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;M&lt;/strong&gt; —— modified，已被修改，需要 commit&lt;br&gt;&lt;strong&gt;A&lt;/strong&gt; —— added，文件是新添加的，已经add，需要 commit&lt;br&gt;&lt;strong&gt;R&lt;/strong&gt; —— 文件被重命名&lt;br&gt;&lt;strong&gt;?&lt;/strong&gt; —— 文件是新添加的，还没有add&lt;br&gt;&lt;strong&gt;D&lt;/strong&gt; —— deleted，文件在服务器上已被删除，这时update的话，可删除本地的文件&lt;br&gt;&lt;strong&gt;C&lt;/strong&gt; —— conflict，冲突&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andyron.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-最小生成树（未加权图）</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%88%E6%9C%AA%E5%8A%A0%E6%9D%83%E5%9B%BE%EF%BC%89.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-最小生成树（未加权图）.html</id>
+    <published>2019-08-02T01:58:00.000Z</published>
+    <updated>2019-08-09T17:47:23.375Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Minimum%20Spanning%20Tree(Unweighted&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Minimum Spanning Tree(Unweighted)&lt;/a&gt;)  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;最小生成树（未加权图）（Minimum Spanning Tree (Unweighted Graph)）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;最小生成树描述了包含访问图中每个节点所需的最小数目边的路径。&lt;/p&gt;
+&lt;p&gt;看下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Minimum%20Spanning%20Tree(Unweighted)/Images/Graph.png&quot; alt=&quot;Graph&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="最小生成树（未加权图）" scheme="http://andyron.com/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%88%E6%9C%AA%E5%8A%A0%E6%9D%83%E5%9B%BE%EF%BC%89/"/>
+    
+      <category term="Minimum Spanning Tree (Unweighted Graph)" scheme="http://andyron.com/tags/Minimum-Spanning-Tree-Unweighted-Graph/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-最小生成树（加权图）</title>
@@ -643,54 +698,6 @@
       <category term="布隆过滤器" scheme="http://andyron.com/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
     
       <category term="Bloom Filter" scheme="http://andyron.com/tags/Bloom-Filter/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《培根随笔》摘录</title>
-    <link href="http://andyron.com/2019/Francis-Bacon-Essays.html"/>
-    <id>http://andyron.com/2019/Francis-Bacon-Essays.html</id>
-    <published>2019-02-04T04:22:30.000Z</published>
-    <updated>2019-02-04T03:41:28.614Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/006tNc79gy1fzu8qfpcw0j30u015246x.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;作者和本书概要&quot;&gt;&lt;a href=&quot;#作者和本书概要&quot; class=&quot;headerlink&quot; title=&quot;作者和本书概要&quot;&gt;&lt;/a&gt;作者和本书概要&lt;/h2&gt;&lt;p&gt;弗兰西斯·培根(Francis Bacon，1561–1626)是英国文艺复兴时期最伟大的哲学家和文学家，“英国唯物主义和整个现代实验科学的真正鼻祖”。&lt;/p&gt;
-&lt;p&gt;豆瓣：&lt;a href=&quot;https://book.douban.com/subject/4711466/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《培根随笔》&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;内容&quot;&gt;&lt;a href=&quot;#内容&quot; class=&quot;headerlink&quot; title=&quot;内容&quot;&gt;&lt;/a&gt;内容&lt;/h2&gt;&lt;h3 id=&quot;论真理&quot;&gt;&lt;a href=&quot;#论真理&quot; class=&quot;headerlink&quot; title=&quot;论真理&quot;&gt;&lt;/a&gt;论真理&lt;/h3&gt;&lt;p&gt;真正可怕的，并不是那种人人都难以避免的一念之差，而是那种深入习俗、盘踞于人心深处的谬误与偏见。&lt;/p&gt;
-&lt;h3 id=&quot;论死亡&quot;&gt;&lt;a href=&quot;#论死亡&quot; class=&quot;headerlink&quot; title=&quot;论死亡&quot;&gt;&lt;/a&gt;论死亡&lt;/h3&gt;&lt;p&gt;“死亡是大自然赐给人类的一种恩惠。”&lt;/p&gt;
-&lt;p&gt;一个坚定执著、有信念的心灵不会因对死亡的畏惧而陷入恐怖。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《爱默生随笔》摘录</title>
-    <link href="http://andyron.com/2019/Ralph-Waldo-Emerson-Essays.html"/>
-    <id>http://andyron.com/2019/Ralph-Waldo-Emerson-Essays.html</id>
-    <published>2019-02-02T04:22:30.000Z</published>
-    <updated>2019-02-04T03:41:18.991Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/006tNc79gy1fzu8q8jjqgj30u018qgrg.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;作者和本书概要&quot;&gt;&lt;a href=&quot;#作者和本书概要&quot; class=&quot;headerlink&quot; title=&quot;作者和本书概要&quot;&gt;&lt;/a&gt;作者和本书概要&lt;/h2&gt;&lt;p&gt;爱默生（Ralph Waldo Emerson）， 美国思想家、文学家，诗人。爱默生是确立美国文化精神的代表人物。&lt;/p&gt;
-&lt;p&gt;豆瓣：&lt;a href=&quot;https://book.douban.com/subject/3160772/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《爱默生随笔》&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;内容&quot;&gt;&lt;a href=&quot;#内容&quot; class=&quot;headerlink&quot; title=&quot;内容&quot;&gt;&lt;/a&gt;内容&lt;/h2&gt;&lt;h3 id=&quot;论爱情&quot;&gt;&lt;a href=&quot;#论爱情&quot; class=&quot;headerlink&quot; title=&quot;论爱情&quot;&gt;&lt;/a&gt;论爱情&lt;/h3&gt;&lt;p&gt;成熟的年龄和迂腐的学识会使人类的花样年华逐渐凋零。&lt;/p&gt;
-&lt;p&gt;在思想或是真理的天空下，看任何事物都是美好的。在记忆的天空下，看每一段人生经历中的任何事物，则总是苦涩的。仔细地体味总是充满伤感，而热情的计划总是让人充满希望，感觉崇高。&lt;/p&gt;
-&lt;p&gt;真挚情感的最初流露与和谐仁爱是人的天性中最为迷人的风景。&lt;/p&gt;
-&lt;p&gt;爱的世界永远是人创造的，如果不尝试着去收回那些违背人性、诋毁社会本能的言语，理性而无情的哲学家们决不可能描述出每一个彷徨于此的年轻心灵所蒙受到的爱情恩惠。&lt;/p&gt;
-&lt;font color=&quot;#FF8C00&quot;&gt; 世间的一切，无论已知还是未知，都已巧妙地融入男人和女人这一对机体当中了。&lt;/font&gt;
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
     
   </entry>
   
