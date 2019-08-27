@@ -112,12 +112,12 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="事件的生命周期：　　事件的产生和传递（事件如何从父控件传递到子控件并寻找到最合适的view、寻找最合适的view的底层实现、拦截事件的处理）-&amp;gt;找到最合适的view后事件的处理（touches方法的重写，也就是事件的响应） iOS中的事件可以分为3大类型：触摸事件加速计事件远程控制事件这里只讨论iOS中的触摸事件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-9c56203d705ec253.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-16T09:10:23.689Z">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018006.jpg">
+<meta property="og:updated_time" content="2019-08-27T08:04:13.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识iOS事情处理机制">
 <meta name="twitter:description" content="事件的生命周期：　　事件的产生和传递（事件如何从父控件传递到子控件并寻找到最合适的view、寻找最合适的view的底层实现、拦截事件的处理）-&amp;gt;找到最合适的view后事件的处理（touches方法的重写，也就是事件的响应） iOS中的事件可以分为3大类型：触摸事件加速计事件远程控制事件这里只讨论iOS中的触摸事件。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-9c56203d705ec253.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2018/ar2018006.jpg">
 
 
 
@@ -534,7 +534,7 @@
 <blockquote>
 <p>默认UIImageView不能接受触摸事件，因为不允许交互，即userInteractionEnabled = NO。所以如果希望UIImageView可以交互，需要设置UIImageView的userInteractionEnabled = YES。</p>
 </blockquote>
-<h4 id="5-3-事件传递示例"><a href="#5-3-事件传递示例" class="headerlink" title="5.3 事件传递示例"></a>5.3 事件传递示例</h4><p>  <img src="https://upload-images.jianshu.io/upload_images/1678135-9c56203d705ec253.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数字表示视图的层次"></p>
+<h4 id="5-3-事件传递示例"><a href="#5-3-事件传递示例" class="headerlink" title="5.3 事件传递示例"></a>5.3 事件传递示例</h4><p>  <img src="http://images.andyron.com/2018/ar2018006.jpg" alt="数字表示视图的层次"></p>
 <ul>
 <li>不管视图能不能处理事件，只要点击了视图就都会产生事件，关键在于该事件最终是由谁来处理！也就是说，如果蓝色视图不能处理事件，点击蓝色视图产生的触摸事件不会由被点击的视图（蓝色视图）处理！</li>
 <li>如果设置父控件的透明度或者hidden，会直接影响到子控件的透明度和hidden。如果父控件的透明度为0或者hidden = YES，那么子控件也是不可见的！</li>
@@ -554,9 +554,9 @@
 <li>不管点击哪里，最合适的view都是<code>hitTest(_:with:)</code>方法中返回的那个view。</li>
 <li>通过重写<code>hitTest(_:with:)</code>，就可以拦截事件的传递过程，想让谁处理事件谁就处理事件。</li>
 </ul>
-<p><strong>事件的传递顺序</strong> 是：<br><code>产生触摸事件 -&gt; UIApplication事件队列 -&gt; UIWindow.hitTest(_:with:) -&gt;返回更合适的view -&gt; 子控件.hitTest(_:with:) -&gt; 返回最合适的view</code></p>
 </li>
 </ul>
+<p>  <strong>事件的传递顺序</strong> 是：<br>  <code>产生触摸事件 -&gt; UIApplication事件队列 -&gt; UIWindow.hitTest(_:with:) -&gt;返回更合适的view -&gt; 子控件.hitTest(_:with:) -&gt; 返回最合适的view</code></p>
 <ul>
 <li>6.1.2 <code>point(inside:with:)</code> 方法<br>次方法判断点在不在当前view上（方法调用者的坐标系上）如果返回true，代表点在方法调用者的坐标系上;返回false代表点不在方法调用者的坐标系上，那么方法调用者也就不能处理事件。</li>
 </ul>
@@ -628,7 +628,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年09月16日 - 17:10
+      2019年08月27日 - 16:04
     </li>
 
 

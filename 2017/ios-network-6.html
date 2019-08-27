@@ -112,13 +112,13 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/656644-7dfe370a86e157e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-24T11:31:18.562Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017009.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017010.jpg">
+<meta property="og:updated_time" content="2019-08-27T08:37:34.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS网络编程(六)：SDWebImage的简单使用">
 <meta name="twitter:description" content="SDWebImage一些知识：  对远程图片进行缓存管理（磁盘+内存） 异步加载 同一个URL图片不会重复下载 失效的URL不会被无限重试">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017009.jpg">
 
 
 
@@ -490,7 +490,7 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-27a4683256504565.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p><img src="http://images.andyron.com/2017/ar2017009.jpg" alt=""></p>
 <p><strong>SDWebImage</strong>一些知识：</p>
 <ul>
 <li>对远程图片进行缓存管理（磁盘+内存）</li>
@@ -513,8 +513,6 @@
 <li><code>completed</code>: <code>Block</code>加载完<br>   image:下载得到的图片数据<br>   error:下载出现的错误信息<br>   SDImageCacheType：图片的缓存策略<br>   imageURL：下载的图片的url地址</li>
 </ul>
 </li>
-</ul>
-<ul>
 <li><p>引入<strong>UIImageView+WebCache</strong>类别就可以使用<strong>SDWebImage</strong>加载图片</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;UIImageView+WebCache.h&quot;</span><br></pre></td></tr></table></figure>
 </li>
@@ -522,7 +520,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[self.imageView sd_setImageWithURL: url];</span><br><span class="line"></span><br><span class="line">[self.imageView sd_setImageWithURL: url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) &#123;</span><br><span class="line">    NSLog(@&quot;图片加载完&quot;);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">[self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@&quot;apple&quot;]];</span><br><span class="line"></span><br><span class="line">[self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@&quot;apple&quot;] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) &#123;</span><br><span class="line">    NSLog(@&quot;图片加载完&quot;);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">[self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@&quot;apple&quot;] options: SDWebImageCacheMemoryOnly];</span><br><span class="line"></span><br><span class="line">[self.imageView sd_setImageWithURL:url placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) &#123;</span><br><span class="line">    //计算当前图片的下载进度</span><br><span class="line">    NSLog(@&quot;下载进度:%.2f&quot;,1.0 *receivedSize / expectedSize);</span><br><span class="line">&#125; completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) &#123;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="图片加载过程"><a href="#图片加载过程" class="headerlink" title="图片加载过程"></a>图片加载过程</h3><p><img src="http://upload-images.jianshu.io/upload_images/656644-7dfe370a86e157e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="图片加载过程"><a href="#图片加载过程" class="headerlink" title="图片加载过程"></a>图片加载过程</h3><p><img src="http://images.andyron.com/2017/ar2017010.jpg" alt=""></p>
 <h3 id="缓存大小"><a href="#缓存大小" class="headerlink" title="缓存大小"></a>缓存大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSInteger *cacheSize = [[SDImageCache sharedImageCache] getSize];</span><br><span class="line">NSLog(@&quot;缓存大小：%d&quot;, cacheSize);</span><br></pre></td></tr></table></figure>
 <h3 id="清理缓存"><a href="#清理缓存" class="headerlink" title="清理缓存"></a>清理缓存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 清理内存缓存</span><br><span class="line">[[SDImageCache sharedImageCache] clearMemory];</span><br><span class="line"></span><br><span class="line">// 清理磁盘缓存</span><br><span class="line">[[SDImageCache sharedImageCache] clearDisk];</span><br></pre></td></tr></table></figure>
 <h3 id="查看缓存完整目录"><a href="#查看缓存完整目录" class="headerlink" title="查看缓存完整目录"></a>查看缓存完整目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSLog(@&quot;%s__%d__|%@&quot;,__FUNCTION__,__LINE__,[[SDImageCache sharedImageCache] defaultCachePathForKey:@&quot;http://img4.duitang.com/uploads/blog/201310/18/20131018213446_smUw4.thumb.600_0.jpeg&quot;]);</span><br></pre></td></tr></table></figure>
@@ -596,7 +594,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月24日 - 19:31
+      2019年08月27日 - 16:37
     </li>
 
 

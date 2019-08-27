@@ -112,16 +112,16 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：关于iOS多线程，我说，你听，没准你就懂了！、谈iOS多线程(NSThread、NSOperation、GCD)编程、iOS多线程：『GCD』详尽总结、iOS多线程：『pthread、NSThread』详尽总结、iOS多线程：『NSOperation、NSOperationQueue』详尽总结、关于iOS多线程，你看我就够了等，但不自">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-29de3060eff432c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a77b124e0fd294e3..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-485f98d116b57409.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-926ac158226a8ff5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-05T04:54:38.353Z">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018001.jpg">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018002.jpg">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018003.jpg">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018004.png">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018005.jpg">
+<meta property="og:updated_time" content="2019-08-27T08:04:04.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于iOS多线程，这边勉强可以看看(OC&amp;Swift)">
 <meta name="twitter:description" content="iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：关于iOS多线程，我说，你听，没准你就懂了！、谈iOS多线程(NSThread、NSOperation、GCD)编程、iOS多线程：『GCD』详尽总结、iOS多线程：『pthread、NSThread』详尽总结、iOS多线程：『NSOperation、NSOperationQueue』详尽总结、关于iOS多线程，你看我就够了等，但不自">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2018/ar2018001.jpg">
 
 
 
@@ -493,10 +493,10 @@
       
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/1678135-4dd42c5a74e7eac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="搜多线程谷歌给的第一张图🙄"></p>
+        <p><img src="http://images.andyron.com/2018/ar2018001.jpg" alt="搜多线程谷歌给的第一张图🙄"></p>
 <p>iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：<a href="https://www.jianshu.com/p/51fd1362249e" target="_blank" rel="noopener">关于iOS多线程，我说，你听，没准你就懂了！</a>、<a href="http://www.jianshu.com/p/6e6f4e005a0b" target="_blank" rel="noopener">谈iOS多线程(NSThread、NSOperation、GCD)编程</a>、<a href="http://www.jianshu.com/p/2d57c72016c6" target="_blank" rel="noopener">iOS多线程：『GCD』详尽总结</a>、<a href="https://www.jianshu.com/p/cbaeea5368b1" target="_blank" rel="noopener">iOS多线程：『pthread、NSThread』详尽总结</a>、<a href="https://www.jianshu.com/p/4b1d77054b35" target="_blank" rel="noopener">iOS多线程：『NSOperation、NSOperationQueue』详尽总结</a>、<a href="https://www.jianshu.com/p/0b0d9b1f1f19" target="_blank" rel="noopener">关于iOS多线程，你看我就够了</a>等，但不自己整理一下，敲一下代码总是感觉不深刻 ，于是就有这篇文章，断断续续整理了好久。  </p>
 <p>示例我尽量把不同知识点代码独立开，看着简单一些，容易理解。示例代码我都用OC和Swift分别写了，不过文中都是以OC说明的，因为如果用两种语言一起，看起来可能比较乱，文章也会更加长（已经非常长了😂😂）。<br>Swift写法可能有比较大区别，也有些功能取消，但看一下代码应该能明白了。<br>文中的所有示例代码：<strong><a href="https://github.com/andyRon/iOS-Multithreading" target="_blank" rel="noopener">andyRon/iOS-Multithreading</a></strong></p>
-<p>先看个大概：<br><img src="https://upload-images.jianshu.io/upload_images/1678135-29de3060eff432c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>先看个大概：<br><img src="http://images.andyron.com/2018/ar2018002.jpg" alt=""></p>
 <a id="more"></a>
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>一些帮助理解的概念，可以先简单看一下，然后读完全文再回来看一下这一部分，可能就比较清晰了。🙂</p>
 <h3 id="1-1-一些概念"><a href="#1-1-一些概念" class="headerlink" title="1.1 一些概念"></a>1.1 一些概念</h3><ul>
@@ -551,7 +551,7 @@
 <h2 id="2-四种解决方案对比"><a href="#2-四种解决方案对比" class="headerlink" title="2 四种解决方案对比"></a>2 四种解决方案对比</h2><ul>
 <li>目前iOS多线程有四种方法：pthread，NSThread，GCD， NSOperation，四种方案的简单对比一下。</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-a77b124e0fd294e3..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="多线程的四种方案对比"></p>
+<p><img src="http://images.andyron.com/2018/ar2018003.jpg" alt="多线程的四种方案对比"></p>
 <p>由于pthread平常几乎用不到，我暂时就不学了。</p>
 <ul>
 <li>每个NSThread对象对应一个线程，真正最原始的线程，相对简单，但是需要手动管理所有的线程活动，如生命周期、线程同步、睡眠等。</li>
@@ -586,7 +586,7 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在指定线程上执行操作</span></span><br><span class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(run) onThread:thread withObject:<span class="literal">nil</span> waitUntilDone:<span class="literal">YES</span>]; </span><br><span class="line"><span class="comment">//在主线程上执行操作</span></span><br><span class="line">[<span class="keyword">self</span> performSelectorOnMainThread:<span class="keyword">@selector</span>(run) withObject:<span class="literal">nil</span> waitUntilDone:<span class="literal">YES</span>]; </span><br><span class="line"><span class="comment">//在当前线程执行操作</span></span><br><span class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(run) withObject:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="4-GCD"><a href="#4-GCD" class="headerlink" title="4. GCD"></a>4. GCD</h2><p><img src="https://upload-images.jianshu.io/upload_images/1678135-485f98d116b57409.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="4-GCD"><a href="#4-GCD" class="headerlink" title="4. GCD"></a>4. GCD</h2><p><img src="http://images.andyron.com/2018/ar2018004.png" alt=""></p>
 <p>GCD为Grand Central Dispatch的缩写。Grand Central Dispatch (GCD)是Apple开发的一个多核编程的较新的解决方法。它主要用于优化应用程序以支持多核处理器以及其他对称多处理系统。</p>
 <h3 id="4-1-GCD的优点"><a href="#4-1-GCD的优点" class="headerlink" title="4.1 GCD的优点"></a>4.1 GCD的优点</h3><ul>
 <li>GCD 可用于多核的并行运算</li>
@@ -647,7 +647,8 @@
 <li>例子一:线程死锁（主队列 + 同步执行）<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)case1 &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"A=====%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"B=====%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"C=====%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>运行结果崩溃：<br>   <img src="https://upload-images.jianshu.io/upload_images/1678135-926ac158226a8ff5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>打印结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GCD(OC)[51511:6351422] A=====&lt;NSThread: 0x600000064340&gt;&#123;number = 1, name = main&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果崩溃：<br>   <img src="http://images.andyron.com/2018/ar2018005.jpg" alt=""><br>打印结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GCD(OC)[51511:6351422] A=====&lt;NSThread: 0x600000064340&gt;&#123;number = 1, name = main&#125;</span><br></pre></td></tr></table></figure>
 <p>解释：默认就一个主队列和一个主线程，因此<code>case1</code>函数这段任务就在主队列中同步执行，<code>dispatch_sync...</code>这段代码表示把B处任务加入主队列中，并且同步执行，这就出问题，B处任务要等主队列中同步执行之前的<code>case1</code>这段任务结束后执行，但B处任务在<code>case1</code>这段任务中，<code>case1</code>又要等B处任务执行完才能继续执行。<code>case1</code>任务要等B处完成才能继续，但<code>case1</code>又排在B处前面，这就尴尬了，￣□￣｜｜，因此崩溃了😖</p>
 <ul>
 <li>例子二：主队列 + 异步执行<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)case2 &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"A=====%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"B=====%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"C=====%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -872,7 +873,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年01月05日 - 12:54
+      2019年08月27日 - 16:04
     </li>
 
 

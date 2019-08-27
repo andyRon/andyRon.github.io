@@ -112,13 +112,13 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content=".pch文件也是一种头文件，它的内容能被项目中的其他所有源文件共享和访问。是一个预编译文件。 pch文件的作用：1.存放一些全局的宏(整个项目中都用得上的宏) 2.用来包含一些头文件(整个项目中都用得上的头文件) 3.能自动打开或者关闭日志输出功能">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-dbbffc7d6c416334.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-fd124ee0916804b1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-10-08T06:25:07.000Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017006.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017007.jpg">
+<meta property="og:updated_time" content="2019-08-27T08:37:31.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于iOS开发中的pch文件">
 <meta name="twitter:description" content=".pch文件也是一种头文件，它的内容能被项目中的其他所有源文件共享和访问。是一个预编译文件。 pch文件的作用：1.存放一些全局的宏(整个项目中都用得上的宏) 2.用来包含一些头文件(整个项目中都用得上的头文件) 3.能自动打开或者关闭日志输出功能">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-dbbffc7d6c416334.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017006.jpg">
 
 
 
@@ -495,8 +495,8 @@
 <p>2.用来包含一些头文件(整个项目中都用得上的头文件)</p>
 <p>3.能自动打开或者关闭日志输出功能</p>
 <a id="more"></a>
-<h3 id="Xcode新建pch文件"><a href="#Xcode新建pch文件" class="headerlink" title="Xcode新建pch文件"></a>Xcode新建pch文件</h3><p><img src="http://upload-images.jianshu.io/upload_images/1678135-dbbffc7d6c416334.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="Xcode配置pch文件"><a href="#Xcode配置pch文件" class="headerlink" title="Xcode配置pch文件"></a>Xcode配置pch文件</h3><p><img src="http://upload-images.jianshu.io/upload_images/1678135-fd124ee0916804b1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="Xcode新建pch文件"><a href="#Xcode新建pch文件" class="headerlink" title="Xcode新建pch文件"></a>Xcode新建pch文件</h3><p><img src="http://images.andyron.com/2017/ar2017006.jpg" alt=""></p>
+<h3 id="Xcode配置pch文件"><a href="#Xcode配置pch文件" class="headerlink" title="Xcode配置pch文件"></a>Xcode配置pch文件</h3><p><img src="http://images.andyron.com/2017/ar2017007.jpg" alt=""></p>
 <h3 id="pch文件的简单例子"><a href="#pch文件的简单例子" class="headerlink" title="pch文件的简单例子"></a>pch文件的简单例子</h3><p>一个小项目的pch文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#ifndef PrefixHeader_pch</span><br><span class="line">#define PrefixHeader_pch</span><br><span class="line"></span><br><span class="line">// Include any system framework and library headers here that should be included in all compilation units.</span><br><span class="line">// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.</span><br><span class="line"></span><br><span class="line">#import &quot;ARSearchBar.h&quot;</span><br><span class="line">#import &lt;FMDB.h&gt;</span><br><span class="line">#import &quot;ARSqliteTool.h&quot;</span><br><span class="line">#import &lt;AFNetworking.h&gt;</span><br><span class="line">#import &lt;SSZipArchive.h&gt;</span><br><span class="line">#import &lt;MobileCoreServices/MobileCoreServices.h&gt;</span><br><span class="line">#import &lt;SystemConfiguration/SystemConfiguration.h&gt;</span><br><span class="line"></span><br><span class="line">#define ARUserDefaults [NSUserDefaults standardUserDefaults]</span><br><span class="line">#define ARScreenBounds [UIScreen mainScreen].bounds</span><br><span class="line">#define ARScreenWidth [UIScreen mainScreen].bounds.size.width</span><br><span class="line">#define ARScreenHeight [UIScreen mainScreen].bounds.size.height</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#define WeakSelf __weak typeof(self) weakSelf = self;</span><br><span class="line">/**</span><br><span class="line"> *  1.返回一个RGBA格式的UIColor对象</span><br><span class="line"> */</span><br><span class="line">#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *  2.返回一个RGB格式的UIColor对象</span><br><span class="line"> */</span><br><span class="line">#define RGB(r, g, b) RGBA(r, g, b, 1.0f)</span><br><span class="line"></span><br><span class="line">#endif /* PrefixHeader_pch */</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -566,7 +566,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2017年10月08日 - 14:25
+      2019年08月27日 - 16:37
     </li>
 
 
