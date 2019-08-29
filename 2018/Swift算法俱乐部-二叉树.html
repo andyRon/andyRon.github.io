@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法与数据结构,swift,二叉树," />
+  <meta name="keywords" content="swift,算法与数据结构,二叉树," />
 
 
 
@@ -105,7 +105,7 @@
 
 
 <meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
-<meta name="keywords" content="算法与数据结构,swift,二叉树">
+<meta name="keywords" content="swift,算法与数据结构,二叉树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Swift算法俱乐部-二叉树">
 <meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-二叉树.html">
@@ -508,7 +508,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// leaf nodes</span></span><br><span class="line"><span class="keyword">let</span> node5 = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"5"</span>, .empty)</span><br><span class="line"><span class="keyword">let</span> nodeA = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"a"</span>, .empty)</span><br><span class="line"><span class="keyword">let</span> node10 = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"10"</span>, .empty)</span><br><span class="line"><span class="keyword">let</span> node4 = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"4"</span>, .empty)</span><br><span class="line"><span class="keyword">let</span> node3 = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"3"</span>, .empty)</span><br><span class="line"><span class="keyword">let</span> nodeB = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"b"</span>, .empty)</span><br><span class="line"></span><br><span class="line"><span class="comment">// intermediate nodes on the left</span></span><br><span class="line"><span class="keyword">let</span> <span class="type">Aminus10</span> = <span class="type">BinaryTree</span>.node(nodeA, <span class="string">"-"</span>, node10)</span><br><span class="line"><span class="keyword">let</span> timesLeft = <span class="type">BinaryTree</span>.node(node5, <span class="string">"*"</span>, <span class="type">Aminus10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// intermediate nodes on the right</span></span><br><span class="line"><span class="keyword">let</span> minus4 = <span class="type">BinaryTree</span>.node(.empty, <span class="string">"-"</span>, node4)</span><br><span class="line"><span class="keyword">let</span> divide3andB = <span class="type">BinaryTree</span>.node(node3, <span class="string">"/"</span>, nodeB)</span><br><span class="line"><span class="keyword">let</span> timesRight = <span class="type">BinaryTree</span>.node(minus4, <span class="string">"*"</span>, divide3andB)</span><br><span class="line"></span><br><span class="line"><span class="comment">// root node</span></span><br><span class="line"><span class="keyword">let</span> tree = <span class="type">BinaryTree</span>.node(timesLeft, <span class="string">"+"</span>, timesRight)</span><br></pre></td></tr></table></figure>
 <p>您需要反向构建树，从叶子节点开始，一直到顶部。</p>
 <p>添加<code>description</code>属性以便打印树，这会很有用的：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">BinaryTree</span>: <span class="title">CustomStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .node(<span class="keyword">left</span>, value, <span class="keyword">right</span>):</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"value: <span class="subst">\(value)</span>, left = [<span class="subst">\(<span class="keyword">left</span>.description)</span>], right = [<span class="subst">\(<span class="keyword">right</span>.description)</span>]"</span></span><br><span class="line">    <span class="keyword">case</span> .empty:</span><br><span class="line">      <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">BinaryTree</span>: <span class="title">CustomStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .node(<span class="keyword">left</span>, value, <span class="keyword">right</span>):</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"value: \(value), left = [\(left.description)], right = [\(right.description)]"</span></span><br><span class="line">    <span class="keyword">case</span> .empty:</span><br><span class="line">      <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果你 <code>print(tree)</code> 你应该看到这样的东西：</p>
 <pre><code>value: +, left = [value: *, left = [value: 5, left = [], right = []], right = [value: -, left = [value: a, left = [], right = []], right = [value: 10, left = [], right = []]]], right = [value: *, left = [value: -, left = [], right = [value: 4, left = [], right = []]], right = [value: /, left = [value: 3, left = [], right = []], right = [value: b, left = [], right = []]]]
 </code></pre><p>通过一点想象力，您可以看到树形结构。 ;-)如果你缩进它会清晰的看到：</p>
@@ -629,9 +629,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
-          
             <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
           
             <a href="/tags/二叉树/" rel="tag"><i class="fa fa-tag"></i> 二叉树</a>
           
@@ -760,7 +760,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">200</span>
+                <span class="site-state-item-count">202</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -771,7 +771,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -782,7 +782,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">203</span>
+                <span class="site-state-item-count">204</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -921,7 +921,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共294.6k字</span>
+  <span class="post-count">  全站共299.8k字</span>
 
 </div>
 

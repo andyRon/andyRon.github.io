@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法与数据结构,swift,二维数组," />
+  <meta name="keywords" content="swift,算法与数据结构,二维数组," />
 
 
 
@@ -105,7 +105,7 @@
 
 
 <meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
-<meta name="keywords" content="算法与数据结构,swift,二维数组">
+<meta name="keywords" content="swift,算法与数据结构,二维数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Swift算法俱乐部-二维数组">
 <meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-二维数组.html">
@@ -517,7 +517,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> threeDimensions = dim(<span class="number">2</span>, dim(<span class="number">3</span>, dim(<span class="number">4</span>, <span class="number">0</span>)))</span><br></pre></td></tr></table></figure>
 <p>以这种方式使用多维数组或多个嵌套数组的缺点是无法跟踪什么维度代表什么。</p>
 <p>然而，您可以创建自己的类型，其作用类似于二维数组，使用起来更方便：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Array2D</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">let</span> columns: <span class="type">Int</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">let</span> rows: <span class="type">Int</span></span><br><span class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> array: [<span class="type">T</span>]</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">init</span>(columns: <span class="type">Int</span>, rows: <span class="type">Int</span>, initialValue: <span class="type">T</span>) &#123;</span><br><span class="line">    <span class="keyword">self</span>.columns = columns</span><br><span class="line">    <span class="keyword">self</span>.rows = rows</span><br><span class="line">    array = .<span class="keyword">init</span>(repeating: initialValue, <span class="built_in">count</span>: rows*columns)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">subscript</span>(column: <span class="type">Int</span>, row: <span class="type">Int</span>) -&gt; <span class="type">T</span> &#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">      <span class="built_in">precondition</span>(column &lt; columns, <span class="string">"Column <span class="subst">\(column)</span> Index is out of range. Array&lt;T&gt;(columns: <span class="subst">\(columns)</span>, rows:<span class="subst">\(rows)</span>)"</span>)</span><br><span class="line">      <span class="built_in">precondition</span>(row &lt; rows, <span class="string">"Row <span class="subst">\(row)</span> Index is out of range. Array&lt;T&gt;(columns: <span class="subst">\(columns)</span>, rows:<span class="subst">\(rows)</span>)"</span>)</span><br><span class="line">      <span class="keyword">return</span> array[row*columns + column]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span> &#123;</span><br><span class="line">      <span class="built_in">precondition</span>(column &lt; columns, <span class="string">"Column <span class="subst">\(column)</span> Index is out of range. Array&lt;T&gt;(columns: <span class="subst">\(columns)</span>, rows:<span class="subst">\(rows)</span>)"</span>)</span><br><span class="line">      <span class="built_in">precondition</span>(row &lt; rows, <span class="string">"Row <span class="subst">\(row)</span> Index is out of range. Array&lt;T&gt;(columns: <span class="subst">\(columns)</span>, rows:<span class="subst">\(rows)</span>)"</span>)</span><br><span class="line">      array[row*columns + column] = newValue</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Array2D</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">let</span> columns: <span class="type">Int</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">let</span> rows: <span class="type">Int</span></span><br><span class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> array: [<span class="type">T</span>]</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">init</span>(columns: <span class="type">Int</span>, rows: <span class="type">Int</span>, initialValue: <span class="type">T</span>) &#123;</span><br><span class="line">    <span class="keyword">self</span>.columns = columns</span><br><span class="line">    <span class="keyword">self</span>.rows = rows</span><br><span class="line">    array = .<span class="keyword">init</span>(repeating: initialValue, <span class="built_in">count</span>: rows*columns)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">subscript</span>(column: <span class="type">Int</span>, row: <span class="type">Int</span>) -&gt; <span class="type">T</span> &#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">      <span class="built_in">precondition</span>(column &lt; columns, <span class="string">"Column \(column) Index is out of range. Array&lt;T&gt;(columns: \(columns), rows:\(rows))"</span>)</span><br><span class="line">      <span class="built_in">precondition</span>(row &lt; rows, <span class="string">"Row \(row) Index is out of range. Array&lt;T&gt;(columns: \(columns), rows:\(rows))"</span>)</span><br><span class="line">      <span class="keyword">return</span> array[row*columns + column]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span> &#123;</span><br><span class="line">      <span class="built_in">precondition</span>(column &lt; columns, <span class="string">"Column \(column) Index is out of range. Array&lt;T&gt;(columns: \(columns), rows:\(rows))"</span>)</span><br><span class="line">      <span class="built_in">precondition</span>(row &lt; rows, <span class="string">"Row \(row) Index is out of range. Array&lt;T&gt;(columns: \(columns), rows:\(rows))"</span>)</span><br><span class="line">      array[row*columns + column] = newValue</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>译注：<code>precondition(_:_:file:line:)</code>函数类似<code>assert</code>，满足条件会造成程序的提前终止并抛出错误信息，详细查看<a href="https://developer.apple.com/documentation/swift/1540960-precondition" target="_blank" rel="noopener">官方文档</a>。此处有来表示当下标超过范围的提示，效果如下：<br><img src="https://upload-images.jianshu.io/upload_images/1678135-23c580bf5f081edc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 </blockquote>
@@ -616,9 +616,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
-          
             <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
           
             <a href="/tags/二维数组/" rel="tag"><i class="fa fa-tag"></i> 二维数组</a>
           
@@ -738,7 +738,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">200</span>
+                <span class="site-state-item-count">202</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -749,7 +749,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -760,7 +760,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">203</span>
+                <span class="site-state-item-count">204</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -883,7 +883,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共294.6k字</span>
+  <span class="post-count">  全站共299.8k字</span>
 
 </div>
 
