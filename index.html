@@ -347,6 +347,206 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2019/Swift算法俱乐部-第k大元素问题.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/Swift算法俱乐部-第k大元素问题.html" itemprop="url">【译】Swift算法俱乐部-第k大元素问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-01T17:38:00+08:00">
+                2019-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/Swift算法俱乐部-第k大元素问题.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/Swift算法俱乐部-第k大元素问题.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/Swift算法俱乐部-第k大元素问题.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-第k大元素问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 1,708 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 7 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Kth%20Largest%20Element" target="_blank" rel="noopener">swift-algorithm-club-cn/Kth Largest Element</a>  </p>
+</blockquote>
+<hr>
+<p><strong>第k大元素问题(k-th Largest Element Problem)</strong></p>
+<p>你有一个整数数组<code>a</code>。 编写一个算法，在数组中找到第<em>k</em>大的元素。</p>
+<p>例如，第1个最大元素是数组中出现的最大值。 如果数组具有<em>n</em>个元素，则第<em>n</em>最大元素是最小值。 中位数是第<em>n/2</em>最大元素。</p>
+<h2 id="朴素的解决方案"><a href="#朴素的解决方案" class="headerlink" title="朴素的解决方案"></a>朴素的解决方案</h2><p>以下是半朴素的解决方案。 它的时间复杂度是 <strong>O(nlogn)</strong>，因为它首先对数组进行排序，因此也使用额外的 <strong>O(n)</strong> 空间。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">kthLargest</span><span class="params">(a: [Int], k: Int)</span></span> -&gt; <span class="type">Int</span>? &#123;</span><br><span class="line">  <span class="keyword">let</span> len = a.<span class="built_in">count</span></span><br><span class="line">  <span class="keyword">if</span> k &gt; <span class="number">0</span> &amp;&amp; k &lt;= len &#123;</span><br><span class="line">    <span class="keyword">let</span> sorted = a.sorted()</span><br><span class="line">    <span class="keyword">return</span> sorted[len - k]</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/Swift算法俱乐部-第k大元素问题.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://andyron.com/2019/NetworkProtocol-02.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2166,207 +2366,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2019/Swift算法俱乐部-图.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/Swift算法俱乐部-图.html" itemprop="url">【译】Swift算法俱乐部-图</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-24T08:28:00+08:00">
-                2019-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
-                    <span itemprop="name">swift-algorithm-club-cn</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/Swift算法俱乐部-图.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/Swift算法俱乐部-图.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/Swift算法俱乐部-图.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-图">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  : 3,091 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  ≈ 12 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Graph" target="_blank" rel="noopener">swift-algorithm-club-cn/Graph</a>  </p>
-</blockquote>
-<hr>
-<p><strong>图(Graph)</strong>  </p>
-<blockquote>
-<p>这个话题已经有个辅导<a href="https://www.raywenderlich.com/152046/swift-algorithm-club-graphs-adjacency-list" target="_blank" rel="noopener">文章</a></p>
-</blockquote>
-<p>图看上去像下图：</p>
-<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Graph/Images/Graph.png" alt="A graph"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/Swift算法俱乐部-图.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2416,7 +2415,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">202</span>
+                <span class="site-state-item-count">203</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -2438,7 +2437,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">204</span>
+                <span class="site-state-item-count">206</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2561,7 +2560,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共299.8k字</span>
+  <span class="post-count">  全站共301.5k字</span>
 
 </div>
 

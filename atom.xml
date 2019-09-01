@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-08-29T03:27:20.345Z</updated>
+  <updated>2019-09-01T09:41:02.321Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -17,11 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【译】Swift算法俱乐部-第k大元素问题</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-第k大元素问题.html</id>
+    <published>2019-09-01T09:38:00.000Z</published>
+    <updated>2019-09-01T09:41:02.321Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Kth%20Largest%20Element&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Kth Largest Element&lt;/a&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;第k大元素问题(k-th Largest Element Problem)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;你有一个整数数组&lt;code&gt;a&lt;/code&gt;。 编写一个算法，在数组中找到第&lt;em&gt;k&lt;/em&gt;大的元素。&lt;/p&gt;
+&lt;p&gt;例如，第1个最大元素是数组中出现的最大值。 如果数组具有&lt;em&gt;n&lt;/em&gt;个元素，则第&lt;em&gt;n&lt;/em&gt;最大元素是最小值。 中位数是第&lt;em&gt;n/2&lt;/em&gt;最大元素。&lt;/p&gt;
+&lt;h2 id=&quot;朴素的解决方案&quot;&gt;&lt;a href=&quot;#朴素的解决方案&quot; class=&quot;headerlink&quot; title=&quot;朴素的解决方案&quot;&gt;&lt;/a&gt;朴素的解决方案&lt;/h2&gt;&lt;p&gt;以下是半朴素的解决方案。 它的时间复杂度是 &lt;strong&gt;O(nlogn)&lt;/strong&gt;，因为它首先对数组进行排序，因此也使用额外的 &lt;strong&gt;O(n)&lt;/strong&gt; 空间。&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;kthLargest&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(a: [Int], k: Int)&lt;/span&gt;&lt;/span&gt; -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;? &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; len = a.&lt;span class=&quot;built_in&quot;&gt;count&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; k &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &amp;amp;&amp;amp; k &amp;lt;= len &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; sorted = a.sorted()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; sorted[len - k]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="第k大元素问题" scheme="http://andyron.com/tags/%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="k-th Largest Element" scheme="http://andyron.com/tags/k-th-Largest-Element/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2-网络分层的真实含义是什么？</title>
     <link href="http://andyron.com/2019/NetworkProtocol-02.html"/>
     <id>http://andyron.com/2019/NetworkProtocol-02.html</id>
     <published>2019-08-29T03:20:00.000Z</published>
-    <updated>2019-08-29T03:27:20.345Z</updated>
+    <updated>2019-08-31T03:20:59.617Z</updated>
     
     <summary type="html">
     
@@ -657,39 +691,6 @@
       <category term="哈希集合" scheme="http://andyron.com/tags/%E5%93%88%E5%B8%8C%E9%9B%86%E5%90%88/"/>
     
       <category term="Hash Set" scheme="http://andyron.com/tags/Hash-Set/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-有序集</title>
-    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%89%E5%BA%8F%E9%9B%86.html"/>
-    <id>http://andyron.com/2019/Swift算法俱乐部-有序集.html</id>
-    <published>2019-07-11T03:48:00.000Z</published>
-    <updated>2019-07-11T04:07:32.428Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Ordered%20Set&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Ordered Set&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;有序集（Ordered Set）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;我们来看看苹果如何实现&lt;a href=&quot;https://developer.apple.com/documentation/foundation/nsorderedset&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;有序集&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;Here is the example about how it works&lt;br&gt;以下是有关其工作原理的示例：&lt;/p&gt;
-&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; s = &lt;span class=&quot;type&quot;&gt;AppleOrderedSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;&amp;gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.add(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.add(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.add(-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.add(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.insert(&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, at: &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(s.all()) &lt;span class=&quot;comment&quot;&gt;// [1, 2, -1, 4, 0]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.&lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt;(-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, at: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// 已经有-1在index: 2，因此这个操作不做任何事情&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(s.all()) &lt;span class=&quot;comment&quot;&gt;// [1, 2, -1, 4, 0]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.remove(-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(s.all()) &lt;span class=&quot;comment&quot;&gt;// [1, 2, 4, 0]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(s.object(at: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)) &lt;span class=&quot;comment&quot;&gt;// 2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(s.object(at: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)) &lt;span class=&quot;comment&quot;&gt;// 4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="有序集" scheme="http://andyron.com/tags/%E6%9C%89%E5%BA%8F%E9%9B%86/"/>
-    
-      <category term="Ordered Set" scheme="http://andyron.com/tags/Ordered-Set/"/>
     
   </entry>
   

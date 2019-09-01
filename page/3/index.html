@@ -347,6 +347,205 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2019/Swift算法俱乐部-有序集.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/Swift算法俱乐部-有序集.html" itemprop="url">【译】Swift算法俱乐部-有序集</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T11:48:00+08:00">
+                2019-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
+                    <span itemprop="name">swift-algorithm-club-cn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/Swift算法俱乐部-有序集.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/Swift算法俱乐部-有序集.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/Swift算法俱乐部-有序集.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-有序集">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 783 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Ordered%20Set" target="_blank" rel="noopener">swift-algorithm-club-cn/Ordered Set</a></p>
+</blockquote>
+<hr>
+<p><strong>有序集（Ordered Set）</strong></p>
+<p>我们来看看苹果如何实现<a href="https://developer.apple.com/documentation/foundation/nsorderedset" target="_blank" rel="noopener">有序集</a>。</p>
+<p>Here is the example about how it works<br>以下是有关其工作原理的示例：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="type">AppleOrderedSet</span>&lt;<span class="type">Int</span>&gt;()</span><br><span class="line"></span><br><span class="line">s.add(<span class="number">1</span>)</span><br><span class="line">s.add(<span class="number">2</span>)</span><br><span class="line">s.add(-<span class="number">1</span>)</span><br><span class="line">s.add(<span class="number">0</span>)</span><br><span class="line">s.insert(<span class="number">4</span>, at: <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s.all()) <span class="comment">// [1, 2, -1, 4, 0]</span></span><br><span class="line"></span><br><span class="line">s.<span class="keyword">set</span>(-<span class="number">1</span>, at: <span class="number">0</span>) <span class="comment">// 已经有-1在index: 2，因此这个操作不做任何事情</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s.all()) <span class="comment">// [1, 2, -1, 4, 0]</span></span><br><span class="line"></span><br><span class="line">s.remove(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s.all()) <span class="comment">// [1, 2, 4, 0]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s.object(at: <span class="number">1</span>)) <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s.object(at: <span class="number">2</span>)) <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/Swift算法俱乐部-有序集.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://andyron.com/2019/Swift算法俱乐部-多重集合.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2165,206 +2364,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2019/Swift算法俱乐部-双端队列.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/Swift算法俱乐部-双端队列.html" itemprop="url">【译】Swift算法俱乐部-双端队列</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-01T13:44:00+08:00">
-                2019-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/swift-algorithm-club-cn/" itemprop="url" rel="index">
-                    <span itemprop="name">swift-algorithm-club-cn</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/Swift算法俱乐部-双端队列.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/Swift算法俱乐部-双端队列.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/Swift算法俱乐部-双端队列.html" class="leancloud_visitors" data-flag-title="【译】Swift算法俱乐部-双端队列">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  : 2,580 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  ≈ 11 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a> 翻译的一篇文章。<br><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="noopener">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com" target="_blank" rel="noopener">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。<br>🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn" target="_blank" rel="noopener">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。<br>本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Deque" target="_blank" rel="noopener">swift-algorithm-club-cn/Deque</a></p>
-</blockquote>
-<hr>
-<p><strong>双端队列(Deque)</strong></p>
-<p>出于某种原因，双端队列也被称为“deck”。</p>
-<p>常规<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue/" target="_blank" rel="noopener">队列</a>元素在后面添加（入队），从前面删除（出队）。 除了这些，双端队列还可以在后面出队，从前面入队，并且两端都可查看。</p>
-<p>Swift中双端队列的一个非常基本的实现：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Deque</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">var</span> array = [<span class="type">T</span>]()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> isEmpty: <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> array.isEmpty</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> array.<span class="built_in">count</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">enqueue</span><span class="params">(<span class="number">_</span> element: T)</span></span> &#123;</span><br><span class="line">    array.append(element)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">enqueueFront</span><span class="params">(<span class="number">_</span> element: T)</span></span> &#123;</span><br><span class="line">    array.insert(element, atIndex: <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">dequeue</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</span><br><span class="line">    <span class="keyword">if</span> isEmpty &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> array.removeFirst()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">dequeueBack</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</span><br><span class="line">    <span class="keyword">if</span> isEmpty &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> array.removeLast()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">peekFront</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</span><br><span class="line">    <span class="keyword">return</span> array.first</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">peekBack</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</span><br><span class="line">    <span class="keyword">return</span> array.last</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/Swift算法俱乐部-双端队列.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2414,7 +2413,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">202</span>
+                <span class="site-state-item-count">203</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -2436,7 +2435,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">204</span>
+                <span class="site-state-item-count">206</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2559,7 +2558,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共299.8k字</span>
+  <span class="post-count">  全站共301.5k字</span>
 
 </div>
 
