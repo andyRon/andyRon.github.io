@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="swift,算法与数据结构,二叉搜索树,Binary Search Tree,BST," />
+  <meta name="keywords" content="算法与数据结构,swift,二叉搜索树,Binary Search Tree,BST," />
 
 
 
@@ -105,7 +105,7 @@
 
 
 <meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
-<meta name="keywords" content="swift,算法与数据结构,二叉搜索树,Binary Search Tree,BST">
+<meta name="keywords" content="算法与数据结构,swift,二叉搜索树,Binary Search Tree,BST">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Swift算法俱乐部-二叉搜索树">
 <meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-二叉搜索树.html">
@@ -587,7 +587,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tree = <span class="type">BinarySearchTree</span>&lt;<span class="type">Int</span>&gt;(array: [<span class="number">7</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 <p>数组中的第一个值成为树的根节点。</p>
 <h3 id="调试输出"><a href="#调试输出" class="headerlink" title="调试输出"></a>调试输出</h3><p>使用复杂的数据结构时，拥有人类可读的调试输出很有用。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">BinarySearchTree</span>: <span class="title">CustomStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="string">""</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = <span class="keyword">left</span> &#123;</span><br><span class="line">      s += <span class="string">"(\(left.description)) &lt;- "</span></span><br><span class="line">    &#125;</span><br><span class="line">    s += <span class="string">"\(value)"</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">right</span> = <span class="keyword">right</span> &#123;</span><br><span class="line">      s += <span class="string">" -&gt; (\(right.description))"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">BinarySearchTree</span>: <span class="title">CustomStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="string">""</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = <span class="keyword">left</span> &#123;</span><br><span class="line">      s += <span class="string">"(<span class="subst">\(<span class="keyword">left</span>.description)</span>) &lt;- "</span></span><br><span class="line">    &#125;</span><br><span class="line">    s += <span class="string">"<span class="subst">\(value)</span>"</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">right</span> = <span class="keyword">right</span> &#123;</span><br><span class="line">      s += <span class="string">" -&gt; (<span class="subst">\(<span class="keyword">right</span>.description)</span>)"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当你执行<code>print(tree)</code>时，你应该得到：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((1) &lt;- 2 -&gt; (5)) &lt;- 7 -&gt; ((9) &lt;- 10)</span><br></pre></td></tr></table></figure>
 <p>根节点位于中间。 发挥一些想象力，您应该看到这确实对应于下面的树：</p>
@@ -698,7 +698,7 @@
 <p>在playground尝试：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tree.search(<span class="number">10</span>)</span><br><span class="line">tree.search(<span class="number">1</span>)</span><br><span class="line">tree.search(<span class="number">11</span>)   <span class="comment">// nil</span></span><br></pre></td></tr></table></figure>
 <p>要打印树以进行调试，可以使用以下方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">BinarySearchTree</span>: <span class="title">CustomDebugStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> debugDescription: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> .<span class="type">Empty</span>: <span class="keyword">return</span> <span class="string">"."</span></span><br><span class="line">    <span class="keyword">case</span> .<span class="type">Leaf</span>(<span class="keyword">let</span> value): <span class="keyword">return</span> <span class="string">"\(value)"</span></span><br><span class="line">    <span class="keyword">case</span> .<span class="type">Node</span>(<span class="keyword">let</span> <span class="keyword">left</span>, <span class="keyword">let</span> value, <span class="keyword">let</span> <span class="keyword">right</span>):</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"(\(left.debugDescription) &lt;- \(value) -&gt; \(right.debugDescription))"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">BinarySearchTree</span>: <span class="title">CustomDebugStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> debugDescription: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> .<span class="type">Empty</span>: <span class="keyword">return</span> <span class="string">"."</span></span><br><span class="line">    <span class="keyword">case</span> .<span class="type">Leaf</span>(<span class="keyword">let</span> value): <span class="keyword">return</span> <span class="string">"<span class="subst">\(value)</span>"</span></span><br><span class="line">    <span class="keyword">case</span> .<span class="type">Node</span>(<span class="keyword">let</span> <span class="keyword">left</span>, <span class="keyword">let</span> value, <span class="keyword">let</span> <span class="keyword">right</span>):</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"(<span class="subst">\(<span class="keyword">left</span>.debugDescription)</span> &lt;- <span class="subst">\(value)</span> -&gt; <span class="subst">\(<span class="keyword">right</span>.debugDescription)</span>)"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当你执行<code>print(tree)</code>时，它看起来像这样：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((1 &lt;- 2 -&gt; 5) &lt;- 7 -&gt; (9 &lt;- 10 -&gt; .))</span><br></pre></td></tr></table></figure>
 <p>根节点位于中间，点表示该位置没有子节点。</p>
@@ -794,9 +794,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
-          
             <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
+          
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
           
             <a href="/tags/二叉搜索树/" rel="tag"><i class="fa fa-tag"></i> 二叉搜索树</a>
           
@@ -929,7 +929,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">203</span>
+                <span class="site-state-item-count">204</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -951,7 +951,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">206</span>
+                <span class="site-state-item-count">208</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1090,7 +1090,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共301.5k字</span>
+  <span class="post-count">  全站共303.7k字</span>
 
 </div>
 

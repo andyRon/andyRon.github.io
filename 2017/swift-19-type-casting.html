@@ -491,7 +491,7 @@
 <h3 id="2-检查类型-Checking-Type-is"><a href="#2-检查类型-Checking-Type-is" class="headerlink" title="2 检查类型(Checking Type)  is"></a>2 检查类型(Checking Type)  <code>is</code></h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> movieCount = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> songCount = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> library &#123;</span><br><span class="line">    <span class="keyword">if</span> (item <span class="keyword">is</span> <span class="type">Movie</span>) &#123;</span><br><span class="line">        movieCount += <span class="number">1</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item <span class="keyword">is</span> <span class="type">Song</span>) &#123;</span><br><span class="line">        songCount += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3-向下转型-Downcasting-as-as"><a href="#3-向下转型-Downcasting-as-as" class="headerlink" title="3 向下转型(Downcasting)    as?   as!"></a>3 向下转型(Downcasting)    <code>as?</code>   <code>as!</code></h3><p>条件形式(conditional form) as? 返回一个你试图向下转成的类型的可选值(optional value)</p>
 <p>强制形式 as! 把试图向下转型和强制解包(force-unwraps)转换结果结合为一个操作。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> library &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> movie = item <span class="keyword">as</span>? <span class="type">Movie</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Movie: '\(movie.name)', dir. \(movie.director)"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="keyword">let</span> song = item <span class="keyword">as</span>? <span class="type">Song</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Song: '\(song.name)', by \(song.artist)"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> library &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> movie = item <span class="keyword">as</span>? <span class="type">Movie</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Movie: '<span class="subst">\(movie.name)</span>', dir. <span class="subst">\(movie.director)</span>"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="keyword">let</span> song = item <span class="keyword">as</span>? <span class="type">Song</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Song: '<span class="subst">\(song.name)</span>', by <span class="subst">\(song.artist)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4-Any和AnyObject的类型转换"><a href="#4-Any和AnyObject的类型转换" class="headerlink" title="4 Any和AnyObject的类型转换"></a>4 Any和AnyObject的类型转换</h3><p>AnyObject可以表示任何类类型的实例</p>
 <p>Any可以表示任何类型，包括函数类型</p>
 <blockquote>
@@ -704,7 +704,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">203</span>
+                <span class="site-state-item-count">204</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -726,7 +726,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">206</span>
+                <span class="site-state-item-count">208</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -865,7 +865,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共301.5k字</span>
+  <span class="post-count">  全站共303.7k字</span>
 
 </div>
 
