@@ -111,14 +111,14 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="面部识别API不仅可以是识别面部，也可识别面部的特殊细节，例如微笑甚至眨眼睛。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-39e79552d69d0ca8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-4ce94cc04fd90164.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-b288822d7eb12a62.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-22T04:31:14.434Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017106.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017107.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017108.jpg">
+<meta property="og:updated_time" content="2019-09-03T05:46:00.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS tutorial 2：用Core Image进行面部识别(Swift)">
 <meta name="twitter:description" content="面部识别API不仅可以是识别面部，也可识别面部的特殊细节，例如微笑甚至眨眼睛。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-39e79552d69d0ca8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017106.jpg">
 
 
 
@@ -530,12 +530,12 @@
 <li><p>在<code>viewDidLoad</code>中添加 <code>detect()</code>，运行结果类似：</p>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-39e79552d69d0ca8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>打印结果，显示检测到的面部位置是不对的：<br><code>Found bounds are (177.0, 416.0, 380.0, 380.0)</code><br>这是因为UIKit的坐标系统与Core Image的坐标系统是不同的：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-4ce94cc04fd90164.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017106.jpg" alt=""><br>打印结果，显示检测到的面部位置是不对的：<br><code>Found bounds are (177.0, 416.0, 380.0, 380.0)</code><br>这是因为UIKit的坐标系统与Core Image的坐标系统是不同的：<br><img src="http://images.andyron.com/2017/ar2017107.jpg" alt=""></p>
 <ul>
 <li>把Core Image的坐标系统转换为UIKit的坐标系统，修改<code>detect()</code>为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">func detect() &#123;</span><br><span class="line">        </span><br><span class="line">    guard let personciImage = CIImage(image: personPic.image!) else &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]</span><br><span class="line">    let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)</span><br><span class="line">    let faces = faceDetector?.features(in: personciImage)</span><br><span class="line">    //</span><br><span class="line">    let ciImageSize = personciImage.extent.size</span><br><span class="line">    var transform = CGAffineTransform(scaleX: 1, y: -1)</span><br><span class="line">    transform = transform.translatedBy(x: 0, y: -ciImageSize.height)</span><br><span class="line">    </span><br><span class="line">    for face in faces as! [CIFaceFeature] &#123;</span><br><span class="line">        </span><br><span class="line">        print(&quot;Found bounds are \(face.bounds)&quot;)</span><br><span class="line">        </span><br><span class="line">        // Apply the transform to convert the coordinates</span><br><span class="line">        var faceViewBounds = face.bounds.applying(transform)</span><br><span class="line">        </span><br><span class="line">        // Calculate the actual position and size of the rectangle in the image view</span><br><span class="line">        let viewSize = personPic.bounds.size</span><br><span class="line">        let scale = min(viewSize.width / ciImageSize.width,</span><br><span class="line">                        viewSize.height / ciImageSize.height)</span><br><span class="line">        let offsetX = (viewSize.width - ciImageSize.width * scale) / 2</span><br><span class="line">        let offsetY = (viewSize.height - ciImageSize.height * scale) / 2</span><br><span class="line">        </span><br><span class="line">        faceViewBounds = faceViewBounds.applying(CGAffineTransform(scaleX: scale, y: scale))</span><br><span class="line">        faceViewBounds.origin.x += offsetX</span><br><span class="line">        faceViewBounds.origin.y += offsetY</span><br><span class="line">        </span><br><span class="line">        let faceBox = UIView(frame: faceViewBounds)</span><br><span class="line">        </span><br><span class="line">        faceBox.layer.borderWidth = 3</span><br><span class="line">        faceBox.layer.borderColor = UIColor.red.cgColor</span><br><span class="line">        faceBox.backgroundColor = UIColor.clear</span><br><span class="line">        personPic.addSubview(faceBox)</span><br><span class="line">        </span><br><span class="line">        if face.hasLeftEyePosition &#123;</span><br><span class="line">            print(&quot;Left eye bounds are \(face.leftEyePosition)&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if face.hasRightEyePosition &#123;</span><br><span class="line">            print(&quot;Right eye bounds are \(face.rightEyePosition)&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>运行可看到正确识别位置：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-b288822d7eb12a62.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>运行可看到正确识别位置：<br><img src="http://images.andyron.com/2017/ar2017108.jpg" alt=""></p>
 <h3 id="相机拍照后的脸部识别"><a href="#相机拍照后的脸部识别" class="headerlink" title="相机拍照后的脸部识别"></a>相机拍照后的脸部识别</h3><p>之前是项目中照片识别，现在是拍完照再识别，原理是相同的，就是多一个拍完照，取照片的过程。</p>
 <ul>
 <li><p>更新<code>CameraViewController</code>类的代码</p>
@@ -621,7 +621,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月22日 - 12:31
+      2019年09月03日 - 13:46
     </li>
 
 

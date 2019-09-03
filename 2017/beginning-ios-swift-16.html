@@ -111,19 +111,19 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="继续上一篇开始用Swift开发iOS 10 - 15 使用地图，这一篇通过添加一个新建Restaurant页面来介绍静态Table Views，UIImagePickerController，NSLayoutConstraint。静态Table Views就是固定cell数目的Table Views；UIImagePickerController用来从设备图片库中获取图片；NSLayoutCon">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c17dfcdc817310ce.png">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-87ec7d0ab99252f1.jpg">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-b5bbbc6037ebc4b2.jpg">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-43b771ff5f2ac743.jpg">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-54861090b1e88a71.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-6b22d738eb9db812.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-77f763e3b1912610.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c818569aaabd4a08.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T04:59:36.000Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017322.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017323.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017324.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017325.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017326.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017327.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017328.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017359.jpg">
+<meta property="og:updated_time" content="2019-09-03T07:22:30.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint">
 <meta name="twitter:description" content="继续上一篇开始用Swift开发iOS 10 - 15 使用地图，这一篇通过添加一个新建Restaurant页面来介绍静态Table Views，UIImagePickerController，NSLayoutConstraint。静态Table Views就是固定cell数目的Table Views；UIImagePickerController用来从设备图片库中获取图片；NSLayoutCon">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-c17dfcdc817310ce.png">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017322.jpg">
 
 
 
@@ -461,7 +461,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 1,114 字
+                  : 1,106 字
                 </span>
               
 
@@ -495,25 +495,25 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-c17dfcdc817310ce.png" alt=""></p>
+        <p><img src="http://images.andyron.com/2017/ar2017322.jpg" alt=""></p>
 <p>继续上一篇<a href="http://www.jianshu.com/p/5b41455d96d3" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 15 使用地图</a>，这一篇通过添加一个<em>新建Restaurant</em>页面来介绍静态Table Views，<code>UIImagePickerController</code>，<code>NSLayoutConstraint</code>。静态Table Views就是固定cell数目的Table Views；<code>UIImagePickerController</code>用来从设备图片库中获取图片；<code>NSLayoutConstraint</code>就是约束类，用来用代码形式添加约束。</p>
 <a id="more"></a>
 <h3 id="添加新的Table-View-Controller"><a href="#添加新的Table-View-Controller" class="headerlink" title="添加新的Table View Controller"></a>添加新的Table View Controller</h3><ul>
 <li>拖动一个<strong>Table View Controller</strong>到SB中。</li>
 <li>修改成<strong>Table View</strong>的<code>content</code>为<code>static cells</code>。</li>
 <li>选中<strong>Table View Section</strong>，修改<code>Rows</code>成5。</li>
-<li>下载 [图片] (<a href="http://www.appcoda.com/resources/swift3/photoicons.zip)，拖进`Assets`" target="_blank" rel="noopener">http://www.appcoda.com/resources/swift3/photoicons.zip)，拖进`Assets`</a></li>
-<li><p>修改第一个Cell高度为250。添加<strong>Image View</strong>， <code>image</code>为<code>photoalbum</code>，大小64*64，水平和垂直居中。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-87ec7d0ab99252f1.jpg" alt=""></p>
+<li>下载 <a href="http://www.appcoda.com/resources/swift3/photoicons.zip" target="_blank" rel="noopener">图片</a>，拖进<code>Assets</code></li>
+<li><p>修改第一个Cell高度为250。添加<strong>Image View</strong>， <code>image</code>为<code>photoalbum</code>，大小<code>64*64</code>，水平和垂直居中。<br><img src="http://images.andyron.com/2017/ar2017323.jpg" alt=""></p>
 </li>
 <li><p>第二个cell高度为72。添加一个<strong>Label</strong>文本<code>NAME</code>。添加一个<strong>Text Field</strong>,<code>placeholder</code>为<code>Restaurant Name</code>，<code>border style</code>为 <code>none</code>，宽度为339。添加适当约束。</p>
 </li>
 <li>第三个和第四个Cell与第二个类似，<strong>Label</strong>文本分别为<code>TYPE</code> <code>LOCATION</code>，<strong>Text Field</strong>的 <code>placeholder</code> 分别为<code>Restaurant Type</code>，<code>Restaurant Location</code>。</li>
-<li>第五个 高度为72。  添加一个<strong>Label</strong>文本<code>Have You Been Here</code> 。添加两个<strong>Button</strong>，<code>title</code>分别为<code>YES</code>、<code>NO</code>，字体颜色都为<code>white</code>，背景颜色分别为<code>red</code>，<code>gray</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-b5bbbc6037ebc4b2.jpg" alt=""></li>
+<li>第五个 高度为72。  添加一个<strong>Label</strong>文本<code>Have You Been Here</code> 。添加两个<strong>Button</strong>，<code>title</code>分别为<code>YES</code>、<code>NO</code>，字体颜色都为<code>white</code>，背景颜色分别为<code>red</code>，<code>gray</code>。<br><img src="http://images.andyron.com/2017/ar2017324.jpg" alt=""></li>
 </ul>
 <h3 id="添加segue"><a href="#添加segue" class="headerlink" title="添加segue"></a>添加segue</h3><ul>
 <li>在<strong>Food Pin Controller</strong>的Navigation bar的右边添加一个<strong>bar button item</strong>，<code>System Item</code>为<code>Add</code>。</li>
 <li>把上面新建是我table view controller内嵌在一个Navigation controller中，选中table view controller，在菜单栏中选择<strong>Editor &gt; Embed in &gt; Navigation Controller</strong>，设置其navigation bar的<code>title</code>为<code>New Restaurant</code>。</li>
-<li><p>关联<code>Add</code>按钮和<strong>New Restaurant Controller</strong>的Navigation controller，segue类型present modally，<code>identifier</code>为<code>addRestaurant</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-43b771ff5f2ac743.jpg" alt=""></p>
+<li><p>关联<code>Add</code>按钮和<strong>New Restaurant Controller</strong>的Navigation controller，segue类型present modally，<code>identifier</code>为<code>addRestaurant</code>。<br><img src="http://images.andyron.com/2017/ar2017325.jpg" alt=""></p>
 </li>
 <li><p>在<strong>New Restaurant Controller</strong>的Navigation bar的左边添加一个<strong>bar button item</strong>，<code>System Item</code>为 <code>Cancel</code>，<code>tint</code>为<code>white</code>。</p>
 </li>
@@ -521,7 +521,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-54861090b1e88a71.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017326.jpg" alt=""></p>
 <h3 id="使用UIImagePickerController调用相册"><a href="#使用UIImagePickerController调用相册" class="headerlink" title="使用UIImagePickerController调用相册"></a>使用UIImagePickerController调用相册</h3><ul>
 <li>新建<code>AddRestaurantController</code>，继承至<code>UITableViewController</code>。关联<strong>New Restaurant Controller</strong>。</li>
 <li>删除除了<code>viewDidLoad</code>方法的其他方法，静态类型不需要了。</li>
@@ -532,7 +532,7 @@
 <ul>
 <li>在<code>Info.plist</code>中添加使用图库的请求描述， <code>Privacy - Photo Library Usage Description</code>  -&gt; <code>You need to grant the app access to your photo library so you can pick your favorite restaurant photo.</code> 。</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-6b22d738eb9db812.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017327.jpg" alt=""></p>
 <h3 id="实现UIImagePickerControllerDelegate协议"><a href="#实现UIImagePickerControllerDelegate协议" class="headerlink" title="实现UIImagePickerControllerDelegate协议"></a>实现UIImagePickerControllerDelegate协议</h3><ul>
 <li><p>添加<code>UIImagePickerControllerDelegate</code> 和<code>UINavigationControllerDelegate</code></p>
 <pre><code>class AddRestaurantController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -546,7 +546,7 @@
 <pre><code>imagePicker.delegate = self
 </code></pre></li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-77f763e3b1912610.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017328.jpg" alt=""></p>
 <h3 id="用代码的方式定义约束"><a href="#用代码的方式定义约束" class="headerlink" title="用代码的方式定义约束"></a>用代码的方式定义约束</h3><p>之前都是通过storyboard设置约束，其实也可以通过代码的形式设置。</p>
 <ul>
 <li><p>之前的地图的约束例子，storyboard 中的<code>Map View.leading = leading</code>等价于：</p>
@@ -557,7 +557,7 @@ leadingConstraint.isActive = true
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let leadingConstraint = NSLayoutConstraint(item: photoImageView, attribute: .leading, relatedBy: .equal, toItem: photoImageView.superview, attribute: .leading, multiplier: 1, constant: 0)</span><br><span class="line">        leadingConstraint.isActive = true</span><br><span class="line">        </span><br><span class="line">        let trailingConstrain = NSLayoutConstraint(item: photoImageView, attribute: .trailing, relatedBy: .equal, toItem: photoImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)</span><br><span class="line">        trailingConstrain.isActive = true</span><br><span class="line">        </span><br><span class="line">        let topConstraint = NSLayoutConstraint(item: photoImageView, attribute: .top, relatedBy: .equal, toItem: photoImageView.superview, attribute: .top, multiplier: 1, constant: 0)</span><br><span class="line">        </span><br><span class="line">        let buttomConstraint = NSLayoutConstraint(item: photoImageView, attribute: .bottom, relatedBy: .equal, toItem: photoImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>添加约束前后对比：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c818569aaabd4a08.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>添加约束前后对比：<br><img src="http://images.andyron.com/2017/ar2017359.jpg" alt=""></p>
 <h3 id="Exercise：验证添加数据"><a href="#Exercise：验证添加数据" class="headerlink" title="Exercise：验证添加数据"></a>Exercise：验证添加数据</h3><ul>
 <li>在<strong>New Restaurant Controller</strong>的Navigation controller的有右上角添加Save按钮。</li>
 <li><p>在<code>AddRestaurantController</code>中添加五个接口和一个变量，并关联。</p>
@@ -638,7 +638,7 @@ leadingConstraint.isActive = true
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2017年09月09日 - 12:59
+      2019年09月03日 - 15:22
     </li>
 
 
@@ -667,8 +667,8 @@ leadingConstraint.isActive = true
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-14.html" rel="next" title="开始用Swift开发iOS 10 - 14 基础动画，模糊效果和Unwind Segue">
-                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 14 基础动画，模糊效果和Unwind Segue
+              <a href="/2017/beginning-ios-swift-15.html" rel="next" title="开始用Swift开发iOS 10 - 15 使用地图">
+                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 15 使用地图
               </a>
             
           </div>
@@ -677,8 +677,8 @@ leadingConstraint.isActive = true
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-15.html" rel="prev" title="开始用Swift开发iOS 10 - 15 使用地图">
-                开始用Swift开发iOS 10 - 15 使用地图 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/swift-0.html" rel="prev" title="以撸代码的形式学习Swift-0：说明和目录">
+                以撸代码的形式学习Swift-0：说明和目录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

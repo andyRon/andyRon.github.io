@@ -111,20 +111,20 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-38994d792af672c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c3f3fde637365209.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-8edbb125c0dce5bb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-cfddbba122cd7162.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d415843ca839a9ae.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c4ceb3fea6219e1d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-1064dc6026eeae13.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c233887fdfdfe337.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-6d200f9148f75ffc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T04:59:42.000Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017149.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017150.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017151.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017152.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017153.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017154.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017155.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017156.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017157.jpg">
+<meta property="og:updated_time" content="2019-09-03T07:22:32.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 17 使用Core Data">
 <meta name="twitter:description" content="上一篇 开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-38994d792af672c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017149.jpg">
 
 
 
@@ -496,29 +496,29 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-38994d792af672c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p><img src="http://images.andyron.com/2017/ar2017149.jpg" alt=""></p>
 <p>上一篇 <a href="http://www.jianshu.com/p/ba6f340c62bf" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 16 介绍静态Table Views，UIImagePickerController和NSLayoutConstraint</a> 中添加新建restaurant页面，但最后数据并没有保存下来，这一篇使用Core Data方式来持久化保存数据。</p>
 <a id="more"></a>
 <p>数据持久化一般是指数据库保存。在Web开发中，常用Oracle或MySQL等关系数据库来保存数据，通过SQL语句查询。在iOS中对应的数据库是SQLite。Core Data不是数据库，它是让开发者通过面向对象方式与数据库进行交互的库。</p>
-<h3 id="使用Core-Data的例子"><a href="#使用Core-Data的例子" class="headerlink" title="使用Core Data的例子"></a>使用Core Data的例子</h3><p>新建一个使用Core Data的项目，在<code>AppDelegate</code>类中会比平常多了一个变量和一方法，另外还多了一个文件<code>CoreDataDemo.xcdatamodeld</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c3f3fde637365209.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="使用Core-Data的例子"><a href="#使用Core-Data的例子" class="headerlink" title="使用Core Data的例子"></a>使用Core Data的例子</h3><p>新建一个使用Core Data的项目，在<code>AppDelegate</code>类中会比平常多了一个变量和一方法，另外还多了一个文件<code>CoreDataDemo.xcdatamodeld</code>。<br><img src="http://images.andyron.com/2017/ar2017150.jpg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">lazy var persistentContainer: NSPersistentContainer = &#123;</span><br><span class="line">    /*</span><br><span class="line">     The persistent container for the application. This implementation</span><br><span class="line">     creates and returns a container, having loaded the store for the</span><br><span class="line">     application to it. This property is optional since there are legitimate</span><br><span class="line">     error conditions that could cause the creation of the store to fail.</span><br><span class="line">    */</span><br><span class="line">    let container = NSPersistentContainer(name: &quot;CoreDataDemo&quot;)</span><br><span class="line">    container.loadPersistentStores(completionHandler: &#123; (storeDescription, error) in</span><br><span class="line">        if let error = error as NSError? &#123;</span><br><span class="line">            // Replace this implementation with code to handle the error appropriately.</span><br><span class="line">            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.</span><br><span class="line">             </span><br><span class="line">            /*</span><br><span class="line">             Typical reasons for an error here include:</span><br><span class="line">             * The parent directory does not exist, cannot be created, or disallows writing.</span><br><span class="line">             * The persistent store is not accessible, due to permissions or data protection when the device is locked.</span><br><span class="line">             * The device is out of space.</span><br><span class="line">             * The store could not be migrated to the current model version.</span><br><span class="line">             Check the error message to determine what the actual problem was.</span><br><span class="line">             */</span><br><span class="line">            fatalError(&quot;Unresolved error \(error), \(error.userInfo)&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return container</span><br><span class="line">&#125;()</span><br><span class="line"></span><br><span class="line">// MARK: - Core Data Saving support</span><br><span class="line"></span><br><span class="line">func saveContext () &#123;</span><br><span class="line">    let context = persistentContainer.viewContext</span><br><span class="line">    if context.hasChanges &#123;</span><br><span class="line">        do &#123;</span><br><span class="line">            try context.save()</span><br><span class="line">        &#125; catch &#123;</span><br><span class="line">            // Replace this implementation with code to handle the error appropriately.</span><br><span class="line">            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.</span><br><span class="line">            let nserror = error as NSError</span><br><span class="line">            fatalError(&quot;Unresolved error \(nserror), \(nserror.userInfo)&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>变量<code>persistentContainer</code>是<code>NSPersistentContainer</code>的实例，<code>let container = NSPersistentContainer(name: &quot;CoreDataDemo&quot;)</code>对应<code>CoreDataDemo.xcdatamodeld</code>文件，如果是自己添加时名字需要对应。</li>
 <li>当数据变化(insert/update/delete)时 ，调用<code>saveContext</code>方法保存数据。</li>
 </ul>
 <h3 id="向项目中添加Data-Model"><a href="#向项目中添加Data-Model" class="headerlink" title="向项目中添加Data Model"></a>向项目中添加Data Model</h3><ul>
-<li>右击<em>FoodPin</em>文件夹，选择新建<strong>Data Model</strong>文件，文件名为<code>FoodPin</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-8edbb125c0dce5bb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>右击<em>FoodPin</em>文件夹，选择新建<strong>Data Model</strong>文件，文件名为<code>FoodPin</code>。<br><img src="http://images.andyron.com/2017/ar2017151.jpg" alt=""></li>
 </ul>
 <ul>
 <li>选中新生成的<code>FoodPin.xcdatamodeld</code>，添加一个<code>Restaurant</code> <strong>Entity</strong>，然后再在此<strong>Entity</strong>下添加一些属性。</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-cfddbba122cd7162.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>选中特定属性后可在右侧检查器中设置相关特性，比如是否强制需要。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-d415843ca839a9ae.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="创建Managed-Objects"><a href="#创建Managed-Objects" class="headerlink" title="创建Managed Objects"></a>创建Managed Objects</h3><p>Core Data框架中的 <strong>Managed Objects</strong>与<strong>Entity</strong>之间的关系，有点像代码中 <strong>接口变量</strong> 和 <strong>UI objects</strong>之间的关系。xcode可自动生成<strong>Managed Objects</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c4ceb3fea6219e1d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017152.jpg" alt=""></p>
+<p>选中特定属性后可在右侧检查器中设置相关特性，比如是否强制需要。<br><img src="http://images.andyron.com/2017/ar2017153.jpg" alt=""></p>
+<h3 id="创建Managed-Objects"><a href="#创建Managed-Objects" class="headerlink" title="创建Managed Objects"></a>创建Managed Objects</h3><p>Core Data框架中的 <strong>Managed Objects</strong>与<strong>Entity</strong>之间的关系，有点像代码中 <strong>接口变量</strong> 和 <strong>UI objects</strong>之间的关系。xcode可自动生成<strong>Managed Objects</strong>。<br><img src="http://images.andyron.com/2017/ar2017154.jpg" alt=""></p>
 <ul>
-<li><p>选中<code>Restaurant</code> <strong>Entity</strong>，在检查器中修改class的<code>name</code>为<code>RestaurantMO</code>，<code>Codegen</code> 为 <code>Class Definition</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-1064dc6026eeae13.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<li><p>选中<code>Restaurant</code> <strong>Entity</strong>，在检查器中修改class的<code>name</code>为<code>RestaurantMO</code>，<code>Codegen</code> 为 <code>Class Definition</code>。<br><img src="http://images.andyron.com/2017/ar2017155.jpg" alt=""></p>
 </li>
-<li><p>command-R 或 comman-B一下，表面上没有什么变化，在project navigator中没有多出文件。实际上已经生成<code>RestaurantMO</code>类，代码已经可以使用了，如果使用<strong>command+点击</strong> <code>RestaurantMO</code>，就可以看到<code>RestaurantMO</code>的代码：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c233887fdfdfe337.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<li><p>command-R 或 comman-B一下，表面上没有什么变化，在project navigator中没有多出文件。实际上已经生成<code>RestaurantMO</code>类，代码已经可以使用了，如果使用<strong>command+点击</strong> <code>RestaurantMO</code>，就可以看到<code>RestaurantMO</code>的代码：<br><img src="http://images.andyron.com/2017/ar2017156.jpg" alt=""></p>
 </li>
 <li><p>修改相关受影响的代码</p>
 <ul>
@@ -588,7 +588,7 @@ NSFetchedResultsControllerDelegate</code></li>
 <li>在SB的<strong>New Restaurant</strong>添加新Cell，在<code>AddRestaurantController</code>中添加相关接口并关联。</li>
 <li>更新<code>AddRestaurantController</code>中的<code>save:</code>Action相关代码。</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-6d200f9148f75ffc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017157.jpg" alt=""></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
@@ -655,7 +655,7 @@ NSFetchedResultsControllerDelegate</code></li>
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2017年09月09日 - 12:59
+      2019年09月03日 - 15:22
     </li>
 
 

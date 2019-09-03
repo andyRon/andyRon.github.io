@@ -111,19 +111,19 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="iOS 10 之前用户通知相对而言是简单的，iOS 10让用户通知更加丰富了，可以有静态图片，动态gif，视频，音频等。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-173ece98801acca5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a317938d5317d60d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-bd470dd97e8758dd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-f4a28a0382e1ef4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-90148092fb571aa0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-2522c2b73845606e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-833e269c41c83283.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-b2e6940fbfd76ea1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T05:03:49.000Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017243.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017244.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017245.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017246.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017247.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017248.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017249.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017250.jpg">
+<meta property="og:updated_time" content="2019-09-03T07:22:50.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 26 使用本地用户通知">
 <meta name="twitter:description" content="iOS 10 之前用户通知相对而言是简单的，iOS 10让用户通知更加丰富了，可以有静态图片，动态gif，视频，音频等。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-173ece98801acca5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017243.jpg">
 
 
 
@@ -495,12 +495,12 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-173ece98801acca5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p><img src="http://images.andyron.com/2017/ar2017243.jpg" alt=""></p>
 <p>iOS 10 之前用户通知相对而言是简单的，iOS 10让用户通知更加丰富了，可以有静态图片，动态gif，视频，音频等。</p>
 <a id="more"></a>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-a317938d5317d60d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017244.jpg" alt=""></p>
 <p>用户通知可以出现在通知中心，主屏，锁屏时，当用户错过了用户通知时，可以在通知中心查看。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-bd470dd97e8758dd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017245.jpg" alt=""></p>
 <p>用户通知分为两类：</p>
 <ul>
 <li>本地通知。  是通过应用本身和用户设备本身触发的。比如：基于用户位置的app，在用户进入某个特殊区域发送通知；to-do list的app在某些特定时间发送通知。</li>
@@ -519,9 +519,9 @@
 <li>在<code>application(_:didFinishLaunchingWithOptions:)</code>方法中添加授权<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: &#123;</span><br><span class="line">    (granted, error) in    </span><br><span class="line">    if granted &#123;</span><br><span class="line">        print(&quot;User notifications are allowed.&quot;)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        print(&quot;User notifications are not allowed.&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-f4a28a0382e1ef4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017246.jpg" alt=""></p>
 <h3 id="创建通知"><a href="#创建通知" class="headerlink" title="创建通知"></a>创建通知</h3><p>通知的一般结构：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-90148092fb571aa0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017247.jpg" alt=""></p>
 <p>通知用<code>UNMutableNotificationContent</code>类来表示。</p>
 <ul>
 <li><p>在<code>RestaurantTableViewController</code>中添加一个方法</p>
@@ -535,7 +535,7 @@
 <li>在<code>viewDidLoad</code>中实现上面函数。<code>prepareNotification()</code></li>
 </ul>
 <p>现在运行，注意在应用内是不能接受本应用通知，所以运行后立即进入主屏或锁屏。通知本身有高度限制，内容过长会不显示，只要向下滑动就可以显示完整。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-2522c2b73845606e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017248.jpg" alt=""></p>
 <h3 id="向通知中添加图片"><a href="#向通知中添加图片" class="headerlink" title="向通知中添加图片"></a>向通知中添加图片</h3><p>图片等富文本内容通过<code>UNMutableNotificationContent</code>的<code>attachments</code>属性添加，<code>attachments</code>属性是<code>UNNotificationAttachment</code>的数组。<code>UNNotificationAttachment</code>可以是图片、音频、音效、视频文件。</p>
 <ul>
 <li><p>在<code>prepareNotification</code>中的触发之前添加代码：</p>
@@ -547,7 +547,7 @@
 </li>
 </ul>
 <p>运行查看，同样向下滑动可查看完整。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-833e269c41c83283.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017249.jpg" alt=""></p>
 <h3 id="和通知的交互"><a href="#和通知的交互" class="headerlink" title="和通知的交互"></a>和通知的交互</h3><p>之前只要点击通知进入应用的交互，这是默认的交互。</p>
 <ul>
 <li><p>在<code>prepareNotification</code>中的触发之前添加代码：</p>
@@ -560,7 +560,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-b2e6940fbfd76ea1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017250.jpg" alt=""></p>
 <h3 id="处理Actions"><a href="#处理Actions" class="headerlink" title="处理Actions"></a>处理Actions</h3><p>上面的<code>options: [.foreground]</code>只是启动了应用，没有实现具体操作。<code>UNUserNotificationCenterDelegate</code>中的<code>userNotificationCenter(_:didReceive:withCompletionHandler:)</code>方法在<code>UNNotificationAction</code>被选择时调用，在这个方法内部可实现具体操作。</p>
 <ul>
 <li>让<code>AppDelegate</code>符合协议<code>UNUserNotificationCenterDelegate</code></li>
@@ -640,7 +640,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2017年09月09日 - 13:03
+      2019年09月03日 - 15:22
     </li>
 
 
@@ -679,8 +679,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/oc-basic-7.html" rel="prev" title="OC基础学习7：内存管理">
-                OC基础学习7：内存管理 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/carthage-introduce.html" rel="prev" title="Carthage的使用">
+                Carthage的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

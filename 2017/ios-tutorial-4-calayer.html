@@ -111,19 +111,19 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="Layers是Core Animation Framework的一部分。Core Animation Framework在iOS架构的位置：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d21f3bd827131d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-146e318bb733f270.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-ba6bfcec3d19954f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-145b2d2ec57a8395.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-97e09061d17193b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d9d3f61649d13d99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-346f5f5c2b619cc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-22T04:39:44.073Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017077.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017078.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017079.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017080.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017081.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017082.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017083.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017084.jpg">
+<meta property="og:updated_time" content="2019-09-03T05:46:00.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS tutorial 4：CALayer介绍(swift)">
 <meta name="twitter:description" content="Layers是Core Animation Framework的一部分。Core Animation Framework在iOS架构的位置：">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017077.jpg">
 
 
 
@@ -506,33 +506,33 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-6f4fa7800dbcae0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>Layers是<strong>Core Animation Framework</strong>的一部分。<strong>Core Animation Framework</strong>在iOS架构的位置：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-d21f3bd827131d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p><img src="http://images.andyron.com/2017/ar2017077.jpg" alt=""></p>
+<p>Layers是<strong>Core Animation Framework</strong>的一部分。<strong>Core Animation Framework</strong>在iOS架构的位置：<br><img src="http://images.andyron.com/2017/ar2017078.jpg" alt=""></p>
 <a id="more"></a>
 <h3 id="访问CALayer"><a href="#访问CALayer" class="headerlink" title="访问CALayer"></a>访问CALayer</h3><p>凡是继承至<code>UIView</code>的都将有一个属性<code>layer</code>来表示<code>CALayer</code>。<br><code>myView.layer</code></p>
 <h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><ul>
 <li>新建<strong>CALayerDemo</strong>，single View Application模板</li>
-<li>新建一个<code>UIView</code>和一个<code>UILabel</code><br><img src="http://upload-images.jianshu.io/upload_images/1678135-146e318bb733f270.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>新建一个<code>UIView</code>和一个<code>UILabel</code><br><img src="http://images.andyron.com/2017/ar2017079.jpg" alt=""></li>
 </ul>
-<h3 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h3><p><code>CALayer</code>的<code>cornerRadius</code>属性大小表示<code>UIView</code>圆角处圆的半径大小。类似于<code>box.layer.cornerRadius = 20</code>，就形成了圆角，数字越大圆角效果越大，当<code>cornerRadius</code>等于<code>box</code>半径时，<code>box</code>就会变成一个园。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-ba6bfcec3d19954f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h3><p><code>CALayer</code>的<code>cornerRadius</code>属性大小表示<code>UIView</code>圆角处圆的半径大小。类似于<code>box.layer.cornerRadius = 20</code>，就形成了圆角，数字越大圆角效果越大，当<code>cornerRadius</code>等于<code>box</code>半径时，<code>box</code>就会变成一个园。<br><img src="http://images.andyron.com/2017/ar2017080.jpg" alt=""></p>
 <h3 id="阴影效果"><a href="#阴影效果" class="headerlink" title="阴影效果"></a>阴影效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">box.layer.shadowOffset = CGSize(width: 5, height: 5)</span><br><span class="line">box.layer.shadowOpacity = 0.7</span><br><span class="line">box.layer.shadowRadius = 10</span><br><span class="line">box.layer.shadowColor = UIColor.blue.cgColor</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>shadowOffset</code>表示阴影偏移大小，也就是阴影向<code>box</code>的下放偏移5和向右方偏移5距离。</li>
 <li><code>shadowOpacity</code>是阴影透明度</li>
-<li><code>shadowRadius</code>是阴影涉及的半径，并且这个半径越大，阴影的颜色深浅就会越来越小。<code>shadowRadius</code>与<code>shadowOffset</code>是共同作用的<br><img src="http://upload-images.jianshu.io/upload_images/1678135-145b2d2ec57a8395.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li><code>shadowRadius</code>是阴影涉及的半径，并且这个半径越大，阴影的颜色深浅就会越来越小。<code>shadowRadius</code>与<code>shadowOffset</code>是共同作用的<br><img src="http://images.andyron.com/2017/ar2017081.jpg" alt=""></li>
 </ul>
 <h3 id="设置边的宽度和颜色"><a href="#设置边的宽度和颜色" class="headerlink" title="设置边的宽度和颜色"></a>设置边的宽度和颜色</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box.layer.borderColor = UIColor.black.cgColor</span><br><span class="line">box.layer.borderWidth = 3</span><br></pre></td></tr></table></figure>
 <h3 id="展示图片"><a href="#展示图片" class="headerlink" title="展示图片"></a>展示图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">box.layer.contents = UIImage(named: &quot;tree.jpg&quot;)?.cgImage</span><br><span class="line">box.layer.contentsGravity = kCAGravityResize</span><br><span class="line">box.layer.masksToBounds = true</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-97e09061d17193b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017082.jpg" alt=""></p>
 <ul>
 <li><code>CALayer</code>的<code>contents</code>属性是<code>open var contents: Any?</code>，可以设置为图片</li>
 <li><code>contentsGravity</code>设置成<code>kCAGravityResize</code>，表示<code>contents</code>的内容会调整大小以适应layer。如果设置成其他值可能出现大小不适的形象，比如<code>kCAGravityBottomRight</code>，将是：</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-d9d3f61649d13d99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017083.jpg" alt=""></p>
 <ul>
 <li><code>masksToBounds</code>为true表示按照layer的边框范围显示内容；如果是false，将会是如下结果</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-346f5f5c2b619cc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017084.jpg" alt=""></p>
 <h3 id="背景颜色和透明度"><a href="#背景颜色和透明度" class="headerlink" title="背景颜色和透明度"></a>背景颜色和透明度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box.layer.backgroundColor = UIColor.green.cgColor</span><br><span class="line">box.layer.opacity = 0.5</span><br></pre></td></tr></table></figure>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/LearniOSByProject/tree/master/P073-CALayerDemo" target="_blank" rel="noopener">CALayerDemo</a></p>
 <blockquote>
@@ -602,7 +602,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月22日 - 12:39
+      2019年09月03日 - 13:46
     </li>
 
 

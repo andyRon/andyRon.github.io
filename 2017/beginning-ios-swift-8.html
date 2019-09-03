@@ -111,17 +111,17 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="继续上一部分开始用Swift开发iOS 10 - 7 定制Table Views项目FoodPin的代码，添加两个功能：  点击cell时，产生弹框，弹框中有两个功能选项 Call 和 Check-in 当点击Check-in选项时，为cell加上对号">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-2b4f64c278a9383c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-efebcac2067e64a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-06fec41053693b82.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-ff999d552dfb874c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-4810d845d9b28bbb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a8b473734a1975d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T05:02:01.000Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017158.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017159.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017356.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017160.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017161.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017162.jpg">
+<meta property="og:updated_time" content="2019-09-03T07:22:57.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 8 Table View和UIAlertController的交互">
 <meta name="twitter:description" content="继续上一部分开始用Swift开发iOS 10 - 7 定制Table Views项目FoodPin的代码，添加两个功能：  点击cell时，产生弹框，弹框中有两个功能选项 Call 和 Check-in 当点击Check-in选项时，为cell加上对号">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-2b4f64c278a9383c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017158.jpg">
 
 
 
@@ -493,7 +493,7 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-2b4f64c278a9383c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>继续上一部分<a href="http://www.jianshu.com/p/b137f0e0d647" target="_blank" rel="noopener"><a href="http://www.jianshu.com/p/b137f0e0d647" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 7 定制Table Views</a></a>项目<strong>FoodPin</strong>的代码，添加两个功能：</p>
+        <p><img src="http://images.andyron.com/2017/ar2017158.jpg" alt=""><br>继续上一部分<a href="http://www.jianshu.com/p/b137f0e0d647" target="_blank" rel="noopener"><a href="http://www.jianshu.com/p/b137f0e0d647" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 7 定制Table Views</a></a>项目<strong>FoodPin</strong>的代码，添加两个功能：</p>
 <ul>
 <li>点击cell时，产生弹框，弹框中有两个功能选项 <em>Call</em> 和 <em>Check-in</em></li>
 <li>当点击<em>Check-in</em>选项时，为cell加上对号</li>
@@ -508,8 +508,8 @@
 <li><p>在<code>RestaurantTableViewController</code>类中实现<code>tableView(_:didSelectRowAt:)</code>方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">override func tableView(_ tableView: UITableView, didSelectRowAt indexPath:</span><br><span class="line">IndexPath) &#123;</span><br><span class="line">    // 1</span><br><span class="line">    let optionMenu = UIAlertController(title: nil, message: &quot;What do you want</span><br><span class="line">to do?&quot;, preferredStyle: .actionSheet)</span><br><span class="line">    // 2</span><br><span class="line">    let cancelAction = UIAlertAction(title: &quot;Cancel&quot;, style: .cancel, handler:</span><br><span class="line">nil)</span><br><span class="line">    optionMenu.addAction(cancelAction)</span><br><span class="line">    // 3</span><br><span class="line">    present(optionMenu, animated: true, completion: nil)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>1 创建了<code>UIAlertController</code>。<code>UIAlertController</code>是从iOS8被引入，用来替代以前的<code>UIAlertView</code>和<code>UIActionSheet</code>，向用户弹出警示信息；<code>preferredStyle</code>参数有两个值：<code>.actionSheet</code> 和 <code>.alert</code>，表示替代的两种样式。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-efebcac2067e64a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""> </li>
-<li>2 创建一个cancel样式的<code>UIAlertAction</code>。<code>UIAlertController</code>的警示弹出框一般是由最上面的<strong>title+message</strong>（都不是非必须的）和一些<strong>Action</strong>组成，cancel action在最下面。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-06fec41053693b82.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>1 创建了<code>UIAlertController</code>。<code>UIAlertController</code>是从iOS8被引入，用来替代以前的<code>UIAlertView</code>和<code>UIActionSheet</code>，向用户弹出警示信息；<code>preferredStyle</code>参数有两个值：<code>.actionSheet</code> 和 <code>.alert</code>，表示替代的两种样式。<br><img src="http://images.andyron.com/2017/ar2017159.jpg" alt=""> </li>
+<li>2 创建一个cancel样式的<code>UIAlertAction</code>。<code>UIAlertController</code>的警示弹出框一般是由最上面的<strong>title+message</strong>（都不是非必须的）和一些<strong>Action</strong>组成，cancel action在最下面。<br><img src="http://images.andyron.com/2017/ar2017356.jpg" alt=""></li>
 <li>3 <code>present</code>是<code>UIViewController</code>中的方法，用于展示。</li>
 </ul>
 </li>
@@ -518,12 +518,12 @@
 <li>Call action<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let callActionHandler = &#123; (action:UIAlertAction!) -&gt; Void in</span><br><span class="line">    let alertMessage = UIAlertController(title: &quot;Service Unavailable&quot;, message:</span><br><span class="line">&quot;Sorry, the call feature is not available yet. Please retry later.&quot;,</span><br><span class="line">preferredStyle: .alert)</span><br><span class="line">    alertMessage.addAction(UIAlertAction(title: &quot;OK&quot;, style: .default, handler:</span><br><span class="line">nil))</span><br><span class="line">    self.present(alertMessage, animated: true, completion: nil)</span><br><span class="line">&#125;</span><br><span class="line">let callAction = UIAlertAction(title: &quot;Call &quot; + &quot;123-000-\(indexPath.row)&quot;,</span><br><span class="line">style: .default, handler: callActionHandler)</span><br><span class="line">optionMenu.addAction(callAction)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><code>callActionHandler</code>是swift闭包结构的一种写法，关于闭包可查看<a href="http://www.jianshu.com/p/edf7ef038575" target="_blank" rel="noopener">以撸代码的形式学习Swift-7：Closure</a>。这个代码块在<strong>Call action</strong>被点击是执行。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-ff999d552dfb874c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><code>callActionHandler</code>是swift闭包结构的一种写法，关于闭包可查看<a href="http://www.jianshu.com/p/edf7ef038575" target="_blank" rel="noopener">以撸代码的形式学习Swift-7：Closure</a>。这个代码块在<strong>Call action</strong>被点击是执行。<br><img src="http://images.andyron.com/2017/ar2017160.jpg" alt=""></p>
 <ul>
 <li>Check-in action<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// Check-in action</span><br><span class="line">let checkInAction = UIAlertAction(title: &quot;Check in&quot;, style: .default, handler:</span><br><span class="line">&#123;</span><br><span class="line">    (action:UIAlertAction!) -&gt; Void in</span><br><span class="line">    let cell = tableView.cellForRow(at: indexPath)</span><br><span class="line">    cell?.accessoryType = .checkmark</span><br><span class="line">&#125;)</span><br><span class="line">optionMenu.addAction(checkInAction)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>当用户点击“Check in”action时，为选中的cell增加一个对号，表明是用户喜欢的。<code>accessoryType</code>包括<code>disclosureIndicator</code>, <code>detailDisclosureButton</code>, <code>checkmark</code> 和 <code>detailButton</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-4810d845d9b28bbb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Call Action 和 Check-in Action"><br>当cell被选中后，这个cell会一直灰色高亮。去掉：<br><code>tableView.deselectRow(at: indexPath, animated: false)</code></p>
+<p>当用户点击“Check in”action时，为选中的cell增加一个对号，表明是用户喜欢的。<code>accessoryType</code>包括<code>disclosureIndicator</code>, <code>detailDisclosureButton</code>, <code>checkmark</code> 和 <code>detailButton</code>。<br><img src="http://images.andyron.com/2017/ar2017161.jpg" alt="Call Action 和 Check-in Action"><br>当cell被选中后，这个cell会一直灰色高亮。去掉：<br><code>tableView.deselectRow(at: indexPath, animated: false)</code></p>
 <h3 id="解决Bug"><a href="#解决Bug" class="headerlink" title="解决Bug"></a>解决Bug</h3><p>现在应用运行后，check-in某一cell时，可能会出现其他cell同时也被check-in。<br>这个问题是因为cell重复使用导致的。当一个屏幕滚动时，新进的cell就会利用滚出的得cell，以提高效率。解决方法：为每个cell创造一个是否被check-in的标志。</p>
 <ul>
 <li>在<code>RestaurantTableViewController</code>中创建一个<code>Boolean</code>类型的数组：<br><code>var restaurantIsVisited = Array(repeating: false, count: 21)</code></li>
@@ -534,7 +534,7 @@
 </li>
 </ul>
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>当选中也被check-in的cell时，check-in Action的文本变成<em>Undo Check in</em>，点击后取消其对号。修一下check-in代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">let cell = tableView.cellForRow(at: indexPath)</span><br><span class="line">if cell?.accessoryType == .checkmark &#123;</span><br><span class="line">    let checkInAction = UIAlertAction(title: &quot;Undo Check in&quot;, style: .default, handler:</span><br><span class="line">    &#123;</span><br><span class="line">        (action:UIAlertAction!) -&gt; Void in</span><br><span class="line">        cell?.accessoryType = .none</span><br><span class="line">        self.restaurantIsVisited[indexPath.row] = false</span><br><span class="line">    &#125;)</span><br><span class="line">    optionMenu.addAction(checkInAction)</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    let checkInAction = UIAlertAction(title: &quot;Check in&quot;, style: .default, handler:</span><br><span class="line">    &#123;</span><br><span class="line">        (action:UIAlertAction!) -&gt; Void in</span><br><span class="line">        cell?.accessoryType = .checkmark</span><br><span class="line">        self.restaurantIsVisited[indexPath.row] = true</span><br><span class="line">    &#125;)</span><br><span class="line">    optionMenu.addAction(checkInAction)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-a8b473734a1975d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017162.jpg" alt=""></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
@@ -601,7 +601,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2017年09月09日 - 13:02
+      2019年09月03日 - 15:22
     </li>
 
 

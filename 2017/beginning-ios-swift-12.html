@@ -109,23 +109,23 @@
 <meta property="og:url" content="http://andyron.com/2017/beginning-ios-swift-12.html">
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-bd39a0d90ab32e38.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-0dda4f5c40458ae3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-5ba947fe6d8879d2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d542dfd154b8cf7c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-0923d0f12872dda0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-0920f1f14cc8acf4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-582d1ae0dab6c52c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-ddcc3909a2f7ecc8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-ef9ccddcd3cd05b1.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-2aa069d0a77d8402.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-ce27ca6304f2a743.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c65272604046c5c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-21e69b027d900e64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T04:58:32.000Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017211.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017212.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017213.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017214.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017215.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017216.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017217.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017218.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017357.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017219.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017220.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017221.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017222.jpg">
+<meta property="og:updated_time" content="2019-09-03T07:23:03.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 12 丰富Detail View和定制化Navigation Bar">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-bd39a0d90ab32e38.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017211.jpg">
 
 
 
@@ -497,15 +497,15 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-bd39a0d90ab32e38.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p><img src="http://images.andyron.com/2017/ar2017211.jpg" alt=""></p>
 <a id="more"></a>
 <p>上一篇<a href="">开始用Swift开发iOS 10 - 11 面向对象编程介绍</a>对代码做了一点修改，这一篇来丰富一下详情页和定制化Navigation Bar。</p>
 <h3 id="重新设计详细页面"><a href="#重新设计详细页面" class="headerlink" title="重新设计详细页面"></a>重新设计详细页面</h3><ul>
 <li><p>选中<code>Main.storyboard</code>，删除Image View和三个Label。</p>
 </li>
-<li><p>添加Table View，修改其大小为整个View，并且添加一些约束。设置<code>prototype cells</code>为1；table view cell的<code>identifier</code>为<em>Cell</em>，<code>row height</code>为36。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-0dda4f5c40458ae3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="向Detail View Controller中添加一个Table View"></p>
+<li><p>添加Table View，修改其大小为整个View，并且添加一些约束。设置<code>prototype cells</code>为1；table view cell的<code>identifier</code>为<em>Cell</em>，<code>row height</code>为36。<br><img src="http://images.andyron.com/2017/ar2017212.jpg" alt="向Detail View Controller中添加一个Table View"></p>
 </li>
-<li><p>在table view的头部添加一个image view，给变其高度为300，宽度为View的宽度。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-5ba947fe6d8879d2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<li><p>在table view的头部添加一个image view，给变其高度为300，宽度为View的宽度。<br><img src="http://images.andyron.com/2017/ar2017213.jpg" alt=""></p>
 </li>
 <li><p>连接image view和<code>RestaurantDetailViewController</code>中的<code>restaurantImageView</code>接口。</p>
 </li>
@@ -514,11 +514,11 @@
 </ul>
 <h3 id="定制-Prototype-Cell"><a href="#定制-Prototype-Cell" class="headerlink" title="定制 Prototype Cell"></a>定制 Prototype Cell</h3><ul>
 <li>增加两个label，分别命名为<em>Field</em>，<em>Value</em> ，字体修改成自己想要的。把它们组成一个Stack View。</li>
-<li>为Stack View添加一些约束。<br>在cell中垂直居中；Trailing Space 和 Leading Space都为零。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-d542dfd154b8cf7c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>为Stack View添加一些约束。<br>在cell中垂直居中；Trailing Space 和 Leading Space都为零。<br><img src="http://images.andyron.com/2017/ar2017214.jpg" alt=""></li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-0923d0f12872dda0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>用<strong>Ctrl-drag</strong>从<em>Field</em>Label到<em>Value</em>Label，选择<strong>Equal Widths</strong>，生成一个<em>Field</em>Label与<em>Value</em>Label宽度相同的约束。修改<strong>Multiplier</strong>值为0.5，就是<em>Field</em>Label的宽度是<em>Value</em>Label的一半。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-0920f1f14cc8acf4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-582d1ae0dab6c52c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017215.jpg" alt=""></p>
+<p>用<strong>Ctrl-drag</strong>从<em>Field</em>Label到<em>Value</em>Label，选择<strong>Equal Widths</strong>，生成一个<em>Field</em>Label与<em>Value</em>Label宽度相同的约束。修改<strong>Multiplier</strong>值为0.5，就是<em>Field</em>Label的宽度是<em>Value</em>Label的一半。<br><img src="http://images.andyron.com/2017/ar2017216.jpg" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017217.jpg" alt=""></p>
 <ul>
 <li>新建<code>RestaurantDetailTableViewCell</code>类文件，继承至<code>UITableViewCell</code>。添加两个接口，并关联上面的两个Label。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@IBOutlet var fieldLabel:UILabel!</span><br><span class="line">@IBOutlet var valueLabel:UILabel!</span><br></pre></td></tr></table></figure>
 </li>
@@ -530,13 +530,13 @@
 <li><p>实现<code>UITableViewDataSource</code>的相关方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;</span><br><span class="line">        return 4</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</span><br><span class="line">    </span><br><span class="line">    let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;, for: indexPath) as! RestaurantDetailTableViewCell</span><br><span class="line">    // Configure the cell...</span><br><span class="line">    switch indexPath.row &#123;</span><br><span class="line">    case 0:</span><br><span class="line">        cell.fieldLabel.text = &quot;Name&quot;</span><br><span class="line">        cell.valueLabel.text = restaurant.name</span><br><span class="line">    case 1:</span><br><span class="line">        cell.fieldLabel.text = &quot;Type&quot;</span><br><span class="line">        cell.valueLabel.text = restaurant.type</span><br><span class="line">    case 2:</span><br><span class="line">        cell.fieldLabel.text = &quot;Location&quot;</span><br><span class="line">        cell.valueLabel.text = restaurant.location</span><br><span class="line">    case 3:</span><br><span class="line">        cell.fieldLabel.text = &quot;Been here&quot;</span><br><span class="line">        cell.valueLabel.text = (restaurant.isVisited) ? &quot;Yes, I&apos;ve been herebefore&quot; : &quot;No&quot;</span><br><span class="line">    default:</span><br><span class="line">        cell.fieldLabel.text = &quot;&quot;</span><br><span class="line">        cell.valueLabel.text = &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cell.backgroundColor = UIColor.clear</span><br><span class="line">    </span><br><span class="line">    return cell</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>把table view的<code>delegate</code>和<code>dataSource</code>接口设置成<strong>Restaurant Detail View Controller</strong> 。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-ddcc3909a2f7ecc8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<li><p>把table view的<code>delegate</code>和<code>dataSource</code>接口设置成<strong>Restaurant Detail View Controller</strong> 。<br><img src="http://images.andyron.com/2017/ar2017218.jpg" alt=""></p>
 </li>
 </ul>
 <h3 id="定制table-view-的样式"><a href="#定制table-view-的样式" class="headerlink" title="定制table view 的样式"></a>定制table view 的样式</h3><ul>
 <li><p>在<code>RestaurantDetailViewController</code>中添加一个接口变量，并关联storyboard中的table view。<br><code>@IBOutlet var tableView:UITableView!</code></p>
 </li>
-<li><p>设置table view的背景颜色，在<code>viewDidLoad</code>中添加:<br><code>tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)</code><br>新加的颜色是亮灰色（和白色相近，可以设置成其他深颜色做对比），运行后不是整个table view都变色。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-ef9ccddcd3cd05b1.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这是因为，每一个cell都是重新添加的，cell的背景颜色还是默认的白色，覆盖了table view的背景颜色，要在<code>tableView(_:cellForRowAt:)</code>的<code>return</code>之前添加：<br><code>cell.backgroundColor = UIColor.clear</code></p>
+<li><p>设置table view的背景颜色，在<code>viewDidLoad</code>中添加:<br><code>tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)</code><br>新加的颜色是亮灰色（和白色相近，可以设置成其他深颜色做对比），运行后不是整个table view都变色。<br><img src="http://images.andyron.com/2017/ar2017357.jpg" alt=""><br>这是因为，每一个cell都是重新添加的，cell的背景颜色还是默认的白色，覆盖了table view的背景颜色，要在<code>tableView(_:cellForRowAt:)</code>的<code>return</code>之前添加：<br><code>cell.backgroundColor = UIColor.clear</code></p>
 </li>
 <li><p>移除table view中空cell的分割线，在<code>viewDidLoad</code>中添加:</p>
 <pre><code>tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -558,11 +558,11 @@
 </ul>
 <p>目前，Navigation bar的返回按钮是一个<code>&lt;</code>和<code>Food Pin</code>，想删除<code>Food Pin</code>，需要修改<code>RestaurantTableViewController</code>的<code>backBarButtonItem</code>属性。<br> 在 <code>RestaurantTableViewController</code>的<code>viewDidLoad</code>中添加：<br>      <code>navigationItem.backBarButtonItem = UIBarButtonItem(title: &quot;&quot;, style:
 .plain, target: nil, action: nil)</code></p>
-<p>为 detail view 的 Navigation bar 添加title，在 <code>RestaurantDetailViewController</code>的<code>viewDidLoad</code>中添加：<br><code>title = restaurant.name</code><br><img src="http://upload-images.jianshu.io/upload_images/1678135-2aa069d0a77d8402.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>为 detail view 的 Navigation bar 添加title，在 <code>RestaurantDetailViewController</code>的<code>viewDidLoad</code>中添加：<br><code>title = restaurant.name</code><br><img src="http://images.andyron.com/2017/ar2017219.jpg" alt=""></p>
 <h3 id="隐藏Navigation-Bar"><a href="#隐藏Navigation-Bar" class="headerlink" title="隐藏Navigation Bar"></a>隐藏Navigation Bar</h3><ul>
 <li>自从iOS 8后，Navigation Bar可以在不同情况下隐藏，在storyboard中选择<strong>Navigation Controller</strong>修改。（<code>On Swipe</code>是向上滑）</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-ce27ca6304f2a743.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017220.jpg" alt=""></p>
 <ul>
 <li><p>但这种设置整个app的Navigation Bar都会隐藏。如果只想在<em>restaurant table view controller</em>中隐藏，在<em>detail view</em>中不隐藏，就需要在两个控制器的<code>viewDidLoad</code>分别设置：<code>navigationController?.hidesBarsOnSwipe = true</code> 和 <code>navigationController?.hidesBarsOnSwipe = false</code> 。</p>
 </li>
@@ -577,9 +577,9 @@
 <p>解决办法是使用<code>viewWillAppear</code>，这个方法是在视图每一次显示时调用。<br>在<code>RestaurantTableViewController</code>中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">override func viewWillAppear(_ animated: Bool) &#123;</span><br><span class="line">    super.viewWillAppear(animated)</span><br><span class="line">    navigationController?.hidesBarsOnSwipe = true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在<code>RestaurantDetailViewController</code>中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">override func viewWillAppear(_ animated: Bool) &#123;</span><br><span class="line">    super.viewWillAppear(animated)</span><br><span class="line">    navigationController?.hidesBarsOnSwipe = false</span><br><span class="line">    navigationController?.setNavigationBarHidden(false, animated: true)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="修改Status-Bar样式"><a href="#修改Status-Bar样式" class="headerlink" title="修改Status Bar样式"></a>修改Status Bar样式</h3><p>app中Status Bar的默认样式是黑色。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-c65272604046c5c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017221.jpg" alt=""></p>
 <p>在<code>Info.plist</code>中添加一个key为<strong>View controller-based status bar appearance</strong>，值为<em>NO</em>。然后<code>application(_:didFinishLaunchingWithOptions:)</code>中添加：<code>UIApplication.shared.statusBarStyle = .lightContent</code>。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-21e69b027d900e64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017222.jpg" alt=""></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
@@ -646,7 +646,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2017年09月09日 - 12:58
+      2019年09月03日 - 15:23
     </li>
 
 

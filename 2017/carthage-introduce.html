@@ -112,15 +112,15 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="Carthage与CocoaPods的简单比较 CocoaPods 的优势： 使用方便，除编写 Podfile 以外其他几乎都是自动完成； 软件包数量多，主流支持；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-dc2ec05c7cd8667e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a301f33dcd1acc33.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/685141-eb950371914c0a67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-16T09:05:48.436Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017031.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017032.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017033.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017034.jpg">
+<meta property="og:updated_time" content="2019-09-03T04:59:15.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Carthage的使用">
 <meta name="twitter:description" content="Carthage与CocoaPods的简单比较 CocoaPods 的优势： 使用方便，除编写 Podfile 以外其他几乎都是自动完成； 软件包数量多，主流支持；">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017031.jpg">
 
 
 
@@ -503,7 +503,7 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-2b637a644727aef3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p><img src="http://images.andyron.com/2017/ar2017031.jpg" alt=""></p>
 <h3 id="Carthage与CocoaPods的简单比较"><a href="#Carthage与CocoaPods的简单比较" class="headerlink" title="Carthage与CocoaPods的简单比较"></a>Carthage与CocoaPods的简单比较</h3><ul>
 <li>CocoaPods 的优势：<ul>
 <li>使用方便，除编写 Podfile 以外其他几乎都是自动完成；</li>
@@ -560,13 +560,13 @@
 <ul>
 <li><code>carthage update [--platform iOS]</code><br><code>--platform iOS</code>是针对iOS的，可选项。<br>在项目根目录下会生成一个<code>Cartfile.resolved</code>文件和<code>Carthage</code>文件夹，<code>Carthage</code>文件夹中的<code>Build</code>目录下有编译好的<code>framework</code>文件，<code>Checkouts</code>目录第三库的源文件。</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-dc2ec05c7cd8667e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017032.jpg" alt=""></p>
 <ol start="5">
 <li>把库添加到项目中</li>
 </ol>
 <ul>
-<li>把编译好的<code>framework</code>文件拖动到<code>Linked Frameworks and Libraries</code>或者点击<code>+</code>选择。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-a301f33dcd1acc33.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li>在<code>Build Phases</code>中添加一个<code>Run Script</code>。<br>命令为 <code>/usr/local/bin/carthage copy-frameworks</code>。<br><strong>Input Files</strong>下的条目为<code>$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework</code>。<br>具体操作如下图：<br><img src="http://upload-images.jianshu.io/upload_images/685141-eb950371914c0a67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>把编译好的<code>framework</code>文件拖动到<code>Linked Frameworks and Libraries</code>或者点击<code>+</code>选择。<br><img src="http://images.andyron.com/2017/ar2017033.jpg" alt=""></li>
+<li>在<code>Build Phases</code>中添加一个<code>Run Script</code>。<br>命令为 <code>/usr/local/bin/carthage copy-frameworks</code>。<br><strong>Input Files</strong>下的条目为<code>$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework</code>。<br>具体操作如下图：<br><img src="http://images.andyron.com/2017/ar2017034.jpg" alt=""></li>
 </ul>
 <ol start="6">
 <li>编译就可以使用第三方库了</li>
@@ -642,7 +642,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年09月16日 - 17:05
+      2019年09月03日 - 12:59
     </li>
 
 
@@ -679,8 +679,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/oc-basic-7.html" rel="next" title="OC基础学习7：内存管理">
-                <i class="fa fa-chevron-left"></i> OC基础学习7：内存管理
+              <a href="/2017/beginning-ios-swift-26.html" rel="next" title="开始用Swift开发iOS 10 - 26 使用本地用户通知">
+                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 26 使用本地用户通知
               </a>
             
           </div>
@@ -689,8 +689,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/downgit.html" rel="prev" title="DownGit：怎么下载github中某个文件夹？">
-                DownGit：怎么下载github中某个文件夹？ <i class="fa fa-chevron-right"></i>
+              <a href="/2017/oc-basic-7.html" rel="prev" title="OC基础学习7：内存管理">
+                OC基础学习7：内存管理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

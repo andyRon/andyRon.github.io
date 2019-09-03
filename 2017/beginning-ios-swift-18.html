@@ -111,16 +111,16 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="上一篇 开始用Swift开发iOS 10 - 17 使用Core Data 是使用Core Data存储数据，这一篇是添加搜索功能。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-fa6e550b40974b6b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-e757d207e9689c22.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-f31077a6b2b2dc3d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-7aec0c6828ba87b7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-090ec425a6db2759.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T05:00:47.000Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017251.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017252.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017253.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017254.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017255.jpg">
+<meta property="og:updated_time" content="2019-09-03T07:22:34.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 18 Search Bar 和 UISearchController">
 <meta name="twitter:description" content="上一篇 开始用Swift开发iOS 10 - 17 使用Core Data 是使用Core Data存储数据，这一篇是添加搜索功能。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-fa6e550b40974b6b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017251.jpg">
 
 
 
@@ -492,10 +492,10 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-fa6e550b40974b6b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>上一篇 <a href="http://www.jianshu.com/p/bf712b672af9" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 17 使用Core Data</a> 是使用Core Data存储数据，这一篇是添加搜索功能。</p>
+        <p><img src="http://images.andyron.com/2017/ar2017251.jpg" alt=""><br>上一篇 <a href="http://www.jianshu.com/p/bf712b672af9" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 17 使用Core Data</a> 是使用Core Data存储数据，这一篇是添加搜索功能。</p>
 <a id="more"></a>
 <h3 id="使用-UISearchController"><a href="#使用-UISearchController" class="headerlink" title="使用 UISearchController"></a>使用 UISearchController</h3><p><code>UISearchController</code>是一个简洁的创建搜索条和管理搜索结果的API。<br>通常情况下，为以table为基础的app添加搜索条只需要下面三行代码就可以了，<code>searchResultsController</code>为<code>nil</code>时搜索结果显示就在当前搜索的页面以当前的样式显示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">searchController = UISearchController(searchResultsController: nil)</span><br><span class="line">searchController.searchResultsUpdater = self</span><br><span class="line">tableView.tableHeaderView = searchController.searchBar</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-e757d207e9689c22.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017252.jpg" alt=""></p>
 <p>为我的FoodPin应用添加搜索条:</p>
 <ul>
 <li><p>在<code>RestaurantTableViewController</code>中添加一个变量：</p>
@@ -507,7 +507,7 @@ tableView.tableHeaderView = searchController.searchBar
 </code></pre></li>
 </ul>
 <p>这样就添加了搜索条，但还每天添加搜索逻辑，搜索没效。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-f31077a6b2b2dc3d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017253.jpg" alt=""></p>
 <h3 id="筛选内容"><a href="#筛选内容" class="headerlink" title="筛选内容"></a>筛选内容</h3><ul>
 <li><p>在<code>RestaurantTableViewController</code>中继续添加一个变量，用户存储筛选结果：</p>
 <pre><code>var searchResults: [RestaurantMO] = []
@@ -544,10 +544,10 @@ tableView.tableHeaderView = searchController.searchBar
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">searchController.searchResultsUpdater = self</span><br><span class="line">searchController.dimsBackgroundDuringPresentation = false</span><br></pre></td></tr></table></figure>
 <p>现在就完成了搜索功能。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-7aec0c6828ba87b7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017254.jpg" alt=""></p>
 <h3 id="定制搜索条的样式"><a href="#定制搜索条的样式" class="headerlink" title="定制搜索条的样式"></a>定制搜索条的样式</h3><p><code>UISearchBar</code>提供一些属性用来定制。在<code>viewDidLoad</code>中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">searchController.searchBar.placeholder = &quot;Search restaurants...&quot;</span><br><span class="line">searchController.searchBar.tintColor = UIColor.white</span><br><span class="line">searchController.searchBar.barTintColor = UIColor(red: 218.0/255.0, green:</span><br><span class="line">100.0/255.0, blue: 70.0/255.0, alpha: 1.0)</span><br></pre></td></tr></table></figure></p>
 <h3 id="Exercise：添加地址搜索"><a href="#Exercise：添加地址搜索" class="headerlink" title="Exercise：添加地址搜索"></a>Exercise：添加地址搜索</h3><p>只需要更改搜索函数<code>filterContent</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">searchResults = restaurants.filter(&#123;</span><br><span class="line">        (restaurant) -&gt; Bool in</span><br><span class="line">            </span><br><span class="line">            if let name = restaurant.name, let location = restaurant.location &#123;</span><br><span class="line">                let isMatchName = name.localizedCaseInsensitiveContains(searchText)</span><br><span class="line">                let isMatchLocation = location.localizedCaseInsensitiveContains(searchText)</span><br><span class="line">                if isMatchName || isMatchLocation &#123;</span><br><span class="line">                    return true</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            return false</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-090ec425a6db2759.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017255.jpg" alt=""></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
@@ -614,7 +614,7 @@ tableView.tableHeaderView = searchController.searchBar
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2017年09月09日 - 13:00
+      2019年09月03日 - 15:22
     </li>
 
 

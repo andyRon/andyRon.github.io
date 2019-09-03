@@ -111,15 +111,15 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="在WWDC 2016时，Apple介绍了Speech framework，这是一个很有用的声音识别框架。实际上这是利用Siri进行声音识别。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c43c2495b3351f65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-10253d02318d10fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-9435ddf42efa7c03.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-bfe2644c00e18739.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-22T04:35:41.681Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017109.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017110.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017114.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017111.jpg">
+<meta property="og:updated_time" content="2019-09-03T05:50:47.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS tutorial 3：Speech Framework的简单使用">
 <meta name="twitter:description" content="在WWDC 2016时，Apple介绍了Speech framework，这是一个很有用的声音识别框架。实际上这是利用Siri进行声音识别。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-c43c2495b3351f65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017109.jpg">
 
 
 
@@ -502,12 +502,12 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-c43c2495b3351f65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p><img src="http://images.andyron.com/2017/ar2017109.jpg" alt=""></p>
 <p>在WWDC 2016时，Apple介绍了<a href="https://developer.apple.com/videos/play/wwdc2016/509/" target="_blank" rel="noopener"><strong>Speech framework</strong></a>，这是一个很有用的声音识别框架。实际上这是利用<strong>Siri</strong>进行声音识别。</p>
 <a id="more"></a>
 <h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><ul>
 <li>新建<strong>SpeechToTextDemo</strong>，模板是<strong>Single View Application</strong>。</li>
-<li>添加简单的UI<br><img src="http://upload-images.jianshu.io/upload_images/1678135-10253d02318d10fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>添加简单的UI<br><img src="http://images.andyron.com/2017/ar2017110.jpg" alt=""></li>
 <li>分别定义<code>UITextView</code>和<code>UIButton</code>的两个outlet，为<code>textView</code>和<code>microphoneButton</code>。</li>
 <li>再为<code>UIButton</code>添加一个action：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@IBAction func microphoneTapped(_ sender: AnyObject) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -558,9 +558,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@IBAction func microphoneTapped(_ sender: AnyObject) &#123;</span><br><span class="line">     if audioEngine.isRunning &#123;</span><br><span class="line">         audioEngine.stop()</span><br><span class="line">         recognitionRequest?.endAudio()</span><br><span class="line">         microphoneButton.isEnabled = false</span><br><span class="line">         microphoneButton.setTitle(&quot;Start Recording&quot;, for: .normal)</span><br><span class="line">     &#125; else &#123;</span><br><span class="line">         startRecording()</span><br><span class="line">         microphoneButton.setTitle(&quot;Stop Recording&quot;, for: .normal)</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-9435ddf42efa7c03.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017114.jpg" alt=""></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>语音识别在iPhone的自带键盘中有这个功能，中文识别率很高，如果不高兴或不方便打字，很方便使用。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-bfe2644c00e18739.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017111.jpg" alt=""></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/LearniOSByProject/tree/master/P005-SpeechToTextDemo" target="_blank" rel="noopener">SpeechToTextDemo</a></p>
 <blockquote>
 <p>参考： <a href="http://www.appcoda.com/siri-speech-framework/" target="_blank" rel="noopener">Building a Speech-to-Text App Using Speech Framework in iOS 10</a></p>
@@ -629,7 +629,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月22日 - 12:35
+      2019年09月03日 - 13:50
     </li>
 
 

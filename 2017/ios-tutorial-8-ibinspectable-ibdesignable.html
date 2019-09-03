@@ -111,23 +111,23 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="例子代码：https://github.com/andyRon/LearniOSByProject/tree/master/P077-FancyButton 理解IBInspectable 和 IBDesignable简单地说，IBInspectable 就是允许开发者在IB的属性检查器中添加额外的选项。IBDesignable 能够让 IBInspectable 添加的额外选项产生的变化在IB中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-eec9a86b57546508.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-9fbf46e06b820758.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-691ee3e3500692cf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a095fd80f28d5dd5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c4891a1cadce813c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-6dcb60f912ab6db1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d5858246b949cfad.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-9ea89a70a12f3a93.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-3380113f921cf75a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-cd2aea0cf9da5396.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-9873aab78bcce558.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a7399597820c5e4b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-22T04:51:42.242Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017085.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017086.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017087.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017088.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017089.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017090.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017091.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017092.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017093.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017094.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017095.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017096.jpg">
+<meta property="og:updated_time" content="2019-09-03T05:46:00.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS tutorial 8：使用IBInspectable 和 IBDesignable定制UI">
 <meta name="twitter:description" content="例子代码：https://github.com/andyRon/LearniOSByProject/tree/master/P077-FancyButton 理解IBInspectable 和 IBDesignable简单地说，IBInspectable 就是允许开发者在IB的属性检查器中添加额外的选项。IBDesignable 能够让 IBInspectable 添加的额外选项产生的变化在IB中">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-eec9a86b57546508.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017085.jpg">
 
 
 
@@ -518,22 +518,22 @@
 </li>
 </ul>
 <p>或者直接在IB的<strong>Identity检查器</strong>的 <strong>user defined runtime attributes</strong>中添加：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-eec9a86b57546508.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017085.jpg" alt=""></p>
 <p>注意到，这种修改不是实时，在IB中Button还是直角，只有运行后才是圆角。</p>
 <ul>
 <li>以<em>IBInspectable</em>的方式。定义个继承至<code>UIButton</code>的类。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class RoundedCornerButton: UIButton &#123;</span><br><span class="line">    @IBInspectable var cornerRadius: CGFloat = 0.0 &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            layer.cornerRadius = cornerRadius</span><br><span class="line">            layer.masksToBounds = cornerRadius &gt; 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>然后把button的<code>class</code>属性修改成<code>RoundedCornerButton</code>:</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-9fbf46e06b820758.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017086.jpg" alt=""></p>
 <p>发现这个button的属性检查器中多了<strong>Corner Radius</strong>。</p>
 <blockquote>
 <p>注意： <code>cornerRadius</code>属性变成了<strong>Corner Radius</strong>，<code>RoundedCornerButton</code>类变成了 <strong>Rounded Corner Button</strong>，这是Xcode自动转变的，开发者只需要依照swift的命名规范就可以了（类名是大写开头的驼峰命名规则，属性名是小写开头的驼峰命名规则）</p>
 </blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-691ee3e3500692cf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017087.jpg" alt=""></p>
 <p><code>cornerRadius</code>的类型是<code>CGFloat</code>，在属性检查器中就对应数字的选择。当然不是所有类型都可以添加属性检查器中的，<em>IBInspectable</em>支持如下类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Int</span><br><span class="line">CGFloat </span><br><span class="line">Double </span><br><span class="line">String </span><br><span class="line">Bool </span><br><span class="line">CGPoint </span><br><span class="line">CGSize </span><br><span class="line">CGRect </span><br><span class="line">UIColor </span><br><span class="line">UIImage</span><br></pre></td></tr></table></figure></p>
 <p>如果在类<code>RoundedCornerButton</code>前添加<code>@IBDesignable</code>，那在属性检查器中自定义的属性变化就可以在IB中实时显示了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@IBDesignable class RoundedCornerButton: UIButton &#123;</span><br><span class="line">    @IBInspectable var cornerRadius: CGFloat = 0.0 &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            layer.cornerRadius = cornerRadius</span><br><span class="line">            layer.masksToBounds = cornerRadius &gt; 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-a095fd80f28d5dd5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017088.jpg" alt=""></p>
 <h3 id="创建Fancy-Button"><a href="#创建Fancy-Button" class="headerlink" title="创建Fancy Button"></a>创建Fancy Button</h3><p>创建Fancy Button来更加深入的了解IBInspectable 和 IBDesignable</p>
 <ul>
 <li>创建新项目<strong>FancyButton</strong></li>
@@ -542,35 +542,35 @@
 <li>圆角，边宽，边的颜色。 更新<code>FancyButton</code>：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@IBDesignable</span><br><span class="line">class FancyButton: UIButton &#123;</span><br><span class="line">    @IBInspectable var cornerRadius: CGFloat = 0.0 &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            layer.cornerRadius = cornerRadius</span><br><span class="line">            layer.masksToBounds = cornerRadius &gt; 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @IBInspectable var borderWidth: CGFloat = 0.0 &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            layer.borderWidth = borderWidth</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @IBInspectable var borderColor: UIColor = .black &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            layer.borderColor = borderColor.cgColor</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-c4891a1cadce813c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017089.jpg" alt=""></p>
 <ul>
 <li>Title<br>在<code>FancyButton</code>继续添加属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@IBInspectable var titleLeftPadding: CGFloat = 0.0 &#123;</span><br><span class="line">    didSet &#123;</span><br><span class="line">        titleEdgeInsets.left = titleLeftPadding</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@IBInspectable var titleRightPadding: CGFloat = 0.0 &#123;</span><br><span class="line">    didSet &#123;</span><br><span class="line">        titleEdgeInsets.right = titleRightPadding</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@IBInspectable var titleTopPadding: CGFloat = 0.0 &#123;</span><br><span class="line">    didSet &#123;</span><br><span class="line">        titleEdgeInsets.top = titleTopPadding</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@IBInspectable var titleBottomPadding: CGFloat = 0.0 &#123;</span><br><span class="line">    didSet &#123;</span><br><span class="line">        titleEdgeInsets.bottom = titleBottomPadding</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-6dcb60f912ab6db1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017090.jpg" alt=""></p>
 <ul>
 <li>通过圆角可创建圆形button</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-d5858246b949cfad.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017091.jpg" alt=""></p>
 <ul>
 <li>Image Padding<br>添加图片边距的属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@IBInspectable var imageLeftPadding: CGFloat = 0.0 &#123;</span><br><span class="line">    didSet &#123;</span><br><span class="line">        imageEdgeInsets.left = imageLeftPadding</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@IBInspectable var imageRightPadding: CGFloat = 0.0 &#123;</span><br><span class="line">    didSet &#123;</span><br><span class="line">        imageEdgeInsets.right = imageRightPadding</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@IBInspectable var imageTopPadding: CGFloat = 0.0 &#123;</span><br><span class="line">    didSet &#123;</span><br><span class="line">        imageEdgeInsets.top = imageTopPadding</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@IBInspectable var imageBottomPadding: CGFloat = 0.0 &#123;</span><br><span class="line">    didSet &#123;</span><br><span class="line">        imageEdgeInsets.bottom = imageBottomPadding</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-9ea89a70a12f3a93.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017092.jpg" alt=""></p>
 <ul>
 <li>图片靠右对齐<br>根据下图关系，应有<code>imageEdgeInsets.left = self.bounds.width - imageView.bounds.width - imageRightPadding</code>。</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-3380113f921cf75a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017093.jpg" alt=""></p>
 <p>  在<code>FancyButton</code>中添加如下代码：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@IBInspectable var enableImageRightAligned: Bool = false</span><br><span class="line"></span><br><span class="line">override func layoutSubviews() &#123;</span><br><span class="line">    super.layoutSubviews()</span><br><span class="line">    </span><br><span class="line">    if enableImageRightAligned, let imageView = imageView &#123;</span><br><span class="line">        imageEdgeInsets.left = self.bounds.width - imageView.bounds.width - imageRightPadding</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <pre><code>+ `enableImageRightAligned`属性又来自动计算 `imageEdgeInsets.left`
-</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/1678135-cd2aea0cf9da5396.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</code></pre><p><img src="http://images.andyron.com/2017/ar2017094.jpg" alt=""></p>
 <ul>
 <li>颜色渐变<br>添加三个<code>@IBInspectable</code>属性，并更新<code>layoutSubviews</code>:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@IBInspectable var enableGradientBackground: Bool = false</span><br><span class="line">@IBInspectable var gradientColor1: UIColor = UIColor.black</span><br><span class="line">@IBInspectable var gradientColor2: UIColor = UIColor.white</span><br><span class="line"></span><br><span class="line">override func layoutSubviews() &#123;</span><br><span class="line">    super.layoutSubviews()</span><br><span class="line">    </span><br><span class="line">    if enableImageRightAligned, let imageView = imageView &#123;</span><br><span class="line">        imageEdgeInsets.left = self.bounds.width - imageView.bounds.width - imageRightPadding</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if enableGradientBackground &#123;</span><br><span class="line">        let gradientLayer = CAGradientLayer()</span><br><span class="line">        gradientLayer.frame = self.bounds</span><br><span class="line">        gradientLayer.colors = [gradientColor1.cgColor, gradientColor2.cgColor]</span><br><span class="line">        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)</span><br><span class="line">        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)</span><br><span class="line">        self.layer.insertSublayer(gradientLayer, at: 0)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-9873aab78bcce558.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017095.jpg" alt=""></p>
 <p>渐变色需要运行后才能看到</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-a7399597820c5e4b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017096.jpg" alt=""></p>
 <blockquote>
 <p>参考：<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站的书<a href="https://www.appcoda.com/intermediate-swift-programming-book/" target="_blank" rel="noopener">《Intermediate iOS Programming with Swift》</a> 的Chapter 36</p>
 </blockquote>
@@ -638,7 +638,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月22日 - 12:51
+      2019年09月03日 - 13:46
     </li>
 
 

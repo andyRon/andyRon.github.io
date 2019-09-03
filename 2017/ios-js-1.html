@@ -112,13 +112,13 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="关于WKWebView与UIWebView之间的区别，本文就不在说明，本文只使用WKWebView。效果图如下：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017060.gif">
 <meta property="og:image" content="http://images.andyron.com/2017/ar2017027.jpg">
-<meta property="og:updated_time" content="2019-08-27T08:37:38.546Z">
+<meta property="og:updated_time" content="2019-09-03T04:59:04.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用">
 <meta name="twitter:description" content="关于WKWebView与UIWebView之间的区别，本文就不在说明，本文只使用WKWebView。效果图如下：">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017060.gif">
 
 
 
@@ -491,7 +491,7 @@
 
       
         <p>关于<code>WKWebView</code>与<code>UIWebView</code>之间的区别，本文就不在说明，本文只使用<code>WKWebView</code>。<br>效果图如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-ac5832118d16b1d4.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017060.gif" alt=""></p>
 <a id="more"></a>
 <p>html代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf8&quot;&gt;</span><br><span class="line">        &lt;script language=&quot;javascript&quot;&gt;</span><br><span class="line">            function loadURL(url) &#123;</span><br><span class="line">                window.location.href = url</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            function locationClick() &#123;</span><br><span class="line">                loadURL(&quot;scheme://getLocation&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            function shake() &#123;</span><br><span class="line">                loadURL(&quot;scheme://shake&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            function setLocation(location) &#123;</span><br><span class="line">                alert(location)</span><br><span class="line">                document.getElementById(&quot;returnValue&quot;).value = location;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;h1&gt;这是按钮调用&lt;/h1&gt;</span><br><span class="line">        &lt;input type=&quot;button&quot; value=&quot;获取定位&quot; onclick=&quot;locationClick()&quot; /&gt;&lt;br&gt;&lt;br&gt;</span><br><span class="line">        &lt;input type=&quot;button&quot; value=&quot;震动一下&quot; onclick=&quot;shake()&quot; /&gt;&lt;br&gt;&lt;br&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;h1&gt;这是文件上传&lt;/h1&gt;</span><br><span class="line">        &lt;input type=&quot;file&quot; /&gt;&lt;br&gt;&lt;br&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;h1&gt;这是回调结果展示区&lt;/h1&gt;</span><br><span class="line">        &lt;textarea id =&quot;returnValue&quot; type=&quot;value&quot; rows=&quot;5&quot; cols=&quot;50&quot;&gt;&lt;/textarea&gt;</span><br><span class="line">        </span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
 <h3 id="以获取定位这个按钮为例说明OC和JS互相调用代码执行流程："><a href="#以获取定位这个按钮为例说明OC和JS互相调用代码执行流程：" class="headerlink" title="以获取定位这个按钮为例说明OC和JS互相调用代码执行流程："></a>以获取定位这个按钮为例说明OC和JS互相调用代码执行流程：</h3><ol>
@@ -598,7 +598,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年08月27日 - 16:37
+      2019年09月03日 - 12:59
     </li>
 
 
@@ -633,8 +633,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-js-2.html" rel="next" title="iOS与JS(二)：MessageHandler(OC&Swift)">
-                <i class="fa fa-chevron-left"></i> iOS与JS(二)：MessageHandler(OC&Swift)
+              <a href="/2017/ios-animation-3.html" rel="next" title="iOS动画(三)：核心动画中缩放和旋转(Swift)">
+                <i class="fa fa-chevron-left"></i> iOS动画(三)：核心动画中缩放和旋转(Swift)
               </a>
             
           </div>
@@ -643,8 +643,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/oc-basic-8.html" rel="prev" title="OC基础学习8：对象初始化">
-                OC基础学习8：对象初始化 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/ios-js-2.html" rel="prev" title="iOS与JS(二)：MessageHandler(OC&Swift)">
+                iOS与JS(二)：MessageHandler(OC&Swift) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

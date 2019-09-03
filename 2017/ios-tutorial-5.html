@@ -111,16 +111,16 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="用户带着iPhone进入某个区域，并在某些区域待多久在开发肯能会有很大用处。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-a63552e89efd1228.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-92c3625f72dfcb93.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c48d6e259b2697d5.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-baa73df392488de1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-87343ba2104c5e86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-22T04:44:30.876Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017097.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017115.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017116.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017098.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017099.jpg">
+<meta property="og:updated_time" content="2019-09-03T05:51:56.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS tutorial 5：关于地理定位和特定区域(Swift)">
 <meta name="twitter:description" content="用户带着iPhone进入某个区域，并在某些区域待多久在开发肯能会有很大用处。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-a63552e89efd1228.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017097.jpg">
 
 
 
@@ -503,7 +503,7 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-a63552e89efd1228.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p><img src="http://images.andyron.com/2017/ar2017097.jpg" alt=""></p>
 <p>用户带着iPhone进入某个区域，并在某些区域待多久在开发肯能会有很大用处。</p>
 <a id="more"></a>
 <h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><ul>
@@ -530,7 +530,8 @@
 <li><p>3 如果用户授权状态是<em>一直</em>，就开始更新地理位置。</p>
 </li>
 </ul>
-<p>另外，还需要在<code>.plist</code>文件中添加key为<code>NSLocationAlwaysUsageDescription</code>的提示信息 <em>需要一直能获取你的位置</em> 才可以。在调用<code>requestAlwaysAuthorization()</code>时这个key是必须的。允许获取当前位置。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-92c3625f72dfcb93.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>另外，还需要在<code>.plist</code>文件中添加key为<code>NSLocationAlwaysUsageDescription</code>的提示信息 <em>需要一直能获取你的位置</em> 才可以。在调用<code>requestAlwaysAuthorization()</code>时这个key是必须的。允许获取当前位置。</p>
+<p><img src="http://images.andyron.com/2017/ar2017115.jpg" alt=""></p>
 <p>添加函数<code>setupData()</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">func setupData() &#123;</span><br><span class="line">    // 1</span><br><span class="line">    if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) &#123;</span><br><span class="line">        </span><br><span class="line">        // 2</span><br><span class="line">        let title = &quot;全季酒店&quot;</span><br><span class="line">        let coordinate = CLLocationCoordinate2DMake(31.1849700000,121.6303200000)</span><br><span class="line">        let regionRadius = 300.0</span><br><span class="line">        </span><br><span class="line">        // 3</span><br><span class="line">        let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude), radius: regionRadius, identifier: title)</span><br><span class="line">        locationManager.startMonitoring(for: region)</span><br><span class="line">        </span><br><span class="line">        // 4</span><br><span class="line">        let restaurantAnnotation = MKPointAnnotation()</span><br><span class="line">        restaurantAnnotation.coordinate = coordinate</span><br><span class="line">        restaurantAnnotation.title = title</span><br><span class="line">        mapView.addAnnotation(restaurantAnnotation)</span><br><span class="line">        </span><br><span class="line">        // 5</span><br><span class="line">        let circle = MKCircle(center: coordinate, radius: regionRadius)</span><br><span class="line">        mapView.add(circle)</span><br><span class="line">        </span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        print(&quot;不能追踪区域&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 6</span><br><span class="line">func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -&gt; MKOverlayRenderer &#123;</span><br><span class="line">    let circleRenderer = MKCircleRenderer(overlay: overlay)</span><br><span class="line">    circleRenderer.strokeColor = UIColor.red</span><br><span class="line">    circleRenderer.lineWidth = 1.0</span><br><span class="line">    return circleRenderer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>1 判断是否监控区域功能是否可用。当用户<em>拒绝</em>状态，或用户不让app背景下刷新，或飞行模式时这个功能不可用</li>
@@ -538,11 +539,12 @@
 <li>3 初始化<code>CLCircularRegion</code>。</li>
 <li>4 添加一个注解，类似大头针形状。</li>
 <li>5 添加区域圆圈标志。</li>
-<li>6 这是<code>MKMapViewDelegate</code>的方法，用户画圆<br><img src="http://upload-images.jianshu.io/upload_images/1678135-c48d6e259b2697d5.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>6 这是<code>MKMapViewDelegate</code>的方法，用户画圆</li>
 </ul>
+<p><img src="http://images.andyron.com/2017/ar2017116.jpg" alt=""></p>
 <h3 id="CLRegion"><a href="#CLRegion" class="headerlink" title="CLRegion"></a>CLRegion</h3><p><code>CLRegion</code>就是上面标定的圆形区域。下面添加两个<code>CLLocationManagerDelegate</code>的回调方法，分别在是设备的定位位置进和出标定的区域时调用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// MARK:- CLLocationManagerDelegate</span><br><span class="line">func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) &#123;</span><br><span class="line">    showAlert(&quot;enter \(region.identifier)&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) &#123;</span><br><span class="line">    showAlert(&quot;exit \(region.identifier)&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Xcode中的位置调试"><a href="#Xcode中的位置调试" class="headerlink" title="Xcode中的位置调试"></a>Xcode中的位置调试</h3><p>上面设备的位置，不可能拿着手机到处跑，Xcode提高了方便的调式方式。可以建立位置文件<code>.GPX</code>:<br><img src="http://upload-images.jianshu.io/upload_images/1678135-baa73df392488de1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>xcode也提供世界上一些常用的位置文件：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-87343ba2104c5e86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>点击上图调试栏最后的位置标志就可以调式了。</p>
+<h3 id="Xcode中的位置调试"><a href="#Xcode中的位置调试" class="headerlink" title="Xcode中的位置调试"></a>Xcode中的位置调试</h3><p>上面设备的位置，不可能拿着手机到处跑，Xcode提高了方便的调式方式。可以建立位置文件<code>.GPX</code>:<br><img src="http://images.andyron.com/2017/ar2017098.jpg" alt=""></p>
+<p>xcode也提供世界上一些常用的位置文件：<br><img src="http://images.andyron.com/2017/ar2017099.jpg" alt=""><br>点击上图调试栏最后的位置标志就可以调式了。</p>
 <h3 id="复杂逻辑下的位置处理"><a href="#复杂逻辑下的位置处理" class="headerlink" title="复杂逻辑下的位置处理"></a>复杂逻辑下的位置处理</h3><p>如果位置不停变化，在监控区域停留时间比较短，或者监控区域比较多是，处理位置问题就比较复杂了。更新部分代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 1</span><br><span class="line">var monitoredRegions: Dictionary&lt;String, NSDate&gt; = [:]</span><br><span class="line">    </span><br><span class="line">func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) &#123;</span><br><span class="line">    showAlert(&quot;enter \(region.identifier)&quot;)</span><br><span class="line">    // 2</span><br><span class="line">    monitoredRegions[region.identifier] = NSDate()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) &#123;</span><br><span class="line">    showAlert(&quot;exit \(region.identifier)&quot;)</span><br><span class="line">    // 3</span><br><span class="line">    monitoredRegions.removeValue(forKey: region.identifier)</span><br><span class="line">&#125;</span><br><span class="line">// 4</span><br><span class="line">func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) &#123;</span><br><span class="line">   updateRegions()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>1 定义以字典用于存储用户进入监控区的时间。</li>
@@ -625,7 +627,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月22日 - 12:44
+      2019年09月03日 - 13:51
     </li>
 
 
@@ -664,8 +666,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/beginning-ios-swift-11.html" rel="prev" title="开始用Swift开发iOS 10 - 11 面向对象编程介绍">
-                开始用Swift开发iOS 10 - 11 面向对象编程介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/beginning-ios-swift-10.html" rel="prev" title="开始用Swift开发iOS 10 - 10 Navigation Controller的介绍和Segue">
+                开始用Swift开发iOS 10 - 10 Navigation Controller的介绍和Segue <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

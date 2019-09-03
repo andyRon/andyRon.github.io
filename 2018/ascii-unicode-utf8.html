@@ -112,16 +112,16 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="作为一名程序员，对编码问题有必要了解一下。计算机是以二进制形式存储数据的，至于为什么选择二进制，这可能就需要从计算机的诞生历史说起了，这不是现在关注的点。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/77d07d05ly1g5jyhj1f0ej20yg0nqjvh.jpg">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fut7tdsadyj302l01s743.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fut7tiy4znj302b01ut8k.jpg">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-34e3da78fd835fca.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fut8hmkzc4j308x059dfz.jpg">
-<meta property="og:updated_time" content="2019-08-01T02:14:11.614Z">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018127.jpg">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018128.jpg">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018129.jpg">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018130.jpg">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018131.jpg">
+<meta property="og:updated_time" content="2019-09-03T08:07:06.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于字符编码">
 <meta name="twitter:description" content="作为一名程序员，对编码问题有必要了解一下。计算机是以二进制形式存储数据的，至于为什么选择二进制，这可能就需要从计算机的诞生历史说起了，这不是现在关注的点。">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/77d07d05ly1g5jyhj1f0ej20yg0nqjvh.jpg">
+<meta name="twitter:image" content="http://images.andyron.com/2018/ar2018127.jpg">
 
 
 
@@ -493,14 +493,14 @@
       
 
       
-        <p><img src="http://ww1.sinaimg.cn/large/77d07d05ly1g5jyhj1f0ej20yg0nqjvh.jpg" alt="ASCII码表"></p>
+        <p><img src="http://images.andyron.com/2018/ar2018127.jpg" alt="ASCII码表"></p>
 <p>作为一名程序员，对编码问题有必要了解一下。计算机是以二进制形式存储数据的，至于为什么选择二进制，这可能就需要从计算机的诞生历史说起了，这不是现在关注的点。</p>
 <a id="more"></a>
-<p>计算机文件一般可以分为（暂且这样分吧）：文本文件和二进制文件。通俗的说，文本文件就是平常通过某个软件（记事本，EditPlus，UltraEdit，sublime等各种编辑器，各种IDE等等）打开看到是‘字符’，二进制文件就是打开是图片或视频等，当然是通过某些能够解释二进制的程序来完成。<br>这里需要强调的是，文件的后缀名不能用来区分文件的类型，后缀名只是系统（特别是Windows）用来对文件进行预先分类，并给予对应的图标和相应双击后打开的程序，至于预先给定的程序能不能打开就不得而知。<br>如，在Windows下，把一个txt文件的后缀名改成jpg后：<br><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fut7tdsadyj302l01s743.jpg" alt=""><br>变成<br><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fut7tiy4znj302b01ut8k.jpg" alt=""></p>
+<p>计算机文件一般可以分为（暂且这样分吧）：文本文件和二进制文件。通俗的说，文本文件就是平常通过某个软件（记事本，EditPlus，UltraEdit，sublime等各种编辑器，各种IDE等等）打开看到是‘字符’，二进制文件就是打开是图片或视频等，当然是通过某些能够解释二进制的程序来完成。<br>这里需要强调的是，文件的后缀名不能用来区分文件的类型，后缀名只是系统（特别是Windows）用来对文件进行预先分类，并给予对应的图标和相应双击后打开的程序，至于预先给定的程序能不能打开就不得而知。<br>如，在Windows下，把一个txt文件的后缀名改成jpg后：<br><img src="http://images.andyron.com/2018/ar2018128.jpg" alt=""><br>变成<br><img src="http://images.andyron.com/2018/ar2018129.jpg" alt=""></p>
 <p>双击打不开，用记事本依然能打开，就是内部编码没变，其实文件的类型在编码成二进制形式已经确定（一般是在头部）。</p>
 <p>php读取图片文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$a = file_get_contents(&apos;bg.png&apos;);</span><br><span class="line">echo $a;</span><br></pre></td></tr></table></figure></p>
 <p>浏览器以UTF8形式打开图片的二进制形式，虽然大部分是乱码，但头部还是可以看到解码为PNG的：  </p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1678135-34e3da78fd835fca.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2018/ar2018130.jpg" alt=""></p>
 <h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p>字符编码就是每个在电脑里出现的字符都会对应一个二进制数，这个二进制可以成为<strong>码点</strong>(code point)。不同的编码形式，包含的字符数不同，字符和二进制数对应关系也不同。</p>
 <h2 id="ASCII码"><a href="#ASCII码" class="headerlink" title="ASCII码"></a>ASCII码</h2><p><a href="https://en.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">ASCII</a>(American Standard Code for Information Interchange)码是 比较早的编码形式，总共定义128个字符，用了一个字节的7位，也就是从 <code>0000 0000</code> 到 <code>0111 1111</code> 。</p>
 <ul>
@@ -550,7 +550,7 @@
 <li><code>620E</code> 在第三行范围内<code>（0000 0800 - 0000 FFFF）</code>，因此需要三个字节编码<code>戎</code>，即 <code>1110xxxx 10xxxxxx 10xxxxxx</code> </li>
 <li>从<code>戎</code>的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。得<code>戎</code>的UTF8编码的十六进制是<code>E6888E</code>。 </li>
 </ol>
-<p><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fut8hmkzc4j308x059dfz.jpg" alt=""></p>
+<p><img src="http://images.andyron.com/2018/ar2018131.jpg" alt=""></p>
 <blockquote>
 <p>　参考：<a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">字符编码笔记：ASCII，Unicode和UTF-8</a></p>
 </blockquote>
@@ -618,7 +618,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年08月01日 - 10:14
+      2019年09月03日 - 16:07
     </li>
 
 

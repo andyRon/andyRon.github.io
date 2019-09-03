@@ -111,13 +111,13 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="上一篇开始用Swift开发iOS 10 - 20 使用Tab Bar Controller 和 拆分Storyboard学习了工具栏和Storyboard的拆分，这一篇学习怎么在app中显示网页内容。由于原书中使用了的网站在国内不好访问，我就用了我的简书、博客、Github代替🙂。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-bfba3ae6d9015b0d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d725828cd9e586b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T05:01:04.000Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017223.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017224.jpg">
+<meta property="og:updated_time" content="2019-09-03T07:22:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 21 使用WKWebView和SFSafariViewController">
 <meta name="twitter:description" content="上一篇开始用Swift开发iOS 10 - 20 使用Tab Bar Controller 和 拆分Storyboard学习了工具栏和Storyboard的拆分，这一篇学习怎么在app中显示网页内容。由于原书中使用了的网站在国内不好访问，我就用了我的简书、博客、Github代替🙂。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-bfba3ae6d9015b0d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017223.jpg">
 
 
 
@@ -514,7 +514,7 @@
 <ul>
 <li>在<code>about.storyboard</code>中拖进一个新的View Controller，用来展示Web内容。使用<strong>ctrl-drag</strong>建立<strong>Show</strong>类型的segue，<code>identifier</code>为 <code>showWebView</code>。</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-bfba3ae6d9015b0d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017223.jpg" alt=""></p>
 <ul>
 <li>新建<code>WebViewController</code>继承至<code>UIViewController</code>，关联上面的用来显示Web内容的View Controller。</li>
 <li>在<code>WebViewController.swift</code>中添加<code>import WebKit</code>，变量<code>var webView: WKWebView!</code>。</li>
@@ -530,7 +530,7 @@
 <li><p>由于自从iOS 9之后，出于安全考虑，默认只能访问HTTPS的网站，如果需要访问HTTP的网站，就需要在<code>plist</code>文件中添加许可：</p>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-d725828cd9e586b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017224.jpg" alt=""></p>
 <h3 id="使用SFSafariViewController载入Web"><a href="#使用SFSafariViewController载入Web" class="headerlink" title="使用SFSafariViewController载入Web"></a>使用SFSafariViewController载入Web</h3><p>在<code>AboutTableViewController.swift</code>中加入<code>import SafariServices</code>，然后更新<code>tableView(_didSelectRowAtIndexPath:)</code>，只用通过url创建一个<code>SFSafariViewController</code>对象，然后使用<code>present</code>方法展示就可以了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) &#123;</span><br><span class="line">    </span><br><span class="line">    switch indexPath.section &#123;</span><br><span class="line">    case 0:</span><br><span class="line">        if indexPath.row == 0 &#123;</span><br><span class="line">            if let url = URL(string: &quot;http://www.apple.com/itunes/charts/paid-apps/&quot;) &#123;</span><br><span class="line">                UIApplication.shared.open(url, options: [:], completionHandler: nil)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else if indexPath.row == 1 &#123;</span><br><span class="line">            performSegue(withIdentifier: &quot;showWebView&quot;, sender: self)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    case 1:</span><br><span class="line">        if let url = URL(string: links[indexPath.row]) &#123;</span><br><span class="line">            let safariController = SFSafariViewController(url: url)</span><br><span class="line">            present(safariController, animated: true, completion: nil)</span><br><span class="line">        &#125;</span><br><span class="line">    default:</span><br><span class="line">        break</span><br><span class="line">    &#125;</span><br><span class="line">    // 取消被选中状态</span><br><span class="line">    tableView.deselectRow(at: indexPath, animated: false)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
@@ -598,7 +598,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2017年09月09日 - 13:01
+      2019年09月03日 - 15:22
     </li>
 
 

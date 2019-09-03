@@ -111,18 +111,18 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="接着上一遍开始用Swift开发iOS 10 - 12 丰富Detail View和定制化Navigation Bar的代码稍作修改，为Restaurant多加一个phone属性,修改过location的长度。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-392055c6c359997a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-63173b336e426a3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-fa188f34be0ab81f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-1c91bb4bc1246049.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-d677d77411a8df96.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-67b4eb9b9e2fb5eb.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-0b97b09f983beae0.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T04:58:59.000Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017145.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017146.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017147.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017148.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017353.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017354.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017355.jpg">
+<meta property="og:updated_time" content="2019-09-03T07:03:39.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 13 Self Sizing Cells and Dynamic Type">
 <meta name="twitter:description" content="接着上一遍开始用Swift开发iOS 10 - 12 丰富Detail View和定制化Navigation Bar的代码稍作修改，为Restaurant多加一个phone属性,修改过location的长度。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-392055c6c359997a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017145.jpg">
 
 
 
@@ -494,7 +494,7 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-392055c6c359997a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p><img src="http://images.andyron.com/2017/ar2017145.jpg" alt=""></p>
 <p>接着上一遍<a href="http://www.jianshu.com/p/51167becfe6c" target="_blank" rel="noopener">开始用Swift开发iOS 10 - 12 丰富Detail View和定制化Navigation Bar</a>的代码稍作修改，为<code>Restaurant</code>多加一个<code>phone</code>属性,修改过<code>location</code>的长度。</p>
 <a id="more"></a>
 <ul>
@@ -516,15 +516,15 @@
 </li>
 <li>修改Value label的<code>numberOfLines</code>属性为0，就是不限制行数。</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-63173b336e426a3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017146.jpg" alt=""></p>
 <h3 id="添加spacing约束"><a href="#添加spacing约束" class="headerlink" title="添加spacing约束"></a>添加spacing约束</h3><p>当value label超过两行，文本显示出问题：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-fa188f34be0ab81f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017147.jpg" alt=""></p>
 <p>这是因为虽然value label的高度自适应了合适的高度，但是stack view的高度没有约束，不能计算的出来，因此要给stack view添加两个上下的相等spcing约束。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-1c91bb4bc1246049.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这样不管value label是多少行，高度都会自适应了。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-d677d77411a8df96.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017148.jpg" alt=""><br>这样不管value label是多少行，高度都会自适应了。</p>
+<p><img src="http://images.andyron.com/2017/ar2017353.jpg" alt=""></p>
 <h3 id="Dynamic-Type"><a href="#Dynamic-Type" class="headerlink" title="Dynamic Type"></a>Dynamic Type</h3><p><strong>Dynamic Type</strong>当在手机<strong>设置 &gt;通用 &gt; 辅助功能 &gt; 更大字体</strong>设置字体大小时，app中的应用也相应的变化。<br>只要把字体设置成<strong>text style - Headline</strong>就会有<strong>Dynamic Type</strong>功能。目前只有name label的字体设置成了<strong>text style - Headline</strong>，其他设置成固定大小的字体，不会随着在手机<strong>设置 &gt;通用 &gt; 辅助功能 &gt; 更大字体</strong>设置字体大小时而变化。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-67b4eb9b9e2fb5eb.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-0b97b09f983beae0.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017354.jpg" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017355.jpg" alt=""></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
@@ -591,7 +591,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2017年09月09日 - 12:58
+      2019年09月03日 - 15:03
     </li>
 
 
@@ -620,8 +620,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/oc-basic-2.html" rel="next" title="OC基础学习2：面向对象编程的基础知识">
-                <i class="fa fa-chevron-left"></i> OC基础学习2：面向对象编程的基础知识
+              <a href="/2017/oc-basic-4-composition.html" rel="next" title="OC基础学习4：复合（composition）">
+                <i class="fa fa-chevron-left"></i> OC基础学习4：复合（composition）
               </a>
             
           </div>

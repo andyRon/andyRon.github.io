@@ -112,9 +112,9 @@
 <meta property="og:description" content="iOS SDK中有很多不常见，却非常好用的库，Quick Look框架就是一个非常好的例子。Quick Look框架提供了预览很多不同类型文件的功能，而不需要打开不同的APP查看，有点像Mac中的空格键功能。 Quick Look框架可以预览的文件类型：  iWork documents (Pages, Numbers and Keynote) Microsoft Office documents">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.appcoda.com/wp-content/uploads/2016/04/t51_1_file_list.png">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-1f8f7308c725eab5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017105.jpg">
 <meta property="og:image" content="http://www.appcoda.com/wp-content/uploads/2016/04/t51_4_switch_document.png">
-<meta property="og:updated_time" content="2018-12-22T04:46:56.131Z">
+<meta property="og:updated_time" content="2019-09-03T05:46:00.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS tutorial 6：使用Quick Look框架预览文件(Swift)">
 <meta name="twitter:description" content="iOS SDK中有很多不常见，却非常好用的库，Quick Look框架就是一个非常好的例子。Quick Look框架提供了预览很多不同类型文件的功能，而不需要打开不同的APP查看，有点像Mac中的空格键功能。 Quick Look框架可以预览的文件类型：  iWork documents (Pages, Numbers and Keynote) Microsoft Office documents">
@@ -565,7 +565,7 @@
 </ul>
 <h3 id="预览文件"><a href="#预览文件" class="headerlink" title="预览文件"></a>预览文件</h3><p>在table view中选中文件，就要跳转的预览页面。实现方法<code>tableView(_:didSelectRowAt:)</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) &#123;</span><br><span class="line">        if QLPreviewController.canPreview(fileURLs[indexPath.row]) &#123;</span><br><span class="line">            quickLookController.currentPreviewItemIndex = indexPath.row</span><br><span class="line">            navigationController?.pushViewController(quickLookController, animated: true)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>navigationController?.pushViewController(quickLookController, animated: true)</code>可用<code>presentViewController(quickLookController, animated: true, completion: nil)</code>代替。</p>
-<p>运行可预览文件：<br><img src="http://upload-images.jianshu.io/upload_images/1678135-1f8f7308c725eab5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>运行可预览文件：<br><img src="http://images.andyron.com/2017/ar2017105.jpg" alt=""></p>
 <p>观察上图，可发现 <strong>Quick Look Preview Controller</strong>自带了<strong>toolbar</strong>，左边一个是分享按钮(通过<code>UIActivityViewController</code>实现的)，右边一个是类似目录功能，当有很多预览文件时，来跳转到不同预览文件。<br><img src="http://www.appcoda.com/wp-content/uploads/2016/04/t51_4_switch_document.png" alt=""></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/LearniOSByProject/tree/master/P075-QuickLookDemo" target="_blank" rel="noopener">QuickLookDemo</a></p>
 <blockquote>
@@ -635,7 +635,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月22日 - 12:46
+      2019年09月03日 - 13:46
     </li>
 
 

@@ -112,15 +112,15 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="给博客添加一个评论系统，考虑了好几个，但最终还是选择了Disqus，考虑一下几点：  之前非常受欢迎的多说，某原因关闭了，现在国内也有非常多好的评论系统，但就是担心又出现某原因关闭，那就麻烦了 Disqus唯一的问题就是在墙外，我考虑一下，访问我博客十有八九都是做技术的，梯子肯定是多的是，😀">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fut02txdvpj31020j9glt.jpg">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fut05jislcj30m10mower.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fut0de9kz1j30pn0eqjrl.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fut0hh2qr6j31kw0yemzk.jpg">
-<meta property="og:updated_time" content="2018-09-02T20:35:38.805Z">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018122.jpg">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018123.jpg">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018124.jpg">
+<meta property="og:image" content="http://images.andyron.com/2018/ar2018125.jpg">
+<meta property="og:updated_time" content="2019-09-03T08:07:14.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为博客添加Disqus评论系统">
 <meta name="twitter:description" content="给博客添加一个评论系统，考虑了好几个，但最终还是选择了Disqus，考虑一下几点：  之前非常受欢迎的多说，某原因关闭了，现在国内也有非常多好的评论系统，但就是担心又出现某原因关闭，那就麻烦了 Disqus唯一的问题就是在墙外，我考虑一下，访问我博客十有八九都是做技术的，梯子肯定是多的是，😀">
-<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fut02txdvpj31020j9glt.jpg">
+<meta name="twitter:image" content="http://images.andyron.com/2018/ar2018122.jpg">
 
 
 
@@ -500,14 +500,14 @@
 <a id="more"></a>
 <p>Disqus添加也非常方便。</p>
 <h3 id="注册Disqus"><a href="#注册Disqus" class="headerlink" title="注册Disqus"></a>注册Disqus</h3><p>到<a href="https://disqus.com" target="_blank" rel="noopener">Disqus</a>，注册一个账号</p>
-<h3 id="I-want-to-install-Disqus-on-my-site"><a href="#I-want-to-install-Disqus-on-my-site" class="headerlink" title="I want to install Disqus on my site"></a>I want to install Disqus on my site</h3><p><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1fut02txdvpj31020j9glt.jpg" alt=""><br>就是现在Disqus做个站点的标记。  </p>
-<p><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fut05jislcj30m10mower.jpg" alt="">  </p>
+<h3 id="I-want-to-install-Disqus-on-my-site"><a href="#I-want-to-install-Disqus-on-my-site" class="headerlink" title="I want to install Disqus on my site"></a>I want to install Disqus on my site</h3><p><img src="http://images.andyron.com/2018/ar2018122.jpg" alt=""><br>就是现在Disqus做个站点的标记。  </p>
+<p><img src="http://images.andyron.com/2018/ar2018123.jpg" alt="">  </p>
 <p>这边的<code>Shortname</code>比较重要，之后再hexo-next中配置就是用这个<code>Shortname</code>，需要不重复。</p>
 <p>下面的信息就按照规则填就是了。</p>
 <h3 id="填写配置文件"><a href="#填写配置文件" class="headerlink" title="填写配置文件"></a>填写配置文件</h3><p>在<code>next/_config.yml</code>中添加或修改，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Disqus</span><br><span class="line">disqus:</span><br><span class="line">  enable: true</span><br><span class="line">  shortname: http-andyron-com</span><br><span class="line">  count: true</span><br></pre></td></tr></table></figure></p>
 <h3 id="更新一下系统"><a href="#更新一下系统" class="headerlink" title="更新一下系统"></a>更新一下系统</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>现在在文章底部就出现评论系统了。<br><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fut0de9kz1j30pn0eqjrl.jpg" alt="">  </p>
-<p>Disqus刚刚推出了 <strong>Reactions</strong>，可以在后台配置。<br><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fut0hh2qr6j31kw0yemzk.jpg" alt=""></p>
+<p>现在在文章底部就出现评论系统了。<br><img src="http://images.andyron.com/2018/ar2018124.jpg" alt="">  </p>
+<p>Disqus刚刚推出了 <strong>Reactions</strong>，可以在后台配置。<br><img src="http://images.andyron.com/2018/ar2018125.jpg" alt=""></p>
 
       
     </div>
@@ -572,7 +572,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年09月03日 - 04:35
+      2019年09月03日 - 16:07
     </li>
 
 

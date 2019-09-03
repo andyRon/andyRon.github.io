@@ -112,12 +112,12 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="iOS与JS的相互调用除了URL拦截（iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用）外，还可以使用WKWebView的中的MessageHandler来实现。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-7b3a37e019999033.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2019-08-27T08:34:05.111Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017030.gif">
+<meta property="og:updated_time" content="2019-09-03T04:58:46.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS与JS(二)：MessageHandler(OC&amp;Swift)">
 <meta name="twitter:description" content="iOS与JS的相互调用除了URL拦截（iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用）外，还可以使用WKWebView的中的MessageHandler来实现。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-7b3a37e019999033.gif?imageMogr2/auto-orient/strip">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017030.gif">
 
 
 
@@ -498,7 +498,7 @@
 <h3 id="添加-MessageHandler"><a href="#添加-MessageHandler" class="headerlink" title="添加 MessageHandler"></a>添加 MessageHandler</h3><p>为了防止循环引用，结束时释放。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewWillAppear:(BOOL)animated</span><br><span class="line">&#123;</span><br><span class="line">    [super viewWillAppear:animated];</span><br><span class="line">    // addScriptMessageHandler 很容易导致循环引用</span><br><span class="line">    // 控制器 强引用了WKWebView,WKWebView copy(强引用了）configuration， configuration copy （强引用了）userContentController</span><br><span class="line">    [self.webView.configuration.userContentController addScriptMessageHandler:self name:@&quot;Location&quot;];</span><br><span class="line">    [self.webView.configuration.userContentController addScriptMessageHandler:self name:@&quot;Shake&quot;];</span><br><span class="line">    [self.webView.configuration.userContentController addScriptMessageHandler:self name:@&quot;Pay&quot;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)viewWillDisappear:(BOOL)animated</span><br><span class="line">&#123;</span><br><span class="line">    [super viewWillDisappear:animated];</span><br><span class="line">    </span><br><span class="line">    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@&quot;Location&quot;];</span><br><span class="line">    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@&quot;Shake&quot;];</span><br><span class="line">    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@&quot;Pay&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="实现WKUIDelegate和WKScriptMessageHandler协议方法"><a href="#实现WKUIDelegate和WKScriptMessageHandler协议方法" class="headerlink" title="实现WKUIDelegate和WKScriptMessageHandler协议方法"></a>实现WKUIDelegate和WKScriptMessageHandler协议方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - WKUIDelegate</span><br><span class="line">- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@&quot;提醒&quot; message:message preferredStyle:UIAlertControllerStyleAlert];</span><br><span class="line">    [alert addAction:[UIAlertAction actionWithTitle:@&quot;知道了&quot; style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) &#123;</span><br><span class="line">        completionHandler();</span><br><span class="line">    &#125;]];</span><br><span class="line">    </span><br><span class="line">    [self presentViewController:alert animated:YES completion:nil];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#pragma mark - WKScriptMessageHandler</span><br><span class="line">- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message</span><br><span class="line">&#123;</span><br><span class="line">    //    message.body  --  Allowed types are NSNumber, NSString, NSDate, NSArray,NSDictionary, and NSNull.</span><br><span class="line">    NSLog(@&quot;body:%@&quot;,message.body);</span><br><span class="line">    if ([message.name isEqualToString:@&quot;Location&quot;]) &#123;</span><br><span class="line">        [self getLocation];</span><br><span class="line">    &#125; else if ([message.name isEqualToString:@&quot;Shake&quot;]) &#123;</span><br><span class="line">        [self shakeAction];</span><br><span class="line">    &#125; else if ([message.name isEqualToString:@&quot;Pay&quot;]) &#123;</span><br><span class="line">        [self payWithParams:message.body];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-7b3a37e019999033.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017030.gif" alt=""></p>
 <p><strong>Swift的和OC类型，代码我也一起写了</strong></p>
 <blockquote>
 <p>代码： <a href="https://github.com/andyRon/LearniOSByProject/tree/master/P090-iOSJS" target="_blank" rel="noopener">90-iOSJS</a> 中的 <strong>OCJSMessageHandler</strong> 和 <strong>SwiftJSMessageHandler</strong></p>
@@ -570,7 +570,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年08月27日 - 16:34
+      2019年09月03日 - 12:58
     </li>
 
 
@@ -605,8 +605,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-animation-3.html" rel="next" title="iOS动画(三)：核心动画中缩放和旋转(Swift)">
-                <i class="fa fa-chevron-left"></i> iOS动画(三)：核心动画中缩放和旋转(Swift)
+              <a href="/2017/ios-js-1.html" rel="next" title="iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用">
+                <i class="fa fa-chevron-left"></i> iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用
               </a>
             
           </div>
@@ -615,8 +615,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-js-1.html" rel="prev" title="iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用">
-                iOS与JS(一)：使用URL拦截的方式进行JS与OC互相调用 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/oc-basic-8.html" rel="prev" title="OC基础学习8：对象初始化">
+                OC基础学习8：对象初始化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

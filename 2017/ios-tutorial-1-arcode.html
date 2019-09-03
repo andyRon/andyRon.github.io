@@ -111,18 +111,18 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="这是一篇使用AVFoundation框架识别二维码的文章，原文提供了初始化项目QRCodeReaderStarter，我重新建立项目，图片是从原文提供的初始化项目中copy的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-b590695c6732997a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-b9fa80df6b40ba7e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-39d94e635450a447.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-ea1c2bdcbb8008b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-650e78acf0d22ba2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-815e15ae07a32822.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-f1c0d6f4a69c01e6.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-22T04:32:21.878Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017100.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017101.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017102.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017103.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017104.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017112.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017113.jpg">
+<meta property="og:updated_time" content="2019-09-03T05:49:58.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS tutorial 1： 识别二维码（swift3）">
 <meta name="twitter:description" content="这是一篇使用AVFoundation框架识别二维码的文章，原文提供了初始化项目QRCodeReaderStarter，我重新建立项目，图片是从原文提供的初始化项目中copy的。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-b590695c6732997a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017100.jpg">
 
 
 
@@ -509,9 +509,9 @@
 <a id="more"></a>
 <h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><ol>
 <li>新建一个名为<strong>QRCodeReader</strong>的单页项目</li>
-<li><p>删除<strong>ViewController.swift</strong>文件，在项目目录处右击新建文件，新建一个<code>QRCodeViewController</code>类继承自<code>UIViewController</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-b590695c6732997a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/1678135-b9fa80df6b40ba7e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/1678135-39d94e635450a447.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<li><p>删除<strong>ViewController.swift</strong>文件，在项目目录处右击新建文件，新建一个<code>QRCodeViewController</code>类继承自<code>UIViewController</code>。<br><img src="http://images.andyron.com/2017/ar2017100.jpg" alt=""><br><img src="http://images.andyron.com/2017/ar2017101.jpg" alt=""><br><img src="http://images.andyron.com/2017/ar2017102.jpg" alt=""></p>
 </li>
-<li><p>点击<code>Main.storyboard</code>，选中<code>View Controller</code>，修改其属性<code>Class</code>为<code>QRCodeViewController</code>，使两者关联。<br><img src="http://upload-images.jianshu.io/upload_images/1678135-ea1c2bdcbb8008b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<li><p>点击<code>Main.storyboard</code>，选中<code>View Controller</code>，修改其属性<code>Class</code>为<code>QRCodeViewController</code>，使两者关联。<br><img src="http://images.andyron.com/2017/ar2017103.jpg" alt=""></p>
 </li>
 <li><p>向<code>Main.storyboard</code>中拖动一个<code>View Controller</code>对象，以1的方法新建一个继承自<code>UIViewController</code>的类<code>QRScannerController</code>，然后与<code>Main.storyboard</code>中新建的<code>View Controller</code>关联。</p>
 </li>
@@ -534,7 +534,7 @@
 <li><p>6和7中样式和约束，合适即可。</p>
 </li>
 </ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-650e78acf0d22ba2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017104.jpg" alt=""></p>
 <h3 id="加载-AVFoundation-框架"><a href="#加载-AVFoundation-框架" class="headerlink" title="加载 AVFoundation 框架"></a>加载 AVFoundation 框架</h3><ul>
 <li>在<strong>QRScannerController.swift</strong>文件中引入AVFoundation Framework：<code>import AVFoundation</code></li>
 <li><code>QRScannerController</code>实现<code>AVCaptureMetadataOutputObjectsDelegate</code>协议：<br><code>class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {</code><br>表示当捕获的元数据产生时，需要一些回调方法。</li>
@@ -588,10 +588,10 @@
 <li>1 通过<code>transformedMetadataObject</code>方法获得<code>AVMetadataObject</code>对象，更加这个对象可以获得二维码的位置，然后显示绿框。</li>
 <li>2 把二维码信息显示在messagelabel上。</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-815e15ae07a32822.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017112.jpg" alt=""></p>
 <h3 id="识别条形码"><a href="#识别条形码" class="headerlink" title="识别条形码"></a>识别条形码</h3><p>除了识别二维码以外，还可以识别条形码。只要在<code>captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]</code>添加更多的元数据类型。<br>，然后回调方法中修改检测类型就可以。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">let supportedCodeTypes = [AVMetadataObjectTypeUPCECode,</span><br><span class="line">                              AVMetadataObjectTypeCode39Code,</span><br><span class="line">                              AVMetadataObjectTypeCode39Mod43Code,</span><br><span class="line">                              AVMetadataObjectTypeCode93Code,</span><br><span class="line">                              AVMetadataObjectTypeCode128Code,</span><br><span class="line">                              AVMetadataObjectTypeEAN8Code,</span><br><span class="line">                              AVMetadataObjectTypeEAN13Code,</span><br><span class="line">                              AVMetadataObjectTypeAztecCode,</span><br><span class="line">                              AVMetadataObjectTypePDF417Code,</span><br><span class="line">                              AVMetadataObjectTypeQRCode</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">captureMetadataOutput.metadataObjectTypes = supportedCodeTypes</span><br><span class="line"></span><br><span class="line">// ....</span><br><span class="line">if supportedCodeTypes.contains(metadataObj.type) &#123;</span><br><span class="line">            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)</span><br><span class="line">            qrCodeFrameView?.frame = barCodeObject!.bounds</span><br><span class="line">            </span><br><span class="line">            if metadataObj.stringValue != nil &#123;</span><br><span class="line"></span><br><span class="line">                messageLabel.text = metadataObj.stringValue</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-f1c0d6f4a69c01e6.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017113.jpg" alt=""></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/LearniOSByProject/tree/master/P003-QRCodeReader/QRCodeReader" target="_blank" rel="noopener">QRCodeReader</a></p>
 
       
@@ -657,7 +657,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年12月22日 - 12:32
+      2019年09月03日 - 13:49
     </li>
 
 
@@ -686,8 +686,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/ios-application-status.html" rel="next" title="iOS应用程序的状态">
-                <i class="fa fa-chevron-left"></i> iOS应用程序的状态
+              <a href="/2017/xcode-scene-name.html" rel="next" title="Xcode中Scene里的名称">
+                <i class="fa fa-chevron-left"></i> Xcode中Scene里的名称
               </a>
             
           </div>
@@ -696,8 +696,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/xcode-scene-name.html" rel="prev" title="Xcode中Scene里的名称">
-                Xcode中Scene里的名称 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/swift-19-type-casting.html" rel="prev" title="以撸代码的形式学习Swift-19：类型转换(Type Casting)">
+                以撸代码的形式学习Swift-19：类型转换(Type Casting) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

@@ -111,18 +111,18 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="table view应该是iOS应用中最常用的UI element。最好的例子就是iPhone自带的一些应用，如电话，邮件，设置等。TED，Google+，Airbnb，微信等等都是很好例子。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-919c842cc89af581.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-f63873db37b1c24c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-9479bf94af6f4dfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-38124f5c4d124808.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-e032420d6732bca2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-3733be3b3a0e18a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1678135-c1265ef7d0352f66.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-09T05:01:48.000Z">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017135.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017136.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017137.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017138.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017139.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017140.jpg">
+<meta property="og:image" content="http://images.andyron.com/2017/ar2017351.jpg">
+<meta property="og:updated_time" content="2019-09-03T07:22:54.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始用Swift开发iOS 10 - 6 创建简单的Table Based App">
 <meta name="twitter:description" content="table view应该是iOS应用中最常用的UI element。最好的例子就是iPhone自带的一些应用，如电话，邮件，设置等。TED，Google+，Airbnb，微信等等都是很好例子。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1678135-919c842cc89af581.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://images.andyron.com/2017/ar2017135.jpg">
 
 
 
@@ -494,7 +494,7 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1678135-919c842cc89af581.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>table view应该是iOS应用中最常用的UI element。最好的例子就是iPhone自带的一些应用，如电话，邮件，设置等。TED，Google+，Airbnb，微信等等都是很好例子。</p>
+        <p><img src="http://images.andyron.com/2017/ar2017135.jpg" alt=""><br>table view应该是iOS应用中最常用的UI element。最好的例子就是iPhone自带的一些应用，如电话，邮件，设置等。TED，Google+，Airbnb，微信等等都是很好例子。</p>
 <a id="more"></a>
 <h3 id="创建一个项目"><a href="#创建一个项目" class="headerlink" title="创建一个项目"></a>创建一个项目</h3><ul>
 <li>项目名称为<strong>SimpleTable</strong>，模板为”Single View application”</li>
@@ -505,7 +505,7 @@
 <li>选中<code>Table View Cell</code>，修改<code>Style</code>为<em>Basic</em>，<code>Identifier</code>为<em>Cell</em>。table view cell的标准类型有 basic、right detail、left detail 和 subtitle，当然还有定制类型custom。</li>
 <li>选中<code>Table View</code>，设置四个spacing约束，上下左右的距离都设置为0</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-f63873db37b1c24c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017136.jpg" alt=""></p>
 <h3 id="为UITableView添加两个协议"><a href="#为UITableView添加两个协议" class="headerlink" title="为UITableView添加两个协议"></a>为UITableView添加两个协议</h3><ul>
 <li><strong>Object library</strong>中的每一UI component都是对应一个class，如 <code>Table View</code>就是对应<code>UITableView</code>。可以通过点击并悬停在UI component上查看对应的class和介绍。</li>
 <li>在<code>ViewController.swift</code>文件的<code>UIViewController</code>后，添加代码<code>, UITableViewDataSource, UITableViewDelegate</code>，表示<code>ViewController</code>类实现了<code>UITableViewDataSource</code>，<code>UITableViewDelegate</code>两个协议。<br>出现红色感叹号，这是xcode的问题提示，点击参看问题描述：<blockquote>
@@ -513,7 +513,7 @@
 </blockquote>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-9479bf94af6f4dfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017137.jpg" alt=""></p>
 <p>问题描述为<code>ViewController</code>不符合协议<code>UITableViewDataSource</code>。通过<strong>command+点击</strong> （最新的xcode9变成了<strong>command+option+点击</strong>）到<code>UITableViewDataSource</code>中看看你：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public protocol UITableViewDataSource : NSObjectProtocol &#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    @available(iOS 2.0, *)</span><br><span class="line">    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    // Row display. Implementers should *always* try to reuse cells by setting each cell&apos;s reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:</span><br><span class="line">    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)</span><br><span class="line">    </span><br><span class="line">    @available(iOS 2.0, *)</span><br><span class="line">    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    @available(iOS 2.0, *)</span><br><span class="line">    optional public func numberOfSections(in tableView: UITableView) -&gt; Int // Default is 1 if not implemented</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    @available(iOS 2.0, *)</span><br><span class="line">    optional public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -&gt; String? // fixed font style. use custom view (UILabel) if you want something different</span><br><span class="line"></span><br><span class="line">    @available(iOS 2.0, *)</span><br><span class="line">    optional public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -&gt; String?</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    // Editing</span><br><span class="line">    </span><br><span class="line">    // Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.</span><br><span class="line">    @available(iOS 2.0, *)</span><br><span class="line">    optional public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -&gt; Bool</span><br><span class="line"></span><br><span class="line"> ...</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><p><code>UITableViewDataSource</code>协议中定义了很多方法，除了前两个方法没有<code>optional</code>其它都有，有的表示这个方法不一定要实现，没有的就一定要实现，把这个两个方法实现了，问题提示就会消失。这两个方法从名字和返回值类型也大概能知道做了什么：</p>
@@ -538,10 +538,10 @@
 <ul>
 <li>在document outline中选择<strong>Table View</strong>，使用<strong>control-drag</strong>到<strong>View Controller</strong>，在弹出框中选择<em>dataSource</em>。同样的方法选择<em>delegate</em></li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-38124f5c4d124808.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017138.jpg" alt=""></p>
 <ul>
-<li>确认连接是否成功。选中<strong>Table View</strong>，在connetion检查器中查看；或者直接在document outline中右击<strong>Table View</strong><br><img src="http://upload-images.jianshu.io/upload_images/1678135-e032420d6732bca2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li>运行app<br><img src="http://upload-images.jianshu.io/upload_images/1678135-3733be3b3a0e18a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>确认连接是否成功。选中<strong>Table View</strong>，在connetion检查器中查看；或者直接在document outline中右击<strong>Table View</strong><br><img src="http://images.andyron.com/2017/ar2017139.jpg" alt=""></li>
+<li>运行app<br><img src="http://images.andyron.com/2017/ar2017140.jpg" alt=""></li>
 </ul>
 <h3 id="添加图片到Table-View"><a href="#添加图片到Table-View" class="headerlink" title="添加图片到Table View"></a>添加图片到Table View</h3><ul>
 <li>从<a href="http://www.appcoda.com/resources/swift3/simpletable-image1.zip" target="_blank" rel="noopener">simpletable-image1.zip</a>下载图片，解压后一起拖到asset catalog</li>
@@ -560,7 +560,7 @@
 <li><p>最终结果</p>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1678135-c1265ef7d0352f66.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://images.andyron.com/2017/ar2017351.jpg" alt=""></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/andyRon/Beginning-iOS-Programming-with-Swift" target="_blank" rel="noopener">Beginning-iOS-Programming-with-Swift</a></p>
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此文是学习<a href="http://www.appcoda.com" target="_blank" rel="noopener">appcode</a>网站出的一本书 <a href="http://www.appcoda.com/swift/" target="_blank" rel="noopener">《Beginning iOS 10 Programming with Swift》</a> 的一篇记录</p>
 
@@ -627,7 +627,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2017年09月09日 - 13:01
+      2019年09月03日 - 15:22
     </li>
 
 

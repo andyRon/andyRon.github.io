@@ -112,15 +112,15 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-6de5f684447d3f8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-dc7624f2f8b15ccd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-1b7d0c0efe288cc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1678135-dd42367b50303e3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-28T02:24:19.013Z">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Tree/Images/Tree.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Tree/Images/ParentChildren.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Tree/Images/Cycles.png">
+<meta property="og:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Tree/Images/Example.png">
+<meta property="og:updated_time" content="2019-09-03T08:00:12.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Swift算法俱乐部-树">
 <meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1678135-6de5f684447d3f8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Tree/Images/Tree.png">
 
 
 
@@ -500,14 +500,14 @@
 <p>这个话题已经有个辅导<a href="https://www.raywenderlich.com/138190/swift-algorithm-club-swift-tree-data-structure" target="_blank" rel="noopener">文章</a></p>
 </blockquote>
 <p>树表示对象之间的层次关系。 这是一个树的结构：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1678135-6de5f684447d3f8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="A tree"></p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Tree/Images/Tree.png" alt="A tree"></p>
 <p>树由节点组成，这些节点彼此连接。</p>
 <p>节点可以连接到他们的子节点，也可以连接到他们的父节点。 子节点是给定节点下的节点; 父节点是上面的节点。 节点始终只有一个父节点，但可以有多个子节点。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1678135-dc7624f2f8b15ccd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="A tree"></p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Tree/Images/ParentChildren.png" alt="A tree"></p>
 <a id="more"></a>
 <p>没有父节点的节点是 <em>root</em> 节点。 没有子节点的节点是 <em>leaf</em> 节点。</p>
 <p>树中的指针不能形成循环。 这不是树：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1678135-1b7d0c0efe288cc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Not a tree"></p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Tree/Images/Cycles.png" alt="Not a tree"></p>
 <p>这种结构称为<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Graph/" target="_blank" rel="noopener">图</a>。 树实际上是一种非常简单的图形形式。 （类似地，<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Linked%20List/" target="_blank" rel="noopener">链表</a>是树的简单版本。想一想！）</p>
 <p>本文讨论通用树。 通用树对每个节点可能有多少个子节点或树中节点的顺序没有任何限制。</p>
 <p>这是在Swift中的基本实现：</p>
@@ -520,7 +520,7 @@
 <p>如果你打印出<code>tree</code>的值，你会得到：</p>
 <pre><code>beverages {hot {tea {black, green, chai}, coffee, cocoa}, cold {soda {ginger ale, bitter lemon}, milk}}
 </code></pre><p>这对应于以下结构：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1678135-dd42367b50303e3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Example tree"></p>
+<p><img src="https://github.com/andyRon/swift-algorithm-club-cn/raw/master/Tree/Images/Example.png" alt="Example tree"></p>
 <p><code>beverages</code>节点是根节点，因为它没有父节点。 叶子是<code>黑色</code>，<code>绿色</code>，<code>柴</code>，<code>咖啡</code>，<code>可可</code>，<code>姜汁</code>，<code>苦柠檬</code>，<code>牛奶</code>，因为它们没有任何子节点。</p>
 <p>对于任何节点，您可以查看<code>parent</code>属性， 并按照自己的方式返回到根：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">teaNode.parent           <span class="comment">// this is the "hot" node</span></span><br><span class="line">teaNode.parent!.parent   <span class="comment">// this is the root</span></span><br></pre></td></tr></table></figure>
@@ -609,7 +609,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2018年09月28日 - 10:24
+      2019年09月03日 - 16:00
     </li>
 
 
