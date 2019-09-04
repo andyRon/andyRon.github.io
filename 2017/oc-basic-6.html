@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="12macOS -&amp;gt; Cocoa       -&amp;gt; Foundation, AppKitiOS   -&amp;gt; Cocoa Touch -&amp;gt; Foundation, UIKit(UIView, UIController) Foundation框架的基础是CoreFoundation（C语言），如果函数或变量是以CF开头，就是CoreFoundation框架中的。 Foundati">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T07:28:09.044Z">
+<meta property="og:updated_time" content="2019-09-04T03:24:41.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习6：Fondation-Kit介绍">
 <meta name="twitter:description" content="12macOS -&amp;gt; Cocoa       -&amp;gt; Foundation, AppKitiOS   -&amp;gt; Cocoa Touch -&amp;gt; Foundation, UIKit(UIView, UIController) Foundation框架的基础是CoreFoundation（C语言），如果函数或变量是以CF开头，就是CoreFoundation框架中的。 Foundati">
@@ -398,7 +398,18 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/Objective-C/" itemprop="url" rel="index">
                     <span itemprop="name">Objective-C</span>
                   </a>
                 </span>
@@ -488,12 +499,12 @@
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">macOS -&gt; Cocoa       -&gt; Foundation, AppKit</span><br><span class="line">iOS   -&gt; Cocoa Touch -&gt; Foundation, UIKit(UIView, UIController)</span><br></pre></td></tr></table></figure>
 <p>Foundation框架的基础是CoreFoundation（C语言），如果函数或变量是以CF开头，就是CoreFoundation框架中的。</p>
-<h2 id="Foundation中一些有用的数据类型"><a href="#Foundation中一些有用的数据类型" class="headerlink" title="Foundation中一些有用的数据类型"></a>Foundation中一些有用的数据类型</h2><h3 id="范围：-NSRange"><a href="#范围：-NSRange" class="headerlink" title="范围： NSRange"></a>范围： NSRange</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct _NSRange &#123;</span><br><span class="line">    NSUInteger location;</span><br><span class="line">    NSUInteger length;</span><br><span class="line">&#125; NSRange;</span><br></pre></td></tr></table></figure>
+<h2 id="Foundation中一些有用的数据类型"><a href="#Foundation中一些有用的数据类型" class="headerlink" title="Foundation中一些有用的数据类型"></a>Foundation中一些有用的数据类型</h2><h3 id="范围：-NSRange"><a href="#范围：-NSRange" class="headerlink" title="范围： NSRange"></a>范围： NSRange</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _NSRange &#123;</span><br><span class="line">    <span class="built_in">NSUInteger</span> location;</span><br><span class="line">    <span class="built_in">NSUInteger</span> length;</span><br><span class="line">&#125; <span class="built_in">NSRange</span>;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>表示相关事务的范围。有三种方式初始化：</p>
 <ul>
 <li><p>直接给字段赋值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSRange range;</span><br><span class="line">range.location = 12;</span><br><span class="line">range.length = 5;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSRange</span> range;</span><br><span class="line">range.location = <span class="number">12</span>;</span><br><span class="line">range.length = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>应用C语言的聚合结构赋值：<br><code>NSRange range = {17, 4}</code></p>
 </li>
@@ -503,13 +514,13 @@
 <h3 id="几何数据类型"><a href="#几何数据类型" class="headerlink" title="几何数据类型"></a>几何数据类型</h3><p>CG前缀，表示Core Graphics框架（C语言），用来进行2D渲染。</p>
 <ul>
 <li><p><code>CGPoint</code>表示坐标</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct CGPoint</span><br><span class="line">&#123;</span><br><span class="line">  float x;</span><br><span class="line">  float y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="built_in">CGPoint</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">float</span> x;</span><br><span class="line">  <span class="keyword">float</span> y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>CGSize</code>表示大小，用来存储长度和宽度</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct CGSize</span><br><span class="line">&#123;</span><br><span class="line">  float width;</span><br><span class="line">  float height;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="built_in">CGSize</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">float</span> width;</span><br><span class="line">  <span class="keyword">float</span> height;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>CGRect</code> 表示矩形，由坐标和大小复合而成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct CGRect</span><br><span class="line">&#123;</span><br><span class="line">  CGPoint origin;</span><br><span class="line">  CGSize size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="built_in">CGRect</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">CGPoint</span> origin;</span><br><span class="line">  <span class="built_in">CGSize</span> size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>对应创建函数： <code>CGPointMake()</code>, <code>CGSizeMake()</code>, <code>CGRectMake()</code></p>
 </li>
@@ -518,7 +529,7 @@
 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串类： <code>NSString</code>。</p>
 <ul>
 <li><p>通过格式字符串和参数创建<code>NSString</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSString *height;</span><br><span class="line">height = [NSString stringWithFormat:@&quot;%d, %d&quot;, 4, 3];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *height;</span><br><span class="line">height = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d, %d"</span>, <span class="number">4</span>, <span class="number">3</span>];</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>类方法： 以<code>+</code>为起始符的。</p>
 </li>
@@ -528,14 +539,14 @@
 <ul>
 <li><code>(BOOL)isEqualToString:(NSString *)aString;</code>，表示字符串内容是否相同，返回<code>BooL</code>；<code>==</code>判断字符串的指针是否相同，也就是是否是同一个事务。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">NSString *thing1 = @&quot;hello 5&quot;;</span><br><span class="line">NSString *thing2 = [NSString stringWithFormat:@&quot;hello %d&quot;, 5];</span><br><span class="line">   </span><br><span class="line">if ([thing1 isEqualToString:thing2]) &#123;</span><br><span class="line">    NSLog(@&quot;两个字符串内容相同&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (thing1 == thing2) &#123;</span><br><span class="line">    NSLog(@&quot;两个字符串是同一个对象&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *thing1 = <span class="string">@"hello 5"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *thing2 = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"hello %d"</span>, <span class="number">5</span>];</span><br><span class="line">   </span><br><span class="line"><span class="keyword">if</span> ([thing1 isEqualToString:thing2]) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"两个字符串内容相同"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (thing1 == thing2) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"两个字符串是同一个对象"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>- (NSComparisonResult)compare:(NSNumber *)decimalNumber;</code>，逐个比较字符串的每个字符，判断大小。返回一个枚举类型<code>NSComparisonResult</code>，三个枚举值分别表示左小于右，左等于右，左大于右。</li>
 <li><code>- (NSComparisonResult)compare:(NSString *)string options:(NSStringCompareOptions)mask;</code>，根据options的不同值有不同的功能。</li>
 </ul>
 </li>
 <li><p>字符串内是否还包含别的字符串<br>检测字符串是否以另一个字符开头或结尾：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)hasPrefix:(NSString *)str;</span><br><span class="line">- (BOOL)hasSuffix:(NSString *)str;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)hasPrefix:(<span class="built_in">NSString</span> *)str;</span><br><span class="line">- (<span class="built_in">BOOL</span>)hasSuffix:(<span class="built_in">NSString</span> *)str;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>一个字符串在另一个字符串内的返回：<br><code>- (NSRange)rangeOfString:(NSString *)searchString;</code></p>
@@ -544,10 +555,10 @@
 <ul>
 <li>可通过类方法<code>stringWithCapacity:</code>来创建，表示分配一块内存用于存储字符串，<code>+ (NSMutableString *)stringWithCapacity:(NSUInteger)capacity;</code>。<br><code>NSMutableString *string = [NSMutableString stringWithCapacity:1];</code></li>
 <li><p><code>appendString:</code>和<code>appendFormat:</code> 添加字符串：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSMutableString *string = [NSMutableString stringWithCapacity:50];</span><br><span class="line">[string appendString:@&quot;Hello there &quot;];</span><br><span class="line">[string appendFormat:@&quot;human %d!&quot;, 39]; //  Hello there human 39!</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> stringWithCapacity:<span class="number">50</span>];</span><br><span class="line">[string appendString:<span class="string">@"Hello there "</span>];</span><br><span class="line">[string appendFormat:<span class="string">@"human %d!"</span>, <span class="number">39</span>]; <span class="comment">//  Hello there human 39!</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>deleteCharactersInRange:</code> 删除字符串，经常和<code>rangeOfString:</code>一起使用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSMutableString *friends = [NSMutableString stringWithCapacity:50];</span><br><span class="line">    [friends appendString:@&quot;James BethLynn Jack Evan&quot;];</span><br><span class="line">    NSRange jackRange = [friends rangeOfString:@&quot;Jack&quot;];</span><br><span class="line">    jackRange.length++;</span><br><span class="line">    [friends deleteCharactersInRange:jackRange]; // James BethLynn Evan</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableString</span> *friends = [<span class="built_in">NSMutableString</span> stringWithCapacity:<span class="number">50</span>];</span><br><span class="line">    [friends appendString:<span class="string">@"James BethLynn Jack Evan"</span>];</span><br><span class="line">    <span class="built_in">NSRange</span> jackRange = [friends rangeOfString:<span class="string">@"Jack"</span>];</span><br><span class="line">    jackRange.length++;</span><br><span class="line">    [friends deleteCharactersInRange:jackRange]; <span class="comment">// James BethLynn Evan</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -558,10 +569,10 @@
 <li>创建<br>类方法<code>arrayWithObjects:</code>(nil表示结束)：<br><code>NSArray *array = [NSArray arrayWithObjects:@&quot;one&quot;, @&quot;two&quot;, @&quot;three&quot;, nil];</code><br>直接字面量：<br><code>NSArray *array2 = @[@&quot;one&quot;, @&quot;two&quot;, @&quot;three&quot;];</code></li>
 <li>数组对象个数： <code>[array count];</code></li>
 <li><p>按索引获取对象：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[array objectAtIndex:1];</span><br><span class="line">array[1];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[array objectAtIndex:<span class="number">1</span>];</span><br><span class="line">array[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>字符串切分成数组，数组合并成字符串。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSMutableString *string2 = @&quot;oop:ack:bork:greeble:ponies&quot;;</span><br><span class="line">  NSArray *chunks = [string2 componentsSeparatedByString:@&quot;:&quot;];</span><br><span class="line">  string2 = [chunks componentsJoinedByString:@&quot;:-)&quot;]; // oop:-)ack:-)bork:-)greeble:-)ponies</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableString</span> *string2 = <span class="string">@"oop:ack:bork:greeble:ponies"</span>;</span><br><span class="line">  <span class="built_in">NSArray</span> *chunks = [string2 componentsSeparatedByString:<span class="string">@":"</span>];</span><br><span class="line">  string2 = [chunks componentsJoinedByString:<span class="string">@":-)"</span>]; <span class="comment">// oop:-)ack:-)bork:-)greeble:-)ponies</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -573,15 +584,15 @@
 </ul>
 </li>
 <li><p>枚举：对数组进行遍历。<code>NSEnumerator</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSEnumerator *emumerator = [array objectEnumerator];</span><br><span class="line">while (id thingie = [emumerator nextObject]) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSEnumerator</span> *emumerator = [array objectEnumerator];</span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">id</span> thingie = [emumerator nextObject]) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>快速枚举</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (NSString *string in array) &#123;</span><br><span class="line">  NSLog()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">NSString</span> *string <span class="keyword">in</span> array) &#123;</span><br><span class="line">  <span class="built_in">NSLog</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>NSDictionary</code><br>同样也有对应的<code>NSMutableDictionary</code>。</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    // 创建 NSDictionary</span><br><span class="line">    Tire *t1 = [Tire new];</span><br><span class="line">    Tire *t2 = [Tire new];</span><br><span class="line">    Tire *t3 = [Tire new];</span><br><span class="line">    Tire *t4 = [Tire new];</span><br><span class="line">    NSDictionary *tires = [NSDictionary dictionaryWithObjectsAndKeys:t1, @&quot;front-left&quot;, t2, @&quot;front-right&quot;, t3, @&quot;back-left&quot;, t4, @&quot;back-right&quot;, nil];</span><br><span class="line">//    NSDictionary *tires = @&#123;@&quot;front-left&quot;: t1, @&quot;front-right&quot;: t2, @&quot;back-left&quot;: t3,@&quot;back-right&quot;: t4,&#125;;</span><br><span class="line">    // 访问特定key的对象</span><br><span class="line">    Tire *tire = [tires objectForKey:@&quot;back-right&quot;];</span><br><span class="line">//    Tire *tire = tires[@&quot;back-right&quot;];</span><br><span class="line">    </span><br><span class="line">    // 创建NSMutableDictionary</span><br><span class="line">    NSMutableDictionary *tires_m = [NSMutableDictionary dictionaryWithCapacity:10];</span><br><span class="line">//    NSMutableDictionary *tires_m = [NSMutableDictionary dictionary];</span><br><span class="line">    // 为NSMutableDictionary添加元素</span><br><span class="line">    [tires_m setObject:t1 forKey:@&quot;front-left&quot;];</span><br><span class="line">    // 从NSMutableDictionary中删除元素</span><br><span class="line">    [tires_m removeObjectForKey:@&quot;front-left&quot;];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 创建 NSDictionary</span></span><br><span class="line">    Tire *t1 = [Tire new];</span><br><span class="line">    Tire *t2 = [Tire new];</span><br><span class="line">    Tire *t3 = [Tire new];</span><br><span class="line">    Tire *t4 = [Tire new];</span><br><span class="line">    <span class="built_in">NSDictionary</span> *tires = [<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys:t1, <span class="string">@"front-left"</span>, t2, <span class="string">@"front-right"</span>, t3, <span class="string">@"back-left"</span>, t4, <span class="string">@"back-right"</span>, <span class="literal">nil</span>];</span><br><span class="line"><span class="comment">//    NSDictionary *tires = @&#123;@"front-left": t1, @"front-right": t2, @"back-left": t3,@"back-right": t4,&#125;;</span></span><br><span class="line">    <span class="comment">// 访问特定key的对象</span></span><br><span class="line">    Tire *tire = [tires objectForKey:<span class="string">@"back-right"</span>];</span><br><span class="line"><span class="comment">//    Tire *tire = tires[@"back-right"];</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建NSMutableDictionary</span></span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *tires_m = [<span class="built_in">NSMutableDictionary</span> dictionaryWithCapacity:<span class="number">10</span>];</span><br><span class="line"><span class="comment">//    NSMutableDictionary *tires_m = [NSMutableDictionary dictionary];</span></span><br><span class="line">    <span class="comment">// 为NSMutableDictionary添加元素</span></span><br><span class="line">    [tires_m setObject:t1 forKey:<span class="string">@"front-left"</span>];</span><br><span class="line">    <span class="comment">// 从NSMutableDictionary中删除元素</span></span><br><span class="line">    [tires_m removeObjectForKey:<span class="string">@"front-left"</span>];</span><br></pre></td></tr></table></figure>
 <h3 id="其他数据类型"><a href="#其他数据类型" class="headerlink" title="其他数据类型"></a>其他数据类型</h3><p><code>NSArray</code>和<code>NSDictionary</code>只能存储对象，不能直接存储任何基本类型的数据，如int、float、和struct。</p>
 <ul>
 <li><code>NSNumber</code></li>
@@ -652,7 +663,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年09月03日 - 15:28
+      2019年09月04日 - 11:24
     </li>
 
 
@@ -795,7 +806,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">204</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -806,7 +817,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -956,7 +967,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共303.7k字</span>
+  <span class="post-count">  全站共305.1k字</span>
 
 </div>
 

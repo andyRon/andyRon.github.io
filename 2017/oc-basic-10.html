@@ -113,7 +113,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://images.andyron.com/2017/ar2017362.jpg">
 <meta property="og:image" content="http://images.andyron.com/2017/ar2017363.jpg">
-<meta property="og:updated_time" content="2019-09-03T07:29:54.539Z">
+<meta property="og:updated_time" content="2019-09-04T03:25:26.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习10：类别（category）">
 <meta name="twitter:description" content="类别（category）是一种为现有的类添加新方法的方式。 1 创建类别一般，只是习惯  把类别代码放在独立的文件中命名：”类名称+类别名称”，如 NSString+NumberConvenience   开始创建类别">
@@ -401,7 +401,18 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/Objective-C/" itemprop="url" rel="index">
                     <span itemprop="name">Objective-C</span>
                   </a>
                 </span>
@@ -500,8 +511,8 @@
 <p><img src="http://images.andyron.com/2017/ar2017362.jpg" alt=""></p>
 <p><img src="http://images.andyron.com/2017/ar2017363.jpg" alt=""></p>
 <a id="more"></a>
-<p>生成两个文件，<code>NSString+NumberConvenience.h</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface NSString (NumberConvenience)</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
-<p><code>NSString+NumberConvenience.m</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NSString+NumberConvenience.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation NSString (NumberConvenience)</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p>生成两个文件，<code>NSString+NumberConvenience.h</code>:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSString</span> (<span class="title">NumberConvenience</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+<p><code>NSString+NumberConvenience.m</code>:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"NSString+NumberConvenience.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">NumberConvenience</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
 <p>类别名在括号中。<br>可以在<code>@implementation</code>部分实现自己的方法。<strong>任何NSString类的对象都将响应在类别中的方法。正是这种兼容性使类别成为了一种非常强大的概念。</strong></p>
 <ul>
 <li><p>类别的缺陷</p>
@@ -520,9 +531,9 @@
 <li><p>类扩展（class extentsion）：特殊的类别</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@interface Things : NSObject</span><br><span class="line"></span><br><span class="line">@property (assign) NSInteger thing1;</span><br><span class="line">@property (readonly, assign) NSInteger thing2;</span><br><span class="line"></span><br><span class="line">- (void)resetAllValues;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@interface Things()</span><br><span class="line">&#123;</span><br><span class="line">    NSInteger thing4;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">@property (readwrite, assign) NSInteger thing2;</span><br><span class="line">@property (assign) NSInteger thing3;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<h3 id="2-利用类别分散实现代码"><a href="#2-利用类别分散实现代码" class="headerlink" title="2 利用类别分散实现代码"></a>2 利用类别分散实现代码</h3><p>不能将<code>@implementation</code>分散到多个不同的<code>.m</code>文件中。可以通过类别把大型的单个类分散到多个不同的<code>.m</code>文件中。<br>以AppKit中的<code>NSWindow</code>为例，在<code>NSWindow.h</code>中搜索<code>@interface</code>大约能搜到5个类别声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@interface NSWindow(NSEvent)</span><br><span class="line">@interface NSWindow(NSCursorRect)</span><br><span class="line">@interface NSWindow(NSDrag)</span><br><span class="line">@interface NSWindow(NSCarbonExtensions)</span><br><span class="line">@interface NSWindow(NSDeprecated)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Things</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>) <span class="built_in">NSInteger</span> thing1;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> thing2;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)resetAllValues;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Things</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> thing4;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readwrite</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> thing2;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>) <span class="built_in">NSInteger</span> thing3;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-利用类别分散实现代码"><a href="#2-利用类别分散实现代码" class="headerlink" title="2 利用类别分散实现代码"></a>2 利用类别分散实现代码</h3><p>不能将<code>@implementation</code>分散到多个不同的<code>.m</code>文件中。可以通过类别把大型的单个类分散到多个不同的<code>.m</code>文件中。<br>以AppKit中的<code>NSWindow</code>为例，在<code>NSWindow.h</code>中搜索<code>@interface</code>大约能搜到5个类别声明：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSWindow</span>(<span class="title">NSEvent</span>)</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSWindow</span>(<span class="title">NSCursorRect</span>)</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSWindow</span>(<span class="title">NSDrag</span>)</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSWindow</span>(<span class="title">NSCarbonExtensions</span>)</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSWindow</span>(<span class="title">NSDeprecated</span>)</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>类别可以访问其继承的类的实例变量。</strong></p>
 <h3 id="3-通过类别创建前向引用"><a href="#3-通过类别创建前向引用" class="headerlink" title="3 通过类别创建前向引用"></a>3 通过类别创建前向引用</h3><p>没有真正的私有方法。不在头文件声明，也可以调用，不过编译器会提示警告，并且app store会拒绝上架。<br>可通过在类别中声明方法避免这种警告。</p>
 
@@ -589,7 +600,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年09月03日 - 15:29
+      2019年09月04日 - 11:25
     </li>
 
 
@@ -732,7 +743,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">204</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -743,7 +754,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -893,7 +904,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共303.7k字</span>
+  <span class="post-count">  全站共305.1k字</span>
 
 </div>
 

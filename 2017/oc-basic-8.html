@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="1 分配(allocation)对象alloc方法干的事件：  1 从操作系统获得一块内存。2 指定为存储对象的实例变量的位置。3 对内存初始化：BOOL类型被初始化为：NO；int类型被初始化为：0；float类型被初始化为：0.0；所有指针被初始化为nil。   初始化对象init方法Car *car = [[Car alloc] init];  初始化要做些什么  CarParts程序中初始">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T07:28:09.045Z">
+<meta property="og:updated_time" content="2019-09-04T03:24:31.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习8：对象初始化">
 <meta name="twitter:description" content="1 分配(allocation)对象alloc方法干的事件：  1 从操作系统获得一块内存。2 指定为存储对象的实例变量的位置。3 对内存初始化：BOOL类型被初始化为：NO；int类型被初始化为：0；float类型被初始化为：0.0；所有指针被初始化为nil。   初始化对象init方法Car *car = [[Car alloc] init];  初始化要做些什么  CarParts程序中初始">
@@ -398,7 +398,18 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/Objective-C/" itemprop="url" rel="index">
                     <span itemprop="name">Objective-C</span>
                   </a>
                 </span>
@@ -452,7 +463,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 361 字
+                  : 368 字
                 </span>
               
 
@@ -468,7 +479,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  ≈ 1 分钟
+                  ≈ 2 分钟
                 </span>
               
             </div>
@@ -504,18 +515,16 @@
 <h3 id="2-便利初始化函数-convenience-initializer"><a href="#2-便利初始化函数-convenience-initializer" class="headerlink" title="2 便利初始化函数(convenience initializer)"></a>2 便利初始化函数(convenience initializer)</h3><p>以init开头的方法只是遵循命名约定的普通方法。<br>NSString类的初始化方法例子：</p>
 <ul>
 <li><p><code>- (id) init;</code></p>
-<pre><code>NSString *emptyString = [[NSString alloc] init];
-</code></pre></li>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *emptyString = [[<span class="built_in">NSString</span> alloc] init];</span><br></pre></td></tr></table></figure>
+</li>
 <li><p><code>- (instancetype)initWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);</code></p>
-<pre><code>NSString *string = [[NSString alloc] initWithFormat:@&quot;%d or %d&quot;, 1, 2];
-</code></pre></li>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *string = [[<span class="built_in">NSString</span> alloc] initWithFormat:<span class="string">@"%d or %d"</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
 <li><p><code>- (nullable instancetype)initWithContentsOfFile:(NSString *)path encoding:(NSStringEncoding)enc error:(NSError **)error;</code></p>
-<pre><code>NSError *error = nil;
-NSString *string1 = [[NSString alloc] initWithContentsOfFile:@&quot;/tmp/words.txt&quot; encoding:NSUTF8StringEncoding error:&amp;error];
-if (nil != error) {
-    NSLog(@&quot;未能读取文件数据：%@&quot;, [error localizedDescription]);
-}
-</code></pre></li>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line"><span class="built_in">NSString</span> *string1 = [[<span class="built_in">NSString</span> alloc] initWithContentsOfFile:<span class="string">@"/tmp/words.txt"</span> encoding:<span class="built_in">NSUTF8StringEncoding</span> error:&amp;error];</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">nil</span> != error) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"未能读取文件数据：%@"</span>, [error localizedDescription]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h3 id="3-指定初始化函数-designated-initializer"><a href="#3-指定初始化函数-designated-initializer" class="headerlink" title="3 指定初始化函数(designated initializer)"></a>3 指定初始化函数(designated initializer)</h3><ul>
 <li>类中的某个初始化方法被指派为指定初始化函数</li>
@@ -587,7 +596,7 @@ if (nil != error) {
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年09月03日 - 15:28
+      2019年09月04日 - 11:24
     </li>
 
 
@@ -730,7 +739,7 @@ if (nil != error) {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">204</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -741,7 +750,7 @@ if (nil != error) {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -891,7 +900,7 @@ if (nil != error) {
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共303.7k字</span>
+  <span class="post-count">  全站共305.1k字</span>
 
 </div>
 

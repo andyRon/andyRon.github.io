@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="分析最简单的Hello Objective-C程序1234567#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;        NSLog(@&amp;quot;Hello, World!&amp;quot;);    return 0;&amp;#125; // main  OC本质上就是C语言，它">
+<meta name="description" content="分析最简单的Hello Objective-C程序1234567#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;        NSLog(@&quot;Hello, World!&quot;);    return 0;&amp;#125; // main  OC本质上就是C语言，它用来声明main()">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OC基础学习1：对C的扩展">
 <meta property="og:url" content="http://andyron.com/2017/oc-basic-1-c.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="分析最简单的Hello Objective-C程序1234567#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;        NSLog(@&amp;quot;Hello, World!&amp;quot;);    return 0;&amp;#125; // main  OC本质上就是C语言，它">
+<meta property="og:description" content="分析最简单的Hello Objective-C程序1234567#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;        NSLog(@&quot;Hello, World!&quot;);    return 0;&amp;#125; // main  OC本质上就是C语言，它用来声明main()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T07:28:04.423Z">
+<meta property="og:updated_time" content="2019-09-04T03:25:15.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习1：对C的扩展">
-<meta name="twitter:description" content="分析最简单的Hello Objective-C程序1234567#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;        NSLog(@&amp;quot;Hello, World!&amp;quot;);    return 0;&amp;#125; // main  OC本质上就是C语言，它">
+<meta name="twitter:description" content="分析最简单的Hello Objective-C程序1234567#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;        NSLog(@&quot;Hello, World!&quot;);    return 0;&amp;#125; // main  OC本质上就是C语言，它用来声明main()">
 
 
 
@@ -398,7 +398,18 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/Objective-C/" itemprop="url" rel="index">
                     <span itemprop="name">Objective-C</span>
                   </a>
                 </span>
@@ -452,7 +463,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 428 字
+                  : 429 字
                 </span>
               
 
@@ -486,23 +497,23 @@
       
 
       
-        <h3 id="分析最简单的Hello-Objective-C程序"><a href="#分析最简单的Hello-Objective-C程序" class="headerlink" title="分析最简单的Hello Objective-C程序"></a>分析最简单的Hello Objective-C程序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;Hello, World!&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125; // main</span><br></pre></td></tr></table></figure>
+        <h3 id="分析最简单的Hello-Objective-C程序"><a href="#分析最简单的Hello-Objective-C程序" class="headerlink" title="分析最简单的Hello Objective-C程序"></a>分析最简单的Hello Objective-C程序</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Hello, World!"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// main</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>OC本质上就是C语言，它用来声明<code>main()</code>和返回数值的语法和C语言是一样的。</li>
-<li>扩展名.m代表message</li>
-<li>与C类似，OC使用<em>头文件</em>来包含结构体、符号常量和函数原型等元素的声明。</li>
+<li>扩展名<code>.m</code>代表 <strong>message</strong></li>
+<li>与C类似，OC使用 <em>头文件</em> 来包含<strong>结构体</strong>、<strong>符号常量</strong>和<strong>函数原型</strong>等元素的声明。</li>
 <li><code>#import</code>类似于C的<code>#include</code>，但<code>#import</code>可保证头文件只被包含一次。</li>
 <li><code>#import &lt;Foundation/Foundation.h&gt;</code>语句告诉编译器查找Foundation框架中的<code>Foundation.h</code>头文件。</li>
 </ul>
 <a id="more"></a>
 <ul>
 <li><code>int argc, const char * argv[]</code>中 <code>argc</code>是指命令行参数个数，<code>argv[0]</code>是指可执行文件的路径，<code>argv[1]</code>是指命令行第一个参数，<code>argv[2]</code>是指命令行第二个参数，以此类推。</li>
-<li><strong>框架</strong> ：一种把头文件、库、图片、声音等内容聚集在一个独立单元中的集合体。<ul>
-<li>如Cocoa,Carbon,QuickTime,OpenGL</li>
+<li><strong>框架</strong> ：一种把<u>头文件、库、图片、声音</u>等内容聚集在一个独立单元中的集合体。<ul>
+<li>如<strong>Cocoa</strong>, <strong>Carbon</strong>, <strong>QuickTime</strong>, <strong>OpenGL</strong></li>
 <li>Cocoa包括Foundation和Application Kit(AppKit)</li>
-<li>每一个框架都有一个主头文件，它包含了框架内所有的头文件。</li>
+<li>每一个框架都有一个<strong>主头文件</strong>，它包含了框架内所有的头文件。</li>
 <li>Foundation的头文件 1MB 14000行 100多文件 。通过<code>#import &lt;Foundation/Foundation.h&gt;</code> 就获得了整个集合</li>
-<li>Xcode使用预编译头文件（一种经过压缩的，摘要形式的头文件）来加快读取速度。</li>
+<li>Xcode使用<strong>预编译头文件</strong>（一种经过压缩的，摘要形式的头文件）来加快读取速度。</li>
 </ul>
 </li>
 <li>NSLog()和@”字符串”<ul>
@@ -578,7 +589,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年09月03日 - 15:28
+      2019年09月04日 - 11:25
     </li>
 
 
@@ -617,8 +628,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/oc-basic-3-inheritance.html" rel="prev" title="OC基础学习3：继承(inheritance)">
-                OC基础学习3：继承(inheritance) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/oc-basic-2.html" rel="prev" title="OC基础学习2：面向对象编程的基础知识">
+                OC基础学习2：面向对象编程的基础知识 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -721,7 +732,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">204</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -732,7 +743,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -882,7 +893,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共303.7k字</span>
+  <span class="post-count">  全站共305.1k字</span>
 
 </div>
 

@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="欣欣向戎">
 <meta property="og:description" content="代码块(Block)/闭包(closure) 是对C语言中函数的扩展。代码块两种类的绑定：自动绑定(automatic binding)    栈内存托管绑定(managed binding)     堆内存">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T07:28:06.029Z">
+<meta property="og:updated_time" content="2019-09-04T03:25:53.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习12：代码块（Block）">
 <meta name="twitter:description" content="代码块(Block)/闭包(closure) 是对C语言中函数的扩展。代码块两种类的绑定：自动绑定(automatic binding)    栈内存托管绑定(managed binding)     堆内存">
@@ -398,7 +398,18 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/Objective-C/" itemprop="url" rel="index">
                     <span itemprop="name">Objective-C</span>
                   </a>
                 </span>
@@ -491,20 +502,20 @@
 <ul>
 <li><p>代码块和函数指针<br>函数指针的声明：<br><code>void (*my_func)(void);</code><br><code>*</code>变成<code>^</code>（幂符号）变成代码块定义：<br><code>void (^my_block)(void);</code></p>
 <p>代码块展示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int (^square_block)(int number) = ^(int number) &#123;return (number * number);&#125;;</span><br><span class="line">int result = square_block(5);</span><br><span class="line">printf(&quot;Result = %d\n&quot;, result);</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (^square_block)(<span class="keyword">int</span> number) = ^(<span class="keyword">int</span> number) &#123;<span class="keyword">return</span> (number * number);&#125;;</span><br><span class="line"><span class="keyword">int</span> result = square_block(<span class="number">5</span>);</span><br><span class="line">printf(<span class="string">"Result = %d\n"</span>, result);</span><br></pre></td></tr></table></figure>
 <p><strong>等号前面是代码块的定义，而等号后面是实现内容。</strong>一般形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;returntype&gt; (^blockname)(list of arguments) = ^(arguments)&#123; body; &#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;returntype&gt; (^blockname)(list of arguments) = ^(arguments)&#123; body; &#125;;</span><br></pre></td></tr></table></figure>
 <p>没有参数时可以简写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void (^theBlock)(void) = ^&#123; printf(&quot;Hello Blocks!\n&quot;); &#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> (^theBlock)(<span class="keyword">void</span>) = ^&#123; printf(<span class="string">"Hello Blocks!\n"</span>); &#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用代码块<br>代码块可以访问与它相同的（本地）有效范围内声明的变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int value = 6;</span><br><span class="line">int (^multiply_block)(int number) = ^(int number) &#123; return (value * number);&#125;;</span><br><span class="line">value = 8;</span><br><span class="line">int result2 = multiply_block(7);</span><br><span class="line">printf(&quot;Result2 = %d\n&quot;, result2);  // 是6*7，不是8*7</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> value = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">int</span> (^multiply_block)(<span class="keyword">int</span> number) = ^(<span class="keyword">int</span> number) &#123; <span class="keyword">return</span> (value * number);&#125;;</span><br><span class="line">value = <span class="number">8</span>;</span><br><span class="line"><span class="keyword">int</span> result2 = multiply_block(<span class="number">7</span>);</span><br><span class="line">printf(<span class="string">"Result2 = %d\n"</span>, result2);  <span class="comment">// 是6*7，不是8*7</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>直接使用代码块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NSArray *array = [NSArray arrayWithObjects:@&quot;Amir&quot;, @&quot;Mishal&quot;, @&quot;Irrum&quot;, @&quot;Adam&quot;, nil];</span><br><span class="line">NSLog(@&quot;Unsorted Array %@&quot;, array);</span><br><span class="line">NSArray *sorteArray = [array sortedArrayUsingComparator:^(NSString *objet1, NSString *object2) &#123;</span><br><span class="line">    return [objet1 compare:object2];</span><br><span class="line">&#125;];</span><br><span class="line">NSLog(@&quot;Sorted Array %@&quot;, sorteArray);</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *array = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@"Amir"</span>, <span class="string">@"Mishal"</span>, <span class="string">@"Irrum"</span>, <span class="string">@"Adam"</span>, <span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"Unsorted Array %@"</span>, array);</span><br><span class="line"><span class="built_in">NSArray</span> *sorteArray = [array sortedArrayUsingComparator:^(<span class="built_in">NSString</span> *objet1, <span class="built_in">NSString</span> *object2) &#123;</span><br><span class="line">    <span class="keyword">return</span> [objet1 compare:object2];</span><br><span class="line">&#125;];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"Sorted Array %@"</span>, sorteArray);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用<code>typedef</code>关键字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef double (^MKSampleMultiply2BlockRef)(double c, double d);</span><br><span class="line">MKSampleMultiply2BlockRef multiply2 = ^(double c, double d) &#123; return c * d; &#125;;</span><br><span class="line">printf(&quot;%f, %f&quot;, multiply2(4, 5), multiply2(5,3));</span><br><span class="line">typedef void (^MKSampleVoidBlockRef)(void);</span><br><span class="line">typedef void (^MKSampleStringBlockRef)(NSString *);</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> (^<span class="built_in">MKSampleMultiply2BlockRef</span>)(<span class="keyword">double</span> c, <span class="keyword">double</span> d);</span><br><span class="line"><span class="built_in">MKSampleMultiply2BlockRef</span> multiply2 = ^(<span class="keyword">double</span> c, <span class="keyword">double</span> d) &#123; <span class="keyword">return</span> c * d; &#125;;</span><br><span class="line">printf(<span class="string">"%f, %f"</span>, multiply2(<span class="number">4</span>, <span class="number">5</span>), multiply2(<span class="number">5</span>,<span class="number">3</span>));</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^<span class="built_in">MKSampleVoidBlockRef</span>)(<span class="keyword">void</span>);</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^<span class="built_in">MKSampleStringBlockRef</span>)(<span class="built_in">NSString</span> *);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>代码块和变量<br><strong>代码块被声明后会捕捉创建点时的状态。</strong><br>代码块可以访问函数用到的标准类的变量：</p>
 <ul>
@@ -518,18 +529,18 @@
 </ul>
 </li>
 <li><p>本地变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef double (^MKSampleMultiplyBlockRef)(void);</span><br><span class="line"></span><br><span class="line">double a = 10, b = 20;</span><br><span class="line">MKSampleMultiplyBlockRef multiply = ^(void)&#123; return a * b; &#125;;</span><br><span class="line">NSLog(@&quot;%f&quot;, multiply());  // 200.0</span><br><span class="line">a = 20;</span><br><span class="line">b = 50;</span><br><span class="line">NSLog(@&quot;%f&quot;, multiply());  // 200.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> (^<span class="built_in">MKSampleMultiplyBlockRef</span>)(<span class="keyword">void</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> a = <span class="number">10</span>, b = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">MKSampleMultiplyBlockRef</span> multiply = ^(<span class="keyword">void</span>)&#123; <span class="keyword">return</span> a * b; &#125;;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%f"</span>, multiply());  <span class="comment">// 200.0</span></span><br><span class="line">a = <span class="number">20</span>;</span><br><span class="line">b = <span class="number">50</span>;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%f"</span>, multiply());  <span class="comment">// 200.0</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>全局变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">typedef double (^MKSampleMultiplyBlockRef)(void);</span><br><span class="line"></span><br><span class="line">static double a = 10, b = 20;</span><br><span class="line">MKSampleMultiplyBlockRef multiply = ^(void)&#123; return a * b; &#125;;</span><br><span class="line">NSLog(@&quot;%f&quot;, multiply());    // 200.0</span><br><span class="line">a = 20; b = 50;</span><br><span class="line">NSLog(@&quot;%f&quot;, multiply());    // 1000.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> (^<span class="built_in">MKSampleMultiplyBlockRef</span>)(<span class="keyword">void</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> a = <span class="number">10</span>, b = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">MKSampleMultiplyBlockRef</span> multiply = ^(<span class="keyword">void</span>)&#123; <span class="keyword">return</span> a * b; &#125;;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%f"</span>, multiply());    <span class="comment">// 200.0</span></span><br><span class="line">a = <span class="number">20</span>; b = <span class="number">50</span>;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%f"</span>, multiply());    <span class="comment">// 1000.0</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>参数变量<br>代码块中的参数变量与函数中的参数变量具有同样的作用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">typedef double (^MKSampleMultiply2BlockRef)(double c, double d);</span><br><span class="line">MKSampleMultiply2BlockRef multiply2 = ^(double c, double d) &#123; return c * d; &#125;;</span><br><span class="line">printf(&quot;%f, %f&quot;, multiply2(4, 5), multiply2(5,3));</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> (^<span class="built_in">MKSampleMultiply2BlockRef</span>)(<span class="keyword">double</span> c, <span class="keyword">double</span> d);</span><br><span class="line"><span class="built_in">MKSampleMultiply2BlockRef</span> multiply2 = ^(<span class="keyword">double</span> c, <span class="keyword">double</span> d) &#123; <span class="keyword">return</span> c * d; &#125;;</span><br><span class="line">printf(<span class="string">"%f, %f"</span>, multiply2(<span class="number">4</span>, <span class="number">5</span>), multiply2(<span class="number">5</span>,<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>__block</code>变量<br>本地变量会被代码块作为常量获取到。在代码块中修改会报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double c = 3;</span><br><span class="line">MKSampleMultiplyBlockRef multiply = ^(void) &#123; c = 5; return c; &#125;;</span><br><span class="line">//报错： Variable is not assignable (missing __block type specifier)</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">MKSampleMultiplyBlockRef</span> multiply = ^(<span class="keyword">void</span>) &#123; c = <span class="number">5</span>; <span class="keyword">return</span> c; &#125;;</span><br><span class="line"><span class="comment">//报错： Variable is not assignable (missing __block type specifier)</span></span><br></pre></td></tr></table></figure>
 <p>将本地变量标记为<code>__block</code>，就可以修改了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">__block double c = 3;</span><br><span class="line">MKSampleMultiplyBlockRef multiply = ^(void) &#123; c = 5; return c; &#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">__block <span class="keyword">double</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">MKSampleMultiplyBlockRef</span> multiply = ^(<span class="keyword">void</span>) &#123; c = <span class="number">5</span>; <span class="keyword">return</span> c; &#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>代码块内部的本地变量</p>
 </li>
@@ -598,7 +609,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年09月03日 - 15:28
+      2019年09月04日 - 11:25
     </li>
 
 
@@ -732,7 +743,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">204</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -743,7 +754,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -877,7 +888,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共303.7k字</span>
+  <span class="post-count">  全站共305.1k字</span>
 
 </div>
 

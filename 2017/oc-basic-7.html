@@ -112,7 +112,7 @@
 <meta property="og:description" content="1 对象生命周期 诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息并执行操作） -&amp;gt; 交友（通过复合以及向方法传递参数） -&amp;gt; 死去（被释放掉）  引用计数(reference counting) / 保留计数(retain counting) alloc, new, copy: 创建对象，保留计数被设置为1 retain: 保留计数加1。如[[car retain]">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://images.andyron.com/2017/ar2017360.jpg">
-<meta property="og:updated_time" content="2019-09-03T07:29:49.420Z">
+<meta property="og:updated_time" content="2019-09-04T03:24:36.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习7：内存管理">
 <meta name="twitter:description" content="1 对象生命周期 诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息并执行操作） -&amp;gt; 交友（通过复合以及向方法传递参数） -&amp;gt; 死去（被释放掉）  引用计数(reference counting) / 保留计数(retain counting) alloc, new, copy: 创建对象，保留计数被设置为1 retain: 保留计数加1。如[[car retain]">
@@ -400,7 +400,18 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/Objective-C/" itemprop="url" rel="index">
                     <span itemprop="name">Objective-C</span>
                   </a>
                 </span>
@@ -499,7 +510,7 @@
 <li><code>retainCount</code>: 获得对象保留计数当前值</li>
 </ul>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface RetainTracker : NSObject</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line">@implementation RetainTracker</span><br><span class="line"></span><br><span class="line">- (id) init</span><br><span class="line">&#123;</span><br><span class="line">    if (self = [super init]) &#123;</span><br><span class="line">        NSLog(@&quot;init: Retain count of %lu .&quot;, [self retainCount]);</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125; // init</span><br><span class="line">- (void)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@&quot;dealloc called. Bye Bye.&quot;);</span><br><span class="line">    [super dealloc];</span><br><span class="line">&#125; // dealloc</span><br><span class="line"></span><br><span class="line">@end // RetainTracker</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    RetainTracker *a = [RetainTracker new];</span><br><span class="line">    </span><br><span class="line">    [a retain];</span><br><span class="line">    NSLog(@&quot;%lu&quot;, [a retainCount]);</span><br><span class="line">    </span><br><span class="line">    [a retain];</span><br><span class="line">    NSLog(@&quot;%lu&quot;, [a retainCount]);</span><br><span class="line">    </span><br><span class="line">    [a release];</span><br><span class="line">    NSLog(@&quot;%lu&quot;, [a retainCount]);</span><br><span class="line">    </span><br><span class="line">    [a release];</span><br><span class="line">    NSLog(@&quot;%lu&quot;, [a retainCount]);</span><br><span class="line">    </span><br><span class="line">    [a release];</span><br><span class="line">    NSLog(@&quot;%lu&quot;, [a retainCount]);  // 为什么此处是  1 不是 0吗？</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">RetainTracker</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">RetainTracker</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>) init</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"init: Retain count of %lu ."</span>, [<span class="keyword">self</span> retainCount]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125; <span class="comment">// init</span></span><br><span class="line">- (<span class="keyword">void</span>)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"dealloc called. Bye Bye."</span>);</span><br><span class="line">    [<span class="keyword">super</span> dealloc];</span><br><span class="line">&#125; <span class="comment">// dealloc</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span> <span class="comment">// RetainTracker</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    RetainTracker *a = [RetainTracker new];</span><br><span class="line">    </span><br><span class="line">    [a <span class="keyword">retain</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%lu"</span>, [a retainCount]);</span><br><span class="line">    </span><br><span class="line">    [a <span class="keyword">retain</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%lu"</span>, [a retainCount]);</span><br><span class="line">    </span><br><span class="line">    [a release];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%lu"</span>, [a retainCount]);</span><br><span class="line">    </span><br><span class="line">    [a release];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%lu"</span>, [a retainCount]);</span><br><span class="line">    </span><br><span class="line">    [a release];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%lu"</span>, [a retainCount]);  <span class="comment">// 为什么此处是  1 不是 0吗？</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="对象所有权-object-ownership"><a href="#对象所有权-object-ownership" class="headerlink" title="对象所有权(object ownership)"></a>对象所有权(object ownership)</h3><p>如果一个对象内有指向其他对象的实例变量，则称 <em>该对象拥有这些对象</em>。</p>
 <h3 id="访问方法中的保留和释放"><a href="#访问方法中的保留和释放" class="headerlink" title="访问方法中的保留和释放"></a>访问方法中的保留和释放</h3><h3 id="所有对象放入池中"><a href="#所有对象放入池中" class="headerlink" title="所有对象放入池中"></a>所有对象放入池中</h3><ul>
 <li><code>@autoreleasepool</code>/<code>NSAutoreleasePool</code>： 自动释放池</li>
@@ -584,7 +595,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年09月03日 - 15:29
+      2019年09月04日 - 11:24
     </li>
 
 
@@ -613,8 +624,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/carthage-introduce.html" rel="next" title="Carthage的使用">
-                <i class="fa fa-chevron-left"></i> Carthage的使用
+              <a href="/2017/beginning-ios-swift-26.html" rel="next" title="开始用Swift开发iOS 10 - 26 使用本地用户通知">
+                <i class="fa fa-chevron-left"></i> 开始用Swift开发iOS 10 - 26 使用本地用户通知
               </a>
             
           </div>
@@ -623,8 +634,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/ios-localize.html" rel="prev" title="iOS本地化(swift)">
-                iOS本地化(swift) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/carthage-introduce.html" rel="prev" title="Carthage的使用">
+                Carthage的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -727,7 +738,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">204</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -738,7 +749,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -888,7 +899,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共303.7k字</span>
+  <span class="post-count">  全站共305.1k字</span>
 
 </div>
 
