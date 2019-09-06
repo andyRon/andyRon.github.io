@@ -490,7 +490,7 @@
         <blockquote>
 <p>下标 (subscripts)可以定义在类(class)、结构体(structure)和枚举(enumeration)中，是访问集合(collection)，列表(list)或序列(sequence)中元素的快捷方式。<br>一个类型可以定义多个下标，通过不同索引类型进行重载。</p>
 </blockquote>
-<h3 id="1-下标语法"><a href="#1-下标语法" class="headerlink" title="1 下标语法"></a>1 下标语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TimesTable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> multiplier: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> multiplier * index</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> threeTimesTable = <span class="type">TimesTable</span>(multiplier: <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"six times three is <span class="subst">\(threeTimesTable[<span class="number">6</span>])</span>"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="1-下标语法"><a href="#1-下标语法" class="headerlink" title="1 下标语法"></a>1 下标语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TimesTable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> multiplier: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> multiplier * index</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> threeTimesTable = <span class="type">TimesTable</span>(multiplier: <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"six times three is \(threeTimesTable[6])"</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="2-下标用法"><a href="#2-下标用法" class="headerlink" title="2 下标用法"></a>2 下标用法</h3><p>字典通过下标返回是可选类型<br><a id="more"></a></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numberOfLegs = [<span class="string">"spider"</span>: <span class="number">8</span>, <span class="string">"ant"</span>: <span class="number">6</span>, <span class="string">"cat"</span>: <span class="number">4</span>]</span><br><span class="line">numberOfLegs[<span class="string">"bird"</span>] = <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <h3 id="3-下标选项"><a href="#3-下标选项" class="headerlink" title="3 下标选项"></a>3 下标选项</h3><p>下标可以接受任意数量的入参，并且这些入参可以是任意类型。下标的返回值也可以是任意类型。下标可以使用变量参数和可变参数，但不能使用输入输出参数，也不能给参数设置默认值。</p>
@@ -713,7 +713,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">209</span>
+                <span class="site-state-item-count">210</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -724,7 +724,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -735,7 +735,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">208</span>
+                <span class="site-state-item-count">210</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -874,7 +874,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共305.1k字</span>
+  <span class="post-count">  全站共307.3k字</span>
 
 </div>
 

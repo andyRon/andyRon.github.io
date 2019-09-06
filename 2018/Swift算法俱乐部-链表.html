@@ -671,7 +671,7 @@ head ---&gt;|         |---//---&gt;|         |----&gt;|         |----&gt;|      
 <p><strong>注意：</strong> 对于单链表，删除最后一个节点稍微复杂一些。 您不能只使用<code>last</code>来查找链表的末尾，因为您还需要对倒数第二个节点的引用。 相反，使用<code>nodesBeforeAndAfter()</code>辅助方法。 如果链表有一个尾指针，那么<code>removeLast()</code>非常快，但你需要记住让<code>tail</code>指向前一个节点。</p>
 </blockquote>
 <p>我们的<code>LinkedList</code>类还可以做一些有趣的事情。 一些很方便可读的调试输出：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">LinkedList</span>: <span class="title">CustomStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="string">"["</span></span><br><span class="line">    <span class="keyword">var</span> node = head</span><br><span class="line">    <span class="keyword">while</span> node != <span class="literal">nil</span> &#123;</span><br><span class="line">      s += <span class="string">"<span class="subst">\(node!.value)</span>"</span></span><br><span class="line">      node = node!.next</span><br><span class="line">      <span class="keyword">if</span> node != <span class="literal">nil</span> &#123; s += <span class="string">", "</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s + <span class="string">"]"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">LinkedList</span>: <span class="title">CustomStringConvertible</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="string">"["</span></span><br><span class="line">    <span class="keyword">var</span> node = head</span><br><span class="line">    <span class="keyword">while</span> node != <span class="literal">nil</span> &#123;</span><br><span class="line">      s += <span class="string">"\(node!.value)"</span></span><br><span class="line">      node = node!.next</span><br><span class="line">      <span class="keyword">if</span> node != <span class="literal">nil</span> &#123; s += <span class="string">", "</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s + <span class="string">"]"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这将如下形式打印链表：</p>
 <pre><code>[Hello, Swift, World]
 </code></pre><p>如何反转链表，使头部成为尾部，反之亦然？ 有一个非常快速的算法：</p>
@@ -926,7 +926,7 @@ tail ---&gt;|        |&lt;---|        |&lt;---|        |&lt;---|        |---&gt;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">209</span>
+                <span class="site-state-item-count">210</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -937,7 +937,7 @@ tail ---&gt;|        |&lt;---|        |&lt;---|        |&lt;---|        |---&gt;
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -948,7 +948,7 @@ tail ---&gt;|        |&lt;---|        |&lt;---|        |&lt;---|        |---&gt;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">208</span>
+                <span class="site-state-item-count">210</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1087,7 +1087,7 @@ tail ---&gt;|        |&lt;---|        |&lt;---|        |&lt;---|        |---&gt;
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共305.1k字</span>
+  <span class="post-count">  全站共307.3k字</span>
 
 </div>
 

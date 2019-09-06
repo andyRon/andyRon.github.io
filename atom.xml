@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-09-02T02:39:18.065Z</updated>
+  <updated>2019-09-06T01:29:32.266Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Swift算法俱乐部-并查集</title>
+    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B9%B6%E6%9F%A5%E9%9B%86.html"/>
+    <id>http://andyron.com/2019/Swift算法俱乐部-并查集.html</id>
+    <published>2019-09-05T01:24:00.000Z</published>
+    <updated>2019-09-06T01:29:32.266Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Union-Find&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Union-Find&lt;/a&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;并查集(Union-Find)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;并查集是一种数据结构，可以跟踪一组元素，它们分布在几个不相交（非重叠）子集合中。 它也被称为不相交集数据结构。&lt;/p&gt;
+&lt;p&gt;这是什么意思呢？ 例如，并查集数据结构可以跟踪以下集合：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[ a, b, f, k ]
+[ e ]
+[ g, d, c ]
+[ i, j ]
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
+    
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
+    
+      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="并查集" scheme="http://andyron.com/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    
+      <category term="Union-Find" scheme="http://andyron.com/tags/Union-Find/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-选取样本</title>
@@ -655,39 +692,6 @@
       <category term="环形缓冲区" scheme="http://andyron.com/tags/%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA/"/>
     
       <category term="Ring Buffer" scheme="http://andyron.com/tags/Ring-Buffer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-有界优先队列</title>
-    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%89%E7%95%8C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97.html"/>
-    <id>http://andyron.com/2019/Swift算法俱乐部-有界优先队列.html</id>
-    <published>2019-07-13T01:28:00.000Z</published>
-    <updated>2019-07-13T01:28:57.334Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Bounded%20Priority%20Queue&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Bounded Priority Queue&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;有界优先队列（Bounded Priority queue）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;有界优先级队列类似于常规&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Priority%20Queue/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;优先队列&lt;/a&gt;，除了可以存储的元素数量有固定的上限。在队列处于满容量时，将新元素添加到队列时，具有最高优先级值的元素将从队列中弹出。&lt;/p&gt;
-&lt;h2 id=&quot;例子&quot;&gt;&lt;a href=&quot;#例子&quot; class=&quot;headerlink&quot; title=&quot;例子&quot;&gt;&lt;/a&gt;例子&lt;/h2&gt;&lt;p&gt;假设我们有一个最大大小为5的有界优先级队列，它具有以下值和优先级：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Value:    [ A,   B,   C,    D,    E   ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Priority: [ 4.6, 3.2, 1.33, 0.25, 0.1 ]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="有界优先队列" scheme="http://andyron.com/tags/%E6%9C%89%E7%95%8C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
-    
-      <category term="Bounded Priority Queue" scheme="http://andyron.com/tags/Bounded-Priority-Queue/"/>
     
   </entry>
   
