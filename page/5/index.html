@@ -347,6 +347,228 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/iOS-Animation-3-Layer-Animations.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyRon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欣欣向戎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/iOS-Animation-3-Layer-Animations.html" itemprop="url">系统学习iOS动画之三：图层动画</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T20:22:00+08:00">
+                2018-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS-Animation/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS-Animation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/iOS-Animation-3-Layer-Animations.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/iOS-Animation-3-Layer-Animations.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/iOS-Animation-3-Layer-Animations.html" class="leancloud_visitors" data-flag-title="系统学习iOS动画之三：图层动画">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  : 15,287 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  ≈ 63 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>本文是我学习<a href="https://store.raywenderlich.com/products/ios-animations-by-tutorials" target="_blank" rel="noopener">《iOS Animations by Tutorials》</a> 笔记中的一篇。<br>文中详细代码都放在我的Github上 <a href="https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials" target="_blank" rel="noopener">andyRon/LearniOSAnimations</a>。</p>
+</blockquote>
+<p><a href="http://andyron.com/2018/iOS-Animation-1-view-animation">系统学习iOS动画之一：视图动画</a> 学习了创建视图动画（View Animations），这一部分学习功能更强大、更偏底层的<strong>Core Animation(核心动画)</strong> APIs。核心动画的这个名字可能令人有点误解，暂时可以理解为本文的标题<strong>图层动画(Layer Animations)</strong>。</p>
+<p>在本书的这一部分中，将学习动画层而不是视图以及如何使用特殊图层。</p>
+<p>图层是一个简单的模型类，它公开了许多属性来表示一些基于图像的内容。 每个<code>UIView</code>都有一个图层支持(都有一个<code>layer</code>属性)。</p>
+<p><strong>视图 vs 图层</strong></p>
+<p>由于以下原因，图层(Layers)与视图(Views)（对于动画）不同：</p>
+<ul>
+<li>图层是一个模型对象 —— 它公开数据属性并且不实现任何逻辑。 它没有复杂的自动布局依赖关系，也不用处理用户交互。</li>
+<li>图层具有预定义的可见特征 —— 这些特征是许多影响内容在屏幕上呈现的数据属性，例如边框线，边框颜色，位置和阴影。</li>
+<li>最后，<strong>Core Animation</strong>优化了图层内容的缓存并直接在<strong>GPU</strong>上快速绘图。</li>
+</ul>
+<p>单个来说，两者的优点。</p>
+<p>视图：</p>
+<ul>
+<li>复杂视图层次结构布局，自动布局等。</li>
+<li>用户交互。</li>
+<li>通常具有在CPU上的主线程上执行的自定义逻辑或自定义绘图代码。</li>
+<li>非常灵活，功能强大，子类很多类。</li>
+</ul>
+<p>图层：</p>
+<ul>
+<li>更简单的层次结构，更快地解决布局，绘制速度更快。</li>
+<li>没有响应者链开销。</li>
+<li>默认情况下没有自定义逻辑 并直接在GPU上绘制。</li>
+<li>不那么灵活，子类的类更少。</li>
+</ul>
+<p>视图和图层的选择技巧： <strong>任何时候都可以选择视图动画; 当需要更高的性能时，就需要使用图层动画。</strong></p>
+<p>两者在架构中的位置：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxdhuq4gvcj30eo0aumxf.jpg" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/iOS-Animation-3-Layer-Animations.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/iOS-Animation-2-Auto-Layout.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2137,215 +2359,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andyron.com/2018/ios-tutorial-16-TravelVlogs.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AndyRon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欣欣向戎">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/ios-tutorial-16-TravelVlogs.html" itemprop="url">iOS-tutorial-16：TravelVlogs——使用AVKit和AVFoundation创建视频应用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-07T19:21:17+08:00">
-                2018-11-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/iOS-tutorial/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS tutorial</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/ios-tutorial-16-TravelVlogs.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/ios-tutorial-16-TravelVlogs.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/ios-tutorial-16-TravelVlogs.html" class="leancloud_visitors" data-flag-title="iOS-tutorial-16：TravelVlogs——使用AVKit和AVFoundation创建视频应用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  : 586 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  ≈ 2 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>TravelVlogs项目是介绍如何使用AVKit和AVFoundation框架构建简单的视频流应用。</p>
-<h2 id="预览图"><a href="#预览图" class="headerlink" title="预览图"></a>预览图</h2><p><img src="https://github.com/andyRon/LearniOSByProject/blob/master/P118-TravelVlogs/TravelVlogs.gif?raw=true" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/ios-tutorial-16-TravelVlogs.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2390,7 +2408,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">210</span>
+                <span class="site-state-item-count">211</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -2535,7 +2553,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共307.3k字</span>
+  <span class="post-count">  全站共309.3k字</span>
 
 </div>
 

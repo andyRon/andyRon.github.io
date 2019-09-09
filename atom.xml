@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-09-06T01:29:32.266Z</updated>
+  <updated>2019-09-09T10:05:39.077Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《百年孤独》</title>
+    <link href="http://andyron.com/2019/%E7%99%BE%E5%B9%B4%E5%AD%A4%E7%8B%AC.html"/>
+    <id>http://andyron.com/2019/百年孤独.html</id>
+    <published>2019-09-09T09:50:30.000Z</published>
+    <updated>2019-09-09T10:05:39.077Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://images.andyron.com/2019/ar2019002.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;有句开玩笑的话，大概是这样说的：“经典就是买的人很多，读的人却很少的作品”，而《百年孤独》可能就是这样的经典作品，读完真的是&lt;strong&gt;史诗般的孤独体验，&lt;/strong&gt;可能我以后还会再去品味这部经典，但我确信近几年我不想，也不能再都去读了。🤦‍♀️&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="http://andyron.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>【译】Swift算法俱乐部-并查集</title>
@@ -654,44 +673,6 @@
       <category term="伸展树" scheme="http://andyron.com/tags/%E4%BC%B8%E5%B1%95%E6%A0%91/"/>
     
       <category term="Splay Tree" scheme="http://andyron.com/tags/Splay-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-环形缓冲区</title>
-    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA.html"/>
-    <id>http://andyron.com/2019/Swift算法俱乐部-环形缓冲区.html</id>
-    <published>2019-07-13T01:35:00.000Z</published>
-    <updated>2019-07-13T01:35:00.898Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Ring%20Buffer&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Ring Buffer&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;环形缓冲区（Ring Buffer）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;也称为循环缓冲区。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Queue/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;基于数组的队列&lt;/a&gt;的问题是在队列后面添加新项目很快，&lt;strong&gt;O(1)&lt;/strong&gt;，但是从队列前面删除项目很慢，&lt;strong&gt;O(n)&lt;/strong&gt;。删除速度很慢，因为它需要在内存中移动剩余的数组元素。&lt;/p&gt;
-&lt;p&gt;实现队列的更有效方法是使用环形缓冲区或循环缓冲区。 这是一个概念性地回绕到开头的数组，因此您永远不必删除任何项目。 所有操作都是&lt;strong&gt;O(1)&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;原则上它是如何工作的。 我们有一个固定大小的数组，比如5项：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[    ,    ,    ,    ,     ]
- r
- w
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;最初，数组为空，读（&lt;code&gt;r&lt;/code&gt;）和写（&lt;code&gt;w&lt;/code&gt;）指针位于开头。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="环形缓冲区" scheme="http://andyron.com/tags/%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA/"/>
-    
-      <category term="Ring Buffer" scheme="http://andyron.com/tags/Ring-Buffer/"/>
     
   </entry>
   

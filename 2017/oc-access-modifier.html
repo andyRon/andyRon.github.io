@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="用来修饰属性，可以限定对象的属性在那一段范围之中访问。  @private : 私有，被其修饰的属性只能在本类的内部访问。@protected: 受保护的 被其修饰的属性只能在本类以及本类的子类中访问。只能在本类和子类的方法实现中访问。@package: 被其修饰的属性，可以在当前框架中访问。@public: 公共的，被其修饰的属性可以在任意地方访问。   如果不为属性指定访问修饰符 默认：pro">
+<meta name="description" content="用来修饰属性，可以限定对象的属性在那一段范围之中访问。  @private : 只能在本类的内部访问。@protected: 只能在本类以及其子类中访问，默认。@package: 当前框架中访问。@public: 在任意地方访问。   如果不为属性指定访问修饰符 默认：protected子类仍然可以继承父类的私有属性。就算父类的属性是private，只不过在子类当中无法直接访问从父类继承过来的私有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OC基础学习：访问修饰符">
 <meta property="og:url" content="http://andyron.com/2017/oc-access-modifier.html">
 <meta property="og:site_name" content="欣欣向戎">
-<meta property="og:description" content="用来修饰属性，可以限定对象的属性在那一段范围之中访问。  @private : 私有，被其修饰的属性只能在本类的内部访问。@protected: 受保护的 被其修饰的属性只能在本类以及本类的子类中访问。只能在本类和子类的方法实现中访问。@package: 被其修饰的属性，可以在当前框架中访问。@public: 公共的，被其修饰的属性可以在任意地方访问。   如果不为属性指定访问修饰符 默认：pro">
+<meta property="og:description" content="用来修饰属性，可以限定对象的属性在那一段范围之中访问。  @private : 只能在本类的内部访问。@protected: 只能在本类以及其子类中访问，默认。@package: 当前框架中访问。@public: 在任意地方访问。   如果不为属性指定访问修饰符 默认：protected子类仍然可以继承父类的私有属性。就算父类的属性是private，只不过在子类当中无法直接访问从父类继承过来的私有">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-04T03:44:22.336Z">
+<meta property="og:updated_time" content="2019-09-06T02:30:49.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC基础学习：访问修饰符">
-<meta name="twitter:description" content="用来修饰属性，可以限定对象的属性在那一段范围之中访问。  @private : 私有，被其修饰的属性只能在本类的内部访问。@protected: 受保护的 被其修饰的属性只能在本类以及本类的子类中访问。只能在本类和子类的方法实现中访问。@package: 被其修饰的属性，可以在当前框架中访问。@public: 公共的，被其修饰的属性可以在任意地方访问。   如果不为属性指定访问修饰符 默认：pro">
+<meta name="twitter:description" content="用来修饰属性，可以限定对象的属性在那一段范围之中访问。  @private : 只能在本类的内部访问。@protected: 只能在本类以及其子类中访问，默认。@package: 当前框架中访问。@public: 在任意地方访问。   如果不为属性指定访问修饰符 默认：protected子类仍然可以继承父类的私有属性。就算父类的属性是private，只不过在子类当中无法直接访问从父类继承过来的私有">
 
 
 
@@ -463,7 +463,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  : 396 字
+                  : 338 字
                 </span>
               
 
@@ -499,7 +499,7 @@
       
         <p>用来修饰属性，可以限定对象的属性在那一段范围之中访问。</p>
 <blockquote>
-<p><code>@private</code> : 私有，被其修饰的属性只能在本类的内部访问。<br><code>@protected</code>: 受保护的 被其修饰的属性只能在本类以及本类的子类中访问。只能在本类和子类的方法实现中访问。<br><code>@package</code>: 被其修饰的属性，可以在当前框架中访问。<br><code>@public</code>: 公共的，被其修饰的属性可以在任意地方访问。</p>
+<p><code>@private</code> : 只能在本类的内部访问。<br><code>@protected</code>: 只能在本类以及其子类中访问，<strong>默认</strong>。<br><code>@package</code>: 当前框架中访问。<br><code>@public</code>: 在任意地方访问。</p>
 </blockquote>
 <ul>
 <li><p>如果不为属性指定访问修饰符 默认：protected<br>子类仍然可以继承父类的私有属性。就算父类的属性是private，只不过在子类当中无法直接访问从父类继承过来的私有属性，可以通过set get方法来访问。</p>
@@ -576,7 +576,7 @@
 
     <li class="post-copyright-updated">
       <strong>最后更新：</strong>
-      2019年09月04日 - 11:44
+      2019年09月06日 - 10:30
     </li>
 
 
@@ -719,7 +719,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">210</span>
+                <span class="site-state-item-count">211</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -880,7 +880,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">AndyRon</span>
-  <span class="post-count">  全站共307.3k字</span>
+  <span class="post-count">  全站共309.3k字</span>
 
 </div>
 
