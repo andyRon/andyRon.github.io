@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andyron.com/"/>
-  <updated>2019-09-09T10:32:22.031Z</updated>
+  <updated>2019-09-17T03:38:37.857Z</updated>
   <id>http://andyron.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python基础总结</title>
+    <link href="http://andyron.com/2019/python-base.html"/>
+    <id>http://andyron.com/2019/python-base.html</id>
+    <published>2019-09-15T12:06:00.000Z</published>
+    <updated>2019-09-17T03:38:37.857Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、类型和运算&quot;&gt;&lt;a href=&quot;#一、类型和运算&quot; class=&quot;headerlink&quot; title=&quot;一、类型和运算&quot;&gt;&lt;/a&gt;一、类型和运算&lt;/h2&gt;&lt;h3 id=&quot;寻求帮助&quot;&gt;&lt;a href=&quot;#寻求帮助&quot; class=&quot;headerlink&quot; title=&quot;寻求帮助&quot;&gt;&lt;/a&gt;寻求帮助&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;dir(obj)            &lt;span class=&quot;comment&quot;&gt;# 简单的列出对象obj所包含的方法名称，返回一个字符串列表&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;help(obj.func)      &lt;span class=&quot;comment&quot;&gt;# 查询obj.func的具体介绍和用法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;测试类型的三种方法&quot;&gt;&lt;a href=&quot;#测试类型的三种方法&quot; class=&quot;headerlink&quot; title=&quot;测试类型的三种方法&quot;&gt;&lt;/a&gt;测试类型的三种方法&lt;/h3&gt;&lt;p&gt;推荐第三种&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; type(L) == type([]):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;string&quot;&gt;&quot;L is list&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; type(L) == list:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;string&quot;&gt;&quot;L is list&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; isinstance(L, list):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;string&quot;&gt;&quot;L is list&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://andyron.com/categories/Python/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>读《百年孤独》 —— 孤独才是寂寞的唯一出口</title>
@@ -62,9 +82,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="并查集" scheme="http://andyron.com/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
     
@@ -96,9 +116,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="选取样本" scheme="http://andyron.com/tags/%E9%80%89%E5%8F%96%E6%A0%B7%E6%9C%AC/"/>
     
@@ -130,9 +150,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="第k大元素问题" scheme="http://andyron.com/tags/%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98/"/>
     
@@ -244,9 +264,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="最小生成树（未加权图）" scheme="http://andyron.com/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%88%E6%9C%AA%E5%8A%A0%E6%9D%83%E5%9B%BE%EF%BC%89/"/>
     
@@ -282,9 +302,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="最小生成树（加权图）" scheme="http://andyron.com/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%88%E5%8A%A0%E6%9D%83%E5%9B%BE%EF%BC%89/"/>
     
@@ -349,9 +369,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="最短路径算法" scheme="http://andyron.com/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95/"/>
     
@@ -385,9 +405,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="深度优先搜索" scheme="http://andyron.com/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
     
@@ -422,9 +442,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="广度优先搜索" scheme="http://andyron.com/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
     
@@ -457,9 +477,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="图" scheme="http://andyron.com/tags/%E5%9B%BE/"/>
     
@@ -494,9 +514,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="最大公约数算法" scheme="http://andyron.com/tags/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E7%AE%97%E6%B3%95/"/>
     
@@ -526,9 +546,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="四叉树" scheme="http://andyron.com/tags/%E5%9B%9B%E5%8F%89%E6%A0%91/"/>
     
@@ -558,9 +578,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="八叉树" scheme="http://andyron.com/tags/%E5%85%AB%E5%8F%89%E6%A0%91/"/>
     
@@ -593,9 +613,9 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="字典树" scheme="http://andyron.com/tags/%E5%AD%97%E5%85%B8%E6%A0%91/"/>
     
@@ -635,44 +655,13 @@
       <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
     
     
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
       <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
     
       <category term="线段树" scheme="http://andyron.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
       <category term="Segment Tree" scheme="http://andyron.com/tags/Segment-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【译】Swift算法俱乐部-伸展树</title>
-    <link href="http://andyron.com/2019/Swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E4%BC%B8%E5%B1%95%E6%A0%91.html"/>
-    <id>http://andyron.com/2019/Swift算法俱乐部-伸展树.html</id>
-    <published>2019-07-13T01:58:00.000Z</published>
-    <updated>2019-07-13T02:07:37.707Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是对 &lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt; 翻译的一篇文章。&lt;br&gt;&lt;a href=&quot;https://github.com/raywenderlich/swift-algorithm-club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift Algorithm Club&lt;/a&gt;是 &lt;a href=&quot;https://www.raywenderlich.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;raywenderlich.com&lt;/a&gt;网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。&lt;br&gt;🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;andyRon/swift-algorithm-club-cn&lt;/a&gt;是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。&lt;br&gt;本文的翻译原文和代码可以查看🐙&lt;a href=&quot;https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Splay%20Tree&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;swift-algorithm-club-cn/Splay Tree&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;伸展树/分裂树（Splay Tree）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;伸展树是一种数据结构，在结构上与平衡二叉搜索树相同。 在伸展树上执行的每个操作都会导致重新调整，以便快速访问最近运行的值。 在每次访问时，树被重新排列，并且使用一组特定的旋转将访问的节点移动到树的根，这些旋转一起被称为&lt;strong&gt;Splaying&lt;/strong&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="swift-algorithm-club-cn" scheme="http://andyron.com/categories/swift-algorithm-club-cn/"/>
-    
-    
-      <category term="swift" scheme="http://andyron.com/tags/swift/"/>
-    
-      <category term="算法与数据结构" scheme="http://andyron.com/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="伸展树" scheme="http://andyron.com/tags/%E4%BC%B8%E5%B1%95%E6%A0%91/"/>
-    
-      <category term="Splay Tree" scheme="http://andyron.com/tags/Splay-Tree/"/>
     
   </entry>
   
