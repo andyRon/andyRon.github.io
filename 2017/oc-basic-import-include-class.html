@@ -502,7 +502,7 @@
 <li><code>#import</code>会包含这个类的所有信息，而<code>@class</code>只是告诉编译器，其后面声明的名称是类的名称。</li>
 <li>在头文件中， 一般只需要知道被引用的类的名称，所以<code>@class</code>常用在头文件中。</li>
 <li><p>对比<code>#include</code>与<code>#import</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;xxx.h&gt; </span><br><span class="line">#import &lt;xxx.h&gt;</span><br><span class="line">#include &quot;xxx.h&quot;</span><br><span class="line">#import &quot;xxx.h&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;xxx.h&gt;</span> </span></span><br><span class="line"><span class="meta">#import &lt;xxx.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="string">"xxx.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="string">"xxx.h"</span></span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>尖括号，编译器会在系统文件目录下查找。</li>
 <li>双引号引用，编译器首先会在用户目录下查找，然后去安装目录中查找，最后在系统文件目录中查找。</li>
@@ -1480,6 +1480,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

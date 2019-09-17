@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法与数据结构,swift,希尔排序," />
+  <meta name="keywords" content="swift,算法与数据结构,希尔排序," />
 
 
 
@@ -105,7 +105,7 @@
 
 
 <meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
-<meta name="keywords" content="算法与数据结构,swift,希尔排序">
+<meta name="keywords" content="swift,算法与数据结构,希尔排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Swift算法俱乐部-希尔排序">
 <meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-希尔排序.html">
@@ -560,7 +560,7 @@ sublist 1:  [ xx, -1, xx, 10, xx, 20, xx, 33, xx ]
 61300 GOTO 61220
 61310 RETURN
 </code></pre><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>希尔排序的Swift实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public func insertSort(_ list: inout[Int], start: Int, gap: Int) &#123;</span><br><span class="line">    for i in stride(from: (start + gap), to: list.count, by: gap) &#123;</span><br><span class="line">        let currentValue = list[i]</span><br><span class="line">        var pos = i</span><br><span class="line">        while pos &gt;= gap &amp;&amp; list[pos - gap] &gt; currentValue &#123;</span><br><span class="line">            list[pos] = list[pos - gap]</span><br><span class="line">            pos -= gap</span><br><span class="line">        &#125;</span><br><span class="line">        list[pos] = currentValue</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public func shellSort(_ list: inout [Int]) &#123;</span><br><span class="line">    var sublistCount = list.count / 2</span><br><span class="line">    while sublistCount &gt; 0 &#123;</span><br><span class="line">        for pos in 0..&lt;sublistCount &#123;</span><br><span class="line">            insertionSort(&amp;list, start: pos, gap: sublistCount)</span><br><span class="line">        &#125;</span><br><span class="line">        sublistCount = sublistCount / 2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var arr = [64, 20, 50, 33, 72, 10, 23, -1, 4, 5]</span><br><span class="line"></span><br><span class="line">shellSort(&amp;arr)</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">insertSort</span><span class="params">(<span class="number">_</span> list: <span class="keyword">inout</span>[Int], start: Int, gap: Int)</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">stride</span>(from: (start + gap), to: list.<span class="built_in">count</span>, by: gap) &#123;</span><br><span class="line">        <span class="keyword">let</span> currentValue = list[i]</span><br><span class="line">        <span class="keyword">var</span> pos = i</span><br><span class="line">        <span class="keyword">while</span> pos &gt;= gap &amp;&amp; list[pos - gap] &gt; currentValue &#123;</span><br><span class="line">            list[pos] = list[pos - gap]</span><br><span class="line">            pos -= gap</span><br><span class="line">        &#125;</span><br><span class="line">        list[pos] = currentValue</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">shellSort</span><span class="params">(<span class="number">_</span> list: <span class="keyword">inout</span> [Int])</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> sublistCount = list.<span class="built_in">count</span> / <span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> sublistCount &gt; <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> pos <span class="keyword">in</span> <span class="number">0</span>..&lt;sublistCount &#123;</span><br><span class="line">            <span class="built_in">insertionSort</span>(&amp;list, start: pos, gap: sublistCount)</span><br><span class="line">        &#125;</span><br><span class="line">        sublistCount = sublistCount / <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">64</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">33</span>, <span class="number">72</span>, <span class="number">10</span>, <span class="number">23</span>, -<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">shellSort(&amp;arr)</span><br></pre></td></tr></table></figure>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p><a href="https://en.wikipedia.org/wiki/Shellsort" target="_blank" rel="noopener">希尔排序的维基百科</a></p>
 <p><a href="http://rosettacode.org/wiki/Sorting_algorithms/Shell_sort" target="_blank" rel="noopener">Rosetta code的希尔排序</a>（译注：大概70种不同语言实现希尔排序😅😓）</p>
 <p><em>作者：<a href="https://github.com/mitghi" target="_blank" rel="noopener">Mike Taghavi</a>，Matthijs Hollemans</em><br><em>翻译：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em><br><em>校对：<a href="https://github.com/andyRon" target="_blank" rel="noopener">Andy Ron</a></em>  </p>
@@ -668,9 +668,9 @@ sublist 1:  [ xx, -1, xx, 10, xx, 20, xx, 33, xx ]
       
         <div class="post-tags">
           
-            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
-          
             <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
           
             <a href="/tags/希尔排序/" rel="tag"><i class="fa fa-tag"></i> 希尔排序</a>
           
@@ -1585,6 +1585,3 @@ sublist 1:  [ xx, -1, xx, 10, xx, 20, xx, 33, xx ]
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

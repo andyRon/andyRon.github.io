@@ -496,7 +496,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">lazy</span> <span class="keyword">var</span> redLayer: <span class="type">CALayer</span> = &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.createLayer()</span><br><span class="line">&#125;()</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">createLayer</span><span class="params">()</span></span> -&gt; <span class="type">CALayer</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> redLayer = <span class="type">CALayer</span>()      </span><br><span class="line">    redLayer.position = <span class="type">CGPoint</span>(x: <span class="number">200</span>, y: <span class="number">200</span>)</span><br><span class="line">    redLayer.bounds = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="number">100</span>, height: <span class="number">100</span>)</span><br><span class="line">    redLayer.backgroundColor = <span class="type">UIColor</span>.red.cgColor</span><br><span class="line">    <span class="keyword">return</span> redLayer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>把新建的<code>CALayer</code>添加的<code>view</code>的<code>layer</code>中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view.layer.addSublayer(redLayer)</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view<span class="selector-class">.layer</span><span class="selector-class">.addSublayer</span>(redLayer)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>遵守协议<code>CAAnimationDelegate</code></p>
 <pre><code>class BasicPostionViewController: UIViewController, CAAnimationDelegate {
@@ -1529,6 +1529,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

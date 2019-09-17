@@ -806,7 +806,7 @@
 <p>在<code>viewDidAppear()</code>中添加：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username.delegate = <span class="keyword">self</span></span><br><span class="line">password.delegate = <span class="keyword">self</span></span><br></pre></td></tr></table></figure>
 <p>此时运行，<code>info</code>动画还在进行时点击文本框，会打印动画key值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&quot;infoappear&quot;, &quot;fadein&quot;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"infoappear"</span>, <span class="string">"fadein"</span>]</span><br></pre></td></tr></table></figure>
 <p>在 <code>textFieldDidBeginEditing(:)</code>里添加:</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">info.layer.removeAnimation(forKey: <span class="string">"infoappear"</span>)</span><br></pre></td></tr></table></figure>
 <p>点击文本框后，删除从左向右移动的动画，<code>info</code>立即到达终点，也就是屏幕中央：</p>
@@ -915,7 +915,7 @@
 <p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fx64fgnaecj30bw03sq2u.jpg" alt=""></p>
 <p>如果抖动时间太长，可以加大阻尼系数<code>damping</code>，比如：<code>pulse.damping = 7.5</code>。</p>
 <h3 id="弹簧动画属性"><a href="#弹簧动画属性" class="headerlink" title="弹簧动画属性"></a>弹簧动画属性</h3><p><code>CASpringAnimation</code>预定义的弹簧动画属性的默认值分别是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">damping: 10.0</span><br><span class="line">mass: 1.0</span><br><span class="line">stiffness: 100.0</span><br><span class="line">initialVelocity: 0.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">damping:</span> <span class="number">10.0</span></span><br><span class="line"><span class="symbol">mass:</span> <span class="number">1.0</span></span><br><span class="line"><span class="symbol">stiffness:</span> <span class="number">100.0</span></span><br><span class="line"><span class="symbol">initialVelocity:</span> <span class="number">0.0</span></span><br></pre></td></tr></table></figure>
 <p>实现文本框的一个代理方法：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">textFieldDidEndEditing</span><span class="params">(<span class="number">_</span> textField: UITextField)</span></span> &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> text = textField.text <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> text.<span class="built_in">count</span> &lt; <span class="number">5</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> jump = <span class="type">CASpringAnimation</span>(keyPath: <span class="string">"position.y"</span>)</span><br><span class="line">        jump.fromValue = textField.layer.position.y + <span class="number">1.0</span></span><br><span class="line">        jump.toValue = textField.layer.position.y</span><br><span class="line">        jump.duration = jump.settlingDuration</span><br><span class="line">        textField.layer.add(jump, forKey: <span class="literal">nil</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面代码，表示当用户在文本中输入结束后，如果输入字符数小于5，出现一个小幅度的抖动动画，提醒用户太短了。</p>
@@ -2270,6 +2270,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

@@ -504,7 +504,7 @@
 <h3 id="存取方法"><a href="#存取方法" class="headerlink" title="存取方法"></a>存取方法</h3><ul>
 <li><strong>存取</strong>(accessor) 方法是用来读取或改变某个对象属性的方法。分为 getter方法 和 setter方法。</li>
 <li><p>应该尽量使用对象提供的存取方法，不要直接改变对象里面的值。<br>存取方法总是成对出现的。<br>命名方式：setter方法在要更改属性的加上前缀set；getter方法直接是属性名称。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@interface Car : NSObject</span><br><span class="line">&#123;</span><br><span class="line">    Engine *engine;</span><br><span class="line">    Tire *tires[4];</span><br><span class="line">&#125;</span><br><span class="line">- (Engine *) engine;</span><br><span class="line">- (void) setEngine: (Engine *) newEngine;</span><br><span class="line">- (Tire *) tireAtIndex: (int) index;</span><br><span class="line">- (void) setTire: (Tire *) tire atIndex: (int) index;</span><br><span class="line">- (void)print;</span><br><span class="line">@end //Car</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> <span class="string">Car :</span> NSObject</span><br><span class="line">&#123;</span><br><span class="line">    Engine *engine;</span><br><span class="line">    Tire *tires[<span class="number">4</span>];</span><br><span class="line">&#125;</span><br><span class="line">- (Engine *) engine;</span><br><span class="line">- (<span class="keyword">void</span>) <span class="string">setEngine:</span> (Engine *) newEngine;</span><br><span class="line">- (Tire *) <span class="string">tireAtIndex:</span> (<span class="keyword">int</span>) index;</span><br><span class="line">- (<span class="keyword">void</span>) <span class="string">setTire:</span> (Tire *) tire <span class="string">atIndex:</span> (<span class="keyword">int</span>) index;</span><br><span class="line">- (<span class="keyword">void</span>)print;</span><br><span class="line"><span class="meta">@end</span> <span class="comment">//Car</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>在OC中所有对象间的交互都是通过指针实现的。</strong></p>
 </li>
@@ -1504,6 +1504,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

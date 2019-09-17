@@ -501,7 +501,7 @@
 <h2 id="关于GitHub-Pages"><a href="#关于GitHub-Pages" class="headerlink" title="关于GitHub Pages"></a>关于GitHub Pages</h2><p><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>原本是为托管在github上的项目提供介绍页面的一个功能，非常适合托管一些功能简单或者是静态页面的网站。考虑到访问速度，可以考虑国内的<a href="">coding</a>。 按照<a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>步骤建立自己的GitHub Pages库。</p>
 <h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>文档很详细，也有中文，很方便。</p>
 <h3 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h3><p><code>npm install hexo-cli -g</code></p>
-<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo init &lt;folder&gt;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> &lt;folder&gt;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br></pre></td></tr></table></figure>
 <h3 id="新生成的目录结构为："><a href="#新生成的目录结构为：" class="headerlink" title="新生成的目录结构为："></a>新生成的目录结构为：</h3><p><img src="http://images.andyron.com/2018/ar2018117.jpg" alt=""></p>
 <ul>
 <li><code>_config.yml</code>  是网站的<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">站点配置文件</a></li>
@@ -515,11 +515,11 @@
 <ul>
 <li>网站基本信息</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 欣欣向戎</span><br><span class="line">subtitle: AndyRon&apos;s Blog</span><br><span class="line">description: Just for fun.</span><br><span class="line">author: AndyRon</span><br><span class="line">language: zh-Hans</span><br><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attribute">title</span>: 欣欣向戎</span><br><span class="line"><span class="attribute">subtitle</span>: AndyRon's Blog</span><br><span class="line"><span class="attribute">description</span>: Just for fun.</span><br><span class="line"><span class="attribute">author</span>: AndyRon</span><br><span class="line"><span class="attribute">language</span>: zh-Hans</span><br><span class="line"><span class="attribute">timezone</span>: Asia/Shanghai</span><br></pre></td></tr></table></figure>
 <ul>
 <li>部署，注意字段，<code>repo</code>就是个人GitHub Pages的地址库。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">type: git </span><br><span class="line">repo: https://github.com/andyRon/andyRon.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Deployment</span></span><br><span class="line"><span class="meta">## Docs: https:<span class="comment">//hexo.io/docs/deployment.html</span></span></span><br><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">type:</span> git </span><br><span class="line"><span class="symbol">repo:</span> https:<span class="comment">//github.com/andyRon/andyRon.github.io.git</span></span><br><span class="line"><span class="symbol">branch:</span> master</span><br></pre></td></tr></table></figure>
 <h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p> <code>hexo new [layout] &lt;title&gt;</code> ：  也就是在<code>source/_posts/</code>下按照模板新建了一个markdown文件，layout就是指<code>scaffolds</code>文件夹中的模板，也可以直接在<code>_posts</code>中新建markdown文件。</p>
 <h3 id="在本地服务器测试"><a href="#在本地服务器测试" class="headerlink" title="在本地服务器测试"></a>在本地服务器测试</h3><p><code>hexo server</code> ：在浏览器打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，就可以查看</p>
 <h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><p><code>hexo generate</code>（<code>hexo g</code>） ：这个命令会新建一个<code>public</code>文件夹，在其中生成静态文件，这个目录相当于网站的根目录。</p>
@@ -543,7 +543,7 @@
 <li>安装 <a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="noopener">hexo-generator-feed</a>插件，在<code>hexo init</code>初始化的目录下执行<code>npm install hexo-generator-feed --save</code></li>
 <li>在<strong>站点配置文件</strong>添加：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">feed:</span><br><span class="line">type: atom</span><br><span class="line">path: atom.xml</span><br><span class="line">limit: 20</span><br><span class="line">hub:</span><br><span class="line">content:</span><br></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">feed:</span></span><br><span class="line"><span class="symbol">type:</span> atom</span><br><span class="line"><span class="symbol">path:</span> atom.xml</span><br><span class="line"><span class="symbol">limit:</span> <span class="number">20</span></span><br><span class="line"><span class="symbol">hub:</span></span><br><span class="line"><span class="symbol">content:</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>hexo generate</code></li>
 </ul>
@@ -553,9 +553,9 @@
 <li>安装<code>hexo-generator-searchdb</code>，在<code>hexo</code>的根目录下：<code>$ npm install hexo-generator-searchdb --save</code></li>
 <li>在<strong>站点配置文件</strong>添加：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">search:</span></span><br><span class="line"><span class="symbol">  path:</span> search.xml</span><br><span class="line"><span class="symbol">  field:</span> post</span><br><span class="line"><span class="symbol">  format:</span> html</span><br><span class="line"><span class="symbol">  limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>在<strong>主题配置文件</strong>（<code>themes/next/_config.yml</code>）修改：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">    enable: true</span><br></pre></td></tr></table></figure>
+<li>在<strong>主题配置文件</strong>（<code>themes/next/_config.yml</code>）修改：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line"><span class="attr">    enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -1595,6 +1595,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

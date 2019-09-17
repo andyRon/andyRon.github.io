@@ -498,7 +498,7 @@
 <a id="more"></a>
 <p>计算机文件一般可以分为（暂且这样分吧）：文本文件和二进制文件。通俗的说，文本文件就是平常通过某个软件（记事本，EditPlus，UltraEdit，sublime等各种编辑器，各种IDE等等）打开看到是‘字符’，二进制文件就是打开是图片或视频等，当然是通过某些能够解释二进制的程序来完成。<br>这里需要强调的是，文件的后缀名不能用来区分文件的类型，后缀名只是系统（特别是Windows）用来对文件进行预先分类，并给予对应的图标和相应双击后打开的程序，至于预先给定的程序能不能打开就不得而知。<br>如，在Windows下，把一个txt文件的后缀名改成jpg后：<br><img src="http://images.andyron.com/2018/ar2018128.jpg" alt=""><br>变成<br><img src="http://images.andyron.com/2018/ar2018129.jpg" alt=""></p>
 <p>双击打不开，用记事本依然能打开，就是内部编码没变，其实文件的类型在编码成二进制形式已经确定（一般是在头部）。</p>
-<p>php读取图片文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$a = file_get_contents(&apos;bg.png&apos;);</span><br><span class="line">echo $a;</span><br></pre></td></tr></table></figure></p>
+<p>php读取图片文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span> = file_get_contents(<span class="string">'bg.png'</span>);</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span>;</span><br></pre></td></tr></table></figure></p>
 <p>浏览器以UTF8形式打开图片的二进制形式，虽然大部分是乱码，但头部还是可以看到解码为PNG的：  </p>
 <p><img src="http://images.andyron.com/2018/ar2018130.jpg" alt=""></p>
 <h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p>字符编码就是每个在电脑里出现的字符都会对应一个二进制数，这个二进制可以成为<strong>码点</strong>(code point)。不同的编码形式，包含的字符数不同，字符和二进制数对应关系也不同。</p>
@@ -1557,6 +1557,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

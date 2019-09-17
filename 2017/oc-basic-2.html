@@ -549,10 +549,10 @@
 <ul>
 <li><code>@</code> 可以看成是对C语言的扩展</li>
 <li><p><strong>instance variable</strong>(实例变量) ： <code>@interface</code>下的花括号的内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    @private</span><br><span class="line">    ShapeColor fillColor;</span><br><span class="line">    ShapeRect bounds;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    @private</span><br><span class="line">    <span class="keyword">ShapeColor </span>fillColor<span class="comment">;</span></span><br><span class="line">    <span class="keyword">ShapeRect </span><span class="keyword">bounds;</span></span><br><span class="line"><span class="keyword">&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>method declaration</strong>(方法声明)。有点像C语言中的函数原型。<code>-</code>表示对象方法，<code>+</code>表示类方法。<code>(void)</code>表示返回类型。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void) setFillColor: (ShapeColor) fillColor;</span><br><span class="line">- (void) setBounds: (ShapeRect) bounds;</span><br><span class="line">- (void) draw;</span><br></pre></td></tr></table></figure>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(void)</span> setFillColor: <span class="params">(ShapeColor)</span> fillColor;</span><br><span class="line">- <span class="params">(void)</span> setBounds: <span class="params">(ShapeRect)</span> bounds;</span><br><span class="line">- <span class="params">(void)</span> draw;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -1567,6 +1567,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

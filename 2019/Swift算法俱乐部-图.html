@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法与数据结构,swift,图,Graph," />
+  <meta name="keywords" content="swift,算法与数据结构,图,Graph," />
 
 
 
@@ -105,7 +105,7 @@
 
 
 <meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
-<meta name="keywords" content="算法与数据结构,swift,图,Graph">
+<meta name="keywords" content="swift,算法与数据结构,图,Graph">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Swift算法俱乐部-图">
 <meta property="og:url" content="http://andyron.com/2019/Swift算法俱乐部-图.html">
@@ -617,7 +617,7 @@
 <p>它们被实现为一个类而不是结构，所以我们可以通过引用来修改它们，就像将边添加到新点一样，源点已经有一个边列表：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">createVertex</span><span class="params">(<span class="number">_</span> data: T)</span></span> -&gt; <span class="type">Vertex</span>&lt;<span class="type">T</span>&gt; &#123;</span><br><span class="line">  <span class="comment">// check if the vertex already exists</span></span><br><span class="line">  <span class="keyword">let</span> matchingVertices = vertices.<span class="built_in">filter</span>() &#123; vertex <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> vertex.data == data</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> matchingVertices.<span class="built_in">count</span> &gt; <span class="number">0</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> matchingVertices.last!</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// if the vertex doesn't exist, create a new one</span></span><br><span class="line">  <span class="keyword">let</span> vertex = <span class="type">Vertex</span>(data: data, index: adjacencyList.<span class="built_in">count</span>)</span><br><span class="line">  adjacencyList.append(<span class="type">EdgeList</span>(vertex: vertex))</span><br><span class="line">  <span class="keyword">return</span> vertex</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>该示例的邻接表如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">v1 -&gt; [(v2: 1.0)]</span><br><span class="line">v2 -&gt; [(v3: 1.0), (v5: 3.2)]</span><br><span class="line">v3 -&gt; [(v4: 4.5)]</span><br><span class="line">v4 -&gt; [(v1: 2.8)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">v1 -&gt; [(v2: 1.0)]</span><br><span class="line">v2 -&gt; [(v3: 1.0), (v5: 3.2)]</span><br><span class="line">v3 -&gt; [(v4: 4.5)]</span><br><span class="line">v4 -&gt; [(v1: 2.8)]</span><br></pre></td></tr></table></figure>
 <p>一般形式<code>a -&gt; [(b: w), ...]</code>，表示从<code>a</code>到<code>b</code>的边是存在的，权重为<code>w</code>（可能有更多<code>a</code>出去的边）。</p>
 <h2 id="代码：邻接矩阵"><a href="#代码：邻接矩阵" class="headerlink" title="代码：邻接矩阵"></a>代码：邻接矩阵</h2><p>我们将在二维<code>[[Double?]]</code>数组中追踪邻接矩阵。 <code>nil</code>表示没有边，而任何其他值表示给定权重的边。 如果<code>adjacencyMatrix[i][j]</code>不是<code>nil</code>，则从点<code>i</code>到点<code>j</code>有一条边。</p>
 <p>要使用点索引矩阵，我们使用<code>Vertex</code>中的<code>index</code>属性，该属性是在通过图对象创建点时分配的。 创建新点时，图必须调整矩阵的大小：</p>
@@ -718,9 +718,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
-          
             <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
           
             <a href="/tags/图/" rel="tag"><i class="fa fa-tag"></i> 图</a>
           
@@ -1637,6 +1637,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

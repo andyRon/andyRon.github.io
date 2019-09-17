@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法与数据结构,swift," />
+  <meta name="keywords" content="swift,算法与数据结构," />
 
 
 
@@ -105,7 +105,7 @@
 
 
 <meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algor">
-<meta name="keywords" content="算法与数据结构,swift">
+<meta name="keywords" content="swift,算法与数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Swift算法俱乐部-队列">
 <meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-队列.html">
@@ -523,9 +523,9 @@
 <p>你可能会好奇为什么在数组尾部添加元素的时间复杂度为 <strong>O(1)</strong>，或者说只需要固定的时间。这是因为在 Swift 的内部实现中，数组的尾部总是有一些预设的空间可供使用。如果我们进行如下操作：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> queue = <span class="type">Queue</span>&lt;<span class="type">String</span>&gt;()</span><br><span class="line">queue.enqueue(<span class="string">"Ada"</span>)</span><br><span class="line">queue.enqueue(<span class="string">"Steve"</span>)</span><br><span class="line">queue.enqueue(<span class="string">"Tim"</span>)</span><br></pre></td></tr></table></figure>
 <p>则数组可能看起来想下面这样</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ &quot;Ada&quot;, &quot;Steve&quot;, &quot;Tim&quot;, xxx, xxx, xxx ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="string">"Ada"</span>, <span class="string">"Steve"</span>, <span class="string">"Tim"</span>, xxx, xxx, xxx ]</span><br></pre></td></tr></table></figure>
 <p><code>xxx</code> 代表已经申请，但还没有使用的内存。在尾部添加一个新的元素就会用到下一块未被使用的内存：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ &quot;Ada&quot;, &quot;Steve&quot;, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="string">"Ada"</span>, <span class="string">"Steve"</span>, <span class="string">"Tim"</span>, <span class="string">"Grace"</span>, xxx, xxx ]</span><br></pre></td></tr></table></figure>
 <p>这只是简单的拷贝内存的工作，只需要固定的常量时间。</p>
 <p>当然，数组尾部的未使用内存的大小是有限的，如果最后一块未使用内存也被占用的时候，再添加元素会使得数组重新调整大小来获取更多的空间。</p>
 <p>重新调整的过程包括申请新的内存，将已有数据迁移到新内存中。这个操作的时间复杂度是 <strong>O(n)</strong>，所以是一个较慢的操作。但考虑到这种情况并不常见，所以，这个操作的时间复杂度依然是 <strong>O(1)</strong> 的，或者说是近似 <strong>O(1)</strong> 的。</p>
@@ -540,20 +540,20 @@
 </code></pre><p>在内存中移动这些元素的时间复杂度永远都是 <strong>O(n)</strong>，所以我们实现的简单队列对于入队操作的效率是很高的，但对于出队操作的效率却较为低下。</p>
 <h2 id="更加高效的队列"><a href="#更加高效的队列" class="headerlink" title="更加高效的队列"></a>更加高效的队列</h2><p>为了让队列的出队操作更加高效，我们可以使用和入队所用的相同小技巧，保留一些额外的空间，只不过这次是在队首而不是队尾。这次我们需要手动编码实现这个想法，因为 Swift 内建数组并没有提供这种机制。</p>
 <p>我们的想法如下：每当我们将一个元素出队，我们不再将剩下的元素向前移位（慢），而是将其标记为空（快）。在将 <code>&quot;Ada&quot;</code> 出队后，数组如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ xxx, &quot;Steve&quot;, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ xxx, <span class="string">"Steve"</span>, <span class="string">"Tim"</span>, <span class="string">"Grace"</span>, xxx, xxx ]</span><br></pre></td></tr></table></figure>
 <p><code>&quot;Steve&quot;</code> 出队后，数组如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ xxx, xxx, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ xxx, xxx, <span class="string">"Tim"</span>, <span class="string">"Grace"</span>, xxx, xxx ]</span><br></pre></td></tr></table></figure>
 <p>这些在前端空出来的位子永远都不会再次使用，所以这是些被浪费的空间。解决方法是将剩下的元素往前移动来填补这些空位：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx, xxx, xxx ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="string">"Tim"</span>, <span class="string">"Grace"</span>, xxx, xxx, xxx, xxx ]</span><br></pre></td></tr></table></figure>
 <p>这就需要移动内存，所以这是一个 <strong>O(n)</strong> 操作，但因为这个操作只是偶尔发生，所以出队操作平均时间复杂度为 <strong>O(1)</strong></p>
 <p>下面给出了改进版的队列的时间方式：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Queue</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> array = [<span class="type">T</span>?]()</span><br><span class="line">  <span class="keyword">fileprivate</span> <span class="keyword">var</span> head = <span class="number">0</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> isEmpty: <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">count</span> == <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> array.<span class="built_in">count</span> - head</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">enqueue</span><span class="params">(<span class="number">_</span> element: T)</span></span> &#123;</span><br><span class="line">    array.append(element)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">dequeue</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</span><br><span class="line">    <span class="keyword">guard</span> head &lt; array.<span class="built_in">count</span>, <span class="keyword">let</span> element = array[head] <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</span><br><span class="line"></span><br><span class="line">    array[head] = <span class="literal">nil</span></span><br><span class="line">    head += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> percentage = <span class="type">Double</span>(head)/<span class="type">Double</span>(array.<span class="built_in">count</span>)</span><br><span class="line">    <span class="keyword">if</span> array.<span class="built_in">count</span> &gt; <span class="number">50</span> &amp;&amp; percentage &gt; <span class="number">0.25</span> &#123;</span><br><span class="line">      array.removeFirst(head)</span><br><span class="line">      head = <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> element</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">var</span> front: <span class="type">T</span>? &#123;</span><br><span class="line">    <span class="keyword">if</span> isEmpty &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> array[head]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>现在数组存储的元素类型是 <code>T?</code>，而不是先前的 <code>T</code>，因为我们需要某种方式来将数组的元素标记为空。<code>head</code> 变量用于存储队列首元素的下标值。</p>
 <p>绝大多数的改进都是针对 <code>dequeue()</code> 函数，在将队首元素出队时，我们首先将 <code>array[head]</code> 设置为 <code>nil</code> 来将这个元素从数组中移除。然后将 <code>head</code> 的值加一，使得下一个元素变成新的队首。</p>
 <p>数组从这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[ &quot;Ada&quot;, &quot;Steve&quot;, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]</span><br><span class="line">  head</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta"> <span class="meta-string">"Ada"</span>, <span class="meta-string">"Steve"</span>, <span class="meta-string">"Tim"</span>, <span class="meta-string">"Grace"</span>, xxx, xxx </span>]</span><br><span class="line">  head</span><br></pre></td></tr></table></figure>
 <p>变成这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[ xxx, &quot;Steve&quot;, &quot;Tim&quot;, &quot;Grace&quot;, xxx, xxx ]</span><br><span class="line">        head</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta"> xxx, <span class="meta-string">"Steve"</span>, <span class="meta-string">"Tim"</span>, <span class="meta-string">"Grace"</span>, xxx, xxx </span>]</span><br><span class="line">        head</span><br></pre></td></tr></table></figure>
 <p>这就像在某个超市，在那里排队结账的人保持不动，而收银员从头往队尾移动来挨个结账。</p>
 <p>当然，如果我们从不移除队首的空位，随着不断地入队和出队，队列所占空间将不断增长。为了周期性地清理无用空间，我们编写了如下代码：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> percentage = <span class="type">Double</span>(head)/<span class="type">Double</span>(array.<span class="built_in">count</span>)</span><br><span class="line"><span class="keyword">if</span> array.<span class="built_in">count</span> &gt; <span class="number">50</span> &amp;&amp; percentage &gt; <span class="number">0.25</span> &#123;</span><br><span class="line">  array.removeFirst(head)</span><br><span class="line">  head = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -659,9 +659,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
-          
             <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
           
         </div>
       
@@ -1574,6 +1574,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

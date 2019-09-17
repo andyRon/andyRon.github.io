@@ -548,7 +548,7 @@
 <p>让<code>ViewController</code>遵守<code>UIViewControllerTransitioningDelegate</code>协议：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">UIViewControllerTransitioningDelegate</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在<code>didTapImageView(_:)</code>中的<code>present(herbDetails, animated: true, completion: nil)</code>前添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">herbDetails.transitioningDelegate = self</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">herbDetails<span class="selector-class">.transitioningDelegate</span> = self</span><br></pre></td></tr></table></figure>
 <p>现在，每次在屏幕上显示详情页的视图控制器时，UIKit都会向<code>ViewController</code>询问动画对象。 但是，目前仍然没有实现任何<code>UIViewControllerTransitioningDelegate</code>中的相关方法，因此UIKit仍将使用默认转换。</p>
 <p>在 <code>ViewController</code>中创建动画属性：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> transition = <span class="type">PopAnimator</span>()</span><br></pre></td></tr></table></figure>
@@ -1782,6 +1782,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

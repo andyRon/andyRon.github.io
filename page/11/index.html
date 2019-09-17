@@ -2427,9 +2427,10 @@ new方法在堆内存中创建一块合适大小的空间，然后在空间中�
 #import会包含这个类的所有信息，而@class只是告诉编译器，其后面声明的名称是类的名称。
 在头文件中， 一般只需要知道被引用的类的名称，所以@class常用在头文件中。
 对比#include与#import
-1234#include &lt;xxx.h&gt; #import &lt;xxx.h&gt;#include &quot;xxx.h&quot;#import &quot;xxx.h&quot;
+1234#include &lt;xxx.h&gt; #import &lt;xxx.h&gt;#include "xxx.h"#import "xxx.h"
 
-尖括号，
+尖括号，编译器会在系统文件目录下查找。
+双引号引
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -3277,6 +3278,3 @@ new方法在堆内存中创建一块合适大小的空间，然后在空间中�
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

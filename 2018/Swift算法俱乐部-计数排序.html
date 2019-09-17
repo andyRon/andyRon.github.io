@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法与数据结构,swift,计数排序," />
+  <meta name="keywords" content="swift,算法与数据结构,计数排序," />
 
 
 
@@ -105,7 +105,7 @@
 
 
 <meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
-<meta name="keywords" content="算法与数据结构,swift,计数排序">
+<meta name="keywords" content="swift,算法与数据结构,计数排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Swift算法俱乐部-计数排序">
 <meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-计数排序.html">
@@ -498,7 +498,7 @@
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>为了理解算法，让我们来看一个小例子。</p>
 <p>考虑数组: <code>[ 10, 9, 8, 7, 1, 2, 7, 3 ]</code></p>
 <h3 id="第一步："><a href="#第一步：" class="headerlink" title="第一步："></a>第一步：</h3><p>第一步是计算数组中每个项的总出现次数。 第一步的输出将是一个新的数组，如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Index 0 1 2 3 4 5 6 7 8 9 10</span><br><span class="line">Count 0 1 1 1 0 0 0 2 1 1 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Index <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br><span class="line">Count <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">2</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>译注：</strong> 这边Index的最大值对应于，数组中最大值10。</p>
 </blockquote>
@@ -506,12 +506,12 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="built_in">maxElement</span> = array.<span class="built_in">max</span>() ?? <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> countArray = [<span class="type">Int</span>](repeating: <span class="number">0</span>, <span class="built_in">count</span>: <span class="type">Int</span>(<span class="built_in">maxElement</span> + <span class="number">1</span>))</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> array &#123;</span><br><span class="line">  countArray[element] += <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="第二步："><a href="#第二步：" class="headerlink" title="第二步："></a>第二步：</h3><p>在此步骤中，算法尝试确定在每个元素之前放置的元素的数量。通过第一步已经知道每个元素的总出现次数，可以得到。方法就是把前一个计数和当前计数相加存储到每个索引中（对应代码就是<code>countArray[index] + countArray[index - 1]</code>）。</p>
 <p>计数数组如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Index 0 1 2 3 4 5 6 7 8 9 10</span><br><span class="line">Count 0 1 2 3 3 3 3 5 6 7 8</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Index <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br><span class="line">Count <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span></span><br></pre></td></tr></table></figure>
 <p>第二步的代码：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span> ..&lt; countArray.<span class="built_in">count</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> sum = countArray[index] + countArray[index - <span class="number">1</span>]</span><br><span class="line">  countArray[index] = sum</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>这是算法的最后一步。 原始数组中的每个元素都放置在第二步的输出定义的位置。例如，数字10将放在输出数组中的索引7处。 此外，当您放置元素时，您需要将计数减少1，因为从数组中减少了许多元素。</p>
 <p>最终的输出是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Index  0 1 2 3 4 5 6 7</span><br><span class="line">Output 1 2 3 7 7 8 9 10</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Index  <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span></span><br><span class="line">Output <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">7</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
 <p>以下是最后一步的代码：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sortedArray = [<span class="type">Int</span>](repeating: <span class="number">0</span>, <span class="built_in">count</span>: array.<span class="built_in">count</span>)</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> array &#123;</span><br><span class="line">  countArray[element] -= <span class="number">1</span></span><br><span class="line">  sortedArray[countArray[element]] = element</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> sortedArray</span><br></pre></td></tr></table></figure>
 <h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>该算法使用简单循环对集合进行排序。 因此，运行整个算法的时间是<strong>O(n+k)</strong>其中<strong>O(n)</strong>表示初始化输出数组所需的循环，<strong>O(k)</strong>是创建计数数组所需的循环。</p>
@@ -610,9 +610,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
-          
             <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
           
             <a href="/tags/计数排序/" rel="tag"><i class="fa fa-tag"></i> 计数排序</a>
           
@@ -1527,6 +1527,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

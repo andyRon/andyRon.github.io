@@ -525,14 +525,14 @@
 </li>
 </ul>
 <p>最终创建有三个Tab Bar Item的Tab Bar。<br><img src="http://images.andyron.com/2017/ar2017187.jpg" alt=""></p>
-<h3 id="定制Tab-Bar的样式"><a href="#定制Tab-Bar的样式" class="headerlink" title="定制Tab Bar的样式"></a>定制Tab Bar的样式</h3><p>修改Tab Bar的样式在<code>application(_:didFinishLaunchingWithOptions:)</code>中进行，类似下面的代码，详细的API可参考<a href="https://developer.apple.com/documentation/uikit/uitabbar#//apple_ref/doc/uid/TP40007521-CH3-SW4" target="_blank" rel="noopener">官方文档</a>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UITabBar.appearance().tintColor = UIColor(red: 235.0/255.0, green: 75.0/255.0,</span><br><span class="line">blue: 27.0/255.0, alpha: 1.0)</span><br><span class="line">UITabBar.appearance().barTintColor = UIColor.black</span><br></pre></td></tr></table></figure></p>
+<h3 id="定制Tab-Bar的样式"><a href="#定制Tab-Bar的样式" class="headerlink" title="定制Tab Bar的样式"></a>定制Tab Bar的样式</h3><p>修改Tab Bar的样式在<code>application(_:didFinishLaunchingWithOptions:)</code>中进行，类似下面的代码，详细的API可参考<a href="https://developer.apple.com/documentation/uikit/uitabbar#//apple_ref/doc/uid/TP40007521-CH3-SW4" target="_blank" rel="noopener">官方文档</a>：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UITabBar.appearance().tintColor = UIColor(<span class="string">red:</span> <span class="number">235.0</span><span class="regexp">/255.0, green: 75.0/</span><span class="number">255.0</span>,</span><br><span class="line"><span class="string">blue:</span> <span class="number">27.0</span>/<span class="number">255.0</span>, <span class="string">alpha:</span> <span class="number">1.0</span>)</span><br><span class="line">UITabBar.appearance().barTintColor = UIColor.black</span><br></pre></td></tr></table></figure></p>
 <h3 id="改变-Tab-Bar-Item的图片"><a href="#改变-Tab-Bar-Item的图片" class="headerlink" title="改变 Tab Bar Item的图片"></a>改变 Tab Bar Item的图片</h3><ul>
 <li>从<a href="http://www.appcoda.com/resources/swift3/tabbaricons.zip" target="_blank" rel="noopener">图片</a>下载图片到<code>Assets.xcasset</code>。</li>
 <li>在SB中修改三个Tab Bar Item的System Item都为<code>Custom</code>，修改Title和Image为想要的值，类似下图</li>
 </ul>
 <p><img src="http://images.andyron.com/2017/ar2017188.jpg" alt=""></p>
 <ul>
-<li>在<code>application(_:didFinishLaunchingWithOptions:)</code>中修改样式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UITabBar.appearance().tintColor = UIColor(red: 235.0/255.0, green: 75.0/255.0, blue: 27.0/255.0, alpha: 1.0)</span><br><span class="line">UITabBar.appearance().barTintColor = UIColor(red: 236/255.0, green: 240.0/255.0, blue: 241.0/255.0, alpha: 1.0)</span><br></pre></td></tr></table></figure>
+<li>在<code>application(_:didFinishLaunchingWithOptions:)</code>中修改样式：<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UITabBar.appearance().tintColor = UIColor(<span class="string">red:</span> <span class="number">235.0</span><span class="regexp">/255.0, green: 75.0/</span><span class="number">255.0</span>, <span class="string">blue:</span> <span class="number">27.0</span>/<span class="number">255.0</span>, <span class="string">alpha:</span> <span class="number">1.0</span>)</span><br><span class="line">UITabBar.appearance().barTintColor = UIColor(<span class="string">red:</span> <span class="number">236</span><span class="regexp">/255.0, green: 240.0/</span><span class="number">255.0</span>, <span class="string">blue:</span> <span class="number">241.0</span>/<span class="number">255.0</span>, <span class="string">alpha:</span> <span class="number">1.0</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><img src="http://images.andyron.com/2017/ar2017189.jpg" alt=""></p>
@@ -1546,6 +1546,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

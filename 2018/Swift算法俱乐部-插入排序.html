@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法与数据结构,swift,插入排序," />
+  <meta name="keywords" content="swift,算法与数据结构,插入排序," />
 
 
 
@@ -105,7 +105,7 @@
 
 
 <meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
-<meta name="keywords" content="算法与数据结构,swift,插入排序">
+<meta name="keywords" content="swift,算法与数据结构,插入排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Swift算法俱乐部-插入排序">
 <meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-插入排序.html">
@@ -523,7 +523,7 @@
 <pre><code>[ 8 | 3, 5, 4, 6 ]
 </code></pre><p>排好序的部分是<code>[8]</code>，未排序的堆是<code>[ 3, 5, 4, 6 ]</code>。<code>|</code>条向右移动了一个位置。</p>
 <p>下面是排序期间数组内容的变化过程：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[| 8, 3, 5, 4, 6 ]</span><br><span class="line">[ 8 | 3, 5, 4, 6 ]</span><br><span class="line">[ 3, 8 | 5, 4, 6 ]</span><br><span class="line">[ 3, 5, 8 | 4, 6 ]</span><br><span class="line">[ 3, 4, 5, 8 | 6 ]</span><br><span class="line">[ 3, 4, 5, 6, 8 |]</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[| <span class="number">8</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">6</span> ]</span><br><span class="line">[ <span class="number">8</span> | <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">6</span> ]</span><br><span class="line">[ <span class="number">3</span>, <span class="number">8</span> | <span class="number">5</span>, <span class="number">4</span>, <span class="number">6</span> ]</span><br><span class="line">[ <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span> | <span class="number">4</span>, <span class="number">6</span> ]</span><br><span class="line">[ <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span> | <span class="number">6</span> ]</span><br><span class="line">[ <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">8</span> |]</span><br></pre></td></tr></table></figure>
 <p>每一步，<code>|</code>条向右移动一个位置。 如您所见，数组的开始到<code>|</code>部分总是排好序的。堆缩小一位置，排序部分增加一位置，直到堆变为空的，没有更多未排序的数字为止。</p>
 <h2 id="怎么插入"><a href="#怎么插入" class="headerlink" title="怎么插入"></a>怎么插入</h2><p>每一步，您从未排序堆中选择最顶部的数字，并将其插入到数组的已排序部分。 但必须将该数字插入适当的位置，以便数组的从头开始保持排序。 这是如何运作的？</p>
 <p>假设我们已经完成了前几个元素，数组看起来像这样：</p>
@@ -697,9 +697,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
-          
             <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
           
             <a href="/tags/插入排序/" rel="tag"><i class="fa fa-tag"></i> 插入排序</a>
           
@@ -1614,6 +1614,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>

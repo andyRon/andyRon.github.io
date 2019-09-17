@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法与数据结构,swift,归并排序," />
+  <meta name="keywords" content="swift,算法与数据结构,归并排序," />
 
 
 
@@ -105,7 +105,7 @@
 
 
 <meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。🐙andyRon/swift-algori">
-<meta name="keywords" content="算法与数据结构,swift,归并排序">
+<meta name="keywords" content="swift,算法与数据结构,归并排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Swift算法俱乐部-归并排序">
 <meta property="og:url" content="http://andyron.com/2018/Swift算法俱乐部-归并排序.html">
@@ -546,13 +546,13 @@
 </li>
 </ol>
 <p><code>merge()</code>函数如何工作的例子。假设我们有以两个个堆：<code>leftPile = [1,7,8]</code>和<code>rightPile = [3,6,9]</code>。 请注意，这两个堆都已单独排序 – 合并排序总是如此的。 下面的步骤就将它们合并为一个更大的排好序的堆：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ 1, 7, 8 ]    [ 3, 6, 9 ]     [ ]</span><br><span class="line">  l              r</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ <span class="number">1</span>, <span class="number">7</span>, <span class="number">8</span> ]    [ <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span> ]     [ ]</span><br><span class="line">  l              r</span><br></pre></td></tr></table></figure>
 <p>左侧索引（此处表示为<code>l</code>）指向左侧堆的第一个项目<code>1</code>。 右则索引<code>r</code>指向<code>3</code>。 因此，我们添加到<code>orderedPile</code>的第一项是<code>1</code>。 我们还将左侧索引<code>l</code>移动到下一个项。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ 1, 7, 8 ]    [ 3, 6, 9 ]     [ 1 ]</span><br><span class="line">  --&gt;l           r</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ <span class="number">1</span>, <span class="number">7</span>, <span class="number">8</span> ]    [ <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span> ]     [ <span class="number">1</span> ]</span><br><span class="line">  --&gt;l           r</span><br></pre></td></tr></table></figure>
 <p>现在<code>l</code>指向<code>7</code>但是<code>r</code>仍然处于<code>3</code>。 我们将最小的项<code>3</code>添加到有序堆中。 现在的情况是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ 1, 7, 8 ]    [ 3, 6, 9 ]     [ 1, 3 ]</span><br><span class="line">     l           --&gt;r</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ <span class="number">1</span>, <span class="number">7</span>, <span class="number">8</span> ]    [ <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span> ]     [ <span class="number">1</span>, <span class="number">3</span> ]</span><br><span class="line">     l           --&gt;r</span><br></pre></td></tr></table></figure>
 <p>重复上面的过程。 在每一步中，我们从<code>leftPile</code>或<code>rightPile</code>中选择最小的项，并将该项添加到<code>orderedPile</code>中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ 1, 7, 8 ]    [ 3, 6, 9 ]     [ 1, 3, 6 ]</span><br><span class="line">     l              --&gt;r</span><br><span class="line"></span><br><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ 1, 7, 8 ]    [ 3, 6, 9 ]     [ 1, 3, 6, 7 ]</span><br><span class="line">     --&gt;l              r</span><br><span class="line"></span><br><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ 1, 7, 8 ]    [ 3, 6, 9 ]     [ 1, 3, 6, 7, 8 ]</span><br><span class="line">        --&gt;l           r</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ <span class="number">1</span>, <span class="number">7</span>, <span class="number">8</span> ]    [ <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span> ]     [ <span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span> ]</span><br><span class="line">     l              --&gt;r</span><br><span class="line"></span><br><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ <span class="number">1</span>, <span class="number">7</span>, <span class="number">8</span> ]    [ <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span> ]     [ <span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span> ]</span><br><span class="line">     --&gt;l              r</span><br><span class="line"></span><br><span class="line">leftPile       rightPile       orderedPile</span><br><span class="line">[ <span class="number">1</span>, <span class="number">7</span>, <span class="number">8</span> ]    [ <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span> ]     [ <span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span> ]</span><br><span class="line">        --&gt;l           r</span><br></pre></td></tr></table></figure>
 <p>现在，左堆中没有更多物品了。 我们只需从右边的堆中添加剩余的项目，我们就完成了。 合并的堆是<code>[1,3,6,7,8,9]</code>。</p>
 <p>请注意，此算法非常简单：它从左向右移动通过两个堆，并在每个步骤选择最小的项目。 这是有效的，因为我们保证每个堆都已经排序。</p>
 <blockquote>
@@ -677,9 +677,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
-          
             <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/算法与数据结构/" rel="tag"><i class="fa fa-tag"></i> 算法与数据结构</a>
           
             <a href="/tags/归并排序/" rel="tag"><i class="fa fa-tag"></i> 归并排序</a>
           
@@ -1594,6 +1594,3 @@
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
 
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
