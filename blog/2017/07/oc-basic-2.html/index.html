@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          OC基础学习2：面向对象编程的基础知识 - 欣欣向戎
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="andyron" />
+  <meta name="description" content="间接(indirection) &amp;ldquo;只要再多添加一层间接，计算机科学中就没有解决不了的问题。&amp;rdquo; 例子 电话薄 让他人代替你自己" />
+
+  <meta name="keywords" content="linux, Go, Java, PHP, program, journal, andyron, 博客, 笔记" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.128.2" />
+
+
+<link rel="canonical" href="http://localhost:1313/blog/2017/07/oc-basic-2.html/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:url" content="http://localhost:1313/blog/2017/07/oc-basic-2.html/">
+  <meta property="og:site_name" content="欣欣向戎">
+  <meta property="og:title" content="OC基础学习2：面向对象编程的基础知识">
+  <meta property="og:description" content="间接(indirection) “只要再多添加一层间接，计算机科学中就没有解决不了的问题。” 例子 电话薄 让他人代替你自己">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2017-07-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-16T12:36:03+08:00">
+
+  <meta itemprop="name" content="OC基础学习2：面向对象编程的基础知识">
+  <meta itemprop="description" content="间接(indirection) “只要再多添加一层间接，计算机科学中就没有解决不了的问题。” 例子 电话薄 让他人代替你自己">
+  <meta itemprop="datePublished" content="2017-07-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-07-16T12:36:03+08:00">
+  <meta itemprop="wordCount" content="1869">
+  <meta itemprop="keywords" content="IOS,Objective-C">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="OC基础学习2：面向对象编程的基础知识">
+  <meta name="twitter:description" content="间接(indirection) “只要再多添加一层间接，计算机科学中就没有解决不了的问题。” 例子 电话薄 让他人代替你自己">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">欣欣向戎</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+        
+      </li>
+    
+
+    
+      <li class="mobile-menu-item">
+        <a id="openSearchMobile" class="mobile-menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+      
+<div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div id="closeSearch" title="Close" class="close">X</div>
+      <div class="modal-header">
+        <div class="modal-title">Search</div>
+      </div>
+      <div class="modal-body">
+          <script>
+            (function() {
+              var cx = '002186711602136249422:q1gkomof_em';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' :
+                  'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search>
+      </div>
+    </div>
+</div>
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      欣欣向戎
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+      <li class="menu-item">
+        <a id="openSearch" class="menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">OC基础学习2：面向对象编程的基础知识</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2017-07-22">
+      2017-07-22
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2024-07-16)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="http://localhost:1313/categories/ios/"> iOS </a>
+          <a href="http://localhost:1313/categories/objective-c/"> Objective-C </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <h3 id="间接indirection">间接(indirection)</h3>
+<blockquote>
+<p><strong>&ldquo;只要再多添加一层间接，计算机科学中就没有解决不了的问题。&rdquo;</strong></p>
+</blockquote>
+<ul>
+<li>例子
+<ul>
+<li>电话薄</li>
+<li>让他人代替你自己去完成工作</li>
+<li>编写一段代码来查询其他代码，并通过它继续访问另一层代码。</li>
+<li>推诿</li>
+</ul>
+</li>
+<li><strong>变量与间接</strong></li>
+<li><strong>使用文件名的间接</strong></li>
+</ul>
+<h3 id="在面向对象编程中使用间接">在面向对象编程中使用间接</h3>
+<blockquote>
+<p>使用间接来调用代码，不是直接调用某个函数，而是间接调用。</p>
+</blockquote>
+<ul>
+<li>过程式编程(Procedual Programming)</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-29">29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-30">30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-31">31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-32">32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-33">33</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-34"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-34">34</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-35"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-35">35</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-36"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-36">36</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-37"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-37">37</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-38"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-38">38</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-39"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-39">39</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-40"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-40">40</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-41"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-41">41</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-42"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-42">42</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-43"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-43">43</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-44"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-44">44</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-45"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-45">45</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-46"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-46">46</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-47"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-47">47</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-48"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-48">48</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-49"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-49">49</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-50"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-50">50</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-51"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-51">51</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-52"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-52">52</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-53"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-53">53</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-54"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-54">54</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-55"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-55">55</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-56"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-56">56</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-57"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-57">57</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-58"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-58">58</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-59"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-59">59</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-60"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-60">60</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-61"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-61">61</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-62"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-62">62</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-63"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-63">63</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-64"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-64">64</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-65"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-65">65</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-66"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-66">66</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-67"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-67">67</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-68"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-68">68</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-69"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-69">69</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-70"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-70">70</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-71"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-71">71</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-72"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-72">72</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-73"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-73">73</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-74"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-74">74</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-75"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-75">75</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-76"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-76">76</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-77"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-77">77</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-78"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-78">78</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-79"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-79">79</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-80"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-80">80</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-81"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-81">81</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-82"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-82">82</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-83"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-83">83</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-84"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-84">84</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-85"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-85">85</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-86"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-86">86</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-87"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-87">87</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-88"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-88">88</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-89"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-89">89</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-90"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-90">90</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-91"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-91">91</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-92"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-92">92</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-93"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-93">93</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-94"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-94">94</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-95"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-95">95</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-96"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-96">96</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-97"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-97">97</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-98"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-98">98</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#007020">#import &lt;Foundation/Foundation.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#007020"></span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">typedef</span> <span style="color:#007020;font-weight:bold">enum</span> {
+</span></span><span style="display:flex;"><span>    kCircle,
+</span></span><span style="display:flex;"><span>    kRectangle,
+</span></span><span style="display:flex;"><span>    kEgg,
+</span></span><span style="display:flex;"><span>} ShapeType;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">typedef</span> <span style="color:#007020;font-weight:bold">enum</span> {
+</span></span><span style="display:flex;"><span>    kRedColor,
+</span></span><span style="display:flex;"><span>    kGreenColor,
+</span></span><span style="display:flex;"><span>    kBlueColor
+</span></span><span style="display:flex;"><span>} ShapeColor;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">//不同图形元素
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">typedef</span> <span style="color:#007020;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#902000">int</span> x, y, width, height;
+</span></span><span style="display:flex;"><span>} ShapeRect;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">//图形结构
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">typedef</span> <span style="color:#007020;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>    ShapeType type;
+</span></span><span style="display:flex;"><span>    ShapeColor fillColor;
+</span></span><span style="display:flex;"><span>    ShapeRect bounds;
+</span></span><span style="display:flex;"><span>} Shape;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">//颜色函数
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>NSString <span style="color:#666">*</span><span style="color:#06287e">colorName</span>(ShapeColor fillColor)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">switch</span> (fillColor) {
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">case</span> <span style="color:#002070;font-weight:bold">kRedColor</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">@&#34;red&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">case</span> <span style="color:#002070;font-weight:bold">kGreenColor</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">@&#34;green&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">case</span> <span style="color:#002070;font-weight:bold">kBlueColor</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">@&#34;blue&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">@&#34;no clue&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">//绘制图形
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#902000">void</span> <span style="color:#06287e">drawCircle</span>(ShapeRect bounds, ShapeColor fillColor)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;drawing a Circle at (%d %d %d %d) in %@&#34;</span>, bounds.x, bounds.y, bounds.width, bounds.height, colorName(fillColor));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#902000">void</span> <span style="color:#06287e">drawRectangle</span>(ShapeRect bounds, ShapeColor fillColor)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;drawing a Rectangle at (%d %d %d %d) in %@&#34;</span>, bounds.x, bounds.y, bounds.width, bounds.height, colorName(fillColor));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#902000">void</span> <span style="color:#06287e">drawEgg</span>(ShapeRect bounds, ShapeColor fillColor)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;drawing a Egg at (%d %d %d %d) in %@&#34;</span>, bounds.x, bounds.y, bounds.width, bounds.height, colorName(fillColor));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#902000">void</span> <span style="color:#06287e">drawShapes</span>(Shape shapes[], <span style="color:#902000">int</span> count)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i<span style="color:#666">=</span><span style="color:#40a070">0</span>; i<span style="color:#666">&lt;</span>count; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">switch</span> (shapes[i].type) {
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">case</span> <span style="color:#002070;font-weight:bold">kCircle</span>:
+</span></span><span style="display:flex;"><span>                drawCircle(shapes[i].bounds, shapes[i].fillColor);
+</span></span><span style="display:flex;"><span>                <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">case</span> <span style="color:#002070;font-weight:bold">kRectangle</span>:
+</span></span><span style="display:flex;"><span>                drawRectangle(shapes[i].bounds, shapes[i].fillColor);
+</span></span><span style="display:flex;"><span>                <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">case</span> <span style="color:#002070;font-weight:bold">kEgg</span>:
+</span></span><span style="display:flex;"><span>                drawEgg(shapes[i].bounds, shapes[i].fillColor);
+</span></span><span style="display:flex;"><span>                <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">default</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#902000">int</span> <span style="color:#06287e">main</span>(<span style="color:#902000">int</span> argc, <span style="color:#007020;font-weight:bold">const</span> <span style="color:#902000">char</span> <span style="color:#666">*</span> argv[]) {
+</span></span><span style="display:flex;"><span>    Shape shapes[<span style="color:#40a070">3</span>];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ShapeRect rect0 <span style="color:#666">=</span> {<span style="color:#40a070">0</span>, <span style="color:#40a070">0</span>, <span style="color:#40a070">10</span>, <span style="color:#40a070">30</span>};
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">0</span>].type <span style="color:#666">=</span> kCircle;
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">0</span>].fillColor <span style="color:#666">=</span> kRedColor;
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">0</span>].bounds <span style="color:#666">=</span> rect0;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ShapeRect rect1 <span style="color:#666">=</span> {<span style="color:#40a070">30</span>, <span style="color:#40a070">40</span>, <span style="color:#40a070">50</span>, <span style="color:#40a070">60</span>};
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">1</span>].type <span style="color:#666">=</span> kRectangle;
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">1</span>].fillColor <span style="color:#666">=</span> kGreenColor;
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">1</span>].bounds <span style="color:#666">=</span> rect1;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ShapeRect rect2 <span style="color:#666">=</span> {<span style="color:#40a070">15</span>, <span style="color:#40a070">18</span>, <span style="color:#40a070">37</span>, <span style="color:#40a070">29</span>};
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">2</span>].type <span style="color:#666">=</span> kEgg;
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">2</span>].fillColor <span style="color:#666">=</span> kBlueColor;
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">2</span>].bounds <span style="color:#666">=</span> rect2;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    drawShapes(shapes, <span style="color:#40a070">3</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改过去正常工作的代码很可能会引入新的错误。
+<strong>建立在函数之上，数据为函数服务。</strong>
+代码例子 <code>3.2.1 Shapes-Procedural</code></p>
+<ul>
+<li>面向对象编程
+<ul>
+<li><strong>以数据为中心，函数为数据服务</strong></li>
+<li>代码例子 <code>3.2.2 Shapes-Object</code></li>
+<li><code>id</code>是一种泛型，可以用来引用任何类型的对象(id实际上是一个指向结构体的指针)。</li>
+<li>方括号在OC中其他意义：用于通知某个对象该去做什么。<code>[shape draw];</code>表示通知shape对象执行draw操作</li>
+<li><strong>发送消息</strong>（调用方法）：通知对象执行某种操作。</li>
+<li>类是一种能够实例化成对象的结构体。</li>
+<li>如果在运行时改变某个类，则该类的所有对象自动继承这些变化。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">  1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">  2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">  3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">  4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">  5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6">  6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7">  7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8">  8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9">  9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-10"> 10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-11"> 11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-12"> 12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-13"> 13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-14"> 14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-15"> 15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-16"> 16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-17"> 17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-18"> 18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-19"> 19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-20"> 20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-21"> 21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-22"> 22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-23"> 23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-24"> 24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-25"> 25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-26"> 26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-27"> 27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-28"> 28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-29"> 29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-30"> 30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-31"> 31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-32"> 32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-33"> 33</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-34"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-34"> 34</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-35"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-35"> 35</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-36"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-36"> 36</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-37"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-37"> 37</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-38"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-38"> 38</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-39"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-39"> 39</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-40"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-40"> 40</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-41"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-41"> 41</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-42"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-42"> 42</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-43"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-43"> 43</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-44"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-44"> 44</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-45"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-45"> 45</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-46"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-46"> 46</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-47"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-47"> 47</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-48"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-48"> 48</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-49"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-49"> 49</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-50"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-50"> 50</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-51"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-51"> 51</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-52"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-52"> 52</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-53"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-53"> 53</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-54"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-54"> 54</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-55"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-55"> 55</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-56"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-56"> 56</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-57"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-57"> 57</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-58"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-58"> 58</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-59"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-59"> 59</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-60"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-60"> 60</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-61"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-61"> 61</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-62"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-62"> 62</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-63"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-63"> 63</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-64"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-64"> 64</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-65"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-65"> 65</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-66"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-66"> 66</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-67"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-67"> 67</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-68"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-68"> 68</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-69"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-69"> 69</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-70"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-70"> 70</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-71"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-71"> 71</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-72"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-72"> 72</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-73"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-73"> 73</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-74"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-74"> 74</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-75"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-75"> 75</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-76"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-76"> 76</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-77"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-77"> 77</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-78"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-78"> 78</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-79"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-79"> 79</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-80"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-80"> 80</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-81"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-81"> 81</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-82"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-82"> 82</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-83"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-83"> 83</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-84"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-84"> 84</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-85"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-85"> 85</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-86"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-86"> 86</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-87"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-87"> 87</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-88"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-88"> 88</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-89"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-89"> 89</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-90"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-90"> 90</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-91"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-91"> 91</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-92"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-92"> 92</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-93"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-93"> 93</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-94"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-94"> 94</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-95"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-95"> 95</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-96"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-96"> 96</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-97"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-97"> 97</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-98"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-98"> 98</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-99"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-99"> 99</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-100"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-100">100</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-101"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-101">101</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-102"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-102">102</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-103"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-103">103</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-104"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-104">104</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-105"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-105">105</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-106"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-106">106</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-107"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-107">107</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-108"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-108">108</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-109"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-109">109</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-110"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-110">110</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-111"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-111">111</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-112"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-112">112</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-113"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-113">113</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-114"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-114">114</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-115"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-115">115</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-116"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-116">116</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-117"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-117">117</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-118"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-118">118</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-119"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-119">119</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-120"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-120">120</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-121"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-121">121</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-122"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-122">122</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-123"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-123">123</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-124"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-124">124</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-125"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-125">125</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-126"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-126">126</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-127"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-127">127</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-128"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-128">128</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-129"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-129">129</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-130"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-130">130</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-131"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-131">131</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-132"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-132">132</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-133"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-133">133</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-134"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-134">134</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-135"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-135">135</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-136"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-136">136</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-137"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-137">137</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-138"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-138">138</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-139"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-139">139</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-140"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-140">140</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-141"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-141">141</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-142"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-142">142</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-143"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-143">143</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-144"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-144">144</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-145"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-145">145</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-146"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-146">146</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-147"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-147">147</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-148"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-148">148</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-149"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-149">149</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-150"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-150">150</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-151"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-151">151</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-152"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-152">152</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-153"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-153">153</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-154"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-154">154</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-155"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-155">155</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-156"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-156">156</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-157"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-157">157</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-158"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-158">158</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-159"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-159">159</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-160"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-160">160</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-161"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-161">161</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-162"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-162">162</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-163"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-163">163</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-164"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-164">164</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-165"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-165">165</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-166"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-166">166</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-167"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-167">167</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-168"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-168">168</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-169"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-169">169</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-170"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-170">170</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-171"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-171">171</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-172"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-172">172</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-173"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-173">173</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-174"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-174">174</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-175"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-175">175</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-176"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-176">176</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-177"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-177">177</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-178"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-178">178</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-179"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-179">179</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-180"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-180">180</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-181"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-181">181</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-182"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-182">182</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-183"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-183">183</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-184"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-184">184</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#007020">#import &lt;Foundation/Foundation.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#007020"></span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">typedef</span> <span style="color:#007020;font-weight:bold">enum</span> {
+</span></span><span style="display:flex;"><span>    kRedColor,
+</span></span><span style="display:flex;"><span>    kGreenColor,
+</span></span><span style="display:flex;"><span>    kBlueColor
+</span></span><span style="display:flex;"><span>} ShapeColor;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">//不同图形元素
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">typedef</span> <span style="color:#007020;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#902000">int</span> x, y, width, height;
+</span></span><span style="display:flex;"><span>} ShapeRect;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">//颜色函数
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>NSString <span style="color:#666">*</span><span style="color:#06287e">colorName</span>(ShapeColor fillColor)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">switch</span> (fillColor) {
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">case</span> <span style="color:#002070;font-weight:bold">kRedColor</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">@&#34;red&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">case</span> <span style="color:#002070;font-weight:bold">kGreenColor</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">@&#34;green&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">case</span> <span style="color:#002070;font-weight:bold">kBlueColor</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">@&#34;blue&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#4070a0">@&#34;no clue&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@interface</span> <span style="color:#0e84b5;font-weight:bold">Circle</span> : <span style="color:#0e84b5;font-weight:bold">NSObject</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">@private</span>
+</span></span><span style="display:flex;"><span>    ShapeColor fillColor;
+</span></span><span style="display:flex;"><span>    ShapeRect bounds;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setFillColor:</span> (ShapeColor) <span style="color:#bb60d5">fillColor</span>;
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setBounds:</span> (ShapeRect) <span style="color:#bb60d5">bounds</span>;
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">draw</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>  <span style="color:#60a0b0;font-style:italic">//Circle
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">@implementation</span> <span style="color:#0e84b5;font-weight:bold">Circle</span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setFillColor:</span>(ShapeColor) <span style="color:#bb60d5">c</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    fillColor <span style="color:#666">=</span> c;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setBounds:</span>(ShapeRect) <span style="color:#bb60d5">b</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    bounds <span style="color:#666">=</span> b;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">draw</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;drawing a Circle at (%d %d %d %d) in %@&#34;</span>, bounds.x, bounds.y, bounds.width, bounds.height, colorName(fillColor));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@interface</span> <span style="color:#0e84b5;font-weight:bold">Rectangle</span> : <span style="color:#0e84b5;font-weight:bold">NSObject</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@private</span>
+</span></span><span style="display:flex;"><span>    ShapeColor fillColor;
+</span></span><span style="display:flex;"><span>    ShapeRect bounds;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setFillColor:</span> (ShapeColor) <span style="color:#bb60d5">fillColor</span>;
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setBounds:</span> (ShapeRect) <span style="color:#bb60d5">bounds</span>;
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">draw</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>  <span style="color:#60a0b0;font-style:italic">//Rectangle
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">@implementation</span> <span style="color:#0e84b5;font-weight:bold">Rectangle</span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setFillColor:</span>(ShapeColor) <span style="color:#bb60d5">c</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    fillColor <span style="color:#666">=</span> c;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setBounds:</span>(ShapeRect) <span style="color:#bb60d5">b</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    bounds <span style="color:#666">=</span> b;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">draw</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;drawing a Rectangle at (%d %d %d %d) in %@&#34;</span>, bounds.x, bounds.y, bounds.width, bounds.height, colorName(fillColor));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@interface</span> <span style="color:#0e84b5;font-weight:bold">Egg</span> : <span style="color:#0e84b5;font-weight:bold">NSObject</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@private</span>
+</span></span><span style="display:flex;"><span>    ShapeColor fillColor;
+</span></span><span style="display:flex;"><span>    ShapeRect bounds;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setFillColor:</span> (ShapeColor) <span style="color:#bb60d5">fillColor</span>;
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setBounds:</span> (ShapeRect) <span style="color:#bb60d5">bounds</span>;
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">draw</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>  <span style="color:#60a0b0;font-style:italic">//Egg
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">@implementation</span> <span style="color:#0e84b5;font-weight:bold">Egg</span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setFillColor:</span>(ShapeColor) <span style="color:#bb60d5">c</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    fillColor <span style="color:#666">=</span> c;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setBounds:</span>(ShapeRect) <span style="color:#bb60d5">b</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    bounds <span style="color:#666">=</span> b;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">draw</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;drawing a Egg at (%d %d %d %d) in %@&#34;</span>, bounds.x, bounds.y, bounds.width, bounds.height, colorName(fillColor));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 补充一个三角形
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">@interface</span> <span style="color:#0e84b5;font-weight:bold">Triangle</span> : <span style="color:#0e84b5;font-weight:bold">NSObject</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@private</span>
+</span></span><span style="display:flex;"><span>    ShapeColor fillColor;
+</span></span><span style="display:flex;"><span>    ShapeRect bounds;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setFillColor:</span> (ShapeColor) <span style="color:#bb60d5">fillColor</span>;
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setBounds:</span> (ShapeRect) <span style="color:#bb60d5">bounds</span>;
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">draw</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>  <span style="color:#60a0b0;font-style:italic">//Triangle
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">@implementation</span> <span style="color:#0e84b5;font-weight:bold">Triangle</span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setFillColor:</span>(ShapeColor) <span style="color:#bb60d5">c</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    fillColor <span style="color:#666">=</span> c;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setBounds:</span>(ShapeRect) <span style="color:#bb60d5">b</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    bounds <span style="color:#666">=</span> b;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">draw</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;drawing a Triangle at (%d %d %d %d) in %@&#34;</span>, bounds.x, bounds.y, bounds.width, bounds.height, colorName(fillColor));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#902000">void</span> drawShapes(<span style="color:#902000">id</span> shapes[], <span style="color:#902000">int</span> count)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i<span style="color:#666">=</span><span style="color:#40a070">0</span>; i<span style="color:#666">&lt;</span>count; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#902000">id</span> shape <span style="color:#666">=</span> shapes[i];
+</span></span><span style="display:flex;"><span>        [shape draw];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#902000">int</span> main(<span style="color:#902000">int</span> argc, <span style="color:#007020;font-weight:bold">const</span> <span style="color:#902000">char</span> <span style="color:#666">*</span> argv[]) {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#902000">id</span> shapes[<span style="color:#40a070">4</span>];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ShapeRect rect0 <span style="color:#666">=</span> {<span style="color:#40a070">0</span>, <span style="color:#40a070">0</span>, <span style="color:#40a070">10</span>, <span style="color:#40a070">30</span>};
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">0</span>] <span style="color:#666">=</span> [Circle new];
+</span></span><span style="display:flex;"><span>    [shapes[<span style="color:#40a070">0</span>] <span style="color:#002070;font-weight:bold">setBounds</span>:rect0];
+</span></span><span style="display:flex;"><span>    [shapes[<span style="color:#40a070">0</span>] <span style="color:#002070;font-weight:bold">setFillColor</span>:kRedColor];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ShapeRect rect1 <span style="color:#666">=</span> {<span style="color:#40a070">30</span>, <span style="color:#40a070">40</span>, <span style="color:#40a070">50</span>, <span style="color:#40a070">60</span>};
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">1</span>] <span style="color:#666">=</span> [Rectangle new];
+</span></span><span style="display:flex;"><span>    [shapes[<span style="color:#40a070">1</span>] <span style="color:#002070;font-weight:bold">setBounds</span>:rect1];
+</span></span><span style="display:flex;"><span>    [shapes[<span style="color:#40a070">1</span>] <span style="color:#002070;font-weight:bold">setFillColor</span>:kGreenColor];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ShapeRect rect2 <span style="color:#666">=</span> {<span style="color:#40a070">15</span>, <span style="color:#40a070">18</span>, <span style="color:#40a070">37</span>, <span style="color:#40a070">29</span>};
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">2</span>] <span style="color:#666">=</span> [Egg new];
+</span></span><span style="display:flex;"><span>    [shapes[<span style="color:#40a070">2</span>] <span style="color:#002070;font-weight:bold">setBounds</span>:rect2];
+</span></span><span style="display:flex;"><span>    [shapes[<span style="color:#40a070">2</span>] <span style="color:#002070;font-weight:bold">setFillColor</span>:kBlueColor];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ShapeRect rect3 <span style="color:#666">=</span> {<span style="color:#40a070">3</span>, <span style="color:#40a070">4</span>, <span style="color:#40a070">5</span>, <span style="color:#40a070">0</span>};
+</span></span><span style="display:flex;"><span>    shapes[<span style="color:#40a070">3</span>] <span style="color:#666">=</span> [Triangle new];
+</span></span><span style="display:flex;"><span>    [shapes[<span style="color:#40a070">3</span>] <span style="color:#002070;font-weight:bold">setBounds</span>:rect3];
+</span></span><span style="display:flex;"><span>    [shapes[<span style="color:#40a070">3</span>] <span style="color:#002070;font-weight:bold">setFillColor</span>:kBlueColor];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    drawShapes(shapes, <span style="color:#40a070">4</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="有关术语">有关术语</h3>
+<ul>
+<li>class</li>
+<li>object</li>
+<li>instance</li>
+<li>message</li>
+<li>method</li>
+<li>method dispatcher</li>
+<li>interface</li>
+<li>implementation</li>
+</ul>
+<h3 id="oc中的oop">OC中的OOP</h3>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-27">27</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@interface</span> <span style="color:#0e84b5;font-weight:bold">Circle</span> : <span style="color:#0e84b5;font-weight:bold">NSObject</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">@private</span>
+</span></span><span style="display:flex;"><span>    ShapeColor fillColor;
+</span></span><span style="display:flex;"><span>    ShapeRect bounds;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setFillColor:</span> (ShapeColor) <span style="color:#bb60d5">fillColor</span>;
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setBounds:</span> (ShapeRect) <span style="color:#bb60d5">bounds</span>;
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">draw</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>  <span style="color:#60a0b0;font-style:italic">//Circle
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">@implementation</span> <span style="color:#0e84b5;font-weight:bold">Circle</span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setFillColor:</span>(ShapeColor) <span style="color:#bb60d5">c</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    fillColor <span style="color:#666">=</span> c;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">setBounds:</span>(ShapeRect) <span style="color:#bb60d5">b</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    bounds <span style="color:#666">=</span> b;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">draw</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;drawing a Circle at (%d %d %d %d) in %@&#34;</span>, bounds.x, bounds.y, bounds.width, bounds.height, colorName(fillColor));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li><code>@interface</code> OC编译器需要一些有关类的信息
+<ul>
+<li><code>@</code> 可以看成是对C语言的扩展</li>
+<li><strong>instance variable</strong>(实例变量) ： <code>@interface</code>下的花括号的内容：</li>
+</ul>
+<pre tabindex="0"><code></code></pre></li>
+</ol>
+<p>{
+@private
+ShapeColor fillColor;
+ShapeRect bounds;
+}
+<code>+ **method declaration**(方法声明)。有点像C语言中的函数原型。`-`表示对象方法，`+`表示类方法。`(void)`表示返回类型。</code>
+- (void) setFillColor: (ShapeColor) fillColor;
+- (void) setBounds: (ShapeRect) bounds;
+- (void) draw;
+```</p>
+<pre><code>+ **infix notation**(中缀符) ： *方法的名称及其参数都是合在一起的*   
+    `[circle setFillColor: kRedColor]` 表示调用带一个参数的方法
++ 如果方法使用参数，则需要冒号，否则不需要冒号
++ 提倡@end语言后添加注释来注明类的名称
+</code></pre>
+<ol start="2">
+<li><code>@implementation</code>
+<ul>
+<li>@implementation中可以定义在@interface中声明过和没有声明过的方法</li>
+<li>OC中不存在真正的私有方法</li>
+</ul>
+</li>
+<li>实例化对象
+<ul>
+<li><strong>instantiation</strong>（实例化）</li>
+<li><code>[Circle new]</code>    发送new消息</li>
+</ul>
+</li>
+<li><strong>软件实体应该对扩展开放，而对修改关闭。</strong>     &mdash;- 开放/关闭原则(Bertrand Meyer)</li>
+</ol>
+
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">andyron</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2024-07-16
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content">原创文章，如需转载请注明文章作者和出处。谢谢！</span>
+  </p>
+</div>
+
+
+
+        
+        
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
+  </div>
+</div>
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/blog/2017/07/beginning-ios-swift-13.html/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">开始用Swift开发iOS 10 - 13 Self Sizing Cells and Dynamic Type</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/blog/2017/07/oc-basic-3-inheritance.html/">
+                <span class="next-text nav-default">OC基础学习3：继承(inheritance)</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+    <div class="post">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="xianmin/comments---xianmin.org"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNDAyNTY2MDI="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCFwlWs4CRRxW"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+  
+
+  
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://localhost:1313/blog/2017/07/oc-basic-2.html/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'xianmin12';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript
+    >Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+</div>
+
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#间接indirection">间接(indirection)</a></li>
+        <li><a href="#在面向对象编程中使用间接">在面向对象编程中使用间接</a></li>
+        <li><a href="#有关术语">有关术语</a></li>
+        <li><a href="#oc中的oop">OC中的OOP</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+  
+    <a href="mailto:rongming.2008@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://stackoverflow.com/users/3133839/andyron" rel="me noopener" class="iconfont"
+      title="stack-overflow"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M809.714286 932.571429l-638.857143 0 0-274.285714-91.428571 0 0 365.714286 821.714286 0 0-365.714286-91.428571 0 0 274.285714zm-538.285714-299.428571l18.857143-89.714286 447.428571 94.285714-18.857143 89.142857zm58.857143-213.714286l38.285714-83.428571 414.285714 193.714286-38.285714 82.857143zm114.857143-203.428571l58.285714-70.285714 350.857143 293.142857-58.285714 70.285714zm226.857143-216l272.571429 366.285714-73.142857 54.857143-272.571429-366.285714zm-410.285714 840.571429l0-90.857143 457.142857 0 0 90.857143-457.142857 0z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/andyron" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        andyron
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.25d4b4ffb2db9a42760854fb017fe0cbe4413e299a94b43b52a058abedbf5ace.js" integrity="sha256-JdS0/7LbmkJ2CFT7AX/gy&#43;RBPimalLQ7UqBYq&#43;2/Ws4=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    $("#openSearch, #openSearchMobile").click(function(){
+      $(".modal-dialog").addClass("visible");
+    });
+
+    $("#closeSearch").click(function(){
+      $(".modal-dialog").removeClass("visible");
+    });
+
+    $(document).click(function(event) {
+    
+      if (!$(event.target).closest(".modal-content, #openSearch, #openSearchMobile").length) {
+        $("body").find(".modal-dialog").removeClass("visible");
+      }
+    });
+  </script>
+
+
+
+
+  <script src="/js/custom.js"></script>
+
+
+  </body>
+</html>

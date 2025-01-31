@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          系统学习iOS动画之七：其它类型的动画 - 欣欣向戎
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="andyron" />
+  <meta name="description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。 文中详细代码都放在我的Github上 andyRon/LearniOSAnimati" />
+
+  <meta name="keywords" content="linux, Go, Java, PHP, program, journal, andyron, 博客, 笔记" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.128.2" />
+
+
+<link rel="canonical" href="http://localhost:1313/blog/2018/12/ios-animation-7-other-animations.html/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:url" content="http://localhost:1313/blog/2018/12/ios-animation-7-other-animations.html/">
+  <meta property="og:site_name" content="欣欣向戎">
+  <meta property="og:title" content="系统学习iOS动画之七：其它类型的动画">
+  <meta property="og:description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。 文中详细代码都放在我的Github上 andyRon/LearniOSAnimati">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2018-12-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-16T10:02:19+08:00">
+    <meta property="article:tag" content="IOS动画">
+
+  <meta itemprop="name" content="系统学习iOS动画之七：其它类型的动画">
+  <meta itemprop="description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。 文中详细代码都放在我的Github上 andyRon/LearniOSAnimati">
+  <meta itemprop="datePublished" content="2018-12-18T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-07-16T10:02:19+08:00">
+  <meta itemprop="wordCount" content="6434">
+  <meta itemprop="keywords" content="IOS动画">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="系统学习iOS动画之七：其它类型的动画">
+  <meta name="twitter:description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。 文中详细代码都放在我的Github上 andyRon/LearniOSAnimati">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">欣欣向戎</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+        
+      </li>
+    
+
+    
+      <li class="mobile-menu-item">
+        <a id="openSearchMobile" class="mobile-menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+      
+<div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div id="closeSearch" title="Close" class="close">X</div>
+      <div class="modal-header">
+        <div class="modal-title">Search</div>
+      </div>
+      <div class="modal-body">
+          <script>
+            (function() {
+              var cx = '002186711602136249422:q1gkomof_em';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' :
+                  'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search>
+      </div>
+    </div>
+</div>
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      欣欣向戎
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+      <li class="menu-item">
+        <a id="openSearch" class="menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">系统学习iOS动画之七：其它类型的动画</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2018-12-18">
+      2018-12-18
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2024-07-16)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="http://localhost:1313/categories/ios-animation/"> iOS-Animation </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <blockquote>
+<p>本文是我学习<a href="https://store.raywenderlich.com/products/ios-animations-by-tutorials">《iOS Animations by Tutorials》</a> 笔记中的一篇。
+文中详细代码都放在我的Github上 <a href="https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials">andyRon/LearniOSAnimations</a>。</p>
+</blockquote>
+<p>前面学习很多动画方面的知识，但有两个更专业的主题不适合前面的任何部分。</p>
+<p><strong>预览：</strong></p>
+<p><a href="/blog/2018/12/ios-animation-7-other-animations.html/#26-粒子发射器">26-粒子发射器</a> —— 学习如何创建粒子发射器并创建以下降雪效果。</p>
+<p><a href="/blog/2018/12/ios-animation-7-other-animations.html/#27-UIImageView的帧动画">27-UIImageView的帧动画</a> ——  通过将帧动画与传统视图动画相结合，创建类似卡通的效果。</p>
+<!-- raw HTML omitted -->
+<h2 id="26-粒子发射器">26-粒子发射器</h2>
+<p>瀑布，火，烟和雨的影响都涉及大量的视觉项目 —— 粒子 —— 它们具有共同的物理特征，但仍然可能有自己独特的大小，方向，旋转和轨迹。</p>
+<p>粒子可以很好地创建逼真的效果，因为每个粒子都可以是随机的和不可预测的，就像物体在自然界中一样。例如，雷暴中的每个雨滴可能具有独特的大小，形状和速度。</p>
+<p>以下是**粒子发射器(Particle Emitters)**可以实现的视觉效果的几个示例：</p>
+<p><img alt="image-20181205153401675" src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxvwnp7bozj30bh05zq48.jpg"></p>
+<p>在<a href="http://andyron.com/2018/iOS-Animation-1-view-animation#4-%E7%BB%83%E4%B9%A0%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB">系统学习iOS动画之一：视图动画</a>的第4、5章节的<strong>Flight Info</strong>项目中使用过雪花❄️的效果，但没有说明怎么使用，本章将单独学习雪花❄️效果的制作。</p>
+<h3 id="创建发射器层">创建发射器层</h3>
+<p>本章节将使用<code>CALayer</code>的子类<code>CAEmitterLayer</code>来创建粒子效果。</p>
+<blockquote>
+<p>注意：有许多用于创建粒子效果的第三方类，但它们通常的目标是与游戏框架集成。 对于UIKit应用程序中的粒子动画，<code>CAEmitterLayer</code>是一个很好的选择，因为它内置并且易于使用。</p>
+</blockquote>
+<p>本章节的<a href="http://andyron.com/2018/iOS-Animation-0#%E5%85%B3%E4%BA%8E%E4%BB%A3%E7%A0%81">开始项目</a> <strong>Snow Scene</strong>。</p>
+<p>打开<code>ViewController.swift</code>并将以下代码添加到<code>viewDidLoad()</code>的底部：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">rect</span> = CGRect(x: <span style="color:#40a070">0.0</span>, y: <span style="color:#40a070">100.0</span>, width: view.bounds.width, height: <span style="color:#40a070">50.0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">emitter</span> = CAEmitterLayer()
+</span></span><span style="display:flex;"><span>emitter.frame = rect
+</span></span><span style="display:flex;"><span>view.layer.addSublayer(emitter)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此代码创建一个新的<code>CAEmitterLayer</code>，将图层的框架设置为占据屏幕的整个宽度，并将图层定位在屏幕顶部附近。
+接下来，需要设置要与粒子效果一起使用的发射器类型。
+将以下代码添加到<code>viewDidLoad()</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitter.emitterShape = kCAEmitterLayerRectangle
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>发射器的形状通常会影响创建新粒子的区域，但在您创建类似3D的粒子系统的情况下，它也会影响它们的z位置。
+以下是三种最简单的发射器形状：</p>
+<h4 id="1点形状">1.点形状</h4>
+<p><code>kCAEmitterLayerPoint</code>的发射器形状会导致所有粒子在同一点创建：发射器的位置。对于涉及火花或烟花的效果，这是一个不错的选择。</p>
+<p><img alt="image-20181205154724044" src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxvx1m54wlj308903rq36.jpg"></p>
+<p>例如，可以通过在同一点创建所有粒子，并使它们在消失前沿不同方向飞行来创建火花效果。</p>
+<h4 id="2线条形状">2.线条形状</h4>
+<p><code>kCAEmitterLayerLine</code>发射器形状，是沿发射器框架顶部线创建所有粒子。</p>
+<p>这是一种可用于瀑布效果的发射器形状，水粒子出现在瀑布的顶部并向下移动：</p>
+<p><img alt="image-20181205154827937" src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxvx2qka0oj308l02n74b.jpg"></p>
+<h4 id="3矩形形状">3.矩形形状</h4>
+<p>最后，<code>kCAEmitterLayerRectangle</code>，通过在给定的矩形区域随机创建粒子：</p>
+<p><img alt="image-20181205155005520" src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxvx4fb1joj308w02odfv.jpg"></p>
+<p>这种发射器形状非常适合许多不同的效果，包括碳酸饮料和爆米花中的气泡。</p>
+<p>由于积雪从整个天空随机出现，矩形发射器形状是本章项目的不错选择。</p>
+<blockquote>
+<p>注意：还有一些发射器形状 - 长方体，圆形和球形 - 但这些超出了本章的范围。 有关详细信息，请查看Apple文档中的CAEmitterLayer类的官方文档<a href="https://developer.apple.com/documentation/quartzcore/caemitterlayer/emitter_shape"><strong>Emitter Shape</strong></a>参考。</p>
+</blockquote>
+<h3 id="添加发射器帧">添加发射器帧</h3>
+<p>将以下代码添加到<code>viewDidLoad()</code>的末尾：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitter.emitterPosition = CGPoint(x: rect.width<span style="color:#666">/</span><span style="color:#40a070">2</span>, y: rect.height<span style="color:#666">/</span><span style="color:#40a070">2</span>)
+</span></span><span style="display:flex;"><span>emitter.emitterSize = rect.siz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>组合形状，位置和尺寸属性定义了发射器框架。 在这里，可以将发射器的位置设置为图层的中心，并将发射器大小设置为等于图层的大小。
+这意味着发射器占用整个层帧，如下所示：</p>
+<p><img alt="image-20181205155701616" src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxvxbn54o8j30d302oaab.jpg"></p>
+<h3 id="创建发射器单元">创建发射器单元</h3>
+<p>现在已配置了发射器的位置和大小，可以继续添加<strong>发射器单元</strong>。</p>
+<p>发射器单元是表示一个粒子源的数据模型。 它与<code>CAEmitterLayer</code>是一个单独的类，因为单个发射器层可以包含一个或多个单元。</p>
+<p>例如，在爆米花动画中，你可以有三个不同的单元来表示爆米花的不同状态：完全炸开，半炸开和那些顽固的未炸开：</p>
+<p><img alt="image-20181212211917849" src="https://ws2.sinaimg.cn/large/006tNbRwgy1fy49z422r4j309f04pq3o.jpg"></p>
+<p>之后将使用不同的形状的❄️图片代表不同的发射器单元</p>
+<p>将以下代码添加到<code>viewDidLoad()</code>的底部：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">emitterCell</span> = CAEmitterCell()
+</span></span><span style="display:flex;"><span>emitterCell.contents = UIImage(named: <span style="color:#4070a0">&#34;flake.png&#34;</span>)?.cgImage
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在上面的代码中，您创建一个新单元格并将<em>flake.png</em>设置为其内容。 <code>contents</code>属性包含将从中创建新粒子的模板。
+下面是深色背景上的放大的<em>flake.png</em>屏幕截图：</p>
+<p><img alt="image-20181212212218466" src="https://ws4.sinaimg.cn/large/006tNbRwgy1fy4a29a3aij304l04lwee.jpg"></p>
+<p>发射器将创建此图像的多个不同副本以模仿真实的雪花。</p>
+<p>将以下代码添加到<code>viewDidLoad()</code>的底部：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.birthRate = <span style="color:#40a070">20</span>
+</span></span><span style="display:flex;"><span>emitterCell.lifetime = <span style="color:#40a070">3.5</span>
+</span></span><span style="display:flex;"><span>emitter.emitterCells = [emitterCell]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面的代码表示每秒创建20个雪花，并将它们保持在屏幕上3.5秒。 这意味着在任何给定时间屏幕上将有70个雪花，除了动画的最初几秒之前，最旧的粒子开始消失。</p>
+<p>最后，使用所有发射器单元的数组设置<code>emitterCells</code>属性。 请记住，可以拥有多个发射器单元，目前只有一个。 一旦设置了发射器单元列表，发射器就会开始创建粒子。</p>
+<p>运行，看到效果：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxvxk5ojdzg308q03emxo.gif"></p>
+<p><strong>flake.png</strong>的多个副本在3.5秒后显示并消失。 然而，雪是奇怪的静态 —— ❄️没有移动。</p>
+<h3 id="控制粒子">控制粒子</h3>
+<p>目前，雪粒出现，在空中漂浮几秒钟，然后消失。 那令人难以置信的无聊 ！ 下一个任务是让这些漫无目的的粒子移动起来。</p>
+<h4 id="改变粒子方向">改变粒子方向</h4>
+<p>将以下代码添加到<code>viewDidLoad()</code>的底部：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.yAcceleration = <span style="color:#40a070">70.0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这将在y方向上增加一点加速度，因此粒子会像真雪一样向下漂移。</p>
+<p>运行效果：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxvxo702ikg308q0ck0w0.gif"></p>
+<p>这看起来有点像雪 —— 但雪很少直线下降。</p>
+<p>要解决此问题，就要向粒子添加以下水平加速度：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.xAcceleration = <span style="color:#40a070">10.0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行， 雪花朝向对角线方向移动：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxvxqdqe1xg308q0ckte2.gif"></p>
+<p>为了产生温和的坠落效果，添加以下代码：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.velocity = <span style="color:#40a070">20.0</span>
+</span></span><span style="display:flex;"><span>emitterCell.emissionLongitude = .pi <span style="color:#666">*</span> <span style="color:#666">-</span><span style="color:#40a070">0.5</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>velocity</code>是初始速度。</p>
+<p>发射经度（<code>emissionLongitude</code>）是粒子的初始角度，速度参数设置粒子的初始速度，如下所示：</p>
+<p><img alt="image-20181205161402211" src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxvxtc4bsqj30a604nwep.jpg"></p>
+<p>再次运行，效果：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxvxvnv1stg308q0ckakz.gif"></p>
+<p>每次更改时，动画看起来越来越好。 但是这些粒子看起来像雪花大小的杀戮机器人一致地移动。 这是因为每个粒子具有完全相同的初始角度，速度和加速度。 需要为粒子创建过程添加一些随机性。</p>
+<h4 id="为粒子添加随机性">为粒子添加随机性</h4>
+<p>将以下代码添加到<code>viewDidLoad()</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.velocityRange = <span style="color:#40a070">200.0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这告诉发射器随机范围的值。 由于粒子动画的随机范围在本章中经常使用，因此值得花些时间来解释它们是如何工作的。
+所有粒子的初始速度都是20; 添加速度范围为每个粒子分配随机速度，如下所示：</p>
+<p><img alt="image-20181205162140512" src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxvy1a688lj30at04hq3l.jpg"></p>
+<p>每个粒子的速度将是（20-200）= -180和（20 + 200）= 220之间的随机值。具有负初始速度的粒子根本不会飞起来; 一旦它们出现在屏幕上，它们就会开始飘落。 具有正速度的粒子将首先飞起，然后向下飘落。</p>
+<p>运行，效果：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxvxzeqoewg308q0aodjr.gif"></p>
+<p>好吧，雪花是随机的：一些雪花跳到屏幕的顶部边缘，而其他雪花则出现，徘徊一会儿，然后向下飘落。</p>
+<p>让初始粒子方向也随机化。将以下代码添加到<code>viewDidLoad()</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.emissionRange = .pi <span style="color:#666">*</span> <span style="color:#40a070">0.5</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最初，所有粒子初始发射角度是-π/ 2。 上面的代码行表明发射器初始角度为（-π/ 2  - π/ 2）= 180度和（-π/ 2 +π/ 2）= 0度范围内的一个随机角度，如下图所示：</p>
+<p><img alt="image-20181205162200057" src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxvy1mot9qj30b204tdg3.jpg"></p>
+<p>运行，效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxvy4c6vuwg308q0aogx7.gif"></p>
+<p>现在这是随机的！ 虚拟暴风雪真的变得生动起来。</p>
+<h4 id="改变粒子颜色">改变粒子颜色</h4>
+<p><code>CAEmitterLayer</code>的还有一个便利功能是能够为粒子设置颜色。 例如，可以将雪花淡蓝色而不是鲜明的白色，因为蓝色通常与雨，水，雪或冰有关。</p>
+<p>将以下代码添加到<code>viewDidLoad()</code>的底部：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.color = UIColor(red: <span style="color:#40a070">0.9</span>, green: <span style="color:#40a070">1.0</span>, blue: <span style="color:#40a070">1.0</span>, alpha: <span style="color:#40a070">1.0</span>).cgColor
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这种变化看起来很有趣，但所有的雪花都是统一蓝色调。 如果可以随机化每个雪花的颜色，这不是很好吗？</p>
+<p>需要做的就是为粒子颜色定义三个独立的范围：红色，绿色和蓝色各一个。
+将以下代码添加到<code>viewDidLoad()</code>的末尾：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.redRange = <span style="color:#40a070">0.3</span>
+</span></span><span style="display:flex;"><span>emitterCell.greenRange = <span style="color:#40a070">0.3</span>
+</span></span><span style="display:flex;"><span>emitterCell.blueRange = <span style="color:#40a070">0.3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面的代码很好理解：绿色和蓝色是0.7到1.3之间的随机值，也就是0.7到1.0。 类似，红色介于0.6和1.0之间。</p>
+<p>运行，看到五彩❄️：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxvyaloz0eg308q0aon60.gif"></p>
+<p>0.3的范围有点大了，这是为了展示效果，之后可以改为0.1。</p>
+<h4 id="随机化粒子外观">随机化粒子外观</h4>
+<p>即使在添加了所有自定义之后，雪花外观看起来是一样的，现实中不会是这样的。</p>
+<p>下面将使每个粒子都成为一个美丽而独特的雪花。</p>
+<p>让每个雪花大小是随机的，将以下代码添加到<code>viewDidLoad()</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.scale = <span style="color:#40a070">0.8</span>
+</span></span><span style="display:flex;"><span>emitterCell.scaleRange = <span style="color:#40a070">0.8</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将基本粒子大小设置为原始大小的80％，大小范围在 0.0 - 1.6之间。</p>
+<p>不仅可以设置雪花的初始大小，还可以在雪花落下时修改雪花的大小。在接近地面时，❄️在温暖的雾气中会融化。</p>
+<p>将以下行添加到<code>viewDidLoad()</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.scaleSpeed = <span style="color:#666">-</span><span style="color:#40a070">0.15</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>scaleSpeed</code>属性表示，粒子按比例每秒缩小原始大小的15％。</p>
+<p>大粒子在从视线中消失之前会大幅收缩，而小粒子会在它们结束前完全消失。不要心疼，这只是生活的雪花圈。</p>
+<p>运行，效果，观察单个雪花大小的变化：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxvykvnmcsg308q07cgp7.gif"></p>
+<p>❄️看上去有点少，修改<code>birthRate</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.birthRate = <span style="color:#40a070">150</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>设置❄️的透明度，将以下内容添加到<code>viewDidLoad()</code>的底部：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.alphaRange = <span style="color:#40a070">0.75</span>
+</span></span><span style="display:flex;"><span>emitterCell.alphaSpeed = <span style="color:#666">-</span><span style="color:#40a070">0.15</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>设置了一个alpha范围，从0.25到1.0的上限值。 <code>alphaSpeed</code>与<code>scaleSpeed</code>非常相似，可以随时间更改粒子的alpha值。</p>
+<p>运行，查看效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxvyqdjsy0g308q07ctou.gif"></p>
+<p>目前已经涵盖了<code>CAEmitterCell</code>提供的大部分内容，下面内容是关于❄️的一些细节。</p>
+<h3 id="雪花的细节">雪花的细节</h3>
+<p>在<code>viewDidLoad()</code>中找到设置<code>emissionLongitude</code>并将其更改为以下内容的行：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.emissionLongitude = <span style="color:#666">-</span>.pi
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>请记住，发射经度是粒子的起始角度。 这种变化会让雪花旋转一下，仿佛被风吹一下一样。
+接下来，在找到声明<code>rect</code>的行并按如下方式修改它：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">rect</span> = CGRect(x: <span style="color:#40a070">0.0</span>, y: <span style="color:#666">-</span><span style="color:#40a070">70.0</span>, width: view.bounds.width, height: <span style="color:#40a070">50.0</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这会将发射器移出屏幕，用户将无法看到粒子来自何处。之前让粒子发射在屏幕中，是为了展示说明。</p>
+<p>最后，将以下位代码添加到<code>viewDidLoad()</code>以随机化雪花在屏幕上保留的时间长度：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>emitterCell.lifetimeRange = <span style="color:#40a070">1.0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这会将每个雪花的生命周期设置为2.5到4.5秒之间的随机值。</p>
+<p>虽然本章是一<code>CAEmitterLayer</code>为基础，说明了制作粒子效果的很多细节，但是每个概念都完全适用于其他粒子系统。无论是<strong>SpriteKit</strong>，<strong>Unity</strong>还是任何其他自定义粒子发射器，原理都基本上差不多。</p>
+<p>本章目前效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxvyxeh9d3g308q09ogyt.gif"></p>
+<h3 id="添加更多单元">添加更多单元</h3>
+<p>这一部分只是为了学习更多粒子系统的知识，真实的雪景不是这样的，😏。</p>
+<p>我又添加了三种不同❄️单元：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-29">29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-30">30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-31">31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-32">32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-33">33</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-34"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-34">34</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-35"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-35">35</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-36"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-36">36</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-37"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-37">37</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-38"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-38">38</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-39"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-39">39</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-40"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-40">40</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-41"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-41">41</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-42"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-42">42</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-43"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-43">43</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-44"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-44">44</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-45"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-45">45</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-46"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-46">46</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-47"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-47">47</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-48"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-48">48</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-49"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-49">49</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-50"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-50">50</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-51"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-51">51</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-52"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-52">52</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-53"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-53">53</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-54"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-54">54</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-55"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-55">55</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-56"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-56">56</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-57"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-57">57</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">//cell #2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">cell2</span> = CAEmitterCell()
+</span></span><span style="display:flex;"><span>    cell2.contents = UIImage(named: <span style="color:#4070a0">&#34;flake2.png&#34;</span>)?.cgImage
+</span></span><span style="display:flex;"><span>    cell2.birthRate = <span style="color:#40a070">50</span>
+</span></span><span style="display:flex;"><span>    cell2.lifetime = <span style="color:#40a070">2.5</span>
+</span></span><span style="display:flex;"><span>    cell2.lifetimeRange = <span style="color:#40a070">1.0</span>
+</span></span><span style="display:flex;"><span>    cell2.yAcceleration = <span style="color:#40a070">50</span>
+</span></span><span style="display:flex;"><span>    cell2.xAcceleration = <span style="color:#40a070">50</span>
+</span></span><span style="display:flex;"><span>    cell2.velocity = <span style="color:#40a070">80</span>
+</span></span><span style="display:flex;"><span>    cell2.emissionLongitude = .pi
+</span></span><span style="display:flex;"><span>    cell2.velocityRange = <span style="color:#40a070">20</span>
+</span></span><span style="display:flex;"><span>    cell2.emissionRange = .pi <span style="color:#666">*</span> <span style="color:#40a070">0.25</span>
+</span></span><span style="display:flex;"><span>    cell2.scale = <span style="color:#40a070">0.8</span>
+</span></span><span style="display:flex;"><span>    cell2.scaleRange = <span style="color:#40a070">0.2</span>
+</span></span><span style="display:flex;"><span>    cell2.scaleSpeed = <span style="color:#666">-</span><span style="color:#40a070">0.1</span>
+</span></span><span style="display:flex;"><span>    cell2.alphaRange = <span style="color:#40a070">0.35</span>
+</span></span><span style="display:flex;"><span>    cell2.alphaSpeed = <span style="color:#666">-</span><span style="color:#40a070">0.15</span>
+</span></span><span style="display:flex;"><span>    cell2.spin = .pi
+</span></span><span style="display:flex;"><span>    cell2.spinRange = .pi
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">//cell #3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">cell3</span> = CAEmitterCell()
+</span></span><span style="display:flex;"><span>    cell3.contents = UIImage(named: <span style="color:#4070a0">&#34;flake3.png&#34;</span>)?.cgImage
+</span></span><span style="display:flex;"><span>    cell3.birthRate = <span style="color:#40a070">20</span>
+</span></span><span style="display:flex;"><span>    cell3.lifetime = <span style="color:#40a070">7.5</span>
+</span></span><span style="display:flex;"><span>    cell3.lifetimeRange = <span style="color:#40a070">1.0</span>
+</span></span><span style="display:flex;"><span>    cell3.yAcceleration = <span style="color:#40a070">20</span>
+</span></span><span style="display:flex;"><span>    cell3.xAcceleration = <span style="color:#40a070">10</span>
+</span></span><span style="display:flex;"><span>    cell3.velocity = <span style="color:#40a070">40</span>
+</span></span><span style="display:flex;"><span>    cell3.emissionLongitude = .pi
+</span></span><span style="display:flex;"><span>    cell3.velocityRange = <span style="color:#40a070">50</span>
+</span></span><span style="display:flex;"><span>    cell3.emissionRange = .pi <span style="color:#666">*</span> <span style="color:#40a070">0.25</span>
+</span></span><span style="display:flex;"><span>    cell3.scale = <span style="color:#40a070">0.8</span>
+</span></span><span style="display:flex;"><span>    cell3.scaleRange = <span style="color:#40a070">0.2</span>
+</span></span><span style="display:flex;"><span>    cell3.scaleSpeed = <span style="color:#666">-</span><span style="color:#40a070">0.05</span>
+</span></span><span style="display:flex;"><span>    cell3.alphaRange = <span style="color:#40a070">0.5</span>
+</span></span><span style="display:flex;"><span>    cell3.alphaSpeed = <span style="color:#666">-</span><span style="color:#40a070">0.05</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">//cell #4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">cell4</span> = CAEmitterCell()
+</span></span><span style="display:flex;"><span>    cell4.contents = UIImage(named: <span style="color:#4070a0">&#34;flake4.png&#34;</span>)?.cgImage
+</span></span><span style="display:flex;"><span>    cell4.birthRate = <span style="color:#40a070">10</span>
+</span></span><span style="display:flex;"><span>    cell4.lifetime = <span style="color:#40a070">5.5</span>
+</span></span><span style="display:flex;"><span>    cell4.lifetimeRange = <span style="color:#40a070">1.0</span>
+</span></span><span style="display:flex;"><span>    cell4.yAcceleration = <span style="color:#40a070">25</span>
+</span></span><span style="display:flex;"><span>    cell4.xAcceleration = <span style="color:#40a070">30</span>
+</span></span><span style="display:flex;"><span>    cell4.velocity = <span style="color:#40a070">20</span>
+</span></span><span style="display:flex;"><span>    cell4.emissionLongitude = .pi
+</span></span><span style="display:flex;"><span>    cell4.velocityRange = <span style="color:#40a070">30</span>
+</span></span><span style="display:flex;"><span>    cell4.emissionRange = .pi <span style="color:#666">*</span> <span style="color:#40a070">0.25</span>
+</span></span><span style="display:flex;"><span>    cell4.scale = <span style="color:#40a070">0.8</span>
+</span></span><span style="display:flex;"><span>    cell4.scaleRange = <span style="color:#40a070">0.2</span>
+</span></span><span style="display:flex;"><span>    cell4.scaleSpeed = <span style="color:#666">-</span><span style="color:#40a070">0.05</span>
+</span></span><span style="display:flex;"><span>    cell4.alphaRange = <span style="color:#40a070">0.5</span>
+</span></span><span style="display:flex;"><span>    cell4.alphaSpeed = <span style="color:#666">-</span><span style="color:#40a070">0.05</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    emitter.emitterCells = [emitterCell, cell2, cell3, cell4]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>注：可能需要在真机才能看到流畅的效果</p>
+</blockquote>
+<p>效果：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxvzhofmleg30ku112b2a.gif"></p>
+<h2 id="27-uiimageview的帧动画">27-UIImageView的帧动画</h2>
+<p>最后一章学习如何创建一种非常特殊的动画了。**帧动画(Frame Animation)**是我们小时候喜欢的动画类型，今天可能仍然很喜欢；迪斯尼的Duck Tales，Hanna-Barbera的Tom和Jerry以及Flintstones漫画都是这种创作方式。</p>
+<p><strong>帧动画</strong>也是用来为游戏中的角色制作动画的动画。仅仅将静态游戏角色从一个位置转换为另一个位置是不够的。需要移动角色的脚或旋转飞机的螺旋桨以给出逼真的运动感。</p>
+<p>要创建角色移动的效果，可以将动画分解为帧，这些帧是表示动作不同阶段的静止图像。当快速显示帧时，一个接一个地显示帧，看起来角色正在移动：</p>
+<p><img alt="image-20181205172245592" src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxvzsuxv7yj30bt0370tb.jpg"></p>
+<h3 id="开始项目">开始项目</h3>
+<p>本章节的<a href="http://andyron.com/2018/iOS-Animation-0#%E5%85%B3%E4%BA%8E%E4%BB%A3%E7%A0%81">开始项目</a> 是<strong>SouthPoleFun</strong>，打开<code>Main.storyboard</code>查看最初的游戏场景：</p>
+<p><img alt="image-20181212232053788" src="https://ws4.sinaimg.cn/large/006tNbRwgy1fy4dhn05hfj30ao05v74v.jpg"></p>
+<p>结构很简单，一个背景图片，向左、向右两个按钮，一个滑动按钮，一个企鹅图像视图。</p>
+<p><code>ViewController.swift</code>中<code>actionLeft(_:)</code>，<code>actionRight(_:)</code>分别连接左右两个按钮，<code>actionSlide(_:)</code>连接滑动按钮。<code>penguin</code>和<code>slideButton</code>分别是企鹅图像和滑动按钮的接口。</p>
+<p><strong>Images.xcassets</strong>中包括企鹅🐧两张滑动图片和四张走动图片：</p>
+<p><img alt="image-20181212232641383" src="https://ws4.sinaimg.cn/large/006tNbRwgy1fy4dno9616j30fy04waaj.jpg"></p>
+<h3 id="设置帧动画">设置帧动画</h3>
+<p>将以下代码添加到<code>ViewController</code>中的<code>loadWalkAnimation()</code>方法：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>penguin.animationImages = walkFrames
+</span></span><span style="display:flex;"><span>penguin.animationDuration = animationDuration <span style="color:#666">/</span> <span style="color:#40a070">3</span>
+</span></span><span style="display:flex;"><span>penguin.animationRepeatCount = <span style="color:#40a070">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>animationImages</code>：存储帧动画的所有帧图像。</p>
+<p><code>animationDuration</code>：这告诉UIKit动画的一次迭代应该持续多长时间；因为您将重复动画三次（见下文），所以将其设置为总<code>animationDuration</code>的三分之一。</p>
+<p><code>animationRepeatCount</code>：控制动画的重复次数。</p>
+<p>之后，需要从视图控制器中的<code>viewDidLoad()</code>调用<code>loadWalkAnimation()</code>，以便每当玩家点击左箭头按钮时图像视图就会准备就绪。
+将以下代码添加到<code>viewDidLoad()</code>的底部：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>loadWalkAnimation()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>哦 - 点击左箭头按钮时没有任何反应。 你做错了什么吗？ 没有; 您只为帧动画配置了图像视图，但您从未启动过动画。 如果不启动帧动画，图像视图将继续显示其图像属性的内容。
+是时候让这只企鹅蹒跚了。
+将以下代码添加到<code>actionLeft(_:)</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>isLookingRight = <span style="color:#007020;font-weight:bold">false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这是左右方向的判断。由于每次更改企鹅的方向时都需要更新企鹅的转换和按钮的转换，因此需要向<code>isLookingRight</code>添加<a href="https://docs.swift.org/swift-book/LanguageGuide/Properties.html">属性观察器</a>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">var</span> <span style="color:#bb60d5">isLookingRight</span>: <span style="color:#007020">Bool</span> = <span style="color:#007020;font-weight:bold">true</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">didSet</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">xScale</span>: CGFloat = isLookingRight ? <span style="color:#40a070">1</span> : <span style="color:#666">-</span><span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>        penguin.transform = CGAffineTransform(scaleX: xScale, y: <span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>        slideButton.transform = penguin.transform
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面代码将企鹅按钮图片的x轴刻度设置为1或-1，具体取决于<code>isLookingRight</code>的值。 然后设置该转换，来实现翻转视图，让企鹅可以面向正确的方向：</p>
+<p><img alt="image-20181205174828259" src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxw0jlkmdqj30bl04qaak.jpg"></p>
+<p>现在需要调用动画代码。 在<code>actionLeft(_:)</code>中继续添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span> penguin.startAnimating()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当调用<code>startAnimating()</code>时，图像视图会在配置动画时播放动画：<code>animationImages</code>数组中的每个帧按顺序显示，总共超过1秒。
+运行， 点击左箭头按钮，查看企鹅在行动：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxw0ncwkelg30bq08r0th.gif"></p>
+<h3 id="设置视图动画">设置视图动画</h3>
+<p>将以下代码添加到<code>actionLeft(_:)</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-25-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-25-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-25-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-25-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-25-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-25-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>UIView.animate(withDuration: animationDuration, delay: <span style="color:#40a070">0</span>, options: .curveEaseOut, animations: {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">self</span>.penguin.center.x <span style="color:#666">-=</span> <span style="color:#007020;font-weight:bold">self</span>.walkSize.width
+</span></span><span style="display:flex;"><span>}, completion: <span style="color:#007020;font-weight:bold">nil</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用步行图像的宽度来确定企鹅在动画播放时间内移动的距离。</p>
+<p>运行，效果：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxw0r4e2uug30bq08r0tw.gif"></p>
+<p>向右按钮差不多，将以下代码添加到<code>actionRight(_:)</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>isLookingRight = <span style="color:#007020;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>penguin.startAnimating()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>UIView.animate(withDuration: animationDuration, delay: <span style="color:#40a070">0</span>, options: .curveEaseOut, animations: {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">self</span>.penguin.center.x <span style="color:#666">+=</span> <span style="color:#007020;font-weight:bold">self</span>.walkSize.width
+</span></span><span style="display:flex;"><span>}, completion: <span style="color:#007020;font-weight:bold">nil</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="滑动帧动画">滑动帧动画</h3>
+<p>与之前左右移动的动画类似。</p>
+<p>将以下代码添加到<code>loadSlideAnimation()</code>以加载新的帧序列：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-27-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-27-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-27-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-27-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-27-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-27-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>penguin.animationImages = slideFrames
+</span></span><span style="display:flex;"><span>penguin.animationDuration = animationDuration
+</span></span><span style="display:flex;"><span>penguin.animationRepeatCount = <span style="color:#40a070">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将以下代码添加到<code>actionSlide(_:)</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>loadSlideAnimation()
+</span></span><span style="display:flex;"><span>penguin.startAnimating()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行，可以看到企鹅跳到自己肚子上滑动。</p>
+<p>但动画有一点奇怪，因为两个动画之间的帧图像不同：</p>
+<p><img alt="image-20181205180338215" src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxw0ze1pouj308v047aap.jpg"></p>
+<p>开始帧图像为108 x 96，而滑动时图像为93 x 75.如果它们的大小相同，则每个图像中的空白空间最终会变大。想象一个具有五个，六个或更多帧动画的角色;你最终会得到巨大的图像尺寸，以适应所有可能的动画帧。</p>
+<blockquote>
+<p>注意：此问题的一个简单解决方案是将图像视图的内容模式从其默认值“Aspect Fill”设置为“Center”或“Top Left”。但这不是好的解决方案，下面实现一个稍微不同且更灵活的解决方案。</p>
+</blockquote>
+<p>手动调整图像视图的大小并重新定位，以创建漂亮流动的精美动画。</p>
+<p>首先，需要在播放任何动画之前设置所需的图像视图帧; 这可以确保框架在屏幕上可见时尺寸正确。
+将以下代码添加到<code>actionSlide(_:)</code>，就在您开始动画的位置之前：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-29-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-29-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-29-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-29-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-29-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-29-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-29-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-29-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>penguin.frame = CGRect(x: penguin.frame.origin.x,
+</span></span><span style="display:flex;"><span>                       y: penguinY <span style="color:#666">+</span> (walkSize.height <span style="color:#666">-</span> slideSize.height),
+</span></span><span style="display:flex;"><span>                       width: slideSize.width,
+</span></span><span style="display:flex;"><span>                       height: slideSize.height)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此代码将企鹅图像视图向下移动一点以补偿幻灯片动画的较短帧，并调整图像视图的大小以匹配<code>slideSize</code>。
+<code>slideSize</code>包含<em>slide01.png</em>的大小；<code> viewDidLoad()</code>已包含获取图像的代码。</p>
+<p>现在将以下代码添加到<code>actionSlide(_:)</code>的底部：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>UIView.animate(withDuration: animationDuration <span style="color:#666">-</span> <span style="color:#40a070">0.02</span>, delay: <span style="color:#40a070">0.0</span>, options: .curveEaseOut, animations: {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">self</span>.penguin.center.x <span style="color:#666">+=</span> <span style="color:#007020;font-weight:bold">self</span>.isLookingRight ? <span style="color:#007020;font-weight:bold">self</span>.slideSize.width : <span style="color:#666">-</span><span style="color:#007020;font-weight:bold">self</span>.slideSize.width
+</span></span><span style="display:flex;"><span>}, completion: { <span style="color:#007020;font-weight:bold">_</span> <span style="color:#007020;font-weight:bold">in</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在上面的代码中，创建一个视图动画来移动企鹅图像视图并模拟跳转动作。</p>
+<p>在上面的额完成动画闭包中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">self</span>.penguin.frame = CGRect(x: <span style="color:#007020;font-weight:bold">self</span>.penguin.frame.origin.x,
+</span></span><span style="display:flex;"><span>                            y: <span style="color:#007020;font-weight:bold">self</span>.penguinY,
+</span></span><span style="display:flex;"><span>                            width: <span style="color:#007020;font-weight:bold">self</span>.walkSize.width,
+</span></span><span style="display:flex;"><span>                            height: <span style="color:#007020;font-weight:bold">self</span>.walkSize.height)
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">self</span>.loadWalkAnimation()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后，运行，效果：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxw1bdetvhg30fm08sn0q.gif"></p>
+<p>使用UIImageView的帧动画很简单，但这是我们动画技能的一个很好的补充。</p>
+<p>到此，算是比较系统地学习了iOS动画大部分知识，下面就需要练习和更深入的研究了，Good Luck☺。</p>
+
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">andyron</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2024-07-16
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content">原创文章，如需转载请注明文章作者和出处。谢谢！</span>
+  </p>
+</div>
+
+
+
+        
+        
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
+  </div>
+</div>
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="http://localhost:1313/tags/ios%E5%8A%A8%E7%94%BB/">iOS动画</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/blog/2018/12/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.html/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">【译】Swift算法俱乐部-快速排序</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/blog/2018/12/ios-animation-6-3d-animations.html/">
+                <span class="next-text nav-default">系统学习iOS动画之六：3D动画</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+    <div class="post">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="xianmin/comments---xianmin.org"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNDAyNTY2MDI="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCFwlWs4CRRxW"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+  
+
+  
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://localhost:1313/blog/2018/12/ios-animation-7-other-animations.html/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'xianmin12';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript
+    >Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+</div>
+
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#26-粒子发射器">26-粒子发射器</a>
+      <ul>
+        <li><a href="#创建发射器层">创建发射器层</a></li>
+        <li><a href="#添加发射器帧">添加发射器帧</a></li>
+        <li><a href="#创建发射器单元">创建发射器单元</a></li>
+        <li><a href="#控制粒子">控制粒子</a></li>
+        <li><a href="#雪花的细节">雪花的细节</a></li>
+        <li><a href="#添加更多单元">添加更多单元</a></li>
+      </ul>
+    </li>
+    <li><a href="#27-uiimageview的帧动画">27-UIImageView的帧动画</a>
+      <ul>
+        <li><a href="#开始项目">开始项目</a></li>
+        <li><a href="#设置帧动画">设置帧动画</a></li>
+        <li><a href="#设置视图动画">设置视图动画</a></li>
+        <li><a href="#滑动帧动画">滑动帧动画</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+  
+    <a href="mailto:rongming.2008@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://stackoverflow.com/users/3133839/andyron" rel="me noopener" class="iconfont"
+      title="stack-overflow"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M809.714286 932.571429l-638.857143 0 0-274.285714-91.428571 0 0 365.714286 821.714286 0 0-365.714286-91.428571 0 0 274.285714zm-538.285714-299.428571l18.857143-89.714286 447.428571 94.285714-18.857143 89.142857zm58.857143-213.714286l38.285714-83.428571 414.285714 193.714286-38.285714 82.857143zm114.857143-203.428571l58.285714-70.285714 350.857143 293.142857-58.285714 70.285714zm226.857143-216l272.571429 366.285714-73.142857 54.857143-272.571429-366.285714zm-410.285714 840.571429l0-90.857143 457.142857 0 0 90.857143-457.142857 0z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/andyron" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        andyron
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.25d4b4ffb2db9a42760854fb017fe0cbe4413e299a94b43b52a058abedbf5ace.js" integrity="sha256-JdS0/7LbmkJ2CFT7AX/gy&#43;RBPimalLQ7UqBYq&#43;2/Ws4=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    $("#openSearch, #openSearchMobile").click(function(){
+      $(".modal-dialog").addClass("visible");
+    });
+
+    $("#closeSearch").click(function(){
+      $(".modal-dialog").removeClass("visible");
+    });
+
+    $(document).click(function(event) {
+    
+      if (!$(event.target).closest(".modal-content, #openSearch, #openSearchMobile").length) {
+        $("body").find(".modal-dialog").removeClass("visible");
+      }
+    });
+  </script>
+
+
+
+
+  <script src="/js/custom.js"></script>
+
+
+  </body>
+</html>

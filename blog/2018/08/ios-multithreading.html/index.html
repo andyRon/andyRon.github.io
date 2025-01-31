@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          关于iOS多线程，这边勉强可以看看(OC&amp;Swift) - 欣欣向戎
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="andyron" />
+  <meta name="description" content="iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：关于iOS多线程，我说，你听，没准你就懂了！、谈iOS多线程(NSThread" />
+
+  <meta name="keywords" content="linux, Go, Java, PHP, program, journal, andyron, 博客, 笔记" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.128.2" />
+
+
+<link rel="canonical" href="http://localhost:1313/blog/2018/08/ios-multithreading.html/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:url" content="http://localhost:1313/blog/2018/08/ios-multithreading.html/">
+  <meta property="og:site_name" content="欣欣向戎">
+  <meta property="og:title" content="关于iOS多线程，这边勉强可以看看(OC&amp;Swift)">
+  <meta property="og:description" content="iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：关于iOS多线程，我说，你听，没准你就懂了！、谈iOS多线程(NSThread">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2018-08-26T16:29:06+00:00">
+    <meta property="article:modified_time" content="2024-07-16T00:17:52+08:00">
+    <meta property="article:tag" content="Multithreading">
+    <meta property="article:tag" content="GCD">
+    <meta property="article:tag" content="NSThread">
+    <meta property="article:tag" content="NSOperation">
+    <meta property="article:tag" content="多线程">
+
+  <meta itemprop="name" content="关于iOS多线程，这边勉强可以看看(OC&amp;Swift)">
+  <meta itemprop="description" content="iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：关于iOS多线程，我说，你听，没准你就懂了！、谈iOS多线程(NSThread">
+  <meta itemprop="datePublished" content="2018-08-26T16:29:06+00:00">
+  <meta itemprop="dateModified" content="2024-07-16T00:17:52+08:00">
+  <meta itemprop="wordCount" content="8093">
+  <meta itemprop="keywords" content="Multithreading,GCD,NSThread,NSOperation,多线程">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="关于iOS多线程，这边勉强可以看看(OC&amp;Swift)">
+  <meta name="twitter:description" content="iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：关于iOS多线程，我说，你听，没准你就懂了！、谈iOS多线程(NSThread">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">欣欣向戎</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+        
+      </li>
+    
+
+    
+      <li class="mobile-menu-item">
+        <a id="openSearchMobile" class="mobile-menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+      
+<div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div id="closeSearch" title="Close" class="close">X</div>
+      <div class="modal-header">
+        <div class="modal-title">Search</div>
+      </div>
+      <div class="modal-body">
+          <script>
+            (function() {
+              var cx = '002186711602136249422:q1gkomof_em';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' :
+                  'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search>
+      </div>
+    </div>
+</div>
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      欣欣向戎
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+      <li class="menu-item">
+        <a id="openSearch" class="menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">关于iOS多线程，这边勉强可以看看(OC&amp;Swift)</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2018-08-26">
+      2018-08-26
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2024-07-16)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="http://localhost:1313/categories/ios/"> iOS </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <p><img alt="搜多线程谷歌给的第一张图🙄" src="http://images.andyron.top/2018/ar2018001.jpg"></p>
+<p>iOS开发多线程总是绕不过的坎，看了很多前辈们优秀的文章，如：<a href="https://www.jianshu.com/p/51fd1362249e">关于iOS多线程，我说，你听，没准你就懂了！</a>、<a href="http://www.jianshu.com/p/6e6f4e005a0b">谈iOS多线程(NSThread、NSOperation、GCD)编程</a>、<a href="http://www.jianshu.com/p/2d57c72016c6">iOS多线程：『GCD』详尽总结</a>、<a href="https://www.jianshu.com/p/cbaeea5368b1">iOS多线程：『pthread、NSThread』详尽总结</a>、<a href="https://www.jianshu.com/p/4b1d77054b35">iOS多线程：『NSOperation、NSOperationQueue』详尽总结</a>、<a href="https://www.jianshu.com/p/0b0d9b1f1f19">关于iOS多线程，你看我就够了</a>等，但不自己整理一下，敲一下代码总是感觉不深刻 ，于是就有这篇文章，断断续续整理了好久。</p>
+<p>示例我尽量把不同知识点代码独立开，看着简单一些，容易理解。示例代码我都用OC和Swift分别写了，不过文中都是以OC说明的，因为如果用两种语言一起，看起来可能比较乱，文章也会更加长（已经非常长了😂😂）。<br>
+Swift写法可能有比较大区别，也有些功能取消，但看一下代码应该能明白了。
+文中的所有示例代码：<strong><a href="https://github.com/andyRon/iOS-Multithreading">andyRon/iOS-Multithreading</a></strong></p>
+<p>先看个大概：
+<img src="http://images.andyron.top/2018/ar2018002.jpg"></p>
+<!-- raw HTML omitted -->
+<h2 id="1-简介">1 简介</h2>
+<p>一些帮助理解的概念，可以先简单看一下，然后读完全文再回来看一下这一部分，可能就比较清晰了。🙂</p>
+<h3 id="11-一些概念">1.1 一些概念</h3>
+<ul>
+<li>
+<p>系统中正在运行的每一个应用程序都是一个 <strong>进程(Process)</strong> ，每个进程系统都会分配给它独立的内存运行。也就是说，在iOS系统中中，每一个应用都是一个进程。</p>
+</li>
+<li>
+<p>一个进程的所有任务都在 <strong>线程(Thread)</strong> 中进行，因此每个进程至少要有一个线程，也就是<strong>主线程</strong>。那多线程其实就是一个进程开启多条线程，让所有任务并发执行。</p>
+</li>
+<li>
+<p>iOS App一旦运行，默认就会开启一条线程。这条线程，通常称作为“主线程”。在iOS应用中主线程的作用一般是：<br>
+刷新UI；<br>
+处理UI事件，例如点击、滚动、拖拽。</p>
+</li>
+<li>
+<p>如果主线程的操作太多、太耗时，就会造成App卡顿现象严重。所以，通常我们都会把耗时的操作放在子线程中进行，获取到结果之后，回到主线程去刷新UI。</p>
+</li>
+<li>
+<p>多线程在一定意义上实现了进程内的资源共享，以及效率的提升。同时，在一定程度上相对独立，它是程序执行流的最小单元，是进程中的一个实体，是执行程序最基本的单元，有自己栈和寄存器。</p>
+</li>
+<li>
+<p><strong>同步</strong>： 只能在当前线程按先后顺序依次执行，不开启新线程。</p>
+</li>
+<li>
+<p><strong>异步</strong>： 可以在当前线程开启多个新线程执行，可不按顺序执行。</p>
+</li>
+<li>
+<p><strong>队列</strong>： 装载线程任务的队形结构。</p>
+</li>
+<li>
+<p><strong>并发</strong>： 线程执行可以同时一起进行执行。</p>
+</li>
+<li>
+<p><strong>串行</strong>： 线程执行只能依次逐一先后有序的执行。</p>
+</li>
+</ul>
+<blockquote>
+<p>通过确保主线程自由响应用户事件，并发可以很好地提高应用的响应性。通过将工作分配到多核，还能提高应用处理的性能。但是并发也带来一定的额外开销(调度)，并且使代码更加复杂，更难编写和调试。</p>
+</blockquote>
+<h3 id="12-多线程概念补充">1.2 多线程概念补充</h3>
+<ul>
+<li>
+<p>多线程的原理：</p>
+<p>同一时间，CPU只能处理一条线程，也就是只有一条线程在工作。所谓多线程并发(同时)执行，其实是CPU快速的在多线程之间调度(切换)。如果CPU调度线程的时间足够快，就造成了多线程并发执行的假象。</p>
+</li>
+<li>
+<p>在实际项目开发中并不是线程越多越好，如果开了大量的线程，会消耗大量的CPU资源，CPU会被累死，所以一般手机只开1*~*3个线程为宜，不超过5个。</p>
+</li>
+<li>
+<p>多线程的优点：</p>
+<p>能适当提高程序的执行效率<br>
+能适当提高资源的利用率，这个利用率表现在(CPU，内存的利用率)</p>
+</li>
+<li>
+<p>多线程的缺点：</p>
+<ol>
+<li>
+<p>开启线程需要占用一定的内存空间(默认情况下，主线程占用1M，子线程占用512KB，如果开启大量的线程，会占用大量的内存空间，降低程序的性能)</p>
+</li>
+<li>
+<p>线程越多，CPU在调度线程上的开销就越大</p>
+</li>
+<li>
+<p>线程越多，程序设计就越复杂，比如线程之间的通信，多线程的数据共享，这些都需要程序的处理，增加了程序的复杂度。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>在iOS开发中使用线程的注意事项：</p>
+<ol>
+<li>别将比较耗时的操作放在主线程中</li>
+<li>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种“卡”的坏体验</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-四种解决方案对比">2 四种解决方案对比</h2>
+<ul>
+<li>目前iOS多线程有四种方法：pthread，NSThread，GCD， NSOperation，四种方案的简单对比一下。</li>
+</ul>
+<p><img alt="多线程的四种方案对比" src="http://images.andyron.top/2018/ar2018003.jpg"></p>
+<p>由于pthread平常几乎用不到，我暂时就不学了。</p>
+<ul>
+<li>每个NSThread对象对应一个线程，真正最原始的线程，相对简单，但是需要手动管理所有的线程活动，如生命周期、线程同步、睡眠等。</li>
+<li>怎么选择？
+简单而安全的选择NSOperation实现多线程即可。<br>
+处理大量并发数据，又追求性能效率的选择GCD。</li>
+</ul>
+<h2 id="3-nstread">3 NSTread</h2>
+<p>生命周期还是需要程序员手动管理，所以这套方案也是偶尔用用，不过获取当前线程(<code>[NSThread currentThread]</code>)和获取主线程(<code>[NSThread mainThread]</code>)的这两个方法会经常使用。</p>
+<h3 id="31-nsthread三种线程开启方式">3.1 NSThread三种线程开启方式</h3>
+<ul>
+<li>动态开启</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>NSThread <span style="color:#666">*</span>thread1 <span style="color:#666">=</span> [[NSThread alloc] <span style="color:#002070;font-weight:bold">initWithTarget</span>:<span style="color:#007020">self</span> <span style="color:#002070;font-weight:bold">selector</span>:<span style="color:#007020;font-weight:bold">@selector</span>(<span style="color:#002070;font-weight:bold">doSomething1</span>:) <span style="color:#002070;font-weight:bold">object</span>:(<span style="color:#4070a0">@&#34;NSThread1&#34;</span>)];
+</span></span><span style="display:flex;"><span>[thread1 start];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>静态开启</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 创建好之后直接启动
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>[NSThread <span style="color:#002070;font-weight:bold">detachNewThreadSelector</span>:<span style="color:#007020;font-weight:bold">@selector</span>(<span style="color:#002070;font-weight:bold">doSomething2</span>:) <span style="color:#002070;font-weight:bold">toTarget</span>:<span style="color:#007020">self</span> <span style="color:#002070;font-weight:bold">withObject</span>:(<span style="color:#4070a0">@&#34;NSTread2&#34;</span>)];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>隐式开启</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 创建好之后也是直接启动
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>[<span style="color:#007020">self</span> <span style="color:#002070;font-weight:bold">performSelectorInBackground</span>:<span style="color:#007020;font-weight:bold">@selector</span>(<span style="color:#002070;font-weight:bold">doSomething3</span>:) <span style="color:#002070;font-weight:bold">withObject</span>:(<span style="color:#4070a0">@&#34;NobjcSTread3&#34;</span>)];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="32-nsthread拓展">3.2 NSThread拓展</h3>
+<ul>
+<li>获取当前线程</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>NSThread <span style="color:#666">*</span>current <span style="color:#666">=</span> [NSThread currentThread];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>获取主线程</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>NSThread <span style="color:#666">*</span>main <span style="color:#666">=</span> [NSThread mainThread];   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>暂停当前线程一段时间</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>[NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>暂停当前线程到某个时间</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>[NSThread  <span style="color:#002070;font-weight:bold">sleepUntilDate</span>: date];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>线程之间通信</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">//在指定线程上执行操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>[<span style="color:#007020">self</span> <span style="color:#002070;font-weight:bold">performSelector</span>:<span style="color:#007020;font-weight:bold">@selector</span>(run) <span style="color:#002070;font-weight:bold">onThread</span>:<span style="color:#007020;font-weight:bold">thread</span> <span style="color:#002070;font-weight:bold">withObject</span>:<span style="color:#007020">nil</span> <span style="color:#002070;font-weight:bold">waitUntilDone</span>:<span style="color:#007020">YES</span>]; 
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">//在主线程上执行操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>[<span style="color:#007020">self</span> <span style="color:#002070;font-weight:bold">performSelectorOnMainThread</span>:<span style="color:#007020;font-weight:bold">@selector</span>(run) <span style="color:#002070;font-weight:bold">withObject</span>:<span style="color:#007020">nil</span> <span style="color:#002070;font-weight:bold">waitUntilDone</span>:<span style="color:#007020">YES</span>]; 
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">//在当前线程执行操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>[<span style="color:#007020">self</span> <span style="color:#002070;font-weight:bold">performSelector</span>:<span style="color:#007020;font-weight:bold">@selector</span>(run) <span style="color:#002070;font-weight:bold">withObject</span>:<span style="color:#007020">nil</span>];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4-gcd">4. GCD</h2>
+<p><img src="http://images.andyron.top/2018/ar2018004.png"></p>
+<p>GCD为Grand Central Dispatch的缩写。Grand Central Dispatch (GCD)是Apple开发的一个多核编程的较新的解决方法。它主要用于优化应用程序以支持多核处理器以及其他对称多处理系统。</p>
+<h3 id="41-gcd的优点">4.1 GCD的优点</h3>
+<ul>
+<li>GCD 可用于多核的并行运算</li>
+<li>GCD 会自动利用更多的 CPU 内核（比如双核、四核）</li>
+<li>GCD 会自动管理线程的生命周期（创建线程、调度任务、销毁线程）</li>
+<li>程序员只需要告诉 GCD 想要执行什么任务，不需要编写任何线程管理代码</li>
+</ul>
+<h3 id="42-任务和队列">4.2 任务和队列</h3>
+<ul>
+<li>
+<p><strong>任务</strong>： 表现上就是一段代码，OC就对应一个Block。<strong>任务</strong> 有两种执行方式，<em>是否会创建新的线程</em>，<em>会不会阻塞当前线程</em></p>
+<ol>
+<li><strong>同步执行</strong>（sync）：在当前线程执行任务，不会开辟新的线程。必须等到Block函数执行完毕后，dispatch函数才会返回。</li>
+<li><strong>异步执行</strong>（async）：可以在新的线程中执行任务，但不一定会开辟新的线程。dispatch函数会立即返回, 然后Block在后台异步执行。</li>
+</ol>
+</li>
+<li>
+<p><strong>队列</strong>：任务管理方式。分为 <strong>串行</strong> 和 <strong>并行</strong>两种方式，都是按照 FIFO（先进先出）原则依次触发任务。</p>
+<ol>
+<li><strong>串行队列</strong> ： 所有任务会在一条线程中执行（有可能是当前线程也有可能是新开辟的线程），并且一个任务执行完毕后，才开始执行下一个任务。（等待完成）</li>
+<li><strong>并行队列</strong>： 可以开启多条线程并行执行任务（但不一定会开启新的线程），并且当一个任务放到指定线程开始执行时，下一个任务就可以开始执行了。（等待发生）</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>两者的区别：<strong>执行顺序不同，以及开启线程数不同。</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>两个特殊队列：</p>
+<ol>
+<li><strong>主队列</strong>： 系统创建好的一个 <strong>串行队列</strong>，它管理必须在主线程中执行的任务。</li>
+<li><strong>全局队列</strong>：系统为我们创建好的一个<strong>并行队列</strong>，使用起来与我们自己创建的并行队列无本质差别。</li>
+</ol>
+</li>
+<li>
+<p>不同队列创建获取方式：</p>
+</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-12">12</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">create</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// dispatch_queue_create 第一个参数是队列名字，一般用app的Bundle Identifier命名方式命名；第二个参数为NULL时表是串行队列
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#60a0b0;font-style:italic">//串行队列
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    dispatch_queue_t serialQueue <span style="color:#666">=</span> dispatch_queue_create(<span style="color:#4070a0">&#34;q1.andyron.com&#34;</span>, <span style="color:#007020">NULL</span>);
+</span></span><span style="display:flex;"><span>    dispatch_queue_t serialQueue2 <span style="color:#666">=</span> dispatch_queue_create(<span style="color:#4070a0">&#34;q2.andyron.com&#34;</span>, DISPATCH_QUEUE_SERIAL);
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">//并行队列
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    dispatch_queue_t concurrentQueue <span style="color:#666">=</span> dispatch_queue_create(<span style="color:#4070a0">&#34;q3.andyron.com&#34;</span>, DISPATCH_QUEUE_CONCURRENT);
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">//全局并行队列    DISPATCH_QUEUE_PRIORITY_DEFAULT表示优先级
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    dispatch_queue_t globalQueue <span style="color:#666">=</span> dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span style="color:#40a070">0</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">//主队列获取
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    dispatch_queue_t mainQueue <span style="color:#666">=</span> dispatch_get_main_queue();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th></th>
+<th>同步执行</th>
+<th>异步执行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>串行队列</td>
+<td>当前线程，一个一个执行</td>
+<td>其他线程，一个一个执行</td>
+</tr>
+<tr>
+<td>并行队列</td>
+<td>当前线程，一个一个执行</td>
+<td>开很多线程，一起执行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-下面以一个一个来学习gcd帮助搞清上面的概念">4.3 下面👇以一个一个🌰来学习GCD，帮助搞清上面的概念</h3>
+<ul>
+<li>例子一:线程死锁（主队列 + 同步执行）</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">case1</span> {
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;A=====%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    dispatch_sync(dispatch_get_main_queue(), <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;B=====%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;C=====%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果崩溃：<br>
+<img src="http://images.andyron.top/2018/ar2018005.jpg">
+打印结果：</p>
+<pre tabindex="0"><code>GCD(OC)[51511:6351422] A=====&lt;NSThread: 0x600000064340&gt;{number = 1, name = main}
+</code></pre><p>解释：默认就一个主队列和一个主线程，因此<code>case1</code>函数这段任务就在主队列中同步执行，<code>dispatch_sync...</code>这段代码表示把B处任务加入主队列中，并且同步执行，这就出问题，B处任务要等主队列中同步执行之前的<code>case1</code>这段任务结束后执行，但B处任务在<code>case1</code>这段任务中，<code>case1</code>又要等B处任务执行完才能继续执行。<code>case1</code>任务要等B处完成才能继续，但<code>case1</code>又排在B处前面，这就尴尬了，￣□￣｜｜，因此崩溃了😖</p>
+<ul>
+<li>例子二：主队列 + 异步执行</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">case2</span> {
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;A=====%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    dispatch_async(dispatch_get_main_queue(), <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;B=====%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>     NSLog(<span style="color:#4070a0">@&#34;C=====%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>结果：</p>
+<pre tabindex="0"><code>GCD(OC)[52567:6465354] A=====&lt;NSThread: 0x600000068d40&gt;{number = 1, name = main}
+GCD(OC)[52567:6465354] C=====&lt;NSThread: 0x600000068d40&gt;{number = 1, name = main}
+GCD(OC)[52567:6465354] B=====&lt;NSThread: 0x600000068d40&gt;{number = 1, name = main}
+</code></pre><p>解释：任务都在主队列（串行），而且只要一个主线程（name都是main），B处任务由于是异步执行，等case2任务完成后执行。</p>
+<ul>
+<li>例子三：串行队列 + 同步执行</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-14">14</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 串行队列 + 同步执行
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">case3</span> {
+</span></span><span style="display:flex;"><span>    dispatch_queue_t serialQueue <span style="color:#666">=</span> dispatch_queue_create(<span style="color:#4070a0">&#34;q2.andyron.com&#34;</span>, DISPATCH_QUEUE_SERIAL);
+</span></span><span style="display:flex;"><span>    dispatch_sync(serialQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;1======%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    dispatch_sync(serialQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;2======%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    dispatch_sync(serialQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;3======%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;4======%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>结果：</p>
+<pre tabindex="0"><code>GCD(OC)[53734:6582112] 1======&lt;NSThread: 0x604000261700&gt;{number = 1, name = main}
+GCD(OC)[53734:6582112] 2======&lt;NSThread: 0x604000261700&gt;{number = 1, name = main}
+GCD(OC)[53734:6582112] 3======&lt;NSThread: 0x604000261700&gt;{number = 1, name = main}
+GCD(OC)[53734:6582112] 4======&lt;NSThread: 0x604000261700&gt;{number = 1, name = main}
+</code></pre><p>解释：🌰1中的主队列也是串行队列，但和这边不同，这边是新建了另一个串行队列，不会出现冲突，并且都在主线程中运行，这也说明了同步执行不具备创建新线程的能力。</p>
+<ul>
+<li>列子四：串行队列 + 异步执行</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-14">14</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 串行队列 + 异步执行
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">case4</span> {
+</span></span><span style="display:flex;"><span>    dispatch_queue_t serialQueue <span style="color:#666">=</span> dispatch_queue_create(<span style="color:#4070a0">&#34;q2.andyron.com&#34;</span>, DISPATCH_QUEUE_SERIAL);
+</span></span><span style="display:flex;"><span>    dispatch_async(serialQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;1========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    dispatch_async(serialQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;2========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    dispatch_async(serialQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;3========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;4========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印结果：</p>
+<pre tabindex="0"><code>GCD(OC)[53970:6604711] 4========&lt;NSThread: 0x60000007c880&gt;{number = 1, name = main}
+GCD(OC)[53970:6604933] 1========&lt;NSThread: 0x600000460280&gt;{number = 3, name = (null)}
+GCD(OC)[53970:6604933] 2========&lt;NSThread: 0x600000460280&gt;{number = 3, name = (null)}
+GCD(OC)[53970:6604933] 3========&lt;NSThread: 0x600000460280&gt;{number = 3, name = (null)}
+</code></pre><p>解释：现在打印了4，后打印了1，2，3，这是一部执行的结果，并且4在主线程，其它在子线程打印，这也说明了异步执行可以创建新线程。</p>
+<ul>
+<li>列子五：并行队列 + 同步执行</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-17">17</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">/// 并行队列 + 同步执行
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">case5</span> {
+</span></span><span style="display:flex;"><span>    dispatch_queue_t concurrentQueue <span style="color:#666">=</span> dispatch_queue_create(<span style="color:#4070a0">&#34;q3.andyron.com&#34;</span>, DISPATCH_QUEUE_CONCURRENT);
+</span></span><span style="display:flex;"><span>    dispatch_sync(concurrentQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;1========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>        <span style="color:#60a0b0;font-style:italic">//[self nslogCount:10000 number:1];
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    });
+</span></span><span style="display:flex;"><span>    dispatch_sync(concurrentQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;2========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>        <span style="color:#60a0b0;font-style:italic">//[self nslogCount:10000 number:2];
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    });
+</span></span><span style="display:flex;"><span>    dispatch_sync(concurrentQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;3========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>        <span style="color:#60a0b0;font-style:italic">//[self nslogCount:10000 number:3];
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    });
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;4========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印结果：</p>
+<pre tabindex="0"><code>GCD(OC)[54401:6646454] 1========&lt;NSThread: 0x600000260e80&gt;{number = 1, name = main}
+GCD(OC)[54401:6646454] 2========&lt;NSThread: 0x600000260e80&gt;{number = 1, name = main}
+GCD(OC)[54401:6646454] 3========&lt;NSThread: 0x600000260e80&gt;{number = 1, name = main}
+GCD(OC)[54401:6646454] 4========&lt;NSThread: 0x600000260e80&gt;{number = 1, name = main}
+</code></pre><p>解释：都在主线程执行，由于只有一个线程，结果看上去是顺序执行。</p>
+<ul>
+<li>列子六： 并行队列 + 异步执行</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-14">14</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 并行队列 + 异步执行
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">case6</span> {
+</span></span><span style="display:flex;"><span>    dispatch_queue_t concurrentQueue <span style="color:#666">=</span> dispatch_queue_create(<span style="color:#4070a0">&#34;q3.andyron.com&#34;</span>, DISPATCH_QUEUE_CONCURRENT);
+</span></span><span style="display:flex;"><span>    dispatch_async(concurrentQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;1========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    dispatch_async(concurrentQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;2========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    dispatch_async(concurrentQueue, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;3========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;4========%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印结果：</p>
+<pre tabindex="0"><code>GCD(OC)[54687:6675227] 2========&lt;NSThread: 0x600000466600&gt;{number = 5, name = (null)}
+GCD(OC)[54687:6675036] 4========&lt;NSThread: 0x604000078d00&gt;{number = 1, name = main}
+GCD(OC)[54687:6675226] 1========&lt;NSThread: 0x600000463fc0&gt;{number = 4, name = (null)}
+GCD(OC)[54687:6675229] 3========&lt;NSThread: 0x60400067d400&gt;{number = 6, name = (null)}
+</code></pre><p>解释：除了打印4的是主线，其他又开启了三个线程来执行三个任务，当天开启几个线程是有CPU自己决定的，任务的执行是随机的。</p>
+<h3 id="44-gcd-重点">4.4 GCD 重点</h3>
+<ul>
+<li>只要是串行队列，肯定要等上一个任务执行完成，才能开始下一个任务。但是并行队列当上一个任务开始执行后，下一个任务就可以开始执行。</li>
+<li>同步+串行：未开辟新线程，串行执行任务；同步+并行：未开辟新线程，串行执行任务；异步+串行：新开辟一条线程，串行执行任务；异步+并行：开辟多条新线程，并行执行任务；在主线程中同步使用主队列执行任务，会造成死锁。</li>
+</ul>
+<h3 id="45-gcd其他相关方法">4.5 GCD其他相关方法</h3>
+<ul>
+<li>延迟执行方法： <code>void dispatch_after(dispatch_time_t when, dispatch_queue_t queue, dispatch_block_t block);</code>
+指定时间后执行某个任务，<code>dispatch_after</code>函数指定的时间是指多长后将任务加到某个队列中，而不是具体执行时间，具体时间要看CPU执行时间了，可以看做是个大约延迟时间。</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">after</span> {
+</span></span><span style="display:flex;"><span>    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span style="color:#40a070">2.0</span> <span style="color:#666">*</span> NSEC_PER_SEC)), dispatch_get_main_queue(), <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#60a0b0;font-style:italic">// 2.0秒后异步追加任务代码到主队列，并开始执行
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        NSLog(<span style="color:#4070a0">@&#34;after---%@&#34;</span>,[NSThread currentThread]);  <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>dispatch_once</code>：在生命周期内只执行一次。</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">touchesBegan:</span>(NSSet<span style="color:#666">&lt;</span>UITouch <span style="color:#666">*&gt;</span> <span style="color:#666">*</span>)<span style="color:#bb60d5">touches</span> <span style="color:#06287e">withEvent:</span>(UIEvent <span style="color:#666">*</span>)<span style="color:#bb60d5">event</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">static</span> dispatch_once_t onceToken;
+</span></span><span style="display:flex;"><span>    dispatch_once(<span style="color:#666">&amp;</span>onceToken, <span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;就一次%@&#34;</span>,[NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不管点击多少次只有一次输出。</p>
+<p>GCD的内容很丰富，还有很多函数，2016和2017的WWDC都有专门讲到GCD，想更近一步可以参考：<a href="https://developer.apple.com/videos/play/wwdc2017/706/">Modernizing Grand Central Dispatch Usage</a>，<a href="https://developer.apple.com/videos/play/wwdc2016/720/">Concurrent Programming With GCD in Swift 3</a>。</p>
+<h2 id="5-nsoperation-和-nsoperationqueue">5 NSOperation 和 NSOperationQueue</h2>
+<h3 id="51-概念">5.1 概念</h3>
+<ul>
+<li>
+<p><code>NSOperation</code>(<strong>操作</strong>) 和 <code>NSOperationQueue</code>（<strong>操作队列</strong>） 是苹果对GCD的封装</p>
+</li>
+<li>
+<p><code>NSOperation</code> 和 <code>NSOperationQueue</code> 分别相当于 GCD 的 <strong>任务</strong> 和 <strong>队列</strong></p>
+</li>
+<li>
+<p><code>NSOperation</code> 只是一个抽象类，不能直接使用，使用其 2 个子类：<code>NSInvocationOperation</code> 和 <code>NSBlockOperation</code> 。</p>
+</li>
+<li>
+<p><code>NSOperation</code>的使用除了其现有的子类，还可以自定义子类。</p>
+</li>
+<li>
+<p>操作队列通过设置最大并发操作数（maxConcurrentOperationCount）来控制并发、串行。</p>
+</li>
+<li>
+<p>NSOperationQueue 为我们提供了两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。</p>
+</li>
+<li>
+<p>NSOperation 需要配合 NSOperationQueue 来使用。否则，NSOperation 单独使用时系统默认同步执行操作，配合 NSOperationQueue 我们能更好的实现异步执行。</p>
+</li>
+</ul>
+<h3 id="5-2-nsoperation-实现多线程的步骤">5. 2 NSOperation 实现多线程的步骤</h3>
+<ol>
+<li>创建操作：先将需要执行的操作封装到一个 NSOperation 对象中。</li>
+<li>创建队列：创建 NSOperationQueue 对象。</li>
+<li>将操作加入到队列中：将 NSOperation 对象添加到NSOperationQueue 对象中。</li>
+<li>之后，系统就会自动将 NSOperationQueue 中的 NSOperation 取出来，在新线程中执行操作。</li>
+</ol>
+<h3 id="53-使用nsoperation的子类nsinvocationoperation">5.3 使用NSOperation的子类NSInvocationOperation</h3>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>NSInvocationOperation <span style="color:#666">*</span>operation <span style="color:#666">=</span> [[NSInvocationOperation alloc] <span style="color:#002070;font-weight:bold">initWithTarget</span>:<span style="color:#007020">self</span> <span style="color:#002070;font-weight:bold">selector</span>:<span style="color:#007020;font-weight:bold">@selector</span>(run) <span style="color:#002070;font-weight:bold">object</span>:<span style="color:#007020">nil</span>];
+</span></span><span style="display:flex;"><span>[operation start];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在没有使用<code>NSOperationQueue</code>时，<code>NSInvocationOperation</code>会在当前线程（主线程或其他线程）内运行。</p>
+<h3 id="54-使用nsoperation的子类nsblockoperation">5.4 使用NSOperation的子类NSBlockOperation</h3>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>NSBlockOperation <span style="color:#666">*</span>operation <span style="color:#666">=</span> [NSBlockOperation <span style="color:#002070;font-weight:bold">blockOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#4070a0">@&#34;%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>[operation start];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>结果：</p>
+<pre tabindex="0"><code>NSOperation(OC)[97406:5880178] 1---&lt;NSThread: 0x60400006e700&gt;{number = 1, name = main}
+NSOperation(OC)[97406:5880178] 1---&lt;NSThread: 0x60400006e700&gt;{number = 1, name = main}
+</code></pre><p>在没有使用<code>NSOperationQueue</code>时，<code>NSBlockOperation </code>也会在当前线程（主线程或其他线程）内运行。</p>
+<p>另外，<code>NSBlockOperation</code>还提供了一个方法 <code>addExecutionBlock:</code>，用来添加额外的操作：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-29">29</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 1.创建 NSBlockOperation 对象
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>NSBlockOperation <span style="color:#666">*</span>op <span style="color:#666">=</span> [NSBlockOperation <span style="color:#002070;font-weight:bold">blockOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>   NSLog(<span style="color:#4070a0">@&#34;1---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>}];
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 2.添加额外的操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>[op <span style="color:#002070;font-weight:bold">addExecutionBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>    [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">1</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSLog(<span style="color:#4070a0">@&#34;2---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    
+</span></span><span style="display:flex;"><span>}];
+</span></span><span style="display:flex;"><span>[op <span style="color:#002070;font-weight:bold">addExecutionBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>    [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">1</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSLog(<span style="color:#4070a0">@&#34;3---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    
+</span></span><span style="display:flex;"><span>}];
+</span></span><span style="display:flex;"><span>[op <span style="color:#002070;font-weight:bold">addExecutionBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>    [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">1</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSLog(<span style="color:#4070a0">@&#34;4---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    
+</span></span><span style="display:flex;"><span>}];
+</span></span><span style="display:flex;"><span>[op <span style="color:#002070;font-weight:bold">addExecutionBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>    [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">1</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSLog(<span style="color:#4070a0">@&#34;5---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    
+</span></span><span style="display:flex;"><span>}];
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 3.调用 start 方法开始执行操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>[op start];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>某一次的运行结果：</p>
+<pre tabindex="0"><code>NSOperation(OC)[97709:5888750] 1---&lt;NSThread: 0x600000469740&gt;{number = 3, name = (null)}
+NSOperation(OC)[97709:5888750] 5---&lt;NSThread: 0x600000469740&gt;{number = 3, name = (null)}
+NSOperation(OC)[97709:5888748] 3---&lt;NSThread: 0x600000469e40&gt;{number = 4, name = (null)}
+NSOperation(OC)[97709:5888498] 4---&lt;NSThread: 0x60400007a600&gt;{number = 1, name = main}
+NSOperation(OC)[97709:5888758] 2---&lt;NSThread: 0x604000463480&gt;{number = 5, name = (null)}
+</code></pre><p><code>addExecutionBlock:</code>添加的操作和之前<code>blockOperationWithBlock</code>添加的操作是否在主线程或者是否开多线程，是由系统决定，它们的地位是相同的，所以每一次执行的结果可能不同。</p>
+<h3 id="55-nsoperation的自定义子类">5.5 NSOperation的自定义子类</h3>
+<p>除了上面两个子类外，还可以通过重写<code>main</code>方法来自定义子类。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-13">13</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#007020">#import &#34;AROperation.h&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#007020"></span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@implementation</span> <span style="color:#0e84b5;font-weight:bold">AROperation</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">main</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">if</span> (<span style="color:#666">!</span><span style="color:#007020">self</span>.isCancelled) {
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>];
+</span></span><span style="display:flex;"><span>            NSLog(<span style="color:#4070a0">@&#34;自定义Operation---%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">@end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用：</p>
+<pre tabindex="0"><code>AROperation *op = [[AROperation alloc] init];
+[op start];
+</code></pre><h3 id="56-nsoperationqueue">5.6 NSOperationQueue</h3>
+<p>上面几种情况都是没有操作队列，一般只在主线程运行。而使用操作队列就可以实现多线程了。操作队列分两种：</p>
+<p><strong>主队列</strong> :   凡是添加到主队列中的操作，都会放到主线程中执行<br>
+<strong>自定义队列</strong>:  操作自动放到子线程中执行，同时包含了：串行、并发功能。</p>
+<h4 id="561-创建队列">5.6.1 创建队列</h4>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 主队列获取方法
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>NSOperationQueue <span style="color:#666">*</span>queue <span style="color:#666">=</span> [NSOperationQueue mainQueue];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">// 自定义队列创建方法
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>NSOperationQueue <span style="color:#666">*</span>queue <span style="color:#666">=</span> [[NSOperationQueue alloc] init];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="562-添加操作到队列中">5.6.2 添加操作到队列中</h4>
+<p>两种不同的添加方法：</p>
+<ul>
+<li><code>- (void)addOperation:(NSOperation *)op;</code></li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-29">29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-30">30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-31">31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-32">32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-33">33</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-34"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-34">34</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-35"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-35">35</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">addOperationToQueue</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 1.创建队列
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSOperationQueue <span style="color:#666">*</span>queue <span style="color:#666">=</span> [[NSOperationQueue alloc] init];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 2.创建操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#60a0b0;font-style:italic">// 使用 NSInvocationOperation 创建操作1
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSInvocationOperation <span style="color:#666">*</span>op1 <span style="color:#666">=</span> [[NSInvocationOperation alloc] <span style="color:#002070;font-weight:bold">initWithTarget</span>:<span style="color:#007020">self</span> <span style="color:#002070;font-weight:bold">selector</span>:<span style="color:#007020;font-weight:bold">@selector</span>(task1) <span style="color:#002070;font-weight:bold">object</span>:<span style="color:#007020">nil</span>];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 使用 NSInvocationOperation 创建操作2
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSInvocationOperation <span style="color:#666">*</span>op2 <span style="color:#666">=</span> [[NSInvocationOperation alloc] <span style="color:#002070;font-weight:bold">initWithTarget</span>:<span style="color:#007020">self</span> <span style="color:#002070;font-weight:bold">selector</span>:<span style="color:#007020;font-weight:bold">@selector</span>(task2) <span style="color:#002070;font-weight:bold">object</span>:<span style="color:#007020">nil</span>];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 使用 NSBlockOperation 创建操作3
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSBlockOperation <span style="color:#666">*</span>op3 <span style="color:#666">=</span> [NSBlockOperation <span style="color:#002070;font-weight:bold">blockOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;3---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>    [op3 <span style="color:#002070;font-weight:bold">addExecutionBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;4---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 3.使用 addOperation: 添加所有操作到队列中
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    [queue <span style="color:#002070;font-weight:bold">addOperation</span>:op1]; <span style="color:#60a0b0;font-style:italic">// [op1 start]
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    [queue <span style="color:#002070;font-weight:bold">addOperation</span>:op2]; <span style="color:#60a0b0;font-style:italic">// [op2 start]
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    [queue <span style="color:#002070;font-weight:bold">addOperation</span>:op3]; <span style="color:#60a0b0;font-style:italic">// [op3 start]
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">task1</span> {
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;1---%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>- (<span style="color:#902000">void</span>) <span style="color:#06287e">task2</span> {
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#4070a0">@&#34;2---%@&#34;</span>, [NSThread currentThread]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>某一次的运行结果：</p>
+<pre tabindex="0"><code>NSOperation(OC)[7557:6218702] 2---&lt;NSThread: 0x60400027f900&gt;{number = 4, name = (null)}
+NSOperation(OC)[7557:6218699] 1---&lt;NSThread: 0x600000461a00&gt;{number = 3, name = (null)}
+NSOperation(OC)[7557:6218701] 4---&lt;NSThread: 0x6040004606c0&gt;{number = 5, name = (null)}
+NSOperation(OC)[7557:6218700] 3---&lt;NSThread: 0x604000460d40&gt;{number = 6, name = (null)}
+NSOperation(OC)[7557:6218700] 3---&lt;NSThread: 0x604000460d40&gt;{number = 6, name = (null)}
+NSOperation(OC)[7557:6218701] 4---&lt;NSThread: 0x6040004606c0&gt;{number = 5, name = (null)}
+</code></pre><p>并发运行，执行次序不确定。</p>
+<ul>
+<li><code>- (void)addOperationWithBlock:(void (^)(void))block;</code>  不需要先创建操作，直接添加block</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-24">24</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">addOperationWithBlockToQueue</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 1.创建队列
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSOperationQueue <span style="color:#666">*</span>queue <span style="color:#666">=</span> [[NSOperationQueue alloc] init];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 2.使用 addOperationWithBlock: 添加操作到队列中
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    [queue <span style="color:#002070;font-weight:bold">addOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;1---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>    [queue <span style="color:#002070;font-weight:bold">addOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;2---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>    [queue <span style="color:#002070;font-weight:bold">addOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;3---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>某一次的运行结果：</p>
+<pre tabindex="0"><code>NSOperation(OC)[7772:6229770] 2---&lt;NSThread: 0x600000277640&gt;{number = 5, name = (null)}
+NSOperation(OC)[7772:6229772] 1---&lt;NSThread: 0x60400026bfc0&gt;{number = 4, name = (null)}
+NSOperation(OC)[7772:6229780] 3---&lt;NSThread: 0x6040002686c0&gt;{number = 3, name = (null)}
+NSOperation(OC)[7772:6229770] 2---&lt;NSThread: 0x600000277640&gt;{number = 5, name = (null)}
+NSOperation(OC)[7772:6229780] 3---&lt;NSThread: 0x6040002686c0&gt;{number = 3, name = (null)}
+NSOperation(OC)[7772:6229772] 1---&lt;NSThread: 0x60400026bfc0&gt;{number = 4, name = (null)}
+</code></pre><h4 id="563-maxconcurrentoperationcount">5.6.3 maxConcurrentOperationCount</h4>
+<p><code>NSOperationQueue</code> 提供一个<code>maxConcurrentOperationCount</code>（<strong>最大并发操作数</strong>）属性来控制串行还是并发。<br>
+<code>maxConcurrentOperationCount</code> 控制的不是并发线程的数量，而是一个队列中同时能并发执行的最大操作数。而且一个操作也并非只能在一个线程中运行。<br>
+<code>maxConcurrentOperationCount </code>默认情况下为-1，表示不进行限制。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-29">29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-30">30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-31">31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-32">32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-33">33</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-34"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-34">34</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-35"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-35">35</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">setMaxConcurrentOperationCount</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 1.创建队列
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSOperationQueue <span style="color:#666">*</span>queue <span style="color:#666">=</span> [[NSOperationQueue alloc] init];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 2.设置最大并发操作数
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    queue.maxConcurrentOperationCount <span style="color:#666">=</span> <span style="color:#40a070">1</span>; <span style="color:#60a0b0;font-style:italic">// 串行队列
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#60a0b0;font-style:italic">//     queue.maxConcurrentOperationCount = 2; // 并发队列
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#60a0b0;font-style:italic">//     queue.maxConcurrentOperationCount = 8; // 并发队列
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 3.添加操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    [queue <span style="color:#002070;font-weight:bold">addOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;1---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>    [queue <span style="color:#002070;font-weight:bold">addOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;2---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>    [queue <span style="color:#002070;font-weight:bold">addOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;3---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>    [queue <span style="color:#002070;font-weight:bold">addOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;4---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当<strong>最大并发操作数</strong>为1时，也就是串行执行时，控制台中返回的结果顺序是固定的。而大于1时，也就是并发执行，每一次执行的顺序就可能不同（控制台中返回的额结果顺序可能不同）。当然开启的线程数量是有系统决定的。</p>
+<h3 id="57-nsoperation之间的依赖">5.7 NSOperation之间的依赖</h3>
+<p>并行时，各个的操作的执行顺序是有系统决定，程序员不能直接控制。但是NSOperation提高了依赖，来解决这个问题。相关方法和属性：</p>
+<ul>
+<li><code>- (void)addDependency:(NSOperation *)op;</code>     添加依赖，使当前操作依赖于操作 op 的完成。</li>
+<li><code>- (void)removeDependency:(NSOperation *)op;</code>     移除依赖，取消当前操作对操作 op 的依赖。</li>
+<li><code>@property (readonly, copy) NSArray&lt;NSOperation *&gt; *dependencies;</code>     在当前操作开始执行之前完成执行的所有操作对象数组。</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-23">23</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-objc" data-lang="objc"><span style="display:flex;"><span>- (<span style="color:#902000">void</span>)<span style="color:#06287e">addDependency</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 1.创建队列
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSOperationQueue <span style="color:#666">*</span>queue <span style="color:#666">=</span> [[NSOperationQueue alloc] init];
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 2.创建操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    NSBlockOperation <span style="color:#666">*</span>op1 <span style="color:#666">=</span> [NSBlockOperation <span style="color:#002070;font-weight:bold">blockOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;1---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>    NSBlockOperation <span style="color:#666">*</span>op2 <span style="color:#666">=</span> [NSBlockOperation <span style="color:#002070;font-weight:bold">blockOperationWithBlock</span>:<span style="color:#666">^</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#902000">int</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> <span style="color:#40a070">2</span>; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>            [NSThread <span style="color:#002070;font-weight:bold">sleepForTimeInterval</span>:<span style="color:#40a070">2</span>]; <span style="color:#60a0b0;font-style:italic">// 模拟耗时操作
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>            NSLog(<span style="color:#4070a0">@&#34;2---%@&#34;</span>, [NSThread currentThread]); <span style="color:#60a0b0;font-style:italic">// 打印当前线程
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 3.添加依赖
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    [op2 <span style="color:#002070;font-weight:bold">addDependency</span>:op1]; <span style="color:#60a0b0;font-style:italic">// 让op2 依赖于 op1，则先执行op1，再执行op2
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic">// 4.添加操作到队列中
+</span></span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"></span>    [queue <span style="color:#002070;font-weight:bold">addOperation</span>:op1];
+</span></span><span style="display:flex;"><span>    [queue <span style="color:#002070;font-weight:bold">addOperation</span>:op2];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果是固定的：</p>
+<pre tabindex="0"><code>NSOperation(OC)[8977:6302811] 1---&lt;NSThread: 0x604000277f80&gt;{number = 3, name = (null)}
+NSOperation(OC)[8977:6302811] 1---&lt;NSThread: 0x604000277f80&gt;{number = 3, name = (null)}
+NSOperation(OC)[8977:6302810] 2---&lt;NSThread: 0x604000274240&gt;{number = 4, name = (null)}
+NSOperation(OC)[8977:6302810] 2---&lt;NSThread: 0x604000274240&gt;{number = 4, name = (null)}
+</code></pre><blockquote>
+<p><code>注意</code>：不能添加相互依赖，会死锁，比如 A依赖B，B依赖A。
+可以使用 removeDependency 来解除依赖关系。
+可以在不同的队列之间依赖，反正就是这个依赖是添加到任务身上的，和队列没关系。</p>
+</blockquote>
+<h3 id="58-nsoperation-常用属性和方法">5.8 NSOperation 常用属性和方法</h3>
+<ul>
+<li>
+<p>取消操作方法
+<code>- (void)cancel;</code>     实质是标记 isCancelled 状态。</p>
+</li>
+<li>
+<p>判断操作状态方法</p>
+<ul>
+<li><code>- (BOOL)isFinished;</code>     判断操作是否已经结束。</li>
+<li><code>- (BOOL)isCancelled;</code>  判断操作是否已经标记为取消。</li>
+<li><code>- (BOOL)isExecuting;</code>  判断操作是否正在在运行。</li>
+<li><code>- (BOOL)isReady;</code>        判断操作是否处于准备就绪状态，这个值和操作的依赖关系相关。</li>
+</ul>
+</li>
+<li>
+<p>操作同步</p>
+<ul>
+<li><code>- (void)waitUntilFinished;</code> 阻塞当前线程，直到该操作结束。可用于线程执行顺序的同步。</li>
+<li><code>- (void)setCompletionBlock:(void (^)(void))block;</code> completionBlock 会在当前操作执行完毕时执行 completionBlock。</li>
+<li><code>- (void)addDependency:(NSOperation *)op;</code>  添加依赖，使当前操作依赖于操作 op 的完成。</li>
+<li><code>- (void)removeDependency:(NSOperation *)op;</code>  移除依赖，取消当前操作对操作 op 的依赖。</li>
+<li><code>@property (readonly, copy) NSArray&lt;NSOperation *&gt; *dependencies;</code> 在当前操作开始执行之前完成执行的所有操作对象数组。</li>
+</ul>
+</li>
+</ul>
+<h3 id="59-nsoperationqueue-常用属性和方法">5.9 NSOperationQueue 常用属性和方法</h3>
+<ol>
+<li>取消/暂停/恢复操作</li>
+</ol>
+<ul>
+<li><code>- (void)cancelAllOperations;</code> 可以取消队列的所有操作。</li>
+<li><code>- (BOOL)isSuspended;</code> 判断队列是否处于暂停状态。 YES 为暂停状态，NO 为恢复状态。</li>
+<li><code>- (void)setSuspended:(BOOL)b;</code> 可设置操作的暂停和恢复，YES 代表暂停队列，NO 代表恢复队列。</li>
+</ul>
+<ol start="2">
+<li>操作同步</li>
+</ol>
+<ul>
+<li><code>- (void)waitUntilAllOperationsAreFinished;</code> 阻塞当前线程，直到队列中的操作全部执行完毕。</li>
+</ul>
+<ol start="3">
+<li>添加/获取操作</li>
+</ol>
+<ul>
+<li><code>- (void)addOperationWithBlock:(void (^)(void))block;</code> 向队列中添加一个 NSBlockOperation 类型操作对象。</li>
+<li><code>- (void)addOperations:(NSArray *)ops waitUntilFinished:(BOOL)wait;</code> 向队列中添加操作数组，wait 标志是否阻塞当前线程直到所有操作结束</li>
+<li><code>- (NSArray *)operations;</code> 当前在队列中的操作数组（某个操作执行结束后会自动从这个数组清除）。</li>
+<li><code>- (NSUInteger)operationCount;</code> 当前队列中的操作数。</li>
+</ul>
+<ol start="4">
+<li>获取队列</li>
+</ol>
+<ul>
+<li><code>+ (id)currentQueue;</code> 获取当前队列，如果当前线程不是在 NSOperationQueue 上运行则返回 nil。</li>
+<li><code>+ (id)mainQueue;</code> 获取主队列。</li>
+</ul>
+<h2 id="6-后记">6 后记</h2>
+<p>虽然总结了很多，但还有很多内容没有涉及和深入。
+由于个人能力有限，时间紧凑（实际我已经花了很多时间😒🤦‍♀️🤦‍♀️），文中难免有错误，希望小伙伴批评指正。</p>
+<blockquote>
+<p>示例代码：<strong><a href="https://github.com/andyRon/iOS-Multithreading">andyRon/iOS-Multithreading</a></strong></p>
+</blockquote>
+<blockquote>
+<p>参考：
+<a href="https://www.jianshu.com/p/51fd1362249e">关于iOS多线程，我说，你听，没准你就懂了！</a>
+<a href="http://www.jianshu.com/p/6e6f4e005a0b">谈iOS多线程(NSThread、NSOperation、GCD)编程</a>
+<a href="http://www.jianshu.com/p/2d57c72016c6">iOS多线程：『GCD』详尽总结</a>
+<a href="https://www.jianshu.com/p/cbaeea5368b1">iOS多线程：『pthread、NSThread』详尽总结</a>
+<a href="https://www.jianshu.com/p/4b1d77054b35">iOS多线程：『NSOperation、NSOperationQueue』详尽总结</a>
+<a href="https://www.jianshu.com/p/0b0d9b1f1f19">关于iOS多线程，你看我就够了</a>
+<a href="https://www.appcoda.com/grand-central-dispatch/">Grand Central Dispatch (GCD) and Dispatch Queues in Swift 3</a>
+<a href="https://developer.apple.com/videos/play/wwdc2017/706/">WWDC-2017-Modernizing Grand Central Dispatch Usage</a></p>
+</blockquote>
+
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">andyron</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2024-07-16
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content">原创文章，如需转载请注明文章作者和出处。谢谢！</span>
+  </p>
+</div>
+
+
+
+        
+        
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
+  </div>
+</div>
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="http://localhost:1313/tags/multithreading/">Multithreading</a>
+                <a href="http://localhost:1313/tags/gcd/">GCD</a>
+                <a href="http://localhost:1313/tags/nsthread/">NSThread</a>
+                <a href="http://localhost:1313/tags/nsoperation/">NSOperation</a>
+                <a href="http://localhost:1313/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/blog/2018/08/leanclound-hexo-next.html/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">用LeanClound给hexo&#43;next博客添加文章阅读数</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/blog/2018/08/ios-oc-kvc-begin.html/">
+                <span class="next-text nav-default">OC中的键/值编码(KVC)</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+    <div class="post">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="xianmin/comments---xianmin.org"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNDAyNTY2MDI="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCFwlWs4CRRxW"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+  
+
+  
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://localhost:1313/blog/2018/08/ios-multithreading.html/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'xianmin12';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript
+    >Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+</div>
+
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-简介">1 简介</a>
+      <ul>
+        <li><a href="#11-一些概念">1.1 一些概念</a></li>
+        <li><a href="#12-多线程概念补充">1.2 多线程概念补充</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-四种解决方案对比">2 四种解决方案对比</a></li>
+    <li><a href="#3-nstread">3 NSTread</a>
+      <ul>
+        <li><a href="#31-nsthread三种线程开启方式">3.1 NSThread三种线程开启方式</a></li>
+        <li><a href="#32-nsthread拓展">3.2 NSThread拓展</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-gcd">4. GCD</a>
+      <ul>
+        <li><a href="#41-gcd的优点">4.1 GCD的优点</a></li>
+        <li><a href="#42-任务和队列">4.2 任务和队列</a></li>
+        <li><a href="#43-下面以一个一个来学习gcd帮助搞清上面的概念">4.3 下面👇以一个一个🌰来学习GCD，帮助搞清上面的概念</a></li>
+        <li><a href="#44-gcd-重点">4.4 GCD 重点</a></li>
+        <li><a href="#45-gcd其他相关方法">4.5 GCD其他相关方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-nsoperation-和-nsoperationqueue">5 NSOperation 和 NSOperationQueue</a>
+      <ul>
+        <li><a href="#51-概念">5.1 概念</a></li>
+        <li><a href="#5-2-nsoperation-实现多线程的步骤">5. 2 NSOperation 实现多线程的步骤</a></li>
+        <li><a href="#53-使用nsoperation的子类nsinvocationoperation">5.3 使用NSOperation的子类NSInvocationOperation</a></li>
+        <li><a href="#54-使用nsoperation的子类nsblockoperation">5.4 使用NSOperation的子类NSBlockOperation</a></li>
+        <li><a href="#55-nsoperation的自定义子类">5.5 NSOperation的自定义子类</a></li>
+        <li><a href="#56-nsoperationqueue">5.6 NSOperationQueue</a></li>
+        <li><a href="#57-nsoperation之间的依赖">5.7 NSOperation之间的依赖</a></li>
+        <li><a href="#58-nsoperation-常用属性和方法">5.8 NSOperation 常用属性和方法</a></li>
+        <li><a href="#59-nsoperationqueue-常用属性和方法">5.9 NSOperationQueue 常用属性和方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-后记">6 后记</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+  
+    <a href="mailto:rongming.2008@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://stackoverflow.com/users/3133839/andyron" rel="me noopener" class="iconfont"
+      title="stack-overflow"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M809.714286 932.571429l-638.857143 0 0-274.285714-91.428571 0 0 365.714286 821.714286 0 0-365.714286-91.428571 0 0 274.285714zm-538.285714-299.428571l18.857143-89.714286 447.428571 94.285714-18.857143 89.142857zm58.857143-213.714286l38.285714-83.428571 414.285714 193.714286-38.285714 82.857143zm114.857143-203.428571l58.285714-70.285714 350.857143 293.142857-58.285714 70.285714zm226.857143-216l272.571429 366.285714-73.142857 54.857143-272.571429-366.285714zm-410.285714 840.571429l0-90.857143 457.142857 0 0 90.857143-457.142857 0z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/andyron" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        andyron
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.25d4b4ffb2db9a42760854fb017fe0cbe4413e299a94b43b52a058abedbf5ace.js" integrity="sha256-JdS0/7LbmkJ2CFT7AX/gy&#43;RBPimalLQ7UqBYq&#43;2/Ws4=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    $("#openSearch, #openSearchMobile").click(function(){
+      $(".modal-dialog").addClass("visible");
+    });
+
+    $("#closeSearch").click(function(){
+      $(".modal-dialog").removeClass("visible");
+    });
+
+    $(document).click(function(event) {
+    
+      if (!$(event.target).closest(".modal-content, #openSearch, #openSearchMobile").length) {
+        $("body").find(".modal-dialog").removeClass("visible");
+      }
+    });
+  </script>
+
+
+
+
+  <script src="/js/custom.js"></script>
+
+
+  </body>
+</html>

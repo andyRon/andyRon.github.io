@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          系统学习iOS动画之四：视图控制器的转场动画 - 欣欣向戎
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="andyron" />
+  <meta name="description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。 文中详细代码都放在我的Github上 andyRon/LearniOSAnimati" />
+
+  <meta name="keywords" content="linux, Go, Java, PHP, program, journal, andyron, 博客, 笔记" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.128.2" />
+
+
+<link rel="canonical" href="http://localhost:1313/blog/2018/12/ios-animation-4-view-controller-transition-animations.html/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:url" content="http://localhost:1313/blog/2018/12/ios-animation-4-view-controller-transition-animations.html/">
+  <meta property="og:site_name" content="欣欣向戎">
+  <meta property="og:title" content="系统学习iOS动画之四：视图控制器的转场动画">
+  <meta property="og:description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。 文中详细代码都放在我的Github上 andyRon/LearniOSAnimati">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2018-12-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-16T10:02:19+08:00">
+    <meta property="article:tag" content="IOS动画">
+    <meta property="article:tag" content="转场">
+    <meta property="article:tag" content="视图控制器的转场动画">
+    <meta property="article:tag" content="View Controller Transition Animations">
+
+  <meta itemprop="name" content="系统学习iOS动画之四：视图控制器的转场动画">
+  <meta itemprop="description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。 文中详细代码都放在我的Github上 andyRon/LearniOSAnimati">
+  <meta itemprop="datePublished" content="2018-12-16T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-07-16T10:02:19+08:00">
+  <meta itemprop="wordCount" content="9655">
+  <meta itemprop="keywords" content="IOS动画,转场,视图控制器的转场动画,View Controller Transition Animations">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="系统学习iOS动画之四：视图控制器的转场动画">
+  <meta name="twitter:description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。 文中详细代码都放在我的Github上 andyRon/LearniOSAnimati">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">欣欣向戎</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+        
+      </li>
+    
+
+    
+      <li class="mobile-menu-item">
+        <a id="openSearchMobile" class="mobile-menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+      
+<div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div id="closeSearch" title="Close" class="close">X</div>
+      <div class="modal-header">
+        <div class="modal-title">Search</div>
+      </div>
+      <div class="modal-body">
+          <script>
+            (function() {
+              var cx = '002186711602136249422:q1gkomof_em';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' :
+                  'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search>
+      </div>
+    </div>
+</div>
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      欣欣向戎
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+      <li class="menu-item">
+        <a id="openSearch" class="menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">系统学习iOS动画之四：视图控制器的转场动画</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2018-12-16">
+      2018-12-16
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2024-07-16)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="http://localhost:1313/categories/ios-animation/"> iOS-Animation </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <blockquote>
+<p>本文是我学习<a href="https://store.raywenderlich.com/products/ios-animations-by-tutorials">《iOS Animations by Tutorials》</a> 笔记中的一篇。
+文中详细代码都放在我的Github上 <a href="https://github.com/andyRon/LearniOSAnimations/tree/master/iOS_Animations_by_Tutorials">andyRon/LearniOSAnimations</a>。</p>
+</blockquote>
+<p>之前学习了视图动画、图层动画、自动布局动画等。这个部分让视野更大一点，学习整个视图控制器的动画，<strong>视图控制器的转场动画(View Controller Transition Animations)</strong>。</p>
+<p>iOS中最容易识别的动画之一是将新视图控制器推入导航堆栈的动画，当我们想让APP有自己的特色，自定义转场动画是非常好的方式。</p>
+<p>在本文，将学习如何使用动画创建自己的自定义视图控制器转换。</p>
+<p><strong>预览：</strong></p>
+<p><a href="/blog/2018/12/ios-animation-4-view-controller-transition-animations.html/#17-视图控制器转场和屏幕旋转转场">17-视图控制器转场和屏幕旋转转场</a>   了解如何通过自定义动画转场<strong>呈现</strong>视图控制器 - 作为奖励，您将创建动画转场以处理设备方向更改。</p>
+<p><a href="/blog/2018/12/ios-animation-4-view-controller-transition-animations.html/#18-导航控制器转场">18-导航控制器转场</a></p>
+<p><a href="/blog/2018/12/ios-animation-4-view-controller-transition-animations.html/#19-交互式导航控制器转场">19-交互式导航控制器转场</a></p>
+<h2 id="17-视图控制器转场和屏幕旋转转场">17-视图控制器转场和屏幕旋转转场</h2>
+<p>无论是<strong>呈现</strong> 照相机视图控制器、地址簿还是自定义的模态屏幕，每次都调用相同的<strong>UIKit</strong>方法：<code>present(_:animated:completion:)</code>。 此方法将当前屏幕“放弃”，然后跳到另一个视图控制器。</p>
+<p>下图呈现一个“New Contact”视图控制器向上滑动以覆盖当前视图（联系人列表），这是默认的动画方式：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxshdgh771j308k0a1gm3.jpg"></p>
+<!-- raw HTML omitted -->
+<p>在本章中，学习创建自己的自定义演示控制器动画，以替换默认的动画，并使本章的项目更加生动。</p>
+<h3 id="开始项目">开始项目</h3>
+<p>本章<a href="http://andyron.com/2018/iOS-Animation-0#%E5%85%B3%E4%BA%8E%E4%BB%A3%E7%A0%81">开始项目</a>是一个新项目，叫<strong>BeginnerCook</strong>。</p>
+<p>这个开始项目可以简单概括 如下，<code>ViewController</code>中包括一个背景图<code>UIImageView</code>，一个标题<code>UILabel</code>，一个文本视图<code>UITextView</code>，下面是一个可以左右移动的<code>UIScrollView</code>。这个<code>UIScrollView</code>里会用代码加入一些香草(herb)图片，点击图片会跳转到另个展示详情的视图控制器<code>HerbDetailsViewController</code>，这个转场是标准的从下到上的垂直覆盖转场动画。</p>
+<p>开始项目预览一下：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fx8i1nv0jdg308o0fq1ky.gif"></p>
+<h3 id="自定义转场的原理">自定义转场的原理</h3>
+<p><strong>UIKit</strong>实现自定义转场动画是通过代理模式完成的。因此首先需要让<code>ViewController</code>遵守<code>UIViewControllerTransitioningDelegate</code>协议。</p>
+<p>每次<strong>呈现</strong>新的视图控制器时，UIKit都会询问其代理是否要使用自定义转场。以下是自定义转场动画的第一步：</p>
+<p><img alt="image-20181202172719920" src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxsj2owhp1j30d9068mye.jpg"></p>
+<p>需要实现<code>animationController(forPresented:presenting:source:) </code>方法，这个方法如果返回<code>nil</code>，则进行默认的转场动画，如果返回时遵守<code>UIViewControllerAnimatedTransitioning</code>协议的对象，则将这个对象作为自定义转场的<strong>Animator</strong>（可以翻译为动画师）。</p>
+<p>在UIKit使用自定义<strong>Animator</strong>之前，还需要一些步骤：</p>
+<p><img alt="image-20181202172932834" src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxsj4zacy0j30ey06q75k.jpg"></p>
+<p><code>transitionDuration(using:)</code>返回动画持续时间。</p>
+<p><code>animateTransition(using:)</code>方法时实际动画代码所在的地方。在这个方法中可以访问屏幕上的当前视图控制器以及将要显示的新视图控制器，可以自己根据需要淡化，缩放，旋转等操作现有视图和新视图。</p>
+<p>下面开始实现自定义转场！💪</p>
+<h3 id="实现转场代理">实现转场代理</h3>
+<p>新建一个<code>NSObject</code>子类<code>PopAnimator</code>(就是之前提到的<strong>Animator</strong>)，并遵守协议 <code>UIViewControllerAnimatedTransitioning</code>  。并在这个动画类中添加两个函数的存根：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">transitionDuration</span>(using transitionContext: UIViewControllerContextTransitioning?) -&gt; TimeInterval {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">animateTransition</span>(using transitionContext: UIViewControllerContextTransitioning) {
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>让<code>ViewController</code>遵守<code>UIViewControllerTransitioningDelegate</code>协议：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">extension</span> <span style="color:#0e84b5;font-weight:bold">ViewController</span>: UIViewControllerTransitioningDelegate {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>didTapImageView(_:)</code>中的<code>present(herbDetails, animated: true, completion: nil)</code>前添加：</p>
+<pre tabindex="0"><code>herbDetails.transitioningDelegate = self
+</code></pre><p>现在，每次在屏幕上显示详情页的视图控制器时，UIKit都会向<code>ViewController</code>询问动画对象。 但是，目前仍然没有实现任何<code>UIViewControllerTransitioningDelegate</code>中的相关方法，因此UIKit仍将使用默认转换。</p>
+<p>在 <code>ViewController</code>中创建动画属性：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">transition</span> = PopAnimator()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实现呈现时动画的协议方法：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">animationController</span>(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -&gt; UIViewControllerAnimatedTransitioning? {  
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> transition
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实现解除（dismiss）时动画的协议方法：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">animationController</span>(forDismissed dismissed: UIViewController) -&gt; UIViewControllerAnimatedTransitioning? {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> transition
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在点击香草🌿图片时，没有反应，这是因为，把默认的转场动画修改成了自定义，但自定义动画目前是空的。</p>
+<h3 id="创建转场动画师">创建转场动画师</h3>
+<p>在<code>PopAnimator</code>添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">duration</span> = <span style="color:#40a070">1.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">var</span> <span style="color:#bb60d5">presenting</span> = <span style="color:#007020;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">var</span> <span style="color:#bb60d5">originFrame</span> = CGRect.zero
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>duration</code> 是动画持续时间。</p>
+<p><code>presenting</code> 是用判断当前是<strong>呈现</strong>还是<strong>解除</strong>。</p>
+<p><code>originFrame</code>用来存储用户点击的图像的原始 <em>frame</em> —— <strong>呈现</strong>动画就是需要它从原始<em>frame</em>到全屏图像<em>frame</em>，对应的<strong>解除</strong>动画正好相反。</p>
+<p>用以下内容替换<code>transitionDuration()</code>中的代码：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">return</span> duration
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="设置转场动画的上下文">设置转场动画的上下文</h4>
+<p>是时候为<code>animateTransition(using:)</code>添加代码了。 此方法有一个类型为<code>UIViewControllerContextTransitioning</code>的参数，通过该参数可以访问转场的相关参数和视图控制器。</p>
+<p>在开始写动画代码之前，了解动画上下文实际上是什么很重要。</p>
+<p>当两个视图控制器之间的转场开始时，现有视图将添加到<strong>转场容器视图</strong>(transition container view)中，并且新视图控制器的视图已创建但尚未可见，如下所示：</p>
+<p><img alt="image-20181202105011119" src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxs7li884gj30f607cjtg.jpg"></p>
+<p>因此，现在的任务是将新视图添加到<code>animateTransition()</code>中的转场容器中，以特定动画将其显示，如有需要也是特定动画的方式<strong>解除</strong>旧视图。</p>
+<p>默认情况下，转场动画完成后，旧视图将从转场容器中删除。</p>
+<p><img alt="image-20181202105026911" src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxs7lpwd9ij30ep07840o.jpg"></p>
+<p>下面👇先实现简单的转场动画。</p>
+<h4 id="淡出转场">淡出转场</h4>
+<p>获得动画将在其中进行的容器视图，然后您将获取新视图并将其存储在toView中，在<code>animateTransition()</code>中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">containerView</span> = transitionContext.containerView
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">toView</span> = transitionContext.view(forKey: .to)<span style="color:#666">!</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>view(forKey:)</code>和<code>viewController(forKey:)</code>两个方法非常类似，分别获得转场动画对应的视图和视图控制器。</p>
+<p>继续在<code>animateTransition()</code>中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>containerView.addSubview(toView)
+</span></span><span style="display:flex;"><span>toView.alpha = <span style="color:#40a070">0.0</span>
+</span></span><span style="display:flex;"><span>UIView.animate(withDuration: duration, animations: {
+</span></span><span style="display:flex;"><span>    toView.alpha = <span style="color:#40a070">1.0</span>
+</span></span><span style="display:flex;"><span>}, completion: { <span style="color:#007020;font-weight:bold">_</span> <span style="color:#007020;font-weight:bold">in</span>
+</span></span><span style="display:flex;"><span>    transitionContext.completeTransition(<span style="color:#007020;font-weight:bold">true</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在动画完成闭包中调用用<code>completeTransition()</code>，告诉UIKit你的转场动画已经完成，UIKit可以自由地结束视图控制器转场。</p>
+<p>目前的效果就是：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxtalfnhalg308q0fnqv6.gif"></p>
+<h4 id="pop转场">pop转场</h4>
+<p>上面的fade效果不是最终想要的，把<code>animateTransition()</code>中的代码替换为：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">containerView</span> = transitionContext.containerView
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">toView</span> = transitionContext.view(forKey: .to)<span style="color:#666">!</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">herbView</span> = presenting ? toView : transitionContext.view(forKey: .from)<span style="color:#666">!</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>containerView</code>是动画将存在的地方，而<code>toView</code>是要<strong>呈现</strong>的新视图。 如果是<strong>呈现</strong>（<code>presenting</code>为<code>true</code>），<code>herbView</code>是<code>toView</code>，否则将从上下文中获取。 对于<strong>呈现</strong>和<strong>解除</strong>，<code>herbView</code>将始终是表现动画的视图。 当呈详细页的控制器视图时，它将逐渐占用整个屏幕。 当被<strong>解除</strong>时，它将缩小到图像的原始帧。</p>
+<p>在上面代码后添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">initialFrame</span> = presenting ? originFrame : herbView.frame
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">finalFrame</span> = presenting ? herbView.frame : originFrame
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">xScaleFactor</span> = presenting ? initialFrame.width <span style="color:#666">/</span> finalFrame.width : finalFrame.width <span style="color:#666">/</span> initialFrame.width
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">yScaleFactor</span> = presenting ? initialFrame.height <span style="color:#666">/</span> finalFrame.height : finalFrame.height <span style="color:#666">/</span> initialFrame.height
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>initialFrame</code>和<code>finalFrame</code>分别是初始和最终动画的<code>frame</code>，<code>xScaleFactor</code> 和<code>yScaleFactor</code>分别是x轴和y轴上视图变化的<strong>比例因子（scale factor）</strong> 。</p>
+<p>继续在上面代码后添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">scaleTransform</span> = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> presenting {
+</span></span><span style="display:flex;"><span>    herbView.transform = scaleTransform
+</span></span><span style="display:flex;"><span>    herbView.center = CGPoint(x: initialFrame.midX, y: initialFrame.midY)
+</span></span><span style="display:flex;"><span>    herbView.clipsToBounds = <span style="color:#007020;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当需要<strong>呈现</strong>新视图时，设置<code>transform</code>，并且定位（设置<code>center</code>）</p>
+<p>继续在上面代码后添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-8">8</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>containerView.addSubview(toView)
+</span></span><span style="display:flex;"><span>containerView.bringSubview(toFront: herbView)
+</span></span><span style="display:flex;"><span>UIView.animate(withDuration: duration, delay: <span style="color:#40a070">0.0</span>, usingSpringWithDamping: <span style="color:#40a070">0.4</span>, initialSpringVelocity: <span style="color:#40a070">0.0</span>, options: [], animations: {
+</span></span><span style="display:flex;"><span>    herbView.transform = <span style="color:#007020;font-weight:bold">self</span>.presenting ? CGAffineTransform.identity : scaleTransform
+</span></span><span style="display:flex;"><span>    herbView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
+</span></span><span style="display:flex;"><span>}) { (<span style="color:#007020;font-weight:bold">_</span>) <span style="color:#007020;font-weight:bold">in</span>
+</span></span><span style="display:flex;"><span>    transitionContext.completeTransition(<span style="color:#007020;font-weight:bold">true</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>首先将<code>toView</code>添加到容器中，并确保<code>herbView</code>位于顶部，因为这是动画的唯一视图。</p>
+<p>然后，实现动画，在这里使用弹簧动画。在动画表达式中，可以更改<code>herbView</code>的<code>transform</code>和位置。在<strong>呈现</strong>时，将从底部的小尺寸变为全屏；在<strong>解除</strong>时，将全屏缩小变为原始图像大小。</p>
+<p>最后，您调用了<code>completeTransition()</code>告诉<strong>UIKit</strong>转场动画已经完成。</p>
+<p>现在的效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxtc46bmy7g308q0fnkjl.gif"></p>
+<p>动画从左上角开始; 这是因为originFrame的默认值的原点是*(0,0)* 。</p>
+<p>在<strong>ViewController.swift</strong>的<code>animationController(forPresented:presenting:source:)</code> 返回代码前添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>transition.originFrame = selectedImage!.superview!.convert(selectedImage!.frame, to: <span style="color:#007020;font-weight:bold">nil</span>)
+</span></span><span style="display:flex;"><span>transition.presenting = <span style="color:#007020;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>selectedImage!.isHidden = <span style="color:#007020;font-weight:bold">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这会将转场动画的<code>originFrame</code>设置为<code>selectedImage</code>的<code>frame</code>，并在动画期间隐藏初始图像。</p>
+<p>目前的效果是初始小视图转场到全屏了，没有问题，但是<strong>解除</strong>详情页时就有问题，详情页突然就消失了：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxtcugg85pg308q0fn7wj.gif"></p>
+<h4 id="解除转场">解除转场</h4>
+<p>剩下要做的就是<strong>解除</strong>详细页视图的动画。</p>
+<p>在<strong>ViewController.swift</strong>的<code>animationController(forDismissed:)</code>中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>transition.presenting = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">return</span> transition
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面的代表 <code>transition</code>对象也作为解除转场动画使用。</p>
+<p>转场动画看起来很棒，但解除详细页面后，原始的小尺寸的图片消失了。下面就解决这个问题。</p>
+<p>在类<code>PopAnimator</code>中添加一个闭包属性，作为<strong>解除</strong>动画完成后处理：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">var</span> <span style="color:#bb60d5">dismissCompletion</span>: (()-&gt;<span style="color:#007020">Void</span>)?
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>animateTransition(using:)</code>的<code>transitionContext.completeTransition(true)</code>之前添加(也就是通知<strong>UIKit</strong>转场动画结束之前，如果是<strong>解除</strong>动画，就进行一些处理)：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">!</span><span style="color:#007020;font-weight:bold">self</span>.presenting {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">self</span>.dismissCompletion?()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>ViewController</code>实现具体闭包内容，在<code>viewDidLoad()</code>中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>transition.dismissCompletion = {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">self</span>.selectedImage!.isHidden = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>那么，目前效果：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxtdmixexpg308q0fnnpd.gif"></p>
+<h3 id="屏幕旋转转场">屏幕旋转转场</h3>
+<p>设备方向更改视为从视图控制器到其自身的转场过程。</p>
+<p>iOS 8中引入的<code>viewWillTransition(to:with:)</code>方法，用来提供了一种简单直接的方法来处理设备方向的变化。 不需要构建单独的纵向或横向布局，而只需要对视图控制器视图的大小进行更改。</p>
+<p>在<code>ViewController</code>中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">override</span> <span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">viewWillTransition</span>(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">super</span>.viewWillTransition(to: size, with: coordinator)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    coordinator.animate(alongsideTransition: { context <span style="color:#007020;font-weight:bold">in</span>
+</span></span><span style="display:flex;"><span>                                              <span style="color:#007020;font-weight:bold">self</span>.bgImage.alpha = (size.width <span style="color:#666">&gt;</span> size.height) ? <span style="color:#40a070">0.25</span> : <span style="color:#40a070">0.55</span>
+</span></span><span style="display:flex;"><span>                                             }, completion: <span style="color:#007020;font-weight:bold">nil</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>第一个参数（<code>size</code>）指视图控制器变换后的大小。 第二个参数（<code>coordinator</code>）是转场协调对象，它可以访问许多转场的属性。</p>
+<p><code>animate(alongsideTransition:completion:)</code>允许指定自己的自定义动画，与<strong>UIKit</strong>在更改方向时默认执行的旋转动画一起执行。当设备横向时，减少背景图像的透明度，让文本看上去更清晰，更容易阅读。</p>
+<p>运行，旋转设备（模拟器中按<strong>Cmd +向左箭头</strong>）：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxtf9wmj4eg30n00lpb29.gif"></p>
+<p>将屏幕旋转为横向模式时，可以清楚地看到背景变深。</p>
+<p>现在上面的动画看上去已经很不错，但如果仔细观看，会发现还有两个问题，<strong>解除</strong>动画时，全屏视图到小视图完成之前看到详细视图的文本；全屏视图是直角，直到动画要完成的最后一个才从直角突然变到圆角。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxtfxqpzeog306y07mtq7.gif"></p>
+<h3 id="平滑转场动画">平滑转场动画</h3>
+<p>纠正了细节视图的文本在被解除时消失的问题。</p>
+<p>在<code>animateTransition(using:)</code>中的动画(<code>UIView.animate(...)</code>)开始前添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">herbController</span> = transitionContext.viewController(forKey: presenting ? .to : .from) <span style="color:#007020;font-weight:bold">as</span>! HerbDetailsViewController
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> presenting {
+</span></span><span style="display:flex;"><span>    herbController.containerView.alpha = <span style="color:#40a070">0.0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>animateTransition(using:)</code>中的动画闭包中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>herbController.containerView.alpha = <span style="color:#007020;font-weight:bold">self</span>.presenting ? <span style="color:#40a070">1.0</span> : <span style="color:#40a070">0.0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="圆角动画">圆角动画</h3>
+<p>最后，为详情页视图的图层角半径设置动画，使其与主视图控制器中草本图像的圆角相匹配。</p>
+<p>在<code>animateTransition(using:)</code>中的动画闭包中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>herbView.layer.cornerRadius = <span style="color:#007020;font-weight:bold">self</span>.presenting ? <span style="color:#40a070">0.0</span> : <span style="color:#40a070">20.0</span><span style="color:#666">/</span>xScaleFactor
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>为了更方便的查看动画，可以把持续时间增大或用模拟器中满动画（<strong>Command + T</strong>）。</p>
+</blockquote>
+<p>上面两个修改后的效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxtgx7q5s5g308s0fqqv5.gif"></p>
+<h2 id="18-导航控制器转场">18-导航控制器转场</h2>
+<p><code>UINavigationController</code>是iOS中为数不多的内置应用导航解决方案之一。 将一个新的视图控制器推入或弹出导航堆栈，这个过程自带一个时尚的动画。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fy8go5czmog308q09fgp7.gif"></p>
+<p>上图显示了iOS如何将新视图控制器推送到设置应用中的导航堆栈：新视图从右侧滑入以覆盖旧视图，新标题淡入，而旧标题淡出。</p>
+<p>本章的自定义导航控制器转场与前一章中构建自定义视图控制器转场的方式类似。</p>
+<h3 id="开始项目-1">开始项目</h3>
+<p>本章<a href="http://andyron.com/2018/iOS-Animation-0#%E5%85%B3%E4%BA%8E%E4%BB%A3%E7%A0%81">开始项目</a>是一个新项目，叫<strong>LogoReveal</strong>  。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fy8gxv524xj307o0amwet.jpg"></p>
+<p>点击默认屏幕任意地方（<code>MasterViewController</code>），跳转展示vacation packing list页面(<code>DetailViewController</code>)，RW Logo是通过<code>UIBezierPath</code>绘制的<code>CAShapeLayer</code>图层。</p>
+<h3 id="自定义导航控制器转场的原理">自定义导航控制器转场的原理</h3>
+<p>自定义导航控制器转场的原理类似上一章节的<a href="/blog/2018/12/ios-animation-4-view-controller-transition-animations.html/#自定义转场的原理">自定义转场的原理</a>，同样也可以用两个图概括：</p>
+<p><img alt="image-20181203214052969" src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxtw0sqszej30dz05e3z5.jpg"></p>
+<p><img alt="image-20181203214104467" src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxtw10skywj30e206374n.jpg"></p>
+<h3 id="导航控制器代理">导航控制器代理</h3>
+<p>首先需要新建一个<strong>Animator</strong>，新建一个<code>NSObject</code>子类<code>RevealAnimator</code>的类文件，并让它遵守<code>UIViewControllerAnimatedTransitioning</code>协议：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">RevealAnimator</span>: NSObject, UIViewControllerAnimatedTransitioning {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>RevealAnimator</code>中添加两个属性，并且实现<code>UIViewControllerAnimatedTransitioning</code>协议的两个方法：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-11">11</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">animationDuration</span> = <span style="color:#40a070">2.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">var</span> <span style="color:#bb60d5">operation</span>: UINavigationControllerOperation = .push
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">transitionDuration</span>(using transitionContext: UIViewControllerContextTransitioning?) -&gt; TimeInterval {
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">return</span> animationDuration
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">animateTransition</span>(using transitionContext: UIViewControllerContextTransitioning) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>operation</code>是<code>UINavigationControllerOperation</code>类型的属性，用于表示是在推送还是弹出控制器。</p>
+<p>用扩展的方式让<code>MasterViewController</code>遵守<code>UINavigationControllerDelegate</code>协议：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-25-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-25-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-25-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-25-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-25-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-25-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">extension</span> <span style="color:#0e84b5;font-weight:bold">MasterViewController</span>: UINavigationControllerDelegate {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在调用任何<em>segues</em>或将某些内容推送到堆栈之前，需要在视图控制器生命周期的早期设置导航控制器的代理。在<code>MasterViewController</code>的<code>viewDidLoad()</code>中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>navigationController?.delegate = <span style="color:#007020;font-weight:bold">self</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>MasterViewController</code>中创建Animator属性：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-27-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-27-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">transition</span> = RevealAnimator()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实现协议<code>UINavigationControllerDelegate</code>的方法<code>navigationController()</code>:</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-28-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-28-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">navigationController</span>(<span style="color:#007020;font-weight:bold">_</span> navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -&gt; UIViewControllerAnimatedTransitioning? {
+</span></span><span style="display:flex;"><span>    transition.operation = operation
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> transition
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这是一个方法名称非常长，参数有：</p>
+<p><code>navigationController</code>：当对象是多个导航控制器的委托时，这用来区分导航控制器，这不是太常见。</p>
+<p><code>operation</code>：这是一个枚举<code>UINavigationControllerOperation</code>，可以是<code>.push</code>或<code>.pop</code>。</p>
+<p><code>fromVC</code>：这是当前在屏幕上可见的视图控制器，它通常是导航堆栈中的最后一个视图控制器。</p>
+<p><code>toVC</code>：这是将转场到的视图控制器。</p>
+<p>如果需要不同视图控制器有不同转场动画，则可以选择返回不同的<strong>Animator</strong>。为了简化此项目，在推送或弹出转场时，都返回<code>RevealAnimator</code>对象。</p>
+<p>运行，点击，导航栏有一个两秒转场，但其他就没有反应了，这是因为<code>animateTransition()</code>中还没有编写任何代码。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxtmk2z7xbg308s090mxf.gif"></p>
+<h3 id="添加自定义显示动画">添加自定义显示动画</h3>
+<p>自定义转场动画的计划相对简单。 您只需在<code>DetailViewController</code>上为蒙版设置动画，使其看起来像RW徽标的透明部分，显示底层视图控制器的内容。
+你将不得不处理图层和一些动画任务，但是到目前为止你还没有完成任务。 对于像你这样的动画专业人士来说，创建转场动画将是一件轻松的事！</p>
+<p>在<code>RevealAnimator</code>中创建一个存储动画上下文的属性：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-29-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-29-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">weak</span> <span style="color:#007020;font-weight:bold">var</span> <span style="color:#bb60d5">storedContext</span>: UIViewControllerContextTransitioning?
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>再在<code>animateTransition()</code>中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>storedContext = transitionContext
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">fromVC</span> = transitionContext.viewController(forKey: .from) <span style="color:#007020;font-weight:bold">as</span>! MasterViewController
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">toVC</span> = transitionContext.viewController(forKey: .to) <span style="color:#007020;font-weight:bold">as</span>! DetailViewController
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>transitionContext.containerView.addSubview(toVC.view)
+</span></span><span style="display:flex;"><span>toVC.view.frame = transitionContext.finalFrame(<span style="color:#007020;font-weight:bold">for</span>: toVC)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>先获取<code>fromVC</code>并将其转换为<code>MasterViewController</code>；然后，获取<code>toVC</code>并转换为<code>DetailViewController</code>。
+最后，只需将<code>toVC.view</code>添加到转场容器视图中，并将其<code>frame</code>设置为<code>transitionContext</code>中的最终<code>frame</code>，这是详情页面在主屏幕上的最终位置。</p>
+<p>将以下内容添加到<code>animateTransition()</code>中：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-31-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-31-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">animation</span> = CABasicAnimation(keyPath: <span style="color:#4070a0">&#34;transform&#34;</span>)
+</span></span><span style="display:flex;"><span>animation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
+</span></span><span style="display:flex;"><span>animation.toValue = NSValue(caTransform3D:      CATransform3DConcat(CATransform3DMakeTranslation(<span style="color:#40a070">0.0</span>, <span style="color:#666">-</span><span style="color:#40a070">10.0</span>, <span style="color:#40a070">0.0</span>), CATransform3DMakeScale(<span style="color:#40a070">150.0</span>, <span style="color:#40a070">150.0</span>, <span style="color:#40a070">1.0</span>)))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个动画将logo的大小增加了150倍，并同时向上移动了一点。 为什么？ logo的形状不均匀，我希望后面的视图控制器通过RW形状的“孔”显示。 将其向上移动意味着缩放图像的底部将更快地覆盖屏幕。</p>
+<p>如果使用像圆形或椭圆形这种对称的logo，就不会有这种问题。</p>
+<p>现在将以下面代码添加到<code>animateTransition()</code>以稍微优化动画：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-32-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-32-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-32-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-32-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-32-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-32-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-32-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-32-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-32-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-32-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>animation.duration = animationDuration
+</span></span><span style="display:flex;"><span>animation.delegate = <span style="color:#007020;font-weight:bold">self</span>
+</span></span><span style="display:flex;"><span>animation.fillMode = kCAFillModeForwards
+</span></span><span style="display:flex;"><span>animation.isRemovedOnCompletion = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这些都是前面章节的知识。</p>
+<p><code>RevealAnimator</code>目前还不是动画代理，记得要让<code>RevealAnimator</code>遵守<code>CAAnimationDelegate</code> 协议。</p>
+<p>在<code>animateTransition()</code>中添加图层：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-33-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">maskLayer</span>: CAShapeLayer = RWLogoLayer.logoLayer()
+</span></span><span style="display:flex;"><span>maskLayer.position = fromVC.logo.position
+</span></span><span style="display:flex;"><span>toVC.view.layer.mask = maskLayer
+</span></span><span style="display:flex;"><span>maskLayer.add(animation, forKey: <span style="color:#007020;font-weight:bold">nil</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxtnj606n9g308s0fq0uw.gif"></p>
+<h3 id="优化细节">优化细节</h3>
+<p>细看上面的效果，会发现动画运行时，原来的logo还在那里，下面解决这个问题。</p>
+<p>在<code>animateTransition()</code>中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-34-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-34-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>fromVC.logo.add(animation, forKey: <span style="color:#007020;font-weight:bold">nil</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行后，没有有原始的logo了：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxtnwpmszsg308s0fq777.gif"></p>
+<p>还有一个稍微复杂一点的问题：在第一次推送转场后，导航不再工作了？</p>
+<p>在 <code>RevealAnimator</code>中实现<code>CAAnimationDelegate</code>的<code>animationDidStop(_:finished:)</code>方法：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-35-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-35-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">animationDidStop</span>(<span style="color:#007020;font-weight:bold">_</span> anim: CAAnimation, finished flag: <span style="color:#007020">Bool</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">if</span> <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">context</span> = storedContext {
+</span></span><span style="display:flex;"><span>        context.completeTransition(<span style="color:#666">!</span>context.transitionWasCancelled)
+</span></span><span style="display:flex;"><span>        <span style="color:#60a0b0;font-style:italic">// reset logo</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    storedContext = <span style="color:#007020;font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在方法结束时，只需将转场上下文设置为<code>ni</code>l。</p>
+<p>由于显示动画在完成后不会自动删除，因此需要自己处理。</p>
+<p>使用以下内容替换位于<code>animationDidStop()</code>中的<code>// reset logo</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">fromVC</span> = context.viewController(forKey: .from) <span style="color:#007020;font-weight:bold">as</span>! MasterViewController
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fromVC.logo.removeAllAnimations()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>只需要在推送转场期间屏蔽视图控制器的内容，一旦视图控制器完成转场，就可以安全地移除屏蔽。</p>
+<p>接着上面的代码t添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-37-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-37-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-37-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-37-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">toVC</span> = context.viewController(forKey: .to) <span style="color:#007020;font-weight:bold">as</span>! DetailViewController
+</span></span><span style="display:flex;"><span>toVC.view.layer.mask = <span style="color:#007020;font-weight:bold">nil</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行报错：</p>
+<p><img alt="image-20181203170902426" src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxto5z7a9fj313y07kwgw.jpg"></p>
+<p>这是因为，上面的代码只适用于推送，但不适用于弹出。</p>
+<p>把<code>animateTransition()</code>中除了第一行<code>storedContext = transitionContext</code>的代码，都包含在if语句中：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-38-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-38-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-38-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-38-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-38-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-38-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> operation == .push {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="淡入新视图控制器">淡入新视图控制器</h3>
+<p>转场时，给详情页面添加淡入的动画。</p>
+<p>在<code>animateTransition(using:)</code>的<code>if operation == .push {</code>语句中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-39-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-39-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-39-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-39-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-39-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-39-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-39-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-39-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-39-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-39-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">fadeIn</span> = CABasicAnimation(keyPath: <span style="color:#4070a0">&#34;opacity&#34;</span>)
+</span></span><span style="display:flex;"><span>fadeIn.fromValue = <span style="color:#40a070">0.0</span>
+</span></span><span style="display:flex;"><span>fadeIn.toValue = <span style="color:#40a070">1.0</span>
+</span></span><span style="display:flex;"><span>fadeIn.duration = animationDuration
+</span></span><span style="display:flex;"><span>toVC.view.layer.add(fadeIn, forKey: <span style="color:#007020;font-weight:bold">nil</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="弹出转场">弹出转场</h3>
+<p>前面都是推送转场，现在添加是弹出转场。</p>
+<p>给在<code>animateTransition(using:)</code>的<code>if</code>语句添加一个<code>else</code> ：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-40-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-40-12">12</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">fromView</span> = transitionContext.view(forKey: .from)<span style="color:#666">!</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">toView</span> = transitionContext.view(forKey: .to)<span style="color:#666">!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    transitionContext.containerView.insertSubview(toView, belowSubview: fromView)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    UIView.animate(withDuration: animationDuration, delay: <span style="color:#40a070">0.0</span>, options: .curveEaseIn, animations: {
+</span></span><span style="display:flex;"><span>        fromView.transform = CGAffineTransform(scaleX: <span style="color:#40a070">0.01</span>, y: <span style="color:#40a070">0.01</span>)
+</span></span><span style="display:flex;"><span>    }) { (<span style="color:#007020;font-weight:bold">_</span>) <span style="color:#007020;font-weight:bold">in</span>
+</span></span><span style="display:flex;"><span>        transitionContext.completeTransition(<span style="color:#666">!</span>transitionContext.transitionWasCancelled)
+</span></span><span style="display:flex;"><span>       }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最终效果会是：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fxtxbxrvowg308s0fqan5.gif"></p>
+<h2 id="19-交互式导航控制器转场">19-交互式导航控制器转场</h2>
+<p>您不仅可以为转换创建自定义动画 - 还可以使其交互并响应用户的操作。通常，您通过平移手势驱动此操作，这是您将在本章中采用的方法。
+当您完成后，您的用户将能够通过在屏幕上滑动手指来来回穿过显示转场。那会有多酷？
+是的，我以为你会感兴趣！继续阅读，了解它是如何完成的！</p>
+<p>关于手势处理，可看我的一篇简单的小结 <a href="http://andyron.com/2017/ios-tutorial-13.html">iOS tutorial 13：手势处理</a>。</p>
+<p>本章<a href="http://andyron.com/2018/iOS-Animation-0#%E5%85%B3%E4%BA%8E%E4%BB%A3%E7%A0%81">开始项目</a>使用上一章节完成的项目。</p>
+<h3 id="创建交互式转场">创建交互式转场</h3>
+<p>当导航控制器向其代理询问动画控制器（就是之前提到Animator）时，可能会发生两件事。返回nil，在这种情况下，导航控制器会运行标准转场动画； 如果返回一个动画控制器，那么导航控制器除了会向其代理询问转场动画控制器，也会询问交互控制器，如下所示：</p>
+<p><img alt="image-20181216165544709" src="https://ws1.sinaimg.cn/large/006tNbRwgy1fy8ou4nshrj30fm06lt9a.jpg"></p>
+<p>交互控制器根据用户的操作移动转场，而不是简单地从开始到结束动画更改。 交互控制器不一定需要是与动画控制器分开的类；实际上，当两个控制器在同一个类中时，执行某些任务会更容易一些。 您只需要确保所述类遵守<code>UIViewControllerAnimatedTransitioning</code>和<code>UIViewControllerInteractiveTransitioning</code>两个协议。</p>
+<p><code>UIViewControllerInteractiveTransitioning</code>只有一个必需实现的方法 <code>startInteractiveTransition(_:)</code> ，它将转换上下文作为参数。 然后，交互控制器会定期调用updateInteractiveTransition（_ :)来移动转换。 首先，您需要更改处理用户输入的方式。</p>
+<h3 id="处理平移手势">处理平移手势</h3>
+<p>把点击手势修改成平移手势。平移手势可观察到转场的开始、过程和结束的状态。</p>
+<p>先把底部的标签的文本修改成 <strong>Slide to start</strong>。</p>
+<p>接下来，在<code>MasterViewController.swift</code>的<code>viewDidAppear(_:)</code>中删除以下代码：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-41-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-41-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-41-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-41-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">tap</span> = UITapGestureRecognizer(target: <span style="color:#007020;font-weight:bold">self</span>, action: <span style="color:#007020;font-weight:bold">#selector</span>(didTap))
+</span></span><span style="display:flex;"><span>view.addGestureRecognizer(tap)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>替代为平移手势识别代码：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-42-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-42-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-42-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-42-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">pan</span> = UIPanGestureRecognizer(target: <span style="color:#007020;font-weight:bold">self</span>, action: <span style="color:#007020;font-weight:bold">#selector</span>(didPan(<span style="color:#007020;font-weight:bold">_</span>:)))
+</span></span><span style="display:flex;"><span>view.addGestureRecognizer(pan)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当用户在屏幕上滑动是，会被识别然后调用<code>didPan(_:)</code>方法。</p>
+<p>在<code>MasterViewController</code>中添加空<code>didPan(_:)</code>。</p>
+<h3 id="使用交互式动画师类">使用交互式动画师类</h3>
+<p>为了处理上面的转场，需要使用内置的交互式动画师类：<code>UIPercentDrivenInteractiveTransition</code>。 此类遵守<code>UIViewControllerInteractiveTransitioning</code>协议，并可以将转场的进度表示为完成百分比。</p>
+<p>打开<strong>RevealAnimator.swift</strong>，并更新文件顶部的类定义，如下所示：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-43-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-43-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-43-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-43-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">RevealAnimator</span>: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, CAAnimationDelegate {
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>请注意，<code>UIPercentDrivenInteractiveTransition</code>是一个类，而不是其他协议，所以需要处于第一位置。</p>
+<p>添加一个属性，来表示是否已交互方式驱动转场动画：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-44-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-44-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">var</span> <span style="color:#bb60d5">interactive</span> = <span style="color:#007020;font-weight:bold">false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>添加方法到<code>RevealAnimator</code>中：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-45-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-45-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-45-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-45-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-45-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-45-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">handlePan</span>(<span style="color:#007020;font-weight:bold">_</span> recognizer: UIPanGestureRecognizer) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当用户在屏幕上平移时，识别器将被传递给<code>RevealAnimator</code>中的<code>handlePan(_:)</code>处理，来更新当前的转场进度。</p>
+<p>在<strong>MasterViewController.swift</strong>中添加委托方法：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-46-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-46-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-46-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-46-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-46-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-46-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">navigationController</span>(<span style="color:#007020;font-weight:bold">_</span> navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -&gt; UIViewControllerInteractiveTransitioning? {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">!</span>transition.interactive {
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">return</span> <span style="color:#007020;font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> transition
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当希望转场为交互式时，只需返回交互式控制器，否则返回<code>nil</code>。</p>
+<p>现在，需要将平移手势识别器连接到交互控制器。 在<code>didPan(_:)</code>中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-47-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-47-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-47-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-47-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-47-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-47-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-47-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-47-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-47-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-47-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-47-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-47-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-47-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-47-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">switch</span> recognizer.state {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">case</span> .began:
+</span></span><span style="display:flex;"><span>        transition.interactive = <span style="color:#007020;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>        performSegue(withIdentifier: <span style="color:#4070a0">&#34;details&#34;</span>, sender: <span style="color:#007020;font-weight:bold">nil</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">default</span>:
+</span></span><span style="display:flex;"><span>        transition.handlePan(recognizer)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当平移手势开始时，确保交互设置为<code>true</code>，然后通过 <em>segue</em> 连接到下一个视图控制器。 执行segue将启动转场，这时动画控制器和交互控制器的委托方法将返回转场动画。</p>
+<p>如果手势已经开始，只需将操作交给交互控制器，如下图所示：</p>
+<p><img alt="image-20181203233104113" src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxtz7gpuxxj30bh06zdgi.jpg"></p>
+<h3 id="计算转场动画的进度">计算转场动画的进度</h3>
+<p>平移手势处理程序中最重要的一点是要弄清楚转场的进度。</p>
+<p>打开<strong>RevealAnimator.swift</strong>，并将以下代码添加到<code>handlePan</code>中：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-48-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-48-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-48-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-48-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-48-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-48-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">translation</span> = recognizer.translation(<span style="color:#007020;font-weight:bold">in</span>: recognizer.view!.superview!)
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">var</span> <span style="color:#bb60d5">progress</span>: CGFloat = abs(translation.x <span style="color:#666">/</span> <span style="color:#40a070">200.0</span>)
+</span></span><span style="display:flex;"><span>progress = min(max(progress, <span style="color:#40a070">0.01</span>), <span style="color:#40a070">0.99</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过平移手势识别器计算转场的经度。从逻辑上讲，用户离开初始位置越远，转场的进度就越大。</p>
+<p><code>200.0</code>是一个合理的任意数字，来表示转场完成所需要的距离。</p>
+<p>下面更新转场动画的进度，将以下代码添加到<code>handlePan()</code>中：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-49-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-49-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-49-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-49-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-49-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-49-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-49-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-49-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-49-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-49-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-49-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-49-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">switch</span> recognizer.state {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">case</span> .changed:
+</span></span><span style="display:flex;"><span>        update(progress)
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">default</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">break</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>update()</code> 是来自<code>UIPercentDrivenInteractiveTransition</code>的方法，它设置转场动画的当前进度。</p>
+<p>当用户在屏幕上平移时，手势识别器会重复调用<code>MasterViewController</code>中<code>didPan()</code>，从而不停的调用<code>RevealAnimator</code>中 的<code>handlePan()</code>来更新转场进度。</p>
+<p>在<code>RevealAnimator</code>中添加属性：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-50-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-50-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">private</span> <span style="color:#007020;font-weight:bold">var</span> <span style="color:#bb60d5">pausedTime</span>: CFTimeInterval = <span style="color:#40a070">0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在，通过将以下代码添加到<code>animateTransition(using:)</code>来控制图层：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-51-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-51-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-51-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-51-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-51-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-51-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-51-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-51-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-51-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-51-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-51-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-51-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> interactive {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">transitionLayer</span> = transitionContext.containerView.layer
+</span></span><span style="display:flex;"><span>    pausedTime = transitionLayer.convertTime(CACurrentMediaTime(), from: <span style="color:#007020;font-weight:bold">nil</span>)
+</span></span><span style="display:flex;"><span>    transitionLayer.speed = <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>    transitionLayer.timeOffset = pausedTime
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里做的是阻止图层运行自己的动画。 这将冻结所有子图层动画。</p>
+<p>重写<code>update(_:)</code>，以将图层与动画一起移动：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-52-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-52-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-52-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-52-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-52-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-52-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-52-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-52-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-52-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-52-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-52-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-52-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">override</span> <span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">update</span>(<span style="color:#007020;font-weight:bold">_</span> percentComplete: CGFloat) {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">super</span>.update(percentComplete)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">animationProgress</span> = TimeInterval(animationDuration) <span style="color:#666">*</span> TimeInterval(percentComplete)
+</span></span><span style="display:flex;"><span>    storedContext?.containerView.layer.timeOffset = pausedTime <span style="color:#666">+</span> animationProgress
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行效果：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fy9iqrfex0g308q0fogwz.gif"></p>
+<p>这边出现问题，就是手指离开屏幕后，动画立即停止，再次滑动时也没有反应。</p>
+<h3 id="处理提前终止">处理提前终止</h3>
+<p>处理上面的问题。</p>
+<p>在<code>handlePan()</code>的switch语句中添加<code>case</code>：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-53-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-53-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-53-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-53-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-53-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-53-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-53-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-53-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-53-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-53-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-53-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-53-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">case</span> .cancelled, .ended:
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">if</span> progress <span style="color:#666">&lt;</span> <span style="color:#40a070">0.5</span> {
+</span></span><span style="display:flex;"><span>        cancel()
+</span></span><span style="display:flex;"><span>    } <span style="color:#007020;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>        finish()
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在用户手指离开屏幕之前，如果平移得足够远，就表示转场完成，呈现新的视图控制器；相反，就滚回原来的视图控制器。
+<img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fy9kfeum2qj30db04zaae.jpg"></p>
+<p>重写<code>cancel()</code> 和 <code>finish()</code>方法：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-54-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-54-15">15</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">override</span> <span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">cancel</span>() {
+</span></span><span style="display:flex;"><span>    restart(forFinishing: <span style="color:#007020;font-weight:bold">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">super</span>.cancel()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">override</span> <span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">finish</span>() {
+</span></span><span style="display:flex;"><span>    restart(forFinishing: <span style="color:#007020;font-weight:bold">true</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">super</span>.finish()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">private</span> <span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">restart</span>(forFinishing: <span style="color:#007020">Bool</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">transitionLayer</span> = storedContext?.containerView.layer
+</span></span><span style="display:flex;"><span>    transitionLayer?.beginTime = CACurrentMediaTime()
+</span></span><span style="display:flex;"><span>    transitionLayer?.speed = forFinishing ? <span style="color:#40a070">1</span> : <span style="color:#666">-</span><span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>.cancelled，.ended</code>的<code>case</code>中添加：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-55-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-55-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>interactive = <span style="color:#007020;font-weight:bold">false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>本章最后的效果：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fy9krwbad6g308q0fogzr.gif"></p>
+
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">andyron</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2024-07-16
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content">原创文章，如需转载请注明文章作者和出处。谢谢！</span>
+  </p>
+</div>
+
+
+
+        
+        
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
+  </div>
+</div>
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="http://localhost:1313/tags/ios%E5%8A%A8%E7%94%BB/">iOS动画</a>
+                <a href="http://localhost:1313/tags/%E8%BD%AC%E5%9C%BA/">转场</a>
+                <a href="http://localhost:1313/tags/%E8%A7%86%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/">视图控制器的转场动画</a>
+                <a href="http://localhost:1313/tags/view-controller-transition-animations/">View Controller Transition Animations</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/blog/2018/12/ios-animation-6-3d-animations.html/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">系统学习iOS动画之六：3D动画</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/blog/2018/12/ios-animation-3-layer-animations.html/">
+                <span class="next-text nav-default">系统学习iOS动画之三：图层动画</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+    <div class="post">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="xianmin/comments---xianmin.org"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNDAyNTY2MDI="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCFwlWs4CRRxW"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+  
+
+  
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://localhost:1313/blog/2018/12/ios-animation-4-view-controller-transition-animations.html/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'xianmin12';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript
+    >Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+</div>
+
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#17-视图控制器转场和屏幕旋转转场">17-视图控制器转场和屏幕旋转转场</a>
+      <ul>
+        <li><a href="#开始项目">开始项目</a></li>
+        <li><a href="#自定义转场的原理">自定义转场的原理</a></li>
+        <li><a href="#实现转场代理">实现转场代理</a></li>
+        <li><a href="#创建转场动画师">创建转场动画师</a></li>
+        <li><a href="#屏幕旋转转场">屏幕旋转转场</a></li>
+        <li><a href="#平滑转场动画">平滑转场动画</a></li>
+        <li><a href="#圆角动画">圆角动画</a></li>
+      </ul>
+    </li>
+    <li><a href="#18-导航控制器转场">18-导航控制器转场</a>
+      <ul>
+        <li><a href="#开始项目-1">开始项目</a></li>
+        <li><a href="#自定义导航控制器转场的原理">自定义导航控制器转场的原理</a></li>
+        <li><a href="#导航控制器代理">导航控制器代理</a></li>
+        <li><a href="#添加自定义显示动画">添加自定义显示动画</a></li>
+        <li><a href="#优化细节">优化细节</a></li>
+        <li><a href="#淡入新视图控制器">淡入新视图控制器</a></li>
+        <li><a href="#弹出转场">弹出转场</a></li>
+      </ul>
+    </li>
+    <li><a href="#19-交互式导航控制器转场">19-交互式导航控制器转场</a>
+      <ul>
+        <li><a href="#创建交互式转场">创建交互式转场</a></li>
+        <li><a href="#处理平移手势">处理平移手势</a></li>
+        <li><a href="#使用交互式动画师类">使用交互式动画师类</a></li>
+        <li><a href="#计算转场动画的进度">计算转场动画的进度</a></li>
+        <li><a href="#处理提前终止">处理提前终止</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+  
+    <a href="mailto:rongming.2008@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://stackoverflow.com/users/3133839/andyron" rel="me noopener" class="iconfont"
+      title="stack-overflow"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M809.714286 932.571429l-638.857143 0 0-274.285714-91.428571 0 0 365.714286 821.714286 0 0-365.714286-91.428571 0 0 274.285714zm-538.285714-299.428571l18.857143-89.714286 447.428571 94.285714-18.857143 89.142857zm58.857143-213.714286l38.285714-83.428571 414.285714 193.714286-38.285714 82.857143zm114.857143-203.428571l58.285714-70.285714 350.857143 293.142857-58.285714 70.285714zm226.857143-216l272.571429 366.285714-73.142857 54.857143-272.571429-366.285714zm-410.285714 840.571429l0-90.857143 457.142857 0 0 90.857143-457.142857 0z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/andyron" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        andyron
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.25d4b4ffb2db9a42760854fb017fe0cbe4413e299a94b43b52a058abedbf5ace.js" integrity="sha256-JdS0/7LbmkJ2CFT7AX/gy&#43;RBPimalLQ7UqBYq&#43;2/Ws4=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    $("#openSearch, #openSearchMobile").click(function(){
+      $(".modal-dialog").addClass("visible");
+    });
+
+    $("#closeSearch").click(function(){
+      $(".modal-dialog").removeClass("visible");
+    });
+
+    $(document).click(function(event) {
+    
+      if (!$(event.target).closest(".modal-content, #openSearch, #openSearchMobile").length) {
+        $("body").find(".modal-dialog").removeClass("visible");
+      }
+    });
+  </script>
+
+
+
+
+  <script src="/js/custom.js"></script>
+
+
+  </body>
+</html>

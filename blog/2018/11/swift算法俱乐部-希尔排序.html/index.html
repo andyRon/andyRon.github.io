@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          【译】Swift算法俱乐部-希尔排序 - 欣欣向戎
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="andyron" />
+  <meta name="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi" />
+
+  <meta name="keywords" content="linux, Go, Java, PHP, program, journal, andyron, 博客, 笔记" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.128.2" />
+
+
+<link rel="canonical" href="http://localhost:1313/blog/2018/11/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.html/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:url" content="http://localhost:1313/blog/2018/11/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.html/">
+  <meta property="og:site_name" content="欣欣向戎">
+  <meta property="og:title" content="【译】Swift算法俱乐部-希尔排序">
+  <meta property="og:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2018-11-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-16T12:35:18+08:00">
+    <meta property="article:tag" content="算法与数据结构">
+    <meta property="article:tag" content="Swift">
+    <meta property="article:tag" content="希尔排序">
+
+  <meta itemprop="name" content="【译】Swift算法俱乐部-希尔排序">
+  <meta itemprop="description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi">
+  <meta itemprop="datePublished" content="2018-11-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-07-16T12:35:18+08:00">
+  <meta itemprop="wordCount" content="2454">
+  <meta itemprop="keywords" content="算法与数据结构,Swift,希尔排序">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="【译】Swift算法俱乐部-希尔排序">
+  <meta name="twitter:description" content="本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">欣欣向戎</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+        
+      </li>
+    
+
+    
+      <li class="mobile-menu-item">
+        <a id="openSearchMobile" class="mobile-menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+      
+<div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div id="closeSearch" title="Close" class="close">X</div>
+      <div class="modal-header">
+        <div class="modal-title">Search</div>
+      </div>
+      <div class="modal-body">
+          <script>
+            (function() {
+              var cx = '002186711602136249422:q1gkomof_em';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' :
+                  'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search>
+      </div>
+    </div>
+</div>
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      欣欣向戎
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+      <li class="menu-item">
+        <a id="openSearch" class="menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">【译】Swift算法俱乐部-希尔排序</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2018-11-05">
+      2018-11-05
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2024-07-16)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="http://localhost:1313/categories/swift-algorithm-club-cn/"> swift-algorithm-club-cn </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <blockquote>
+<p>本文是对 <a href="https://github.com/raywenderlich/swift-algorithm-club">Swift Algorithm Club</a> 翻译的一篇文章。
+<a href="https://github.com/raywenderlich/swift-algorithm-club">Swift Algorithm Club</a>是 <a href="https://www.raywenderlich.com">raywenderlich.com</a>网站出品的用Swift实现算法和数据结构的开源项目，目前在GitHub上有18000+⭐️，我初略统计了一下，大概有一百左右个的算法和数据结构，基本上常见的都包含了，是iOSer学习算法和数据结构不错的资源。
+🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn">andyRon/swift-algorithm-club-cn</a>是我对Swift Algorithm Club，边学习边翻译的项目。由于能力有限，如发现错误或翻译不妥，请指正，欢迎pull request。也欢迎有兴趣、有时间的小伙伴一起参与翻译和学习🤓。当然也欢迎加⭐️，🤩🤩🤩🤨🤪。
+本文的翻译原文和代码可以查看🐙<a href="https://github.com/andyRon/swift-algorithm-club-cn/tree/master/Shell%20Sort">swift-algorithm-club-cn/Shell Sort</a></p>
+</blockquote>
+<hr>
+<h1 id="希尔排序shell-sort">希尔排序(Shell Sort)</h1>
+<p>希尔排序是<a href="../Insertion%20Sort/">插入排序</a>的一种更高效的改进版本，方法是将原始列表分成较小的子列表，然后使用插入排序对其进行单独排序。</p>
+<p>Sapientia大学创建了一个很好的<a href="https://www.youtube.com/watch?v=CmPA7zE8mx0）">视频</a>，显示了匈牙利民间舞蹈的过程。（译注：类似希尔排序的过程，油管视频需要翻墙）</p>
+<!-- raw HTML omitted -->
+<h2 id="怎么运行的">怎么运行的</h2>
+<p>插入排序是比较相连的元素，如果它们顺序不对就交换它们，而希尔排序算法会比较相距很远的元素。</p>
+<p>元素之间的距离称为 <em>gap</em>。 如果被比较的元素的顺序错误，则它们会在 <em>gap</em> 中交换。 这消除了插入排序中常见的许多中间副本。</p>
+<blockquote>
+<p><strong>译注：</strong> gap已经被翻译成步长/增量/间距等，为了避免歧义，本文就不做翻译，直接写成<em>gap</em></p>
+</blockquote>
+<p>这个想法是，通过在大 <em>gap</em> 上移动元素，数组变得非常快速地部分排序。 这使得之后的排序过程更快，因为他们不再需要交换那么多项。</p>
+<p>一轮完成后，<em>gap</em>变小，新一轮开始。 这将重复，直到 <em>gap</em> 大小为1，此时算法的功能就像插入排序一样。 但是由于数据已经很好地排序，所以最后一轮可以非常快。</p>
+<h2 id="例子">例子</h2>
+<p>假设我们想使用希尔排序对数组 <code>[64, 20, 50, 33, 72, 10, 23, -1, 4]</code> 进行排序。</p>
+<p>我们首先将数组的长度除以2：</p>
+<pre><code>n = floor(9/2) = 4
+</code></pre>
+<p>这是 <em>gap</em> 大小。</p>
+<p>我们创建<code>n</code>子列表。 在每个子列表中，每一项的间隔是大小为<code>n</code>的<em>gap</em> 。 在我们的示例中，我们需要制作其中四个子列表。 子列表按<code>insertionSort()</code>函数排序。</p>
+<p>这可能没有多大意义，所以让我们仔细看看会发生什么。</p>
+<p>第一轮如下。 我们有<code>n = 4</code>，所以我们制作了四个子列表：</p>
+<pre><code>sublist 0:  [ 64, xx, xx, xx, 72, xx, xx, xx, 4  ]
+sublist 1:  [ xx, 20, xx, xx, xx, 10, xx, xx, xx ]
+sublist 2:  [ xx, xx, 50, xx, xx, xx, 23, xx, xx ]
+sublist 3:  [ xx, xx, xx, 33, xx, xx, xx, -1, xx ]
+</code></pre>
+<p>如您所见，每个子列表仅包含原始数组中的每间隔4的项。 不在子列表中的项用<code>xx</code>表示。 所以第一个子列表是<code>[64,72,4]</code>，第二个子列表是<code>[20,10]</code>，依此类推。 我们使用这个“<em>gap</em>”的原因是我们不必实际制作新的数组。 相反，我们将它们交织在原始数组中。</p>
+<p>我们现在在每个子列表上调用一次<code>insertionSort()</code>。</p>
+<p><a href="../Insertion%20Sort/">插入排序</a>的这个特定版本从后面到前面排序。子列表中的每个项目都与其他项目进行比较。如果它们的顺序错误，则交换值并一直向下移动，直到我们到达子列表的开头。</p>
+<p>因此对于子列表0，我们将<code>4</code>与<code>72</code>交换，然后将<code>4</code>与<code>64</code>交换。 排序后，此子列表如下所示：</p>
+<pre><code>sublist 0:  [ 4, xx, xx, xx, 64, xx, xx, xx, 72 ]
+</code></pre>
+<p>排序后的其他三个子列表：</p>
+<pre><code>sublist 1:  [ xx, 10, xx, xx, xx, 20, xx, xx, xx ]
+sublist 2:  [ xx, xx, 23, xx, xx, xx, 50, xx, xx ]
+sublist 3:  [ xx, xx, xx, -1, xx, xx, xx, 33, xx ]
+</code></pre>
+<p>完整的数组看上去是：</p>
+<pre><code>[ 4, 10, 23, -1, 64, 20, 50, 33, 72 ]
+</code></pre>
+<p>它还没有完全排序，但它比以前更加排序。 这完成了第一次轮操作。</p>
+<p>在第二轮中，我们将 <em>gap</em> 大小除以2：</p>
+<pre><code>n = floor(4/2) = 2
+</code></pre>
+<p>这意味着我们现在只创建两个子列表：</p>
+<pre><code>sublist 0:  [  4, xx, 23, xx, 64, xx, 50, xx, 72 ]
+sublist 1:  [ xx, 10, xx, -1, xx, 20, xx, 33, xx ]
+</code></pre>
+<p>每个子列表包含每个间隔为2的项。 我们再次调用<code>insertionSort()</code>来对这些子列表进行排序。 结果是：</p>
+<pre><code>sublist 0:  [  4, xx, 23, xx, 50, xx, 64, xx, 72 ]
+sublist 1:  [ xx, -1, xx, 10, xx, 20, xx, 33, xx ]
+</code></pre>
+<p>请注意，在每个列表中只有两个元素位置顺序不对（译注：<strong>sublist 0</strong>是64和50，<strong>sublist 1</strong>是10和-1）。 因此插入排序非常快。 那是因为我们已经在第一轮中对数组进行了一些排序。</p>
+<p>总数组现在看起来像这样：</p>
+<pre><code>[ 4, -1, 23, 10, 50, 20, 64, 33, 72 ]
+</code></pre>
+<p>这样就完成了第二轮。 最后一轮的<em>gap</em>是：</p>
+<pre><code>n = floor(2/2) = 1
+</code></pre>
+<p><em>gap</em> 大小为1表示我们只有一个子列表，即数组本身，我们再次调用<code>insertionSort()</code>对其进行排序。 最终排序的数组是：</p>
+<pre><code>[ -1, 4, 10, 20, 23, 33, 50, 64, 72 ]
+</code></pre>
+<p>在大多数情况下，希尔排序的性能为<strong>O(n^2)</strong>，如果幸运，则为 <strong>O(nlogn)</strong>。 该算法是<strong>不稳定的排序</strong>; 它可能会改变具有相等值的元素的相对顺序。</p>
+<h2 id="gap-序列"><em>gap</em> 序列</h2>
+<p>“ <em>gap</em> 序列”确定 <em>gap</em> 的初始大小以及每次迭代如何使 <em>gap</em> 变小。 良好的 <em>gap</em> 序列对于希尔排序表现良好非常重要。</p>
+<p>上面实现例子中的 <em>gap</em> 序列是希尔原始版本中的 <em>gap</em> 序列：初始值是数组大小的一半，然后每次除以2。 还有其他方法可以计算 <em>gap</em> 序列。</p>
+<h2 id="只是为了好玩">只是为了好玩&hellip;</h2>
+<p>这是 Matthijs 很久以前使用的一个旧的Commodore 64 BASIC版本的希尔排序，并且移植到他曾经使用的几乎所有编程语言中：</p>
+<pre><code>61200 REM S is the array to be sorted
+61205 REM AS is the number of elements in S
+61210 W1=AS
+61220 IF W1&lt;=0 THEN 61310
+61230 W1=INT(W1/2): W2=AS-W1
+61240 V=0
+61250 FOR N1=0 TO W2-1
+61260 W3=N1+W1
+61270 IF S(N1)&gt;S(W3) THEN SH=S(N1): S(N1)=S(W3): S(W3)=SH: V=1
+61280 NEXT N1
+61290 IF V&gt;0 THEN 61240
+61300 GOTO 61220
+61310 RETURN
+</code></pre>
+<h2 id="代码">代码</h2>
+<p>希尔排序的Swift实现：</p>
+<pre tabindex="0"><code>public func insertSort(_ list: inout[Int], start: Int, gap: Int) {
+    for i in stride(from: (start + gap), to: list.count, by: gap) {
+        let currentValue = list[i]
+        var pos = i
+        while pos &gt;= gap &amp;&amp; list[pos - gap] &gt; currentValue {
+            list[pos] = list[pos - gap]
+            pos -= gap
+        }
+        list[pos] = currentValue
+    }
+}
+
+public func shellSort(_ list: inout [Int]) {
+    var sublistCount = list.count / 2
+    while sublistCount &gt; 0 {
+        for pos in 0..&lt;sublistCount {
+            insertionSort(&amp;list, start: pos, gap: sublistCount)
+        }
+        sublistCount = sublistCount / 2
+    }
+}
+
+var arr = [64, 20, 50, 33, 72, 10, 23, -1, 4, 5]
+
+shellSort(&amp;arr)
+</code></pre><h2 id="扩展阅读">扩展阅读</h2>
+<p><a href="https://en.wikipedia.org/wiki/Shellsort">希尔排序的维基百科</a></p>
+<p><a href="http://rosettacode.org/wiki/Sorting_algorithms/Shell_sort">Rosetta code的希尔排序</a>（译注：大概70种不同语言实现希尔排序😅😓）</p>
+<p><em>作者：<a href="https://github.com/mitghi">Mike Taghavi</a>，Matthijs Hollemans</em><br>
+<em>翻译：<a href="https://github.com/andyRon">Andy Ron</a></em><br>
+<em>校对：<a href="https://github.com/andyRon">Andy Ron</a></em></p>
+<hr>
+<h1 id="翻译后补充">翻译后补充</h1>
+<p>希尔排序，也称<strong>递减增量排序算法</strong>，按其设计者希尔（Donald Shell）的名字命名，在1959年公布。</p>
+<h2 id="定义">定义</h2>
+<p>希尔排序是<strong>将待排序的数组元素按下标的一定增量分组 ，分成多个子序列，然后对各个子序列进行直接插入排序算法排序；然后依次缩减增量再进行排序，直到增量为1时，进行最后一次直接插入排序，排序结束。</strong></p>
+<h2 id="希尔排序的原理图">希尔排序的原理图</h2>
+<ul>
+<li>图片一来源：<a href="https://www.cnblogs.com/chengxiao/p/6104371.html">图解排序算法(二)之希尔排序</a></li>
+</ul>
+<p><img src="http://images.andyron.top/2018/ar2018106.jpg"></p>
+<ul>
+<li>图片二来源：<a href="https://www.jianshu.com/p/d730ae586cf3">排序：希尔排序（算法）</a></li>
+</ul>
+<p><img src="http://images.andyron.top/2018/ar2018107.jpg"></p>
+<ul>
+<li>
+<p>一个希尔排序的动画</p>
+<p><a href="https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html">Comparison Sorting Algorithms</a></p>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<p><a href="https://www.cnblogs.com/chengxiao/p/6104371.html">图解排序算法(二)之希尔排序</a></p>
+<p><a href="https://www.jianshu.com/p/d730ae586cf3">排序：希尔排序（算法）</a></p>
+
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">andyron</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2024-07-16
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content">原创文章，如需转载请注明文章作者和出处。谢谢！</span>
+  </p>
+</div>
+
+
+
+        
+        
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
+  </div>
+</div>
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="http://localhost:1313/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                <a href="http://localhost:1313/tags/swift/">swift</a>
+                <a href="http://localhost:1313/tags/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/">希尔排序</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/blog/2018/11/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F.html/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">【译】Swift算法俱乐部-计数排序</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/blog/2018/11/%E5%88%86%E4%BA%AB%E6%97%B6%E4%BB%A3%E5%A6%82%E4%BD%95%E7%BC%94%E9%80%A0%E5%BD%B1%E5%93%8D%E5%8A%9B.html/">
+                <span class="next-text nav-default">读《分享时代：如何缔造影响力》</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+    <div class="post">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="xianmin/comments---xianmin.org"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNDAyNTY2MDI="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCFwlWs4CRRxW"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+  
+
+  
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://localhost:1313/blog/2018/11/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.html/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'xianmin12';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript
+    >Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+</div>
+
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#怎么运行的">怎么运行的</a></li>
+    <li><a href="#例子">例子</a></li>
+    <li><a href="#gap-序列"><em>gap</em> 序列</a></li>
+    <li><a href="#只是为了好玩">只是为了好玩&hellip;</a></li>
+    <li><a href="#代码">代码</a></li>
+    <li><a href="#扩展阅读">扩展阅读</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#定义">定义</a></li>
+    <li><a href="#希尔排序的原理图">希尔排序的原理图</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+  
+    <a href="mailto:rongming.2008@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://stackoverflow.com/users/3133839/andyron" rel="me noopener" class="iconfont"
+      title="stack-overflow"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M809.714286 932.571429l-638.857143 0 0-274.285714-91.428571 0 0 365.714286 821.714286 0 0-365.714286-91.428571 0 0 274.285714zm-538.285714-299.428571l18.857143-89.714286 447.428571 94.285714-18.857143 89.142857zm58.857143-213.714286l38.285714-83.428571 414.285714 193.714286-38.285714 82.857143zm114.857143-203.428571l58.285714-70.285714 350.857143 293.142857-58.285714 70.285714zm226.857143-216l272.571429 366.285714-73.142857 54.857143-272.571429-366.285714zm-410.285714 840.571429l0-90.857143 457.142857 0 0 90.857143-457.142857 0z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/andyron" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        andyron
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.25d4b4ffb2db9a42760854fb017fe0cbe4413e299a94b43b52a058abedbf5ace.js" integrity="sha256-JdS0/7LbmkJ2CFT7AX/gy&#43;RBPimalLQ7UqBYq&#43;2/Ws4=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    $("#openSearch, #openSearchMobile").click(function(){
+      $(".modal-dialog").addClass("visible");
+    });
+
+    $("#closeSearch").click(function(){
+      $(".modal-dialog").removeClass("visible");
+    });
+
+    $(document).click(function(event) {
+    
+      if (!$(event.target).closest(".modal-content, #openSearch, #openSearchMobile").length) {
+        $("body").find(".modal-dialog").removeClass("visible");
+      }
+    });
+  </script>
+
+
+
+
+  <script src="/js/custom.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          iOS核心动画小结(swift) - 欣欣向戎
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="andyron" />
+  <meta name="description" content="本文所有示例代码都是Swift4，参看文末链接 Core Animation是IOS和OS X平台上负责图形渲染与动画的基础框架。Core Animati" />
+
+  <meta name="keywords" content="linux, Go, Java, PHP, program, journal, andyron, 博客, 笔记" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.128.2" />
+
+
+<link rel="canonical" href="http://localhost:1313/blog/2018/05/ios-coreanimation-swift.html/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:url" content="http://localhost:1313/blog/2018/05/ios-coreanimation-swift.html/">
+  <meta property="og:site_name" content="欣欣向戎">
+  <meta property="og:title" content="iOS核心动画小结(swift)">
+  <meta property="og:description" content="本文所有示例代码都是Swift4，参看文末链接 Core Animation是IOS和OS X平台上负责图形渲染与动画的基础框架。Core Animati">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2018-05-29T15:36:52+00:00">
+    <meta property="article:modified_time" content="2024-07-16T00:17:53+08:00">
+    <meta property="article:tag" content="IOS核心动画">
+
+  <meta itemprop="name" content="iOS核心动画小结(swift)">
+  <meta itemprop="description" content="本文所有示例代码都是Swift4，参看文末链接 Core Animation是IOS和OS X平台上负责图形渲染与动画的基础框架。Core Animati">
+  <meta itemprop="datePublished" content="2018-05-29T15:36:52+00:00">
+  <meta itemprop="dateModified" content="2024-07-16T00:17:53+08:00">
+  <meta itemprop="wordCount" content="2536">
+  <meta itemprop="keywords" content="IOS核心动画">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="iOS核心动画小结(swift)">
+  <meta name="twitter:description" content="本文所有示例代码都是Swift4，参看文末链接 Core Animation是IOS和OS X平台上负责图形渲染与动画的基础框架。Core Animati">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">欣欣向戎</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+        
+      </li>
+    
+
+    
+      <li class="mobile-menu-item">
+        <a id="openSearchMobile" class="mobile-menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+      
+<div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div id="closeSearch" title="Close" class="close">X</div>
+      <div class="modal-header">
+        <div class="modal-title">Search</div>
+      </div>
+      <div class="modal-body">
+          <script>
+            (function() {
+              var cx = '002186711602136249422:q1gkomof_em';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' :
+                  'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search>
+      </div>
+    </div>
+</div>
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      欣欣向戎
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+      <li class="menu-item">
+        <a id="openSearch" class="menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">iOS核心动画小结(swift)</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2018-05-29">
+      2018-05-29
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2024-07-16)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="http://localhost:1313/categories/ios-animation/"> iOS-Animation </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <blockquote>
+<p>本文所有示例代码都是Swift4，参看文末链接</p>
+</blockquote>
+<p>Core Animation是IOS和OS X平台上负责图形渲染与动画的基础框架。Core Animation可以作用与动画视图或者其他可视元素，为你完成了动画所需的大部分绘画工作。你只需要配置少量的动画参数（如开始点的位置和结束点的位置）即可使用Core Animation的动画效果。Core Animation将大部分实际的绘图任务交给了图形硬件来处理，图形硬件会加速图形渲染的速度。这种自动化的图形加速技术让动画拥有更高的帧率并且显示效果更加平滑，不会加重CPU的负担而影响程序的运行速度。</p>
+<p><img alt="Core Animation常用类继承关系" src="https://upload-images.jianshu.io/upload_images/1678135-16f8312b54e20cc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<!-- raw HTML omitted -->
+<p>上图少了iOS9才引入的<code>CASpringAnimation</code>, 它继承至<code>CABasicAnimation</code></p>
+<h3 id="一常用属性">一、常用属性</h3>
+<p>这些属性一般是在基类<code>CAAnimation</code>和协议<code>CAMediaTiming</code>中，是几种动画类共用的属性。</p>
+<ul>
+<li>
+<p>duration : 动画的持续时间</p>
+</li>
+<li>
+<p>beginTime : 动画的开始时间</p>
+</li>
+<li>
+<p>repeatCount : 动画的重复次数</p>
+</li>
+<li>
+<p>autoreverses :动画结束时是否执行逆动画</p>
+</li>
+<li>
+<p>timingFunction : 控制动画的显示节奏系统提供五种值选择，分别是：</p>
+<ol>
+<li>kCAMediaTimingFunctionLinear 线性动画</li>
+<li>kCAMediaTimingFunctionEaseIn 先慢后快（慢进快出）</li>
+<li>kCAMediaTimingFunctionEaseOut 先块后慢（快进慢出）</li>
+<li>kCAMediaTimingFunctionEaseInEaseOut 先慢后快再慢</li>
+<li>kCAMediaTimingFunctionDefault 默认，也属于中间比较快</li>
+</ol>
+</li>
+<li>
+<p>delegate ： 动画代理。能够检测动画的执行和结束，在动画执行和结束做一些处理。</p>
+</li>
+</ul>
+<pre tabindex="0"><code>public protocol CAAnimationDelegate : NSObjectProtocol {    
+    @available(iOS 2.0, *)
+    optional public func animationDidStart(_ anim: CAAnimation)
+
+    @available(iOS 2.0, *)
+    optional public func animationDidStop(_ anim: CAAnimation, finished flag: Bool)
+}
+</code></pre><ul>
+<li>fillMode  动画在开始和结束时的动作。
+<ol>
+<li>kCAFillModeRemoved  这个是<strong>默认值</strong>，也就是说当动画开始前和动画结束后，动画对layer都没有影响，动画结束后，layer会恢复到之前的状态</li>
+<li>kCAFillModeForwards 当动画结束后，layer会一直保持着动画最后的状态</li>
+<li>kCAFillModeBackwards  在动画开始前，只需要将动画加入了一个layer，layer便立即进入动画的初始状态并等待动画开始。</li>
+<li>kCAFillModeBoth 这个其实就是上面两个的合成.动画加入后开始之前，layer便处于动画初始状态，动画结束后layer保持动画最后的状态</li>
+</ol>
+</li>
+</ul>
+<h3 id="二基础动画cabasicanimation">二、基础动画（CABasicAnimation）</h3>
+<p>基础动画就是从一个状态值（fromValue）变换成另一个状态值（toValue），特有的属性：</p>
+<ul>
+<li>fromValue 所改变属性的起始值</li>
+<li>toValue   所改变属性的结束时的值</li>
+<li>byValue   所改变属性相同起始值的改变量
+下面的代码是一个简单位置移动动画：</li>
+</ul>
+<pre tabindex="0"><code>        let moveView = UIView(frame:  CGRect(x: 20, y: 240, width: 70, height: 70))
+        moveView.center = CGPoint(x: 40, y: 200)
+        moveView.backgroundColor = UIColor.red
+        view.addSubview(moveView)
+        
+        let moveAnim = CABasicAnimation(keyPath: &#34;position&#34;)
+        moveAnim.fromValue = NSValue(cgPoint: CGPoint(x: 40, y: 240))
+        moveAnim.toValue = NSValue(cgPoint: CGPoint(x: 300, y: 240))
+        moveAnim.duration = 2
+        moveAnim.repeatCount = Float.infinity
+        moveAnim.autoreverses = true
+
+        moveView.layer.add(moveAnim, forKey: &#34;moveAnim&#34;)
+</code></pre><p><img alt="位移动画" src="https://upload-images.jianshu.io/upload_images/2240549-67c1815e1f3ae4d1.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/280">
+另外<code>CABasicAnimation</code>还可以做旋转、比例缩放、背景颜色变化、内容（图片）变化、透明度变化、圆角变化、指定大小变化等动画。（这些我都写了一些示例代码，链接在文末）
+这些动画的代码形式基本都差不多，先建立视图，然后创建<code>CABasicAnimation</code>类型动画对象，并指定不同的<code>fromValue</code>、<code>toValue</code>等属性，最后把动画对象加入到视图的<code>CALayer</code>层。</p>
+<p><img alt="基础动画" src="https://upload-images.jianshu.io/upload_images/1678135-07f4789a6a54406d.gif?imageMogr2/auto-orient/strip"></p>
+<h3 id="三关键帧动画cakeyframeanimation">三、关键帧动画（CAKeyframeAnimation）</h3>
+<p>按照指定的一串值进行动画,好像拍电影一样的一帧一帧的效果。</p>
+<ul>
+<li>values： 动画对象会在指定的时间(duration)内，依次显示values数组中的每一个关键帧</li>
+<li>path ： 可以设置一个CGPathRef\CGMutablePathRef,让层跟着路径移动。path只对CALayer的anchorPoint和position起作用。<strong>设置了path，那么values将被忽略。</strong></li>
+<li>keyTimes ： 可以为对应的关键帧指定对应的时间点,其取值范围为0到1.0,keyTimes中的每一个时间值都对应values中的每一帧。当keyTimes没有设置的时候,各个关键帧的时间是平分的。</li>
+<li>rotationMode : 旋转样式</li>
+</ul>
+<blockquote>
+<p>CABasicAnimation可看做是最多只有2个关键帧（开始和结束）的CAKeyframeAnimation</p>
+</blockquote>
+<p>下面的代码通过<code>values</code>做成抖动的动画：</p>
+<pre tabindex="0"><code>        let anima = CAKeyframeAnimation(keyPath: &#34;transform.rotation&#34;)
+        anima.values = [-Double.pi/180*4,Double.pi/180*4, -Double.pi/180*4]
+        anima.repeatCount = Float.infinity
+        animView.layer.add(anima, forKey: &#34;shake&#34;)
+</code></pre><p>使用<code>path</code>配合贝塞尔曲线就可以做成如下效果：
+<img src="https://upload-images.jianshu.io/upload_images/1678135-02b4ecb39d19c595.gif?imageMogr2/auto-orient/strip"></p>
+<p>代码</p>
+<pre tabindex="0"><code>        let tempView = UIView(frame: CGRect(x: 50, y: 100, width: 250, height: 500))
+        let bezierPath = UIBezierPath(ovalIn: tempView.frame)
+        let orbitAnim = CAKeyframeAnimation(keyPath: &#34;position&#34;)
+        orbitAnim.duration = 5
+        orbitAnim.path = bezierPath.cgPath
+        orbitAnim.calculationMode = kCAAnimationPaced
+        orbitAnim.fillMode = kCAFillModeForwards
+        orbitAnim.repeatCount = Float.infinity
+        orbitAnim.rotationMode = kCAAnimationRotateAutoReverse
+        animView.layer.add(orbitAnim, forKey: &#34;orbitAnim&#34;)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeColor = UIColor.purple.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineWidth = 0.5
+        shapeLayer.lineJoin = kCALineJoinRound
+        shapeLayer.lineCap = kCALineCapRound
+        shapeLayer.path = bezierPath.cgPath
+        view.layer.addSublayer(shapeLayer)
+</code></pre><h3 id="四组动画caanimationgroup">四、组动画（CAAnimationGroup）</h3>
+<p>组动画顾名思义就是把不同的动画组合起来，比如下面的代码：</p>
+<pre tabindex="0"><code>        // 位移
+        let anima1 = CABasicAnimation(keyPath: &#34;position&#34;)
+        anima1.fromValue = NSValue(cgPoint: CGPoint(x: 40, y: 240))
+        anima1.toValue = NSValue(cgPoint: CGPoint(x: 300, y: 240))
+        // 缩放
+        let anima2 = CABasicAnimation(keyPath: &#34;transform.scale&#34;)
+        anima2.fromValue = NSNumber.init(value: 0.8)
+        anima2.toValue = NSNumber.init(value: 2.0)
+        // 旋转
+        let anima3 = CABasicAnimation(keyPath: &#34;transform.rotation&#34;)
+        anima3.toValue = Double.pi*4
+        // 组合
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.animations = [anima1, anima2, anima3]
+        groupAnimation.duration = 3.0
+        
+        animView.layer.add(groupAnimation, forKey: nil)
+</code></pre><p>组合后的动画效果就是在移动的同时，也在缩放和旋转。</p>
+<h3 id="五过渡动画catransition">五、过渡动画（CATransition）</h3>
+<p>CATransition用于做过渡动画或者转场动画，能够为层提供移出屏幕和移入屏幕的动画效果。</p>
+<ul>
+<li>type：动画过渡类型
+四个系统公开的</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>系统公开API</th>
+<th>效果说明</th>
+<th>是否支持方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kCATransitionFade</td>
+<td>淡出效果</td>
+<td>是</td>
+</tr>
+<tr>
+<td>kCATransitionMoveIn</td>
+<td>新视图移动到旧视图上</td>
+<td>是</td>
+</tr>
+<tr>
+<td>kCATransitionPush</td>
+<td>新视图推出旧视图</td>
+<td>是</td>
+</tr>
+<tr>
+<td>kCATransitionReveal</td>
+<td>移开旧视图显示新视图</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<p>其他还有一些非系统公开的过渡类型：</p>
+<pre tabindex="0"><code>[&#34;cube&#34;, &#34;suckEffect&#34;, &#34;rippleEffect&#34;, &#34;pageCurl&#34;, &#34;pageUnCurl&#34;, &#34;oglFlip&#34;]
+</code></pre><ul>
+<li>subtype : 过渡动画的动画方向</li>
+</ul>
+<pre tabindex="0"><code>kCATransitionFromRight 从右侧进入
+kCATransitionFromLeft 从左侧进入
+kCATransitionFromTop 从顶部进入
+kCATransitionFromBottom 从底部进入
+</code></pre><ul>
+<li>startProgress：动画起点(在整体动画的百分比)</li>
+<li>endProgress：动画终点(在整体动画的百分比)</li>
+</ul>
+<p><img alt="过渡动画" src="https://upload-images.jianshu.io/upload_images/1678135-aa32bdb7b39c23be.gif?imageMogr2/auto-orient/strip"></p>
+<h3 id="六弹簧动画-caspringanimation">六、弹簧动画 CASpringAnimation</h3>
+<p>常用属性</p>
+<ul>
+<li>mass： 模拟的是质量，影响图层运动时的弹簧惯性，质量越大，弹簧拉伸和压缩的幅度越大 默认值：1 ;</li>
+<li>stiffness：刚度系数(劲度系数/弹性系数)，刚度系数越大，形变产生的力就越大，运动越快。默认值： 100 ；</li>
+<li>damping：阻尼系数，阻止弹簧伸缩的系数，阻尼系数越大，停止越快。默认值：10；</li>
+<li>initialVelocity：初始速率，动画视图的初始速度大小。默认值：0 ；
+速率为正数时，速度方向与运动方向一致，速率为负数时，速度方向与运动方向相反；</li>
+<li>settlingDuration：估算时间 返回弹簧动画到停止时的估算时间，根据当前的动画参数估算；
+实例：</li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-29">29</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>        <span style="color:#60a0b0;font-style:italic">// 不同的keypath，不同的效果</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">let</span> <span style="color:#bb60d5">springAnimation</span> = CASpringAnimation(keyPath: <span style="color:#4070a0">&#34;position.y&#34;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">if</span> springAnimation.keyPath == <span style="color:#4070a0">&#34;position&#34;</span> {
+</span></span><span style="display:flex;"><span>            springAnimation.fromValue = NSValue.<span style="color:#007020;font-weight:bold">init</span>(cgPoint: <span style="color:#007020;font-weight:bold">self</span>.jellyView.layer.position)
+</span></span><span style="display:flex;"><span>            springAnimation.toValue = NSValue.<span style="color:#007020;font-weight:bold">init</span>(cgPoint: point)
+</span></span><span style="display:flex;"><span>        } <span style="color:#007020;font-weight:bold">else</span> <span style="color:#007020;font-weight:bold">if</span> springAnimation.keyPath == <span style="color:#4070a0">&#34;position.x&#34;</span> {
+</span></span><span style="display:flex;"><span>            springAnimation.fromValue = <span style="color:#007020;font-weight:bold">self</span>.jellyView.layer.position.x
+</span></span><span style="display:flex;"><span>            springAnimation.toValue = point.x
+</span></span><span style="display:flex;"><span>        } <span style="color:#007020;font-weight:bold">else</span> <span style="color:#007020;font-weight:bold">if</span> springAnimation.keyPath == <span style="color:#4070a0">&#34;position.y&#34;</span> {
+</span></span><span style="display:flex;"><span>            springAnimation.fromValue = <span style="color:#007020;font-weight:bold">self</span>.jellyView.layer.position.y
+</span></span><span style="display:flex;"><span>            springAnimation.toValue = point.y
+</span></span><span style="display:flex;"><span>        } <span style="color:#007020;font-weight:bold">else</span> <span style="color:#007020;font-weight:bold">if</span> springAnimation.keyPath == <span style="color:#4070a0">&#34;bounds&#34;</span> {
+</span></span><span style="display:flex;"><span>            springAnimation.fromValue = NSValue.<span style="color:#007020;font-weight:bold">init</span>(cgRect: CGRect(x: point.x, y: point.y, width: <span style="color:#40a070">60</span>, height: <span style="color:#40a070">60</span>))
+</span></span><span style="display:flex;"><span>            springAnimation.toValue = NSValue.<span style="color:#007020;font-weight:bold">init</span>(cgRect: <span style="color:#007020;font-weight:bold">self</span>.jellyView.frame)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        springAnimation.mass = <span style="color:#40a070">5</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        springAnimation.stiffness = <span style="color:#40a070">100</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        springAnimation.damping = <span style="color:#40a070">10</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        springAnimation.initialVelocity = <span style="color:#40a070">10</span>
+</span></span><span style="display:flex;"><span>        springAnimation.duration = springAnimation.settlingDuration
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        springAnimation.isRemovedOnCompletion = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#007020;font-weight:bold">self</span>.jellyView.layer.add(springAnimation, forKey: <span style="color:#4070a0">&#34;springAnimation&#34;</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>keyPath不同时效果不同：
+<img alt="keyPath为bounds" src="https://upload-images.jianshu.io/upload_images/1866197-0c79cf0d8f4e1301.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/381">
+<img alt="keyPath为position" src="https://upload-images.jianshu.io/upload_images/1866197-06eec110bc34e64e.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/381">
+<img alt="keyPath为position.y" src="https://upload-images.jianshu.io/upload_images/1866197-92ff78ba4db756bc.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/381"></p>
+<blockquote>
+<p>代码：本文所有的示例代码都在<a href="https://github.com/andyRon/iOS-Animation">https://github.com/andyRon/iOS-Animation</a></p>
+</blockquote>
+<blockquote>
+<p>参考：
+<a href="https://github.com/yixiangboy/IOSAnimationDemo">IOSAnimationDemo</a>
+<a href="https://www.jianshu.com/p/9b3a3b4006ef">iOS动画详解(学习动画看这一篇就够了)</a>
+<a href="https://www.jianshu.com/p/a91104b28b54">一篇文章搞定 CASpringAnimation 弹簧动画</a>
+<a href="https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html">Core Animation 官方手册</a></p>
+</blockquote>
+
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">andyron</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2024-07-16
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content">原创文章，如需转载请注明文章作者和出处。谢谢！</span>
+  </p>
+</div>
+
+
+
+        
+        
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
+  </div>
+</div>
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="http://localhost:1313/tags/ios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB/">iOS核心动画</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/blog/2018/06/ios-runtime-begin.html/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">iOS开发：学习Runtime</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/blog/2018/05/masonry-begin.html/">
+                <span class="next-text nav-default">Masonry学习</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+    <div class="post">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="xianmin/comments---xianmin.org"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNDAyNTY2MDI="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCFwlWs4CRRxW"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+  
+
+  
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://localhost:1313/blog/2018/05/ios-coreanimation-swift.html/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'xianmin12';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript
+    >Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+</div>
+
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一常用属性">一、常用属性</a></li>
+        <li><a href="#二基础动画cabasicanimation">二、基础动画（CABasicAnimation）</a></li>
+        <li><a href="#三关键帧动画cakeyframeanimation">三、关键帧动画（CAKeyframeAnimation）</a></li>
+        <li><a href="#四组动画caanimationgroup">四、组动画（CAAnimationGroup）</a></li>
+        <li><a href="#五过渡动画catransition">五、过渡动画（CATransition）</a></li>
+        <li><a href="#六弹簧动画-caspringanimation">六、弹簧动画 CASpringAnimation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+  
+    <a href="mailto:rongming.2008@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://stackoverflow.com/users/3133839/andyron" rel="me noopener" class="iconfont"
+      title="stack-overflow"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M809.714286 932.571429l-638.857143 0 0-274.285714-91.428571 0 0 365.714286 821.714286 0 0-365.714286-91.428571 0 0 274.285714zm-538.285714-299.428571l18.857143-89.714286 447.428571 94.285714-18.857143 89.142857zm58.857143-213.714286l38.285714-83.428571 414.285714 193.714286-38.285714 82.857143zm114.857143-203.428571l58.285714-70.285714 350.857143 293.142857-58.285714 70.285714zm226.857143-216l272.571429 366.285714-73.142857 54.857143-272.571429-366.285714zm-410.285714 840.571429l0-90.857143 457.142857 0 0 90.857143-457.142857 0z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/andyron" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        andyron
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.25d4b4ffb2db9a42760854fb017fe0cbe4413e299a94b43b52a058abedbf5ace.js" integrity="sha256-JdS0/7LbmkJ2CFT7AX/gy&#43;RBPimalLQ7UqBYq&#43;2/Ws4=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    $("#openSearch, #openSearchMobile").click(function(){
+      $(".modal-dialog").addClass("visible");
+    });
+
+    $("#closeSearch").click(function(){
+      $(".modal-dialog").removeClass("visible");
+    });
+
+    $(document).click(function(event) {
+    
+      if (!$(event.target).closest(".modal-content, #openSearch, #openSearchMobile").length) {
+        $("body").find(".modal-dialog").removeClass("visible");
+      }
+    });
+  </script>
+
+
+
+
+  <script src="/js/custom.js"></script>
+
+
+  </body>
+</html>

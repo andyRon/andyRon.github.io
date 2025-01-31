@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          云原生时代的Java - 欣欣向戎
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="andyron" />
+  <meta name="description" content="今天，25 岁的 Java 仍然是最具有统治力的编程语言，长期占据编程语言排行榜的首位，拥有 1200 万的庞大开发者群体
+" />
+<meta name="keywords" content="kw" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.128.2" />
+
+
+<link rel="canonical" href="http://localhost:1313/blog/2024/06/cloud-java.html/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:url" content="http://localhost:1313/blog/2024/06/cloud-java.html/">
+  <meta property="og:site_name" content="欣欣向戎">
+  <meta property="og:title" content="云原生时代的Java">
+  <meta property="og:description" content="今天，25 岁的 Java 仍然是最具有统治力的编程语言，长期占据编程语言排行榜的首位，拥有 1200 万的庞大开发者群体">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-06-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-16T12:58:44+08:00">
+
+  <meta itemprop="name" content="云原生时代的Java">
+  <meta itemprop="description" content="今天，25 岁的 Java 仍然是最具有统治力的编程语言，长期占据编程语言排行榜的首位，拥有 1200 万的庞大开发者群体">
+  <meta itemprop="datePublished" content="2024-06-18T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-07-16T12:58:44+08:00">
+  <meta itemprop="wordCount" content="8449">
+  <meta itemprop="keywords" content="kw">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="云原生时代的Java">
+  <meta name="twitter:description" content="今天，25 岁的 Java 仍然是最具有统治力的编程语言，长期占据编程语言排行榜的首位，拥有 1200 万的庞大开发者群体">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">欣欣向戎</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+        
+      </li>
+    
+
+    
+      <li class="mobile-menu-item">
+        <a id="openSearchMobile" class="mobile-menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+      
+<div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div id="closeSearch" title="Close" class="close">X</div>
+      <div class="modal-header">
+        <div class="modal-title">Search</div>
+      </div>
+      <div class="modal-body">
+          <script>
+            (function() {
+              var cx = '002186711602136249422:q1gkomof_em';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' :
+                  'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search>
+      </div>
+    </div>
+</div>
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      欣欣向戎
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+      <li class="menu-item">
+        <a id="openSearch" class="menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">云原生时代的Java</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2024-06-18">
+      2024-06-18
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2024-07-16)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="http://localhost:1313/categories/java/"> Java </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <p>今天，25 岁的 Java 仍然是最具有统治力的编程语言，长期占据编程语言排行榜的首位，拥有 1200 万的庞大开发者群体</p>
+<p>时间：2020</p>
+<h3 id="作者介绍">作者介绍</h3>
+<p>周志明 | 远光软件研究院院长</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/image-20240223132935460.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/image-20240223133000112.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/image-20240223133131171.png"></p>
+<p>今天，25 岁的 Java 仍然是最具有统治力的编程语言，长期占据编程语言排行榜的首位，拥有 1200 万的庞大开发者群体，全世界有 450 亿部物理设备使用着 Java 技术。同时，在云端数据中心的虚拟化环境里，还运行着超过 250 亿个 Java 虚拟机的进程实例（数据来自 Oracle 的 WebCast）。以上这些数据是 Java 过去 25 年巨大成就的功勋佐证，更是 Java 技术体系维持自己“天下第一”编程语言的坚实壁垒。Java 与其他语言竞争，底气从来不在于语法、类库有多么先进好用，而是来自它<strong>庞大的用户群和极其成熟的软件生态</strong>，这在朝夕之间难以撼动。然而，这个现在看起来仍然坚不可摧的Java帝国，其统治地位的稳固程度不仅没有高枕无忧，反而说是危机四伏也不为过。目前已经有了可预见的、足以威胁动摇其根基的潜在可能性正在酝酿，并随云原生时代而降临。</p>
+<h3 id="java的危机">Java的危机</h3>
+<p>Java 与云原生的矛盾，来源于 Java 诞生之初，植入到它基因之中的一些基本的前提假设已经逐渐开始被动摇，甚至已经不再成立。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.32.48.png"></p>
+<p>我举个例子，每一位 Java 的使用者都听说过**“一次编写，到处运行”（Write Once,Run Anywhere）<strong>这句口号。20 多年前，Java 成熟之前，开发者如果希望程序在 Linux、Solaris、Windows 等不同平台，在</strong>x86、AMD64、SPARC、MIPS、ARM等不同指令集架构**上都能正常运行，就必须针对每种组合，编译出对应的二进制发行包，或者索性直接分发源代码，由使用者在自己的平台上编译。</p>
+<p>面对这个问题，Java 通过语言层虚拟化的方式，令每一个 Java 应用都自动取得平台无关（Platform Independent）、架构中立（Architecture Neutral）的先天优势，让同一套程序格式得以在不同指令集架构、不同操作系统环境下都能运行且得到一致的结果，不仅方便了程序的分发，还避免了各种平台下<strong>内存模型、线程模型、字节序</strong>等底层细节差异对程序编写的干扰。</p>
+<p>在当年，Java 的这种设计带有令人趋之若鹜的强大吸引力，直接开启了**==托管语言==**（Managed Language，如 Java、.NET）的一段兴盛期。</p>
+<p>面对相同的问题，今天的云原生选择以<strong>操作系统层虚拟化</strong>的方式，通过容器实现的<strong>不可变基础设施</strong>去解决。不可变基础设施这个概念出现得比云原生要早，原本是指该如何避免由于运维人员对服务器运行环境所做的持续的变更，而导致的意想不到的副作用。</p>
+<p>但在云原生时代，它的内涵已不再局限于方便运维、程序升级和部署的手段，而是升华为一种<strong>向应用代码隐藏环境复杂性</strong>的手段，是分布式服务得以成为一种可普遍推广的普适架构风格的必要前提。</p>
+<p><strong>将程序连同它的运行环境一起封装到稳定的镜像里，现在已经是一种主流的应用程序分发方式</strong>。Docker 同样提出过**“一次构建，到处运行”（Build Once,Run Anywhere）<strong>的口号，尽管它只能提供</strong>环境兼容性和有局限的平台无关性**（指系统内核功能以上的 ABI 兼容），且完全不可能支撑架构中立性，所以将“一次构建，到处运行”与“一次编写，到处运行”对立起来并不严谨恰当。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.34.22.png"></p>
+<p>但是无可否认，今天 Java 技术“一次编译，到处运行”的优势，已经被容器大幅度地削弱，不再是大多数服务端开发者技术选型的主要考虑因素了。</p>
+<p>如果仅仅是优势的削弱，并不足以成为 Java 的直接威胁，充其量只是一个潜在的不利因素，但更加迫在眉睫的风险来自于那些<strong>与技术潮流直接冲突的假设</strong>。</p>
+<p>譬如，Java 总体上是**==面向大规模、长时间的服务端应用==<strong>而设计的，严（luō）谨（suō）的语法利于</strong>约束**所有人写出较一致的代码；<strong>静态类型动态链接</strong>的语言结构，利于多人协作开发，让软件触及更大规模；<strong>即时编译器、性能制导优化、垃圾收集子系统</strong>等Java最具代表性的技术特征，都是为了便于长时间运行的程序能享受到硬件规模发展的红利。</p>
+<p>另一方面，在微服务的背景下，<strong>提倡服务围绕业务能力而非技术来构建应用</strong>，不再追求<strong>实现上的一致</strong>，一个系统由不同语言、不同技术框架所实现的服务来组成是完全合理的。服务化拆分后，很可能单个微服务不再需要再面对数十、数百 GB 乃至 TB 的内存。有了高可用的服务集群，也无须追求单个服务要 7×24 小时不可间断地运行，它们随时可以中断和更新。</p>
+<p>同时，微服务又对应用的容器化亲和性，譬如镜像体积、内存消耗、启动速度，以及达到最高性能的时间等方面提出了新的要求。这两年的网红概念 Serverless 也进一步增加这些因素的考虑权重，而这些却正好都是 Java 的弱项：<strong>哪怕再小的Java程序也要带着完整的虚拟机和标准类库</strong>，使得镜像拉取和容器创建效率降低，进而使整个容器生命周期拉长。</p>
+<p>基于Java虚拟机的执行机制，使得任何Java的程序都会有<strong>固定的基础内存开销，以及固定的启动时间</strong>，而且Java生态中广泛采用的<strong>依赖注入</strong>进一步将启动时间拉长，使得容器的冷启动时间很难缩短。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.37.29.png"></p>
+<p>软件工业中已经出现过不止一起因 Java这些弱点而导致失败的案例。</p>
+<p>如 JRuby 编写的 <strong>Logstash</strong>，原本是同时承担部署在节点上的收集端（Shipper）和专门转换处理的服务端（Master）的职责，后来因为资源占用的原因，被 Elstaic.co 用 Golang 的 <strong>Filebeat</strong> 代替了 Shipper 部分的职能。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.39.13.png"></p>
+<p>又如 Scala 语言编写的边车代理 Linkerd，作为服务网格概念的提出者，却最终被 Envoy 所取代，其主要弱点之一也是由于 Java 虚拟机的资源消耗所带来的劣势。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.40.27.png"></p>
+<p>虽然在云原生时代依然有很多适合 Java 发挥的领域，但是具备弹性与韧性、随时可以中断重启的微型服务的确已经形成了一股潮流，在逐步蚕食大型系统的领地。正是由于潮流趋势的改变，新一代的语言与技术尤其重视轻量化和快速响应能力，大多又重新回归到了**==原生语言==**（Native Language，如 Golang、Rust）之上。</p>
+<h3 id="java的变革">Java的变革</h3>
+<p>面对挑战，Java 的开发者和社区都没有退缩，它们在各自的领域给出了很多优秀的解决方案，涌现了如 Quarkus、Micronaut、Helidon 等一大批以提升 Java 在云原生环境下的适应性为卖点的框架。</p>
+<p>不过，今天我们的主题将聚焦在由 Java 官方本身所推进的项目上。在围绕 Java 25 周年的研讨和布道活动中，官方的设定是以**“面向未来的变革”（Innovating for the Future）<strong>为基调，你有可能在此之前已经听说过其中某个（某些）项目的名字和改进点，但这里我们不仅关心这些项目改进的是什么，还更关心它们背后的</strong>==动机与困难，带来的收益，以及要付出的代价==**。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.41.05.png"></p>
+<p><a href="https://openjdk.org/projects/">https://openjdk.org/projects/</a></p>
+<h3 id="project-leyden">Project Leyden</h3>
+<p>对于原生语言的挑战，最有力、最彻底的反击手段无疑是将字节码直接编译成可以脱离 Java 虚拟机的原生代码。</p>
+<p>如果真的能够生成脱离 Java 虚拟机运行的原生程序，将意味着启动时间长的问题能够彻底解决，因为此时已经<strong>不存在初始化虚拟机和类加载的过程</strong>。也意味着程序马上就能达到最佳的性能，因为此时已经不存在即时编译器运行时编译，所有代码都是在编译期编译和优化好的（如下图所示）。</p>
+<p>没有了 Java 虚拟机、即时编译器这些额外的部件，也就意味着能够省去它们原本消耗的那部分内存资源与镜像体积。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/ddc4b80b88b6848875ccf84de645ac3a.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/image-20240223144855150.png"></p>
+<p>但同时，这也是风险系数最高、实现难度最大的方案。</p>
+<p>Java 并非没有尝试走过这条路。从 Java 2 之前的 GCJ（GNU Compiler for Java），到后来的 Excelsior JET，再到 2018 年 Oracle Labs 启动的 GraalVM 中的 SubstrateVM 模块，最后到 2020 年中期刚建立的 Leyden 项目，都在朝着提前编译（Ahead-of-Time Compilation，AOT）生成原生程序这个目标迈进。</p>
+<p><strong>Java支持提前编译最大的困难在于它是一门动态链接的语言</strong>，它假设程序的代码空间是开放的（Open World），允许在程序的任何时候通过类加载器去加载新的类，作为程序的一部分运行。要进行提前编译，就必须放弃这部分动态性，假设程序的代码空间是封闭的（Closed World），所有要运行的代码都必须在编译期全部可知。</p>
+<p>这一点不仅仅影响到了类加载器的正常运作，除了无法再动态加载外，反射（通过反射可以调用在编译期不可知的方法）、动态代理、字节码生成库（如 CGLib）等一切会运行时产生新代码的功能都不再可用。</p>
+<p>如果将这些基础能力直接抽离掉，Hello world还是能跑起来，但 Spring 肯定跑不起来，Hibernate也跑不起来，大部分的生产力工具都跑不起来，整个 Java生态中绝大多数上层建筑都会轰然崩塌。</p>
+<p><strong>要获得有实用价值的提前编译能力，只有依靠提前编译器、组件类库和开发者三方一起协同才可能办到</strong>。由于 Leyden 刚刚开始，几乎没有公开的资料，所以下面我是以 SubstrateVM 为目标对象进行的介绍：</p>
+<ul>
+<li>有一些功能，像反射这样的基础特性是不可能妥协的，折中的解决办法是由用户在编译期，以配置文件或者编译器参数的形式，明确告知编译器程序代码中有哪些方法是只通过反射来访问的，编译器将方法添加到静态编译的范畴之中。同理，所有使用到动态代理的地方，也必须在事先列明，在编译期就将动态代理的字节码全部生成出来。其他所有无法通过程序指针分析（Points-To Analysis）得到的信息，譬如程序中用到的资源、配置文件等等，也必须照此处理。</li>
+<li>另一些功能，如动态生成字节码也十分常用，但用户自己往往无法得知那些动态字节码的具体信息，就只能由用到 CGLib、javassist 等库的程序去妥协放弃。在 Java 世界中也许最典型的场景就是 Spring 用 CGLib 来进行类增强，默认情况下，每一个 Spring 管理的 Bean 都要用到 CGLib。从 Spring Framework 5.2 开始增加了 @proxyBeanMethods 注解来排除对 CGLib 的依赖，仅使用标准的动态代理去增强类。</li>
+</ul>
+<p>2019 年起，Pivotal 的 Spring 团队与 Oracle Labs 的 GraalVM 团队共同孵化了 <strong>Spring GraalVM Native</strong> 项目，这个目前仍处于 Experimental / Alpha 状态的项目，能够让程序先以传统方式运行（启动）一次，自动化地找出程序中的反射、动态代理的代码，代替用户向编译器提供绝大部分所需的信息，并能将允许启动时初始化的 Bean 在编译期就完成初始化，直接绕过 Spring 程序启动最慢的阶段。这样从启动到程序可以提供服务，耗时竟能够低于 0.1 秒。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/98cf66ed80102ec6de686e141671c286.png"></p>
+<p>以原生方式运行后，缩短启动时间的效果立竿见影，一般会有数十倍甚至更高的改善，程序容量和内存消耗也有一定程度的下降。不过至少目前而言，程序的运行效率还是要弱于传统基于 Java 虚拟机的方式。</p>
+<p>虽然即时编译器有编译时间的压力，但由于可以进行基于假设的激进优化和运行时性能度量的制导优化，使得即时编译器的效果仍要优于提前编译器。这方面需要 GraalVM 编译器团队的进一步努力，也需要从语言改进上入手，让 Java 变得更适合被编译器优化。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.44.39.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.44.49.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.46.33.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.47.38.png"></p>
+<h3 id="project-valhalla">Project Valhalla</h3>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.51.43.png"></p>
+<p>Java 语言上可感知的语法变化，多数来自于 Amber 项目，它的项目目标是持续优化语言生产力，近期（JDK 15、16）会有很多来自这个项目的特性，如 Records、Sealed Class、Pattern Matching、Raw String Literals 等实装到生产环境。</p>
+<p>然而<strong>语法不仅与编码效率相关，与运行效率也有很大关系</strong>。“程序 = 代码 + 数据”这个提法至少在衡量运行效率上是合适的，无论是托管语言还是原生语言，最终产物都是==处理器执行的指令流和内存存储的数据结构==。Java、.NET、C、C++、Golang、Rust 等各种语言谁更快，取决于特定场景下，编译器生成指令流的优化效果，以及数据在内存中的结构布局。</p>
+<p>Java 即时编译器的优化效果拔群，但是由于 Java“一切皆为对象”的前提假设，导致它在<strong>处理一系列不同类型的小对象时，==内存访问性能很差==</strong>。这点是 Java 在游戏、图形处理等领域一直难有建树的重要制约因素，也是 Java 建立 Valhalla 项目的目标初衷。</p>
+<p>这里举个例子来说明此问题，如果我想描述空间里面若干条线段的集合，在 Java 中定义的代码会是这样的：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">record</span> <span style="color:#0e84b5;font-weight:bold">Point</span>(<span style="color:#902000">float</span><span style="color:#bbb"> </span>x,<span style="color:#bbb"> </span><span style="color:#902000">float</span><span style="color:#bbb"> </span>y,<span style="color:#bbb"> </span><span style="color:#902000">float</span><span style="color:#bbb"> </span>z)<span style="color:#bbb"> </span>{}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">record</span> <span style="color:#0e84b5;font-weight:bold">Line</span>(Point<span style="color:#bbb"> </span>start,<span style="color:#bbb"> </span>Point<span style="color:#bbb"> </span>end)<span style="color:#bbb"> </span>{}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Line<span style="color:#666">[]</span><span style="color:#bbb"> </span>lines;<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_13.52.03.png"></p>
+<p>面向对象的内存布局中，对象标识符（Object Identity）存在的目的是为了允许在不暴露对象结构的前提下，依然可以引用其属性与行为，这是面向对象编程中多态性的基础。在 Java 中堆内存分配和回收、空值判断、引用比较、同步锁等一系列功能都会涉及到对象标识符，内存访问也是依靠对象标识符来进行<strong>链式处理</strong>的，譬如上面代码中的“若干条线段的集合”，在堆内存中将构成如下图的引用关系：</p>
+<p><img alt="Object Identity / Memory Layout" src="/blog/2024/06/cloud-java.html/images/b9c5565df4324de60dab106b55810427.png"></p>
+<p>计算机硬件经过 25 年的发展，内存与处理器虽然都在进步，但是内存延迟与处理器执行性能之间的**==冯诺依曼瓶颈（Von Neumann Bottleneck）==**不仅没有缩减，反而还在持续加大，“RAM Is the New Disk”已经从嘲讽梗逐渐成为了现实。</p>
+<p>一次内存访问（将主内存数据调入处理器 Cache）大约需要耗费数百个时钟周期，而大部分简单指令的执行只需要一个时钟周期而已。因此，在程序执行性能这个问题上，如果编译器能减少一次内存访问，可能比优化掉几十、几百条其他指令都来得更有效果。</p>
+<blockquote>
+<p>额外知识：冯诺依曼瓶颈</p>
+<p>不同处理器（现代处理器都集成了内存管理器，以前是在北桥芯片中）的内存延迟大概是 40-80 纳秒（ns，十亿分之一秒），而根据不同的时钟频率，一个时钟周期大概在 0.2-0.4 纳秒之间，如此短暂的时间内，即使真空中传播的光，也仅仅能够行进 10 厘米左右。</p>
+<p>数据存储与处理器执行的速度矛盾是冯诺依曼架构的主要局限性之一，1977 年的图灵奖得主 John Backus 提出了“冯诺依曼瓶颈”这个概念，专门用来描述这种局限性。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.09.44.png"></p>
+</blockquote>
+<p>编译器的确在努力减少内存访问，从 JDK 6 起，HotSpot 的即时编译器就尝试通过==逃逸分析==来做**标量替换（Scalar Replacement）和栈上分配（Stack Allocations）**优化，基本原理是如果能通过分析，得知一个对象不会传递到方法之外，那就不需要真实地在对象中创建完整的对象布局，完全可以绕过对象标识符，将它拆散为基本的原生数据类型来创建，甚至是直接在栈内存中分配空间（HotSpot 并没有这样做），方法执行完毕后随着栈帧一起销毁掉。</p>
+<p>不过，<strong>逃逸分析是一种过程间优化（Interprocedural Optimization），非常耗时，也很难处理那些理论上有可能但实际不存在的情况</strong>。相同的问题在 C、C++ 中却并不存在，上面场景中，程序员只要将 Point 和 Line 都定义为 struct 即可，C# 中也有 struct，是依靠 .NET 的值类型（Value Type）来实现的。</p>
+<p>Valhalla 项目的核心改进就是提供类似的<strong>值类型</strong>支持，提供一个新的关键字（inline），让用户可以在不需要向方法外部暴露对象、不需要多态性支持、不需要将对象用作同步锁的场合中，将类标识为值类型。此时编译器就能够绕过对象标识符，以平坦的、紧凑的方式去为对象分配内存。</p>
+<p>有了值类型的支持后，现在 Java泛型中令人诟病的不支持原数据类型（Primitive Type）、频繁装箱问题也就随之迎刃而解。现在 Java 的包装类，理所当然地会以代表原生类型的值类型来重新定义，这样 Java 泛型的性能会得到明显的提升。因为此时 Integer 与 int 的访问，在机器层面看完全可以达到一致的效率。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.10.45.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.11.21.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.13.26.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.13.50.png"></p>
+<h3 id="project-loom">Project Loom</h3>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.14.39.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.14.55.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.16.16.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.16.28.png"></p>
+<p>Java语言<strong>抽象出来隐藏了各种操作系统线程差异性的统一线程接口</strong>，这曾经是它区别于其他编程语言（C/C++ 表示有被冒犯到）的一大优势，不过，统一的线程模型不见得永远都是正确的。</p>
+<p>Java目前主流的线程模型是直接映射到操作系统内核上的 1:1 模型，这对于计算密集型任务这很合适，既不用自己去做调度，也利于一条线程跑满整个处理器核心。但对于 I/O 密集型任务，譬如访问磁盘、访问数据库占主要时间的任务，这种模型就显得成本高昂，主要在于<strong>内存消耗和上下文切换</strong>上：</p>
+<p>64 位 Linux 上 HotSpot 的线程栈容量默认是 1MB，线程的内核元数据（Kernel Metadata）还要额外消耗 2-16KB 内存，所以单个虚拟机的最大线程数量一般只会设置到 200 至 400 条，当程序员把数以百万计的请求往线程池里面灌时，系统即便能处理得过来，其中的切换损耗也相当可观。</p>
+<p>Loom 项目的目标是让 Java 支持额外的 N:M 线程模型，请注意是“额外支持”，而不是像当年从绿色线程过渡到内核线程那样的直接替换，也不是像 Solaris 平台的 HotSpot 虚拟机那样通过参数让用户二选其一。</p>
+<p>Loom 项目新增加一种“虚拟线程”（Virtual Thread，以前以 Fiber为名进行宣传过，但因为要频繁解释啥是Fiber，所以现在放弃了），本质上它是一种有栈协程（Stackful Coroutine），多条虚拟线程可以映射到同一条物理线程之中，在用户空间中自行调度，每条虚拟线程的栈容量也可由用户自行决定。</p>
+<p><img src="/blog/2024/06/cloud-java.html/images/b730585d97c5352aecdf3c9e73bd1c9e.png"></p>
+<p>同时，Loom 项目的另一个目标是要尽最大可能**==保持原有统一线程模型的交互方式==<strong>，通俗地说就是原有的 Thread、J.U.C、NIO、Executor、Future、ForkJoinPool 等这些多线程工具，都应该能</strong>以同样的方式支持新的虚拟线程**，原来多线程中你理解的概念、编码习惯大多数都能够继续沿用。</p>
+<p>为此，<strong>虚拟线程将会与物理线程一样使用java.lang.Thread 来进行抽象</strong>，只是在创建线程时用到的参数或者方法稍有不同（譬如给 Thread 增加一个 <code>Thread.VIRTUAL_THREAD</code> 参数，或者增加一个 <code>startVirtualThread()</code> 方法）。</p>
+<p>这样现有的多线程代码迁移到虚拟线程中的成本就会变得很低，而代价就是 Loom 的团队必须做更多的工作以<strong>保证虚拟线程在大部分涉及到多线程的标准 API 中都能够兼容，甚至在调试器上虚拟线程与物理线程看起来都会有一致的外观</strong>。但很难全部都支持，譬如调用 JNI 的本地栈帧就很难放到虚拟线程上，所以一旦遇到本地方法，虚拟线程就会被绑定（Pinned）到一条物理线程上。</p>
+<p>Loom 的另一个重点改进是<strong>支持结构化并发（Structured Concurrency）</strong>，这是 2016 年才提出的新的并发编程概念，但很快就被诸多编程语言所吸纳。它是指程序的并发行为会与代码的结构对齐，譬如以下代码所示，按照传统的编程观念，如果没有额外的处理（譬如无中生有地弄一个 await 关键字），那在 task1 和 task2 提交之后，程序应该继续向下执行：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ThreadFactory<span style="color:#bbb"> </span>factory<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>Thread.<span style="color:#4070a0">builder</span>().<span style="color:#4070a0">virtual</span>().<span style="color:#4070a0">factory</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">try</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">var</span><span style="color:#bbb"> </span>executor<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>Executors.<span style="color:#4070a0">newThreadExecutor</span>(factory))<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"> </span>executor.<span style="color:#4070a0">submit</span>(task1);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"> </span>executor.<span style="color:#4070a0">submit</span>(task2);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb"> </span><span style="color:#60a0b0;font-style:italic">// blocks and waits </span><span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.16.42.png"></p>
+<p>但是在结构化并发的支持下，只有两个并行启动的任务线程都结束之后，程序才会继续向下执行，很好地以同步的编码风格，来解决异步的执行问题。事实上，“Code like sync,Work like async”正是 Loom 简化并发编程的核心理念。</p>
+<h3 id="project-portola">Project Portola</h3>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.17.37.png"></p>
+<p>Portola 项目的目标是将 OpenJDK 向 Alpine Linux 移植。Alpine Linux 是许多 Docker 容器首选的基础镜像，因为它只有 5 MB 大小，比起其他 Cent OS、Debain 等动辄一百多 MB 的发行版来说，更适合用于容器环境。</p>
+<p>不过 Alpine Linux 为了尽量瘦身，默认是用 musl 作为 C 标准库的，而非传统的 glibc（GNU C library）。因此要以 Alpine Linux 为基础制作 OpenJDK 镜像，必须先安装 glibc，此时基础镜像大约有 12 MB。Portola 计划将 OpenJDK 的上游代码移植到 musl，并通过兼容性测试。使用 Portola 制作的标准 Java SE 13 镜像仅有 41 MB，不仅远低于 Cent OS 的 OpenJDK（大约 396 MB），也要比官方的 slim 版（约 200 MB）小得多。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-29">29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-30">30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-31">31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-32">32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-33">33</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-34"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-34">34</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-35"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-35">35</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-36"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-36">36</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-37"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-37">37</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo docker build .
+</span></span><span style="display:flex;"><span>Sending build context to Docker daemon 2.56kB
+</span></span><span style="display:flex;"><span>Step 1/8 : FROM alpine:latest as build
+</span></span><span style="display:flex;"><span>latest: Pulling from library/alpine
+</span></span><span style="display:flex;"><span>bdf0201b3a05: Pull <span style="color:#007020">complete</span>
+</span></span><span style="display:flex;"><span>Digest: sha256:28ef97b8686a0b5399129e9b763d5b7e5ff03576aa5580d6f4182a49c5fe1913
+</span></span><span style="display:flex;"><span>Status: Downloaded newer image <span style="color:#007020;font-weight:bold">for</span> alpine:latest
+</span></span><span style="display:flex;"><span> ---&gt; cdf98d1859c1
+</span></span><span style="display:flex;"><span>Step 2/8 : ADD https://download.java.net/java/early_access/alpine/16/binaries/openjdk-13-ea+16_linux-x64-musl_bin.tar.gz /opt/jdk/
+</span></span><span style="display:flex;"><span>Downloading <span style="color:#666">[==================================================</span>&gt;<span style="color:#666">]</span> 195.2MB/195.2MB
+</span></span><span style="display:flex;"><span> ---&gt; Using cache
+</span></span><span style="display:flex;"><span> ---&gt; b1a444e9dde9
+</span></span><span style="display:flex;"><span>Step 3/7 : RUN tar -xzvf /opt/jdk/openjdk-13-ea+16_linux-x64-musl_bin.tar.gz -C /opt/jdk/
+</span></span><span style="display:flex;"><span> ---&gt; Using cache
+</span></span><span style="display:flex;"><span> ---&gt; ce2721c75ea0
+</span></span><span style="display:flex;"><span>Step 4/7 : RUN <span style="color:#666">[</span><span style="color:#4070a0">&#34;/opt/jdk/jdk-13/bin/jlink&#34;</span>, <span style="color:#4070a0">&#34;--compress=2&#34;</span>, <span style="color:#4070a0">&#34;--module-path&#34;</span>, <span style="color:#4070a0">&#34;/opt/jdk/jdk-13/jmods/&#34;</span>, <span style="color:#4070a0">&#34;--add-modules&#34;</span>, <span style="color:#4070a0">&#34;java.base&#34;</span>, <span style="color:#4070a0">&#34;--output&#34;</span>, <span style="color:#4070a0">&#34;/jlinked&#34;</span><span style="color:#666">]</span>
+</span></span><span style="display:flex;"><span> ---&gt; Using cache
+</span></span><span style="display:flex;"><span> ---&gt; d7b2793ed509
+</span></span><span style="display:flex;"><span>Step 5/7 : FROM alpine:latest
+</span></span><span style="display:flex;"><span> ---&gt; cdf98d1859c1
+</span></span><span style="display:flex;"><span>Step 6/7 : COPY --from<span style="color:#666">=</span>build /jlinked /opt/jdk/
+</span></span><span style="display:flex;"><span> ---&gt; Using cache
+</span></span><span style="display:flex;"><span> ---&gt; 993fb106f2c2
+</span></span><span style="display:flex;"><span>Step 7/7 : CMD <span style="color:#666">[</span><span style="color:#4070a0">&#34;/opt/jdk/bin/java&#34;</span>, <span style="color:#4070a0">&#34;--version&#34;</span><span style="color:#666">]</span> - to check JDK version
+</span></span><span style="display:flex;"><span> ---&gt; Running in 8e1658f5f84d
+</span></span><span style="display:flex;"><span>Removing intermediate container 8e1658f5f84d
+</span></span><span style="display:flex;"><span> ---&gt; 350dd3a72a7d
+</span></span><span style="display:flex;"><span>Successfully built 350dd3a72a7d
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo docker tag 350dd3a72a7d jdk-13-musl/jdk-version:v1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo docker images
+</span></span><span style="display:flex;"><span>REPOSITORY TAG IMAGE ID CREATED SIZE
+</span></span><span style="display:flex;"><span>jdk-13-musl/jdk-version v1 350dd3a72a7d About a minute ago 41.7MB
+</span></span><span style="display:flex;"><span>alpine latest cdf98d1859c1 <span style="color:#40a070">2</span> weeks ago 5.53M
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="java的未来">Java的未来</h3>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.18.28.png"></p>
+<p><img src="/blog/2024/06/cloud-java.html/images/iShot_2024-02-23_14.19.02.png"></p>
+<p>云原生时代，Java 技术体系的许多前提假设都受到了挑战，“一次编译，到处运行”“面向长时间大规模程序而设计”“从开放的代码空间中动态加载”“一切皆为对象”“统一线程模型”等等。技术发展迭代不会停歇，没有必要坚持什么“永恒的真理”，旧的原则被打破，只要合理，便是创新。</p>
+<p>Java 语言意识到了挑战，也意识到了要面向未来而变革。文中提到的这些项目，Amber 和 Portola 已经明确会在 2021 年 3 月的 Java 16 中发布，至少也会达到 Feature Preview 的程度：</p>
+<ul>
+<li>JEP 394：Pattern Matching for instanceof</li>
+<li>JEP 395：Records</li>
+<li>JEP 397：Sealed Classes</li>
+<li>JEP 386：Alpine Linux Port</li>
+</ul>
+<p>至于更受关注，同时也是难度更高的 Valhalla 和 Loom 项目，目前仍然没有明确的版本计划信息，尽管它们已经开发了数年时间，非常希望能够赶在 Java 17 这个 LTS 版本中面世，但前路还是困难重重。</p>
+<p>至于难度最高、创建时间最晚的 Leyden 项目，目前还完全处于特性讨论阶段，连个胚胎都算不上。对于 Java 的原生编译，我们中短期内只可能寄希望于 Oracle 的 GraalVM。</p>
+<p>未来一段时间，是 Java 重要的转型窗口期，如果作为下一个 LTS 版的 Java 17，能够成功集 Amber、Portola、Valhalla、Loom 和 Panama（用于外部函数接口访问，本文没有提到）的新能力、新特性于一身，GraalVM 也能给予足够强力支持的话，那么 Java 17 LTS 大概率会是一个里程碑式的版本，带领着整个 Java 生态从大规模服务端应用，向新的云原生时代软件系统转型。甚至可能成为从面向嵌入式设备与浏览器 Web Applets 的 Java 1，到确立现代 Java 语言方向（Java SE/EE/ME 和 JavaCard）雏形的 Java 2 转型那样的里程碑。</p>
+<p>但是，如果 Java 不能加速自己的发展步伐，那么它由强大生态所构建的护城河终究会消耗殆尽，被 Golang、Rust 这样的新生语言，以及 C、C++、C#、Python 等老对手蚕食掉很大一部分市场份额，甚至会被迫从“天下第一”编程语言的宝座中退位。</p>
+<p>Java 的未来是继续向前，再攀高峰，还是由盛转衰，锋芒挫缩，你我拭目以待。</p>
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">andyron</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2024-07-16
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content">原创文章，如需转载请注明文章作者和出处。谢谢！</span>
+  </p>
+</div>
+
+
+
+        
+        
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
+  </div>
+</div>
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/blog/2024/06/java-program-logic.html/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Java编程的逻辑</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/blog/2019/09/python-base.html/">
+                <span class="next-text nav-default">Python基础总结</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+    <div class="post">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="xianmin/comments---xianmin.org"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNDAyNTY2MDI="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCFwlWs4CRRxW"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+  
+
+  
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://localhost:1313/blog/2024/06/cloud-java.html/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'xianmin12';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript
+    >Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+</div>
+
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#作者介绍">作者介绍</a></li>
+        <li><a href="#java的危机">Java的危机</a></li>
+        <li><a href="#java的变革">Java的变革</a></li>
+        <li><a href="#project-leyden">Project Leyden</a></li>
+        <li><a href="#project-valhalla">Project Valhalla</a></li>
+        <li><a href="#project-loom">Project Loom</a></li>
+        <li><a href="#project-portola">Project Portola</a></li>
+        <li><a href="#java的未来">Java的未来</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+  
+    <a href="mailto:rongming.2008@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://stackoverflow.com/users/3133839/andyron" rel="me noopener" class="iconfont"
+      title="stack-overflow"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M809.714286 932.571429l-638.857143 0 0-274.285714-91.428571 0 0 365.714286 821.714286 0 0-365.714286-91.428571 0 0 274.285714zm-538.285714-299.428571l18.857143-89.714286 447.428571 94.285714-18.857143 89.142857zm58.857143-213.714286l38.285714-83.428571 414.285714 193.714286-38.285714 82.857143zm114.857143-203.428571l58.285714-70.285714 350.857143 293.142857-58.285714 70.285714zm226.857143-216l272.571429 366.285714-73.142857 54.857143-272.571429-366.285714zm-410.285714 840.571429l0-90.857143 457.142857 0 0 90.857143-457.142857 0z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/andyron" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        andyron
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.25d4b4ffb2db9a42760854fb017fe0cbe4413e299a94b43b52a058abedbf5ace.js" integrity="sha256-JdS0/7LbmkJ2CFT7AX/gy&#43;RBPimalLQ7UqBYq&#43;2/Ws4=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    $("#openSearch, #openSearchMobile").click(function(){
+      $(".modal-dialog").addClass("visible");
+    });
+
+    $("#closeSearch").click(function(){
+      $(".modal-dialog").removeClass("visible");
+    });
+
+    $(document).click(function(event) {
+    
+      if (!$(event.target).closest(".modal-content, #openSearch, #openSearchMobile").length) {
+        $("body").find(".modal-dialog").removeClass("visible");
+      }
+    });
+  </script>
+
+
+
+
+  <script src="/js/custom.js"></script>
+
+
+  </body>
+</html>
