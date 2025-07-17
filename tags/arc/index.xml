@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ARC on 欣欣向戎</title>
-    <link>http://localhost:1313/tags/arc/</link>
+    <link>https://andyron.top/tags/arc/</link>
     <description>Recent content in ARC on 欣欣向戎</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 16 Jul 2024 00:17:52 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/arc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://andyron.top/tags/arc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>以撸代码的形式学习Swift-16：自动引用计数(Automatic Reference Counting, ARC)</title>
-      <link>http://localhost:1313/blog/2017/07/swift-16-automatic-reference-counting.html/</link>
+      <link>https://andyron.top/blog/2017/07/swift-16-automatic-reference-counting.html/</link>
       <pubDate>Tue, 04 Jul 2017 13:43:08 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/swift-16-automatic-reference-counting.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/swift-16-automatic-reference-counting.html/</guid>
       <description>引用计数仅仅应用于类的实例 1 自动引用计数的工作机制 每次创建一个类的新的实例的时候，ARC会分配一块内存来储存该实例信息(包含实例的类型信息，</description>
     </item>
   </channel>

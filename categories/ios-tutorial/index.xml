@@ -2,122 +2,122 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IOS Tutorial on 欣欣向戎</title>
-    <link>http://localhost:1313/categories/ios-tutorial/</link>
+    <link>https://andyron.top/categories/ios-tutorial/</link>
     <description>Recent content in IOS Tutorial on 欣欣向戎</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 16 Jul 2024 00:17:53 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/ios-tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://andyron.top/categories/ios-tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS-tutorial-16：TravelVlogs——使用AVKit和AVFoundation创建视频应用</title>
-      <link>http://localhost:1313/blog/2018/11/ios-tutorial-16-travelvlogs.html/</link>
+      <link>https://andyron.top/blog/2018/11/ios-tutorial-16-travelvlogs.html/</link>
       <pubDate>Wed, 07 Nov 2018 19:21:17 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2018/11/ios-tutorial-16-travelvlogs.html/</guid>
+      <guid>https://andyron.top/blog/2018/11/ios-tutorial-16-travelvlogs.html/</guid>
       <description>TravelVlogs项目是介绍如何使用AVKit和AVFoundation框架构建简单的视频流应用。 预览图 代码 TravelVlogs 注意点 AVKit 介绍 一个有用的开发</description>
     </item>
     <item>
       <title>iOS tutorial 15：实现计算器界面布局--Masonry和SnapKit的学习</title>
-      <link>http://localhost:1313/blog/2018/08/ios-tutorial-15.html/</link>
+      <link>https://andyron.top/blog/2018/08/ios-tutorial-15.html/</link>
       <pubDate>Fri, 17 Aug 2018 22:26:08 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2018/08/ios-tutorial-15.html/</guid>
+      <guid>https://andyron.top/blog/2018/08/ios-tutorial-15.html/</guid>
       <description>Masonry和SnapKit分别是OC、Swift的界面布局框架，而且开发者相同。 分别用这两个框架实现一个简单计算器界面： 完全代码：Lea</description>
     </item>
     <item>
       <title>iOS tutorial 14：简单的下拉菜单 -- dropDownMenu</title>
-      <link>http://localhost:1313/blog/2018/08/ios-tutorial-14.html/</link>
+      <link>https://andyron.top/blog/2018/08/ios-tutorial-14.html/</link>
       <pubDate>Fri, 17 Aug 2018 22:21:17 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2018/08/ios-tutorial-14.html/</guid>
+      <guid>https://andyron.top/blog/2018/08/ios-tutorial-14.html/</guid>
       <description>详细代码： dropDownMenu 按钮dropDownBtn: class dropDownBtn: UIButton, dropDownProtocol { func dropDownPressed(string: String) { self.setTitle(string, for: .normal) self.dismissDropDown() } var dropView = dropDownView() var height = NSLayoutConstraint() override init(frame: CGRect) { super.init(frame: frame) self.backgroundColor = UIColor.darkGray dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0)) dropView.translatesAutoresizingMaskIntoConstraints = false dropView.delegate = self } //</description>
     </item>
     <item>
       <title>iOS tutorial 13：手势处理</title>
-      <link>http://localhost:1313/blog/2017/08/ios-tutorial-13.html/</link>
+      <link>https://andyron.top/blog/2017/08/ios-tutorial-13.html/</link>
       <pubDate>Tue, 22 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/08/ios-tutorial-13.html/</guid>
+      <guid>https://andyron.top/blog/2017/08/ios-tutorial-13.html/</guid>
       <description>iOS手势处理由UIGestureRecognizer控制，不同手势有这个类的不同子类处理，不同手势处理有不同的相关属性。 子类 描述 UITapGestureRecognizer 点击手势</description>
     </item>
     <item>
       <title>iOS tutorial 12：视频背景</title>
-      <link>http://localhost:1313/blog/2017/08/ios-tutorial-12.html/</link>
+      <link>https://andyron.top/blog/2017/08/ios-tutorial-12.html/</link>
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/08/ios-tutorial-12.html/</guid>
+      <guid>https://andyron.top/blog/2017/08/ios-tutorial-12.html/</guid>
       <description>新建项目 BackgroundVideoDemo 新建BackgroundVideo.swift文件： import Foundation import AVKit import AVFoundation enum BackgroundVideoErrors: Error { case invalidVideo } class BackgroundVideo { var isMuted = true private var player : AVPlayer? private var videoURL: URL? private var viewController: UIViewController? private var hasBeenUsed: Bool = false</description>
     </item>
     <item>
       <title>iOS tutorial 11：照片横屏滑动</title>
-      <link>http://localhost:1313/blog/2017/08/ios-tutorial-11.html/</link>
+      <link>https://andyron.top/blog/2017/08/ios-tutorial-11.html/</link>
       <pubDate>Sat, 19 Aug 2017 22:10:17 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/08/ios-tutorial-11.html/</guid>
+      <guid>https://andyron.top/blog/2017/08/ios-tutorial-11.html/</guid>
       <description>知识点： UICollectionView UIVisualEffectView UICollectionViewDataSource 新建项目Carousel Effect 在IB构建UI。Collection View 里的 Scroll Direction 设置成水平滚动。UIVisualEffectView是</description>
     </item>
     <item>
       <title>iOS tutorial 10：UIScrollView滚动视图</title>
-      <link>http://localhost:1313/blog/2017/08/ios-tutorial-10-uiscrolview.html/</link>
+      <link>https://andyron.top/blog/2017/08/ios-tutorial-10-uiscrolview.html/</link>
       <pubDate>Sat, 19 Aug 2017 20:21:17 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/08/ios-tutorial-10-uiscrolview.html/</guid>
+      <guid>https://andyron.top/blog/2017/08/ios-tutorial-10-uiscrolview.html/</guid>
       <description>知识点: UIScrollView 当视图超过屏幕大小时，可通过把视图放在UIScrollView中让视图可以上下滚动的功能。以一张大图片为例。 新建项目 ScrollViewTutorial 代码： class ViewController: UIViewController</description>
     </item>
     <item>
       <title>iOS tutorial 9：本地视频播放</title>
-      <link>http://localhost:1313/blog/2017/08/ios-tutorial-9.html/</link>
+      <link>https://andyron.top/blog/2017/08/ios-tutorial-9.html/</link>
       <pubDate>Sat, 19 Aug 2017 12:21:17 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/08/ios-tutorial-9.html/</guid>
+      <guid>https://andyron.top/blog/2017/08/ios-tutorial-9.html/</guid>
       <description>新建项目PlayLocalVideo 在IB中使View ControllerEmbed In &amp;gt; Navigation Controller**,并在View Controller中添加UITable</description>
     </item>
     <item>
       <title>iOS tutorial 8：使用IBInspectable 和 IBDesignable定制UI</title>
-      <link>http://localhost:1313/blog/2017/08/ios-tutorial-8-ibinspectable-ibdesignable.html/</link>
+      <link>https://andyron.top/blog/2017/08/ios-tutorial-8-ibinspectable-ibdesignable.html/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/08/ios-tutorial-8-ibinspectable-ibdesignable.html/</guid>
+      <guid>https://andyron.top/blog/2017/08/ios-tutorial-8-ibinspectable-ibdesignable.html/</guid>
       <description>例子代码：https://github.com/andyRon/LearniOSByProject/tree/master/P077-Fan</description>
     </item>
     <item>
       <title>iOS-tutorial-7：解析XML(swift)</title>
-      <link>http://localhost:1313/blog/2017/07/ios-tutorial-7-xml.html/</link>
+      <link>https://andyron.top/blog/2017/07/ios-tutorial-7-xml.html/</link>
       <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/ios-tutorial-7-xml.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/ios-tutorial-7-xml.html/</guid>
       <description>使用XMLParser解析XML文件，然后用table展示数据。 以Single View Application模板新建项目XMLParserTuto</description>
     </item>
     <item>
       <title>iOS tutorial 6：使用Quick Look框架预览文件(Swift)</title>
-      <link>http://localhost:1313/blog/2017/07/ios-tutorial-6-quicklook.html/</link>
+      <link>https://andyron.top/blog/2017/07/ios-tutorial-6-quicklook.html/</link>
       <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/ios-tutorial-6-quicklook.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/ios-tutorial-6-quicklook.html/</guid>
       <description>iOS SDK中有很多不常见，却非常好用的库，Quick Look框架就是一个非常好的例子。Quick Look框架提供了预览很多不同类型文件的功能，</description>
     </item>
     <item>
       <title>iOS tutorial 5：关于地理定位和特定区域(Swift)</title>
-      <link>http://localhost:1313/blog/2017/07/ios-tutorial-5.html/</link>
+      <link>https://andyron.top/blog/2017/07/ios-tutorial-5.html/</link>
       <pubDate>Sun, 16 Jul 2017 12:21:17 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/ios-tutorial-5.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/ios-tutorial-5.html/</guid>
       <description>用户带着iPhone进入某个区域，并在某些区域待多久在开发肯能会有很大用处。 初始化项目 创建新的项目GeoTargeting，使用Single</description>
     </item>
     <item>
       <title>iOS tutorial 4：CALayer介绍(swift)</title>
-      <link>http://localhost:1313/blog/2017/07/ios-tutorial-4-calayer.html/</link>
+      <link>https://andyron.top/blog/2017/07/ios-tutorial-4-calayer.html/</link>
       <pubDate>Sun, 16 Jul 2017 10:21:17 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/ios-tutorial-4-calayer.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/ios-tutorial-4-calayer.html/</guid>
       <description>Layers是Core Animation Framework的一部分。Core Animation Framework在iOS架构的位置： 访问CALayer 凡是继承至UIView</description>
     </item>
     <item>
       <title>iOS tutorial 3：Speech Framework的简单使用</title>
-      <link>http://localhost:1313/blog/2017/07/ios-tutorial-3-speechframework.html/</link>
+      <link>https://andyron.top/blog/2017/07/ios-tutorial-3-speechframework.html/</link>
       <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/ios-tutorial-3-speechframework.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/ios-tutorial-3-speechframework.html/</guid>
       <description>在WWDC 2016时，Apple介绍了Speech framework，这是一个很有用的声音识别框架。实际上这是利用Siri进行声音识别。 初始</description>
     </item>
     <item>
       <title>iOS tutorial 2：用Core Image进行面部识别(Swift)</title>
-      <link>http://localhost:1313/blog/2017/07/ios-tutorial-2-facerecognition.html/</link>
+      <link>https://andyron.top/blog/2017/07/ios-tutorial-2-facerecognition.html/</link>
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/ios-tutorial-2-facerecognition.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/ios-tutorial-2-facerecognition.html/</guid>
       <description>面部识别API不仅可以是识别面部，也可识别面部的特殊细节，例如微笑甚至眨眼睛。 建立初始项目 原文建好了初始项目，我自己新建了初始项目 新建项目D</description>
     </item>
     <item>
       <title>iOS tutorial 1： 识别二维码（swift3）</title>
-      <link>http://localhost:1313/blog/2017/07/ios-tutorial-1-arcode.html/</link>
+      <link>https://andyron.top/blog/2017/07/ios-tutorial-1-arcode.html/</link>
       <pubDate>Sat, 08 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/ios-tutorial-1-arcode.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/ios-tutorial-1-arcode.html/</guid>
       <description>这是一篇使用AVFoundation框架识别二维码的文章，原文提供了初始化项目QRCodeReaderStarter，我重新建立项目，图片是</description>
     </item>
   </channel>

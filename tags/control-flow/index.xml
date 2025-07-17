@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Control Flow on 欣欣向戎</title>
-    <link>http://localhost:1313/tags/control-flow/</link>
+    <link>https://andyron.top/tags/control-flow/</link>
     <description>Recent content in Control Flow on 欣欣向戎</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 16 Jul 2024 00:17:53 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/control-flow/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://andyron.top/tags/control-flow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>以撸代码的形式学习Swift-5：控制流(Control Flow)</title>
-      <link>http://localhost:1313/blog/2017/07/swift-5-control-flow.html/</link>
+      <link>https://andyron.top/blog/2017/07/swift-5-control-flow.html/</link>
       <pubDate>Mon, 03 Jul 2017 13:40:22 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/swift-5-control-flow.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/swift-5-control-flow.html/</guid>
       <description>1 for in for in 可用来遍历 Array Dictionary Set Range String 1 2 3 4 5 6 7 8 9 10 11 12 13 14 for index in 1...5 { } for _ in 1...5 { } for v in [1,2,3] { } let numberOfLegs = [&amp;#34;spider&amp;#34;: 8, &amp;#34;ant&amp;#34;: 6, &amp;#34;cat&amp;#34;: 4] for (animalName, legCount) in numberOfLegs { } let countrys:Set = [&amp;#34;China&amp;#34;, &amp;#34;USA&amp;#34;, &amp;#34;Japan&amp;#34;] for</description>
     </item>
   </channel>

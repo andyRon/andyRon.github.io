@@ -2,150 +2,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Objective-C on 欣欣向戎</title>
-    <link>http://localhost:1313/categories/objective-c/</link>
+    <link>https://andyron.top/categories/objective-c/</link>
     <description>Recent content in Objective-C on 欣欣向戎</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 16 Jul 2024 12:36:07 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/objective-c/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://andyron.top/categories/objective-c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OC中的键/值编码(KVC)</title>
-      <link>http://localhost:1313/blog/2018/08/ios-oc-kvc-begin.html/</link>
+      <link>https://andyron.top/blog/2018/08/ios-oc-kvc-begin.html/</link>
       <pubDate>Fri, 24 Aug 2018 19:50:59 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2018/08/ios-oc-kvc-begin.html/</guid>
+      <guid>https://andyron.top/blog/2018/08/ios-oc-kvc-begin.html/</guid>
       <description>1. KVC 的定义 键/值编码(Key-value coding，KVC) 可以允许开发者通过Key名访问对象的属性或给对象的属性赋值, 而不需要调用明确的</description>
     </item>
     <item>
       <title>OC中的成员变量，实例变量，属性变量</title>
-      <link>http://localhost:1313/blog/2018/06/oc-property-variables.html/</link>
+      <link>https://andyron.top/blog/2018/06/oc-property-variables.html/</link>
       <pubDate>Fri, 01 Jun 2018 11:13:34 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2018/06/oc-property-variables.html/</guid>
+      <guid>https://andyron.top/blog/2018/06/oc-property-variables.html/</guid>
       <description>1 2 3 4 5 6 7 8 @interface MyViewController :UIViewControlle { UIButton *yourButton; int count; id data； } @property (nonatomic, strong) UIButton *myButton; @end 1. 成员变量 成员变量是定义在｛｝号中的变量。（yourButton、count、da</description>
     </item>
     <item>
       <title>OC基础学习：访问修饰符</title>
-      <link>http://localhost:1313/blog/2017/10/oc-access-modifier.html/</link>
+      <link>https://andyron.top/blog/2017/10/oc-access-modifier.html/</link>
       <pubDate>Thu, 26 Oct 2017 15:13:34 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/10/oc-access-modifier.html/</guid>
+      <guid>https://andyron.top/blog/2017/10/oc-access-modifier.html/</guid>
       <description>用来修饰属性，可以限定对象的属性在那一段范围之中访问。 @private : 只能在本类的内部访问。 @protected: 只能在本类以及其子类中访问，默认。 @package: 当前框架中访问。 @public: 在任</description>
     </item>
     <item>
       <title>OC基础学习：内存中的区域</title>
-      <link>http://localhost:1313/blog/2017/10/oc-memory-area.html/</link>
+      <link>https://andyron.top/blog/2017/10/oc-memory-area.html/</link>
       <pubDate>Thu, 26 Oct 2017 14:13:34 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/10/oc-memory-area.html/</guid>
+      <guid>https://andyron.top/blog/2017/10/oc-memory-area.html/</guid>
       <description>OC中，内存一般分为五大区域 栈 存储局部变量和实参 由编译器自动分配释放 存储空间有限 地址是连续的 地址分配从大到小 访问速度快 堆 允许程序员自己申请的</description>
     </item>
     <item>
       <title>OC基础学习：类方法和对象方法的调用过程</title>
-      <link>http://localhost:1313/blog/2017/10/oc-class-method-instance-method.html/</link>
+      <link>https://andyron.top/blog/2017/10/oc-class-method-instance-method.html/</link>
       <pubDate>Thu, 26 Oct 2017 12:13:34 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/10/oc-class-method-instance-method.html/</guid>
+      <guid>https://andyron.top/blog/2017/10/oc-class-method-instance-method.html/</guid>
       <description>类方法中不能直接访问属性。 在类方法中也不能通过self直接调用当前类的其他的对象方法。 参考： OC-基础总结（一）</description>
     </item>
     <item>
       <title>OC基础学习：对象在内存中是如何存储的？</title>
-      <link>http://localhost:1313/blog/2017/10/oc-memory.html/</link>
+      <link>https://andyron.top/blog/2017/10/oc-memory.html/</link>
       <pubDate>Thu, 26 Oct 2017 11:13:34 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/10/oc-memory.html/</guid>
+      <guid>https://andyron.top/blog/2017/10/oc-memory.html/</guid>
       <description>例：Person *p1 = [Person new]; Person *p1; 会在栈内存中申请一块空间，在栈内存中声明1个Person类型的指针变量p1。p1是一个指针变量，那么只能存储地址</description>
     </item>
     <item>
       <title>OC基础学习：#import,#include,@class</title>
-      <link>http://localhost:1313/blog/2017/10/oc-basic-import-include-class.html/</link>
+      <link>https://andyron.top/blog/2017/10/oc-basic-import-include-class.html/</link>
       <pubDate>Wed, 25 Oct 2017 21:13:34 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/10/oc-basic-import-include-class.html/</guid>
+      <guid>https://andyron.top/blog/2017/10/oc-basic-import-include-class.html/</guid>
       <description>#import是#inlcude的增强版，能防止同一个文件被多次包含。 #import会包含这个类的所有信息，而@class只是告诉编译器，其</description>
     </item>
     <item>
       <title>OC基础学习13：文件加载与保存</title>
-      <link>http://localhost:1313/blog/2017/09/oc-basic-13.html/</link>
+      <link>https://andyron.top/blog/2017/09/oc-basic-13.html/</link>
       <pubDate>Tue, 12 Sep 2017 21:13:34 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/09/oc-basic-13.html/</guid>
+      <guid>https://andyron.top/blog/2017/09/oc-basic-13.html/</guid>
       <description>1 属性列表(property list, plist) 属性列表可以保存的类型有NSArray,NSDictionary,NSString,NSNumber,NSD</description>
     </item>
     <item>
       <title>OC基础学习12：代码块（Block）</title>
-      <link>http://localhost:1313/blog/2017/09/oc-basic-12.html/</link>
+      <link>https://andyron.top/blog/2017/09/oc-basic-12.html/</link>
       <pubDate>Tue, 12 Sep 2017 21:13:20 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/09/oc-basic-12.html/</guid>
+      <guid>https://andyron.top/blog/2017/09/oc-basic-12.html/</guid>
       <description>代码块(Block)/闭包(closure) 是对C语言中函数的扩展。 代码块两种类的绑定： 自动绑定(automatic binding) 栈内存 托管绑定(man</description>
     </item>
     <item>
       <title>OC基础学习11：协议</title>
-      <link>http://localhost:1313/blog/2017/09/oc-basic-11.html/</link>
+      <link>https://andyron.top/blog/2017/09/oc-basic-11.html/</link>
       <pubDate>Mon, 11 Sep 2017 22:43:14 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/09/oc-basic-11.html/</guid>
+      <guid>https://andyron.top/blog/2017/09/oc-basic-11.html/</guid>
       <description>1 正式协议 声明协议 1 2 3 @protocol NSCoding - (id) copyWithZone: (NSZone *) zone; @end 继承父协议： 1 2 @protocol MySuperDuberProtocol &amp;lt;MyParentProtocol&amp;gt; @end 采用协议 1 2 3 4 5 6 @interface Car ：NSObject &amp;lt;NSCopying, NSCoding&amp;gt; { // instance variables } // methods @end // Car 实现协议</description>
     </item>
     <item>
       <title>OC基础学习10：类别（category）</title>
-      <link>http://localhost:1313/blog/2017/09/oc-basic-10.html/</link>
+      <link>https://andyron.top/blog/2017/09/oc-basic-10.html/</link>
       <pubDate>Mon, 11 Sep 2017 22:43:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/09/oc-basic-10.html/</guid>
+      <guid>https://andyron.top/blog/2017/09/oc-basic-10.html/</guid>
       <description>类别（category）是一种为现有的类添加新方法的方式。 1 创建类别 一般，只是习惯 把类别代码放在独立的文件中 命名：&amp;ldquo;类名称+类别</description>
     </item>
     <item>
       <title>OC基础学习9：属性</title>
-      <link>http://localhost:1313/blog/2017/09/oc-basic-9.html/</link>
+      <link>https://andyron.top/blog/2017/09/oc-basic-9.html/</link>
       <pubDate>Mon, 11 Sep 2017 22:42:58 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/09/oc-basic-9.html/</guid>
+      <guid>https://andyron.top/blog/2017/09/oc-basic-9.html/</guid>
       <description>1 使用属性 接口代码简化 没有使用属性： 1 2 3 4 5 6 7 8 9 10 11 12 13 #import &amp;#34;Tire.h&amp;#34; @interface AllWeatherRadial : Tire { // 轮胎在潮湿和积雪的道路上的性能 float rainHandling; float snowHandling; } - (void) setRainHandling:(float)rainHandling; - (float) rainHandling; - (void) setSnowHandling:(float)snowHandling; - (float)</description>
     </item>
     <item>
       <title>OC基础学习8：对象初始化</title>
-      <link>http://localhost:1313/blog/2017/09/oc-basic-8.html/</link>
+      <link>https://andyron.top/blog/2017/09/oc-basic-8.html/</link>
       <pubDate>Sun, 10 Sep 2017 23:50:09 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/09/oc-basic-8.html/</guid>
+      <guid>https://andyron.top/blog/2017/09/oc-basic-8.html/</guid>
       <description>1 分配(allocation)对象 alloc方法干的事件： 1 从操作系统获得一块内存。 2 指定为存储对象的实例变量的位置。 3 对内存初始化：BOO</description>
     </item>
     <item>
       <title>OC基础学习7：内存管理</title>
-      <link>http://localhost:1313/blog/2017/08/oc-basic-7.html/</link>
+      <link>https://andyron.top/blog/2017/08/oc-basic-7.html/</link>
       <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/08/oc-basic-7.html/</guid>
+      <guid>https://andyron.top/blog/2017/08/oc-basic-7.html/</guid>
       <description>1 对象生命周期 诞生（通过alloc或new方法实现） -&amp;gt; 生存（接收消息并执行操作） -&amp;gt; 交友（通过复合以及向方法传递参数） -&amp;gt; 死去（被释放掉） 引用计</description>
     </item>
     <item>
       <title>OC基础学习6：Fondation-Kit介绍</title>
-      <link>http://localhost:1313/blog/2017/07/oc-basic-6.html/</link>
+      <link>https://andyron.top/blog/2017/07/oc-basic-6.html/</link>
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/oc-basic-6.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/oc-basic-6.html/</guid>
       <description>macOS -&amp;gt; Cocoa -&amp;gt; Foundation, AppKit iOS -&amp;gt; Cocoa Touch -&amp;gt; Foundation, UIKit(UIView, UIController) Foundation框架的基础是CoreFoundation（C语言），如果函数或变量是以CF开头，就是Core</description>
     </item>
     <item>
       <title>OC基础学习2：面向对象编程的基础知识</title>
-      <link>http://localhost:1313/blog/2017/07/oc-basic-2.html/</link>
+      <link>https://andyron.top/blog/2017/07/oc-basic-2.html/</link>
       <pubDate>Sat, 22 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/oc-basic-2.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/oc-basic-2.html/</guid>
       <description>间接(indirection) &amp;ldquo;只要再多添加一层间接，计算机科学中就没有解决不了的问题。&amp;rdquo; 例子 电话薄 让他人代替你自己</description>
     </item>
     <item>
       <title>OC基础学习3：继承(inheritance)</title>
-      <link>http://localhost:1313/blog/2017/07/oc-basic-3-inheritance.html/</link>
+      <link>https://andyron.top/blog/2017/07/oc-basic-3-inheritance.html/</link>
       <pubDate>Sat, 22 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/oc-basic-3-inheritance.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/oc-basic-3-inheritance.html/</guid>
       <description>为何使用继承 UML(Unified Modeling Language, 统一建模语言) 是一种用图表来表示类、类的内容以及它们之间关系。 将重复的代码合并到一处。 继承的语法格式 只能继承一个 只有代码精</description>
     </item>
     <item>
       <title>OC基础学习4：复合（composition）</title>
-      <link>http://localhost:1313/blog/2017/07/oc-basic-4-composition.html/</link>
+      <link>https://andyron.top/blog/2017/07/oc-basic-4-composition.html/</link>
       <pubDate>Sat, 22 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/oc-basic-4-composition.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/oc-basic-4-composition.html/</guid>
       <description>复合: 对象间的组合（类中中包括类） composition在音乐中翻译为作曲：将多个组件组合在一起，配合使用，从而得到完整的作品。在OC中，复</description>
     </item>
     <item>
       <title>OC基础学习5：源文件组织</title>
-      <link>http://localhost:1313/blog/2017/07/oc-basic-5.html/</link>
+      <link>https://andyron.top/blog/2017/07/oc-basic-5.html/</link>
       <pubDate>Sat, 22 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/oc-basic-5.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/oc-basic-5.html/</guid>
       <description>将程序拆分为多个小文件有助于更快地找到重要的代码，而且其他人在查看项目时也能有个大致的了解。 拆分接口和实现 根据@interface和@imp</description>
     </item>
     <item>
       <title>OC基础学习1：对C的扩展</title>
-      <link>http://localhost:1313/blog/2017/07/oc-basic-1-c.html/</link>
+      <link>https://andyron.top/blog/2017/07/oc-basic-1-c.html/</link>
       <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2017/07/oc-basic-1-c.html/</guid>
+      <guid>https://andyron.top/blog/2017/07/oc-basic-1-c.html/</guid>
       <description>分析最简单的Hello Objective-C程序 1 2 3 4 5 6 7 #import &amp;lt;Foundation/Foundation.h&amp;gt; int main(int argc, const char * argv[]) { NSLog(@&amp;#34;Hello, World!&amp;#34;); return 0; } // main OC本质上就是C语言，它用来声明main()</description>
     </item>
   </channel>
