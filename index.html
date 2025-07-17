@@ -77,8 +77,8 @@
 
   <meta itemprop="name" content="欣欣向戎">
   <meta itemprop="description" content="这里是我写字的地方">
-  <meta itemprop="datePublished" content="2025-01-31T19:45:59+08:00">
-  <meta itemprop="dateModified" content="2025-01-31T19:50:03+08:00">
+  <meta itemprop="datePublished" content="2025-07-15T18:54:00+00:00">
+  <meta itemprop="dateModified" content="2025-07-17T18:38:14+08:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="欣欣向戎">
   <meta name="twitter:description" content="这里是我写字的地方">
@@ -362,6 +362,239 @@
     
   
   
+  
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/blog/2025/07/mysql-yunxing-3-charset-collation.html/">3 字符集和比较规则</a>
+    </h1>
+    
+
+    <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2025-07-15">
+      2025-07-15
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2025-07-17)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://andyron.top/categories/mysql/"> MySQL </a>
+          <a href="https://andyron.top/categories/mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/"> 《MySQL是怎样运行的》 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+  </header>
+  
+  <div class="post-content">
+    
+      <div class="post-summary">
+        <h3 id="31-简介">3.1 简介</h3>
+<h4 id="字符集简介">字符集简介</h4>
+<p>字符与二进制数据的映射关系。</p>
+<p>将字符映射成二进制数据的过程叫作**==编码==<strong>，将二进制数据映射到字符的过程叫作</strong>==解码==**。</p>
+<p>人们抽象出的概念，<strong>==字符集==</strong>：描述某个字符范围的编码规则。</p>
+      </div>
+      <div class="read-more">
+        <a href="/blog/2025/07/mysql-yunxing-3-charset-collation.html/" class="read-more-link"
+          >阅读全文</a
+        >
+      </div>
+    
+  </div>
+</article>
+
+  
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/blog/2025/07/mysql-yunxing-2-startup-option-system-variables.html/">2 MySQL的调控按钮——启动选项和系统变量</a>
+    </h1>
+    
+
+    <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2025-07-15">
+      2025-07-15
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2025-07-17)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://andyron.top/categories/mysql/"> MySQL </a>
+          <a href="https://andyron.top/categories/mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/"> 《MySQL是怎样运行的》 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+  </header>
+  
+  <div class="post-content">
+    
+      <div class="post-summary">
+        <h3 id="21-启动选项和配置文件">2.1 启动选项和配置文件</h3>
+<p><strong>==启动选项（startup option）==</strong>，控制着程序启动后的行为。</p>
+<p>启动选项可以在命令行中指定，也可以在配置文件中指定。</p>
+<h4 id="在命令行上指定启动选项">在命令行上指定启动选项</h4>
+<p>比如，禁止客户端使用TCP/IP网络进行通信：</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysqld<span style="color:#bbb"> </span><span style="color:#666">--</span>skip<span style="color:#666">-</span>networking<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+      </div>
+      <div class="read-more">
+        <a href="/blog/2025/07/mysql-yunxing-2-startup-option-system-variables.html/" class="read-more-link"
+          >阅读全文</a
+        >
+      </div>
+    
+  </div>
+</article>
+
+  
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/blog/2025/07/mysql-yunxing-1.html/">1 初始MySQL</a>
+    </h1>
+    
+
+    <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2025-07-15">
+      2025-07-15
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2025-07-17)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://andyron.top/categories/mysql/"> MySQL </a>
+          <a href="https://andyron.top/categories/mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/"> 《MySQL是怎样运行的》 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+  </header>
+  
+  <div class="post-content">
+    
+      <div class="post-summary">
+        <p>MySQL的服务器程序和客户端程序</p>
+<p>我的电脑安装目录：</p>
+<pre tabindex="0"><code>/opt/homebrew/Cellar/mysql/8.0.27/
+</code></pre><h3 id="启动mysql服务器程序">启动MySQL服务器程序</h3>
+<p><code>mysqld</code>不常用，常用<code>mysqld_safe</code>，它的优点：</p>
+<ul>
+<li>间接调用mysqld并持续监控服务器的运行状态。</li>
+<li>当服务器进程出现错误，可以帮助重启服务器程序。</li>
+<li>输出错误日志</li>
+</ul>
+      </div>
+      <div class="read-more">
+        <a href="/blog/2025/07/mysql-yunxing-1.html/" class="read-more-link"
+          >阅读全文</a
+        >
+      </div>
+    
+  </div>
+</article>
+
   
     <article class="post">
   <header class="post-header">
@@ -831,210 +1064,6 @@
       </div>
       <div class="read-more">
         <a href="/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98.html/" class="read-more-link"
-          >阅读全文</a
-        >
-      </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/blog/2019/08/xcode-icon-summary.html/">Xcode中图标含义总结</a>
-    </h1>
-    
-
-    <div class="post-meta">
-  <div class="post-meta-author">
-    by
-      <a href="/about">
-        <span class="post-meta-author-name">
-          andyron
-        </span>
-      </a>
-    
-  </div>
-
-  <div class="post-meta-time">
-    <time datetime="2019-08-26">
-      2019-08-26
-    </time>
-  </div>
-
-  
-    <div class="post-meta-lastmod">
-      (上次更新:
-      2024-07-16)
-    </div>
-  
-
-
-  <div class="post-meta__right">
-    
-
-    <div class="post-meta-category">
-        <a href="https://andyron.top/categories/ios/"> iOS </a>
-          
-      </div>
-
-
-    
-    
-
-
-    
-    
-  </div>
-</div>
-
-  </header>
-  
-  <div class="post-content">
-    
-      <div class="post-summary">
-        Xcode中不少有点图标和符号，平常使用不怎么注意，仔细思考🤔一下，有的还不清楚啥意思，这边我做个小小的归纳。 按照显示位置，大概分为以下四类
-      </div>
-      <div class="read-more">
-        <a href="/blog/2019/08/xcode-icon-summary.html/" class="read-more-link"
-          >阅读全文</a
-        >
-      </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%9C%AA%E5%8A%A0%E6%9D%83%E5%9B%BE.html/">【译】Swift算法俱乐部-最小生成树（未加权图）</a>
-    </h1>
-    
-
-    <div class="post-meta">
-  <div class="post-meta-author">
-    by
-      <a href="/about">
-        <span class="post-meta-author-name">
-          andyron
-        </span>
-      </a>
-    
-  </div>
-
-  <div class="post-meta-time">
-    <time datetime="2019-08-02">
-      2019-08-02
-    </time>
-  </div>
-
-  
-    <div class="post-meta-lastmod">
-      (上次更新:
-      2024-07-16)
-    </div>
-  
-
-
-  <div class="post-meta__right">
-    
-
-    <div class="post-meta-category">
-        <a href="https://andyron.top/categories/swift-algorithm-club-cn/"> swift-algorithm-club-cn </a>
-          
-      </div>
-
-
-    
-    
-
-
-    
-    
-  </div>
-</div>
-
-  </header>
-  
-  <div class="post-content">
-    
-      <div class="post-summary">
-        本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi
-      </div>
-      <div class="read-more">
-        <a href="/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%9C%AA%E5%8A%A0%E6%9D%83%E5%9B%BE.html/" class="read-more-link"
-          >阅读全文</a
-        >
-      </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%8A%A0%E6%9D%83%E5%9B%BE.html/">【译】Swift算法俱乐部-最小生成树（加权图）</a>
-    </h1>
-    
-
-    <div class="post-meta">
-  <div class="post-meta-author">
-    by
-      <a href="/about">
-        <span class="post-meta-author-name">
-          andyron
-        </span>
-      </a>
-    
-  </div>
-
-  <div class="post-meta-time">
-    <time datetime="2019-08-01">
-      2019-08-01
-    </time>
-  </div>
-
-  
-    <div class="post-meta-lastmod">
-      (上次更新:
-      2024-07-16)
-    </div>
-  
-
-
-  <div class="post-meta__right">
-    
-
-    <div class="post-meta-category">
-        <a href="https://andyron.top/categories/swift-algorithm-club-cn/"> swift-algorithm-club-cn </a>
-          
-      </div>
-
-
-    
-    
-
-
-    
-    
-  </div>
-</div>
-
-  </header>
-  
-  <div class="post-content">
-    
-      <div class="post-summary">
-        本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi
-      </div>
-      <div class="read-more">
-        <a href="/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%8A%A0%E6%9D%83%E5%9B%BE.html/" class="read-more-link"
           >阅读全文</a
         >
       </div>
