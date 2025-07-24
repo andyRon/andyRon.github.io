@@ -2,150 +2,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 欣欣向戎</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>https://andyron.top/blog/</link>
     <description>Recent content in Posts on 欣欣向戎</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 24 Jul 2025 20:44:11 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://andyron.top/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>4 InnoDB「记录」的存储结构</title>
-      <link>http://localhost:1313/blog/2025/07/mysql-yunxing-4-record.html/</link>
+      <link>https://andyron.top/blog/2025/07/mysql-yunxing-4-record.html/</link>
       <pubDate>Fri, 18 Jul 2025 14:44:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2025/07/mysql-yunxing-4-record.html/</guid>
+      <guid>https://andyron.top/blog/2025/07/mysql-yunxing-4-record.html/</guid>
       <description>&lt;h3 id=&#34;1-innodb页简介&#34;&gt;1 InnoDB页简介&lt;/h3&gt;&#xA;&lt;p&gt;InnoDB将表中数据存储在磁盘上，真正处理数据的过程发生在内存中，如果是处理写入或修改请求，还需要把内存中的内容重新刷新到磁盘上。&lt;/p&gt;&#xA;&lt;p&gt;InnoDB以**==页==**作为磁盘和内存之间交互的基本单位。页的大小默认为==16KB==（16*1024=16384）。对应系统变量是&lt;code&gt;innodb_page_size&lt;/code&gt;，只能在第一次&lt;!-- raw HTML omitted --&gt;初始化MySQL数据目录&lt;!-- raw HTML omitted --&gt;时指定，服务器运行时不能更改页面大小。&lt;/p&gt;</description>
     </item>
     <item>
       <title>3 字符集和比较规则</title>
-      <link>http://localhost:1313/blog/2025/07/mysql-yunxing-3-charset-collation.html/</link>
+      <link>https://andyron.top/blog/2025/07/mysql-yunxing-3-charset-collation.html/</link>
       <pubDate>Tue, 15 Jul 2025 18:54:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2025/07/mysql-yunxing-3-charset-collation.html/</guid>
+      <guid>https://andyron.top/blog/2025/07/mysql-yunxing-3-charset-collation.html/</guid>
       <description>&lt;h3 id=&#34;31-简介&#34;&gt;3.1 简介&lt;/h3&gt;&#xA;&lt;h4 id=&#34;字符集简介&#34;&gt;字符集简介&lt;/h4&gt;&#xA;&lt;p&gt;字符与二进制数据的映射关系。&lt;/p&gt;&#xA;&lt;p&gt;将字符映射成二进制数据的过程叫作**==编码==&lt;strong&gt;，将二进制数据映射到字符的过程叫作&lt;/strong&gt;==解码==**。&lt;/p&gt;&#xA;&lt;p&gt;人们抽象出的概念，&lt;strong&gt;==字符集==&lt;/strong&gt;：描述某个字符范围的编码规则。&lt;/p&gt;</description>
     </item>
     <item>
       <title>2 MySQL的调控按钮——启动选项和系统变量</title>
-      <link>http://localhost:1313/blog/2025/07/mysql-yunxing-2-startup-option-system-variables.html/</link>
+      <link>https://andyron.top/blog/2025/07/mysql-yunxing-2-startup-option-system-variables.html/</link>
       <pubDate>Tue, 15 Jul 2025 16:44:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2025/07/mysql-yunxing-2-startup-option-system-variables.html/</guid>
+      <guid>https://andyron.top/blog/2025/07/mysql-yunxing-2-startup-option-system-variables.html/</guid>
       <description>&lt;h3 id=&#34;21-启动选项和配置文件&#34;&gt;2.1 启动选项和配置文件&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;==启动选项（startup option）==&lt;/strong&gt;，控制着程序启动后的行为。&lt;/p&gt;&#xA;&lt;p&gt;启动选项可以在命令行中指定，也可以在配置文件中指定。&lt;/p&gt;&#xA;&lt;h4 id=&#34;在命令行上指定启动选项&#34;&gt;在命令行上指定启动选项&lt;/h4&gt;&#xA;&lt;p&gt;比如，禁止客户端使用TCP/IP网络进行通信：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&#xA;&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34; id=&#34;hl-0-1&#34;&gt;&lt;a style=&#34;outline:none;text-decoration:none;color:inherit&#34; href=&#34;#hl-0-1&#34;&gt;1&lt;/a&gt;&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-mysql&#34; data-lang=&#34;mysql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mysqld&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;--&lt;/span&gt;skip&lt;span style=&#34;color:#666&#34;&gt;-&lt;/span&gt;networking&lt;span style=&#34;color:#bbb&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
     </item>
     <item>
       <title>1 初始MySQL</title>
-      <link>http://localhost:1313/blog/2025/07/mysql-yunxing-1.html/</link>
+      <link>https://andyron.top/blog/2025/07/mysql-yunxing-1.html/</link>
       <pubDate>Tue, 15 Jul 2025 14:44:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2025/07/mysql-yunxing-1.html/</guid>
+      <guid>https://andyron.top/blog/2025/07/mysql-yunxing-1.html/</guid>
       <description>&lt;p&gt;MySQL的服务器程序和客户端程序&lt;/p&gt;&#xA;&lt;p&gt;我的电脑安装目录：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;/opt/homebrew/Cellar/mysql/8.0.27/&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;启动mysql服务器程序&#34;&gt;启动MySQL服务器程序&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt;mysqld&lt;/code&gt;不常用，常用&lt;code&gt;mysqld_safe&lt;/code&gt;，它的优点：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;间接调用mysqld并持续监控服务器的运行状态。&lt;/li&gt;&#xA;&lt;li&gt;当服务器进程出现错误，可以帮助重启服务器程序。&lt;/li&gt;&#xA;&lt;li&gt;输出错误日志&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Java编程的逻辑2</title>
-      <link>http://localhost:1313/blog/2024/07/java-program-logic2.html/</link>
+      <link>https://andyron.top/blog/2024/07/java-program-logic2.html/</link>
       <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2024/07/java-program-logic2.html/</guid>
+      <guid>https://andyron.top/blog/2024/07/java-program-logic2.html/</guid>
       <description>示例 代码 四、文件 13 文件基本技术 13.1 文件概述 基本概念和常识 1 二进制思维 所有文件（不可执行文件、图片文件、视频文件、Word文件、压缩文件、txt</description>
     </item>
     <item>
-      <title>第一篇文章</title>
-      <link>http://localhost:1313/blog/2024/07/wo-de-first.html/</link>
-      <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2024/07/wo-de-first.html/</guid>
-      <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;&#xA;&lt;p&gt;这是 &lt;strong&gt;粗体&lt;/strong&gt; 文本，这是 &lt;em&gt;斜体&lt;/em&gt; 文本。&lt;/p&gt;&#xA;&lt;p&gt;访问 &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; 网站！&lt;/p&gt;&#xA;&lt;p&gt;&lt;img alt=&#34;结构&#34; src=&#34;http://localhost:1313/blog/2024/07/wo-de-first.html/images/image-20240709121253994.png&#34;&gt;&lt;/p&gt;&#xA;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/hugo-easy-gallery.css&#34; /&gt;&#xA;&lt;div class=&#34;box&#34;&gt;&#xA;&lt;figure  itemprop=&#34;associatedMedia&#34;&#xA;  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;&#xA;    &lt;div class=&#34;img&#34;&gt;&#xA;      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;images/image-20240709121253994.png&#34; alt=&#34;摄于良渚遗址 - 2020 年 6 月&#34;/&gt;&#xA;    &lt;/div&gt;&#xA;    &lt;a href=&#34;images/image-20240709121253994.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;&#xA;      &lt;figcaption&gt;&lt;h4&gt;我和我弟&lt;/h4&gt;&#xA;          &lt;p&gt;摄于良渚遗址 - 2020 年 6 月&lt;/p&gt;&#xA;      &lt;/figcaption&gt;&#xA;  &lt;/figure&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&#xA;&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34; id=&#34;hl-0-1&#34;&gt;&lt;a style=&#34;outline:none;text-decoration:none;color:inherit&#34; href=&#34;#hl-0-1&#34;&gt;1&lt;/a&gt;&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34; id=&#34;hl-0-2&#34;&gt;&lt;a style=&#34;outline:none;text-decoration:none;color:inherit&#34; href=&#34;#hl-0-2&#34;&gt;2&lt;/a&gt;&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34; id=&#34;hl-0-3&#34;&gt;&lt;a style=&#34;outline:none;text-decoration:none;color:inherit&#34; href=&#34;#hl-0-3&#34;&gt;3&lt;/a&gt;&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#007020;font-weight:bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#06287e&#34;&gt;main&lt;/span&gt;() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&#xA;&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34; id=&#34;1&#34;&gt;&lt;a style=&#34;outline:none;text-decoration:none;color:inherit&#34; href=&#34;#1&#34;&gt;1&lt;/a&gt;&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 这里有一堆代码 &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
       <title>Java编程的逻辑1</title>
-      <link>http://localhost:1313/blog/2024/06/java-program-logic-1.html/</link>
+      <link>https://andyron.top/blog/2024/06/java-program-logic-1.html/</link>
       <pubDate>Tue, 25 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2024/06/java-program-logic-1.html/</guid>
+      <guid>https://andyron.top/blog/2024/06/java-program-logic-1.html/</guid>
       <description>示例 代码 前言 为编程的核心知识建立知识地图，从最基础的概念开始，分解为知识点，一个知识点一个知识点地讲解，每一个知识点都力争清晰透彻，阐述知识</description>
     </item>
     <item>
       <title>云原生时代的Java</title>
-      <link>http://localhost:1313/blog/2024/06/cloud-java.html/</link>
+      <link>https://andyron.top/blog/2024/06/cloud-java.html/</link>
       <pubDate>Tue, 18 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2024/06/cloud-java.html/</guid>
+      <guid>https://andyron.top/blog/2024/06/cloud-java.html/</guid>
       <description>&lt;p&gt;今天，25 岁的 Java 仍然是最具有统治力的编程语言，长期占据编程语言排行榜的首位，拥有 1200 万的庞大开发者群体&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python基础总结</title>
-      <link>http://localhost:1313/blog/2019/09/python-base.html/</link>
+      <link>https://andyron.top/blog/2019/09/python-base.html/</link>
       <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/09/python-base.html/</guid>
+      <guid>https://andyron.top/blog/2019/09/python-base.html/</guid>
       <description>一、类型和运算 寻求帮助 1 2 dir(obj) # 简单的列出对象obj所包含的方法名称，返回一个字符串列表 help(obj.func) # 查询obj.func的具体介绍和用法 测试类型的三种</description>
     </item>
     <item>
       <title>读《百年孤独》 —— 孤独才是寂寞的唯一出口</title>
-      <link>http://localhost:1313/blog/2019/09/%E7%99%BE%E5%B9%B4%E5%AD%A4%E7%8B%AC.html/</link>
+      <link>https://andyron.top/blog/2019/09/%E7%99%BE%E5%B9%B4%E5%AD%A4%E7%8B%AC.html/</link>
       <pubDate>Mon, 09 Sep 2019 17:50:30 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/09/%E7%99%BE%E5%B9%B4%E5%AD%A4%E7%8B%AC.html/</guid>
+      <guid>https://andyron.top/blog/2019/09/%E7%99%BE%E5%B9%B4%E5%AD%A4%E7%8B%AC.html/</guid>
       <description>有句开玩笑的话，大概是这样说的：“经典就是买的人很多，读的人却很少的作品”，而《百年孤独》可能就是这样的经典作品，读完真的是**史诗般的孤独</description>
     </item>
     <item>
       <title>【译】Swift算法俱乐部-并查集</title>
-      <link>http://localhost:1313/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B9%B6%E6%9F%A5%E9%9B%86.html/</link>
+      <link>https://andyron.top/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B9%B6%E6%9F%A5%E9%9B%86.html/</link>
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B9%B6%E6%9F%A5%E9%9B%86.html/</guid>
+      <guid>https://andyron.top/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B9%B6%E6%9F%A5%E9%9B%86.html/</guid>
       <description>本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi</description>
     </item>
     <item>
       <title>【译】Swift算法俱乐部-选取样本</title>
-      <link>http://localhost:1313/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E9%80%89%E5%8F%96%E6%A0%B7%E6%9C%AC.html/</link>
+      <link>https://andyron.top/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E9%80%89%E5%8F%96%E6%A0%B7%E6%9C%AC.html/</link>
       <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E9%80%89%E5%8F%96%E6%A0%B7%E6%9C%AC.html/</guid>
+      <guid>https://andyron.top/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E9%80%89%E5%8F%96%E6%A0%B7%E6%9C%AC.html/</guid>
       <description>本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi</description>
     </item>
     <item>
       <title>【译】Swift算法俱乐部-第k大元素问题</title>
-      <link>http://localhost:1313/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98.html/</link>
+      <link>https://andyron.top/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98.html/</link>
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98.html/</guid>
+      <guid>https://andyron.top/blog/2019/09/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98.html/</guid>
       <description>本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi</description>
     </item>
     <item>
       <title>Xcode中图标含义总结</title>
-      <link>http://localhost:1313/blog/2019/08/xcode-icon-summary.html/</link>
+      <link>https://andyron.top/blog/2019/08/xcode-icon-summary.html/</link>
       <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/08/xcode-icon-summary.html/</guid>
+      <guid>https://andyron.top/blog/2019/08/xcode-icon-summary.html/</guid>
       <description>Xcode中不少有点图标和符号，平常使用不怎么注意，仔细思考🤔一下，有的还不清楚啥意思，这边我做个小小的归纳。 按照显示位置，大概分为以下四类</description>
     </item>
     <item>
       <title>【译】Swift算法俱乐部-最小生成树（未加权图）</title>
-      <link>http://localhost:1313/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%9C%AA%E5%8A%A0%E6%9D%83%E5%9B%BE.html/</link>
+      <link>https://andyron.top/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%9C%AA%E5%8A%A0%E6%9D%83%E5%9B%BE.html/</link>
       <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%9C%AA%E5%8A%A0%E6%9D%83%E5%9B%BE.html/</guid>
+      <guid>https://andyron.top/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%9C%AA%E5%8A%A0%E6%9D%83%E5%9B%BE.html/</guid>
       <description>本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi</description>
     </item>
     <item>
       <title>【译】Swift算法俱乐部-最小生成树（加权图）</title>
-      <link>http://localhost:1313/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%8A%A0%E6%9D%83%E5%9B%BE.html/</link>
+      <link>https://andyron.top/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%8A%A0%E6%9D%83%E5%9B%BE.html/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%8A%A0%E6%9D%83%E5%9B%BE.html/</guid>
+      <guid>https://andyron.top/blog/2019/08/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%8A%A0%E6%9D%83%E5%9B%BE.html/</guid>
       <description>本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi</description>
     </item>
     <item>
       <title>Swift中optionals使用总结</title>
-      <link>http://localhost:1313/blog/2019/07/swift-optionals.html/</link>
+      <link>https://andyron.top/blog/2019/07/swift-optionals.html/</link>
       <pubDate>Mon, 29 Jul 2019 13:40:40 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/07/swift-optionals.html/</guid>
+      <guid>https://andyron.top/blog/2019/07/swift-optionals.html/</guid>
       <description>Github链接：https://github.com/andyRon/LearnSwift/blob/master/Tips/Swift中</description>
     </item>
     <item>
       <title>【译】Swift算法俱乐部-最短路径算法</title>
-      <link>http://localhost:1313/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.html/</link>
+      <link>https://andyron.top/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.html/</link>
       <pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.html/</guid>
+      <guid>https://andyron.top/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.html/</guid>
       <description>本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi</description>
     </item>
     <item>
       <title>【译】Swift算法俱乐部-深度优先搜索</title>
-      <link>http://localhost:1313/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.html/</link>
+      <link>https://andyron.top/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.html/</link>
       <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.html/</guid>
+      <guid>https://andyron.top/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.html/</guid>
       <description>本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi</description>
     </item>
     <item>
       <title>【译】Swift算法俱乐部-广度优先搜索</title>
-      <link>http://localhost:1313/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.html/</link>
+      <link>https://andyron.top/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.html/</link>
       <pubDate>Thu, 25 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.html/</guid>
+      <guid>https://andyron.top/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.html/</guid>
+      <description>本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi</description>
+    </item>
+    <item>
+      <title>【译】Swift算法俱乐部-图</title>
+      <link>https://andyron.top/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%9B%BE.html/</link>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://andyron.top/blog/2019/07/swift%E7%AE%97%E6%B3%95%E4%BF%B1%E4%B9%90%E9%83%A8-%E5%9B%BE.html/</guid>
       <description>本文是对 Swift Algorithm Club 翻译的一篇文章。 Swift Algorithm Club是 raywenderlich.com网站出品的用Swift实现算法和数据结构的开源项目，目前在Gi</description>
     </item>
   </channel>
