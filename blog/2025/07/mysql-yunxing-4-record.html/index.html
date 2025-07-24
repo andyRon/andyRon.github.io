@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          4 InnoDB「记录」的存储结构 - 欣欣向戎
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="andyron" />
+  <meta name="description" content="1 InnoDB页简介 InnoDB将表中数据存储在磁盘上，真正处理数据的过程发生在内存中，如果是处理写入或修改请求，还需要把内存中的内容重新刷新到磁盘上。
+InnoDB以**==页==**作为磁盘和内存之间交互的基本单位。页的大小默认为==16KB==（16*1024=16384）。对应系统变量是innodb_page_size，只能在第一次初始化MySQL数据目录时指定，服务器运行时不能更改页面大小。
+" />
+
+  <meta name="keywords" content="linux, Go, Java, PHP, program, journal, andyron, 博客, 笔记" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.128.2" />
+
+
+<link rel="canonical" href="http://localhost:1313/blog/2025/07/mysql-yunxing-4-record.html/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:url" content="http://localhost:1313/blog/2025/07/mysql-yunxing-4-record.html/">
+  <meta property="og:site_name" content="欣欣向戎">
+  <meta property="og:title" content="4 InnoDB「记录」的存储结构">
+  <meta property="og:description" content="1 InnoDB页简介 InnoDB将表中数据存储在磁盘上，真正处理数据的过程发生在内存中，如果是处理写入或修改请求，还需要把内存中的内容重新刷新到磁盘上。
+InnoDB以**==页==**作为磁盘和内存之间交互的基本单位。页的大小默认为==16KB==（16*1024=16384）。对应系统变量是innodb_page_size，只能在第一次初始化MySQL数据目录时指定，服务器运行时不能更改页面大小。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-07-18T14:44:00+00:00">
+    <meta property="article:modified_time" content="2025-07-24T20:44:11+08:00">
+    <meta property="article:tag" content="行格式">
+
+  <meta itemprop="name" content="4 InnoDB「记录」的存储结构">
+  <meta itemprop="description" content="1 InnoDB页简介 InnoDB将表中数据存储在磁盘上，真正处理数据的过程发生在内存中，如果是处理写入或修改请求，还需要把内存中的内容重新刷新到磁盘上。
+InnoDB以**==页==**作为磁盘和内存之间交互的基本单位。页的大小默认为==16KB==（16*1024=16384）。对应系统变量是innodb_page_size，只能在第一次初始化MySQL数据目录时指定，服务器运行时不能更改页面大小。">
+  <meta itemprop="datePublished" content="2025-07-18T14:44:00+00:00">
+  <meta itemprop="dateModified" content="2025-07-24T20:44:11+08:00">
+  <meta itemprop="wordCount" content="3376">
+  <meta itemprop="keywords" content="行格式">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="4 InnoDB「记录」的存储结构">
+  <meta name="twitter:description" content="1 InnoDB页简介 InnoDB将表中数据存储在磁盘上，真正处理数据的过程发生在内存中，如果是处理写入或修改请求，还需要把内存中的内容重新刷新到磁盘上。
+InnoDB以**==页==**作为磁盘和内存之间交互的基本单位。页的大小默认为==16KB==（16*1024=16384）。对应系统变量是innodb_page_size，只能在第一次初始化MySQL数据目录时指定，服务器运行时不能更改页面大小。">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">欣欣向戎</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+        
+      </li>
+    
+
+    
+      <li class="mobile-menu-item">
+        <a id="openSearchMobile" class="mobile-menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+      
+<div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div id="closeSearch" title="Close" class="close">X</div>
+      <div class="modal-header">
+        <div class="modal-title">Search</div>
+      </div>
+      <div class="modal-body">
+          <script>
+            (function() {
+              var cx = '002186711602136249422:q1gkomof_em';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' :
+                  'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search>
+      </div>
+    </div>
+</div>
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      欣欣向戎
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+      <li class="menu-item">
+        <a id="openSearch" class="menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">4 InnoDB「记录」的存储结构</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          andyron
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2025-07-18">
+      2025-07-18
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (上次更新:
+      2025-07-24)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="http://localhost:1313/categories/mysql/"> MySQL </a>
+          <a href="http://localhost:1313/categories/mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/"> 《MySQL是怎样运行的》 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <h3 id="1-innodb页简介">1 InnoDB页简介</h3>
+<p>InnoDB将表中数据存储在磁盘上，真正处理数据的过程发生在内存中，如果是处理写入或修改请求，还需要把内存中的内容重新刷新到磁盘上。</p>
+<p>InnoDB以**==页==**作为磁盘和内存之间交互的基本单位。页的大小默认为==16KB==（16*1024=16384）。对应系统变量是<code>innodb_page_size</code>，只能在第一次<!-- raw HTML omitted -->初始化MySQL数据目录<!-- raw HTML omitted -->时指定，服务器运行时不能更改页面大小。</p>
+<h3 id="2-innodb行格式">2 InnoDB行格式</h3>
+<p>平常以==记录==为单位向表中插入数据，这些记录在磁盘上的<strong>存放方式</strong>被成为**==行格式==<strong>（也叫作</strong>==记录格式==<strong>），4种</strong>==行格式==**：Compact、Redundant、Dynamic、Compressed。</p>
+<h4 id="1指定行格式的语法">1️⃣指定行格式的语法</h4>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Table</span><span style="color:#bbb"> </span><span style="">表名</span><span style="color:#bbb"> </span>(<span style="">列的信息</span>)<span style="color:#bbb"> </span>Row_Format<span style="color:#666">=</span><span style="">行格式名称</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">Alter</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Table</span><span style="color:#bbb"> </span><span style="">表名</span><span style="color:#bbb"> </span>Row_Format<span style="color:#666">=</span><span style="">行格式名称</span>;<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8">8</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Table</span><span style="color:#bbb"> </span><span style="color:#06287e">record_format_demo</span><span style="color:#bbb"> </span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>c1<span style="color:#bbb"> </span><span style="color:#902000">varchar</span>(<span style="color:#40a070">10</span>),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>c2<span style="color:#bbb"> </span><span style="color:#902000">varchar</span>(<span style="color:#40a070">10</span>)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">not</span><span style="color:#bbb"> </span><span style="color:#60add5">null</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>c3<span style="color:#bbb"> </span><span style="color:#902000">char</span>(<span style="color:#40a070">10</span>),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>c4<span style="color:#bbb"> </span><span style="color:#902000">varchar</span>(<span style="color:#40a070">10</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>)<span style="color:#bbb"> </span><span style="color:#007020">Charset</span><span style="color:#666">=</span>ascii<span style="color:#bbb"> </span>Row_Format<span style="color:#666">=</span>Compact;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">Insert</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">into</span><span style="color:#bbb"> </span><span style="color:#06287e">record_format_demo</span>(c1,<span style="color:#bbb"> </span>c2,<span style="color:#bbb"> </span>c3,<span style="color:#bbb"> </span>c4)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">values</span>(<span style="color:#4070a0">&#39;aaaa&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;bbb&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;cc&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;d&#39;</span>),<span style="color:#bbb"> </span>(<span style="color:#4070a0">&#39;eeee&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;fff&#39;</span>,<span style="color:#bbb"> </span><span style="color:#60add5">Null</span>,<span style="color:#bbb"> </span><span style="color:#60add5">Null</span>);<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8">8</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>mysql<span style="color:#666">&gt;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">select</span><span style="color:#bbb"> </span><span style="color:#666">*</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">from</span><span style="color:#bbb"> </span>record_format_demo;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#666">+------+-----+------+------+</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#666">|</span><span style="color:#bbb"> </span>c1<span style="color:#bbb">   </span><span style="color:#666">|</span><span style="color:#bbb"> </span>c2<span style="color:#bbb">  </span><span style="color:#666">|</span><span style="color:#bbb"> </span>c3<span style="color:#bbb">   </span><span style="color:#666">|</span><span style="color:#bbb"> </span>c4<span style="color:#bbb">   </span><span style="color:#666">|</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#666">+------+-----+------+------+</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#666">|</span><span style="color:#bbb"> </span>aaaa<span style="color:#bbb"> </span><span style="color:#666">|</span><span style="color:#bbb"> </span>bbb<span style="color:#bbb"> </span><span style="color:#666">|</span><span style="color:#bbb"> </span>cc<span style="color:#bbb">   </span><span style="color:#666">|</span><span style="color:#bbb"> </span>d<span style="color:#bbb">    </span><span style="color:#666">|</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#666">|</span><span style="color:#bbb"> </span>eeee<span style="color:#bbb"> </span><span style="color:#666">|</span><span style="color:#bbb"> </span>fff<span style="color:#bbb"> </span><span style="color:#666">|</span><span style="color:#bbb"> </span><span style="color:#60add5">NULL</span><span style="color:#bbb"> </span><span style="color:#666">|</span><span style="color:#bbb"> </span><span style="color:#60add5">NULL</span><span style="color:#bbb"> </span><span style="color:#666">|</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#666">+------+-----+------+------+</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#40a070">2</span><span style="color:#bbb"> </span>rows<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">in</span><span style="color:#bbb"> </span><span style="color:#902000">set</span><span style="color:#bbb"> </span>(<span style="color:#40a070">0</span>.<span style="color:#40a070">00</span><span style="color:#bbb"> </span>sec)<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="2compact行格式">2️⃣Compact行格式</h4>
+<p><img src="/images/2025/image-20220405213133101.png"></p>
+<p>一条完整的记录分为两大部分：</p>
+<h5 id="1记录的额外信息">1.==记录的额外信息==</h5>
+<h6 id="a-变长字段长度列表">a 变长字段长度列表</h6>
+<p>MySQL支持一些变长的数据类型：<!-- raw HTML omitted -->Varchar(M)、Varbinary(M)、各种Text类型、各种Blob类型<!-- raw HTML omitted -->。【<strong>变长字段</strong>】</p>
+<p>变长字段占用的存储空间分为两个部分：<strong>真正的数据内容；该数据占用的字节数</strong>。</p>
+<p>在COMPACT行格式中，所有变长字段的真实数据占用的字节数都存放在记录的开头位置，从而形成一个==变长字段长度列表==，各变长字段的真实数据占用的字节数按照列的顺序**==逆序存放==**（如下面的c4、c2、c1）。</p>
+<p>表record_format_demo的c1、c2、c4字段都是varchar(10)，这3个列的值<strong>占用的存储空间字节数</strong>保存在记录开头处。</p>
+<p><img src="/images/2025/image-20220406162146945.png"></p>
+<p><img src="/images/2025/image-20220406162202472.png"></p>
+<p><!-- raw HTML omitted -->变长字段的真实数据占用的字节数是用1字节还是2字节表示？<!-- raw HTML omitted -->  InnoDB通过W、M、L是三个符号制定一套规则，这个三个符号的意义：</p>
+<ul>
+<li>某个字符集表示一个字符最多需要W<strong>字节</strong>。（比如utf8mb4的W是4，utf8是3，gbk是2，ascii是1）</li>
+<li>对于varchar(M)，表示这种类型最多能存储M个<strong>字符</strong>。那么这种类型表示的字符串最多占用的字节数就是<code>M * W</code>。</li>
+<li>L表示变长字段实际存储的字符串占用的<strong>字节数</strong>。</li>
+</ul>
+<p>规则：</p>
+<ul>
+<li>
+<p>M * W &lt;= 255，使用1个字节表示变长字段的真实数据占用的字节数。</p>
+</li>
+<li>
+<p>M * W &gt; 255</p>
+<p>L &lt;= 127，1字节</p>
+<p>L &gt; 127，2字节</p>
+</li>
+</ul>
+<p>总结：<!-- raw HTML omitted -->如果该变长字段允许存储的最大字节数（M * W）超过255字节，并且真实数据占用的字节数(L）超过 127字节，则使用2字节来表示真实数据占用的字节数，否则使用 1字节。<!-- raw HTML omitted --></p>
+<p><strong>变长字段长度列表中只存储值为非NULL的列的内容长度。</strong></p>
+<p><img src="/images/2025/image-20220406163610261.png"></p>
+<blockquote>
+<p>如果表中所有的列都不是变长的数据类型或所有列的值都是NULL，那么就不需要变长字段长度列表。</p>
+</blockquote>
+<h6 id="b-null值列表">b NULL值列表</h6>
+<p>Compact行格式把一条记录中值为NULL的列统一管理起来（节省空间），存储在NULL值列表中。</p>
+<p>处理过程：</p>
+<ol>
+<li>
+<p>首先统计表中允许存储NULL的列有哪些。</p>
+<p>主键列和NOT NULL列不会被统计。</p>
+</li>
+<li>
+<p>每个允许存储NULL的列对应一个二进制位，二进制位按照列的顺序<strong>逆序排列</strong>。二进制位为1表示该列的值为NULL，0表示不为NULL。</p>
+<p>如果表中没有允许存储NULL的列，则NULL值列表就不存在。</p>
+</li>
+<li>
+<p>规定NULL值列表必须使用<strong>整数个字节的位</strong>表示，如果不够，字节的高位补0。</p>
+<p>如之前表的表只有3个列允许为NULL（c2是NOT NULL，不统计）：</p>
+<p><img src="/images/2025/image-20220630082529189.png"></p>
+<p>第一条记录的c1、c3、c4都不为NULL，二进制位都为0；第二条记录的c3、c4为NULL，二进制位为1：</p>
+<p><img src="/images/2025/image-20220630083025249.png"></p>
+</li>
+</ol>
+<p>这两条记录的填充NULL值列表后：</p>
+<p><img src="/images/2025/image-20220406163847903.png"></p>
+<h6 id="c-记录头信息">c 记录头信息</h6>
+<p>固定<strong>5字节</strong>，也就是<strong>40</strong>个二进制位。前4位称为<strong>info bit</strong>。</p>
+<p><img src="/images/2025/image-20220406164132542.png"></p>
+<p><img src="/images/2025/image-20220406164207509.png"></p>
+<p><strong>record_format_demo</strong>表中的两条记录的记录头信息：</p>
+<p><img src="/images/2025/image-20220406165127316.png"></p>
+<h5 id="2记录的真实数据">2.==记录的真实数据==</h5>
+<p>MySQL会为每个记录默认地添加一些<strong>隐藏列</strong>：</p>
+<p><img src="/images/2025/image-20220406165347783.png"></p>
+<blockquote>
+<p>InoDB表的<strong>主键生成策略</strong>：</p>
+<ul>
+<li>优先使用用户自定义的主键作为主键；</li>
+<li>如果用户没有定义主键，则选取一个不允许存储NULL值的Unique键作为主键；</li>
+<li>如果表中连不允许存储NULL值的Unique键都没有定义，则InnoDB会为表默认添加个名为<code>row_id</code>的隐藏列作为主键。（否则默认是不会有row_id的）</li>
+</ul>
+</blockquote>
+<p>加上记录的真实数据的两条记录：</p>
+<p><img src="/images/2025/image-20220406165801497.png"></p>
+<ul>
+<li>
+<p>表<code>record_forat_demo</code>使用的是ascii字符集，所以<code>Ox61616161</code> 就表示字符串“aaaa&rsquo;，<code>Ox626262</code>就表示字符串「bbb&rsquo;；依此类推。</p>
+</li>
+<li>
+<p>第一条记录c3列式<code>CHAR(10)</code>类型（固定），实际存储的是只占2个字节的字符串<code>'cc'</code>（<code>0x6363</code>），后面8个字节用空格（<code>0x2020</code>）填充。</p>
+</li>
+<li>
+<p>注意第二条记录中c3和c4列的值都为NULL，它们被存储在了前面的NULL值列表处，在记录的真实数据处就不再冗余存储，从而节省了存储空间，NULL列表应该是<code>110</code>也就是<code>06</code>。</p>
+</li>
+</ul>
+<h5 id="3charm列的存储格式">3.Char(M)列的存储格式</h5>
+<p>表record_format_demo的c3列类型是<code>CHAR(10)</code>，也就是c3列不属于变长字段，其它三个<code>VARCHAR(10)</code>列占用的字节长度逆序存到变长字段长度列表中：</p>
+<p><img src="/images/2025/image-20230228230814249.png"></p>
+<p>表record_format_demo采用的是ascii字符集（一个字符用一个字节编码）。</p>
+<p>如果采用变长编码的字符集（也就是一个字符不确定几个字节编码，如gbk是1-2个、utf8是1-3个），设计者规定此时<code>CHAR(10)</code>类型的c3列占用的字节数也会被存储到变长字段长度列表中。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">Alter</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Table</span><span style="color:#bbb"> </span>record_format_demo<span style="color:#bbb"> </span>Modify<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Column</span><span style="color:#bbb"> </span>c3<span style="color:#bbb"> </span><span style="color:#902000">Char</span>(<span style="color:#40a070">10</span>)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Character</span><span style="color:#bbb"> </span><span style="color:#902000">Set</span><span style="color:#bbb"> </span>utf8;<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改后：</p>
+<p><img src="/images/2025/image-20230228231505035.png"></p>
+<blockquote>
+<p>总结：</p>
+<p>对于<code>CHAR(M)</code>类型的列来说，当列采用的是==定长编码的字符集==时，该列占用的字节数不会被加到变长字段长度列表；而如果采用==变长编码的字符集==时，则会。</p>
+</blockquote>
+<blockquote>
+<p>其它几种行格式，都可以以COMPACT格式&quot;依葫芦画瓢&quot;了。</p>
+</blockquote>
+<h4 id="3redundant行格式">3️⃣Redundant行格式</h4>
+<p>MySQL5.0之前使用的，比较原始，占用空间页比较大。比较少的使用了。</p>
+<p><img src="/images/2025/image-20220406170139401.png"></p>
+<h4 id="4溢出列">4️⃣溢出列</h4>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Table</span><span style="color:#bbb"> </span><span style="color:#06287e">off_page_demo</span><span style="color:#bbb"> </span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span>c<span style="color:#bbb"> </span><span style="color:#902000">Varchar</span>(<span style="color:#40a070">65532</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>)<span style="color:#bbb"> </span><span style="color:#007020">Charset</span><span style="color:#666">=</span>ascii<span style="color:#bbb"> </span>Row_Format<span style="color:#666">=</span>Compact;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">Insert</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Into</span><span style="color:#bbb"> </span><span style="color:#06287e">off_page_demo</span><span style="color:#bbb"> </span>(c)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Values</span>(<span style="color:#007020;font-weight:bold">Repeat</span>(<span style="color:#4070a0">&#39;a&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">65532</span>));<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>一个页一般大小16KB（16384B），上面的c列占用65532B。</p>
+<p>在COMPACT和Redundant行格式中，对于占用存储空间非常多的列，在记录的真实数据处只会存储该列的一部分数据，而把剩余的数据<strong>分散存储在其它的页中</strong>，然后在记录的真实数据处用==20字节==存储志向这些<strong>页的地址和其在其它页面中占用的字节数</strong>，从而可以找到剩余数据所在的页，</p>
+<p><img src="/images/2025/image-20220406170627181.png"></p>
+<p>上面存储768字节之外的数据的页面叫作==溢出页==。</p>
+<p><img src="/images/2025/image-20250724202233937.png"></p>
+<p>需要溢出页来存储的列叫作==溢出列==。Varchar(M)、Text、Blob等类型都可能成为溢出列。</p>
+<h5 id="产生溢出页的临界点">产生溢出页的临界点</h5>
+<p>MySQL中规定一个页中至少存放两行记录。</p>
+<p>重点：不用关注这个临界点是什么，只要知道<strong>如果一条记录的某个列中存储的数据占用的字节数非常多时，该列就可能成为溢出列</strong>。</p>
+<h4 id="5dynamic行格式和compressed行格式">5️⃣Dynamic行格式和Compressed行格式</h4>
+<p>这两种类似于Compact，处理溢出列数据有点不同：<strong>它们不会在记录的真实数据处存储列真实数据的前768字节，而是把所有的数据都存储到所谓的溢出页中，只在记录的真实数据处存储指向这些溢出页的地址。</strong></p>
+<p>另外Compressed会采用压缩算法对页面进行压缩。</p>
+<p><img src="/images/2025/image-20230228233959285.png"></p>
+<blockquote>
+<p>MySQL 5.7 及更高版本（含 MySQL 8）中，<code>innodb_default_row_format</code> 的全局默认值为 <code>DYNAMIC</code>。</p>
+</blockquote>
+<h3 id="3-小结">3 小结</h3>
+<p>页是InnoDB中磁盘和内存交互的基本单位，也是InnoDB管理存储空间的基本单位，默认大小为16KB。</p>
+<p>指定和修改行格式的语法如下:</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">TABLE</span><span style="color:#bbb"> </span><span style="">表名</span>(<span style="">列的信息</span>)<span style="color:#bbb"> </span>ROW_FORMAT<span style="color:#666">=</span><span style="">行格式名称</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">ALTER</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">TABLE</span><span style="color:#bbb"> </span><span style="">表名</span><span style="color:#bbb"> </span>ROW_FORMAT<span style="color:#666">=</span><span style="">行格式名称</span>;<span style="color:#bbb">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>InnoDB的4种行格式：</p>
+<ul>
+<li>Compact行格式</li>
+</ul>
+<p><img src="/images/2025/image-20220405213133101.png"></p>
+<ul>
+<li>REDUNDANT行格式</li>
+</ul>
+<p><img src="/images/2025/image-20220406170139401.png"></p>
+<ul>
+<li>DYNAMIC和COMPRESSED行格式</li>
+</ul>
+<p>这两种行格式类似于COMPACT行格式,只不过在<strong>处理溢出列数据</strong>时有点儿分歧:它们不会在记录的真实数据处存储列真实数据的前768字节，而是把所有的数据都存储到所谓的溢出页中，只在记录的真实数据处存储指向这些溢出页的地址。另外，COMPRESSED行格式会采用压缩算法对页面进行<strong>压缩</strong>。</p>
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">andyron</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2025-07-24
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content">原创文章，如需转载请注明文章作者和出处。谢谢！</span>
+  </p>
+</div>
+
+
+
+        
+        
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
+  </div>
+</div>
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="http://localhost:1313/tags/%E8%A1%8C%E6%A0%BC%E5%BC%8F/">行格式</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+            
+              <a class="next" href="/blog/2025/07/mysql-yunxing-3-charset-collation.html/">
+                <span class="next-text nav-default">3 字符集和比较规则</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+    <div class="post">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="xianmin/comments---xianmin.org"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNDAyNTY2MDI="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCFwlWs4CRRxW"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1-innodb页简介">1 InnoDB页简介</a></li>
+            <li><a href="#2-innodb行格式">2 InnoDB行格式</a>
+              <ul>
+                <li><a href="#1指定行格式的语法">1️⃣指定行格式的语法</a></li>
+                <li><a href="#2compact行格式">2️⃣Compact行格式</a>
+                  <ul>
+                    <li><a href="#1记录的额外信息">1.==记录的额外信息==</a>
+                      <ul>
+                        <li><a href="#a-变长字段长度列表">a 变长字段长度列表</a></li>
+                        <li><a href="#b-null值列表">b NULL值列表</a></li>
+                        <li><a href="#c-记录头信息">c 记录头信息</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#2记录的真实数据">2.==记录的真实数据==</a></li>
+                    <li><a href="#3charm列的存储格式">3.Char(M)列的存储格式</a></li>
+                  </ul>
+                </li>
+                <li><a href="#3redundant行格式">3️⃣Redundant行格式</a></li>
+                <li><a href="#4溢出列">4️⃣溢出列</a>
+                  <ul>
+                    <li><a href="#产生溢出页的临界点">产生溢出页的临界点</a></li>
+                  </ul>
+                </li>
+                <li><a href="#5dynamic行格式和compressed行格式">5️⃣Dynamic行格式和Compressed行格式</a></li>
+              </ul>
+            </li>
+            <li><a href="#3-小结">3 小结</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+  
+    <a href="mailto:rongming.2008@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://stackoverflow.com/users/3133839/andyron" rel="me noopener" class="iconfont"
+      title="stack-overflow"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M809.714286 932.571429l-638.857143 0 0-274.285714-91.428571 0 0 365.714286 821.714286 0 0-365.714286-91.428571 0 0 274.285714zm-538.285714-299.428571l18.857143-89.714286 447.428571 94.285714-18.857143 89.142857zm58.857143-213.714286l38.285714-83.428571 414.285714 193.714286-38.285714 82.857143zm114.857143-203.428571l58.285714-70.285714 350.857143 293.142857-58.285714 70.285714zm226.857143-216l272.571429 366.285714-73.142857 54.857143-272.571429-366.285714zm-410.285714 840.571429l0-90.857143 457.142857 0 0 90.857143-457.142857 0z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/andyron" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        andyron
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.25d4b4ffb2db9a42760854fb017fe0cbe4413e299a94b43b52a058abedbf5ace.js" integrity="sha256-JdS0/7LbmkJ2CFT7AX/gy&#43;RBPimalLQ7UqBYq&#43;2/Ws4=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    $("#openSearch, #openSearchMobile").click(function(){
+      $(".modal-dialog").addClass("visible");
+    });
+
+    $("#closeSearch").click(function(){
+      $(".modal-dialog").removeClass("visible");
+    });
+
+    $(document).click(function(event) {
+    
+      if (!$(event.target).closest(".modal-content, #openSearch, #openSearchMobile").length) {
+        $("body").find(".modal-dialog").removeClass("visible");
+      }
+    });
+  </script>
+
+
+
+
+  <script src="/js/custom.js"></script>
+
+
+  </body>
+</html>

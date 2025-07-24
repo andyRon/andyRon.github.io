@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deinitialization on 欣欣向戎</title>
-    <link>https://andyron.top/tags/deinitialization/</link>
+    <link>http://localhost:1313/tags/deinitialization/</link>
     <description>Recent content in Deinitialization on 欣欣向戎</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 16 Jul 2024 00:17:52 +0800</lastBuildDate>
-    <atom:link href="https://andyron.top/tags/deinitialization/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/deinitialization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>以撸代码的形式学习Swift-15：(类的)析构过程(Deinitialization)</title>
-      <link>https://andyron.top/blog/2017/07/swift-15-deinitialization.html/</link>
+      <link>http://localhost:1313/blog/2017/07/swift-15-deinitialization.html/</link>
       <pubDate>Tue, 04 Jul 2017 13:42:44 +0000</pubDate>
-      <guid>https://andyron.top/blog/2017/07/swift-15-deinitialization.html/</guid>
+      <guid>http://localhost:1313/blog/2017/07/swift-15-deinitialization.html/</guid>
       <description>1 析构过程原理 每个类最多只能有一个析构器，而且析构器不带任何参数 析构器是在实例释放发生前被自动调用。不能主动调用析构器。 子类继承了父类的析构</description>
     </item>
   </channel>

@@ -4,7 +4,7 @@
   itemscope
   itemtype="http://schema.org/WebPage"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
@@ -41,7 +41,7 @@
 <meta name="generator" content="Hugo 0.128.2" />
 
 
-<link rel="canonical" href="https://andyron.top/blog/2018/12/ios-animation-6-3d-animations.html/" />
+<link rel="canonical" href="http://localhost:1313/blog/2018/12/ios-animation-6-3d-animations.html/" />
 
 
 
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:url" content="https://andyron.top/blog/2018/12/ios-animation-6-3d-animations.html/">
+<meta property="og:url" content="http://localhost:1313/blog/2018/12/ios-animation-6-3d-animations.html/">
   <meta property="og:site_name" content="欣欣向戎">
   <meta property="og:title" content="系统学习iOS动画之六：3D动画">
   <meta property="og:description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。 文中详细代码都放在我的Github上 andyRon/LearniOSAnimati">
@@ -123,35 +123,35 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
         
       </li>
@@ -286,7 +286,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
 
         
@@ -297,7 +297,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
 
         
@@ -308,7 +308,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
 
         
@@ -319,7 +319,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
 
         
@@ -330,7 +330,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
 
         
@@ -400,7 +400,7 @@
     
 
     <div class="post-meta-category">
-        <a href="https://andyron.top/categories/ios-animation/"> iOS-Animation </a>
+        <a href="http://localhost:1313/categories/ios-animation/"> iOS-Animation </a>
           
       </div>
 
@@ -1010,8 +1010,8 @@
 
         <footer class="post-footer">
           <div class="post-tags">
-              <a href="https://andyron.top/tags/ios%E5%8A%A8%E7%94%BB/">iOS动画</a>
-                <a href="https://andyron.top/tags/3d%E5%8A%A8%E7%94%BB/">3D动画</a>
+              <a href="http://localhost:1313/tags/ios%E5%8A%A8%E7%94%BB/">iOS动画</a>
+                <a href="http://localhost:1313/tags/3d%E5%8A%A8%E7%94%BB/">3D动画</a>
                 
             </div>
 
@@ -1105,23 +1105,27 @@
     <div class="toc-content custom-scrollbar">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#24-简单3d动画">24-简单3D动画</a>
+    <li>
       <ul>
-        <li><a href="#创造3dtransformations">创造3Dtransformations</a></li>
-        <li><a href="#相机距离">相机距离</a></li>
-        <li><a href="#移动图层的锚点">移动图层的锚点</a></li>
-        <li><a href="#通过阴影创建远景">通过阴影创建远景</a></li>
-        <li><a href="#光栅化的效率">光栅化的效率</a></li>
-        <li><a href="#菜单按钮的3d旋转动画">菜单按钮的3D旋转动画</a></li>
-      </ul>
-    </li>
-    <li><a href="#25-中级3d动画">25-中级3D动画</a>
-      <ul>
-        <li><a href="#探索开始项目">探索开始项目</a></li>
-        <li><a href="#改变图库">改变图库</a></li>
-        <li><a href="#动画图库">动画图库</a></li>
-        <li><a href="#更多一点交互">更多一点交互</a></li>
-        <li><a href="#切换图库">切换图库</a></li>
+        <li><a href="#24-简单3d动画">24-简单3D动画</a>
+          <ul>
+            <li><a href="#创造3dtransformations">创造3Dtransformations</a></li>
+            <li><a href="#相机距离">相机距离</a></li>
+            <li><a href="#移动图层的锚点">移动图层的锚点</a></li>
+            <li><a href="#通过阴影创建远景">通过阴影创建远景</a></li>
+            <li><a href="#光栅化的效率">光栅化的效率</a></li>
+            <li><a href="#菜单按钮的3d旋转动画">菜单按钮的3D旋转动画</a></li>
+          </ul>
+        </li>
+        <li><a href="#25-中级3d动画">25-中级3D动画</a>
+          <ul>
+            <li><a href="#探索开始项目">探索开始项目</a></li>
+            <li><a href="#改变图库">改变图库</a></li>
+            <li><a href="#动画图库">动画图库</a></li>
+            <li><a href="#更多一点交互">更多一点交互</a></li>
+            <li><a href="#切换图库">切换图库</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -1171,7 +1175,7 @@
     </a>
 
 
-<a href="https://andyron.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

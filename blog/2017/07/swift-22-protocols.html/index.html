@@ -4,7 +4,7 @@
   itemscope
   itemtype="http://schema.org/WebPage"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
@@ -41,7 +41,7 @@
 <meta name="generator" content="Hugo 0.128.2" />
 
 
-<link rel="canonical" href="https://andyron.top/blog/2017/07/swift-22-protocols.html/" />
+<link rel="canonical" href="http://localhost:1313/blog/2017/07/swift-22-protocols.html/" />
 
 
 
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:url" content="https://andyron.top/blog/2017/07/swift-22-protocols.html/">
+<meta property="og:url" content="http://localhost:1313/blog/2017/07/swift-22-protocols.html/">
   <meta property="og:site_name" content="欣欣向戎">
   <meta property="og:title" content="以撸代码的形式学习Swift-22：协议(Protocols)">
   <meta property="og:description" content="协议定义了一个蓝图，规定了用来实现某一特定任务或者功能的方法、属性，以及其他需要的东西。 类、结构体或枚举都可以采纳协议，并为协议定义的这些要">
@@ -121,35 +121,35 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
         
       </li>
@@ -284,7 +284,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
 
         
@@ -295,7 +295,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
 
         
@@ -306,7 +306,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
 
         
@@ -317,7 +317,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
 
         
@@ -328,7 +328,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
 
         
@@ -398,7 +398,7 @@
     
 
     <div class="post-meta-category">
-        <a href="https://andyron.top/categories/swift/"> swift </a>
+        <a href="http://localhost:1313/categories/swift/"> swift </a>
           
       </div>
 
@@ -1245,24 +1245,28 @@ xx conform xxx protocol (xx“符合”xxx协议)</p>
   <ul>
     <li>
       <ul>
-        <li><a href="#1-属性要求">1 属性要求</a></li>
-        <li><a href="#2-方法要求">2 方法要求</a></li>
-        <li><a href="#3-mutating-方法要求">3 Mutating 方法要求</a></li>
-        <li><a href="#4-构造器要求">4 构造器要求</a></li>
-        <li><a href="#5-协议作为类型">5 协议作为类型</a></li>
-        <li><a href="#6-委托代理模式">6 委托(代理)模式</a></li>
-        <li><a href="#7-通过扩展添加协议一致性">7 通过扩展添加协议一致性</a></li>
-        <li><a href="#8-通过扩展采纳协议">8 通过扩展采纳协议</a></li>
-        <li><a href="#9-协议类型的集合">9 协议类型的集合</a></li>
-        <li><a href="#10-协议的继承">10 协议的继承</a></li>
-      </ul>
-    </li>
-    <li><a href="#11-类类型专属协议">11 类类型专属协议</a>
-      <ul>
-        <li><a href="#12-协议合成">12 协议合成</a></li>
-        <li><a href="#13-检查协议一致性">13 检查协议一致性</a></li>
-        <li><a href="#14-可选的协议要求">14 可选的协议要求</a></li>
-        <li><a href="#15-协议扩展">15 协议扩展</a></li>
+        <li>
+          <ul>
+            <li><a href="#1-属性要求">1 属性要求</a></li>
+            <li><a href="#2-方法要求">2 方法要求</a></li>
+            <li><a href="#3-mutating-方法要求">3 Mutating 方法要求</a></li>
+            <li><a href="#4-构造器要求">4 构造器要求</a></li>
+            <li><a href="#5-协议作为类型">5 协议作为类型</a></li>
+            <li><a href="#6-委托代理模式">6 委托(代理)模式</a></li>
+            <li><a href="#7-通过扩展添加协议一致性">7 通过扩展添加协议一致性</a></li>
+            <li><a href="#8-通过扩展采纳协议">8 通过扩展采纳协议</a></li>
+            <li><a href="#9-协议类型的集合">9 协议类型的集合</a></li>
+            <li><a href="#10-协议的继承">10 协议的继承</a></li>
+          </ul>
+        </li>
+        <li><a href="#11-类类型专属协议">11 类类型专属协议</a>
+          <ul>
+            <li><a href="#12-协议合成">12 协议合成</a></li>
+            <li><a href="#13-检查协议一致性">13 检查协议一致性</a></li>
+            <li><a href="#14-可选的协议要求">14 可选的协议要求</a></li>
+            <li><a href="#15-协议扩展">15 协议扩展</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -1312,7 +1316,7 @@ xx conform xxx protocol (xx“符合”xxx协议)</p>
     </a>
 
 
-<a href="https://andyron.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

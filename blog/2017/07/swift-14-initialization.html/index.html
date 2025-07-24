@@ -4,7 +4,7 @@
   itemscope
   itemtype="http://schema.org/WebPage"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
@@ -41,7 +41,7 @@
 <meta name="generator" content="Hugo 0.128.2" />
 
 
-<link rel="canonical" href="https://andyron.top/blog/2017/07/swift-14-initialization.html/" />
+<link rel="canonical" href="http://localhost:1313/blog/2017/07/swift-14-initialization.html/" />
 
 
 
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:url" content="https://andyron.top/blog/2017/07/swift-14-initialization.html/">
+<meta property="og:url" content="http://localhost:1313/blog/2017/07/swift-14-initialization.html/">
   <meta property="og:site_name" content="欣欣向戎">
   <meta property="og:title" content="以撸代码的形式学习Swift-14：构造过程(Initialization)">
   <meta property="og:description" content="构造过程是使用类、结构体或枚举类型的实例之前的准备过程 通过定义构造器( Initializers )来实现构造过程 1 存储属性的初始赋值 类和结构体在创建实例时，必须为所">
@@ -123,35 +123,35 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
         
       </li>
@@ -286,7 +286,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
 
         
@@ -297,7 +297,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
 
         
@@ -308,7 +308,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
 
         
@@ -319,7 +319,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
 
         
@@ -330,7 +330,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
 
         
@@ -400,7 +400,7 @@
     
 
     <div class="post-meta-category">
-        <a href="https://andyron.top/categories/swift/"> swift </a>
+        <a href="http://localhost:1313/categories/swift/"> swift </a>
           
       </div>
 
@@ -1059,8 +1059,8 @@ init!类型的可失败构造器构造失败，会触发断言。</p>
 
         <footer class="post-footer">
           <div class="post-tags">
-              <a href="https://andyron.top/tags/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B/">构造过程</a>
-                <a href="https://andyron.top/tags/initialization/">Initialization</a>
+              <a href="http://localhost:1313/tags/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B/">构造过程</a>
+                <a href="http://localhost:1313/tags/initialization/">Initialization</a>
                 
             </div>
 
@@ -1156,14 +1156,18 @@ init!类型的可失败构造器构造失败，会触发断言。</p>
   <ul>
     <li>
       <ul>
-        <li><a href="#1-存储属性的初始赋值">1 存储属性的初始赋值</a></li>
-        <li><a href="#2-自定义构造过程">2 自定义构造过程</a></li>
-        <li><a href="#3-默认构造器">3 默认构造器</a></li>
-        <li><a href="#4-值类型结构体和枚举类型的构造器代理调用其它构造器来完成实例的部分构造过程">4 值类型(结构体和枚举类型)的构造器代理(调用其它构造器来完成实例的部分构造过程)</a></li>
-        <li><a href="#5-类的继承和构造过程">5 类的继承和构造过程</a></li>
-        <li><a href="#6-可失败构造器-init">6 可失败构造器 init?</a></li>
-        <li><a href="#7-必要构造器">7 必要构造器</a></li>
-        <li><a href="#8-通过闭包或函数设置属性的默认值">8 通过闭包或函数设置属性的默认值</a></li>
+        <li>
+          <ul>
+            <li><a href="#1-存储属性的初始赋值">1 存储属性的初始赋值</a></li>
+            <li><a href="#2-自定义构造过程">2 自定义构造过程</a></li>
+            <li><a href="#3-默认构造器">3 默认构造器</a></li>
+            <li><a href="#4-值类型结构体和枚举类型的构造器代理调用其它构造器来完成实例的部分构造过程">4 值类型(结构体和枚举类型)的构造器代理(调用其它构造器来完成实例的部分构造过程)</a></li>
+            <li><a href="#5-类的继承和构造过程">5 类的继承和构造过程</a></li>
+            <li><a href="#6-可失败构造器-init">6 可失败构造器 init?</a></li>
+            <li><a href="#7-必要构造器">7 必要构造器</a></li>
+            <li><a href="#8-通过闭包或函数设置属性的默认值">8 通过闭包或函数设置属性的默认值</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -1213,7 +1217,7 @@ init!类型的可失败构造器构造失败，会触发断言。</p>
     </a>
 
 
-<a href="https://andyron.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

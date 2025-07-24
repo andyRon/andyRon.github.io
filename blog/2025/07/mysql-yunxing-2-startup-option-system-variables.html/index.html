@@ -4,7 +4,7 @@
   itemscope
   itemtype="http://schema.org/WebPage"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
@@ -44,7 +44,7 @@
 <meta name="generator" content="Hugo 0.128.2" />
 
 
-<link rel="canonical" href="https://andyron.top/blog/2025/07/mysql-yunxing-2-startup-option-system-variables.html/" />
+<link rel="canonical" href="http://localhost:1313/blog/2025/07/mysql-yunxing-2-startup-option-system-variables.html/" />
 
 
 
@@ -72,7 +72,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:url" content="https://andyron.top/blog/2025/07/mysql-yunxing-2-startup-option-system-variables.html/">
+<meta property="og:url" content="http://localhost:1313/blog/2025/07/mysql-yunxing-2-startup-option-system-variables.html/">
   <meta property="og:site_name" content="欣欣向戎">
   <meta property="og:title" content="2 MySQL的调控按钮——启动选项和系统变量">
   <meta property="og:description" content="2.1 启动选项和配置文件 ==启动选项（startup option）==，控制着程序启动后的行为。
@@ -133,35 +133,35 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
         
       </li>
@@ -296,7 +296,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
 
         
@@ -307,7 +307,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
 
         
@@ -318,7 +318,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
 
         
@@ -329,7 +329,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
 
         
@@ -340,7 +340,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
 
         
@@ -410,8 +410,8 @@
     
 
     <div class="post-meta-category">
-        <a href="https://andyron.top/categories/mysql/"> MySQL </a>
-          <a href="https://andyron.top/categories/mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/"> 《MySQL是怎样运行的》 </a>
+        <a href="http://localhost:1313/categories/mysql/"> MySQL </a>
+          <a href="http://localhost:1313/categories/mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/"> 《MySQL是怎样运行的》 </a>
           
       </div>
 
@@ -799,9 +799,39 @@ max-connections=10
   <ul>
     <li>
       <ul>
-        <li><a href="#21-启动选项和配置文件">2.1 启动选项和配置文件</a></li>
-        <li><a href="#22-系统变量">2.2 系统变量</a></li>
-        <li><a href="#23-状态变量">2.3 状态变量</a></li>
+        <li>
+          <ul>
+            <li><a href="#21-启动选项和配置文件">2.1 启动选项和配置文件</a>
+              <ul>
+                <li><a href="#在命令行上指定启动选项">在命令行上指定启动选项</a></li>
+                <li><a href="#配置文件中指定启动选项">配置文件中指定启动选项</a>
+                  <ul>
+                    <li><a href="#1配置文件的路径">1.配置文件的路径</a></li>
+                    <li><a href="#2配置文件的内容">2.配置文件的内容</a></li>
+                    <li><a href="#3特定mysql版本的专用选项组">3.特定MySQL版本的专用选项组</a></li>
+                    <li><a href="#4配置文件的优先级">4.配置文件的优先级</a></li>
+                    <li><a href="#5同一个配置文件中多个组的优先级">5.同一个配置文件中多个组的优先级</a></li>
+                    <li><a href="#6defaults-file的使用">6.defaults-file的使用</a></li>
+                  </ul>
+                </li>
+                <li><a href="#在命令行和配置文件中启动选项的区别">在命令行和配置文件中启动选项的区别</a></li>
+              </ul>
+            </li>
+            <li><a href="#22-系统变量">2.2 系统变量</a>
+              <ul>
+                <li><a href="#查看系统变量">查看系统变量</a></li>
+                <li><a href="#设置系统变量">设置系统变量</a>
+                  <ul>
+                    <li><a href="#1通过启动选项设置">1.通过启动选项设置</a></li>
+                    <li><a href="#2运行中设置">2.运行中设置</a></li>
+                    <li><a href="#3启动选项和系统变量的区别">3.启动选项和系统变量的区别</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#23-状态变量">2.3 状态变量</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -851,7 +881,7 @@ max-connections=10
     </a>
 
 
-<a href="https://andyron.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

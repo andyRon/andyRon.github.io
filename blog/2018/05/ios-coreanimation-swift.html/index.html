@@ -4,7 +4,7 @@
   itemscope
   itemtype="http://schema.org/WebPage"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
@@ -41,7 +41,7 @@
 <meta name="generator" content="Hugo 0.128.2" />
 
 
-<link rel="canonical" href="https://andyron.top/blog/2018/05/ios-coreanimation-swift.html/" />
+<link rel="canonical" href="http://localhost:1313/blog/2018/05/ios-coreanimation-swift.html/" />
 
 
 
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:url" content="https://andyron.top/blog/2018/05/ios-coreanimation-swift.html/">
+<meta property="og:url" content="http://localhost:1313/blog/2018/05/ios-coreanimation-swift.html/">
   <meta property="og:site_name" content="欣欣向戎">
   <meta property="og:title" content="iOS核心动画小结(swift)">
   <meta property="og:description" content="本文所有示例代码都是Swift4，参看文末链接 Core Animation是IOS和OS X平台上负责图形渲染与动画的基础框架。Core Animati">
@@ -122,35 +122,35 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
         
       </li>
@@ -285,7 +285,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
 
         
@@ -296,7 +296,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
 
         
@@ -307,7 +307,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
 
         
@@ -318,7 +318,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
 
         
@@ -329,7 +329,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
 
         
@@ -399,7 +399,7 @@
     
 
     <div class="post-meta-category">
-        <a href="https://andyron.top/categories/ios-animation/"> iOS-Animation </a>
+        <a href="http://localhost:1313/categories/ios-animation/"> iOS-Animation </a>
           
       </div>
 
@@ -738,7 +738,7 @@ kCATransitionFromBottom 从底部进入
 
         <footer class="post-footer">
           <div class="post-tags">
-              <a href="https://andyron.top/tags/ios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB/">iOS核心动画</a>
+              <a href="http://localhost:1313/tags/ios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB/">iOS核心动画</a>
                 
             </div>
 
@@ -834,12 +834,16 @@ kCATransitionFromBottom 从底部进入
   <ul>
     <li>
       <ul>
-        <li><a href="#一常用属性">一、常用属性</a></li>
-        <li><a href="#二基础动画cabasicanimation">二、基础动画（CABasicAnimation）</a></li>
-        <li><a href="#三关键帧动画cakeyframeanimation">三、关键帧动画（CAKeyframeAnimation）</a></li>
-        <li><a href="#四组动画caanimationgroup">四、组动画（CAAnimationGroup）</a></li>
-        <li><a href="#五过渡动画catransition">五、过渡动画（CATransition）</a></li>
-        <li><a href="#六弹簧动画-caspringanimation">六、弹簧动画 CASpringAnimation</a></li>
+        <li>
+          <ul>
+            <li><a href="#一常用属性">一、常用属性</a></li>
+            <li><a href="#二基础动画cabasicanimation">二、基础动画（CABasicAnimation）</a></li>
+            <li><a href="#三关键帧动画cakeyframeanimation">三、关键帧动画（CAKeyframeAnimation）</a></li>
+            <li><a href="#四组动画caanimationgroup">四、组动画（CAAnimationGroup）</a></li>
+            <li><a href="#五过渡动画catransition">五、过渡动画（CATransition）</a></li>
+            <li><a href="#六弹簧动画-caspringanimation">六、弹簧动画 CASpringAnimation</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -889,7 +893,7 @@ kCATransitionFromBottom 从底部进入
     </a>
 
 
-<a href="https://andyron.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

@@ -4,7 +4,7 @@
   itemscope
   itemtype="http://schema.org/WebPage"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
@@ -41,7 +41,7 @@
 <meta name="generator" content="Hugo 0.128.2" />
 
 
-<link rel="canonical" href="https://andyron.top/blog/2019/01/ios-animation-5-uiviewpropertyanimator.html/" />
+<link rel="canonical" href="http://localhost:1313/blog/2019/01/ios-animation-5-uiviewpropertyanimator.html/" />
 
 
 
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:url" content="https://andyron.top/blog/2019/01/ios-animation-5-uiviewpropertyanimator.html/">
+<meta property="og:url" content="http://localhost:1313/blog/2019/01/ios-animation-5-uiviewpropertyanimator.html/">
   <meta property="og:site_name" content="欣欣向戎">
   <meta property="og:title" content="系统学习iOS动画之五：使用UIViewPropertyAnimator">
   <meta property="og:description" content="本文是我学习《iOS Animations by Tutorials》 笔记中的一篇。 文中详细代码都放在我的Github上 andyRon/LearniOSAnimati">
@@ -123,35 +123,35 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
         
       </li>
@@ -286,7 +286,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
 
         
@@ -297,7 +297,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
 
         
@@ -308,7 +308,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
 
         
@@ -319,7 +319,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
 
         
@@ -330,7 +330,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
 
         
@@ -400,7 +400,7 @@
     
 
     <div class="post-meta-category">
-        <a href="https://andyron.top/categories/ios-animation/"> iOS-Animation </a>
+        <a href="http://localhost:1313/categories/ios-animation/"> iOS-Animation </a>
           
       </div>
 
@@ -2308,8 +2308,8 @@ WidgetView中的代码如下：</p>
 
         <footer class="post-footer">
           <div class="post-tags">
-              <a href="https://andyron.top/tags/ios%E5%8A%A8%E7%94%BB/">iOS动画</a>
-                <a href="https://andyron.top/tags/uiviewpropertyanimator/">UIViewPropertyAnimator</a>
+              <a href="http://localhost:1313/tags/ios%E5%8A%A8%E7%94%BB/">iOS动画</a>
+                <a href="http://localhost:1313/tags/uiviewpropertyanimator/">UIViewPropertyAnimator</a>
                 
             </div>
 
@@ -2403,36 +2403,54 @@ WidgetView中的代码如下：</p>
     <div class="toc-content custom-scrollbar">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#20-uiviewpropertyanimator入门">20-UIViewPropertyAnimator入门</a>
+    <li>
       <ul>
-        <li><a href="#基础动画">基础动画</a></li>
-        <li><a href="#提取动画">提取动画</a></li>
-        <li><a href="#运行动画师">运行动画师</a></li>
-        <li><a href="#基础关键帧动画">基础关键帧动画</a></li>
-        <li><a href="#提取模糊动画">提取模糊动画</a></li>
-        <li><a href="#防止动画重叠">防止动画重叠</a></li>
-      </ul>
-    </li>
-    <li><a href="#21-深入uiviewpropertyanimator">21-深入UIViewPropertyAnimator</a>
-      <ul>
-        <li><a href="#自定义动画计时">自定义动画计时</a></li>
-        <li><a href="#自动布局动画">自动布局动画</a></li>
-        <li><a href="#视图过渡">视图过渡</a></li>
-      </ul>
-    </li>
-    <li><a href="#22-用uiviewpropertyanimator进行交互式动画">22-用UIViewPropertyAnimator进行交互式动画</a>
-      <ul>
-        <li><a href="#动画状态机">动画状态机</a></li>
-        <li><a href="#交互式3d-touch动画">交互式3D touch动画</a></li>
-        <li><a href="#关闭模糊视图">关闭模糊视图</a></li>
-        <li><a href="#交互式关键帧动画">交互式关键帧动画</a></li>
-      </ul>
-    </li>
-    <li><a href="#23-用uiviewpropertyanimator自定义视图控制器转场">23-用UIViewPropertyAnimator自定义视图控制器转场</a>
-      <ul>
-        <li><a href="#静态视图控制器转场">静态视图控制器转场</a></li>
-        <li><a href="#交互视图控制器转场">交互视图控制器转场</a></li>
-        <li><a href="#可中断的转场动画">可中断的转场动画</a></li>
+        <li><a href="#20-uiviewpropertyanimator入门">20-UIViewPropertyAnimator入门</a>
+          <ul>
+            <li><a href="#基础动画">基础动画</a>
+              <ul>
+                <li><a href="#添加动画">添加动画</a></li>
+                <li><a href="#添加完成闭包">添加完成闭包</a></li>
+              </ul>
+            </li>
+            <li><a href="#提取动画">提取动画</a></li>
+            <li><a href="#运行动画师">运行动画师</a></li>
+            <li><a href="#基础关键帧动画">基础关键帧动画</a></li>
+            <li><a href="#提取模糊动画">提取模糊动画</a></li>
+            <li><a href="#防止动画重叠">防止动画重叠</a></li>
+          </ul>
+        </li>
+        <li><a href="#21-深入uiviewpropertyanimator">21-深入UIViewPropertyAnimator</a>
+          <ul>
+            <li><a href="#自定义动画计时">自定义动画计时</a>
+              <ul>
+                <li><a href="#内置时间曲线">内置时间曲线</a></li>
+                <li><a href="#贝塞尔曲线">贝塞尔曲线</a></li>
+                <li><a href="#弹簧动画">弹簧动画</a></li>
+                <li><a href="#自定义时间曲线">自定义时间曲线</a></li>
+                <li><a href="#阻尼和速度">阻尼和速度</a></li>
+                <li><a href="#自定义弹簧动画">自定义弹簧动画</a></li>
+              </ul>
+            </li>
+            <li><a href="#自动布局动画">自动布局动画</a></li>
+            <li><a href="#视图过渡">视图过渡</a></li>
+          </ul>
+        </li>
+        <li><a href="#22-用uiviewpropertyanimator进行交互式动画">22-用UIViewPropertyAnimator进行交互式动画</a>
+          <ul>
+            <li><a href="#动画状态机">动画状态机</a></li>
+            <li><a href="#交互式3d-touch动画">交互式3D touch动画</a></li>
+            <li><a href="#关闭模糊视图">关闭模糊视图</a></li>
+            <li><a href="#交互式关键帧动画">交互式关键帧动画</a></li>
+          </ul>
+        </li>
+        <li><a href="#23-用uiviewpropertyanimator自定义视图控制器转场">23-用UIViewPropertyAnimator自定义视图控制器转场</a>
+          <ul>
+            <li><a href="#静态视图控制器转场">静态视图控制器转场</a></li>
+            <li><a href="#交互视图控制器转场">交互视图控制器转场</a></li>
+            <li><a href="#可中断的转场动画">可中断的转场动画</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -2482,7 +2500,7 @@ WidgetView中的代码如下：</p>
     </a>
 
 
-<a href="https://andyron.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

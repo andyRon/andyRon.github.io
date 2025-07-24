@@ -4,7 +4,7 @@
   itemscope
   itemtype="http://schema.org/WebPage"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
@@ -41,7 +41,7 @@
 <meta name="generator" content="Hugo 0.128.2" />
 
 
-<link rel="canonical" href="https://andyron.top/blog/2017/07/swift-25-advanced-operators.html/" />
+<link rel="canonical" href="http://localhost:1313/blog/2017/07/swift-25-advanced-operators.html/" />
 
 
 
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:url" content="https://andyron.top/blog/2017/07/swift-25-advanced-operators.html/">
+<meta property="og:url" content="http://localhost:1313/blog/2017/07/swift-25-advanced-operators.html/">
   <meta property="og:site_name" content="欣欣向戎">
   <meta property="og:title" content="以撸代码的形式学习Swift-25：高级运算符(Advanced Operators)">
   <meta property="og:description" content="1 位运算符 按位取反运算符 1 2 let initialBits: UInt8 = 0b00001111 let invertedBits = ~initialBits // 等于 0b11110000 按位与运算符 1 2 3 let firstSixBits: UInt8 = 0b11111100 let lastSixBits: UInt8 = 0b00111111 let middleFourBits = firstSixBits &amp; lastSixBits // 等于 00111100 按位或运算符 1 2 3 let someBits: UInt8 = 0b10110010">
@@ -121,35 +121,35 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
         
       </li>
@@ -284,7 +284,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
 
         
@@ -295,7 +295,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
 
         
@@ -306,7 +306,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
 
         
@@ -317,7 +317,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
 
         
@@ -328,7 +328,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
 
         
@@ -398,7 +398,7 @@
     
 
     <div class="post-meta-category">
-        <a href="https://andyron.top/categories/swift/"> swift </a>
+        <a href="http://localhost:1313/categories/swift/"> swift </a>
           
       </div>
 
@@ -807,11 +807,15 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#1-位运算符">1 位运算符</a></li>
-        <li><a href="#2-溢出运算符">2 溢出运算符</a></li>
-        <li><a href="#3-优先级和结合性">3 优先级和结合性</a></li>
-        <li><a href="#4-运算符函数">4 运算符函数</a></li>
-        <li><a href="#5-自定义运算符">5 自定义运算符</a></li>
+        <li>
+          <ul>
+            <li><a href="#1-位运算符">1 位运算符</a></li>
+            <li><a href="#2-溢出运算符">2 溢出运算符</a></li>
+            <li><a href="#3-优先级和结合性">3 优先级和结合性</a></li>
+            <li><a href="#4-运算符函数">4 运算符函数</a></li>
+            <li><a href="#5-自定义运算符">5 自定义运算符</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -861,7 +865,7 @@
     </a>
 
 
-<a href="https://andyron.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>行格式 on 欣欣向戎</title>
+    <link>http://localhost:1313/tags/%E8%A1%8C%E6%A0%BC%E5%BC%8F/</link>
+    <description>Recent content in 行格式 on 欣欣向戎</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 24 Jul 2025 20:44:11 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E8%A1%8C%E6%A0%BC%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>4 InnoDB「记录」的存储结构</title>
+      <link>http://localhost:1313/blog/2025/07/mysql-yunxing-4-record.html/</link>
+      <pubDate>Fri, 18 Jul 2025 14:44:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/2025/07/mysql-yunxing-4-record.html/</guid>
+      <description>&lt;h3 id=&#34;1-innodb页简介&#34;&gt;1 InnoDB页简介&lt;/h3&gt;&#xA;&lt;p&gt;InnoDB将表中数据存储在磁盘上，真正处理数据的过程发生在内存中，如果是处理写入或修改请求，还需要把内存中的内容重新刷新到磁盘上。&lt;/p&gt;&#xA;&lt;p&gt;InnoDB以**==页==**作为磁盘和内存之间交互的基本单位。页的大小默认为==16KB==（16*1024=16384）。对应系统变量是&lt;code&gt;innodb_page_size&lt;/code&gt;，只能在第一次&lt;!-- raw HTML omitted --&gt;初始化MySQL数据目录&lt;!-- raw HTML omitted --&gt;时指定，服务器运行时不能更改页面大小。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

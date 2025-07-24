@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Functions on 欣欣向戎</title>
-    <link>https://andyron.top/tags/functions/</link>
+    <link>http://localhost:1313/tags/functions/</link>
     <description>Recent content in Functions on 欣欣向戎</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 16 Jul 2024 00:17:53 +0800</lastBuildDate>
-    <atom:link href="https://andyron.top/tags/functions/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/functions/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>以撸代码的形式学习Swift-6：函数(Functions)</title>
-      <link>https://andyron.top/blog/2017/07/swift-6-functions.html/</link>
+      <link>http://localhost:1313/blog/2017/07/swift-6-functions.html/</link>
       <pubDate>Mon, 03 Jul 2017 13:40:32 +0000</pubDate>
-      <guid>https://andyron.top/blog/2017/07/swift-6-functions.html/</guid>
+      <guid>http://localhost:1313/blog/2017/07/swift-6-functions.html/</guid>
       <description>1 函数的定义与调用 (Defining and Calling Functions) 参数，parameters 返回类型，return type 实参，arguments 1 2 3 func greet(person: String) -&amp;gt; String { return &amp;#34;Hello, &amp;#34; + person + &amp;#34;!&amp;#34; } 2 函数</description>
     </item>
   </channel>

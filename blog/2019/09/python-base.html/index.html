@@ -4,7 +4,7 @@
   itemscope
   itemtype="http://schema.org/WebPage"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
@@ -41,7 +41,7 @@
 <meta name="generator" content="Hugo 0.128.2" />
 
 
-<link rel="canonical" href="https://andyron.top/blog/2019/09/python-base.html/" />
+<link rel="canonical" href="http://localhost:1313/blog/2019/09/python-base.html/" />
 
 
 
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:url" content="https://andyron.top/blog/2019/09/python-base.html/">
+<meta property="og:url" content="http://localhost:1313/blog/2019/09/python-base.html/">
   <meta property="og:site_name" content="欣欣向戎">
   <meta property="og:title" content="Python基础总结">
   <meta property="og:description" content="一、类型和运算 寻求帮助 1 2 dir(obj) # 简单的列出对象obj所包含的方法名称，返回一个字符串列表 help(obj.func) # 查询obj.func的具体介绍和用法 测试类型的三种">
@@ -121,35 +121,35 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
         
       </li>
@@ -284,7 +284,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
 
         
@@ -295,7 +295,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
 
         
@@ -306,7 +306,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
 
         
@@ -317,7 +317,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
 
         
@@ -328,7 +328,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
 
         
@@ -398,7 +398,7 @@
     
 
     <div class="post-meta-category">
-        <a href="https://andyron.top/categories/python/"> Python </a>
+        <a href="http://localhost:1313/categories/python/"> Python </a>
           
       </div>
 
@@ -3470,164 +3470,173 @@ from modulename import attrname as name
     <div class="toc-content custom-scrollbar">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#一类型和运算">一、类型和运算</a>
+    <li>
       <ul>
-        <li><a href="#寻求帮助">寻求帮助</a></li>
-        <li><a href="#测试类型的三种方法">测试类型的三种方法</a></li>
-        <li><a href="#python数据类型哈希类型不可哈希类型">Python数据类型：哈希类型、不可哈希类型</a></li>
-        <li><a href="#数字常量">数字常量</a></li>
-        <li><a href="#数字的表达式操作符">数字的表达式操作符</a></li>
-        <li><a href="#整数可以利用bit_length函数测试所占的二进制位数">整数可以利用<code>bit_length</code>函数测试所占的二进制位数</a></li>
-        <li><a href="#repr和str显示格式的区别">repr和str显示格式的区别</a></li>
-        <li><a href="#数字相关的模块">数字相关的模块</a></li>
-        <li><a href="#集合set">集合set</a></li>
-        <li><a href="#集合frozenset不可变对象">集合frozenset，不可变对象</a></li>
-        <li><a href="#布尔类型bool">布尔类型bool</a></li>
-        <li><a href="#动态类型简介">动态类型简介</a></li>
-        <li><a href="#常见字符串常量和表达式">常见字符串常量和表达式</a></li>
-        <li><a href="#内置str处理函数">内置str处理函数：</a></li>
-        <li><a href="#三重引号编写多行字符串块并且在代码折行处嵌入换行字符n">三重引号编写多行字符串块，并且在代码折行处嵌入换行字符\n</a></li>
-        <li><a href="#索引和分片">索引和分片：</a></li>
-        <li><a href="#字符串转换工具">字符串转换工具：</a></li>
-        <li><a href="#另类字符串连接">另类字符串连接</a></li>
-        <li><a href="#python中的字符串格式化实现1--字符串格式化表达式">Python中的字符串格式化实现1&ndash;字符串格式化表达式</a></li>
-        <li><a href="#python中的字符串格式化实现2--字符串格式化调用方法">Python中的字符串格式化实现2&ndash;字符串格式化调用方法</a></li>
-        <li><a href="#常用列表常量和操作">常用列表常量和操作</a></li>
-        <li><a href="#用切片来删除序列的某一段">用切片来删除序列的某一段</a></li>
-        <li><a href="#常用字典常量和操作">常用字典常量和操作</a></li>
-        <li><a href="#字典解析">字典解析</a></li>
-        <li><a href="#字典的特殊方法__missing__当查找找不到key时会执行该方法">字典的特殊方法__missing__：当查找找不到key时，会执行该方法</a></li>
-        <li><a href="#元组和列表的唯一区别在于元组是不可变对象列表时可变对象">元组和列表的唯一区别在于元组是不可变对象，列表时可变对象</a></li>
-        <li><a href="#元组的特殊语法-逗号和圆括号">元组的特殊语法: 逗号和圆括号</a></li>
-        <li><a href="#文件基本操作">文件基本操作</a></li>
-        <li><a href="#其他">其他</a></li>
+        <li><a href="#一类型和运算">一、类型和运算</a>
+          <ul>
+            <li><a href="#寻求帮助">寻求帮助</a></li>
+            <li><a href="#测试类型的三种方法">测试类型的三种方法</a></li>
+            <li><a href="#python数据类型哈希类型不可哈希类型">Python数据类型：哈希类型、不可哈希类型</a></li>
+            <li><a href="#数字常量">数字常量</a></li>
+            <li><a href="#数字的表达式操作符">数字的表达式操作符</a></li>
+            <li><a href="#整数可以利用bit_length函数测试所占的二进制位数">整数可以利用<code>bit_length</code>函数测试所占的二进制位数</a></li>
+            <li><a href="#repr和str显示格式的区别">repr和str显示格式的区别</a></li>
+            <li><a href="#数字相关的模块">数字相关的模块</a></li>
+            <li><a href="#集合set">集合set</a></li>
+            <li><a href="#集合frozenset不可变对象">集合frozenset，不可变对象</a></li>
+            <li><a href="#布尔类型bool">布尔类型bool</a></li>
+            <li><a href="#动态类型简介">动态类型简介</a></li>
+            <li><a href="#常见字符串常量和表达式">常见字符串常量和表达式</a></li>
+            <li><a href="#内置str处理函数">内置str处理函数：</a></li>
+            <li><a href="#三重引号编写多行字符串块并且在代码折行处嵌入换行字符n">三重引号编写多行字符串块，并且在代码折行处嵌入换行字符\n</a></li>
+            <li><a href="#索引和分片">索引和分片：</a></li>
+            <li><a href="#字符串转换工具">字符串转换工具：</a></li>
+            <li><a href="#另类字符串连接">另类字符串连接</a></li>
+            <li><a href="#python中的字符串格式化实现1--字符串格式化表达式">Python中的字符串格式化实现1&ndash;字符串格式化表达式</a></li>
+            <li><a href="#python中的字符串格式化实现2--字符串格式化调用方法">Python中的字符串格式化实现2&ndash;字符串格式化调用方法</a></li>
+            <li><a href="#常用列表常量和操作">常用列表常量和操作</a></li>
+            <li><a href="#用切片来删除序列的某一段">用切片来删除序列的某一段</a></li>
+            <li><a href="#常用字典常量和操作">常用字典常量和操作</a></li>
+            <li><a href="#字典解析">字典解析</a></li>
+            <li><a href="#字典的特殊方法__missing__当查找找不到key时会执行该方法">字典的特殊方法__missing__：当查找找不到key时，会执行该方法</a></li>
+            <li><a href="#元组和列表的唯一区别在于元组是不可变对象列表时可变对象">元组和列表的唯一区别在于元组是不可变对象，列表时可变对象</a></li>
+            <li><a href="#元组的特殊语法-逗号和圆括号">元组的特殊语法: 逗号和圆括号</a></li>
+            <li><a href="#文件基本操作">文件基本操作</a></li>
+            <li><a href="#其他">其他</a></li>
+          </ul>
+        </li>
+        <li><a href="#二语法和语句">二、语法和语句</a>
+          <ul>
+            <li><a href="#赋值语句的形式">赋值语句的形式</a></li>
+            <li><a href="#序列赋值-序列解包">序列赋值 序列解包</a></li>
+            <li><a href="#print函数原型">print函数原型</a></li>
+            <li><a href="#andor">and，or</a></li>
+            <li><a href="#ifelse三元表达符if语句在行内">if/else三元表达符（if语句在行内）</a></li>
+            <li><a href="#whilefor">while，for</a></li>
+            <li><a href="#for循环的元组赋值">for循环的元组赋值</a></li>
+            <li><a href="#列表解析语法">列表解析语法</a>
+              <ul>
+                <li><a href="#两个列表同时解析使用zip函数">两个列表同时解析：使用zip函数</a></li>
+                <li><a href="#带索引的列表解析使用enumerate函数">带索引的列表解析：使用enumerate函数</a></li>
+              </ul>
+            </li>
+            <li><a href="#生成器表达式">生成器表达式</a></li>
+            <li><a href="#文档字符串">文档字符串</a></li>
+            <li><a href="#命名惯例">命名惯例</a></li>
+            <li><a href="#列表解析-in成员关系测试-map-sorted-zip-enumerate内置函数等都使用了迭代协议">列表解析 in成员关系测试 map sorted zip enumerate内置函数等都使用了迭代协议</a></li>
+            <li><a href="#del语句-手动删除某个变量">del语句: 手动删除某个变量</a></li>
+            <li><a href="#获取列表的子表的方法">获取列表的子表的方法:</a></li>
+            <li><a href="#手动迭代iter和next">手动迭代：iter和next</a></li>
+            <li><a href="#python中的可迭代对象">Python中的可迭代对象</a></li>
+          </ul>
+        </li>
+        <li><a href="#三函数语法规则">三、函数语法规则</a>
+          <ul>
+            <li><a href="#函数相关的语句和表达式">函数相关的语句和表达式</a></li>
+            <li><a href="#python函数变量名解析legb原则">Python函数变量名解析:LEGB原则</a></li>
+            <li><a href="#嵌套函数举例工厂函数">嵌套函数举例:工厂函数</a></li>
+            <li><a href="#嵌套函数举例lambda实例">嵌套函数举例:lambda实例</a></li>
+            <li><a href="#nonlocal和global语句的区别">nonlocal和global语句的区别</a></li>
+            <li><a href="#函数参数不可变参数通过值传递可变参数通过引用传递">函数参数：不可变参数通过“值”传递，可变参数通过“引用”传递</a></li>
+            <li><a href="#可变参数匹配--和-">可变参数匹配: * 和 **</a></li>
+            <li><a href="#函数调用时的参数解包--和--分别解包元组和字典">函数调用时的参数解包: * 和 ** 分别解包元组和字典</a></li>
+            <li><a href="#函数属性自己定义的函数可以添加属性">函数属性:(自己定义的)函数可以添加属性</a></li>
+            <li><a href="#函数注解-编写在def头部行-主要用于说明参数范围参数类型返回值类型等">函数注解: 编写在def头部行 主要用于说明参数范围、参数类型、返回值类型等</a></li>
+            <li><a href="#匿名函数lambda">匿名函数:lambda</a></li>
+            <li><a href="#lambda函数与map-filter-reduce函数的结合">lambda函数与map filter reduce函数的结合</a></li>
+            <li><a href="#生成器函数yield-vs-return">生成器函数:yield VS return</a></li>
+            <li><a href="#生成器表达式小括号进行列表解析">生成器表达式:小括号进行列表解析</a></li>
+            <li><a href="#本地变量是静态检测的">本地变量是静态检测的</a></li>
+            <li><a href="#函数的默认值是在函数定义的时候实例化的-而不是在调用的时候-例子">函数的默认值是在函数定义的时候实例化的 而不是在调用的时候 例子:</a></li>
+          </ul>
+        </li>
+        <li><a href="#四函数例子">四、函数例子</a>
+          <ul>
+            <li><a href="#数学运算类">数学运算类</a></li>
+            <li><a href="#集合类操作">集合类操作</a></li>
+          </ul>
+        </li>
+        <li><a href="#五模块moudle">五、模块Moudle</a>
+          <ul>
+            <li><a href="#python模块搜索路径">Python模块搜索路径:</a></li>
+            <li><a href="#查看全部的模块搜索路径">查看全部的模块搜索路径</a></li>
+            <li><a href="#模块的使用代码">模块的使用代码</a></li>
+            <li><a href="#重载模块reload">重载模块reload</a></li>
+            <li><a href="#模块的包导入">模块的包导入</a></li>
+            <li><a href="#__init__py包文件"><strong>init</strong>.py包文件</a></li>
+            <li><a href="#包相对导入使用点号-只能使用from语句">包相对导入:使用点号(.) 只能使用from语句</a></li>
+            <li><a href="#包相对导入与普通导入的区别">包相对导入与普通导入的区别</a></li>
+            <li><a href="#模块数据隐藏最小化from的破坏">模块数据隐藏:最小化from*的破坏</a></li>
+            <li><a href="#模块属性">模块属性</a></li>
+            <li><a href="#import语句from语句的as扩展">import语句from语句的as扩展</a></li>
+            <li><a href="#得到模块属性的几种方法">得到模块属性的几种方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#六类与面向对象">六、类与面向对象</a>
+          <ul>
+            <li><a href="#最普通的类">最普通的类</a></li>
+            <li><a href="#python的类没有基于参数的函数重载">Python的类没有基于参数的函数重载</a></li>
+            <li><a href="#子类扩展超类-尽量调用超类的方法">子类扩展超类: 尽量调用超类的方法</a></li>
+            <li><a href="#类内省工具">类内省工具</a></li>
+            <li><a href="#返回1中-数据属性spam是属于类-而不是对象">返回1中 数据属性spam是属于类 而不是对象</a></li>
+            <li><a href="#类方法调用的两种方式">类方法调用的两种方式</a></li>
+            <li><a href="#抽象超类的实现方法">抽象超类的实现方法</a></li>
+            <li><a href="#oop和继承-is-a的关系">OOP和继承: &ldquo;is-a&quot;的关系</a></li>
+            <li><a href="#类的伪私有属性使用__attr">类的伪私有属性:使用__attr</a></li>
+            <li><a href="#类方法是对象无绑定类方法对象--绑定实例方法对象">类方法是对象:无绑定类方法对象 / 绑定实例方法对象</a></li>
+            <li><a href="#获取对象信息-属性和方法">获取对象信息: 属性和方法</a></li>
+            <li><a href="#为类动态绑定属性或方法-methodtype方法">为类动态绑定属性或方法: MethodType方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#七类的高级话题">七、类的高级话题</a>
+          <ul>
+            <li><a href="#多重继承">多重继承</a></li>
+            <li><a href="#类的继承和子类的初始化">类的继承和子类的初始化</a></li>
+            <li><a href="#实例方法--静态方法--类方法">实例方法 / 静态方法 / 类方法</a></li>
+            <li><a href="#函数装饰器是它后边的函数的运行时的声明由符号以及后边紧跟的元函数metafunction组成">函数装饰器:是它后边的函数的运行时的声明，由@符号以及后边紧跟的&quot;元函数&rdquo;(metafunction)组成</a></li>
+            <li><a href="#类修饰器是它后边的类的运行时的声明由符号以及后边紧跟的元函数metafunction组成">类修饰器:是它后边的类的运行时的声明，由@符号以及后边紧跟的&quot;元函数&quot;(metafunction)组成</a></li>
+            <li><a href="#限制class属性-__slots__属性">限制class属性: __slots__属性</a></li>
+            <li><a href="#类属性高级话题-property">类属性高级话题: @property</a></li>
+            <li><a href="#定制类-重写类的方法">定制类: 重写类的方法</a></li>
+            <li><a href="#动态创建类type">动态创建类type()</a></li>
+          </ul>
+        </li>
+        <li><a href="#八异常相关">八、异常相关</a>
+          <ul>
+            <li><a href="#捕获异常">捕获异常:</a></li>
+            <li><a href="#python3x中的异常链">Python3.x中的异常链</a></li>
+            <li><a href="#assert子句-assert-test-data">assert子句: <code>assert &lt;test&gt;, &lt;data&gt;</code></a></li>
+            <li><a href="#withas环境管理器作为常见的tryfinally用法模式的替代方案">with/as环境管理器:作为常见的try/finally用法模式的替代方案</a></li>
+            <li><a href="#用户自定义异常-class-badexception">用户自定义异常: class Bad(Exception):&hellip;..</a></li>
+            <li><a href="#用户定制异常数据">用户定制异常数据</a></li>
+            <li><a href="#关于sysexc_info允许一个异常处理器获取对最近引发的异常的访问">关于sys.exc_info:允许一个异常处理器获取对最近引发的异常的访问</a></li>
+            <li><a href="#异常层次">异常层次</a></li>
+          </ul>
+        </li>
+        <li><a href="#九unicode和字节字符串">九、Unicode和字节字符串</a>
+          <ul>
+            <li><a href="#python的字符串类型">Python的字符串类型</a></li>
+            <li><a href="#字符编码方法">字符编码方法</a></li>
+            <li><a href="#查看python中的字符串编码名称查看系统的编码">查看Python中的字符串编码名称，查看系统的编码</a></li>
+            <li><a href="#源文件字符集编码声明-添加注释来指定想要的编码形式-从而改变默认值-注释必须出现在脚本的第一行或者第二行">源文件字符集编码声明: 添加注释来指定想要的编码形式 从而改变默认值 注释必须出现在脚本的第一行或者第二行</a></li>
+            <li><a href="#编码解码">编码，解码</a></li>
+            <li><a href="#python3x中的字符串应用">Python3.x中的字符串应用</a></li>
+            <li><a href="#python2x的编码问题">Python2.x的编码问题</a></li>
+            <li><a href="#bytes对象">bytes对象</a></li>
+            <li><a href="#文本文件二进制文件">文本文件，二进制文件</a></li>
+            <li><a href="#unicode文件">Unicode文件</a></li>
+          </ul>
+        </li>
+        <li><a href="#十其他">十、其他</a>
+          <ul>
+            <li><a href="#python实现任意深度的赋值">Python实现任意深度的赋值</a></li>
+            <li><a href="#python中的多维数组">Python中的多维数组</a></li>
+            <li><a href="#代码规范">代码规范</a></li>
+          </ul>
+        </li>
+        <li><a href="#参考">参考</a></li>
       </ul>
     </li>
-    <li><a href="#二语法和语句">二、语法和语句</a>
-      <ul>
-        <li><a href="#赋值语句的形式">赋值语句的形式</a></li>
-        <li><a href="#序列赋值-序列解包">序列赋值 序列解包</a></li>
-        <li><a href="#print函数原型">print函数原型</a></li>
-        <li><a href="#andor">and，or</a></li>
-        <li><a href="#ifelse三元表达符if语句在行内">if/else三元表达符（if语句在行内）</a></li>
-        <li><a href="#whilefor">while，for</a></li>
-        <li><a href="#for循环的元组赋值">for循环的元组赋值</a></li>
-        <li><a href="#列表解析语法">列表解析语法</a></li>
-        <li><a href="#生成器表达式">生成器表达式</a></li>
-        <li><a href="#文档字符串">文档字符串</a></li>
-        <li><a href="#命名惯例">命名惯例</a></li>
-        <li><a href="#列表解析-in成员关系测试-map-sorted-zip-enumerate内置函数等都使用了迭代协议">列表解析 in成员关系测试 map sorted zip enumerate内置函数等都使用了迭代协议</a></li>
-        <li><a href="#del语句-手动删除某个变量">del语句: 手动删除某个变量</a></li>
-        <li><a href="#获取列表的子表的方法">获取列表的子表的方法:</a></li>
-        <li><a href="#手动迭代iter和next">手动迭代：iter和next</a></li>
-        <li><a href="#python中的可迭代对象">Python中的可迭代对象</a></li>
-      </ul>
-    </li>
-    <li><a href="#三函数语法规则">三、函数语法规则</a>
-      <ul>
-        <li><a href="#函数相关的语句和表达式">函数相关的语句和表达式</a></li>
-        <li><a href="#python函数变量名解析legb原则">Python函数变量名解析:LEGB原则</a></li>
-        <li><a href="#嵌套函数举例工厂函数">嵌套函数举例:工厂函数</a></li>
-        <li><a href="#嵌套函数举例lambda实例">嵌套函数举例:lambda实例</a></li>
-        <li><a href="#nonlocal和global语句的区别">nonlocal和global语句的区别</a></li>
-        <li><a href="#函数参数不可变参数通过值传递可变参数通过引用传递">函数参数：不可变参数通过“值”传递，可变参数通过“引用”传递</a></li>
-        <li><a href="#可变参数匹配--和-">可变参数匹配: * 和 **</a></li>
-        <li><a href="#函数调用时的参数解包--和--分别解包元组和字典">函数调用时的参数解包: * 和 ** 分别解包元组和字典</a></li>
-        <li><a href="#函数属性自己定义的函数可以添加属性">函数属性:(自己定义的)函数可以添加属性</a></li>
-        <li><a href="#函数注解-编写在def头部行-主要用于说明参数范围参数类型返回值类型等">函数注解: 编写在def头部行 主要用于说明参数范围、参数类型、返回值类型等</a></li>
-        <li><a href="#匿名函数lambda">匿名函数:lambda</a></li>
-        <li><a href="#lambda函数与map-filter-reduce函数的结合">lambda函数与map filter reduce函数的结合</a></li>
-        <li><a href="#生成器函数yield-vs-return">生成器函数:yield VS return</a></li>
-        <li><a href="#生成器表达式小括号进行列表解析">生成器表达式:小括号进行列表解析</a></li>
-        <li><a href="#本地变量是静态检测的">本地变量是静态检测的</a></li>
-        <li><a href="#函数的默认值是在函数定义的时候实例化的-而不是在调用的时候-例子">函数的默认值是在函数定义的时候实例化的 而不是在调用的时候 例子:</a></li>
-      </ul>
-    </li>
-    <li><a href="#四函数例子">四、函数例子</a>
-      <ul>
-        <li><a href="#数学运算类">数学运算类</a></li>
-        <li><a href="#集合类操作">集合类操作</a></li>
-      </ul>
-    </li>
-    <li><a href="#五模块moudle">五、模块Moudle</a>
-      <ul>
-        <li><a href="#python模块搜索路径">Python模块搜索路径:</a></li>
-        <li><a href="#查看全部的模块搜索路径">查看全部的模块搜索路径</a></li>
-        <li><a href="#模块的使用代码">模块的使用代码</a></li>
-        <li><a href="#重载模块reload">重载模块reload</a></li>
-        <li><a href="#模块的包导入">模块的包导入</a></li>
-        <li><a href="#__init__py包文件"><strong>init</strong>.py包文件</a></li>
-        <li><a href="#包相对导入使用点号-只能使用from语句">包相对导入:使用点号(.) 只能使用from语句</a></li>
-        <li><a href="#包相对导入与普通导入的区别">包相对导入与普通导入的区别</a></li>
-        <li><a href="#模块数据隐藏最小化from的破坏">模块数据隐藏:最小化from*的破坏</a></li>
-        <li><a href="#模块属性">模块属性</a></li>
-        <li><a href="#import语句from语句的as扩展">import语句from语句的as扩展</a></li>
-        <li><a href="#得到模块属性的几种方法">得到模块属性的几种方法</a></li>
-      </ul>
-    </li>
-    <li><a href="#六类与面向对象">六、类与面向对象</a>
-      <ul>
-        <li><a href="#最普通的类">最普通的类</a></li>
-        <li><a href="#python的类没有基于参数的函数重载">Python的类没有基于参数的函数重载</a></li>
-        <li><a href="#子类扩展超类-尽量调用超类的方法">子类扩展超类: 尽量调用超类的方法</a></li>
-        <li><a href="#类内省工具">类内省工具</a></li>
-        <li><a href="#返回1中-数据属性spam是属于类-而不是对象">返回1中 数据属性spam是属于类 而不是对象</a></li>
-        <li><a href="#类方法调用的两种方式">类方法调用的两种方式</a></li>
-        <li><a href="#抽象超类的实现方法">抽象超类的实现方法</a></li>
-        <li><a href="#oop和继承-is-a的关系">OOP和继承: &ldquo;is-a&quot;的关系</a></li>
-        <li><a href="#类的伪私有属性使用__attr">类的伪私有属性:使用__attr</a></li>
-        <li><a href="#类方法是对象无绑定类方法对象--绑定实例方法对象">类方法是对象:无绑定类方法对象 / 绑定实例方法对象</a></li>
-        <li><a href="#获取对象信息-属性和方法">获取对象信息: 属性和方法</a></li>
-        <li><a href="#为类动态绑定属性或方法-methodtype方法">为类动态绑定属性或方法: MethodType方法</a></li>
-      </ul>
-    </li>
-    <li><a href="#七类的高级话题">七、类的高级话题</a>
-      <ul>
-        <li><a href="#多重继承">多重继承</a></li>
-        <li><a href="#类的继承和子类的初始化">类的继承和子类的初始化</a></li>
-        <li><a href="#实例方法--静态方法--类方法">实例方法 / 静态方法 / 类方法</a></li>
-        <li><a href="#函数装饰器是它后边的函数的运行时的声明由符号以及后边紧跟的元函数metafunction组成">函数装饰器:是它后边的函数的运行时的声明，由@符号以及后边紧跟的&quot;元函数&rdquo;(metafunction)组成</a></li>
-        <li><a href="#类修饰器是它后边的类的运行时的声明由符号以及后边紧跟的元函数metafunction组成">类修饰器:是它后边的类的运行时的声明，由@符号以及后边紧跟的&quot;元函数&quot;(metafunction)组成</a></li>
-        <li><a href="#限制class属性-__slots__属性">限制class属性: __slots__属性</a></li>
-        <li><a href="#类属性高级话题-property">类属性高级话题: @property</a></li>
-        <li><a href="#定制类-重写类的方法">定制类: 重写类的方法</a></li>
-        <li><a href="#动态创建类type">动态创建类type()</a></li>
-      </ul>
-    </li>
-    <li><a href="#八异常相关">八、异常相关</a>
-      <ul>
-        <li><a href="#捕获异常">捕获异常:</a></li>
-        <li><a href="#python3x中的异常链">Python3.x中的异常链</a></li>
-        <li><a href="#assert子句-assert-test-data">assert子句: <code>assert &lt;test&gt;, &lt;data&gt;</code></a></li>
-        <li><a href="#withas环境管理器作为常见的tryfinally用法模式的替代方案">with/as环境管理器:作为常见的try/finally用法模式的替代方案</a></li>
-        <li><a href="#用户自定义异常-class-badexception">用户自定义异常: class Bad(Exception):&hellip;..</a></li>
-        <li><a href="#用户定制异常数据">用户定制异常数据</a></li>
-        <li><a href="#关于sysexc_info允许一个异常处理器获取对最近引发的异常的访问">关于sys.exc_info:允许一个异常处理器获取对最近引发的异常的访问</a></li>
-        <li><a href="#异常层次">异常层次</a></li>
-      </ul>
-    </li>
-    <li><a href="#九unicode和字节字符串">九、Unicode和字节字符串</a>
-      <ul>
-        <li><a href="#python的字符串类型">Python的字符串类型</a></li>
-        <li><a href="#字符编码方法">字符编码方法</a></li>
-        <li><a href="#查看python中的字符串编码名称查看系统的编码">查看Python中的字符串编码名称，查看系统的编码</a></li>
-        <li><a href="#源文件字符集编码声明-添加注释来指定想要的编码形式-从而改变默认值-注释必须出现在脚本的第一行或者第二行">源文件字符集编码声明: 添加注释来指定想要的编码形式 从而改变默认值 注释必须出现在脚本的第一行或者第二行</a></li>
-        <li><a href="#编码解码">编码，解码</a></li>
-        <li><a href="#python3x中的字符串应用">Python3.x中的字符串应用</a></li>
-        <li><a href="#python2x的编码问题">Python2.x的编码问题</a></li>
-        <li><a href="#bytes对象">bytes对象</a></li>
-        <li><a href="#文本文件二进制文件">文本文件，二进制文件</a></li>
-        <li><a href="#unicode文件">Unicode文件</a></li>
-      </ul>
-    </li>
-    <li><a href="#十其他">十、其他</a>
-      <ul>
-        <li><a href="#python实现任意深度的赋值">Python实现任意深度的赋值</a></li>
-        <li><a href="#python中的多维数组">Python中的多维数组</a></li>
-        <li><a href="#代码规范">代码规范</a></li>
-      </ul>
-    </li>
-    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
     </div>
@@ -3675,7 +3684,7 @@ from modulename import attrname as name
     </a>
 
 
-<a href="https://andyron.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

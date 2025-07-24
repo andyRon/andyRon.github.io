@@ -4,7 +4,7 @@
   itemscope
   itemtype="http://schema.org/WebPage"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
@@ -44,7 +44,7 @@
 <meta name="generator" content="Hugo 0.128.2" />
 
 
-<link rel="canonical" href="https://andyron.top/blog/2025/07/mysql-yunxing-1.html/" />
+<link rel="canonical" href="http://localhost:1313/blog/2025/07/mysql-yunxing-1.html/" />
 
 
 
@@ -72,7 +72,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:url" content="https://andyron.top/blog/2025/07/mysql-yunxing-1.html/">
+<meta property="og:url" content="http://localhost:1313/blog/2025/07/mysql-yunxing-1.html/">
   <meta property="og:site_name" content="欣欣向戎">
   <meta property="og:title" content="1 初始MySQL">
   <meta property="og:description" content="MySQL的服务器程序和客户端程序
@@ -133,35 +133,35 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
         
       </li>
@@ -296,7 +296,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
 
         
@@ -307,7 +307,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
 
         
@@ -318,7 +318,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
 
         
@@ -329,7 +329,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
 
         
@@ -340,7 +340,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
 
         
@@ -410,8 +410,8 @@
     
 
     <div class="post-meta-category">
-        <a href="https://andyron.top/categories/mysql/"> MySQL </a>
-          <a href="https://andyron.top/categories/mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/"> 《MySQL是怎样运行的》 </a>
+        <a href="http://localhost:1313/categories/mysql/"> MySQL </a>
+          <a href="http://localhost:1313/categories/mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/"> 《MySQL是怎样运行的》 </a>
           
       </div>
 
@@ -633,8 +633,8 @@ exit
                 <span class="prev-text nav-mobile">上一篇</span>
               </a>
             
-              <a class="next" href="/blog/2024/06/java-program-logic.html/">
-                <span class="next-text nav-default">Java编程的逻辑</span>
+              <a class="next" href="/blog/2024/07/java-program-logic2.html/">
+                <span class="next-text nav-default">Java编程的逻辑2</span>
                 <span class="prev-text nav-mobile">下一篇</span>
                 
                 <i class="iconfont">
@@ -707,12 +707,33 @@ exit
   <ul>
     <li>
       <ul>
-        <li><a href="#启动mysql服务器程序">启动MySQL服务器程序</a></li>
-        <li><a href="#启动mysql客服端程序">启动MySQL客服端程序</a></li>
-        <li><a href="#客服端与服务器连接的过程">客服端与服务器连接的过程</a></li>
-        <li><a href="#服务器处理客服端请求">服务器处理客服端请求</a></li>
-        <li><a href="#常用存储引擎">常用存储引擎</a></li>
-        <li><a href="#存储引擎的一些操作">存储引擎的一些操作</a></li>
+        <li>
+          <ul>
+            <li><a href="#启动mysql服务器程序">启动MySQL服务器程序</a></li>
+            <li><a href="#启动mysql客服端程序">启动MySQL客服端程序</a></li>
+            <li><a href="#客服端与服务器连接的过程">客服端与服务器连接的过程</a>
+              <ul>
+                <li><a href="#1-tcpip">1 TCP/IP</a></li>
+                <li><a href="#2-命名管道和共享内存">2 命名管道和共享内存</a></li>
+                <li><a href="#3-unix域套接字">3 Unix域套接字</a></li>
+              </ul>
+            </li>
+            <li><a href="#服务器处理客服端请求">服务器处理客服端请求</a>
+              <ul>
+                <li><a href="#1连接管理">1.连接管理</a></li>
+                <li><a href="#2解析与优化">2.解析与优化</a></li>
+                <li><a href="#3存储引擎">3.存储引擎</a></li>
+              </ul>
+            </li>
+            <li><a href="#常用存储引擎">常用存储引擎</a></li>
+            <li><a href="#存储引擎的一些操作">存储引擎的一些操作</a>
+              <ul>
+                <li><a href="#当前服务器程序支持的存储引擎">当前服务器程序支持的存储引擎</a></li>
+                <li><a href="#设置表的存储引擎">设置表的存储引擎</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -762,7 +783,7 @@ exit
     </a>
 
 
-<a href="https://andyron.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

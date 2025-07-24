@@ -4,7 +4,7 @@
   itemscope
   itemtype="http://schema.org/WebPage"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
@@ -41,7 +41,7 @@
 <meta name="generator" content="Hugo 0.128.2" />
 
 
-<link rel="canonical" href="https://andyron.top/blog/2017/07/beginning-ios-swift-14.html/" />
+<link rel="canonical" href="http://localhost:1313/blog/2017/07/beginning-ios-swift-14.html/" />
 
 
 
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:url" content="https://andyron.top/blog/2017/07/beginning-ios-swift-14.html/">
+<meta property="og:url" content="http://localhost:1313/blog/2017/07/beginning-ios-swift-14.html/">
   <meta property="og:site_name" content="欣欣向戎">
   <meta property="og:title" content="开始用Swift开发iOS 10 - 14 基础动画，模糊效果和Unwind Segue">
   <meta property="og:description" content="动画是通过一系列静态图片（帧）快速显示来模拟动作和形状的变化过程。 在iOS中，创建基础动画很简单，只需要利用UIView的类型方法：anim">
@@ -121,35 +121,35 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
         
       </li>
@@ -284,7 +284,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/">主页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">主页</a>
           
 
         
@@ -295,7 +295,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/blog/">全部文章</a>
+            <a class="menu-item-link" href="http://localhost:1313/blog/">全部文章</a>
           
 
         
@@ -306,7 +306,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/tags/">标签</a>
+            <a class="menu-item-link" href="http://localhost:1313/tags/">标签</a>
           
 
         
@@ -317,7 +317,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/categories/">分类</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/">分类</a>
           
 
         
@@ -328,7 +328,7 @@
         
           
           
-            <a class="menu-item-link" href="https://andyron.top/index.xml">订阅</a>
+            <a class="menu-item-link" href="http://localhost:1313/index.xml">订阅</a>
           
 
         
@@ -398,7 +398,7 @@
     
 
     <div class="post-meta-category">
-        <a href="https://andyron.top/categories/beginning_ios_swift/"> Beginning_iOS_Swift </a>
+        <a href="http://localhost:1313/categories/beginning_ios_swift/"> Beginning_iOS_Swift </a>
           
       </div>
 
@@ -735,20 +735,24 @@ closeButton.transform = CGAffineTransform.init(scaleX: 1000, y: 0)</li>
   <ul>
     <li>
       <ul>
-        <li><a href="#添加评级button">添加评级Button</a></li>
-        <li><a href="#创建restaurant-review视图控制器">创建Restaurant Review视图控制器</a></li>
-        <li><a href="#创建present-modally类型的segue">创建Present modally类型的Segue</a></li>
-        <li><a href="#定义如何退出review-view-controller">定义如何退出Review View Controller</a></li>
-        <li><a href="#为背景图片添加模糊效果">为背景图片添加模糊效果</a></li>
-        <li><a href="#实现-uiview-animation">实现 UIView Animation</a></li>
-        <li><a href="#spring-动画">Spring 动画</a></li>
-        <li><a href="#从上向下的动画">从上向下的动画</a></li>
-        <li><a href="#组合两种变化">组合两种变化</a></li>
-        <li><a href="#unwind-segues-和数据传输">Unwind Segues 和数据传输</a></li>
-        <li><a href="#修改reviewviewcontroller中的图片为相应的图片">修改ReviewViewController中的图片为相应的图片</a></li>
-        <li><a href="#为closebutton添加动画效果">为closeButton添加动画效果</a></li>
-        <li><a href="#代码">代码</a></li>
-        <li><a href="#说明">说明</a></li>
+        <li>
+          <ul>
+            <li><a href="#添加评级button">添加评级Button</a></li>
+            <li><a href="#创建restaurant-review视图控制器">创建Restaurant Review视图控制器</a></li>
+            <li><a href="#创建present-modally类型的segue">创建Present modally类型的Segue</a></li>
+            <li><a href="#定义如何退出review-view-controller">定义如何退出Review View Controller</a></li>
+            <li><a href="#为背景图片添加模糊效果">为背景图片添加模糊效果</a></li>
+            <li><a href="#实现-uiview-animation">实现 UIView Animation</a></li>
+            <li><a href="#spring-动画">Spring 动画</a></li>
+            <li><a href="#从上向下的动画">从上向下的动画</a></li>
+            <li><a href="#组合两种变化">组合两种变化</a></li>
+            <li><a href="#unwind-segues-和数据传输">Unwind Segues 和数据传输</a></li>
+            <li><a href="#修改reviewviewcontroller中的图片为相应的图片">修改ReviewViewController中的图片为相应的图片</a></li>
+            <li><a href="#为closebutton添加动画效果">为closeButton添加动画效果</a></li>
+            <li><a href="#代码">代码</a></li>
+            <li><a href="#说明">说明</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -798,7 +802,7 @@ closeButton.transform = CGAffineTransform.init(scaleX: 1000, y: 0)</li>
     </a>
 
 
-<a href="https://andyron.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
